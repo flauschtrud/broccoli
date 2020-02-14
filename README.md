@@ -9,7 +9,7 @@ The Simple and Green Recipe Manager.
 1. [Sharing](https://github.com/JanaFlauschata/broccoli/milestone/3)
 1. [Cooking Mode](https://github.com/JanaFlauschata/broccoli/milestone/4)
 1. [Seasons](https://github.com/JanaFlauschata/broccoli/milestone/5)
-1. [Syncronization](https://github.com/JanaFlauschata/broccoli/milestone/6)
+1. [Synchronization](https://github.com/JanaFlauschata/broccoli/milestone/6)
 1. [Localization](https://github.com/JanaFlauschata/broccoli/milestone/7)
 1. [Monetization](https://github.com/JanaFlauschata/broccoli/milestone/8)
 1. [Export](https://github.com/JanaFlauschata/broccoli/milestone/9)
