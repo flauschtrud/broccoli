@@ -1,19 +1,26 @@
 package org.flauschhaus.broccoli.ui.recipes;
 
+import android.app.Application;
+
+import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
-public class RecipesViewModel extends ViewModel {
+import org.flauschhaus.broccoli.recipes.Recipe;
+import org.flauschhaus.broccoli.recipes.RecipeRepository;
 
-    private MutableLiveData<String> mText;
+import java.util.List;
 
-    public RecipesViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("Hello Broccoli!");
+public class RecipesViewModel extends AndroidViewModel {
+
+    private LiveData<List<Recipe>> allRecipes;
+
+    public RecipesViewModel(Application application) {
+        super(application);
+        RecipeRepository recipeRepository = new RecipeRepository(application);
+        allRecipes = recipeRepository.findAll();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    LiveData<List<Recipe>> getAllRecipes() {
+        return allRecipes;
     }
 }

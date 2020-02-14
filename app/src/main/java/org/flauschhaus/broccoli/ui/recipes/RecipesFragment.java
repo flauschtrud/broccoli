@@ -6,11 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import org.flauschhaus.broccoli.R;
 
@@ -18,15 +16,13 @@ public class RecipesFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        RecipesViewModel recipesViewModel = ViewModelProviders.of(this).get(RecipesViewModel.class);
+        RecipesViewModel recipesViewModel = new ViewModelProvider(this).get(RecipesViewModel.class);
+
         View root = inflater.inflate(R.layout.fragment_recipes, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        recipesViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        final TextView textView = root.findViewById(R.id.text_recipes);
+
+        recipesViewModel.getAllRecipes().observe(getViewLifecycleOwner(), recipes -> textView.setText(recipes.toString()));
+
         return root;
     }
 }
