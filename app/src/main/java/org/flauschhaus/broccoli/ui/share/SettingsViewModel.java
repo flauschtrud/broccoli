@@ -1,16 +1,16 @@
-package org.flauschhaus.broccoli.ui.send;
+package org.flauschhaus.broccoli.ui.share;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SendViewModel extends ViewModel {
+public class SettingsViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SendViewModel() {
+    public SettingsViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is send fragment");
+        mText.setValue("This is a settings fragment");
     }
 
     public LiveData<String> getText() {

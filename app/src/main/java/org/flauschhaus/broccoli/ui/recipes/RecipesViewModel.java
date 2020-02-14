@@ -1,16 +1,16 @@
-package org.flauschhaus.broccoli.ui.slideshow;
+package org.flauschhaus.broccoli.ui.recipes;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SlideshowViewModel extends ViewModel {
+public class RecipesViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SlideshowViewModel() {
+    public RecipesViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("Hello Broccoli!");
     }
 
     public LiveData<String> getText() {

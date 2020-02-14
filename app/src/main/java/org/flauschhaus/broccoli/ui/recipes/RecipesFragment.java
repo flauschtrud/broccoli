@@ -1,4 +1,4 @@
-package org.flauschhaus.broccoli.ui.slideshow;
+package org.flauschhaus.broccoli.ui.recipes;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,17 +14,17 @@ import androidx.lifecycle.ViewModelProviders;
 
 import org.flauschhaus.broccoli.R;
 
-public class SlideshowFragment extends Fragment {
+public class RecipesFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private RecipesViewModel recipesViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                ViewModelProviders.of(this).get(SlideshowViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
-        final TextView textView = root.findViewById(R.id.text_slideshow);
-        slideshowViewModel.getText().observe(this, new Observer<String>() {
+        recipesViewModel =
+                ViewModelProviders.of(this).get(RecipesViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_recipes, container, false);
+        final TextView textView = root.findViewById(R.id.text_home);
+        recipesViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
