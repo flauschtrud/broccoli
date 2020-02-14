@@ -16,12 +16,9 @@ import org.flauschhaus.broccoli.R;
 
 public class RecipesFragment extends Fragment {
 
-    private RecipesViewModel recipesViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        recipesViewModel =
-                ViewModelProviders.of(this).get(RecipesViewModel.class);
+        RecipesViewModel recipesViewModel = ViewModelProviders.of(this).get(RecipesViewModel.class);
         View root = inflater.inflate(R.layout.fragment_recipes, container, false);
         final TextView textView = root.findViewById(R.id.text_home);
         recipesViewModel.getText().observe(this, new Observer<String>() {

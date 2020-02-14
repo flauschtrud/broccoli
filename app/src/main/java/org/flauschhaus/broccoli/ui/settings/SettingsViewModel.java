@@ -1,4 +1,4 @@
-package org.flauschhaus.broccoli.ui.share;
+package org.flauschhaus.broccoli.ui.settings;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

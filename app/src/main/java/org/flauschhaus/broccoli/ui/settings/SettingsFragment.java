@@ -1,4 +1,4 @@
-package org.flauschhaus.broccoli.ui.share;
+package org.flauschhaus.broccoli.ui.settings;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,12 +16,9 @@ import org.flauschhaus.broccoli.R;
 
 public class SettingsFragment extends Fragment {
 
-    private SettingsViewModel settingsViewModel;
-
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        settingsViewModel =
-                ViewModelProviders.of(this).get(SettingsViewModel.class);
+        SettingsViewModel settingsViewModel = ViewModelProviders.of(this).get(SettingsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_settings, container, false);
         final TextView textView = root.findViewById(R.id.text_share);
         settingsViewModel.getText().observe(this, new Observer<String>() {
