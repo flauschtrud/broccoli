@@ -23,7 +23,7 @@ public class RecipeRepository {
         return allRecipes;
     }
 
-    public void insert(Recipe word) {
-        BroccoliDatabase.getExecutorService().execute(() -> recipeDAO.insert(word));
+    public void insert(Recipe recipe) {
+        BroccoliDatabase.getExecutorService().execute(() -> recipeDAO.insert(recipe));
     }
 }

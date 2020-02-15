@@ -1,12 +1,12 @@
 package org.flauschhaus.broccoli.ui.recipes;
 
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import org.flauschhaus.broccoli.R;
+import org.flauschhaus.broccoli.databinding.ActivityNewRecipeBinding;
 import org.flauschhaus.broccoli.recipes.Recipe;
 import org.flauschhaus.broccoli.recipes.RecipeRepository;
 
@@ -15,19 +15,15 @@ public class NewRecipeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_recipe);
 
-        EditText editTitle = findViewById(R.id.new_recipe_title);
-        EditText editDescription = findViewById(R.id.new_recipe_description);
+        ActivityNewRecipeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_new_recipe);
+        binding.setPresenter(this);
+        binding.setRecipe(new Recipe());
+    }
 
-        final Button button = findViewById(R.id.button_recipe_save);
-        button.setOnClickListener(view -> {
-            RecipeRepository recipeRepository = new RecipeRepository(getApplication());
-            Recipe recipe = new Recipe();
-            recipe.setTitle(editTitle.getText().toString());
-            recipe.setDescription(editDescription.getText().toString());
-            recipeRepository.insert(recipe);
-            finish();
-        });
+    public void onSaveClick(Recipe recipe) {
+        RecipeRepository recipeRepository = new RecipeRepository(getApplication());
+        recipeRepository.insert(recipe);
+        finish();
     }
 }
