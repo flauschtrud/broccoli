@@ -1,21 +1,24 @@
 package org.flauschhaus.broccoli.recipes;
 
-import android.app.Application;
-
 import androidx.lifecycle.LiveData;
 
 import org.flauschhaus.broccoli.BroccoliDatabase;
 
 import java.util.List;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+@Singleton
 public class RecipeRepository {
 
     private RecipeDAO recipeDAO;
+
     private LiveData<List<Recipe>> allRecipes;
 
-    public RecipeRepository(Application application) {
-        BroccoliDatabase db = BroccoliDatabase.get(application);
-        recipeDAO = db.getRecipeDAO();
+    @Inject
+    RecipeRepository(RecipeDAO recipeDAO) {
+        this.recipeDAO = recipeDAO;
         allRecipes = recipeDAO.findAll();
     }
 
@@ -25,5 +28,9 @@ public class RecipeRepository {
 
     public void insert(Recipe recipe) {
         BroccoliDatabase.getExecutorService().execute(() -> recipeDAO.insert(recipe));
+    }
+
+    public void deleteAll() {
+        BroccoliDatabase.getExecutorService().execute(() -> recipeDAO.deleteAll());
     }
 }

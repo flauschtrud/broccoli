@@ -6,16 +6,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.databinding.DataBindingUtil;
 
+import org.flauschhaus.broccoli.BroccoliApplication;
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.databinding.ActivityNewRecipeBinding;
 import org.flauschhaus.broccoli.recipes.Recipe;
 import org.flauschhaus.broccoli.recipes.RecipeRepository;
 
+import javax.inject.Inject;
+
 public class NewRecipeActivity extends AppCompatActivity {
+
+    @Inject
+    RecipeRepository recipeRepository;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        ((BroccoliApplication) getApplication()).getComponent().inject(this);
 
         ActivityNewRecipeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_new_recipe);
         binding.setPresenter(this);
@@ -23,10 +29,11 @@ public class NewRecipeActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        super.onCreate(savedInstanceState);
     }
 
     public void onSaveClick(Recipe recipe) {
-        RecipeRepository recipeRepository = new RecipeRepository(getApplication());
         recipeRepository.insert(recipe);
         finish();
     }

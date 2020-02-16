@@ -24,4 +24,6 @@ public interface RecipeDAO {
     @Query("SELECT * FROM recipes")
     LiveData<List<Recipe>> findAll();
 
+    @Query("DELETE FROM recipes")
+    void deleteAll();
 }

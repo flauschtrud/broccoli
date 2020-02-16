@@ -21,7 +21,7 @@ public class RecipesFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_recipes, container, false);
         final TextView textView = root.findViewById(R.id.text_recipes);
 
-        recipesViewModel.getAllRecipes().observe(getViewLifecycleOwner(), recipes -> textView.setText(recipes.toString()));
+        recipesViewModel.getRecipes().observe(getViewLifecycleOwner(), recipes -> textView.setText(recipes.toString()));
 
         return root;
     }
