@@ -14,4 +14,5 @@
     <string name="hint_new_recipe_description">Description</string>
     <string name="title_activity_new_recipe">New Recipe</string>
     <string name="delete_all_data">Delete all  data</string>
+    <string name="action_save">Save</string>
 </resources>
