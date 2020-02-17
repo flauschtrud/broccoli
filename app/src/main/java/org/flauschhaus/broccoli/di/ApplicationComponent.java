@@ -3,7 +3,7 @@ package org.flauschhaus.broccoli.di;
 import android.app.Application;
 
 import org.flauschhaus.broccoli.BroccoliApplication;
-import org.flauschhaus.broccoli.ui.recipes.NewRecipeActivity;
+import org.flauschhaus.broccoli.ui.recipes.NewRecipeViewModel;
 import org.flauschhaus.broccoli.ui.recipes.RecipesViewModel;
 import org.flauschhaus.broccoli.ui.settings.SettingsFragment;
 
@@ -19,7 +19,7 @@ import dagger.Component;
 public interface ApplicationComponent {
 
     void inject(BroccoliApplication application);
-    void inject(NewRecipeActivity newRecipeActivity);
+    void inject(NewRecipeViewModel newRecipeViewModel);
     void inject(RecipesViewModel recipesViewModel);
     void inject(SettingsFragment settingsFragment);
 

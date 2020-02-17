@@ -26,7 +26,7 @@
         android:id="@+id/button_delete_data"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/delete_all_data" />
+        android:text="@string/action_delete_all_data" />
 
     </LinearLayout>
 
