@@ -44,6 +44,9 @@ dependencies {
 
     implementation 'com.google.dagger:dagger:2.26'
     annotationProcessor "com.google.dagger:dagger-compiler:2.26"
+    implementation 'com.google.dagger:dagger-android:2.26'
+    annotationProcessor 'com.google.dagger:dagger-android-processor:2.26'
+    implementation 'com.google.dagger:dagger-android-support:2.26'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

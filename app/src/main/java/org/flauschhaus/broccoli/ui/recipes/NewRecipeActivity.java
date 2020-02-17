@@ -12,19 +12,27 @@ import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.databinding.ActivityNewRecipeBinding;
 import org.flauschhaus.broccoli.recipes.Recipe;
 
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjection;
+
 public class NewRecipeActivity extends AppCompatActivity {
+
+    @Inject
+    ViewModelProvider.Factory viewModelFactory;
 
     private NewRecipeViewModel newRecipeViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
 
         ActivityNewRecipeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_new_recipe);
         binding.setPresenter(this);
         binding.setRecipe(new Recipe());
 
-        newRecipeViewModel = new ViewModelProvider(this).get(NewRecipeViewModel.class);
+        newRecipeViewModel = new ViewModelProvider(this, viewModelFactory).get(NewRecipeViewModel.class);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

@@ -12,11 +12,19 @@ import androidx.lifecycle.ViewModelProvider;
 
 import org.flauschhaus.broccoli.R;
 
+import javax.inject.Inject;
+
+import dagger.android.support.AndroidSupportInjection;
+
 public class RecipesFragment extends Fragment {
+
+    @Inject
+    ViewModelProvider.Factory viewModelFactory;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        RecipesViewModel recipesViewModel = new ViewModelProvider(this).get(RecipesViewModel.class);
+        AndroidSupportInjection.inject(this);
+        RecipesViewModel recipesViewModel = new ViewModelProvider(this, viewModelFactory).get(RecipesViewModel.class);
 
         View root = inflater.inflate(R.layout.fragment_recipes, container, false);
         final TextView textView = root.findViewById(R.id.text_recipes);

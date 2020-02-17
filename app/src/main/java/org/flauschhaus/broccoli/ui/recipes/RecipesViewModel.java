@@ -1,11 +1,8 @@
 package org.flauschhaus.broccoli.ui.recipes;
 
-import android.app.Application;
-
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModel;
 
-import org.flauschhaus.broccoli.BroccoliApplication;
 import org.flauschhaus.broccoli.recipes.Recipe;
 import org.flauschhaus.broccoli.recipes.RecipeRepository;
 
@@ -13,16 +10,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class RecipesViewModel extends AndroidViewModel {
-
-    @Inject
-    RecipeRepository recipeRepository;
+public class RecipesViewModel extends ViewModel {
 
     private LiveData<List<Recipe>> recipes;
 
-    public RecipesViewModel(Application application) {
-        super(application);
-        ((BroccoliApplication) application).getComponent().inject(this);
+    @Inject
+    RecipesViewModel(RecipeRepository recipeRepository) {
         recipes = recipeRepository.findAll();
     }
 

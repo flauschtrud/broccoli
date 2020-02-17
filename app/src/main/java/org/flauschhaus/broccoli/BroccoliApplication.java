@@ -2,29 +2,34 @@ package org.flauschhaus.broccoli;
 
 import android.app.Application;
 
-import org.flauschhaus.broccoli.di.ApplicationComponent;
-import org.flauschhaus.broccoli.di.ApplicationModule;
 import org.flauschhaus.broccoli.di.DaggerApplicationComponent;
 import org.flauschhaus.broccoli.di.DatabaseModule;
 
-public class BroccoliApplication extends Application {
+import javax.inject.Inject;
 
-    protected ApplicationComponent applicationComponent;
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasAndroidInjector;
+
+public class BroccoliApplication extends Application implements HasAndroidInjector {
+
+    @Inject
+    DispatchingAndroidInjector<Object> dispatchingAndroidInjector;
+
+    @Override
+    public AndroidInjector<Object> androidInjector() {
+        return dispatchingAndroidInjector;
+    }
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        applicationComponent = DaggerApplicationComponent
-                .builder()
-                .applicationModule(new ApplicationModule(this))
-                .databaseModule(new DatabaseModule(this))
-                .build();
-        applicationComponent.inject(this);
-    }
-
-    public ApplicationComponent getComponent() {
-        return applicationComponent;
+        DaggerApplicationComponent.builder()
+                .application(this)
+                .database(new DatabaseModule(this))
+                .build()
+                .inject(this);
     }
 
 }

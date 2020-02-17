@@ -3,25 +3,33 @@ package org.flauschhaus.broccoli.di;
 import android.app.Application;
 
 import org.flauschhaus.broccoli.BroccoliApplication;
-import org.flauschhaus.broccoli.ui.recipes.NewRecipeViewModel;
-import org.flauschhaus.broccoli.ui.recipes.RecipesViewModel;
-import org.flauschhaus.broccoli.ui.settings.SettingsFragment;
 
 import javax.inject.Singleton;
 
+import dagger.BindsInstance;
 import dagger.Component;
+import dagger.android.support.AndroidSupportInjectionModule;
 
 @Singleton
 @Component(modules = {
-        ApplicationModule.class,
+        ViewModelModule.class,
+        ActivityModule.class,
+        FragmentModule.class,
+        AndroidSupportInjectionModule.class,
         DatabaseModule.class
 })
 public interface ApplicationComponent {
 
-    void inject(BroccoliApplication application);
-    void inject(NewRecipeViewModel newRecipeViewModel);
-    void inject(RecipesViewModel recipesViewModel);
-    void inject(SettingsFragment settingsFragment);
+    @Component.Builder
+    interface Builder {
 
-    Application getApplication();
+        @BindsInstance
+        Builder application(Application application);
+
+        Builder database(DatabaseModule databaseModule);
+
+        ApplicationComponent build();
+    }
+
+    void inject(BroccoliApplication application);
 }
