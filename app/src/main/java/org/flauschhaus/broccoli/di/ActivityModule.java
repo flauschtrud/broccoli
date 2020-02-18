@@ -1,6 +1,6 @@
 package org.flauschhaus.broccoli.di;
 
-import org.flauschhaus.broccoli.ui.recipes.NewRecipeActivity;
+import org.flauschhaus.broccoli.MainActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -9,6 +9,6 @@ import dagger.android.ContributesAndroidInjector;
 public interface ActivityModule {
 
     @ContributesAndroidInjector()
-    NewRecipeActivity newRecipeActivity();
+    MainActivity mainActivity();
 
 }

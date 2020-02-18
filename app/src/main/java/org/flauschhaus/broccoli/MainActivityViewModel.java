@@ -1,4 +1,4 @@
-package org.flauschhaus.broccoli.ui.recipes;
+package org.flauschhaus.broccoli;
 
 import androidx.lifecycle.ViewModel;
 
@@ -7,12 +7,12 @@ import org.flauschhaus.broccoli.recipes.RecipeRepository;
 
 import javax.inject.Inject;
 
-public class NewRecipeViewModel extends ViewModel {
+public class MainActivityViewModel extends ViewModel {
 
     private RecipeRepository recipeRepository;
 
     @Inject
-    NewRecipeViewModel(RecipeRepository recipeRepository) {
+    MainActivityViewModel(RecipeRepository recipeRepository) {
         this.recipeRepository = recipeRepository;
     }
 

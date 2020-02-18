@@ -3,8 +3,10 @@ package org.flauschhaus.broccoli.recipes;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "recipes")
-public class Recipe {
+public class Recipe implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private Long id;

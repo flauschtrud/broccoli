@@ -1,4 +1,4 @@
-package org.flauschhaus.broccoli.ui.recipes;
+package org.flauschhaus.broccoli;
 
 import org.flauschhaus.broccoli.recipes.Recipe;
 import org.flauschhaus.broccoli.recipes.RecipeRepository;
@@ -11,7 +11,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class NewRecipeViewModelTest {
+public class MainActivityViewModelTest {
 
     @Mock
     private RecipeRepository recipeRepository;
@@ -20,11 +20,11 @@ public class NewRecipeViewModelTest {
     private Recipe recipe;
 
     @InjectMocks
-    private NewRecipeViewModel newRecipeViewModel;
+    private MainActivityViewModel mainActivityViewModel;
 
     @Test
     public void test_insert() {
-        newRecipeViewModel.insert(recipe);
+        mainActivityViewModel.insert(recipe);
         verify(recipeRepository).insert(recipe);
     }
 
