@@ -46,9 +46,7 @@ public class MainActivityTest {
 
     @Test
     public void received_recipe_should_be_added_to_list() {
-        Recipe recipe = new Recipe();
-        recipe.setTitle("Lauchkuchen");
-        recipe.setDescription("Das isst Henri sehr gerne!");
+        Recipe recipe = RecipeTestUtil.createLauchkuchen();
 
         ActivityScenario<MainActivity> scenario = launch(MainActivity.class);
 
@@ -61,8 +59,8 @@ public class MainActivityTest {
             assertThat(ShadowToast.getTextOfLatestToast(), is(activity.getString(R.string.toast_new_recipe)));
             onView(withId(R.id.text_recipes))
                     .check(matches(isDisplayed()))
-                    .check(matches(withSubstring("Lauchkuchen")))
-                    .check(matches(withSubstring("Das isst Henri sehr gerne!")));
+                    .check(matches(withSubstring(recipe.getTitle())))
+                    .check(matches(withSubstring(recipe.getDescription())));
         });
 
     }
