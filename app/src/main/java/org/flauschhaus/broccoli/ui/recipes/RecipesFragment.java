@@ -24,12 +24,12 @@ import dagger.android.support.AndroidSupportInjection;
 
 import static android.app.Activity.RESULT_OK;
 
-public class RecipesFragment extends Fragment {
+public class RecipesFragment extends Fragment implements RecipeAdapter.OnListFragmentInteractionListener {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
 
-    public static final int NEW_RECIPE_ACTIVITY_REQUEST_CODE = 1;
+    static final int NEW_RECIPE_ACTIVITY_REQUEST_CODE = 1;
 
     private RecipesViewModel recipesViewModel;
 
@@ -44,6 +44,7 @@ public class RecipesFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
         RecipeAdapter adapter = new RecipeAdapter();
+        adapter.setListener(this);
         recyclerView.setAdapter(adapter);
 
         FloatingActionButton fab = root.findViewById(R.id.fab);
@@ -65,5 +66,12 @@ public class RecipesFragment extends Fragment {
             recipesViewModel.insert(recipe);
             Toast.makeText(getActivity(), getString(R.string.toast_new_recipe), Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    public void onListFragmentInteraction(Recipe recipe) {
+        Intent intent = new Intent(getContext(), RecipeDetailsActivity.class);
+        intent.putExtra(Recipe.class.getName(), recipe);
+        startActivity(intent);
     }
 }

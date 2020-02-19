@@ -13,11 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.recipes.Recipe;
 
-import javax.inject.Inject;
-
 public class RecipeAdapter extends ListAdapter<Recipe, RecipeAdapter.RecipeHolder> {
 
-    @Inject
+    private OnListFragmentInteractionListener listener;
+
     RecipeAdapter() {
         super(DIFF_CALLBACK);
     }
@@ -50,6 +49,16 @@ public class RecipeAdapter extends ListAdapter<Recipe, RecipeAdapter.RecipeHolde
         Recipe currentRecipe = getItem(position);
         holder.textViewTitle.setText(currentRecipe.getTitle());
         holder.textViewDescription.setText(currentRecipe.getDescription());
+
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onListFragmentInteraction(getItem(position));
+            }
+        });
+    }
+
+    void setListener(OnListFragmentInteractionListener listener) {
+        this.listener = listener;
     }
 
     class RecipeHolder extends RecyclerView.ViewHolder {
@@ -62,5 +71,9 @@ public class RecipeAdapter extends ListAdapter<Recipe, RecipeAdapter.RecipeHolde
             textViewTitle = itemView.findViewById(R.id.card_text_view_title);
             textViewDescription = itemView.findViewById(R.id.card_text_view_description);
         }
+    }
+
+    public interface OnListFragmentInteractionListener {
+        void onListFragmentInteraction(Recipe recipe);
     }
 }
