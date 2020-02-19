@@ -5,8 +5,10 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.recipes.Recipe;
+import org.flauschhaus.broccoli.util.RecipeTestUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.robolectric.shadows.ShadowToast;
 
 import static androidx.test.core.app.ActivityScenario.launch;
 import static androidx.test.espresso.Espresso.onView;
@@ -19,21 +21,37 @@ import static org.hamcrest.Matchers.is;
 @RunWith(AndroidJUnit4.class)
 public class NewRecipeActivityTest {
 
+    private Recipe lauchkuchen = RecipeTestUtil.createLauchkuchen();
+
     @Test
     public void clicking_save_should_return_the_new_recipe() {
         ActivityScenario<NewRecipeActivity> scenario = launch(NewRecipeActivity.class);
 
         scenario.onActivity(activity -> {
-            onView(withId(R.id.new_title)).perform(typeText("Lauchkuchen"));
-            onView(withId(R.id.new_description)).perform(typeText("Das essen wir alle sehr gerne!"));
+            onView(withId(R.id.new_title)).perform(typeText(lauchkuchen.getTitle()));
+            onView(withId(R.id.new_description)).perform(typeText(lauchkuchen.getDescription()));
             onView(withId(R.id.button_save_recipe)).perform(click());
 
             assertThat(activity.isFinishing(), is(true));
         });
 
         Recipe recipe = (Recipe) scenario.getResult().getResultData().getSerializableExtra(NewRecipeActivity.EXTRA_REPLY);
-        assertThat(recipe.getTitle(), is("Lauchkuchen"));
-        assertThat(recipe.getDescription(), is("Das essen wir alle sehr gerne!"));
+        assertThat(recipe.getTitle(), is(lauchkuchen.getTitle()));
+        assertThat(recipe.getDescription(), is(lauchkuchen.getDescription()));
     }
 
+    @Test
+    public void clicking_save_without_title_just_shows_toast() {
+        ActivityScenario<NewRecipeActivity> scenario = launch(NewRecipeActivity.class);
+
+        scenario.onActivity(activity -> {
+            onView(withId(R.id.new_title)).perform(typeText("       "));
+            onView(withId(R.id.new_description)).perform(typeText(lauchkuchen.getDescription()));
+            onView(withId(R.id.button_save_recipe)).perform(click());
+
+            assertThat(activity.isFinishing(), is(false));
+            assertThat(ShadowToast.getTextOfLatestToast(), is(activity.getString(R.string.toast_title_is_empty)));
+        });
+
+    }
 }

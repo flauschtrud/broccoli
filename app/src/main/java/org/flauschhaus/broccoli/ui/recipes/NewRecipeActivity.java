@@ -2,6 +2,7 @@ package org.flauschhaus.broccoli.ui.recipes;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -25,6 +26,11 @@ public class NewRecipeActivity extends AppCompatActivity {
     }
 
     public void onSaveClick(Recipe recipe) {
+        if (recipe.getTitle().trim().isEmpty()) {
+            Toast.makeText(this, getString(R.string.toast_title_is_empty), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Intent replyIntent = new Intent();
         replyIntent.putExtra(EXTRA_REPLY, recipe);
         setResult(RESULT_OK, replyIntent);

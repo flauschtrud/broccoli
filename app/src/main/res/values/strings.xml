@@ -16,4 +16,5 @@
     <string name="action_delete_all_data">Delete all  data</string>
     <string name="action_save">Save</string>
     <string name="toast_new_recipe">New recipe added.</string>
+    <string name="toast_title_is_empty">Please add a title.</string>
 </resources>

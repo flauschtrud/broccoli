@@ -1,4 +1,4 @@
-package org.flauschhaus.broccoli;
+package org.flauschhaus.broccoli.util;
 
 import org.flauschhaus.broccoli.recipes.Recipe;
 

@@ -10,8 +10,8 @@ public class Recipe implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private Long id;
-    private String title;
-    private String description;
+    private String title = "";
+    private String description = "";
 
     public Long getId() {
         return id;
