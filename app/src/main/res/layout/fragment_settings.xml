@@ -28,6 +28,11 @@
         android:layout_height="wrap_content"
         android:text="@string/action_delete_all_data" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/versionName"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
