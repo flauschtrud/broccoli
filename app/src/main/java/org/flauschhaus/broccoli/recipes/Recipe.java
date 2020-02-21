@@ -9,15 +9,16 @@ import java.io.Serializable;
 public class Recipe implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
-    private Long id;
+    private int id;
     private String title = "";
     private String description = "";
+    private String instructions = "";
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -37,8 +38,12 @@ public class Recipe implements Serializable {
         this.description = description;
     }
 
-    @Override
-    public String toString() {
-        return "Title='" + title + '\'' + ", Description='" + description + '\'';
+    public String getInstructions() {
+        return instructions;
     }
+
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
+    }
+
 }

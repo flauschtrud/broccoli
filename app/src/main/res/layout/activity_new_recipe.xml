@@ -71,6 +71,17 @@
                     android:gravity="top"
                     android:text="@={recipe.description}"/>
 
+                <EditText
+                    android:id="@+id/new_instructions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minLines="3"
+                    android:maxLines="10"
+                    android:layout_marginBottom="20dp"
+                    android:hint="@string/hint_new_recipe_instructions"
+                    android:gravity="top"
+                    android:text="@={recipe.instructions}"/>
+
             </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

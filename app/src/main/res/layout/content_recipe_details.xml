@@ -14,12 +14,35 @@
         tools:context=".ui.recipes.RecipeDetailsActivity"
         tools:showIn="@layout/activity_recipe_details">
 
-        <TextView
-            android:id="@+id/details_description"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/text_margin"
-            android:text="@{recipe.description}" />
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/details_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:text="@{recipe.description}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="@string/instructions" />
+
+            <LinearLayout
+                android:id="@+id/details_instructions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/text_margin"
+                app:instructions="@{recipe.instructions}" />
+
+        </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 

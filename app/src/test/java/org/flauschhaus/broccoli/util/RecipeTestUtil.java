@@ -8,13 +8,8 @@ public class RecipeTestUtil {
         Recipe recipe = new Recipe();
         recipe.setTitle("Lauchkuchen");
         recipe.setDescription("Das essen wir alle sehr gerne!");
+        recipe.setInstructions("1. Lauch schnippeln und Teig machen.\n 2. Kochen und backen.");
         return recipe;
     }
 
-    public static Recipe createHummus() {
-        Recipe recipe = new Recipe();
-        recipe.setTitle("Hummus");
-        recipe.setDescription("Leckerer Kichererbsenmatsch!");
-        return recipe;
-    }
 }
