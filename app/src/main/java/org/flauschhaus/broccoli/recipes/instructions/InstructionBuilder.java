@@ -8,6 +8,8 @@ import java.util.stream.IntStream;
 
 public class InstructionBuilder {
 
+    private static final Pattern newLinePattern = Pattern.compile("\n");
+
     private InstructionBuilder() {}
 
     public static List<Instruction> from(String instructions) {
@@ -16,15 +18,15 @@ public class InstructionBuilder {
             return new ArrayList<>();
         }
 
-        String[] split = Pattern.compile("\n").splitAsStream(instructions)
-                .map(s -> s.replaceFirst("^\\s*(\\d+.)(?!$)", ""))
+        String[] split = newLinePattern.splitAsStream(instructions)
+                .map(s -> s.replaceFirst("^\\s*(\\d+\\.)(?!$)", ""))
                 .map(String::trim)
                 .filter(s -> !s.isEmpty())
                 .toArray(String[]::new);
 
         return IntStream
                 .range(0, split.length)
-                .mapToObj(i -> new Instruction(String.valueOf(i+1), split[i]))
+                .mapToObj(i -> new Instruction(i+1, split[i]))
                 .collect(Collectors.toList());
     }
 }

@@ -12,6 +12,7 @@ public class Recipe implements Serializable {
     private int id;
     private String title = "";
     private String description = "";
+    private String ingredients = "";
     private String instructions = "";
 
     public int getId() {
@@ -36,6 +37,14 @@ public class Recipe implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
 
     public String getInstructions() {

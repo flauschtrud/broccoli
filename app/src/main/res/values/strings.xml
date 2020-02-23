@@ -19,4 +19,6 @@
     <string name="toast_title_is_empty">Please add a title.</string>
     <string name="hint_new_recipe_instructions">Instructions</string>
     <string name="instructions">Instructions</string>
+    <string name="hint_new_recipe_ingredients">Ingredients</string>
+    <string name="ingredients">Ingredients</string>
 </resources>

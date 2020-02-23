@@ -42,6 +42,11 @@ public class RecipeDetailsActivityTest {
             onView(allOf(instanceOf(TextView.class), withParent(withId(R.id.toolbar)))).check(matches(withText(lauchkuchen.getTitle())));
             onView(withId(R.id.details_description)).check(matches(withText(lauchkuchen.getDescription())));
 
+            onView(allOf(withId(R.id.ingredient_text), hasSibling(withText("500"))))
+                    .check(matches(withText("g Mehl")));
+            onView(allOf(withId(R.id.ingredient_text), hasSibling(withText("2"))))
+                    .check(matches(withText(" Stangen Lauch")));
+
             onView(allOf(withId(R.id.instruction_text), hasSibling(withText("1"))))
                     .check(matches(withText("Lauch schnippeln und Teig machen.")));
             onView(allOf(withId(R.id.instruction_text), hasSibling(withText("2"))))

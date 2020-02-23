@@ -32,6 +32,22 @@
                 android:layout_marginStart="@dimen/text_margin"
                 android:layout_marginEnd="@dimen/text_margin"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="@string/ingredients" />
+
+            <LinearLayout
+                android:id="@+id/details_ingredients"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="@dimen/text_margin"
+                app:ingredients="@{recipe.ingredients}" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/text_margin"
+                android:layout_marginEnd="@dimen/text_margin"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:text="@string/instructions" />
 
             <LinearLayout

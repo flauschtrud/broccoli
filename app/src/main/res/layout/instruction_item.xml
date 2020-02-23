@@ -13,7 +13,7 @@
         android:padding="5dp">
 
         <TextView
-            android:id="@+id/instruction_number"
+            android:id="@+id/instruction_position"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
@@ -21,7 +21,7 @@
             android:backgroundTint="@color/colorAccent"
             android:textColor="@android:color/primary_text_dark"
             android:gravity="center"
-            android:text="@{instruction.prefix}"/>
+            android:text="@{String.valueOf(instruction.position)}"/>
 
         <TextView
             android:id="@+id/instruction_text"

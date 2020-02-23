@@ -72,6 +72,17 @@
                     android:text="@={recipe.description}"/>
 
                 <EditText
+                    android:id="@+id/new_ingredients"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minLines="3"
+                    android:maxLines="10"
+                    android:layout_marginBottom="20dp"
+                    android:hint="@string/hint_new_recipe_ingredients"
+                    android:gravity="top"
+                    android:text="@={recipe.ingredients}"/>
+
+                <EditText
                     android:id="@+id/new_instructions"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

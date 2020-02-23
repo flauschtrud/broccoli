@@ -4,16 +4,16 @@ import java.util.Objects;
 
 public class Instruction {
 
-    private String prefix;
+    private int position;
     private String text;
 
-    Instruction(String prefix, String text) {
-        this.prefix = prefix;
+    Instruction(int position, String text) {
+        this.position = position;
         this.text = text;
     }
 
-    public String getPrefix() {
-        return prefix;
+    public int getPosition() {
+        return position;
     }
 
     public String getText() {
@@ -25,12 +25,20 @@ public class Instruction {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Instruction that = (Instruction) o;
-        return Objects.equals(prefix, that.prefix) &&
+        return position == that.position &&
                 Objects.equals(text, that.text);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(prefix, text);
+        return Objects.hash(position, text);
+    }
+
+    @Override
+    public String toString() {
+        return "Instruction{" +
+                "position=" + position +
+                ", text='" + text + '\'' +
+                '}';
     }
 }
