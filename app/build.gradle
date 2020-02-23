@@ -81,3 +81,11 @@ dependencies {
 def getDate() {
     return new Date().format('yyyyMMddHHmmss')
 }
+
+tasks.withType(Test) {
+    testLogging {
+        exceptionFormat "full"
+        events "started", "skipped", "passed", "failed"
+        showStandardStreams true
+    }
+}
