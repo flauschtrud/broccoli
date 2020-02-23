@@ -19,6 +19,7 @@ public class IngredientBuilder {
         }
 
         return newLinePattern.splitAsStream(ingredients)
+                .map(s -> s.replaceFirst("([-–])", ""))
                 .map(String::trim)
                 .filter(s -> !s.isEmpty())
                 .map(s -> {

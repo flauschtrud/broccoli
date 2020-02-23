@@ -69,4 +69,13 @@ public class IngredientBuilderTest {
         assertThat(ingredients, hasSize(1));
         assertThat(ingredients, hasItem(new Ingredient("", "Ganz viel Liebe.")));
     }
+
+    @Test
+    public void leading_dashes_should_be_omitted() {
+        ingredients = IngredientBuilder.from("-500g Mehl Typ 405\n - 8g Hefe\n – 2 Stangen Lauch");
+        assertThat(ingredients, hasSize(3));
+        assertThat(ingredients, hasItem(new Ingredient("500", "g Mehl Typ 405")));
+        assertThat(ingredients, hasItem(new Ingredient("8", "g Hefe")));
+        assertThat(ingredients, hasItem(new Ingredient("2", " Stangen Lauch")));
+    }
 }
