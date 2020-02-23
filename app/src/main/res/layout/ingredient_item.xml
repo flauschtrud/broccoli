@@ -6,11 +6,9 @@
         <variable name="ingredient" type="org.flauschhaus.broccoli.recipes.ingredients.Ingredient" />
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="horizontal"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="5dp">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/ingredient_quantity"
@@ -21,10 +19,11 @@
 
         <TextView
             android:id="@+id/ingredient_text"
+            android:layout_toEndOf="@+id/ingredient_quantity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{ingredient.text}"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </layout>

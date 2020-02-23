@@ -6,8 +6,7 @@
         <variable name="instruction" type="org.flauschhaus.broccoli.recipes.instructions.Instruction" />
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:orientation="horizontal"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="5dp">
@@ -25,10 +24,11 @@
 
         <TextView
             android:id="@+id/instruction_text"
+            android:layout_toEndOf="@+id/instruction_position"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@{instruction.text}"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </layout>
