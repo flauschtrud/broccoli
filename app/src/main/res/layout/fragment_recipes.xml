@@ -10,6 +10,8 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingBottom="90dp"
+        android:clipToPadding="false"
         tools:listitem="@layout/recipe_item"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
