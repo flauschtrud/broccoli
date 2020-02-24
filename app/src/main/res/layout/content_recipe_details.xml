@@ -2,6 +2,8 @@
 <layout>
 
     <data>
+        <import type="android.view.View"/>
+        <import type="android.text.TextUtils"/>
         <variable name="recipe" type="org.flauschhaus.broccoli.recipes.Recipe" />
     </data>
 
@@ -32,6 +34,7 @@
                 android:layout_marginStart="@dimen/text_margin"
                 android:layout_marginEnd="@dimen/text_margin"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:visibility="@{TextUtils.isEmpty(recipe.ingredients) ? View.GONE : View.VISIBLE}"
                 android:text="@string/ingredients" />
 
             <LinearLayout
@@ -48,6 +51,7 @@
                 android:layout_marginStart="@dimen/text_margin"
                 android:layout_marginEnd="@dimen/text_margin"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:visibility="@{TextUtils.isEmpty(recipe.instructions) ? View.GONE : View.VISIBLE}"
                 android:text="@string/instructions" />
 
             <LinearLayout
