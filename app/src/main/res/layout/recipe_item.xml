@@ -1,32 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable name="recipe" type="org.flauschhaus.broccoli.recipes.Recipe" />
+    </data>
+
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginEnd="10dp"
     android:layout_marginStart="10dp"
     android:layout_marginTop="10dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/card_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            app:imageName="@{recipe.imageName}" />
 
         <TextView
             android:id="@+id/card_text_view_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="10dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:lines="1"
-            android:ellipsize="end"/>
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_toEndOf="@id/card_image"
+            android:text="@{recipe.title}"/>
 
         <TextView
             android:id="@+id/card_text_view_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
             android:lines="1"
-            android:ellipsize="end"/>
+            android:padding="10dp"
+            android:layout_toEndOf="@id/card_image"
+            android:layout_below="@id/card_text_view_title"
+            android:text="@{recipe.description}"/>
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
+</layout>

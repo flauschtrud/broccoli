@@ -2,7 +2,12 @@ package org.flauschhaus.broccoli;
 
 import android.app.Application;
 
+import androidx.databinding.DataBindingUtil;
+
+import org.flauschhaus.broccoli.di.ApplicationComponent;
+import org.flauschhaus.broccoli.di.BindingComponent;
 import org.flauschhaus.broccoli.di.DaggerApplicationComponent;
+import org.flauschhaus.broccoli.di.DaggerBindingComponent;
 import org.flauschhaus.broccoli.di.DatabaseModule;
 
 import javax.inject.Inject;
@@ -25,11 +30,18 @@ public class BroccoliApplication extends Application implements HasAndroidInject
     public void onCreate() {
         super.onCreate();
 
-        DaggerApplicationComponent.builder()
+        ApplicationComponent applicationComponent = DaggerApplicationComponent.builder()
                 .application(this)
                 .database(new DatabaseModule(this))
-                .build()
-                .inject(this);
+                .build();
+        applicationComponent.inject(this);
+
+        BindingComponent bindingComponent = DaggerBindingComponent.builder()
+                .applicationComponent(applicationComponent)
+                .application(this)
+                .build();
+        bindingComponent.inject(this);
+        DataBindingUtil.setDefaultComponent(bindingComponent);
     }
 
 }

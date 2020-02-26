@@ -1,16 +1,14 @@
 package org.flauschhaus.broccoli.ui.recipes;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.flauschhaus.broccoli.R;
+import org.flauschhaus.broccoli.databinding.RecipeItemBinding;
 import org.flauschhaus.broccoli.recipes.Recipe;
 
 public class RecipeAdapter extends ListAdapter<Recipe, RecipeAdapter.RecipeHolder> {
@@ -30,7 +28,8 @@ public class RecipeAdapter extends ListAdapter<Recipe, RecipeAdapter.RecipeHolde
 
         @Override
         public boolean areContentsTheSame(Recipe oldItem, Recipe newItem) {
-            return oldItem.getTitle().equals(newItem.getTitle()) &&
+            return oldItem.getImageName().equals(newItem.getImageName()) &&
+                    oldItem.getTitle().equals(newItem.getTitle()) &&
                     oldItem.getDescription().equals(newItem.getDescription());
         }
 
@@ -39,20 +38,19 @@ public class RecipeAdapter extends ListAdapter<Recipe, RecipeAdapter.RecipeHolde
     @NonNull
     @Override
     public RecipeHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recipe_item, parent, false);
-        return new RecipeHolder(itemView);
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        RecipeItemBinding itemBinding = RecipeItemBinding.inflate(layoutInflater, parent, false);
+        return new RecipeHolder(itemBinding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecipeHolder holder, int position) {
         Recipe currentRecipe = getItem(position);
-        holder.textViewTitle.setText(currentRecipe.getTitle());
-        holder.textViewDescription.setText(currentRecipe.getDescription());
+        holder.bind(currentRecipe);
 
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
-                listener.onListFragmentInteraction(getItem(position));
+                listener.onListFragmentInteraction(currentRecipe);
             }
         });
     }
@@ -63,13 +61,16 @@ public class RecipeAdapter extends ListAdapter<Recipe, RecipeAdapter.RecipeHolde
 
     class RecipeHolder extends RecyclerView.ViewHolder {
 
-        private TextView textViewTitle;
-        private TextView textViewDescription;
+        private final RecipeItemBinding binding;
 
-        RecipeHolder(@NonNull View itemView) {
-            super(itemView);
-            textViewTitle = itemView.findViewById(R.id.card_text_view_title);
-            textViewDescription = itemView.findViewById(R.id.card_text_view_description);
+        RecipeHolder(RecipeItemBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
+        }
+
+        void bind(Object obj) {
+            binding.setVariable(org.flauschhaus.broccoli.BR.recipe, obj);
+            binding.executePendingBindings();
         }
     }
 

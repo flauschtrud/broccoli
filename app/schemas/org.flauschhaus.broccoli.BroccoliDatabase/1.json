@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "63e6f51b1c87ad930e0c776ed3388991",
+    "identityHash": "8e97f0953356b194c77831b8e61d8c5c",
     "entities": [
       {
         "tableName": "recipes",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `description` TEXT, `ingredients` TEXT, `instructions` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `imageName` TEXT, `description` TEXT, `ingredients` TEXT, `instructions` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -17,6 +17,12 @@
           {
             "fieldPath": "title",
             "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "imageName",
+            "columnName": "imageName",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -52,7 +58,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '63e6f51b1c87ad930e0c776ed3388991')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8e97f0953356b194c77831b8e61d8c5c')"
     ]
   }
 }

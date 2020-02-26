@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.flauschhaus.broccoli">
 
+    <uses-feature android:name="android.hardware.camera"
+        android:required="false" />
+
     <application
         android:name=".BroccoliApplication"
         android:allowBackup="true"
@@ -10,6 +13,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="org.flauschhaus.broccoli.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
+
         <activity
             android:name=".ui.recipes.RecipeDetailsActivity"
             android:parentActivityName=".MainActivity"
@@ -18,12 +32,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.flauschhaus.broccoli.MainActivity" />
         </activity>
+
         <activity
             android:name=".ui.recipes.NewRecipeActivity"
             android:label="@string/title_activity_new_recipe"
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
             android:theme="@style/AppTheme.NoActionBarPrimaryDarkStatusBar" />
+
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -34,6 +50,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

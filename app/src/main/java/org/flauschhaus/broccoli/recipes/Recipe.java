@@ -1,16 +1,19 @@
 package org.flauschhaus.broccoli.recipes;
 
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 
 @Entity(tableName = "recipes")
-public class Recipe implements Serializable {
+public class Recipe extends BaseObservable implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String title = "";
+    private String imageName = "";
     private String description = "";
     private String ingredients = "";
     private String instructions = "";
@@ -29,6 +32,16 @@ public class Recipe implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    @Bindable
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+        notifyPropertyChanged(org.flauschhaus.broccoli.BR.imageName);
     }
 
     public String getDescription() {
