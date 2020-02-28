@@ -1,9 +1,11 @@
 package org.flauschhaus.broccoli.recipes.images;
 
-import android.view.ViewTreeObserver;
+import android.graphics.Bitmap;
 import android.widget.ImageView;
 
 import androidx.databinding.BindingAdapter;
+
+import com.squareup.picasso.Picasso;
 
 import org.flauschhaus.broccoli.R;
 
@@ -20,18 +22,13 @@ public class ImageBindingAdapter {
 
     @BindingAdapter("imageName")
     public void bind(ImageView imageView, String imageName) {
-        if (imageName == null || imageName.length() == 0) {
-            imageView.setImageResource(R.drawable.ic_launcher_foreground);
-        }
-        else {
-            imageView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-                @Override
-                public void onGlobalLayout() {
-                    imageView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                    imageView.setImageBitmap(recipeImageService.loadBitmapWithName(imageName, imageView.getWidth(), imageView.getHeight()));
-                }
-            });
-        }
+        Picasso.get()
+                .load(recipeImageService.getFile(imageName))
+                .error(R.drawable.ic_launcher_foreground)
+                .config(Bitmap.Config.RGB_565)
+                .fit()
+                .centerCrop()
+                .into(imageView);
     }
 
 }

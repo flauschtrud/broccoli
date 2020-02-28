@@ -1,8 +1,6 @@
 package org.flauschhaus.broccoli.recipes.images;
 
 import android.app.Application;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Environment;
 
 import java.io.File;
@@ -29,25 +27,13 @@ public class RecipeImageService {
         return File.createTempFile(imageFileName,".jpg", imageDirectory);
     }
 
-    Bitmap loadBitmapWithName(String imageName, int targetWidth, int targetHeight) {
-        BitmapFactory.Options options = getOptions(targetWidth, targetHeight);
+    File getFile(String imageName) {
         File imageDirectory = getImageDirectory();
-        return BitmapFactory.decodeFile(imageDirectory.getAbsolutePath() + File.separator + imageName, options);
+        return new File(imageDirectory.getAbsolutePath() + File.separator + imageName);
     }
 
     private File getImageDirectory() {
         return application.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-    }
-
-    private BitmapFactory.Options getOptions(int targetWidth, int targetHeight) {
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        int imageWidth = options.outWidth;
-        int imageHeight = options.outHeight;
-        int scaleFactor = Math.min(imageWidth/targetWidth, imageHeight/targetHeight);
-        options.inJustDecodeBounds = false;
-        options.inSampleSize = scaleFactor;
-        return options;
     }
 
 }
