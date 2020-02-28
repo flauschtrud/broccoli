@@ -1,11 +1,10 @@
 package org.flauschhaus.broccoli.recipes.images;
 
-import android.graphics.Bitmap;
 import android.widget.ImageView;
 
 import androidx.databinding.BindingAdapter;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import org.flauschhaus.broccoli.R;
 
@@ -22,13 +21,12 @@ public class ImageBindingAdapter {
 
     @BindingAdapter("imageName")
     public void bind(ImageView imageView, String imageName) {
-        Picasso.get()
+        Glide.with(imageView)
                 .load(recipeImageService.getFile(imageName))
-                .error(R.drawable.ic_launcher_foreground)
-                .config(Bitmap.Config.RGB_565)
-                .fit()
+                .placeholder(R.drawable.ic_launcher_foreground)
                 .centerCrop()
                 .into(imageView);
+
     }
 
 }
