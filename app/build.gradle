@@ -30,11 +30,6 @@ android {
     dataBinding {
         enabled = true
     }
-    testOptions {
-        unitTests {
-            includeAndroidResources = true
-        }
-    }
     applicationVariants.all { variant ->
         variant.resValue "string", "versionName", variant.versionName
     }
@@ -70,15 +65,15 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     testImplementation 'junit:junit:4.13'
-    testImplementation "org.robolectric:robolectric:4.3.1"
-    testImplementation 'androidx.test:core:1.2.0'
-    testImplementation 'org.mockito:mockito-core:1.10.19'
+    testImplementation 'org.mockito:mockito-core:2.18.3'
     testImplementation 'org.hamcrest:hamcrest:2.2'
-    testImplementation 'androidx.test.ext:junit:1.1.1'
-    testImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    testImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
+
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test:core:1.2.0'
+    androidTestImplementation 'androidx.test:rules:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
 }
 
 def getDate() {

@@ -6,6 +6,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity(tableName = "recipes")
 public class Recipe extends BaseObservable implements Serializable {
@@ -66,6 +67,24 @@ public class Recipe extends BaseObservable implements Serializable {
 
     public void setInstructions(String instructions) {
         this.instructions = instructions;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Recipe recipe = (Recipe) o;
+        return id == recipe.id &&
+                Objects.equals(title, recipe.title) &&
+                Objects.equals(imageName, recipe.imageName) &&
+                Objects.equals(description, recipe.description) &&
+                Objects.equals(ingredients, recipe.ingredients) &&
+                Objects.equals(instructions, recipe.instructions);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, imageName, description, ingredients, instructions);
     }
 
 }

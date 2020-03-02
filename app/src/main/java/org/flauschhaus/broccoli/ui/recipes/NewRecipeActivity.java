@@ -57,7 +57,6 @@ public class NewRecipeActivity extends AppCompatActivity {
         finish();
     }
 
-    // TODO add test after getting rid of stupid Robolectric
     public void dispatchImageCaptureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
