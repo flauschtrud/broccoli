@@ -20,16 +20,21 @@ public class RecipeImageService {
         this.application = application;
     }
 
-    public File createImageFile() throws IOException {
+    public File createImage() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
         File imageDirectory = getImageDirectory();
         return File.createTempFile(imageFileName,".jpg", imageDirectory);
     }
 
-    File getFile(String imageName) {
+    File getImage(String imageName) {
         File imageDirectory = getImageDirectory();
         return new File(imageDirectory.getAbsolutePath() + File.separator + imageName);
+    }
+
+    public boolean deleteImage(String imageName) {
+        File image = getImage(imageName);
+        return image.delete();
     }
 
     private File getImageDirectory() {

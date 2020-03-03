@@ -61,7 +61,7 @@ public class NewRecipeActivity extends AppCompatActivity {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             try {
-                File photoFile = recipeImageService.createImageFile();
+                File photoFile = recipeImageService.createImage();
                 imageName = photoFile.getName();
                 Uri photoURI = FileProvider.getUriForFile(this,"org.flauschhaus.broccoli.fileprovider", photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);

@@ -1,10 +1,12 @@
 package org.flauschhaus.broccoli.ui.settings;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -12,6 +14,8 @@ import androidx.fragment.app.Fragment;
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.recipes.Recipe;
 import org.flauschhaus.broccoli.recipes.RecipeRepository;
+
+import java.io.File;
 
 import javax.inject.Inject;
 
@@ -28,13 +32,20 @@ public class SettingsFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_settings, container, false);
 
-        final Button button = root.findViewById(R.id.button_delete_data);
+        final Button button = root.findViewById(R.id.button_create_demo_recipes);
         button.setOnClickListener(view -> {
-            recipeRepository.deleteAll();
             recipeRepository.insert(DemoRecipes.createNusskuchen());
             recipeRepository.insert(DemoRecipes.createKartoffelBlumenkohlPuffer());
             recipeRepository.insert(DemoRecipes.createVeganesMett());
         });
+
+        File externalFilesDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File[] files = externalFilesDir.listFiles();
+        TextView textView = root.findViewById(R.id.settings_external_files);
+        for (int i = 0; i < files.length; i++)
+        {
+            textView.append(files[i].getName() + "\n");
+        }
 
         return root;
     }
