@@ -51,9 +51,9 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:$room_version"
     testImplementation "androidx.room:room-testing:$room_version"
 
-    def fragment_version = "1.2.1"
+    def fragment_version = "1.2.2"
     implementation "androidx.fragment:fragment:$fragment_version"
-    implementation "androidx.fragment:fragment-testing:$fragment_version"
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
 
     implementation 'com.google.dagger:dagger:2.26'
     annotationProcessor "com.google.dagger:dagger-compiler:2.26"
