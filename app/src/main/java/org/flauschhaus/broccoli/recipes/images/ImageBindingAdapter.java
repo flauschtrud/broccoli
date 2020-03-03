@@ -22,8 +22,7 @@ public class ImageBindingAdapter {
     @BindingAdapter("imageName")
     public void bind(ImageView imageView, String imageName) {
         Glide.with(imageView)
-                .load(recipeImageService.getImage(imageName))
-                .placeholder(R.drawable.ic_launcher_foreground)
+                .load(imageName.length() > 0? recipeImageService.getImage(imageName) : R.drawable.ic_launcher_foreground)
                 .centerCrop()
                 .into(imageView);
 
