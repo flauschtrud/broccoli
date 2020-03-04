@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class IngredientBuilder {
 
     private static final Pattern newLinePattern = Pattern.compile("\n");
-    private static final Pattern quantityPattern = Pattern.compile("^\\s*(\\d+(,|\\/|\\.)*\\d*)(?!$)");
+    private static final Pattern quantityPattern = Pattern.compile("^\\s*(\\d+([,/.-])*\\d*)(?!$)");
 
     private IngredientBuilder() {}
 
@@ -19,7 +19,7 @@ public class IngredientBuilder {
         }
 
         return newLinePattern.splitAsStream(ingredients)
-                .map(s -> s.replaceFirst("([-–])", ""))
+                .map(s -> s.replaceFirst("^\\s*[-–](?!$)", ""))
                 .map(String::trim)
                 .filter(s -> !s.isEmpty())
                 .map(s -> {

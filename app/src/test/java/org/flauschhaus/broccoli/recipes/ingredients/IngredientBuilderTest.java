@@ -78,4 +78,11 @@ public class IngredientBuilderTest {
         assertThat(ingredients, hasItem(new Ingredient("8", "g Hefe")));
         assertThat(ingredients, hasItem(new Ingredient("2", " Stangen Lauch")));
     }
+
+    @Test
+    public void range_quantities_should_be_detected() {
+        ingredients = IngredientBuilder.from("2-3 Zwiebeln");
+        assertThat(ingredients, hasSize(1));
+        assertThat(ingredients, hasItem(new Ingredient("2-3", " Zwiebeln")));
+    }
 }
