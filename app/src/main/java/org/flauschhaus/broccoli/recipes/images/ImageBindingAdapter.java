@@ -6,9 +6,9 @@ import androidx.databinding.BindingAdapter;
 
 import com.bumptech.glide.Glide;
 
-import org.flauschhaus.broccoli.R;
-
 import javax.inject.Inject;
+
+import static android.text.TextUtils.isEmpty;
 
 public class ImageBindingAdapter {
 
@@ -21,8 +21,12 @@ public class ImageBindingAdapter {
 
     @BindingAdapter("imageName")
     public void bind(ImageView imageView, String imageName) {
+        if (isEmpty(imageName)) {
+            return;
+        }
+
         Glide.with(imageView)
-                .load(imageName.length() > 0? recipeImageService.getImage(imageName) : R.drawable.ic_launcher_foreground)
+                .load(recipeImageService.getImage(imageName))
                 .centerCrop()
                 .into(imageView);
 

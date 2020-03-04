@@ -38,7 +38,6 @@
                     android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
                     app:layout_collapseMode="parallax"
-                    android:scaleType="centerCrop"
                     app:imageName="@{recipe.imageName}"/>
 
                 <androidx.appcompat.widget.Toolbar
