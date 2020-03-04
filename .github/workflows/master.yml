@@ -1,6 +1,9 @@
-name: Android CI
+name: UI Tests
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   test:
@@ -30,7 +33,7 @@ jobs:
 
       - name: Assemble App Debug APK
         run: ./gradlew assembleDebug --stacktrace
-      - name: Upload app APK
+      - name: Upload App APK
         uses: actions/upload-artifact@v1
         with:
           name: app-debug-${{github.run_number}}
