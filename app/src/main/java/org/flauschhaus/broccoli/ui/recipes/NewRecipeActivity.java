@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.databinding.ActivityNewRecipeBinding;
@@ -25,23 +26,27 @@ import dagger.android.AndroidInjection;
 public class NewRecipeActivity extends AppCompatActivity {
 
     @Inject
+    ViewModelProvider.Factory viewModelFactory;
+
+    @Inject
     RecipeImageService recipeImageService;
 
     public static final String EXTRA_REPLY = "org.flauschhaus.broccoli.recipes.new.REPLY";
 
     private static final int REQUEST_TAKE_PHOTO = 1;
 
-    private ActivityNewRecipeBinding binding;
-    private String imageName;
+    private NewRecipeViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndroidInjection.inject(this);
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_new_recipe);
+        viewModel = new ViewModelProvider(this, viewModelFactory).get(NewRecipeViewModel.class);
+        ActivityNewRecipeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_new_recipe);
         binding.setPresenter(this);
-        binding.setRecipe(new Recipe());
+        binding.setViewModel(viewModel);
+
         setSupportActionBar(binding.toolbar);
     }
 
@@ -57,12 +62,12 @@ public class NewRecipeActivity extends AppCompatActivity {
         finish();
     }
 
-    public void dispatchImageCaptureIntent() {
+    public void onImageClick() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             try {
                 File photoFile = recipeImageService.createImage();
-                imageName = photoFile.getName();
+                viewModel.rememberImageName(photoFile.getName());
                 Uri photoURI = FileProvider.getUriForFile(this,"org.flauschhaus.broccoli.fileprovider", photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
@@ -75,7 +80,7 @@ public class NewRecipeActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
-            binding.getRecipe().setImageName(imageName);
+            viewModel.applyImageName();
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

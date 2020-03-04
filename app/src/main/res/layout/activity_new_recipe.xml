@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="recipe" type="org.flauschhaus.broccoli.recipes.Recipe" />
+        <variable name="viewModel" type="org.flauschhaus.broccoli.ui.recipes.NewRecipeViewModel" />
         <variable name="presenter" type="org.flauschhaus.broccoli.ui.recipes.NewRecipeActivity" />
     </data>
 
@@ -36,7 +36,7 @@
                     android:background="@android:color/transparent"
                     android:text="@string/action_save"
                     android:layout_gravity="end"
-                    android:onClick="@{() -> presenter.onSaveClick(recipe)}" />
+                    android:onClick="@{() -> presenter.onSaveClick(viewModel.recipe)}" />
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -57,8 +57,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/app_bar_height"
                 android:scaleType="centerCrop"
-                app:imageName="@{recipe.imageName}"
-                android:onClick="@{() -> presenter.dispatchImageCaptureIntent()}"/>
+                app:imageName="@{viewModel.recipe.imageName}"
+                android:onClick="@{() -> presenter.onImageClick()}"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:hint="@string/hint_new_recipe_title"
-                    android:text="@={recipe.title}"/>
+                    android:text="@={viewModel.recipe.title}"/>
 
                 <EditText
                     android:id="@+id/new_description"
@@ -83,7 +83,7 @@
                     android:layout_marginBottom="20dp"
                     android:hint="@string/hint_new_recipe_description"
                     android:gravity="top"
-                    android:text="@={recipe.description}"/>
+                    android:text="@={viewModel.recipe.description}"/>
 
                 <EditText
                     android:id="@+id/new_ingredients"
@@ -94,7 +94,7 @@
                     android:layout_marginBottom="20dp"
                     android:hint="@string/hint_new_recipe_ingredients"
                     android:gravity="top"
-                    android:text="@={recipe.ingredients}"/>
+                    android:text="@={viewModel.recipe.ingredients}"/>
 
                 <EditText
                     android:id="@+id/new_instructions"
@@ -105,7 +105,7 @@
                     android:layout_marginBottom="20dp"
                     android:hint="@string/hint_new_recipe_instructions"
                     android:gravity="top"
-                    android:text="@={recipe.instructions}"/>
+                    android:text="@={viewModel.recipe.instructions}"/>
 
             </LinearLayout>
 

@@ -3,6 +3,7 @@ package org.flauschhaus.broccoli.di;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import org.flauschhaus.broccoli.ui.recipes.NewRecipeViewModel;
 import org.flauschhaus.broccoli.ui.recipes.RecipesViewModel;
 
 import dagger.Binds;
@@ -19,5 +20,10 @@ public interface ViewModelModule {
     @IntoMap
     @ViewModelKey(RecipesViewModel.class)
     ViewModel recipesViewModel(RecipesViewModel recipesViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(NewRecipeViewModel.class)
+    ViewModel newRecipeViewModel(NewRecipeViewModel newRecipeViewModel);
 
 }
