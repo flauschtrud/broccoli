@@ -8,13 +8,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.runners.MockitoJUnitRunner;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -25,9 +24,6 @@ public class RecipesViewModelTest {
 
     @Mock
     private LiveData<List<Recipe>> liveData;
-
-    @Mock
-    private Recipe recipe;
 
     private RecipesViewModel recipesViewModel;
 
@@ -40,12 +36,6 @@ public class RecipesViewModelTest {
     @Test
     public void test_get_all_recipes() {
         assertThat(recipesViewModel.getRecipes(), is(liveData));
-    }
-
-    @Test
-    public void test_insert() {
-        recipesViewModel.insert(recipe);
-        verify(recipeRepository).insert(recipe);
     }
 
 }

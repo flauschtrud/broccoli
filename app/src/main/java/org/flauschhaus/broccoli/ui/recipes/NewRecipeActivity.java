@@ -14,7 +14,6 @@ import androidx.lifecycle.ViewModelProvider;
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.databinding.ActivityNewRecipeBinding;
 import org.flauschhaus.broccoli.recipes.Recipe;
-import org.flauschhaus.broccoli.recipes.images.RecipeImageService;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,12 +27,7 @@ public class NewRecipeActivity extends AppCompatActivity {
     @Inject
     ViewModelProvider.Factory viewModelFactory;
 
-    @Inject
-    RecipeImageService recipeImageService;
-
-    public static final String EXTRA_REPLY = "org.flauschhaus.broccoli.recipes.new.REPLY";
-
-    private static final int REQUEST_TAKE_PHOTO = 1;
+    private static final int REQUEST_IMAGE_CAPTURE = 1;
 
     private NewRecipeViewModel viewModel;
 
@@ -56,9 +50,8 @@ public class NewRecipeActivity extends AppCompatActivity {
             return;
         }
 
-        Intent replyIntent = new Intent();
-        replyIntent.putExtra(EXTRA_REPLY, recipe);
-        setResult(RESULT_OK, replyIntent);
+        viewModel.save();
+        Toast.makeText(this, getString(R.string.toast_new_recipe), Toast.LENGTH_SHORT).show();
         finish();
     }
 
@@ -66,11 +59,10 @@ public class NewRecipeActivity extends AppCompatActivity {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             try {
-                File photoFile = recipeImageService.createImage();
-                viewModel.rememberImageName(photoFile.getName());
-                Uri photoURI = FileProvider.getUriForFile(this,"org.flauschhaus.broccoli.fileprovider", photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+                File imageFile = viewModel.createAndRememberImageFile();
+                Uri imageURI = FileProvider.getUriForFile(this,"org.flauschhaus.broccoli.fileprovider", imageFile);
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageURI);
+                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
             } catch (IOException ex) {
                 Toast.makeText(this, getString(R.string.toast_error_creating_image_file), Toast.LENGTH_SHORT).show();
             }
@@ -79,8 +71,8 @@ public class NewRecipeActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_TAKE_PHOTO && resultCode == RESULT_OK) {
-            viewModel.applyImageName();
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            viewModel.applyImageFile();
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

@@ -34,6 +34,7 @@ import static org.flauschhaus.broccoli.util.RecyclerViewMatcher.withRecyclerView
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.not;
 
+//TODO mock repository
 @RunWith(AndroidJUnit4.class)
 public class RecipesFragmentTest {
 
@@ -63,12 +64,12 @@ public class RecipesFragmentTest {
     @Test
     @Ignore("Testing on Android sucks...")
     public void received_recipe_should_be_added_to_list() throws InterruptedException {
-        scenario.onFragment(fragment -> {
+        /*scenario.onFragment(fragment -> {
             fragment.onActivityResult(
                     RecipesFragment.NEW_RECIPE_ACTIVITY_REQUEST_CODE,
                     Activity.RESULT_OK,
                     new Intent().putExtra(NewRecipeActivity.EXTRA_REPLY, lauchkuchen));
-        });
+        });*/
 
         onView(withText(R.string.toast_new_recipe))
                 .inRoot(withDecorView(not(decorView)))
