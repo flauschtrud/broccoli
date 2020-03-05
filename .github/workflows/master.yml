@@ -1,4 +1,4 @@
-name: UI Tests
+name: Master Build with UI Tests
 
 on:
   push:

@@ -1,7 +1,7 @@
 # Broccoli
 
-![Build](https://github.com/JanaFlauschata/broccoli/workflows/Build/badge.svg)
-![UI Tests](https://github.com/JanaFlauschata/broccoli/workflows/UI%20Tests/badge.svg)
+![Feature Builds](https://github.com/JanaFlauschata/broccoli/workflows/Feature%20Builds/badge.svg)
+![Master Build with UI Tests](https://github.com/JanaFlauschata/broccoli/workflows/Master%20Build%20with%20UI%20Tests/badge.svg)
 
 The Simple and Green Recipe Manager.
 

@@ -1,4 +1,4 @@
-name: Build
+name: Feature Builds
 
 on:
   push:
@@ -36,5 +36,5 @@ jobs:
       - name: Upload App APK
         uses: actions/upload-artifact@v1
         with:
-          name: app-debug-${{github.run_number}}
+          name: app-debug
           path: app/build/outputs/apk/debug/app-debug.apk
