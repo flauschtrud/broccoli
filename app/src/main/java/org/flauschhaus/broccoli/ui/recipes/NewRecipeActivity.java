@@ -7,7 +7,6 @@ import android.provider.MediaStore;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -15,7 +14,6 @@ import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.databinding.ActivityNewRecipeBinding;
 import org.flauschhaus.broccoli.recipes.Recipe;
 
-import java.io.File;
 import java.io.IOException;
 
 import javax.inject.Inject;
@@ -37,6 +35,11 @@ public class NewRecipeActivity extends AppCompatActivity {
         AndroidInjection.inject(this);
 
         viewModel = new ViewModelProvider(this, viewModelFactory).get(NewRecipeViewModel.class);
+        if (savedInstanceState != null) {
+            viewModel.setRecipe((Recipe) savedInstanceState.getSerializable("recipe"));
+            viewModel.setImageName(savedInstanceState.getString("imageName"));
+        }
+
         ActivityNewRecipeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_new_recipe);
         binding.setPresenter(this);
         binding.setViewModel(viewModel);
@@ -59,9 +62,8 @@ public class NewRecipeActivity extends AppCompatActivity {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             try {
-                File imageFile = viewModel.createAndRememberImageFile();
-                Uri imageURI = FileProvider.getUriForFile(this,"org.flauschhaus.broccoli.fileprovider", imageFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageURI);
+                Uri imageUri = viewModel.createAndRememberImage();
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
             } catch (IOException ex) {
                 Toast.makeText(this, getString(R.string.toast_error_creating_image_file), Toast.LENGTH_SHORT).show();
@@ -72,9 +74,16 @@ public class NewRecipeActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            viewModel.applyImageFile();
+            viewModel.applyImageToRecipe();
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putSerializable("recipe", viewModel.getRecipe());
+        outState.putString("imageName", viewModel.getImageName());
+        super.onSaveInstanceState(outState);
     }
 
 }

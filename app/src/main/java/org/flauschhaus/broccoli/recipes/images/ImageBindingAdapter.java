@@ -26,7 +26,7 @@ public class ImageBindingAdapter {
         }
 
         Glide.with(imageView)
-                .load(recipeImageService.getImage(imageName))
+                .load(recipeImageService.findImage(imageName))
                 .centerCrop()
                 .into(imageView);
 

@@ -1,12 +1,13 @@
 package org.flauschhaus.broccoli.ui.recipes;
 
+import android.net.Uri;
+
 import androidx.lifecycle.ViewModel;
 
 import org.flauschhaus.broccoli.recipes.Recipe;
 import org.flauschhaus.broccoli.recipes.RecipeRepository;
 import org.flauschhaus.broccoli.recipes.images.RecipeImageService;
 
-import java.io.File;
 import java.io.IOException;
 
 import javax.inject.Inject;
@@ -27,33 +28,46 @@ public class NewRecipeViewModel extends ViewModel {
 
     @Override
     public void onCleared() {
-        cleanUpUnusedImageFile();
+        cleanUpTemporaryImage();
     }
 
     public Recipe getRecipe() {
         return recipe;
     }
 
-    File createAndRememberImageFile() throws IOException {
-        cleanUpUnusedImageFile();
+    public String getImageName() {
+        return imageName;
+    }
 
-        File photoFile = recipeImageService.createImage();
-        imageName = photoFile.getName();
+    public void setRecipe(Recipe recipe) {
+        this.recipe = recipe;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
+    }
+
+    Uri createAndRememberImage() throws IOException {
+        cleanUpTemporaryImage();
+
+        Uri photoFile = recipeImageService.createTemporaryImage();
+        imageName = photoFile.getLastPathSegment();
         return photoFile;
     }
 
-    void applyImageFile() {
+    void applyImageToRecipe() {
         recipe.setImageName(imageName);
     }
 
     void save() {
         recipeRepository.insert(recipe);
+        recipeImageService.moveImage(imageName);
         imageName = null;
     }
 
-    private void cleanUpUnusedImageFile() {
+    private void cleanUpTemporaryImage() {
         if (imageName != null) {
-            recipeImageService.deleteImage(imageName);
+            recipeImageService.deleteTemporaryImage(imageName);
         }
     }
 

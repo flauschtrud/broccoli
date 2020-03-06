@@ -1,5 +1,7 @@
 package org.flauschhaus.broccoli.ui.recipes;
 
+import android.net.Uri;
+
 import org.flauschhaus.broccoli.recipes.RecipeRepository;
 import org.flauschhaus.broccoli.recipes.images.RecipeImageService;
 import org.junit.Test;
@@ -8,7 +10,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.io.File;
 import java.io.IOException;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -30,7 +31,7 @@ public class NewRecipeViewModelTest {
     private RecipeImageService recipeImageService;
 
     @Mock
-    private File imageFile;
+    private Uri imageUri;
 
     @InjectMocks
     private NewRecipeViewModel newRecipeViewModel;
@@ -42,38 +43,39 @@ public class NewRecipeViewModelTest {
 
     @Test
     public void create_image_file_and_save() throws IOException {
-        when(recipeImageService.createImage()).thenReturn(imageFile);
-        when(imageFile.getName()).thenReturn("blupp.jpg");
+        when(recipeImageService.createTemporaryImage()).thenReturn(imageUri);
+        when(imageUri.getLastPathSegment()).thenReturn("blupp.jpg");
 
-        newRecipeViewModel.createAndRememberImageFile();
-        newRecipeViewModel.applyImageFile();
+        newRecipeViewModel.createAndRememberImage();
+        newRecipeViewModel.applyImageToRecipe();
 
         assertThat(newRecipeViewModel.getRecipe().getImageName(), is("blupp.jpg"));
 
         newRecipeViewModel.save();
         verify(recipeRepository).insert(newRecipeViewModel.getRecipe());
-        verify(recipeImageService, never()).deleteImage(any());
+        verify(recipeImageService).moveImage("blupp.jpg");
+        verify(recipeImageService, never()).deleteTemporaryImage(any());
     }
 
     @Test
     public void clean_up_file_on_cancel() throws IOException {
-        when(recipeImageService.createImage()).thenReturn(imageFile);
-        when(imageFile.getName()).thenReturn("blupp.jpg");
+        when(recipeImageService.createTemporaryImage()).thenReturn(imageUri);
+        when(imageUri.getLastPathSegment()).thenReturn("blupp.jpg");
 
-        newRecipeViewModel.createAndRememberImageFile();
+        newRecipeViewModel.createAndRememberImage();
         newRecipeViewModel.onCleared();
 
-        verify(recipeImageService).deleteImage("blupp.jpg");
+        verify(recipeImageService).deleteTemporaryImage("blupp.jpg");
     }
 
     @Test
     public void clean_up_file_if_replaced() throws IOException {
-        when(recipeImageService.createImage()).thenReturn(imageFile);
-        when(imageFile.getName()).thenReturn("blupp.jpg");
+        when(recipeImageService.createTemporaryImage()).thenReturn(imageUri);
+        when(imageUri.getLastPathSegment()).thenReturn("blupp.jpg");
 
-        newRecipeViewModel.createAndRememberImageFile();
-        newRecipeViewModel.createAndRememberImageFile();
+        newRecipeViewModel.createAndRememberImage();
+        newRecipeViewModel.createAndRememberImage();
 
-        verify(recipeImageService).deleteImage("blupp.jpg");
+        verify(recipeImageService).deleteTemporaryImage("blupp.jpg");
     }
 }

@@ -47,6 +47,14 @@ public class SettingsFragment extends Fragment {
             textView.append(files[i].getName() + "\n");
         }
 
+        File cachedFilesDir = getActivity().getCacheDir();
+        File[] cachedFiles = cachedFilesDir.listFiles();
+        textView = root.findViewById(R.id.settings_cached_files);
+        for (int i = 0; i < cachedFiles.length; i++)
+        {
+            textView.append(cachedFiles[i].getName() + "\n");
+        }
+
         return root;
     }
 
