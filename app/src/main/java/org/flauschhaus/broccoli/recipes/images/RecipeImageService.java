@@ -16,6 +16,8 @@ import javax.inject.Inject;
 
 public class RecipeImageService {
 
+    private static final String AUTHORITY = "org.flauschhaus.broccoli.fileprovider";
+
     private Application application;
 
     @Inject
@@ -28,13 +30,15 @@ public class RecipeImageService {
         String imageFileName = "JPEG_" + timeStamp + "_";
         File cacheDirectory = getCacheDirectory();
         File temporaryImage = File.createTempFile(imageFileName, ".jpg", cacheDirectory);
-        return FileProvider.getUriForFile(application,"org.flauschhaus.broccoli.fileprovider", temporaryImage);
+        return FileProvider.getUriForFile(application, AUTHORITY, temporaryImage);
     }
 
-    public boolean moveImage(String imageName) {
+    public void moveImage(String imageName) throws IOException {
         File savedImage = getSavedImage(imageName);
         File temporaryImage = getTemporaryImage(imageName);
-        return temporaryImage.renameTo(savedImage);
+
+        FileUtils.copy(temporaryImage, savedImage);
+        temporaryImage.delete();
     }
 
     public boolean deleteTemporaryImage(String imageName) {

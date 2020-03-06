@@ -59,7 +59,7 @@ public class NewRecipeViewModel extends ViewModel {
         recipe.setImageName(imageName);
     }
 
-    void save() {
+    void save() throws IOException {
         recipeRepository.insert(recipe);
         recipeImageService.moveImage(imageName);
         imageName = null;
