@@ -43,6 +43,7 @@ public class RecipeImageService {
         FileUtils.copy(compressedTemporaryFile, savedImage);
 
         temporaryImage.delete();
+        compressedTemporaryFile.delete();
     }
 
     public boolean deleteTemporaryImage(String imageName) {
