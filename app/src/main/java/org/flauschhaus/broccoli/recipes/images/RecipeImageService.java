@@ -39,8 +39,8 @@ public class RecipeImageService {
         File savedImage = getSavedImage(imageName);
         File temporaryImage = getTemporaryImage(imageName);
 
-        FileUtils.copy(temporaryImage, savedImage);
-        new Compressor(application).compressToFile(savedImage);
+        File compressedTemporaryFile = new Compressor(application).compressToFile(temporaryImage);
+        FileUtils.copy(compressedTemporaryFile, savedImage);
 
         temporaryImage.delete();
     }
