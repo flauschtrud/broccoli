@@ -14,6 +14,8 @@ import java.util.Locale;
 
 import javax.inject.Inject;
 
+import id.zelory.compressor.Compressor;
+
 public class RecipeImageService {
 
     private static final String AUTHORITY = "org.flauschhaus.broccoli.fileprovider";
@@ -38,6 +40,8 @@ public class RecipeImageService {
         File temporaryImage = getTemporaryImage(imageName);
 
         FileUtils.copy(temporaryImage, savedImage);
+        new Compressor(application).compressToFile(savedImage);
+
         temporaryImage.delete();
     }
 

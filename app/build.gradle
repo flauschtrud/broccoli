@@ -45,6 +45,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.2.1'
     implementation 'androidx.navigation:navigation-ui:2.2.1'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'id.zelory:compressor:2.1.0' // 3.0.0 does not work with Java
 
     def room_version = "2.2.4"
     implementation "androidx.room:room-runtime:$room_version"
