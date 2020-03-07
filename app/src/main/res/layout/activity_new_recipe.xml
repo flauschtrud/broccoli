@@ -61,9 +61,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/app_bar_height"
                     android:background="@color/placeholder"
-                    android:src="@drawable/placeholder_list"
                     android:scaleType="centerCrop"
                     android:onClick="@{() -> presenter.onImageClick()}"
+                    app:placeholder="@{@drawable/placeholder}"
                     app:imageName="@{viewModel.recipe.imageName}" />
 
                 <LinearLayout

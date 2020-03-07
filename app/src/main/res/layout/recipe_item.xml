@@ -22,8 +22,8 @@
             android:layout_width="100dp"
             android:layout_height="match_parent"
             android:background="@color/placeholder"
-            android:src="@drawable/placeholder_list"
             android:scaleType="center"
+            app:placeholder="@{@drawable/placeholder}"
             app:imageName="@{recipe.imageName}" />
 
         <TextView

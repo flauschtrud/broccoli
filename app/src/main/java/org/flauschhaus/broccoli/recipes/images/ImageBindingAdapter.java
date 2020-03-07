@@ -1,5 +1,6 @@
 package org.flauschhaus.broccoli.recipes.images;
 
+import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 import androidx.databinding.BindingAdapter;
@@ -19,9 +20,14 @@ public class ImageBindingAdapter {
         this.recipeImageService = recipeImageService;
     }
 
-    @BindingAdapter("imageName")
-    public void bind(ImageView imageView, String imageName) {
+    @BindingAdapter(value = {"imageName", "placeholder"}, requireAll = false)
+    public void bind(ImageView imageView, String imageName, Drawable placeholder) {
+        if (isEmpty(imageName) && placeholder == null) {
+            return;
+        }
+
         if (isEmpty(imageName)) {
+            imageView.setImageDrawable(placeholder);
             return;
         }
 
