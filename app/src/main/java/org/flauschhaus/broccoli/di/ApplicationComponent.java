@@ -3,6 +3,7 @@ package org.flauschhaus.broccoli.di;
 import android.app.Application;
 
 import org.flauschhaus.broccoli.BroccoliApplication;
+import org.flauschhaus.broccoli.recipes.RecipeModule;
 
 import javax.inject.Singleton;
 
@@ -16,7 +17,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
         ActivityModule.class,
         FragmentModule.class,
         AndroidSupportInjectionModule.class,
-        DatabaseModule.class
+        DatabaseModule.class,
+        RecipeModule.class
 })
 public interface ApplicationComponent {
 

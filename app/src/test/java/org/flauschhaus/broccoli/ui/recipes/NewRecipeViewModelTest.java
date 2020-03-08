@@ -11,6 +11,8 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -42,7 +44,18 @@ public class NewRecipeViewModelTest {
     }
 
     @Test
-    public void create_image_file_and_save() throws IOException {
+    public void just_save() throws ExecutionException, InterruptedException {
+        when(recipeRepository.insert(newRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(null));
+
+        CompletableFuture<Void> completableFuture = newRecipeViewModel.save();
+        completableFuture.get();
+
+        verify(recipeRepository).insert(newRecipeViewModel.getRecipe());
+        verify(recipeImageService, never()).deleteTemporaryImage(any());
+    }
+
+    @Test
+    public void create_image_file_and_save() throws IOException, ExecutionException, InterruptedException {
         when(recipeImageService.createTemporaryImage()).thenReturn(imageUri);
         when(imageUri.getLastPathSegment()).thenReturn("blupp.jpg");
 
@@ -51,7 +64,15 @@ public class NewRecipeViewModelTest {
 
         assertThat(newRecipeViewModel.getRecipe().getImageName(), is("blupp.jpg"));
 
-        newRecipeViewModel.save();
+        when(recipeImageService.moveImage("blupp.jpg")).thenReturn(CompletableFuture.completedFuture(null));
+        when(recipeRepository.insert(newRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(null));
+
+        newRecipeViewModel.confirmFinishBySaving();
+        CompletableFuture<Void> completableFuture = newRecipeViewModel.save();
+        completableFuture.get();
+
+        newRecipeViewModel.onCleared();
+
         verify(recipeRepository).insert(newRecipeViewModel.getRecipe());
         verify(recipeImageService).moveImage("blupp.jpg");
         verify(recipeImageService, never()).deleteTemporaryImage(any());
@@ -78,4 +99,5 @@ public class NewRecipeViewModelTest {
 
         verify(recipeImageService).deleteTemporaryImage("blupp.jpg");
     }
+
 }

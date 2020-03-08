@@ -53,12 +53,13 @@ public class NewRecipeActivity extends AppCompatActivity {
             return;
         }
 
-        try {
-            viewModel.save();
-            Toast.makeText(this, getString(R.string.toast_new_recipe), Toast.LENGTH_SHORT).show();
-        } catch (IOException e) {
-            Toast.makeText(this, getString(R.string.toast_error_saving_image_file), Toast.LENGTH_SHORT).show();
-        }
+        viewModel.confirmFinishBySaving();
+        viewModel.save()
+                .thenRun(() -> runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_new_recipe), Toast.LENGTH_SHORT).show()))
+                .exceptionally(e -> {
+                    runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_error_saving_recipe), Toast.LENGTH_SHORT).show());
+                    return null;
+                });
 
         finish();
     }

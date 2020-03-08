@@ -7,6 +7,8 @@ import androidx.databinding.BindingAdapter;
 
 import com.bumptech.glide.Glide;
 
+import org.flauschhaus.broccoli.R;
+
 import javax.inject.Inject;
 
 import static android.text.TextUtils.isEmpty;
@@ -33,6 +35,7 @@ public class ImageBindingAdapter {
 
         Glide.with(imageView)
                 .load(recipeImageService.findImage(imageName))
+                .error(R.drawable.placeholder)
                 .centerCrop()
                 .into(imageView);
 

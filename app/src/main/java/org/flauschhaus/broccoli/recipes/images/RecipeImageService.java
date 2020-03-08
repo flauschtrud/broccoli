@@ -11,6 +11,8 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionException;
 
 import javax.inject.Inject;
 
@@ -21,10 +23,12 @@ public class RecipeImageService {
     private static final String AUTHORITY = "org.flauschhaus.broccoli.fileprovider";
 
     private Application application;
+    private Compressor compressor;
 
     @Inject
-    public RecipeImageService(Application application) {
+    public RecipeImageService(Application application, Compressor compressor) {
         this.application = application;
+        this.compressor = compressor;
     }
 
     public Uri createTemporaryImage() throws IOException {
@@ -35,25 +39,34 @@ public class RecipeImageService {
         return FileProvider.getUriForFile(application, AUTHORITY, temporaryImage);
     }
 
-    public void moveImage(String imageName) throws IOException {
-        File savedImage = getSavedImage(imageName);
-        File temporaryImage = getTemporaryImage(imageName);
+    public CompletableFuture<Void> moveImage(String imageName) {
+        return CompletableFuture.runAsync(() -> {
+            File savedImage = getSavedImage(imageName);
+            File temporaryImage = getTemporaryImage(imageName);
 
-        File compressedTemporaryFile = new Compressor(application).compressToFile(temporaryImage);
-        FileUtils.copy(compressedTemporaryFile, savedImage);
-
-        temporaryImage.delete();
-        compressedTemporaryFile.delete();
+            try {
+                File compressedTemporaryFile = compressor.compressToFile(temporaryImage);
+                FileUtils.copy(compressedTemporaryFile, savedImage);
+                temporaryImage.delete();
+                compressedTemporaryFile.delete();
+            } catch (IOException e) {
+                throw new CompletionException(e);
+            }
+        });
     }
 
-    public boolean deleteTemporaryImage(String imageName) {
-        File image = getTemporaryImage(imageName);
-        return image.delete();
+    public CompletableFuture<Boolean> deleteTemporaryImage(String imageName) {
+        return CompletableFuture.supplyAsync(() -> {
+            File image = getTemporaryImage(imageName);
+            return image.delete();
+        });
     }
 
-    public boolean deleteImage(String imageName) {
-        File image = findImage(imageName);
-        return image.delete();
+    public CompletableFuture<Boolean> deleteImage(String imageName) {
+        return CompletableFuture.supplyAsync(() -> {
+            File image = findImage(imageName);
+            return image.delete();
+        });
     }
 
     File findImage(String imageName) {

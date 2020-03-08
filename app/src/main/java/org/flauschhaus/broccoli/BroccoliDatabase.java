@@ -9,16 +9,10 @@ import androidx.room.RoomDatabase;
 import org.flauschhaus.broccoli.recipes.Recipe;
 import org.flauschhaus.broccoli.recipes.RecipeDAO;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 @Database(entities = {Recipe.class}, version = 1)
 public abstract class BroccoliDatabase extends RoomDatabase {
 
     private static BroccoliDatabase broccoliDatabase;
-
-    private static final int NUMBER_OF_THREADS = 4;
-    private static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
 
     public abstract RecipeDAO getRecipeDAO();
 
@@ -28,10 +22,6 @@ public abstract class BroccoliDatabase extends RoomDatabase {
                                     .build();
         }
         return broccoliDatabase;
-    }
-
-    public static ExecutorService getExecutorService() {
-        return EXECUTOR_SERVICE;
     }
 
 }

@@ -2,10 +2,10 @@ package org.flauschhaus.broccoli.recipes;
 
 import androidx.lifecycle.LiveData;
 
-import org.flauschhaus.broccoli.BroccoliDatabase;
 import org.flauschhaus.broccoli.recipes.images.RecipeImageService;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -29,13 +29,15 @@ public class RecipeRepository {
         return allRecipes;
     }
 
-    public void insert(Recipe recipe) {
-        BroccoliDatabase.getExecutorService().execute(() -> recipeDAO.insert(recipe));
+    public CompletableFuture<Void> insert(Recipe recipe) {
+        return CompletableFuture.runAsync(() -> recipeDAO.insert(recipe));
     }
 
-    public void delete(Recipe recipe) {
-        recipeImageService.deleteImage(recipe.getImageName());
-        BroccoliDatabase.getExecutorService().execute(() -> recipeDAO.delete(recipe));
+    public CompletableFuture<Void> delete(Recipe recipe) {
+        return CompletableFuture.allOf(
+                recipeImageService.deleteImage(recipe.getImageName()),
+                CompletableFuture.runAsync(() -> recipeDAO.delete(recipe))
+        );
     }
 
 }

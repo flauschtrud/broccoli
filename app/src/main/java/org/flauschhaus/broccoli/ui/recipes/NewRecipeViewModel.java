@@ -9,6 +9,7 @@ import org.flauschhaus.broccoli.recipes.RecipeRepository;
 import org.flauschhaus.broccoli.recipes.images.RecipeImageService;
 
 import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
 
 import javax.inject.Inject;
 
@@ -18,6 +19,7 @@ public class NewRecipeViewModel extends ViewModel {
     private RecipeImageService recipeImageService;
 
     private Recipe recipe = new Recipe();
+    private boolean isFinishedBySaving = false;
     private String imageName;
 
     @Inject
@@ -59,14 +61,19 @@ public class NewRecipeViewModel extends ViewModel {
         recipe.setImageName(imageName);
     }
 
-    void save() throws IOException {
-        recipeRepository.insert(recipe);
-        recipeImageService.moveImage(imageName);
-        imageName = null;
+    CompletableFuture<Void> save() {
+        if (imageName != null) {
+            return CompletableFuture.allOf(recipeImageService.moveImage(imageName), recipeRepository.insert(recipe));
+        }
+        return recipeRepository.insert(recipe);
+    }
+
+    void confirmFinishBySaving() {
+        this.isFinishedBySaving = true;
     }
 
     private void cleanUpTemporaryImage() {
-        if (imageName != null) {
+        if (!isFinishedBySaving && imageName != null) {
             recipeImageService.deleteTemporaryImage(imageName);
         }
     }

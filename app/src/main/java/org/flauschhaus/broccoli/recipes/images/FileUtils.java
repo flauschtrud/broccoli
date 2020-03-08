@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
-public class FileUtils {
+class FileUtils {
+
+    private FileUtils() {}
 
     static void copy(File source, File destination) throws IOException {
         try (InputStream in = new FileInputStream(source)) {
