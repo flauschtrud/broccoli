@@ -9,7 +9,7 @@ public class RecipeTestUtil {
         recipe.setTitle("Lauchkuchen");
         recipe.setDescription("Das essen wir alle sehr gerne!");
         recipe.setIngredients("500g Mehl\n2 Stangen Lauch");
-        recipe.setInstructions("1. Lauch schnippeln und Teig machen.\n2. Kochen und backen.");
+        recipe.setDirections("1. Lauch schnippeln und Teig machen.\n2. Kochen und backen.");
         return recipe;
     }
 

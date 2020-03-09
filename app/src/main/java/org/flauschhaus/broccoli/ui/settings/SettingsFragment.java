@@ -65,14 +65,17 @@ public class SettingsFragment extends Fragment {
         static Recipe createNusskuchen() {
             Recipe recipe = new Recipe();
             recipe.setTitle("Einfacher Nusskuchen");
-            recipe.setDescription("Dieser Nusskuchen kommt mit sehr wenigen Zutaten aus die man eigentlich immer im Haus hat \uD83D\uDE42 Ist also sehr einfach und dennoch mega lecker. Wer mag, kann den Kuchen hinterher ja noch mit geschmolzener Schokolade bestreichen oder mit Puderzucker bestreuen.\nQuelle: https://www.tinesveganebackstube.de/einfacher-nusskuchen/");
+            recipe.setDescription("Dieser Nusskuchen kommt mit sehr wenigen Zutaten aus die man eigentlich immer im Haus hat \uD83D\uDE42 Ist also sehr einfach und dennoch mega lecker. Wer mag, kann den Kuchen hinterher ja noch mit geschmolzener Schokolade bestreichen oder mit Puderzucker bestreuen.");
+            recipe.setSource("https://www.tinesveganebackstube.de/einfacher-nusskuchen/");
+            recipe.setServings("1 Kuchen");
+            recipe.setPreparationTime("30 Minuten");
             recipe.setIngredients("300 g helles Mehl\n" +
                     "300 g gemahlene Nüsse nach Wahl (ich nahm Haselnüsse)\n" +
                     "250 g Zucker (wer mag weniger nehmen)\n" +
                     "300 ml Pflanzenmilch\n" +
                     "1 Packung Backpulver\n Schokolade zum Überziehen des Kuchens\n" +
                     "Optional Haselnusskrokant");
-            recipe.setInstructions("Den Ofen auf 180 Grad Umluft (195 Grad Ober- und Unterhitze) vorheizen.\n" +
+            recipe.setDirections("Den Ofen auf 180 Grad Umluft (195 Grad Ober- und Unterhitze) vorheizen.\n" +
                     "Alle Zutaten der Reihe nach miteinander vermischen. Den Teig am besten nur sehr kurz vermischen, denn veganer Teig wird durch langes Umrühren etwas gummiartig.\n" +
                     "Den Teig in eine Kuchenform füllen. Je nachdem wie die Beschichtung von der Form ist, muss der Rand von der Form vorher eingefettet werden.\n" +
                     "Den Kuchen bei oben genannten Temperaturen für 45 Minuten backen. Stäbchenprobe nicht vergessen. Sollte der Kuchen zu dunkel werden, kann man ihn zwischendurch mit Alufolie abdecken.\n" +
@@ -84,7 +87,10 @@ public class SettingsFragment extends Fragment {
         static Recipe createKartoffelBlumenkohlPuffer() {
             Recipe recipe = new Recipe();
             recipe.setTitle("Kartoffel Blumenkohl Puffer");
-            recipe.setDescription("Leckere, vegane Kartoffel Blumenkohl Puffer, die garantiert jedem gelingen! Ohne Bindemittel, sojafrei, nussfrei und mit glutenfreier Option. Super für alle, die mit wenigen Zutaten etwas besonderes zaubern möchten. \nQuelle: https://www.healthyongreen.de/kartoffel-blumenkohl-puffer/");
+            recipe.setDescription("Leckere, vegane Kartoffel Blumenkohl Puffer, die garantiert jedem gelingen! Ohne Bindemittel, sojafrei, nussfrei und mit glutenfreier Option. Super für alle, die mit wenigen Zutaten etwas besonderes zaubern möchten.");
+            recipe.setSource("https://www.healthyongreen.de/kartoffel-blumenkohl-puffer/");
+            recipe.setServings("10 Stück");
+            recipe.setPreparationTime("1 Stunde");
             recipe.setIngredients("500 g festkochende Kartoffeln, geschält\n" +
                     "– 10 EL (glutenfreie) Haferflocken\n" +
                     "– 500 g Blumenkohl\n" +
@@ -94,7 +100,7 @@ public class SettingsFragment extends Fragment {
                     "– Chili nach Geschmack (optional)\n" +
                     "– einen Teller voll mit (glutenfreiem) Paniermehl\n" +
                     "– Öl zum Ausbacken");
-            recipe.setInstructions("Kartoffeln in Würfel schneiden und in einem Topf garen, bis sie weich sind. Wasser abgießen, die Kartoffeln in eine Schüssel geben und mit einer Gabel zerdrücken. Haferflocken dazugeben, umrühren und alles circa 10 Minuten quellen lassen. In der Zwischenzeit den Blumenkohl weich kochen (er kann ruhig noch ein wenig Biss haben).\n" +
+            recipe.setDirections("Kartoffeln in Würfel schneiden und in einem Topf garen, bis sie weich sind. Wasser abgießen, die Kartoffeln in eine Schüssel geben und mit einer Gabel zerdrücken. Haferflocken dazugeben, umrühren und alles circa 10 Minuten quellen lassen. In der Zwischenzeit den Blumenkohl weich kochen (er kann ruhig noch ein wenig Biss haben).\n" +
                     "Wasser abgießen und die Blumenkohlröschen zu den Kartoffeln geben und ebenfalls mit der Gabel zerdrücken. Mit Kurkuma, Minze, Pfeffer, Salz und Chili abschmecken.\n" +
                     "\n" +
                     "Aus dem Kartoffel-Blumenkohl-Mix Puffer formen. Falls die Masse an den Händen zu sehr kleben sollte, könnt ihr sie mit ein wenig Mehl bestäuben, um sie besser formen zu können. Die Puffer in Paniermehl wenden und in einer Antihaft Pfanne etwas Öl erhitzen. Die Kartoffel Blumenkohl Puffer von beiden Seiten goldbraun braten und servieren.");
@@ -104,7 +110,10 @@ public class SettingsFragment extends Fragment {
         static Recipe createVeganesMett() {
             Recipe recipe = new Recipe();
             recipe.setTitle("Veganes Mett");
-            recipe.setDescription("Viel veganes Mett für wenig Geld! Sieht gruselig echt aus, schmeckt großartig und es lässt sich sogar ein veganer Mettigel daraus zaubern. \nQuelle: https://www.veganguerilla.de/mett-mett-mett/");
+            recipe.setDescription("Viel veganes Mett für wenig Geld! Sieht gruselig echt aus, schmeckt großartig und es lässt sich sogar ein veganer Mettigel daraus zaubern.");
+            recipe.setSource("https://www.veganguerilla.de/mett-mett-mett/");
+            recipe.setServings("1");
+            recipe.setPreparationTime("15 Minuten");
             recipe.setIngredients("100g Naturreiswaffeln\n" +
                     "2-3 kleine Zwiebeln\n" +
                     "ca. 350 ml Wasser\n" +
@@ -112,7 +121,7 @@ public class SettingsFragment extends Fragment {
                     "Salz\n" +
                     "Pfeffer\n" +
                     "Optional: weitere Gewürze, z.B. Paprikapulver, Smoked Paprika, Chilipulver, Rauchsalz, Cayenne-Pfeffer");
-            recipe.setInstructions("Die Reiswaffeln klein bröseln und in eine Schale geben. Etwa 300 – 400 ml (kaltes) Wasser hinzugeben, bis das ganze eine leicht matschige Konsistenz hat. Lieber zunächst etwas weniger Wasser verwenden und gut durchkneten / stampfen. Gegebenenfalls weiteres Wasser hinzufügen und das Ganze noch einmal wiederholen.\n" +
+            recipe.setDirections("Die Reiswaffeln klein bröseln und in eine Schale geben. Etwa 300 – 400 ml (kaltes) Wasser hinzugeben, bis das ganze eine leicht matschige Konsistenz hat. Lieber zunächst etwas weniger Wasser verwenden und gut durchkneten / stampfen. Gegebenenfalls weiteres Wasser hinzufügen und das Ganze noch einmal wiederholen.\n" +
                     "\n" +
                     "Dann die Zwiebeln klein hacken und ebenfalls zu der Reiswaffelmatsche geben. Für die Farbe etwa 40g Tomatenmark dazu, dann noch eine ganze Menge Salz und Pfeffer dazu. Optional mit weiteren Gewürzen (Vorschläge siehe Zutatenliste) abschmecken.\n" +
                     "\n" +

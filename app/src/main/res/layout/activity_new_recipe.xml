@@ -82,54 +82,179 @@
 
             </RelativeLayout>
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/icon_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/new_title"
+                    app:layout_constraintTop_toTopOf="@id/new_title"
+                    app:layout_constraintBottom_toBottomOf="@id/new_title"
+                    android:src="@drawable/ic_title_24dp"
+                    android:tint="@color/divider"/>
 
                 <EditText
                     android:id="@+id/new_title"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/icon_title"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_margin="20dp"
+                    android:lines="1"
                     android:hint="@string/hint_new_recipe_title"
                     android:text="@={viewModel.recipe.title}"/>
 
+                <ImageView
+                    android:id="@+id/icon_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/new_description"
+                    app:layout_constraintTop_toTopOf="@id/new_description"
+                    app:layout_constraintBottom_toBottomOf="@id/new_description"
+                    android:src="@drawable/ic_info_24dp"
+                    android:tint="@color/divider"/>
+
                 <EditText
                     android:id="@+id/new_description"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:minLines="3"
+                    app:layout_constraintTop_toBottomOf="@id/new_title"
+                    app:layout_constraintStart_toEndOf="@id/icon_description"
+                    app:layout_constraintEnd_toEndOf="parent"
                     android:maxLines="10"
-                    android:layout_marginBottom="20dp"
+                    android:layout_margin="20dp"
                     android:hint="@string/hint_new_recipe_description"
                     android:gravity="top"
                     android:text="@={viewModel.recipe.description}"/>
 
+                <ImageView
+                    android:id="@+id/icon_source"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/new_source"
+                    app:layout_constraintTop_toTopOf="@id/new_source"
+                    app:layout_constraintBottom_toBottomOf="@id/new_source"
+                    android:src="@drawable/ic_link_24dp"
+                    android:tint="@color/divider"/>
+
+                <EditText
+                    android:id="@+id/new_source"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/new_description"
+                    app:layout_constraintStart_toEndOf="@id/icon_source"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_margin="20dp"
+                    android:lines="1"
+                    android:hint="@string/hint_new_recipe_source"
+                    android:gravity="top"
+                    android:text="@={viewModel.recipe.source}"/>
+
+                <ImageView
+                    android:id="@+id/icon_servings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/new_servings"
+                    app:layout_constraintTop_toTopOf="@id/new_servings"
+                    app:layout_constraintBottom_toBottomOf="@id/new_servings"
+                    android:src="@drawable/ic_person_24dp"
+                    android:tint="@color/divider"/>
+
+                <EditText
+                    android:id="@+id/new_servings"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/new_source"
+                    app:layout_constraintStart_toEndOf="@id/icon_servings"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_margin="20dp"
+                    android:lines="1"
+                    android:hint="@string/hint_new_recipe_servings"
+                    android:gravity="top"
+                    android:text="@={viewModel.recipe.servings}"/>
+
+                <ImageView
+                    android:id="@+id/icon_preparation_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/new_preparation_time"
+                    app:layout_constraintTop_toTopOf="@id/new_preparation_time"
+                    app:layout_constraintBottom_toBottomOf="@id/new_preparation_time"
+                    android:src="@drawable/ic_time_24dp"
+                    android:tint="@color/divider"/>
+
+                <EditText
+                    android:id="@+id/new_preparation_time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/new_servings"
+                    app:layout_constraintStart_toEndOf="@id/icon_preparation_time"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_margin="20dp"
+                    android:lines="1"
+                    android:hint="@string/hint_new_recipe_preparation_time"
+                    android:gravity="top"
+                    android:text="@={viewModel.recipe.preparationTime}"/>
+
+                <ImageView
+                    android:id="@+id/icon_ingredients"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/new_ingredients"
+                    app:layout_constraintTop_toTopOf="@id/new_ingredients"
+                    app:layout_constraintBottom_toBottomOf="@id/new_ingredients"
+                    android:src="@drawable/ic_list_bulleted_24dp"
+                    android:tint="@color/divider"/>
+
                 <EditText
                     android:id="@+id/new_ingredients"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:minLines="3"
+                    app:layout_constraintTop_toBottomOf="@id/new_preparation_time"
+                    app:layout_constraintStart_toEndOf="@id/icon_ingredients"
+                    app:layout_constraintEnd_toEndOf="parent"
                     android:maxLines="10"
-                    android:layout_marginBottom="20dp"
+                    android:layout_margin="20dp"
                     android:hint="@string/hint_new_recipe_ingredients"
                     android:gravity="top"
                     android:text="@={viewModel.recipe.ingredients}"/>
 
-                <EditText
-                    android:id="@+id/new_instructions"
-                    android:layout_width="match_parent"
+                <ImageView
+                    android:id="@+id/icon_directions"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:minLines="3"
-                    android:maxLines="10"
-                    android:layout_marginBottom="20dp"
-                    android:hint="@string/hint_new_recipe_instructions"
-                    android:gravity="top"
-                    android:text="@={viewModel.recipe.instructions}"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/new_directions"
+                    app:layout_constraintTop_toTopOf="@id/new_directions"
+                    app:layout_constraintBottom_toBottomOf="@id/new_directions"
+                    android:src="@drawable/ic_list_numbered_24dp"
+                    android:tint="@color/divider"/>
 
-            </LinearLayout>
+                <EditText
+                    android:id="@+id/new_directions"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/new_ingredients"
+                    app:layout_constraintStart_toEndOf="@id/icon_directions"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:maxLines="10"
+                    android:layout_margin="20dp"
+                    android:hint="@string/hint_new_recipe_directions"
+                    android:gravity="top"
+                    android:text="@={viewModel.recipe.directions}"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
 

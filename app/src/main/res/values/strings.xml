@@ -16,8 +16,8 @@
     <string name="action_save">Save</string>
     <string name="toast_new_recipe">New recipe added.</string>
     <string name="toast_title_is_empty">Please add a title.</string>
-    <string name="hint_new_recipe_instructions">Instructions</string>
-    <string name="instructions">Instructions</string>
+    <string name="hint_new_recipe_directions">Directions</string>
+    <string name="directions">Directions</string>
     <string name="hint_new_recipe_ingredients">Ingredients</string>
     <string name="ingredients">Ingredients</string>
     <string name="toast_error_creating_image_file">Could not create image file.</string>
@@ -27,4 +27,7 @@
     <string name="cancel">Cancel</string>
     <string name="dialog_delete_recipe">Delete this recipe?</string>
     <string name="toast_error_saving_recipe">Could not save recipe.</string>
+    <string name="hint_new_recipe_source">Source</string>
+    <string name="hint_new_recipe_servings">Servings</string>
+    <string name="hint_new_recipe_preparation_time">Time</string>
 </resources>

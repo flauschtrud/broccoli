@@ -60,9 +60,9 @@ public class RecipeDetailsActivityTest {
         onView(allOf(withId(R.id.ingredient_text), hasSibling(withText("2"))))
                 .check(matches(withText(" Stangen Lauch")));
 
-        onView(allOf(withId(R.id.instruction_text), hasSibling(withText("1"))))
+        onView(allOf(withId(R.id.direction_text), hasSibling(withText("1"))))
                 .check(matches(withText("Lauch schnippeln und Teig machen.")));
-        onView(allOf(withId(R.id.instruction_text), hasSibling(withText("2"))))
+        onView(allOf(withId(R.id.direction_text), hasSibling(withText("2"))))
                 .check(matches(withText("Kochen und backen.")));
 
     }

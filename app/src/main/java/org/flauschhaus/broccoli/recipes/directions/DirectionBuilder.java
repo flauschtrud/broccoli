@@ -1,4 +1,4 @@
-package org.flauschhaus.broccoli.recipes.instructions;
+package org.flauschhaus.broccoli.recipes.directions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,19 +6,19 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class InstructionBuilder {
+public class DirectionBuilder {
 
     private static final Pattern newLinePattern = Pattern.compile("\n");
 
-    private InstructionBuilder() {}
+    private DirectionBuilder() {}
 
-    public static List<Instruction> from(String instructions) {
+    public static List<Direction> from(String directions) {
 
-        if (instructions ==  null) {
+        if (directions ==  null) {
             return new ArrayList<>();
         }
 
-        String[] split = newLinePattern.splitAsStream(instructions)
+        String[] split = newLinePattern.splitAsStream(directions)
                 .map(s -> s.replaceFirst("^\\s*(\\d+\\.)(?!$)", ""))
                 .map(String::trim)
                 .filter(s -> !s.isEmpty())
@@ -26,7 +26,7 @@ public class InstructionBuilder {
 
         return IntStream
                 .range(0, split.length)
-                .mapToObj(i -> new Instruction(i+1, split[i]))
+                .mapToObj(i -> new Direction(i+1, split[i]))
                 .collect(Collectors.toList());
     }
 }

@@ -1,13 +1,13 @@
-package org.flauschhaus.broccoli.recipes.instructions;
+package org.flauschhaus.broccoli.recipes.directions;
 
 import java.util.Objects;
 
-public class Instruction {
+public class Direction {
 
     private int position;
     private String text;
 
-    Instruction(int position, String text) {
+    Direction(int position, String text) {
         this.position = position;
         this.text = text;
     }
@@ -24,7 +24,7 @@ public class Instruction {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Instruction that = (Instruction) o;
+        Direction that = (Direction) o;
         return position == that.position &&
                 Objects.equals(text, that.text);
     }
@@ -36,7 +36,7 @@ public class Instruction {
 
     @Override
     public String toString() {
-        return "Instruction{" +
+        return "Direction{" +
                 "position=" + position +
                 ", text='" + text + '\'' +
                 '}';

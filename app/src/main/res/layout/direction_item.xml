@@ -3,7 +3,7 @@
 <layout>
 
     <data>
-        <variable name="instruction" type="org.flauschhaus.broccoli.recipes.instructions.Instruction" />
+        <variable name="direction" type="org.flauschhaus.broccoli.recipes.directions.Direction" />
     </data>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -12,7 +12,7 @@
         android:padding="5dp">
 
         <TextView
-            android:id="@+id/instruction_position"
+            android:id="@+id/direction_position"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
@@ -20,14 +20,14 @@
             android:backgroundTint="@color/colorAccent"
             android:textColor="@android:color/primary_text_dark"
             android:gravity="center"
-            android:text="@{String.valueOf(instruction.position)}"/>
+            android:text="@{String.valueOf(direction.position)}"/>
 
         <TextView
-            android:id="@+id/instruction_text"
-            android:layout_toEndOf="@+id/instruction_position"
+            android:id="@+id/direction_text"
+            android:layout_toEndOf="@+id/direction_position"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{instruction.text}"/>
+            android:text="@{direction.text}"/>
 
     </RelativeLayout>
 

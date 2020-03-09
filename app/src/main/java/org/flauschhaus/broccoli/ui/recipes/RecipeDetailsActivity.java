@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -18,12 +19,12 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.databinding.ActivityRecipeDetailsBinding;
+import org.flauschhaus.broccoli.databinding.DirectionItemBinding;
 import org.flauschhaus.broccoli.databinding.IngredientItemBinding;
-import org.flauschhaus.broccoli.databinding.InstructionItemBinding;
 import org.flauschhaus.broccoli.recipes.Recipe;
 import org.flauschhaus.broccoli.recipes.RecipeRepository;
 import org.flauschhaus.broccoli.recipes.ingredients.IngredientBuilder;
-import org.flauschhaus.broccoli.recipes.instructions.InstructionBuilder;
+import org.flauschhaus.broccoli.recipes.directions.DirectionBuilder;
 
 import javax.inject.Inject;
 
@@ -72,13 +73,13 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    @BindingAdapter("instructions")
-    public static void bindInstructions(LinearLayout layout, String instructions) {
+    @BindingAdapter("directions")
+    public static void bindDirections(LinearLayout layout, String directions) {
         LayoutInflater inflater = getLayoutInflater(layout);
 
-        InstructionBuilder.from(instructions).forEach(instruction -> {
-            InstructionItemBinding binding = DataBindingUtil.inflate(inflater, R.layout.instruction_item, layout, true);
-            binding.setInstruction(instruction);
+        DirectionBuilder.from(directions).forEach(direction -> {
+            DirectionItemBinding binding = DataBindingUtil.inflate(inflater, R.layout.direction_item, layout, true);
+            binding.setDirection(direction);
         });
     }
 

@@ -16,8 +16,12 @@ public class Recipe extends BaseObservable implements Serializable {
     private String title = "";
     private String imageName = "";
     private String description = "";
+    private String servings = "";
+    private String preparationTime = "";
+    private String source = "";
+
     private String ingredients = "";
-    private String instructions = "";
+    private String directions = "";
 
     public int getId() {
         return id;
@@ -53,6 +57,30 @@ public class Recipe extends BaseObservable implements Serializable {
         this.description = description;
     }
 
+    public String getServings() {
+        return servings;
+    }
+
+    public void setServings(String servings) {
+        this.servings = servings;
+    }
+
+    public String getPreparationTime() {
+        return preparationTime;
+    }
+
+    public void setPreparationTime(String preparationTime) {
+        this.preparationTime = preparationTime;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
     public String getIngredients() {
         return ingredients;
     }
@@ -61,12 +89,12 @@ public class Recipe extends BaseObservable implements Serializable {
         this.ingredients = ingredients;
     }
 
-    public String getInstructions() {
-        return instructions;
+    public String getDirections() {
+        return directions;
     }
 
-    public void setInstructions(String instructions) {
-        this.instructions = instructions;
+    public void setDirections(String directions) {
+        this.directions = directions;
     }
 
     @Override
@@ -78,13 +106,15 @@ public class Recipe extends BaseObservable implements Serializable {
                 Objects.equals(title, recipe.title) &&
                 Objects.equals(imageName, recipe.imageName) &&
                 Objects.equals(description, recipe.description) &&
+                Objects.equals(servings, recipe.servings) &&
+                Objects.equals(preparationTime, recipe.preparationTime) &&
+                Objects.equals(source, recipe.source) &&
                 Objects.equals(ingredients, recipe.ingredients) &&
-                Objects.equals(instructions, recipe.instructions);
+                Objects.equals(directions, recipe.directions);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, imageName, description, ingredients, instructions);
+        return Objects.hash(id, title, imageName, description, servings, preparationTime, source, ingredients, directions);
     }
-
 }

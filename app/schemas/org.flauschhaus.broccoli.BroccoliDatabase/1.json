@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "8e97f0953356b194c77831b8e61d8c5c",
+    "identityHash": "36468ed37f601277df50f4f6268424c8",
     "entities": [
       {
         "tableName": "recipes",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `imageName` TEXT, `description` TEXT, `ingredients` TEXT, `instructions` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `imageName` TEXT, `description` TEXT, `servings` TEXT, `preparationTime` TEXT, `source` TEXT, `ingredients` TEXT, `directions` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -33,14 +33,32 @@
             "notNull": false
           },
           {
+            "fieldPath": "servings",
+            "columnName": "servings",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "preparationTime",
+            "columnName": "preparationTime",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "source",
+            "columnName": "source",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
             "fieldPath": "ingredients",
             "columnName": "ingredients",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "instructions",
-            "columnName": "instructions",
+            "fieldPath": "directions",
+            "columnName": "directions",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -58,7 +76,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8e97f0953356b194c77831b8e61d8c5c')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '36468ed37f601277df50f4f6268424c8')"
     ]
   }
 }

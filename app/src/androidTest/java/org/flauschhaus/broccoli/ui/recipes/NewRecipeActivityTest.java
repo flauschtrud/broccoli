@@ -35,7 +35,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
-import static org.hamcrest.Matchers.startsWith;
 
 @RunWith(AndroidJUnit4.class)
 public class NewRecipeActivityTest {
@@ -71,7 +70,7 @@ public class NewRecipeActivityTest {
                 pressKey(KeyEvent.KEYCODE_ENTER),
                 typeText("2 Stangen Lauch")
         );
-        onView(withId(R.id.new_instructions)).perform(
+        onView(withId(R.id.new_directions)).perform(
                 closeSoftKeyboard(),
                 typeText("1. Lauch schnippeln und Teig machen."),
                 pressKey(KeyEvent.KEYCODE_ENTER),
@@ -84,7 +83,7 @@ public class NewRecipeActivityTest {
         assertThat(recipe.getTitle(), is(lauchkuchen.getTitle()));
         assertThat(recipe.getDescription(), is(lauchkuchen.getDescription()));
         assertThat(recipe.getIngredients(), is(lauchkuchen.getIngredients()));
-        assertThat(recipe.getInstructions(), is(lauchkuchen.getInstructions()));
+        assertThat(recipe.getDirections(), is(lauchkuchen.getDirections()));
         assertThat(recipe.getImageName(), startsWith("JPEG_"));*/
 
        // TODO toast
