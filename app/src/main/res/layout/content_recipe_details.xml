@@ -19,13 +19,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="@dimen/text_margin">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="@{TextUtils.isEmpty(recipe.servings) &amp;&amp; TextUtils.isEmpty(recipe.preparationTime) ? View.GONE : View.VISIBLE}"
-                android:layout_margin="@dimen/text_margin">
+                android:visibility="@{TextUtils.isEmpty(recipe.servings) &amp;&amp; TextUtils.isEmpty(recipe.preparationTime) ? View.GONE : View.VISIBLE}">
 
                 <ImageView
                     android:id="@+id/details_icon_servings"
@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@id/details_icon_servings"
-                    android:layout_marginStart="@dimen/text_margin"
+                    android:layout_marginStart="5dp"
                     android:text="@{recipe.servings}" />
 
                 <ImageView
@@ -68,83 +68,101 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@id/details_icon_preparation_time"
-                    android:layout_marginStart="@dimen/text_margin"
+                    android:layout_marginStart="5dp"
                     android:text="@{recipe.preparationTime}" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/details_description"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/text_margin"
-                android:visibility="@{TextUtils.isEmpty(recipe.description) ? View.GONE : View.VISIBLE}"
-                android:text="@{recipe.description}" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/text_margin"
-                android:visibility="@{TextUtils.isEmpty(recipe.source) ? View.GONE : View.VISIBLE}">
-
-                <ImageView
-                    android:id="@+id/details_icon_source"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/details_source"
-                    app:layout_constraintBottom_toBottomOf="@id/details_source"
-                    android:src="@drawable/ic_link_24dp"
-                    android:tint="@color/divider"/>
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/text_margin"
+                android:visibility="@{TextUtils.isEmpty(recipe.description) &amp;&amp; TextUtils.isEmpty(recipe.source) ? View.GONE : View.VISIBLE}">
 
                 <TextView
-                    android:id="@+id/details_source"
-                    android:layout_width="0dp"
+                    android:id="@+id/details_description"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/details_icon_source"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginStart="@dimen/text_margin"
-                    android:autoLink="web"
-                    android:text="@{recipe.source}" />
+                    android:layout_marginBottom="5dp"
+                    android:visibility="@{TextUtils.isEmpty(recipe.description) ? View.GONE : View.VISIBLE}"
+                    android:text="@{recipe.description}" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{TextUtils.isEmpty(recipe.source) ? View.GONE : View.VISIBLE}">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/text_margin"
-                android:layout_marginEnd="@dimen/text_margin"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:visibility="@{TextUtils.isEmpty(recipe.ingredients) ? View.GONE : View.VISIBLE}"
-                android:text="@string/ingredients" />
+                    <ImageView
+                        android:id="@+id/details_icon_source"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/details_source"
+                        app:layout_constraintBottom_toBottomOf="@id/details_source"
+                        android:src="@drawable/ic_link_24dp"
+                        android:tint="@color/divider"/>
 
-            <LinearLayout
-                android:id="@+id/details_ingredients"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_margin="@dimen/text_margin"
-                android:visibility="@{TextUtils.isEmpty(recipe.ingredients) ? View.GONE : View.VISIBLE}"
-                app:ingredients="@{recipe.ingredients}" />
+                    <TextView
+                        android:id="@+id/details_source"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/details_icon_source"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginStart="10dp"
+                        android:autoLink="web"
+                        android:text="@{recipe.source}" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/text_margin"
-                android:layout_marginEnd="@dimen/text_margin"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:visibility="@{TextUtils.isEmpty(recipe.directions) ? View.GONE : View.VISIBLE}"
-                android:text="@string/directions" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/details_directions"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_margin="@dimen/text_margin"
-                android:visibility="@{TextUtils.isEmpty(recipe.directions) ? View.GONE : View.VISIBLE}"
-                app:directions="@{recipe.directions}" />
+                android:layout_marginTop="@dimen/text_margin"
+                android:visibility="@{TextUtils.isEmpty(recipe.ingredients) ? View.GONE : View.VISIBLE}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="@string/ingredients" />
+
+                <LinearLayout
+                    android:id="@+id/details_ingredients"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:ingredients="@{recipe.ingredients}" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/text_margin"
+                android:visibility="@{TextUtils.isEmpty(recipe.directions) ? View.GONE : View.VISIBLE}">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:text="@string/directions" />
+
+                <LinearLayout
+                    android:id="@+id/details_directions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:directions="@{recipe.directions}" />
+
+            </LinearLayout>
 
         </LinearLayout>
 
