@@ -2,6 +2,7 @@ package org.flauschhaus.broccoli.ui.recipes;
 
 import android.app.Instrumentation;
 import android.content.Intent;
+import android.net.Uri;
 import android.provider.MediaStore;
 import android.view.KeyEvent;
 import android.view.View;
@@ -9,14 +10,26 @@ import android.view.View;
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.espresso.intent.Intents;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
 
+import org.flauschhaus.broccoli.BroccoliApplication;
+import org.flauschhaus.broccoli.DaggerMockApplicationComponent;
+import org.flauschhaus.broccoli.MockApplicationComponent;
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.recipes.Recipe;
+import org.flauschhaus.broccoli.recipes.RecipeRepository;
+import org.flauschhaus.broccoli.recipes.images.RecipeImageService;
 import org.flauschhaus.broccoli.util.RecipeTestUtil;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+
+import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
+
+import javax.inject.Inject;
 
 import static android.app.Activity.RESULT_OK;
 import static androidx.test.core.app.ActivityScenario.launch;
@@ -35,15 +48,36 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
+import static org.hamcrest.Matchers.startsWith;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.when;
 
 @RunWith(AndroidJUnit4.class)
 public class NewRecipeActivityTest {
 
-    private View decorView;
+    @Inject
+    RecipeRepository recipeRepository;
+
+    @Inject
+    RecipeImageService recipeImageService;
+
+    private Uri uri =  mock(Uri.class); // TODO how to make @Mock work?
+
     private ActivityScenario<NewRecipeActivity> scenario;
+
+    private View decorView;
+    private ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
 
     @Before
     public void setUp() {
+        // TODO find out how to get a JUnit role working
+        MockApplicationComponent component = DaggerMockApplicationComponent.builder()
+                .application(getApplication())
+                .build();
+        component.inject(this);
+        component.inject(getApplication());
+
         Intents.init();
         scenario = launch(NewRecipeActivity.class);
         scenario.onActivity(activity -> decorView = activity.getWindow().getDecorView());
@@ -55,15 +89,28 @@ public class NewRecipeActivityTest {
         Intents.release();
     }
 
+    private BroccoliApplication getApplication() {
+        return (BroccoliApplication) InstrumentationRegistry.getInstrumentation()
+                .getTargetContext().getApplicationContext();
+    }
+
     @Test
-    public void clicking_save_should_return_the_new_recipe() {
+    public void save_new_recipe() throws IOException {
         Recipe lauchkuchen = RecipeTestUtil.createLauchkuchen();
+
+        when(recipeImageService.createTemporaryImage()).thenReturn(uri);
+        when(uri.getLastPathSegment()).thenReturn("12345.jpg");
+        when(recipeRepository.insert(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(null));
+        when(recipeImageService.moveImage("12345.jpg")).thenReturn(CompletableFuture.completedFuture(null));
 
         intending(hasAction(MediaStore.ACTION_IMAGE_CAPTURE)).respondWith(new Instrumentation.ActivityResult(RESULT_OK, new Intent()));
 
         onView(withId(R.id.new_image)).perform(click());
         onView(withId(R.id.new_title)).perform(typeText(lauchkuchen.getTitle()));
         onView(withId(R.id.new_description)).perform(typeText(lauchkuchen.getDescription()));
+        onView(withId(R.id.new_source)).perform(typeText(lauchkuchen.getSource()));
+        onView(withId(R.id.new_servings)).perform(closeSoftKeyboard(), typeText(lauchkuchen.getServings()));
+        onView(withId(R.id.new_preparation_time)).perform(closeSoftKeyboard(), typeText(lauchkuchen.getPreparationTime()));
         onView(withId(R.id.new_ingredients)).perform(
                 closeSoftKeyboard(),
                 typeText("500g Mehl"),
@@ -78,25 +125,27 @@ public class NewRecipeActivityTest {
         );
         onView(withId(R.id.button_save_recipe)).perform(click()); // TODO find out why there sometimes is such a long wait
 
-        // TODO mock repository
-       /* Recipe recipe = (Recipe) scenario.getResult().getResultData().getSerializableExtra(NewRecipeActivity.EXTRA_REPLY);
+        Recipe recipe = recipeCaptor.getValue();
         assertThat(recipe.getTitle(), is(lauchkuchen.getTitle()));
         assertThat(recipe.getDescription(), is(lauchkuchen.getDescription()));
+        assertThat(recipe.getSource(), is(lauchkuchen.getSource()));
+        assertThat(recipe.getServings(), is(lauchkuchen.getServings()));
+        assertThat(recipe.getPreparationTime(), is(lauchkuchen.getPreparationTime()));
         assertThat(recipe.getIngredients(), is(lauchkuchen.getIngredients()));
         assertThat(recipe.getDirections(), is(lauchkuchen.getDirections()));
-        assertThat(recipe.getImageName(), startsWith("JPEG_"));*/
-
-       // TODO toast
+        assertThat(recipe.getImageName(), startsWith("12345.jpg"));
     }
 
     @Test
-    public void clicking_save_without_title_just_shows_toast() {
+    public void do_not_save_when_title_is_empty() {
         onView(withId(R.id.new_title)).perform(typeText("       "));
         onView(withId(R.id.button_save_recipe)).perform(click());
 
         onView(withText(R.string.toast_title_is_empty))
                 .inRoot(withDecorView(not(decorView)))
                 .check(matches(isDisplayed()));
+
+        verifyNoMoreInteractions(recipeRepository);
     }
 
 }

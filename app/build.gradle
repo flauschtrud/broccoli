@@ -66,14 +66,21 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     testImplementation 'junit:junit:4.13'
-    testImplementation 'org.mockito:mockito-core:2.18.3'
+    testImplementation 'org.mockito:mockito-core:3.3.0'
     testImplementation 'org.hamcrest:hamcrest:2.2'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'org.mockito:mockito-core:3.3.0'
+    androidTestImplementation 'org.mockito:mockito-android:3.3.0'
     androidTestImplementation 'androidx.test:core:1.2.0'
+
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-intents:3.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.2.0'
+
+    androidTestImplementation 'com.google.dagger:dagger:2.26'
+    androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:2.26"
+
 }
 
 def getDate() {

@@ -1,21 +1,26 @@
 package org.flauschhaus.broccoli.ui.recipes;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.view.View;
-
-import androidx.fragment.app.testing.FragmentScenario;
+import androidx.lifecycle.MutableLiveData;
 import androidx.test.espresso.intent.Intents;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
 
+import org.flauschhaus.broccoli.BroccoliApplication;
+import org.flauschhaus.broccoli.DaggerMockApplicationComponent;
+import org.flauschhaus.broccoli.MockApplicationComponent;
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.recipes.Recipe;
+import org.flauschhaus.broccoli.recipes.RecipeRepository;
 import org.flauschhaus.broccoli.util.RecipeTestUtil;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
 
 import static androidx.fragment.app.testing.FragmentScenario.launchInContainer;
 import static androidx.test.espresso.Espresso.onView;
@@ -25,29 +30,37 @@ import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtP
 import static androidx.test.espresso.intent.Intents.intended;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasExtra;
-import static androidx.test.espresso.matcher.RootMatchers.withDecorView;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.flauschhaus.broccoli.util.RecyclerViewAssertions.hasItemsCount;
 import static org.flauschhaus.broccoli.util.RecyclerViewMatcher.withRecyclerView;
 import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.Matchers.not;
+import static org.mockito.Mockito.when;
 
-//TODO mock repository
 @RunWith(AndroidJUnit4.class)
 public class RecipesFragmentTest {
 
-    private View decorView;
-    private FragmentScenario<RecipesFragment> scenario;
+    @Inject
+    RecipeRepository recipeRepository;
 
     private final Recipe lauchkuchen = RecipeTestUtil.createLauchkuchen();
+    private final Recipe nusskuchen = RecipeTestUtil.createNusskuchen();
 
     @Before
     public void setUp() {
+        MockApplicationComponent component = DaggerMockApplicationComponent.builder()
+                .application(getApplication())
+                .build();
+        component.inject(this);
+        component.inject(getApplication());
+
+        List<Recipe> recipes = new ArrayList<>();
+        recipes.add(lauchkuchen);
+        recipes.add(nusskuchen);
+        when(recipeRepository.findAll()).thenReturn(new MutableLiveData<>(recipes));
+
         Intents.init();
-        scenario = launchInContainer(RecipesFragment.class);
-        scenario.onFragment(fragment -> decorView = fragment.getActivity().getWindow().getDecorView());
+        launchInContainer(RecipesFragment.class);
     }
 
     @After
@@ -55,33 +68,31 @@ public class RecipesFragmentTest {
         Intents.release();
     }
 
+    private BroccoliApplication getApplication() {
+        return (BroccoliApplication) InstrumentationRegistry.getInstrumentation()
+                .getTargetContext().getApplicationContext();
+    }
+
     @Test
-    public void click_on_fab_should_trigger_new_recipe_activity() {
+    public void trigger_new_recipe_activity_when_fab_is_clicked() {
         onView(withId(R.id.fab)).perform(click());
         intended(hasComponent(NewRecipeActivity.class.getName()));
     }
 
     @Test
-    @Ignore("Testing on Android sucks...")
-    public void received_recipe_should_be_added_to_list() throws InterruptedException {
-        /*scenario.onFragment(fragment -> {
-            fragment.onActivityResult(
-                    RecipesFragment.NEW_RECIPE_ACTIVITY_REQUEST_CODE,
-                    Activity.RESULT_OK,
-                    new Intent().putExtra(NewRecipeActivity.EXTRA_REPLY, lauchkuchen));
-        });*/
+    public void recipes_are_shown_in_list() {
+        onView(withId(R.id.recycler_view)).check(hasItemsCount(2));
 
-        onView(withText(R.string.toast_new_recipe))
-                .inRoot(withDecorView(not(decorView)))
-                .check(matches(isDisplayed()));
-
-        Thread.sleep(1000); // TODO don't do this and rather try to understand idling resources
-
-        onView(withId(R.id.recycler_view)).check(hasItemsCount(1)); // TODO seems to be 2
         onView(withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_title)).check(matches(withText(lauchkuchen.getTitle())));
         onView(withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_description)).check(matches(withText(lauchkuchen.getDescription())));
 
-        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(1, click()));
+        onView(withRecyclerView(R.id.recycler_view).atPositionOnView(1, R.id.card_text_view_title)).check(matches(withText(nusskuchen.getTitle())));
+        onView(withRecyclerView(R.id.recycler_view).atPositionOnView(1, R.id.card_text_view_description)).check(matches(withText(nusskuchen.getDescription())));
+    }
+
+    @Test
+    public void show_details_of_selected_recipe() {
+        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(0, click()));
 
         intended(allOf(
                 hasComponent(RecipeDetailsActivity.class.getName()),
