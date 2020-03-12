@@ -41,14 +41,18 @@ import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.intent.Intents.intending;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasAction;
+import static androidx.test.espresso.matcher.RootMatchers.isDialog;
 import static androidx.test.espresso.matcher.RootMatchers.withDecorView;
+import static androidx.test.espresso.matcher.ViewMatchers.isClickable;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
+import static org.hamcrest.core.AllOf.allOf;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
@@ -146,6 +150,15 @@ public class NewRecipeActivityTest {
                 .check(matches(isDisplayed()));
 
         verifyNoMoreInteractions(recipeRepository);
+    }
+
+    @Test
+    public void show_warning_on_cancel_when_recipe_is_dirty() {
+        onView(withId(R.id.new_title)).perform(typeText("Mjam mjam"));
+        onView(allOf(withContentDescription(R.string.toolbar_navigate_up), isClickable())).perform(click());
+        onView(withText(R.string.dialog_discard_changes))
+                .inRoot(isDialog())
+                .check(matches(isDisplayed()));
     }
 
 }

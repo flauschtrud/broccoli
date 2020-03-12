@@ -3,6 +3,7 @@ package org.flauschhaus.broccoli.recipes;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
@@ -22,6 +23,9 @@ public class Recipe extends BaseObservable implements Serializable {
 
     private String ingredients = "";
     private String directions = "";
+
+    @Ignore
+    private boolean isDirty = false;
 
     public int getId() {
         return id;
@@ -95,6 +99,14 @@ public class Recipe extends BaseObservable implements Serializable {
 
     public void setDirections(String directions) {
         this.directions = directions;
+    }
+
+    public boolean isDirty() {
+        return isDirty;
+    }
+
+    public void markDirty() {
+        isDirty = true;
     }
 
     @Override

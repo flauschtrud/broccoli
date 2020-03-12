@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
@@ -45,6 +46,26 @@ public class NewRecipeActivity extends AppCompatActivity {
         binding.setViewModel(viewModel);
 
         setSupportActionBar(binding.toolbar);
+        binding.toolbar.setNavigationOnClickListener(v -> showDiscardDialog(this::finish));
+    }
+
+    @Override
+    public void onBackPressed() {
+        showDiscardDialog(super::onBackPressed);
+    }
+
+    private void showDiscardDialog(Runnable onDiscard) {
+        if (!viewModel.getRecipe().isDirty()) {
+            onDiscard.run();
+            return;
+        }
+
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setMessage(R.string.dialog_discard_changes)
+                .setPositiveButton(R.string.action_discard, (dialog, id) -> onDiscard.run())
+                .setNegativeButton(R.string.cancel, (dialog, id) -> {})
+                .create();
+        alertDialog.show();
     }
 
     public void onSaveClick(Recipe recipe) {

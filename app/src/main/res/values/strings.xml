@@ -30,4 +30,7 @@
     <string name="hint_new_recipe_source">Source</string>
     <string name="hint_new_recipe_servings">Servings</string>
     <string name="hint_new_recipe_preparation_time">Time</string>
+    <string name="dialog_discard_changes">Discard changes?</string>
+    <string name="action_discard">Discard</string>
+    <string name="toolbar_navigate_up">Navigate up</string>
 </resources>

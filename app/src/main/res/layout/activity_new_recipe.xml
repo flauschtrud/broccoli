@@ -27,6 +27,7 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay"
                 app:layout_scrollFlags="noScroll"
                 app:title="@string/title_activity_new_recipe"
+                android:contentDescription="@string/toolbar_navigate_up"
                 app:navigationIcon="@drawable/ic_close_24dp">
 
                 <Button
@@ -111,6 +112,7 @@
                     android:layout_margin="20dp"
                     android:singleLine="true"
                     android:hint="@string/hint_new_recipe_title"
+                    android:afterTextChanged="@{() -> viewModel.recipe.markDirty()}"
                     android:text="@={viewModel.recipe.title}"/>
 
                 <ImageView
@@ -134,6 +136,7 @@
                     android:maxLines="10"
                     android:layout_margin="20dp"
                     android:hint="@string/hint_new_recipe_description"
+                    android:afterTextChanged="@{() -> viewModel.recipe.markDirty()}"
                     android:text="@={viewModel.recipe.description}"/>
 
                 <ImageView
@@ -157,6 +160,7 @@
                     android:layout_margin="20dp"
                     android:singleLine="true"
                     android:hint="@string/hint_new_recipe_source"
+                    android:afterTextChanged="@{() -> viewModel.recipe.markDirty()}"
                     android:text="@={viewModel.recipe.source}"/>
 
                 <ImageView
@@ -180,6 +184,7 @@
                     android:layout_margin="20dp"
                     android:singleLine="true"
                     android:hint="@string/hint_new_recipe_servings"
+                    android:afterTextChanged="@{() -> viewModel.recipe.markDirty()}"
                     android:text="@={viewModel.recipe.servings}"/>
 
                 <ImageView
@@ -203,6 +208,7 @@
                     android:layout_margin="20dp"
                     android:singleLine="true"
                     android:hint="@string/hint_new_recipe_preparation_time"
+                    android:afterTextChanged="@{() -> viewModel.recipe.markDirty()}"
                     android:text="@={viewModel.recipe.preparationTime}"/>
 
                 <ImageView
@@ -226,6 +232,7 @@
                     android:maxLines="10"
                     android:layout_margin="20dp"
                     android:hint="@string/hint_new_recipe_ingredients"
+                    android:afterTextChanged="@{() -> viewModel.recipe.markDirty()}"
                     android:text="@={viewModel.recipe.ingredients}"/>
 
                 <ImageView
@@ -249,6 +256,7 @@
                     android:maxLines="10"
                     android:layout_margin="20dp"
                     android:hint="@string/hint_new_recipe_directions"
+                    android:afterTextChanged="@{() -> viewModel.recipe.markDirty()}"
                     android:text="@={viewModel.recipe.directions}"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
