@@ -8,7 +8,7 @@ The Simple and Green Recipe Manager.
 ## Milestones
 
 1. [Basic CRUD](https://github.com/JanaFlauschata/broccoli/milestone/1)
-1. [Categories](https://github.com/JanaFlauschata/broccoli/milestone/2)
+1. [Filtering and Searching](https://github.com/JanaFlauschata/broccoli/milestone/2)
 1. [Sharing](https://github.com/JanaFlauschata/broccoli/milestone/3)
 1. [Cooking Mode](https://github.com/JanaFlauschata/broccoli/milestone/4)
 1. [Seasons](https://github.com/JanaFlauschata/broccoli/milestone/5)
