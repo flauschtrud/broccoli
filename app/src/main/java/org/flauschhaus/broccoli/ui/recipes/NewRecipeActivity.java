@@ -36,6 +36,12 @@ public class NewRecipeActivity extends AppCompatActivity {
         AndroidInjection.inject(this);
 
         viewModel = new ViewModelProvider(this, viewModelFactory).get(NewRecipeViewModel.class);
+
+        if (getIntent().hasExtra(Recipe.class.getName())) {
+            Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName());
+            viewModel.setRecipe(recipe);
+        }
+
         if (savedInstanceState != null) {
             viewModel.setRecipe((Recipe) savedInstanceState.getSerializable("recipe"));
             viewModel.setImageName(savedInstanceState.getString("imageName"));
@@ -81,6 +87,10 @@ public class NewRecipeActivity extends AppCompatActivity {
                     runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_error_saving_recipe), Toast.LENGTH_SHORT).show());
                     return null;
                 });
+
+        Intent intent = new Intent();
+        intent.putExtra(Recipe.class.getName(), recipe);
+        setResult(RESULT_OK, intent);
 
         finish();
     }

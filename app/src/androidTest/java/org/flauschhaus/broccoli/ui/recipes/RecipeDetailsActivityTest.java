@@ -1,10 +1,12 @@
 package org.flauschhaus.broccoli.ui.recipes;
 
+import android.app.Instrumentation;
 import android.content.Intent;
 import android.widget.TextView;
 
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.core.app.ApplicationProvider;
+import androidx.test.espresso.intent.Intents;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
 
@@ -24,10 +26,14 @@ import java.util.concurrent.CompletableFuture;
 
 import javax.inject.Inject;
 
+import static android.app.Activity.RESULT_OK;
 import static androidx.test.core.app.ActivityScenario.launch;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.intent.Intents.intending;
+import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static androidx.test.espresso.matcher.RootMatchers.isDialog;
 import static androidx.test.espresso.matcher.ViewMatchers.hasSibling;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
@@ -57,6 +63,8 @@ public class RecipeDetailsActivityTest {
         component.inject(this);
         component.inject(getApplication());
 
+        Intents.init();
+
         Intent intent = new Intent(ApplicationProvider.getApplicationContext(), RecipeDetailsActivity.class);
         intent.putExtra(Recipe.class.getName(), lauchkuchen);
         scenario = launch(intent);
@@ -64,6 +72,7 @@ public class RecipeDetailsActivityTest {
 
     @After
     public void tearDown() {
+        Intents.release();
         scenario.close();
     }
 
@@ -75,10 +84,12 @@ public class RecipeDetailsActivityTest {
     @Test
     public void display_all_the_data_of_a_recipe() {
         onView(allOf(instanceOf(TextView.class), withParent(withId(R.id.toolbar)))).check(matches(withText(lauchkuchen.getTitle())));
+
         onView(withId(R.id.details_description)).check(matches(withText(lauchkuchen.getDescription())));
         onView(withId(R.id.details_source)).check(matches(withText(lauchkuchen.getSource())));
         onView(withId(R.id.details_servings)).check(matches(withText(lauchkuchen.getServings())));
         onView(withId(R.id.details_preparation_time)).check(matches(withText(lauchkuchen.getPreparationTime())));
+
         onView(allOf(withId(R.id.ingredient_text), hasSibling(withText("500"))))
                 .check(matches(withText("g Mehl")));
         onView(allOf(withId(R.id.ingredient_text), hasSibling(withText("2"))))
@@ -88,7 +99,6 @@ public class RecipeDetailsActivityTest {
                 .check(matches(withText("Lauch schnippeln und Teig machen.")));
         onView(allOf(withId(R.id.direction_text), hasSibling(withText("2"))))
                 .check(matches(withText("Kochen und backen.")));
-
     }
 
     @Test
@@ -102,6 +112,30 @@ public class RecipeDetailsActivityTest {
         onView(withId(android.R.id.button1)).perform(click());
 
         verify(recipeRepository).delete(lauchkuchen);
+    }
+
+    @Test
+    public void edit_recipe_and_update_ui() {
+        Recipe editedLauchkuchen = RecipeTestUtil.createLauchkuchen();
+        editedLauchkuchen.setTitle("Leckerster Lauchkuchen");
+        editedLauchkuchen.setServings("1 Portion");
+        editedLauchkuchen.setDirections("Einfach nur kochen und backen");
+
+        Intent editIntent = new Intent();
+        editIntent.putExtra(Recipe.class.getName(), editedLauchkuchen);
+        Instrumentation.ActivityResult result = new Instrumentation.ActivityResult(RESULT_OK, editIntent);
+
+        intending(hasComponent("org.flauschhaus.broccoli.ui.recipes.NewRecipeActivity")).respondWith(result);
+
+        onView(withId(R.id.action_details_edit)).perform(click());
+
+        onView(allOf(instanceOf(TextView.class), withParent(withId(R.id.toolbar)))).check(matches(withText("Leckerster Lauchkuchen")));
+        onView(withId(R.id.details_servings)).check(matches(withText("1 Portion")));
+
+        onView(allOf(withId(R.id.direction_text), hasSibling(withText("1"))))
+                .check(matches(withText("Einfach nur kochen und backen")));
+        onView(allOf(withId(R.id.direction_text), hasSibling(withText("2"))))
+                .check(doesNotExist());
     }
 
 }

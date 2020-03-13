@@ -13,7 +13,7 @@ import java.util.Objects;
 public class Recipe extends BaseObservable implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private int id = 0;
     private String title = "";
     private String imageName = "";
     private String description = "";

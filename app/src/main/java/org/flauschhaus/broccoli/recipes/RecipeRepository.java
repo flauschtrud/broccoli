@@ -29,8 +29,15 @@ public class RecipeRepository {
         return allRecipes;
     }
 
-    public CompletableFuture<Void> insert(Recipe recipe) {
-        return CompletableFuture.runAsync(() -> recipeDAO.insert(recipe));
+    // TODO return status to determine which toast to show
+    public CompletableFuture<Void> insertOrUpdate(Recipe recipe) {
+        return CompletableFuture.runAsync(() -> {
+            if (recipe.getId() == 0) {
+                recipeDAO.insert(recipe);
+            } else {
+                recipeDAO.update(recipe); // TODO test
+            }
+        });
     }
 
     public CompletableFuture<Void> delete(Recipe recipe) {

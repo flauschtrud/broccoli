@@ -63,9 +63,9 @@ public class NewRecipeViewModel extends ViewModel {
 
     CompletableFuture<Void> save() {
         if (imageName != null) {
-            return CompletableFuture.allOf(recipeImageService.moveImage(imageName), recipeRepository.insert(recipe));
+            return CompletableFuture.allOf(recipeImageService.moveImage(imageName), recipeRepository.insertOrUpdate(recipe));
         }
-        return recipeRepository.insert(recipe);
+        return recipeRepository.insertOrUpdate(recipe);
     }
 
     void confirmFinishBySaving() {

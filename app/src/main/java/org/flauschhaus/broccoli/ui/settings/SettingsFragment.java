@@ -34,9 +34,9 @@ public class SettingsFragment extends Fragment {
 
         final Button button = root.findViewById(R.id.button_create_demo_recipes);
         button.setOnClickListener(view -> {
-            recipeRepository.insert(DemoRecipes.createNusskuchen());
-            recipeRepository.insert(DemoRecipes.createKartoffelBlumenkohlPuffer());
-            recipeRepository.insert(DemoRecipes.createVeganesMett());
+            recipeRepository.insertOrUpdate(DemoRecipes.createNusskuchen());
+            recipeRepository.insertOrUpdate(DemoRecipes.createKartoffelBlumenkohlPuffer());
+            recipeRepository.insertOrUpdate(DemoRecipes.createVeganesMett());
         });
 
         File externalFilesDir = getActivity().getExternalFilesDir(Environment.DIRECTORY_PICTURES);

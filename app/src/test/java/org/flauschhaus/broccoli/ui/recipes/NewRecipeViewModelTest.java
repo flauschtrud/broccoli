@@ -45,12 +45,12 @@ public class NewRecipeViewModelTest {
 
     @Test
     public void just_save() throws ExecutionException, InterruptedException {
-        when(recipeRepository.insert(newRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(null));
+        when(recipeRepository.insertOrUpdate(newRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(null));
 
         CompletableFuture<Void> completableFuture = newRecipeViewModel.save();
         completableFuture.get();
 
-        verify(recipeRepository).insert(newRecipeViewModel.getRecipe());
+        verify(recipeRepository).insertOrUpdate(newRecipeViewModel.getRecipe());
         verify(recipeImageService, never()).deleteTemporaryImage(any());
     }
 
@@ -65,7 +65,7 @@ public class NewRecipeViewModelTest {
         assertThat(newRecipeViewModel.getRecipe().getImageName(), is("blupp.jpg"));
 
         when(recipeImageService.moveImage("blupp.jpg")).thenReturn(CompletableFuture.completedFuture(null));
-        when(recipeRepository.insert(newRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(null));
+        when(recipeRepository.insertOrUpdate(newRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(null));
 
         newRecipeViewModel.confirmFinishBySaving();
         CompletableFuture<Void> completableFuture = newRecipeViewModel.save();
@@ -73,7 +73,7 @@ public class NewRecipeViewModelTest {
 
         newRecipeViewModel.onCleared();
 
-        verify(recipeRepository).insert(newRecipeViewModel.getRecipe());
+        verify(recipeRepository).insertOrUpdate(newRecipeViewModel.getRecipe());
         verify(recipeImageService).moveImage("blupp.jpg");
         verify(recipeImageService, never()).deleteTemporaryImage(any());
     }

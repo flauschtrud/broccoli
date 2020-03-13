@@ -6,6 +6,7 @@ public class RecipeTestUtil {
 
     public static Recipe createLauchkuchen() {
         Recipe recipe = new Recipe();
+        recipe.setId(1);
         recipe.setTitle("Lauchkuchen");
         recipe.setDescription("Das essen wir alle sehr gerne!");
         recipe.setSource("www.dasinternet.de");
@@ -18,6 +19,7 @@ public class RecipeTestUtil {
 
     public static Recipe createNusskuchen() {
         Recipe recipe = new Recipe();
+        recipe.setId(2);
         recipe.setTitle("Nusskuchen");
         recipe.setDescription("Den mögen sogar Nicht-Veganer!");
         recipe.setSource("www.dasinternet.de");

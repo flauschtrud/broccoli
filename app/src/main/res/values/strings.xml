@@ -33,4 +33,5 @@
     <string name="dialog_discard_changes">Discard changes?</string>
     <string name="action_discard">Discard</string>
     <string name="toolbar_navigate_up">Navigate up</string>
+    <string name="action_details_edit">Edit</string>
 </resources>
