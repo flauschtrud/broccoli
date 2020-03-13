@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.databinding.ActivityNewRecipeBinding;
 import org.flauschhaus.broccoli.recipes.Recipe;
+import org.flauschhaus.broccoli.recipes.RecipeRepository;
 
 import java.io.IOException;
 
@@ -82,7 +83,13 @@ public class NewRecipeActivity extends AppCompatActivity {
 
         viewModel.confirmFinishBySaving();
         viewModel.save()
-                .thenRun(() -> runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_new_recipe), Toast.LENGTH_SHORT).show()))
+                .thenAccept(result -> {
+                    if (result == RecipeRepository.InsertionType.INSERT) {
+                        runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_new_recipe), Toast.LENGTH_SHORT).show());
+                    } else if (result == RecipeRepository.InsertionType.UPDATE){
+                        runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_recipe_updated), Toast.LENGTH_SHORT).show());
+                    }
+                })
                 .exceptionally(e -> {
                     runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_error_saving_recipe), Toast.LENGTH_SHORT).show());
                     return null;

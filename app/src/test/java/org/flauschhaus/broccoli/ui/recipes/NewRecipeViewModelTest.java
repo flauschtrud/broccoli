@@ -45,10 +45,12 @@ public class NewRecipeViewModelTest {
 
     @Test
     public void just_save() throws ExecutionException, InterruptedException {
-        when(recipeRepository.insertOrUpdate(newRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(null));
+        when(recipeRepository.insertOrUpdate(newRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.INSERT));
 
-        CompletableFuture<Void> completableFuture = newRecipeViewModel.save();
-        completableFuture.get();
+        CompletableFuture<RecipeRepository.InsertionType> completableFuture = newRecipeViewModel.save();
+
+        RecipeRepository.InsertionType insertionType = completableFuture.get();
+        assertThat(insertionType, is(RecipeRepository.InsertionType.INSERT));
 
         verify(recipeRepository).insertOrUpdate(newRecipeViewModel.getRecipe());
         verify(recipeImageService, never()).deleteTemporaryImage(any());
@@ -65,10 +67,10 @@ public class NewRecipeViewModelTest {
         assertThat(newRecipeViewModel.getRecipe().getImageName(), is("blupp.jpg"));
 
         when(recipeImageService.moveImage("blupp.jpg")).thenReturn(CompletableFuture.completedFuture(null));
-        when(recipeRepository.insertOrUpdate(newRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(null));
+        when(recipeRepository.insertOrUpdate(newRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.INSERT));
 
         newRecipeViewModel.confirmFinishBySaving();
-        CompletableFuture<Void> completableFuture = newRecipeViewModel.save();
+        CompletableFuture<RecipeRepository.InsertionType> completableFuture = newRecipeViewModel.save();
         completableFuture.get();
 
         newRecipeViewModel.onCleared();

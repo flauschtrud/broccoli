@@ -18,6 +18,10 @@ public class RecipeRepository {
 
     private LiveData<List<Recipe>> allRecipes;
 
+    public enum InsertionType {
+        INSERT, UPDATE
+    }
+
     @Inject
     RecipeRepository(RecipeDAO recipeDAO, RecipeImageService recipeImageService) {
         this.recipeDAO = recipeDAO;
@@ -29,13 +33,14 @@ public class RecipeRepository {
         return allRecipes;
     }
 
-    // TODO return status to determine which toast to show
-    public CompletableFuture<Void> insertOrUpdate(Recipe recipe) {
-        return CompletableFuture.runAsync(() -> {
+    public CompletableFuture<InsertionType> insertOrUpdate(Recipe recipe) {
+        return CompletableFuture.supplyAsync(() -> {
             if (recipe.getId() == 0) {
                 recipeDAO.insert(recipe);
+                return InsertionType.INSERT;
             } else {
-                recipeDAO.update(recipe); // TODO test
+                recipeDAO.update(recipe);
+                return InsertionType.UPDATE;
             }
         });
     }
