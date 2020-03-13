@@ -5,7 +5,7 @@
 
     <data>
         <variable name="viewModel" type="org.flauschhaus.broccoli.ui.recipes.NewRecipeViewModel" />
-        <variable name="presenter" type="org.flauschhaus.broccoli.ui.recipes.NewRecipeActivity" />
+        <variable name="activity" type="org.flauschhaus.broccoli.ui.recipes.NewRecipeActivity" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -37,7 +37,7 @@
                     android:background="@android:color/transparent"
                     android:text="@string/action_save"
                     android:layout_gravity="end"
-                    android:onClick="@{() -> presenter.onSaveClick(viewModel.recipe)}" />
+                    android:onClick="@{() -> activity.onSaveClick(viewModel.recipe)}" />
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -65,7 +65,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:background="@color/placeholder"
                     android:scaleType="centerCrop"
-                    android:onClick="@{() -> presenter.onImageClick()}"
+                    android:onClick="@{() -> activity.onImageClick()}"
                     app:placeholder="@{@drawable/placeholder}"
                     app:imageName="@{viewModel.recipe.imageName}" />
 
@@ -112,7 +112,7 @@
                     android:layout_margin="20dp"
                     android:singleLine="true"
                     android:hint="@string/hint_new_recipe_title"
-                    android:afterTextChanged="@{() -> viewModel.recipe.markDirty()}"
+                    android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
                     android:text="@={viewModel.recipe.title}"/>
 
                 <ImageView
@@ -136,7 +136,7 @@
                     android:maxLines="10"
                     android:layout_margin="20dp"
                     android:hint="@string/hint_new_recipe_description"
-                    android:afterTextChanged="@{() -> viewModel.recipe.markDirty()}"
+                    android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
                     android:text="@={viewModel.recipe.description}"/>
 
                 <ImageView
@@ -160,7 +160,7 @@
                     android:layout_margin="20dp"
                     android:singleLine="true"
                     android:hint="@string/hint_new_recipe_source"
-                    android:afterTextChanged="@{() -> viewModel.recipe.markDirty()}"
+                    android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
                     android:text="@={viewModel.recipe.source}"/>
 
                 <ImageView
@@ -184,7 +184,7 @@
                     android:layout_margin="20dp"
                     android:singleLine="true"
                     android:hint="@string/hint_new_recipe_servings"
-                    android:afterTextChanged="@{() -> viewModel.recipe.markDirty()}"
+                    android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
                     android:text="@={viewModel.recipe.servings}"/>
 
                 <ImageView
@@ -208,7 +208,7 @@
                     android:layout_margin="20dp"
                     android:singleLine="true"
                     android:hint="@string/hint_new_recipe_preparation_time"
-                    android:afterTextChanged="@{() -> viewModel.recipe.markDirty()}"
+                    android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
                     android:text="@={viewModel.recipe.preparationTime}"/>
 
                 <ImageView
@@ -232,7 +232,7 @@
                     android:maxLines="10"
                     android:layout_margin="20dp"
                     android:hint="@string/hint_new_recipe_ingredients"
-                    android:afterTextChanged="@{() -> viewModel.recipe.markDirty()}"
+                    android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
                     android:text="@={viewModel.recipe.ingredients}"/>
 
                 <ImageView
@@ -256,7 +256,7 @@
                     android:maxLines="10"
                     android:layout_margin="20dp"
                     android:hint="@string/hint_new_recipe_directions"
-                    android:afterTextChanged="@{() -> viewModel.recipe.markDirty()}"
+                    android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
                     android:text="@={viewModel.recipe.directions}"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

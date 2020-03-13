@@ -48,7 +48,7 @@ public class NewRecipeActivity extends AppCompatActivity {
         }
 
         ActivityNewRecipeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_new_recipe);
-        binding.setPresenter(this);
+        binding.setActivity(this);
         binding.setViewModel(viewModel);
 
         setSupportActionBar(binding.toolbar);
@@ -106,6 +106,14 @@ public class NewRecipeActivity extends AppCompatActivity {
                 Toast.makeText(this, getString(R.string.toast_error_creating_image_file), Toast.LENGTH_SHORT).show();
             }
         }
+    }
+
+    public void onTextChanged(CharSequence s, int start, int before, int count) {
+        if (start == 0 && before == 0) { // call triggered by data binding
+            return;
+        }
+
+        viewModel.getRecipe().markDirty();
     }
 
     @Override
