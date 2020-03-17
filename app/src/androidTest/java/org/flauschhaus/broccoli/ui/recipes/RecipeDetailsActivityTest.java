@@ -2,7 +2,6 @@ package org.flauschhaus.broccoli.ui.recipes;
 
 import android.app.Instrumentation;
 import android.content.Intent;
-import android.widget.TextView;
 
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.core.app.ApplicationProvider;
@@ -37,11 +36,10 @@ import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static androidx.test.espresso.matcher.RootMatchers.isDialog;
 import static androidx.test.espresso.matcher.ViewMatchers.hasSibling;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.Matchers.instanceOf;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -83,7 +81,7 @@ public class RecipeDetailsActivityTest {
 
     @Test
     public void display_all_the_data_of_a_recipe() {
-        onView(allOf(instanceOf(TextView.class), withParent(withId(R.id.toolbar)))).check(matches(withText(lauchkuchen.getTitle())));
+        onView(withId(R.id.toolbar_layout)).check(matches(withContentDescription(lauchkuchen.getTitle())));
 
         onView(withId(R.id.details_description)).check(matches(withText(lauchkuchen.getDescription())));
         onView(withId(R.id.details_source)).check(matches(withText(lauchkuchen.getSource())));
@@ -129,7 +127,8 @@ public class RecipeDetailsActivityTest {
 
         onView(withId(R.id.action_details_edit)).perform(click());
 
-        onView(allOf(instanceOf(TextView.class), withParent(withId(R.id.toolbar)))).check(matches(withText("Leckerster Lauchkuchen")));
+        onView(withId(R.id.toolbar_layout)).check(matches(withContentDescription("Leckerster Lauchkuchen")));
+
         onView(withId(R.id.details_servings)).check(matches(withText("1 Portion")));
 
         onView(allOf(withId(R.id.direction_text), hasSibling(withText("1"))))
