@@ -56,6 +56,7 @@ import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
@@ -76,6 +77,7 @@ public class NewRecipeActivityTest {
     private ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
 
     private static final Recipe LAUCHKUCHEN = RecipeTestUtil.createLauchkuchen();
+    private static final Recipe LAUCHKUCHEN_SAVED = RecipeTestUtil.createdAlreadySavedLauchkuchen();
 
     @Before
     public void setUp() {
@@ -104,7 +106,6 @@ public class NewRecipeActivityTest {
 
     @Test
     public void save_new_recipe() throws IOException {
-
         when(recipeImageService.createTemporaryImage()).thenReturn(uri);
         when(uri.getLastPathSegment()).thenReturn("12345.jpg");
         when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.INSERT));
@@ -113,24 +114,17 @@ public class NewRecipeActivityTest {
         intending(hasAction(MediaStore.ACTION_IMAGE_CAPTURE)).respondWith(new Instrumentation.ActivityResult(RESULT_OK, new Intent()));
 
         onView(withId(R.id.new_image)).perform(click());
+        onView(withText("Take a photo")).perform(click());
         onView(withId(R.id.new_title)).perform(typeText(LAUCHKUCHEN.getTitle()));
         onView(withId(R.id.new_description)).perform(typeText(LAUCHKUCHEN.getDescription()));
-        onView(withId(R.id.new_source)).perform(typeText(LAUCHKUCHEN.getSource()));
+        onView(withId(R.id.new_source)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getSource()));
         onView(withId(R.id.new_servings)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getServings()));
         onView(withId(R.id.new_preparation_time)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getPreparationTime()));
-        onView(withId(R.id.new_ingredients)).perform(
-                closeSoftKeyboard(),
-                typeText("500g Mehl"),
-                pressKey(KeyEvent.KEYCODE_ENTER),
-                typeText("2 Stangen Lauch")
-        );
-        onView(withId(R.id.new_directions)).perform(
-                closeSoftKeyboard(),
-                typeText("1. Lauch schnippeln und Teig machen."),
-                pressKey(KeyEvent.KEYCODE_ENTER),
-                typeText("2. Kochen und backen.")
-        );
+        onView(withId(R.id.new_ingredients)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getIngredients())); // it seems not to be possible to make Espresso type the enter key in a deterministic way
+        onView(withId(R.id.new_directions)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getDirections()));
         onView(withId(R.id.button_save_recipe)).perform(click()); // TODO find out why there sometimes is such a long wait
+
+        verify(recipeImageService).moveImage("12345.jpg");
 
         Recipe recipe = recipeCaptor.getValue();
         assertThat(recipe.getTitle(), is(LAUCHKUCHEN.getTitle()));
@@ -148,16 +142,16 @@ public class NewRecipeActivityTest {
         when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.UPDATE));
 
         Intent intent = new Intent(ApplicationProvider.getApplicationContext(), NewRecipeActivity.class);
-        intent.putExtra(Recipe.class.getName(), LAUCHKUCHEN);
+        intent.putExtra(Recipe.class.getName(), LAUCHKUCHEN_SAVED);
         scenario = launch(intent);
 
-        onView(withId(R.id.new_title)).check(matches(withText(LAUCHKUCHEN.getTitle())));
-        onView(withId(R.id.new_description)).check(matches(withText(LAUCHKUCHEN.getDescription())));
-        onView(withId(R.id.new_source)).check(matches(withText(LAUCHKUCHEN.getSource())));
-        onView(withId(R.id.new_servings)).check(matches(withText(LAUCHKUCHEN.getServings())));
-        onView(withId(R.id.new_preparation_time)).check(matches(withText(LAUCHKUCHEN.getPreparationTime())));
-        onView(withId(R.id.new_ingredients)).check(matches(withText(LAUCHKUCHEN.getIngredients())));
-        onView(withId(R.id.new_directions)).check(matches(withText(LAUCHKUCHEN.getDirections())));
+        onView(withId(R.id.new_title)).check(matches(withText(LAUCHKUCHEN_SAVED.getTitle())));
+        onView(withId(R.id.new_description)).check(matches(withText(LAUCHKUCHEN_SAVED.getDescription())));
+        onView(withId(R.id.new_source)).check(matches(withText(LAUCHKUCHEN_SAVED.getSource())));
+        onView(withId(R.id.new_servings)).check(matches(withText(LAUCHKUCHEN_SAVED.getServings())));
+        onView(withId(R.id.new_preparation_time)).check(matches(withText(LAUCHKUCHEN_SAVED.getPreparationTime())));
+        onView(withId(R.id.new_ingredients)).check(matches(withText(LAUCHKUCHEN_SAVED.getIngredients())));
+        onView(withId(R.id.new_directions)).check(matches(withText(LAUCHKUCHEN_SAVED.getDirections())));
 
         onView(withId(R.id.new_servings)).perform(replaceText("1 Portion"));
         onView(withId(R.id.button_save_recipe)).perform(click());
@@ -167,12 +161,67 @@ public class NewRecipeActivityTest {
         assertThat(result.getResultData().hasExtra(Recipe.class.getName()), is(true));
 
         Recipe savedRecipe = recipeCaptor.getValue();
-        assertThat(savedRecipe.getId(), is(LAUCHKUCHEN.getId()));
+        assertThat(savedRecipe.getId(), is(LAUCHKUCHEN_SAVED.getId()));
         assertThat(savedRecipe.getServings(), is("1 Portion"));
 
         Recipe editedRecipe = (Recipe) result.getResultData().getSerializableExtra(Recipe.class.getName());
-        assertThat(editedRecipe.getId(), is(LAUCHKUCHEN.getId()));
+        assertThat(editedRecipe.getId(), is(LAUCHKUCHEN_SAVED.getId()));
         assertThat(editedRecipe.getServings(), is("1 Portion"));
+    }
+
+    @Test
+    public void remove_image(){
+        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.UPDATE));
+        when(recipeImageService.deleteImage(LAUCHKUCHEN_SAVED.getImageName())).thenReturn(CompletableFuture.completedFuture(null));
+
+        Intent intent = new Intent(ApplicationProvider.getApplicationContext(), NewRecipeActivity.class);
+        intent.putExtra(Recipe.class.getName(), LAUCHKUCHEN_SAVED);
+        scenario = launch(intent);
+
+        onView(withId(R.id.new_image)).perform(click());
+        onView(withText("Remove photo")).perform(click());
+        onView(withId(R.id.button_save_recipe)).perform(click());
+
+        Instrumentation.ActivityResult result = scenario.getResult();
+        assertThat(result.getResultCode(), is(RESULT_OK));
+        assertThat(result.getResultData().hasExtra(Recipe.class.getName()), is(true));
+
+        verify(recipeImageService).deleteImage(LAUCHKUCHEN_SAVED.getImageName());
+
+        Recipe savedRecipe = recipeCaptor.getValue();
+        assertThat(savedRecipe.getId(), is(LAUCHKUCHEN_SAVED.getId()));
+        assertThat(savedRecipe.getImageName(), is(""));
+    }
+
+    @Test
+    public void replace_image() throws IOException {
+        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.UPDATE));
+        when(recipeImageService.deleteImage(LAUCHKUCHEN_SAVED.getImageName())).thenReturn(CompletableFuture.completedFuture(null));
+
+        when(recipeImageService.createTemporaryImage()).thenReturn(uri);
+        when(uri.getLastPathSegment()).thenReturn("12345.jpg");
+        when(recipeImageService.moveImage("12345.jpg")).thenReturn(CompletableFuture.completedFuture(null));
+
+        intending(hasAction(MediaStore.ACTION_IMAGE_CAPTURE)).respondWith(new Instrumentation.ActivityResult(RESULT_OK, new Intent()));
+
+        Intent intent = new Intent(ApplicationProvider.getApplicationContext(), NewRecipeActivity.class);
+        intent.putExtra(Recipe.class.getName(), LAUCHKUCHEN_SAVED);
+        scenario = launch(intent);
+
+        onView(withId(R.id.new_image)).perform(click());
+        onView(withText("Take a photo")).perform(click());
+        onView(withId(R.id.button_save_recipe)).perform(click());
+
+        Instrumentation.ActivityResult result = scenario.getResult();
+        assertThat(result.getResultCode(), is(RESULT_OK));
+        assertThat(result.getResultData().hasExtra(Recipe.class.getName()), is(true));
+
+        verify(recipeImageService).deleteImage(LAUCHKUCHEN_SAVED.getImageName());
+        verify(recipeImageService).moveImage("12345.jpg");
+
+        Recipe savedRecipe = recipeCaptor.getValue();
+        assertThat(savedRecipe.getId(), is(LAUCHKUCHEN_SAVED.getId()));
+        assertThat(savedRecipe.getImageName(), startsWith("12345.jpg"));
     }
 
     @Test

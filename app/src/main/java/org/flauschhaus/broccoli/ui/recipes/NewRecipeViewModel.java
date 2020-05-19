@@ -20,7 +20,8 @@ public class NewRecipeViewModel extends ViewModel {
 
     private Recipe recipe = new Recipe();
     private boolean isFinishedBySaving = false;
-    private String imageName;
+    private String newImageName;
+    private String oldImageName;
 
     @Inject
     NewRecipeViewModel(RecipeRepository recipeRepository, RecipeImageService recipeImageService) {
@@ -37,45 +38,61 @@ public class NewRecipeViewModel extends ViewModel {
         return recipe;
     }
 
-    public String getImageName() {
-        return imageName;
+    public String getNewImageName() {
+        return newImageName;
     }
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
     }
 
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
+    public void setNewImageName(String newImageName) {
+        this.newImageName = newImageName;
+    }
+
+    public String getOldImageName() {
+        return oldImageName;
+    }
+
+    public void setOldImageName(String oldImageName) {
+        this.oldImageName = oldImageName;
     }
 
     Uri createAndRememberImage() throws IOException {
-        cleanUpTemporaryImage();
+        removeOldImageAndCleanUpAnyTemporaryImages();
 
         Uri photoFile = recipeImageService.createTemporaryImage();
-        imageName = photoFile.getLastPathSegment();
+        newImageName = photoFile.getLastPathSegment();
         return photoFile;
     }
 
-    void applyImageToRecipe() {
-        recipe.setImageName(imageName);
+    void confirmImageIsTaken() {
+        recipe.setImageName(newImageName);
+    }
+
+    void removeOldImageAndCleanUpAnyTemporaryImages() {
+        cleanUpTemporaryImage();
+        if (oldImageName == null && recipe.getImageName().length() > 0) {
+            oldImageName = recipe.getImageName();
+        }
+        newImageName = null;
+        recipe.setImageName("");
     }
 
     CompletableFuture<RecipeRepository.InsertionType> save() {
-        if (imageName != null) {
-            return recipeImageService.moveImage(imageName)
-                    .thenCompose(v -> recipeRepository.insertOrUpdate(recipe));
-        }
-        return recipeRepository.insertOrUpdate(recipe);
+        return CompletableFuture.completedFuture(true)
+                .thenCompose(result -> oldImageName != null? recipeImageService.deleteImage(oldImageName) : CompletableFuture.completedFuture(result))
+                .thenCompose(result -> newImageName != null? recipeImageService.moveImage(newImageName) : CompletableFuture.completedFuture(null))
+                .thenCompose(v -> recipeRepository.insertOrUpdate(recipe));
     }
 
-    void confirmFinishBySaving() {
+    void confirmFinishedBySaving() {
         this.isFinishedBySaving = true;
     }
 
     private void cleanUpTemporaryImage() {
-        if (!isFinishedBySaving && imageName != null) {
-            recipeImageService.deleteTemporaryImage(imageName);
+        if (!isFinishedBySaving && newImageName != null) {
+            recipeImageService.deleteTemporaryImage(newImageName);
         }
     }
 

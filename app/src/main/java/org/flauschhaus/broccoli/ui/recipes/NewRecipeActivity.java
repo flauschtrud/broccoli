@@ -1,5 +1,6 @@
 package org.flauschhaus.broccoli.ui.recipes;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,7 +23,7 @@ import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
 
-public class NewRecipeActivity extends AppCompatActivity {
+public class NewRecipeActivity extends AppCompatActivity { //TODO rename
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
@@ -45,7 +46,8 @@ public class NewRecipeActivity extends AppCompatActivity {
 
         if (savedInstanceState != null) {
             viewModel.setRecipe((Recipe) savedInstanceState.getSerializable("recipe"));
-            viewModel.setImageName(savedInstanceState.getString("imageName"));
+            viewModel.setNewImageName(savedInstanceState.getString("newImageName"));
+            viewModel.setOldImageName(savedInstanceState.getString("oldImageName"));
         }
 
         ActivityNewRecipeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_new_recipe);
@@ -81,7 +83,7 @@ public class NewRecipeActivity extends AppCompatActivity {
             return;
         }
 
-        viewModel.confirmFinishBySaving();
+        viewModel.confirmFinishedBySaving();
         viewModel.save()
                 .thenAccept(result -> {
                     if (result == RecipeRepository.InsertionType.INSERT) {
@@ -103,6 +105,25 @@ public class NewRecipeActivity extends AppCompatActivity {
     }
 
     public void onImageClick() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle(R.string.pick_image)
+                .setItems(R.array.pick_image, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0:
+                                viewModel.removeOldImageAndCleanUpAnyTemporaryImages(); // TODO only when there is an image
+                                break;
+                            case 1:
+                                takePicture();
+                                break;
+                            default:
+                        }
+                    }
+                });
+        alertDialog.show();
+    }
+
+    private void takePicture() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             try {
@@ -126,7 +147,7 @@ public class NewRecipeActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            viewModel.applyImageToRecipe();
+            viewModel.confirmImageIsTaken();
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
@@ -134,7 +155,8 @@ public class NewRecipeActivity extends AppCompatActivity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putSerializable("recipe", viewModel.getRecipe());
-        outState.putString("imageName", viewModel.getImageName());
+        outState.putString("newImageName", viewModel.getNewImageName());
+        outState.putString("oldImageName", viewModel.getOldImageName());
         super.onSaveInstanceState(outState);
     }
 

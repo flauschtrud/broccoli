@@ -35,4 +35,5 @@
     <string name="toolbar_navigate_up">Navigate up</string>
     <string name="action_details_edit">Edit</string>
     <string name="toast_recipe_updated">Recipe  updated.</string>
+    <string name="pick_image">Pick image</string>
 </resources>
