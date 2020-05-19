@@ -25,6 +25,8 @@ public class ImageBindingAdapter {
     @BindingAdapter(value = {"imageName", "placeholder"}, requireAll = false)
     public void bind(ImageView imageView, String imageName, Drawable placeholder) {
         if (isEmpty(imageName) && placeholder == null) {
+            Glide.with(imageView)
+                    .clear(imageView);
             return;
         }
 
