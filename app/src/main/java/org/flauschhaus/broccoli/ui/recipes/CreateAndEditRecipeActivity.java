@@ -1,10 +1,10 @@
 package org.flauschhaus.broccoli.ui.recipes;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.ArrayMap;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -105,21 +105,15 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
     }
 
     public void onImageClick() {
+        ArrayMap<CharSequence, Runnable> items = new ArrayMap<>();
+        if (viewModel.imageHasBeenTaken()) {
+            items.put(getString(R.string.remove_photo), viewModel::removeOldImageAndCleanUpAnyTemporaryImages);
+        }
+        items.put(getString(R.string.take_photo), this::takePicture);
+
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle(R.string.pick_image)
-                .setItems(R.array.pick_image, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which) {
-                            case 0:
-                                viewModel.removeOldImageAndCleanUpAnyTemporaryImages(); // TODO only when there is an image
-                                break;
-                            case 1:
-                                takePicture();
-                                break;
-                            default:
-                        }
-                    }
-                });
+        alertDialog.setTitle(R.string.change_image)
+                .setItems(items.keySet().toArray(new CharSequence[0]), (dialog, which) -> items.valueAt(which).run());
         alertDialog.show();
     }
 

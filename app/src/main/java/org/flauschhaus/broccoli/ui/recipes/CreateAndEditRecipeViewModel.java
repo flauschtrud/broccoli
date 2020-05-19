@@ -70,9 +70,13 @@ public class CreateAndEditRecipeViewModel extends ViewModel {
         recipe.setImageName(newImageName);
     }
 
+    boolean imageHasBeenTaken() {
+        return recipe.getImageName().length() > 0;
+    }
+
     void removeOldImageAndCleanUpAnyTemporaryImages() {
         cleanUpTemporaryImage();
-        if (oldImageName == null && recipe.getImageName().length() > 0) {
+        if (oldImageName == null && imageHasBeenTaken()) {
             oldImageName = recipe.getImageName();
         }
         newImageName = null;
