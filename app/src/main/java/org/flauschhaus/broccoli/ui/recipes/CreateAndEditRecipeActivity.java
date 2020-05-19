@@ -135,7 +135,7 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
             return;
         }
 
-        viewModel.getRecipe().markDirty();
+        viewModel.getRecipe().setDirty(true);
     }
 
     @Override

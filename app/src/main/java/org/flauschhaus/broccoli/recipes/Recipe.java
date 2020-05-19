@@ -105,8 +105,8 @@ public class Recipe extends BaseObservable implements Serializable {
         return isDirty;
     }
 
-    public void markDirty() {
-        isDirty = true;
+    public void setDirty(boolean dirty) {
+        isDirty = dirty;
     }
 
     @Override
