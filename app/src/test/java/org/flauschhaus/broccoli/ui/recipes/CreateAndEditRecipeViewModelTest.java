@@ -24,7 +24,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class NewRecipeViewModelTest {
+public class CreateAndEditRecipeViewModelTest {
 
     @Mock
     private RecipeRepository recipeRepository;
@@ -36,23 +36,23 @@ public class NewRecipeViewModelTest {
     private Uri imageUri;
 
     @InjectMocks
-    private NewRecipeViewModel newRecipeViewModel;
+    private CreateAndEditRecipeViewModel createAndEditRecipeViewModel;
 
     @Test
     public void initialize_recipe() {
-        assertThat(newRecipeViewModel.getRecipe(), is(not(nullValue())));
+        assertThat(createAndEditRecipeViewModel.getRecipe(), is(not(nullValue())));
     }
 
     @Test
     public void just_save() throws ExecutionException, InterruptedException {
-        when(recipeRepository.insertOrUpdate(newRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.INSERT));
+        when(recipeRepository.insertOrUpdate(createAndEditRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.INSERT));
 
-        CompletableFuture<RecipeRepository.InsertionType> completableFuture = newRecipeViewModel.save();
+        CompletableFuture<RecipeRepository.InsertionType> completableFuture = createAndEditRecipeViewModel.save();
 
         RecipeRepository.InsertionType insertionType = completableFuture.get();
         assertThat(insertionType, is(RecipeRepository.InsertionType.INSERT));
 
-        verify(recipeRepository).insertOrUpdate(newRecipeViewModel.getRecipe());
+        verify(recipeRepository).insertOrUpdate(createAndEditRecipeViewModel.getRecipe());
         verify(recipeImageService, never()).deleteTemporaryImage(any());
     }
 
@@ -61,21 +61,21 @@ public class NewRecipeViewModelTest {
         when(recipeImageService.createTemporaryImage()).thenReturn(imageUri);
         when(imageUri.getLastPathSegment()).thenReturn("blupp.jpg");
 
-        newRecipeViewModel.createAndRememberImage();
-        newRecipeViewModel.confirmImageIsTaken();
+        createAndEditRecipeViewModel.createAndRememberImage();
+        createAndEditRecipeViewModel.confirmImageIsTaken();
 
-        assertThat(newRecipeViewModel.getRecipe().getImageName(), is("blupp.jpg"));
+        assertThat(createAndEditRecipeViewModel.getRecipe().getImageName(), is("blupp.jpg"));
 
         when(recipeImageService.moveImage("blupp.jpg")).thenReturn(CompletableFuture.completedFuture(null));
-        when(recipeRepository.insertOrUpdate(newRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.INSERT));
+        when(recipeRepository.insertOrUpdate(createAndEditRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.INSERT));
 
-        newRecipeViewModel.confirmFinishedBySaving();
-        CompletableFuture<RecipeRepository.InsertionType> completableFuture = newRecipeViewModel.save();
+        createAndEditRecipeViewModel.confirmFinishedBySaving();
+        CompletableFuture<RecipeRepository.InsertionType> completableFuture = createAndEditRecipeViewModel.save();
         completableFuture.get();
 
-        newRecipeViewModel.onCleared();
+        createAndEditRecipeViewModel.onCleared();
 
-        verify(recipeRepository).insertOrUpdate(newRecipeViewModel.getRecipe());
+        verify(recipeRepository).insertOrUpdate(createAndEditRecipeViewModel.getRecipe());
         verify(recipeImageService).moveImage("blupp.jpg");
         verify(recipeImageService, never()).deleteTemporaryImage(any());
     }
@@ -85,8 +85,8 @@ public class NewRecipeViewModelTest {
         when(recipeImageService.createTemporaryImage()).thenReturn(imageUri);
         when(imageUri.getLastPathSegment()).thenReturn("blupp.jpg");
 
-        newRecipeViewModel.createAndRememberImage();
-        newRecipeViewModel.onCleared();
+        createAndEditRecipeViewModel.createAndRememberImage();
+        createAndEditRecipeViewModel.onCleared();
 
         verify(recipeImageService).deleteTemporaryImage("blupp.jpg");
     }
@@ -96,35 +96,35 @@ public class NewRecipeViewModelTest {
         when(recipeImageService.createTemporaryImage()).thenReturn(imageUri);
         when(imageUri.getLastPathSegment()).thenReturn("blupp.jpg");
 
-        newRecipeViewModel.createAndRememberImage();
-        newRecipeViewModel.createAndRememberImage();
+        createAndEditRecipeViewModel.createAndRememberImage();
+        createAndEditRecipeViewModel.createAndRememberImage();
 
         verify(recipeImageService).deleteTemporaryImage("blupp.jpg");
     }
 
     @Test
     public void remove_old_image_even_multiple_changes_are_made() throws IOException, ExecutionException, InterruptedException {
-        newRecipeViewModel.getRecipe().setImageName("old.jpg");
+        createAndEditRecipeViewModel.getRecipe().setImageName("old.jpg");
 
         when(recipeImageService.createTemporaryImage()).thenReturn(imageUri);
         when(imageUri.getLastPathSegment()).thenReturn("blupp.jpg");
 
-        newRecipeViewModel.createAndRememberImage();
-        newRecipeViewModel.confirmImageIsTaken();
-        newRecipeViewModel.createAndRememberImage();
-        newRecipeViewModel.confirmImageIsTaken();
-        newRecipeViewModel.removeOldImageAndCleanUpAnyTemporaryImages();
+        createAndEditRecipeViewModel.createAndRememberImage();
+        createAndEditRecipeViewModel.confirmImageIsTaken();
+        createAndEditRecipeViewModel.createAndRememberImage();
+        createAndEditRecipeViewModel.confirmImageIsTaken();
+        createAndEditRecipeViewModel.removeOldImageAndCleanUpAnyTemporaryImages();
 
         when(recipeImageService.deleteImage("old.jpg")).thenReturn(CompletableFuture.completedFuture(null));
-        when(recipeRepository.insertOrUpdate(newRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.UPDATE));
+        when(recipeRepository.insertOrUpdate(createAndEditRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.UPDATE));
 
-        newRecipeViewModel.confirmFinishedBySaving();
-        CompletableFuture<RecipeRepository.InsertionType> completableFuture = newRecipeViewModel.save();
+        createAndEditRecipeViewModel.confirmFinishedBySaving();
+        CompletableFuture<RecipeRepository.InsertionType> completableFuture = createAndEditRecipeViewModel.save();
         completableFuture.get();
 
-        newRecipeViewModel.onCleared();
+        createAndEditRecipeViewModel.onCleared();
 
-        verify(recipeRepository).insertOrUpdate(newRecipeViewModel.getRecipe());
+        verify(recipeRepository).insertOrUpdate(createAndEditRecipeViewModel.getRecipe());
         verify(recipeImageService).deleteImage("old.jpg");
     }
 

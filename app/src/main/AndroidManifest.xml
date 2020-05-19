@@ -34,7 +34,7 @@
         </activity>
 
         <activity
-            android:name=".ui.recipes.NewRecipeActivity"
+            android:name=".ui.recipes.CreateAndEditRecipeActivity"
             android:label="@string/title_activity_new_recipe"
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden"

@@ -23,21 +23,21 @@ import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
 
-public class NewRecipeActivity extends AppCompatActivity { //TODO rename
+public class CreateAndEditRecipeActivity extends AppCompatActivity {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
 
-    private NewRecipeViewModel viewModel;
+    private CreateAndEditRecipeViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndroidInjection.inject(this);
 
-        viewModel = new ViewModelProvider(this, viewModelFactory).get(NewRecipeViewModel.class);
+        viewModel = new ViewModelProvider(this, viewModelFactory).get(CreateAndEditRecipeViewModel.class);
 
         if (getIntent().hasExtra(Recipe.class.getName())) {
             Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName());

@@ -13,7 +13,7 @@ import java.util.concurrent.CompletableFuture;
 
 import javax.inject.Inject;
 
-public class NewRecipeViewModel extends ViewModel {
+public class CreateAndEditRecipeViewModel extends ViewModel {
 
     private RecipeRepository recipeRepository;
     private RecipeImageService recipeImageService;
@@ -24,7 +24,7 @@ public class NewRecipeViewModel extends ViewModel {
     private String oldImageName;
 
     @Inject
-    NewRecipeViewModel(RecipeRepository recipeRepository, RecipeImageService recipeImageService) {
+    CreateAndEditRecipeViewModel(RecipeRepository recipeRepository, RecipeImageService recipeImageService) {
         this.recipeRepository = recipeRepository;
         this.recipeImageService = recipeImageService;
     }

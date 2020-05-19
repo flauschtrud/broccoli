@@ -41,7 +41,7 @@ public class RecipesFragment extends Fragment implements RecipeAdapter.OnListFra
 
         FloatingActionButton fab = root.findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
-            Intent intent = new Intent(getActivity(), NewRecipeActivity.class);
+            Intent intent = new Intent(getActivity(), CreateAndEditRecipeActivity.class);
             startActivity(intent);
         });
 

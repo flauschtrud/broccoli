@@ -72,7 +72,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     }
 
     public void edit(MenuItem menuItem) {
-        Intent intent = new Intent(this, NewRecipeActivity.class);
+        Intent intent = new Intent(this, CreateAndEditRecipeActivity.class);
         intent.putExtra(Recipe.class.getName(), binding.getRecipe());
         startActivityForResult(intent, REQUEST_EDIT);
     }

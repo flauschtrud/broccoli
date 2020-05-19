@@ -4,7 +4,6 @@ import android.app.Instrumentation;
 import android.content.Intent;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.view.KeyEvent;
 import android.view.View;
 
 import androidx.test.core.app.ActivityScenario;
@@ -61,7 +60,7 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 @RunWith(AndroidJUnit4.class)
-public class NewRecipeActivityTest {
+public class CreateAndEditRecipeActivityTest {
 
     @Inject
     RecipeRepository recipeRepository;
@@ -71,7 +70,7 @@ public class NewRecipeActivityTest {
 
     private Uri uri =  mock(Uri.class); // TODO how to make @Mock work?
 
-    private ActivityScenario<NewRecipeActivity> scenario;
+    private ActivityScenario<CreateAndEditRecipeActivity> scenario;
 
     private View decorView;
     private ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
@@ -89,7 +88,7 @@ public class NewRecipeActivityTest {
         component.inject(getApplication());
 
         Intents.init();
-        scenario = launch(NewRecipeActivity.class);
+        scenario = launch(CreateAndEditRecipeActivity.class);
         scenario.onActivity(activity -> decorView = activity.getWindow().getDecorView());
     }
 
@@ -141,7 +140,7 @@ public class NewRecipeActivityTest {
     public void edit_recipe(){
         when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.UPDATE));
 
-        Intent intent = new Intent(ApplicationProvider.getApplicationContext(), NewRecipeActivity.class);
+        Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CreateAndEditRecipeActivity.class);
         intent.putExtra(Recipe.class.getName(), LAUCHKUCHEN_SAVED);
         scenario = launch(intent);
 
@@ -174,7 +173,7 @@ public class NewRecipeActivityTest {
         when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.UPDATE));
         when(recipeImageService.deleteImage(LAUCHKUCHEN_SAVED.getImageName())).thenReturn(CompletableFuture.completedFuture(null));
 
-        Intent intent = new Intent(ApplicationProvider.getApplicationContext(), NewRecipeActivity.class);
+        Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CreateAndEditRecipeActivity.class);
         intent.putExtra(Recipe.class.getName(), LAUCHKUCHEN_SAVED);
         scenario = launch(intent);
 
@@ -204,7 +203,7 @@ public class NewRecipeActivityTest {
 
         intending(hasAction(MediaStore.ACTION_IMAGE_CAPTURE)).respondWith(new Instrumentation.ActivityResult(RESULT_OK, new Intent()));
 
-        Intent intent = new Intent(ApplicationProvider.getApplicationContext(), NewRecipeActivity.class);
+        Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CreateAndEditRecipeActivity.class);
         intent.putExtra(Recipe.class.getName(), LAUCHKUCHEN_SAVED);
         scenario = launch(intent);
 
