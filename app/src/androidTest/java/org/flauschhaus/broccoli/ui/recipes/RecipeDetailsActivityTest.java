@@ -123,7 +123,7 @@ public class RecipeDetailsActivityTest {
         editIntent.putExtra(Recipe.class.getName(), editedLauchkuchen);
         Instrumentation.ActivityResult result = new Instrumentation.ActivityResult(RESULT_OK, editIntent);
 
-        intending(hasComponent("org.flauschhaus.broccoli.ui.recipes.NewRecipeActivity")).respondWith(result);
+        intending(hasComponent("org.flauschhaus.broccoli.ui.recipes.CreateAndEditRecipeActivity")).respondWith(result);
 
         onView(withId(R.id.action_details_edit)).perform(click());
 

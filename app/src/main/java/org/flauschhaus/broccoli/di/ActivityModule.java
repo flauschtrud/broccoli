@@ -10,7 +10,7 @@ import dagger.android.ContributesAndroidInjector;
 public interface ActivityModule {
 
     @ContributesAndroidInjector
-    CreateAndEditRecipeActivity newRecipeActivity();
+    CreateAndEditRecipeActivity createAndEditRecipeActivity();
 
     @ContributesAndroidInjector
     RecipeDetailsActivity recipeDetailsActivity();
