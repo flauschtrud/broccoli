@@ -41,6 +41,12 @@
                     app:layout_collapseMode="parallax"
                     app:imageName="@{recipe.imageName}"/>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="160dp"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/scrim"/>
+
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
