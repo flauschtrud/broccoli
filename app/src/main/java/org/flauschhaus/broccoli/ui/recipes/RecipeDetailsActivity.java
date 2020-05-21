@@ -56,6 +56,8 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             nestedScrollView.dispatchNestedScroll(0, 0, 0, 0, new int[]{0, -appBarHeight});
         });
 
+        binding.backdrop.setOnClickListener(view -> binding.appBar.setExpanded(true, true));
+
         setSupportActionBar(binding.toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
