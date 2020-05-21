@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.ViewCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 
@@ -45,6 +47,14 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         AndroidInjection.inject(this);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_recipe_details);
+
+        NestedScrollView nestedScrollView = findViewById(R.id.scroll_view);
+        nestedScrollView.post(() -> {
+            int appBarHeight = binding.appBar.getHeight()/2;
+            nestedScrollView.startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL);
+            nestedScrollView.dispatchNestedPreScroll(0, appBarHeight, null, null);
+            nestedScrollView.dispatchNestedScroll(0, 0, 0, 0, new int[]{0, -appBarHeight});
+        });
 
         setSupportActionBar(binding.toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
