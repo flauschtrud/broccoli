@@ -37,6 +37,7 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.replaceText;
+import static androidx.test.espresso.action.ViewActions.swipeUp;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.intent.Intents.intending;
@@ -113,14 +114,15 @@ public class CreateAndEditRecipeActivityTest {
         intending(hasAction(MediaStore.ACTION_IMAGE_CAPTURE)).respondWith(new Instrumentation.ActivityResult(RESULT_OK, new Intent()));
 
         onView(withId(R.id.new_image)).perform(click());
-        onView(withText("Take a photo")).perform(click());
+        onView(withText(R.string.take_photo)).perform(click());
         onView(withId(R.id.new_title)).perform(typeText(LAUCHKUCHEN.getTitle()));
         onView(withId(R.id.new_description)).perform(typeText(LAUCHKUCHEN.getDescription()));
         onView(withId(R.id.new_source)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getSource()));
         onView(withId(R.id.new_servings)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getServings()));
         onView(withId(R.id.new_preparation_time)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getPreparationTime()));
         onView(withId(R.id.new_ingredients)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getIngredients())); // it seems not to be possible to make Espresso type the enter key in a deterministic way
-        onView(withId(R.id.new_directions)).perform(closeSoftKeyboard(), click(), typeText(LAUCHKUCHEN.getDirections()));
+        onView(withId(android.R.id.content)).perform(swipeUp()); // scrollTo() does not work for NestedScrollViews
+        onView(withId(R.id.new_directions)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getDirections()));
         onView(withId(R.id.button_save_recipe)).perform(click()); // TODO find out why there sometimes is such a long wait
 
         verify(recipeImageService).moveImage("12345.jpg");
@@ -178,7 +180,7 @@ public class CreateAndEditRecipeActivityTest {
         scenario = launch(intent);
 
         onView(withId(R.id.new_image)).perform(click());
-        onView(withText("Remove photo")).perform(click());
+        onView(withText(R.string.remove_photo)).perform(click());
         onView(withId(R.id.button_save_recipe)).perform(click());
 
         Instrumentation.ActivityResult result = scenario.getResult();
@@ -208,7 +210,7 @@ public class CreateAndEditRecipeActivityTest {
         scenario = launch(intent);
 
         onView(withId(R.id.new_image)).perform(click());
-        onView(withText("Take a photo")).perform(click());
+        onView(withText(R.string.take_photo)).perform(click());
         onView(withId(R.id.button_save_recipe)).perform(click());
 
         Instrumentation.ActivityResult result = scenario.getResult();
