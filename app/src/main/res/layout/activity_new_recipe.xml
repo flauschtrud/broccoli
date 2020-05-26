@@ -28,6 +28,8 @@
                 app:layout_scrollFlags="noScroll"
                 app:title="@string/title_activity_new_recipe"
                 android:contentDescription="@string/toolbar_navigate_up"
+                android:clickable="true"
+                android:focusable="true"
                 app:navigationIcon="@drawable/ic_close_24dp">
 
                 <Button
