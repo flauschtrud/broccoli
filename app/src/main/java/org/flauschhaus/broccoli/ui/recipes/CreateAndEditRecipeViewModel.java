@@ -68,6 +68,7 @@ public class CreateAndEditRecipeViewModel extends ViewModel {
 
     void confirmImageIsTaken() {
         recipe.setImageName(newImageName);
+        recipe.setDirty(true);
     }
 
     boolean imageHasBeenTaken() {
@@ -81,6 +82,7 @@ public class CreateAndEditRecipeViewModel extends ViewModel {
         }
         newImageName = null;
         recipe.setImageName("");
+        recipe.setDirty(true);
     }
 
     CompletableFuture<RecipeRepository.InsertionType> save() {

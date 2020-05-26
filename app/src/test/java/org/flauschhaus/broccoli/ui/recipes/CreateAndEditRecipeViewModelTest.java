@@ -65,6 +65,7 @@ public class CreateAndEditRecipeViewModelTest {
         createAndEditRecipeViewModel.confirmImageIsTaken();
 
         assertThat(createAndEditRecipeViewModel.getRecipe().getImageName(), is("blupp.jpg"));
+        assertThat(createAndEditRecipeViewModel.getRecipe().isDirty(), is(true));
 
         when(recipeImageService.moveImage("blupp.jpg")).thenReturn(CompletableFuture.completedFuture(null));
         when(recipeRepository.insertOrUpdate(createAndEditRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.INSERT));
