@@ -59,6 +59,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         binding.backdrop.setOnClickListener(view -> binding.appBar.setExpanded(true, true));
 
         setSupportActionBar(binding.toolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName());
