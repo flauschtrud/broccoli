@@ -36,5 +36,6 @@
     <string name="toast_recipe_updated">Recipe  updated.</string>
     <string name="change_image">Change image</string>
     <string name="remove_photo">Remove photo</string>
-    <string name="take_photo">Take a photo</string>
+    <string name="take_photo">Take photo</string>
+    <string name="pick_photo">Pick photo</string>
 </resources>

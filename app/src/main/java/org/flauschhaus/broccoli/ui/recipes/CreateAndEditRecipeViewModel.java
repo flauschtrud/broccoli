@@ -60,29 +60,38 @@ public class CreateAndEditRecipeViewModel extends ViewModel {
 
     Uri createAndRememberImage() throws IOException {
         removeOldImageAndCleanUpAnyTemporaryImages();
-
         Uri photoFile = recipeImageService.createTemporaryImage();
         newImageName = photoFile.getLastPathSegment();
         return photoFile;
     }
 
-    void confirmImageIsTaken() {
-        recipe.setImageName(newImageName);
-        recipe.setDirty(true);
+    void confirmImageHasBeenTaken() {
+        setImageNameAndMarkDirty(newImageName);
     }
 
-    boolean imageHasBeenTaken() {
+    void confirmImageHasBeenPicked(Uri uri) {
+        removeOldImageAndCleanUpAnyTemporaryImages();
+        recipeImageService.copyImage(uri).thenAccept(imageName -> {
+            newImageName = imageName;
+            setImageNameAndMarkDirty(imageName);
+        });
+    }
+
+    void confirmImageHasBeenRemoved() {
+        removeOldImageAndCleanUpAnyTemporaryImages();
+        newImageName = null;
+        setImageNameAndMarkDirty("");
+    }
+
+    boolean imageHasBeenSet() {
         return recipe.getImageName().length() > 0;
     }
 
-    void removeOldImageAndCleanUpAnyTemporaryImages() {
+    private void removeOldImageAndCleanUpAnyTemporaryImages() {
         cleanUpTemporaryImage();
-        if (oldImageName == null && imageHasBeenTaken()) {
+        if (oldImageName == null && imageHasBeenSet()) {
             oldImageName = recipe.getImageName();
         }
-        newImageName = null;
-        recipe.setImageName("");
-        recipe.setDirty(true);
     }
 
     CompletableFuture<RecipeRepository.InsertionType> save() {
@@ -101,6 +110,11 @@ public class CreateAndEditRecipeViewModel extends ViewModel {
         if (!isFinishedBySaving && newImageName != null) {
             recipeImageService.deleteTemporaryImage(newImageName);
         }
+    }
+
+    private void setImageNameAndMarkDirty(String imageName) {
+        recipe.setImageName(imageName);
+        recipe.setDirty(true);
     }
 
 }

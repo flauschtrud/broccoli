@@ -1,6 +1,8 @@
 package org.flauschhaus.broccoli.recipes.images;
 
 import android.app.Application;
+import android.content.ContentResolver;
+import android.net.Uri;
 import android.os.Environment;
 
 import org.junit.Before;
@@ -13,6 +15,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -32,8 +35,14 @@ public class RecipeImageServiceTest {
     @Rule
     public TemporaryFolder cacheDirectory = new TemporaryFolder();
 
+    @Rule
+    public TemporaryFolder publicDirectory = new TemporaryFolder();
+
     @Mock
     private Application application;
+
+    @Mock
+    private ContentResolver contentResolver;
 
     @Mock
     private Compressor compressor;
@@ -64,6 +73,19 @@ public class RecipeImageServiceTest {
         assertThat(new File(picturesDirectory.getRoot().getPath() + File.separator + "blupp.jpg").exists(), is(true));
         assertThat(cachedImage.exists(), is(false));
         assertThat(compressedImage.exists(), is(false));
+    }
+
+    @Test
+    public void copy_image() throws ExecutionException, InterruptedException, IOException {
+        Uri uri = Uri.EMPTY;
+        File pickedImage = publicDirectory.newFile("picked.jpg");
+        when(application.getContentResolver()).thenReturn(contentResolver);
+        when(contentResolver.openInputStream(uri)).thenReturn(new FileInputStream(pickedImage));
+
+        CompletableFuture<String> completableFuture = recipeImageService.copyImage(uri);
+        String imageName = completableFuture.get();
+
+        assertThat(new File(cacheDirectory.getRoot().getPath() + File.separator + imageName).exists(), is(true));
     }
 
     @Test

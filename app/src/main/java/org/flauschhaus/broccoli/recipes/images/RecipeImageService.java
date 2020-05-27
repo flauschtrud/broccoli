@@ -8,6 +8,7 @@ import androidx.core.content.FileProvider;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -32,11 +33,8 @@ public class RecipeImageService {
     }
 
     public Uri createTemporaryImage() throws IOException {
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File cacheDirectory = getCacheDirectory();
-        File temporaryImage = File.createTempFile(imageFileName, ".jpg", cacheDirectory);
-        return FileProvider.getUriForFile(application, AUTHORITY, temporaryImage);
+        File temporaryFile = createTemporaryFile();
+        return FileProvider.getUriForFile(application, AUTHORITY, temporaryFile);
     }
 
     public CompletableFuture<Void> moveImage(String imageName) {
@@ -49,6 +47,19 @@ public class RecipeImageService {
                 FileUtils.copy(compressedTemporaryFile, savedImage);
                 temporaryImage.delete();
                 compressedTemporaryFile.delete();
+            } catch (IOException e) {
+                throw new CompletionException(e);
+            }
+        });
+    }
+
+    public CompletableFuture<String> copyImage(Uri pickedImage) {
+        return CompletableFuture.supplyAsync(() -> {
+            try {
+                InputStream inputStream = application.getContentResolver().openInputStream(pickedImage);
+                File temporaryFile = createTemporaryFile();
+                FileUtils.copy(inputStream, temporaryFile);
+                return temporaryFile.getName();
             } catch (IOException e) {
                 throw new CompletionException(e);
             }
@@ -77,6 +88,13 @@ public class RecipeImageService {
         }
 
         return getTemporaryImage(imageName);
+    }
+
+    private File createTemporaryFile() throws IOException {
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File cacheDirectory = getCacheDirectory();
+        return File.createTempFile(imageFileName, ".jpg", cacheDirectory);
     }
 
     private File getSavedImage(String imageName) {

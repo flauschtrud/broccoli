@@ -29,6 +29,8 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
     ViewModelProvider.Factory viewModelFactory;
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
+    private static final int REQUEST_IMAGE_GET = 2;
+
 
     private CreateAndEditRecipeViewModel viewModel;
 
@@ -106,10 +108,11 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
 
     public void onImageClick() {
         ArrayMap<CharSequence, Runnable> items = new ArrayMap<>();
-        if (viewModel.imageHasBeenTaken()) {
-            items.put(getString(R.string.remove_photo), viewModel::removeOldImageAndCleanUpAnyTemporaryImages);
+        if (viewModel.imageHasBeenSet()) {
+            items.put(getString(R.string.remove_photo), viewModel::confirmImageHasBeenRemoved);
         }
         items.put(getString(R.string.take_photo), this::takePicture);
+        items.put(getString(R.string.pick_photo), this::pickPicture);
 
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle(R.string.change_image)
@@ -118,15 +121,23 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
     }
 
     private void takePicture() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (intent.resolveActivity(getPackageManager()) != null) {
             try {
                 Uri imageUri = viewModel.createAndRememberImage();
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+                startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
             } catch (IOException ex) {
                 Toast.makeText(this, getString(R.string.toast_error_creating_image_file), Toast.LENGTH_SHORT).show();
             }
+        }
+    }
+
+    private void pickPicture() {
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        intent.setType("image/*");
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(intent, REQUEST_IMAGE_GET);
         }
     }
 
@@ -141,7 +152,11 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            viewModel.confirmImageIsTaken();
+            viewModel.confirmImageHasBeenTaken();
+        }
+        else if (requestCode == REQUEST_IMAGE_GET && resultCode == RESULT_OK) {
+            Uri uri = data.getData();
+            viewModel.confirmImageHasBeenPicked(uri);
         }
         super.onActivityResult(requestCode, resultCode, data);
     }

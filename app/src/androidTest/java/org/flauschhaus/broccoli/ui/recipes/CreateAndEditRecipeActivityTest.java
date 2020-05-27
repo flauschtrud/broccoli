@@ -246,4 +246,26 @@ public class CreateAndEditRecipeActivityTest {
                 .check(matches(isDisplayed()));
     }
 
+    @Test
+    public void pick_new_recipe() {
+        when(recipeImageService.copyImage(uri)).thenReturn(CompletableFuture.completedFuture("12345.jpg"));
+        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.INSERT));
+        when(recipeImageService.moveImage("12345.jpg")).thenReturn(CompletableFuture.completedFuture(null));
+
+        Intent intent = new Intent();
+        intent.setData(uri);
+        intending(hasAction(Intent.ACTION_GET_CONTENT)).respondWith(new Instrumentation.ActivityResult(RESULT_OK, intent));
+
+        onView(withId(R.id.new_image)).perform(click());
+        onView(withText(R.string.pick_photo)).perform(click());
+        onView(withId(R.id.new_title)).perform(typeText(LAUCHKUCHEN.getTitle()));
+        onView(withId(R.id.button_save_recipe)).perform(click()); // TODO find out why there sometimes is such a long wait
+
+        verify(recipeImageService).moveImage("12345.jpg");
+
+        Recipe recipe = recipeCaptor.getValue();
+        assertThat(recipe.getTitle(), is(LAUCHKUCHEN.getTitle()));
+        assertThat(recipe.getImageName(), startsWith("12345.jpg"));
+    }
+
 }

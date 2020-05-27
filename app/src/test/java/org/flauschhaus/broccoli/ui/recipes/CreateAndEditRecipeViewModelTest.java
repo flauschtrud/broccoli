@@ -57,12 +57,35 @@ public class CreateAndEditRecipeViewModelTest {
     }
 
     @Test
-    public void create_image_file_and_save() throws IOException, ExecutionException, InterruptedException {
+    public void take_image_file_and_save() throws IOException, ExecutionException, InterruptedException {
         when(recipeImageService.createTemporaryImage()).thenReturn(imageUri);
         when(imageUri.getLastPathSegment()).thenReturn("blupp.jpg");
 
         createAndEditRecipeViewModel.createAndRememberImage();
-        createAndEditRecipeViewModel.confirmImageIsTaken();
+        createAndEditRecipeViewModel.confirmImageHasBeenTaken();
+
+        assertThat(createAndEditRecipeViewModel.getRecipe().getImageName(), is("blupp.jpg"));
+        assertThat(createAndEditRecipeViewModel.getRecipe().isDirty(), is(true));
+
+        when(recipeImageService.moveImage("blupp.jpg")).thenReturn(CompletableFuture.completedFuture(null));
+        when(recipeRepository.insertOrUpdate(createAndEditRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.INSERT));
+
+        createAndEditRecipeViewModel.confirmFinishedBySaving();
+        CompletableFuture<RecipeRepository.InsertionType> completableFuture = createAndEditRecipeViewModel.save();
+        completableFuture.get();
+
+        createAndEditRecipeViewModel.onCleared();
+
+        verify(recipeRepository).insertOrUpdate(createAndEditRecipeViewModel.getRecipe());
+        verify(recipeImageService).moveImage("blupp.jpg");
+        verify(recipeImageService, never()).deleteTemporaryImage(any());
+    }
+
+    @Test
+    public void pick_image_file_and_save() throws ExecutionException, InterruptedException {
+        when(recipeImageService.copyImage(imageUri)).thenReturn(CompletableFuture.completedFuture("blupp.jpg"));
+
+        createAndEditRecipeViewModel.confirmImageHasBeenPicked(imageUri);
 
         assertThat(createAndEditRecipeViewModel.getRecipe().getImageName(), is("blupp.jpg"));
         assertThat(createAndEditRecipeViewModel.getRecipe().isDirty(), is(true));
@@ -111,10 +134,10 @@ public class CreateAndEditRecipeViewModelTest {
         when(imageUri.getLastPathSegment()).thenReturn("blupp.jpg");
 
         createAndEditRecipeViewModel.createAndRememberImage();
-        createAndEditRecipeViewModel.confirmImageIsTaken();
+        createAndEditRecipeViewModel.confirmImageHasBeenTaken();
         createAndEditRecipeViewModel.createAndRememberImage();
-        createAndEditRecipeViewModel.confirmImageIsTaken();
-        createAndEditRecipeViewModel.removeOldImageAndCleanUpAnyTemporaryImages();
+        createAndEditRecipeViewModel.confirmImageHasBeenTaken();
+        createAndEditRecipeViewModel.confirmImageHasBeenRemoved();
 
         when(recipeImageService.deleteImage("old.jpg")).thenReturn(CompletableFuture.completedFuture(null));
         when(recipeRepository.insertOrUpdate(createAndEditRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.UPDATE));
