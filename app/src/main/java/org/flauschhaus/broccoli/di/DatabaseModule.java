@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.room.Room;
 
 import org.flauschhaus.broccoli.BroccoliDatabase;
+import org.flauschhaus.broccoli.category.CategoryDAO;
 import org.flauschhaus.broccoli.recipe.RecipeDAO;
 
 import javax.inject.Singleton;
@@ -34,6 +35,12 @@ public class DatabaseModule {
     @Singleton
     RecipeDAO recipeDAO(BroccoliDatabase database) {
         return database.getRecipeDAO();
+    }
+
+    @Provides
+    @Singleton
+    CategoryDAO categoryDAO(BroccoliDatabase database) {
+        return database.getCategoryDAO();
     }
 
 }

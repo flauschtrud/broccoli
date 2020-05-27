@@ -1,4 +1,4 @@
-package org.flauschhaus.broccoli.ui.recipe;
+package org.flauschhaus.broccoli.recipe;
 
 import android.app.Instrumentation;
 import android.content.Intent;
@@ -16,8 +16,6 @@ import org.flauschhaus.broccoli.BroccoliApplication;
 import org.flauschhaus.broccoli.DaggerMockApplicationComponent;
 import org.flauschhaus.broccoli.MockApplicationComponent;
 import org.flauschhaus.broccoli.R;
-import org.flauschhaus.broccoli.recipe.Recipe;
-import org.flauschhaus.broccoli.recipe.RecipeRepository;
 import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
 import org.flauschhaus.broccoli.util.RecipeTestUtil;

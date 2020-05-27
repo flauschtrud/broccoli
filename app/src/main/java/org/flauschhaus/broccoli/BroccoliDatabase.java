@@ -6,15 +6,18 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import org.flauschhaus.broccoli.category.Category;
+import org.flauschhaus.broccoli.category.CategoryDAO;
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.RecipeDAO;
 
-@Database(entities = {Recipe.class}, version = 1)
+@Database(entities = {Recipe.class, Category.class}, version = 1)
 public abstract class BroccoliDatabase extends RoomDatabase {
 
     private static BroccoliDatabase broccoliDatabase;
 
     public abstract RecipeDAO getRecipeDAO();
+    public abstract CategoryDAO getCategoryDAO();
 
     public static synchronized BroccoliDatabase get(Context context) {
         if (broccoliDatabase == null) {

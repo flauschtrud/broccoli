@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData;
 
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.RecipeRepository;
-import org.flauschhaus.broccoli.recipe.list.RecipesViewModel;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,7 +17,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class RecipesViewModelTest {
+public class RecipeViewModelTest {
 
     @Mock
     private RecipeRepository recipeRepository;
@@ -26,17 +25,17 @@ public class RecipesViewModelTest {
     @Mock
     private LiveData<List<Recipe>> liveData;
 
-    private RecipesViewModel recipesViewModel;
+    private RecipeViewModel recipeViewModel;
 
     @Before
     public void setUp() {
         when(recipeRepository.findAll()).thenReturn(liveData);
-        recipesViewModel = new RecipesViewModel(recipeRepository);
+        recipeViewModel = new RecipeViewModel(recipeRepository);
     }
 
     @Test
     public void test_get_all_recipes() {
-        assertThat(recipesViewModel.getRecipes(), is(liveData));
+        assertThat(recipeViewModel.getRecipes(), is(liveData));
     }
 
 }

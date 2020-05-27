@@ -2,14 +2,15 @@ package org.flauschhaus.broccoli;
 
 import android.app.Application;
 
+import org.flauschhaus.broccoli.category.CategoryFragmentTest;
 import org.flauschhaus.broccoli.di.ActivityModule;
 import org.flauschhaus.broccoli.di.ApplicationComponent;
 import org.flauschhaus.broccoli.di.FragmentModule;
 import org.flauschhaus.broccoli.di.ViewModelModule;
-import org.flauschhaus.broccoli.ui.recipe.MockRecipeModule;
-import org.flauschhaus.broccoli.ui.recipe.CreateAndEditRecipeActivityTest;
-import org.flauschhaus.broccoli.ui.recipe.RecipeDetailsActivityTest;
-import org.flauschhaus.broccoli.ui.recipe.RecipesFragmentTest;
+import org.flauschhaus.broccoli.recipe.CreateAndEditRecipeActivityTest;
+import org.flauschhaus.broccoli.recipe.MockRecipeModule;
+import org.flauschhaus.broccoli.recipe.RecipeDetailsActivityTest;
+import org.flauschhaus.broccoli.recipe.RecipeFragmentTest;
 
 import javax.inject.Singleton;
 
@@ -38,6 +39,7 @@ public interface MockApplicationComponent extends ApplicationComponent {
 
     void inject(CreateAndEditRecipeActivityTest test);
     void inject(RecipeDetailsActivityTest test);
-    void inject(RecipesFragmentTest test);
+    void inject(RecipeFragmentTest test);
+    void inject(CategoryFragmentTest test);
 
 }

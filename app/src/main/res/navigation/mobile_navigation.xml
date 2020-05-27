@@ -7,8 +7,14 @@
 
     <fragment
         android:id="@+id/nav_recipes"
-        android:name="org.flauschhaus.broccoli.recipe.list.RecipesFragment"
+        android:name="org.flauschhaus.broccoli.recipe.list.RecipeFragment"
         android:label="@string/menu_recipes"
+        tools:layout="@layout/fragment_recipes" />
+
+    <fragment
+        android:id="@+id/nav_categories"
+        android:name="org.flauschhaus.broccoli.category.CategoryFragment"
+        android:label="@string/menu_categories"
         tools:layout="@layout/fragment_recipes" />
 
     <fragment

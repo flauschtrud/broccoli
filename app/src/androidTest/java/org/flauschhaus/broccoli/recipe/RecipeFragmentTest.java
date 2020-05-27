@@ -1,4 +1,4 @@
-package org.flauschhaus.broccoli.ui.recipe;
+package org.flauschhaus.broccoli.recipe;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.test.espresso.intent.Intents;
@@ -9,11 +9,9 @@ import org.flauschhaus.broccoli.BroccoliApplication;
 import org.flauschhaus.broccoli.DaggerMockApplicationComponent;
 import org.flauschhaus.broccoli.MockApplicationComponent;
 import org.flauschhaus.broccoli.R;
-import org.flauschhaus.broccoli.recipe.Recipe;
-import org.flauschhaus.broccoli.recipe.RecipeRepository;
 import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import org.flauschhaus.broccoli.recipe.details.RecipeDetailsActivity;
-import org.flauschhaus.broccoli.recipe.list.RecipesFragment;
+import org.flauschhaus.broccoli.recipe.list.RecipeFragment;
 import org.flauschhaus.broccoli.util.RecipeTestUtil;
 import org.junit.After;
 import org.junit.Before;
@@ -41,7 +39,7 @@ import static org.hamcrest.Matchers.allOf;
 import static org.mockito.Mockito.when;
 
 @RunWith(AndroidJUnit4.class)
-public class RecipesFragmentTest {
+public class RecipeFragmentTest {
 
     @Inject
     RecipeRepository recipeRepository;
@@ -63,7 +61,7 @@ public class RecipesFragmentTest {
         when(recipeRepository.findAll()).thenReturn(new MutableLiveData<>(recipes));
 
         Intents.init();
-        launchInContainer(RecipesFragment.class);
+        launchInContainer(RecipeFragment.class);
     }
 
     @After

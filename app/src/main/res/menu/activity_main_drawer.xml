@@ -4,19 +4,26 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
             android:id="@+id/nav_recipes"
             android:icon="@drawable/ic_menu_recipes_24dp"
             android:title="@string/menu_recipes" />
-    </group>
 
-    <item android:title="@string/menu_tools">
-        <menu>
-            <item
-                android:id="@+id/nav_settings"
-                android:icon="@drawable/ic_menu_settings_24dp"
-                android:title="@string/menu_settings" />
-        </menu>
-    </item>
+        <item
+            android:id="@+id/nav_categories"
+            android:icon="@drawable/ic_menu_categories_24dp"
+            android:title="@string/menu_categories" />
+
+        <item android:title="@string/menu_tools">
+            <menu>
+                <item
+                    android:id="@+id/nav_settings"
+                    android:icon="@drawable/ic_menu_settings_24dp"
+                    android:title="@string/menu_settings" />
+            </menu>
+        </item>
+
+    </group>
 
 </menu>
