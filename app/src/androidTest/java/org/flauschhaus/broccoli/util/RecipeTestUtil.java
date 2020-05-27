@@ -1,6 +1,6 @@
 package org.flauschhaus.broccoli.util;
 
-import org.flauschhaus.broccoli.recipes.Recipe;
+import org.flauschhaus.broccoli.recipe.Recipe;
 
 public class RecipeTestUtil {
 

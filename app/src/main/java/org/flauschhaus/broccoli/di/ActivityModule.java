@@ -1,7 +1,7 @@
 package org.flauschhaus.broccoli.di;
 
-import org.flauschhaus.broccoli.ui.recipes.CreateAndEditRecipeActivity;
-import org.flauschhaus.broccoli.ui.recipes.RecipeDetailsActivity;
+import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity;
+import org.flauschhaus.broccoli.recipe.details.RecipeDetailsActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;

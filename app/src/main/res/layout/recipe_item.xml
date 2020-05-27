@@ -2,7 +2,7 @@
 <layout>
 
     <data>
-        <variable name="recipe" type="org.flauschhaus.broccoli.recipes.Recipe" />
+        <variable name="recipe" type="org.flauschhaus.broccoli.recipe.Recipe" />
     </data>
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"

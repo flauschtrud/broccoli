@@ -3,8 +3,8 @@ package org.flauschhaus.broccoli.di;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import org.flauschhaus.broccoli.ui.recipes.CreateAndEditRecipeViewModel;
-import org.flauschhaus.broccoli.ui.recipes.RecipesViewModel;
+import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeViewModel;
+import org.flauschhaus.broccoli.recipe.list.RecipesViewModel;
 
 import dagger.Binds;
 import dagger.Module;

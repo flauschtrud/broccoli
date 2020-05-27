@@ -25,7 +25,7 @@
         </provider>
 
         <activity
-            android:name=".ui.recipes.RecipeDetailsActivity"
+            android:name=".recipe.details.RecipeDetailsActivity"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -34,7 +34,7 @@
         </activity>
 
         <activity
-            android:name=".ui.recipes.CreateAndEditRecipeActivity"
+            android:name=".recipe.crud.CreateAndEditRecipeActivity"
             android:label="@string/title_activity_new_recipe"
             android:parentActivityName=".MainActivity"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden"

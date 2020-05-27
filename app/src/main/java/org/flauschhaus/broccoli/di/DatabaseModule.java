@@ -5,7 +5,7 @@ import android.app.Application;
 import androidx.room.Room;
 
 import org.flauschhaus.broccoli.BroccoliDatabase;
-import org.flauschhaus.broccoli.recipes.RecipeDAO;
+import org.flauschhaus.broccoli.recipe.RecipeDAO;
 
 import javax.inject.Singleton;
 

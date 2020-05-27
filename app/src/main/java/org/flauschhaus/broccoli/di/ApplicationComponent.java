@@ -3,7 +3,7 @@ package org.flauschhaus.broccoli.di;
 import android.app.Application;
 
 import org.flauschhaus.broccoli.BroccoliApplication;
-import org.flauschhaus.broccoli.recipes.RecipeModule;
+import org.flauschhaus.broccoli.recipe.RecipeModule;
 
 import javax.inject.Singleton;
 

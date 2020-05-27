@@ -4,7 +4,7 @@
     <data>
         <variable
             name="recipe"
-            type="org.flauschhaus.broccoli.recipes.Recipe" />
+            type="org.flauschhaus.broccoli.recipe.Recipe" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context=".ui.recipes.RecipeDetailsActivity">
+        tools:context=".recipe.details.RecipeDetailsActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar"

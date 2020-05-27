@@ -6,8 +6,8 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import org.flauschhaus.broccoli.recipes.Recipe;
-import org.flauschhaus.broccoli.recipes.RecipeDAO;
+import org.flauschhaus.broccoli.recipe.Recipe;
+import org.flauschhaus.broccoli.recipe.RecipeDAO;
 
 @Database(entities = {Recipe.class}, version = 1)
 public abstract class BroccoliDatabase extends RoomDatabase {

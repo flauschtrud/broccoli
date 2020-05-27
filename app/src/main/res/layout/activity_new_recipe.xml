@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable name="viewModel" type="org.flauschhaus.broccoli.ui.recipes.CreateAndEditRecipeViewModel" />
-        <variable name="activity" type="org.flauschhaus.broccoli.ui.recipes.CreateAndEditRecipeActivity" />
+        <variable name="viewModel" type="org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeViewModel" />
+        <variable name="activity" type="org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context=".ui.recipes.CreateAndEditRecipeActivity">
+        tools:context=".recipe.crud.CreateAndEditRecipeActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"

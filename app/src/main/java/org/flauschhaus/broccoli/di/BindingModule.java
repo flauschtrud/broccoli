@@ -2,8 +2,8 @@ package org.flauschhaus.broccoli.di;
 
 import android.app.Application;
 
-import org.flauschhaus.broccoli.recipes.images.ImageBindingAdapter;
-import org.flauschhaus.broccoli.recipes.images.RecipeImageService;
+import org.flauschhaus.broccoli.recipe.images.ImageBindingAdapter;
+import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
 
 import dagger.Module;
 import dagger.Provides;

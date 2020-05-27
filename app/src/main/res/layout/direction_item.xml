@@ -3,7 +3,7 @@
 <layout>
 
     <data>
-        <variable name="direction" type="org.flauschhaus.broccoli.recipes.directions.Direction" />
+        <variable name="direction" type="org.flauschhaus.broccoli.recipe.directions.Direction" />
     </data>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
