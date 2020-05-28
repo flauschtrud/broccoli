@@ -13,10 +13,10 @@ import java.util.List;
 public interface CategoryDAO {
 
     @Insert
-    void insert(Category... categories);
+    void insert(Category category);
 
     @Update
-    void update(Category... categories);
+    void update(Category category);
 
     @Delete
     void delete(Category category);

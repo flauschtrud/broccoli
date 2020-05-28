@@ -21,7 +21,7 @@ public class CategoryAdapter extends ListAdapter<Category, CategoryAdapter.Categ
 
         @Override
         public boolean areItemsTheSame(Category oldItem, Category newItem) {
-            return oldItem.getId() == newItem.getId();
+            return oldItem.getCategoryId() == newItem.getCategoryId();
         }
 
         @Override

@@ -3,23 +3,25 @@ package org.flauschhaus.broccoli.category;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(tableName = "categories")
-public class Category {
+public class Category implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
-    private int id = 0;
+    private long categoryId = 0;
     private String name = "";
 
     public Category(String name) {
         this.name = name;
     }
 
-    public int getId() {
-        return id;
+    public long getCategoryId() {
+        return categoryId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCategoryId(long categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getName() {
@@ -30,4 +32,11 @@ public class Category {
         this.name = name;
     }
 
+    @Override
+    public String toString() { // TODO remove after testing
+        return "Category{" +
+                "categoryId=" + categoryId +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

@@ -2,15 +2,15 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "49f121ecb8f1b30e51f7a6b360257364",
+    "identityHash": "03dda085010cafb64d2a125101afacf9",
     "entities": [
       {
         "tableName": "recipes",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `imageName` TEXT, `description` TEXT, `servings` TEXT, `preparationTime` TEXT, `source` TEXT, `ingredients` TEXT, `directions` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`recipeId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `imageName` TEXT, `description` TEXT, `servings` TEXT, `preparationTime` TEXT, `source` TEXT, `ingredients` TEXT, `directions` TEXT)",
         "fields": [
           {
-            "fieldPath": "id",
-            "columnName": "id",
+            "fieldPath": "recipeId",
+            "columnName": "recipeId",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -65,7 +65,7 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "id"
+            "recipeId"
           ],
           "autoGenerate": true
         },
@@ -74,11 +74,11 @@
       },
       {
         "tableName": "categories",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`categoryId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT)",
         "fields": [
           {
-            "fieldPath": "id",
-            "columnName": "id",
+            "fieldPath": "categoryId",
+            "columnName": "categoryId",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -91,9 +91,36 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "id"
+            "categoryId"
           ],
           "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "recipes_with_categories",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`recipeId` INTEGER NOT NULL, `categoryId` INTEGER NOT NULL, PRIMARY KEY(`recipeId`, `categoryId`))",
+        "fields": [
+          {
+            "fieldPath": "recipeId",
+            "columnName": "recipeId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "categoryId",
+            "columnName": "categoryId",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "recipeId",
+            "categoryId"
+          ],
+          "autoGenerate": false
         },
         "indices": [],
         "foreignKeys": []
@@ -102,7 +129,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '49f121ecb8f1b30e51f7a6b360257364')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '03dda085010cafb64d2a125101afacf9')"
     ]
   }
 }

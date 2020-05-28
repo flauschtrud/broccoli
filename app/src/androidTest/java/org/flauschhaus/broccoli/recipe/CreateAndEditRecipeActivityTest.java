@@ -161,11 +161,11 @@ public class CreateAndEditRecipeActivityTest {
         assertThat(result.getResultData().hasExtra(Recipe.class.getName()), is(true));
 
         Recipe savedRecipe = recipeCaptor.getValue();
-        assertThat(savedRecipe.getId(), is(LAUCHKUCHEN_SAVED.getId()));
+        assertThat(savedRecipe.getRecipeId(), is(LAUCHKUCHEN_SAVED.getRecipeId()));
         assertThat(savedRecipe.getServings(), is("1 Portion"));
 
         Recipe editedRecipe = (Recipe) result.getResultData().getSerializableExtra(Recipe.class.getName());
-        assertThat(editedRecipe.getId(), is(LAUCHKUCHEN_SAVED.getId()));
+        assertThat(editedRecipe.getRecipeId(), is(LAUCHKUCHEN_SAVED.getRecipeId()));
         assertThat(editedRecipe.getServings(), is("1 Portion"));
     }
 
@@ -189,7 +189,7 @@ public class CreateAndEditRecipeActivityTest {
         verify(recipeImageService).deleteImage(LAUCHKUCHEN_SAVED.getImageName());
 
         Recipe savedRecipe = recipeCaptor.getValue();
-        assertThat(savedRecipe.getId(), is(LAUCHKUCHEN_SAVED.getId()));
+        assertThat(savedRecipe.getRecipeId(), is(LAUCHKUCHEN_SAVED.getRecipeId()));
         assertThat(savedRecipe.getImageName(), is(""));
     }
 
@@ -220,7 +220,7 @@ public class CreateAndEditRecipeActivityTest {
         verify(recipeImageService).moveImage("12345.jpg");
 
         Recipe savedRecipe = recipeCaptor.getValue();
-        assertThat(savedRecipe.getId(), is(LAUCHKUCHEN_SAVED.getId()));
+        assertThat(savedRecipe.getRecipeId(), is(LAUCHKUCHEN_SAVED.getRecipeId()));
         assertThat(savedRecipe.getImageName(), startsWith("12345.jpg"));
     }
 
@@ -246,7 +246,7 @@ public class CreateAndEditRecipeActivityTest {
     }
 
     @Test
-    public void pick_new_recipe() {
+    public void pick_image() {
         when(recipeImageService.copyImage(uri)).thenReturn(CompletableFuture.completedFuture("12345.jpg"));
         when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.INSERT));
         when(recipeImageService.moveImage("12345.jpg")).thenReturn(CompletableFuture.completedFuture(null));

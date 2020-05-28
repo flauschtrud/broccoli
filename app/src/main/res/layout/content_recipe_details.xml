@@ -82,6 +82,13 @@
                 android:visibility="@{TextUtils.isEmpty(recipe.description) &amp;&amp; TextUtils.isEmpty(recipe.source) ? View.GONE : View.VISIBLE}">
 
                 <TextView
+                    android:id="@+id/details_categories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="@{recipe.categories.toString()}" />
+
+                <TextView
                     android:id="@+id/details_description"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

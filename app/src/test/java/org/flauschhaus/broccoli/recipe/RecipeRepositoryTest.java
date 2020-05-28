@@ -52,19 +52,19 @@ public class RecipeRepositoryTest {
         RecipeRepository.InsertionType insertionType = completableFuture.get();
 
         assertThat(insertionType, is(RecipeRepository.InsertionType.INSERT));
-        verify(recipeDAO).insert(recipe);
+        verify(recipeDAO).insert(recipe.coreRecipe);
     }
 
     @Test
     public void update() throws ExecutionException, InterruptedException {
         Recipe recipe = new Recipe();
-        recipe.setId(5);
+        recipe.setRecipeId(5);
 
         CompletableFuture<RecipeRepository.InsertionType> completableFuture = recipeRepository.insertOrUpdate(recipe);
         RecipeRepository.InsertionType insertionType = completableFuture.get();
 
         assertThat(insertionType, is(RecipeRepository.InsertionType.UPDATE));
-        verify(recipeDAO).update(recipe);
+        verify(recipeDAO).update(recipe.coreRecipe);
     }
 
     @Test
@@ -78,7 +78,7 @@ public class RecipeRepositoryTest {
         completableFuture.get();
 
         verify(recipeImageService).deleteImage("blupp.jpg");
-        verify(recipeDAO).delete(recipe);
+        verify(recipeDAO).delete(recipe.coreRecipe);
     }
 
 }

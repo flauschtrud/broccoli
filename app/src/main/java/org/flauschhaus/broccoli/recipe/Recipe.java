@@ -1,132 +1,104 @@
 package org.flauschhaus.broccoli.recipe;
 
-import androidx.databinding.BaseObservable;
-import androidx.databinding.Bindable;
-import androidx.room.Entity;
-import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
+import androidx.room.Embedded;
+import androidx.room.Junction;
+import androidx.room.Relation;
+
+import org.flauschhaus.broccoli.category.Category;
 
 import java.io.Serializable;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity(tableName = "recipes")
-public class Recipe extends BaseObservable implements Serializable {
+public class Recipe implements Serializable {
 
-    @PrimaryKey(autoGenerate = true)
-    private int id = 0;
-    private String title = "";
-    private String imageName = "";
-    private String description = "";
-    private String servings = "";
-    private String preparationTime = "";
-    private String source = "";
+    @Embedded
+    public CoreRecipe coreRecipe = new CoreRecipe(); // TODO not public
 
-    private String ingredients = "";
-    private String directions = "";
+    @Relation(
+            parentColumn = "recipeId",
+            entityColumn = "categoryId",
+            associateBy = @Junction(RecipeCategoryAssociation.class)
+    )
+    public List<Category> categories = new ArrayList<>(); // TODO not public
 
-    @Ignore
-    private boolean isDirty = false;
-
-    public int getId() {
-        return id;
+    public long getRecipeId() {
+        return coreRecipe.getRecipeId();
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setRecipeId(long recipeId) {
+        this.coreRecipe.setRecipeId(recipeId);
     }
 
     public String getTitle() {
-        return title;
+        return coreRecipe.getTitle();
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.coreRecipe.setTitle(title);
     }
 
-    @Bindable
     public String getImageName() {
-        return imageName;
+        return coreRecipe.getImageName();
     }
 
     public void setImageName(String imageName) {
-        this.imageName = imageName;
-        notifyPropertyChanged(org.flauschhaus.broccoli.BR.imageName);
+        this.coreRecipe.setImageName(imageName);
     }
 
     public String getDescription() {
-        return description;
+        return coreRecipe.getDescription();
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.coreRecipe.setDescription(description);
     }
 
     public String getServings() {
-        return servings;
+        return coreRecipe.getServings();
     }
 
     public void setServings(String servings) {
-        this.servings = servings;
+        this.coreRecipe.setServings(servings);
     }
 
     public String getPreparationTime() {
-        return preparationTime;
+        return coreRecipe.getPreparationTime();
     }
 
     public void setPreparationTime(String preparationTime) {
-        this.preparationTime = preparationTime;
+        this.coreRecipe.setPreparationTime(preparationTime);
     }
 
     public String getSource() {
-        return source;
+        return coreRecipe.getSource();
     }
 
     public void setSource(String source) {
-        this.source = source;
+        this.coreRecipe.setSource(source);
     }
 
     public String getIngredients() {
-        return ingredients;
+        return coreRecipe.getIngredients();
     }
 
     public void setIngredients(String ingredients) {
-        this.ingredients = ingredients;
+        this.coreRecipe.setIngredients(ingredients);
     }
 
     public String getDirections() {
-        return directions;
+        return coreRecipe.getDirections();
     }
 
     public void setDirections(String directions) {
-        this.directions = directions;
+        this.coreRecipe.setDirections(directions);
     }
 
     public boolean isDirty() {
-        return isDirty;
+        return coreRecipe.isDirty(); //TODO really? reicht eigentlich hier
     }
 
     public void setDirty(boolean dirty) {
-        isDirty = dirty;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Recipe recipe = (Recipe) o;
-        return id == recipe.id &&
-                Objects.equals(title, recipe.title) &&
-                Objects.equals(imageName, recipe.imageName) &&
-                Objects.equals(description, recipe.description) &&
-                Objects.equals(servings, recipe.servings) &&
-                Objects.equals(preparationTime, recipe.preparationTime) &&
-                Objects.equals(source, recipe.source) &&
-                Objects.equals(ingredients, recipe.ingredients) &&
-                Objects.equals(directions, recipe.directions);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, title, imageName, description, servings, preparationTime, source, ingredients, directions);
+        this.coreRecipe.setDirty(dirty); //TODO really?
     }
 }

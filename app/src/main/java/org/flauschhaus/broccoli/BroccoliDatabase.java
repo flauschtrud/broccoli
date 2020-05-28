@@ -8,10 +8,11 @@ import androidx.room.RoomDatabase;
 
 import org.flauschhaus.broccoli.category.Category;
 import org.flauschhaus.broccoli.category.CategoryDAO;
-import org.flauschhaus.broccoli.recipe.Recipe;
+import org.flauschhaus.broccoli.recipe.CoreRecipe;
+import org.flauschhaus.broccoli.recipe.RecipeCategoryAssociation;
 import org.flauschhaus.broccoli.recipe.RecipeDAO;
 
-@Database(entities = {Recipe.class, Category.class}, version = 1)
+@Database(entities = {CoreRecipe.class, Category.class, RecipeCategoryAssociation.class}, version = 1)
 public abstract class BroccoliDatabase extends RoomDatabase {
 
     private static BroccoliDatabase broccoliDatabase;

@@ -23,7 +23,7 @@ public class RecipeAdapter extends ListAdapter<Recipe, RecipeAdapter.RecipeHolde
 
         @Override
         public boolean areItemsTheSame(Recipe oldItem, Recipe newItem) {
-            return oldItem.getId() == newItem.getId();
+            return oldItem.getRecipeId() == newItem.getRecipeId();
         }
 
         @Override

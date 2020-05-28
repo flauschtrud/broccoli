@@ -1,6 +1,7 @@
 package org.flauschhaus.broccoli.recipe;
 
 import androidx.lifecycle.LiveData;
+import androidx.room.Transaction;
 
 import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
 
@@ -33,13 +34,15 @@ public class RecipeRepository {
         return allRecipes;
     }
 
+    @Transaction
     public CompletableFuture<InsertionType> insertOrUpdate(Recipe recipe) {
         return CompletableFuture.supplyAsync(() -> {
-            if (recipe.getId() == 0) {
-                recipeDAO.insert(recipe);
+            if (recipe.getRecipeId() == 0) {
+                long recipeId = recipeDAO.insert(recipe.coreRecipe);
+                recipe.categories.forEach(category -> recipeDAO.insert(new RecipeCategoryAssociation(recipeId, category.getCategoryId())));
                 return InsertionType.INSERT;
             } else {
-                recipeDAO.update(recipe);
+                recipeDAO.update(recipe.coreRecipe);
                 return InsertionType.UPDATE;
             }
         });
@@ -48,7 +51,7 @@ public class RecipeRepository {
     public CompletableFuture<Void> delete(Recipe recipe) {
         return CompletableFuture.allOf(
                 recipeImageService.deleteImage(recipe.getImageName()),
-                CompletableFuture.runAsync(() -> recipeDAO.delete(recipe))
+                CompletableFuture.runAsync(() -> recipeDAO.delete(recipe.coreRecipe))
         );
     }
 

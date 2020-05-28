@@ -13,6 +13,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
 import org.flauschhaus.broccoli.R;
+import org.flauschhaus.broccoli.category.CategoryRepository;
 import org.flauschhaus.broccoli.databinding.ActivityNewRecipeBinding;
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.RecipeRepository;
@@ -28,9 +29,11 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
     @Inject
     ViewModelProvider.Factory viewModelFactory;
 
+    @Inject
+    CategoryRepository categoryRepository;
+
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int REQUEST_IMAGE_GET = 2;
-
 
     private CreateAndEditRecipeViewModel viewModel;
 
@@ -45,6 +48,10 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
             Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName());
             viewModel.setRecipe(recipe);
         }
+
+        categoryRepository.findAll().observe(this, categories -> {
+            categories.forEach(category -> viewModel.getRecipe().categories.add(category));
+        }); // TODO remove after testing
 
         if (savedInstanceState != null) {
             viewModel.setRecipe((Recipe) savedInstanceState.getSerializable("recipe"));
