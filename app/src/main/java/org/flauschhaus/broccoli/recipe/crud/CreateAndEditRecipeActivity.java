@@ -49,10 +49,6 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
             viewModel.setRecipe(recipe);
         }
 
-        categoryRepository.findAll().observe(this, categories -> {
-            categories.forEach(category -> viewModel.getRecipe().categories.add(category));
-        }); // TODO remove after testing
-
         if (savedInstanceState != null) {
             viewModel.setRecipe((Recipe) savedInstanceState.getSerializable("recipe"));
             viewModel.setNewImageName(savedInstanceState.getString("newImageName"));

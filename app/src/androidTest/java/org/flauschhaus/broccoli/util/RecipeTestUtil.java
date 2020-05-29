@@ -1,5 +1,6 @@
 package org.flauschhaus.broccoli.util;
 
+import org.flauschhaus.broccoli.category.Category;
 import org.flauschhaus.broccoli.recipe.Recipe;
 
 public class RecipeTestUtil {
@@ -14,6 +15,8 @@ public class RecipeTestUtil {
         recipe.setPreparationTime("50 Minuten");
         recipe.setIngredients("500g Mehl\n2 Stangen Lauch");
         recipe.setDirections("1. Lauch schnippeln und Teig machen.\n2. Kochen und backen.");
+        recipe.getCategories().add(new Category("Hauptgerichte"));
+        recipe.getCategories().add(new Category("Gebackenes"));
         return recipe;
     }
 

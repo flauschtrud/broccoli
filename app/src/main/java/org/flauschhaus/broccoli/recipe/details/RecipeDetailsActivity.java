@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -20,14 +21,18 @@ import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.flauschhaus.broccoli.R;
+import org.flauschhaus.broccoli.category.Category;
 import org.flauschhaus.broccoli.databinding.ActivityRecipeDetailsBinding;
 import org.flauschhaus.broccoli.databinding.DirectionItemBinding;
 import org.flauschhaus.broccoli.databinding.IngredientItemBinding;
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.RecipeRepository;
+import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import org.flauschhaus.broccoli.recipe.directions.DirectionBuilder;
 import org.flauschhaus.broccoli.recipe.ingredients.IngredientBuilder;
-import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
@@ -101,6 +106,14 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 .setNegativeButton(R.string.cancel, (dialog, id) -> {})
                 .create();
         alertDialog.show();
+    }
+
+    @BindingAdapter("categories")
+    public static void bindCategories(TextView textView, List<Category> categories) {
+        String joinedCategories = categories.stream()
+                .map(Category::getName)
+                .collect(Collectors.joining(", "));
+        textView.setText(joinedCategories);
     }
 
     @BindingAdapter("directions")

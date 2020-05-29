@@ -115,7 +115,6 @@ public class CoreRecipe extends BaseObservable implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         CoreRecipe that = (CoreRecipe) o;
         return recipeId == that.recipeId &&
-                isDirty == that.isDirty &&
                 Objects.equals(title, that.title) &&
                 Objects.equals(imageName, that.imageName) &&
                 Objects.equals(description, that.description) &&
@@ -128,6 +127,6 @@ public class CoreRecipe extends BaseObservable implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(recipeId, title, imageName, description, servings, preparationTime, source, ingredients, directions, isDirty);
+        return Objects.hash(recipeId, title, imageName, description, servings, preparationTime, source, ingredients, directions);
     }
 }

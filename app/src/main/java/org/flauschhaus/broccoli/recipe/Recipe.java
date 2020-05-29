@@ -9,18 +9,35 @@ import org.flauschhaus.broccoli.category.Category;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Recipe implements Serializable {
 
     @Embedded
-    public CoreRecipe coreRecipe = new CoreRecipe(); // TODO not public
+    private CoreRecipe coreRecipe = new CoreRecipe();
 
     @Relation(
             parentColumn = "recipeId",
             entityColumn = "categoryId",
             associateBy = @Junction(RecipeCategoryAssociation.class)
     )
-    public List<Category> categories = new ArrayList<>(); // TODO not public
+    private List<Category> categories = new ArrayList<>();
+
+    public CoreRecipe getCoreRecipe() {
+        return coreRecipe;
+    }
+
+    public void setCoreRecipe(CoreRecipe coreRecipe) {
+        this.coreRecipe = coreRecipe;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
+    }
 
     public long getRecipeId() {
         return coreRecipe.getRecipeId();
@@ -100,5 +117,19 @@ public class Recipe implements Serializable {
 
     public void setDirty(boolean dirty) {
         this.coreRecipe.setDirty(dirty); //TODO really?
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Recipe recipe = (Recipe) o;
+        return Objects.equals(coreRecipe, recipe.coreRecipe) &&
+                Objects.equals(categories, recipe.categories);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(coreRecipe, categories);
     }
 }

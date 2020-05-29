@@ -37,6 +37,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.hasSibling;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withSubstring;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 import static org.mockito.Mockito.verify;
@@ -96,6 +97,8 @@ public class RecipeDetailsActivityTest {
                 .check(matches(withText("Lauch schnippeln und Teig machen.")));
         onView(allOf(withId(R.id.direction_text), hasSibling(withText("2"))))
                 .check(matches(withText("Kochen und backen.")));
+
+        lauchkuchen.getCategories().forEach(category -> onView(withId(R.id.details_categories)).check(matches(withSubstring(category.getName()))));
     }
 
     @Test

@@ -38,11 +38,11 @@ public class RecipeRepository {
     public CompletableFuture<InsertionType> insertOrUpdate(Recipe recipe) {
         return CompletableFuture.supplyAsync(() -> {
             if (recipe.getRecipeId() == 0) {
-                long recipeId = recipeDAO.insert(recipe.coreRecipe);
-                recipe.categories.forEach(category -> recipeDAO.insert(new RecipeCategoryAssociation(recipeId, category.getCategoryId())));
+                long recipeId = recipeDAO.insert(recipe.getCoreRecipe());
+                recipe.getCategories().forEach(category -> recipeDAO.insert(new RecipeCategoryAssociation(recipeId, category.getCategoryId())));
                 return InsertionType.INSERT;
             } else {
-                recipeDAO.update(recipe.coreRecipe);
+                recipeDAO.update(recipe.getCoreRecipe());
                 return InsertionType.UPDATE;
             }
         });
@@ -51,7 +51,7 @@ public class RecipeRepository {
     public CompletableFuture<Void> delete(Recipe recipe) {
         return CompletableFuture.allOf(
                 recipeImageService.deleteImage(recipe.getImageName()),
-                CompletableFuture.runAsync(() -> recipeDAO.delete(recipe.coreRecipe))
+                CompletableFuture.runAsync(() -> recipeDAO.delete(recipe.getCoreRecipe()))
         );
     }
 

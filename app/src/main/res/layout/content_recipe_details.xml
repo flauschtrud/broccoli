@@ -74,19 +74,39 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/text_margin"
+                android:visibility="@{recipe.categories.isEmpty() ? View.GONE : View.VISIBLE}">
+
+                <ImageView
+                    android:id="@+id/details_icon_categories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/details_categories"
+                    app:layout_constraintBottom_toBottomOf="@id/details_categories"
+                    android:src="@drawable/ic_menu_categories_24dp"
+                    android:tint="@color/divider"/>
+
+                <TextView
+                    android:id="@+id/details_categories"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/details_icon_categories"
+                    android:layout_marginStart="5dp"
+                    app:categories="@{recipe.categories}" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="@dimen/text_margin"
                 android:visibility="@{TextUtils.isEmpty(recipe.description) &amp;&amp; TextUtils.isEmpty(recipe.source) ? View.GONE : View.VISIBLE}">
-
-                <TextView
-                    android:id="@+id/details_categories"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:text="@{recipe.categories.toString()}" />
 
                 <TextView
                     android:id="@+id/details_description"

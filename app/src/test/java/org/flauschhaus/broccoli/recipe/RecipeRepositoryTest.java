@@ -52,7 +52,7 @@ public class RecipeRepositoryTest {
         RecipeRepository.InsertionType insertionType = completableFuture.get();
 
         assertThat(insertionType, is(RecipeRepository.InsertionType.INSERT));
-        verify(recipeDAO).insert(recipe.coreRecipe);
+        verify(recipeDAO).insert(recipe.getCoreRecipe());
     }
 
     @Test
@@ -64,7 +64,7 @@ public class RecipeRepositoryTest {
         RecipeRepository.InsertionType insertionType = completableFuture.get();
 
         assertThat(insertionType, is(RecipeRepository.InsertionType.UPDATE));
-        verify(recipeDAO).update(recipe.coreRecipe);
+        verify(recipeDAO).update(recipe.getCoreRecipe());
     }
 
     @Test
@@ -78,7 +78,7 @@ public class RecipeRepositoryTest {
         completableFuture.get();
 
         verify(recipeImageService).deleteImage("blupp.jpg");
-        verify(recipeDAO).delete(recipe.coreRecipe);
+        verify(recipeDAO).delete(recipe.getCoreRecipe());
     }
 
 }
