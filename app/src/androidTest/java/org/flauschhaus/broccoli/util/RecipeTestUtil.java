@@ -24,6 +24,7 @@ public class RecipeTestUtil {
         Recipe recipe = createLauchkuchen();
         recipe.setRecipeId(1);
         recipe.setImageName("lauchkuchen.jpg");
+        recipe.addCategory(new Category("Hauptgerichte"));
         return recipe;
     }
 

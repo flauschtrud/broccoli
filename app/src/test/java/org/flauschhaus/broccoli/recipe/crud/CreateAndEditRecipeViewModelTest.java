@@ -2,8 +2,11 @@ package org.flauschhaus.broccoli.recipe.crud;
 
 import android.net.Uri;
 
+import androidx.lifecycle.LiveData;
+
+import org.flauschhaus.broccoli.category.Category;
+import org.flauschhaus.broccoli.category.CategoryRepository;
 import org.flauschhaus.broccoli.recipe.RecipeRepository;
-import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeViewModel;
 import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,6 +15,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -34,7 +38,13 @@ public class CreateAndEditRecipeViewModelTest {
     private RecipeImageService recipeImageService;
 
     @Mock
+    private CategoryRepository categoryRepository;
+
+    @Mock
     private Uri imageUri;
+
+    @Mock
+    private LiveData<List<Category>> categories;
 
     @InjectMocks
     private CreateAndEditRecipeViewModel createAndEditRecipeViewModel;
@@ -151,6 +161,12 @@ public class CreateAndEditRecipeViewModelTest {
 
         verify(recipeRepository).insertOrUpdate(createAndEditRecipeViewModel.getRecipe());
         verify(recipeImageService).deleteImage("old.jpg");
+    }
+
+    @Test
+    public void get_categories() {
+        when(categoryRepository.findAll()).thenReturn(categories);
+        assertThat(createAndEditRecipeViewModel.getCategories(), is(categories));
     }
 
 }

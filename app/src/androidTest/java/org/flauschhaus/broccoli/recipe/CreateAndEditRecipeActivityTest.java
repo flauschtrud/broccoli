@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.provider.MediaStore;
 import android.view.View;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.espresso.intent.Intents;
@@ -16,6 +17,8 @@ import org.flauschhaus.broccoli.BroccoliApplication;
 import org.flauschhaus.broccoli.DaggerMockApplicationComponent;
 import org.flauschhaus.broccoli.MockApplicationComponent;
 import org.flauschhaus.broccoli.R;
+import org.flauschhaus.broccoli.category.Category;
+import org.flauschhaus.broccoli.category.CategoryRepository;
 import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
 import org.flauschhaus.broccoli.util.RecipeTestUtil;
@@ -26,7 +29,10 @@ import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
@@ -67,6 +73,9 @@ public class CreateAndEditRecipeActivityTest {
 
     @Inject
     RecipeImageService recipeImageService;
+
+    @Inject
+    CategoryRepository categoryRepository;
 
     private Uri uri =  mock(Uri.class); // TODO how to make @Mock work?
 
@@ -112,16 +121,30 @@ public class CreateAndEditRecipeActivityTest {
 
         intending(hasAction(MediaStore.ACTION_IMAGE_CAPTURE)).respondWith(new Instrumentation.ActivityResult(RESULT_OK, new Intent()));
 
+        List<Category> categories = new ArrayList<>();
+        Category categoryHauptgerichte = new Category("Hauptgerichte");
+        categories.add(categoryHauptgerichte);
+        categories.add(new Category("Nachtisch"));
+        when(categoryRepository.findAll()).thenReturn(new MutableLiveData<>(categories));
+
         onView(withId(R.id.new_image)).perform(click());
         onView(withText(R.string.take_photo)).perform(click());
         onView(withId(R.id.new_title)).perform(typeText(LAUCHKUCHEN.getTitle()));
-        onView(withId(R.id.new_description)).perform(typeText(LAUCHKUCHEN.getDescription()));
+
+        onView(withId(R.id.new_categories)).perform(click());
+        onView(withText("Hauptgerichte")).perform(click());
+        onView(withText("Nachtisch")).perform(click());
+        onView(withText("Nachtisch")).perform(click());
+        onView(withText(R.string.action_choose)).perform(click());
+
+        onView(withId(R.id.new_description)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getDescription()));
         onView(withId(R.id.new_source)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getSource()));
         onView(withId(R.id.new_servings)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getServings()));
         onView(withId(R.id.new_preparation_time)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getPreparationTime()));
         onView(withId(R.id.new_ingredients)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getIngredients())); // it seems not to be possible to make Espresso type the enter key in a deterministic way
         onView(withId(android.R.id.content)).perform(swipeUp()); // scrollTo() does not work for NestedScrollViews
         onView(withId(R.id.new_directions)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getDirections()));
+
         onView(withId(R.id.button_save_recipe)).perform(click()); // TODO find out why there sometimes is such a long wait
 
         verify(recipeImageService).moveImage("12345.jpg");
@@ -135,6 +158,9 @@ public class CreateAndEditRecipeActivityTest {
         assertThat(recipe.getIngredients(), is(LAUCHKUCHEN.getIngredients()));
         assertThat(recipe.getDirections(), is(LAUCHKUCHEN.getDirections()));
         assertThat(recipe.getImageName(), startsWith("12345.jpg"));
+        assertThat(recipe.getCategories().size(), is(1));
+        assertThat(recipe.getCategories().get(0), is(categoryHauptgerichte));
+
     }
 
     @Test
@@ -146,6 +172,7 @@ public class CreateAndEditRecipeActivityTest {
         scenario = launch(intent);
 
         onView(withId(R.id.new_title)).check(matches(withText(LAUCHKUCHEN_SAVED.getTitle())));
+        onView(withId(R.id.new_categories)).check(matches(withText(LAUCHKUCHEN_SAVED.getCategories().stream().map(Category::getName).collect(Collectors.joining(", ")))));
         onView(withId(R.id.new_description)).check(matches(withText(LAUCHKUCHEN_SAVED.getDescription())));
         onView(withId(R.id.new_source)).check(matches(withText(LAUCHKUCHEN_SAVED.getSource())));
         onView(withId(R.id.new_servings)).check(matches(withText(LAUCHKUCHEN_SAVED.getServings())));

@@ -87,7 +87,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@id/details_categories"
                     app:layout_constraintBottom_toBottomOf="@id/details_categories"
-                    android:src="@drawable/ic_menu_categories_24dp"
+                    android:src="@drawable/ic_categories_24dp"
                     android:tint="@color/divider"/>
 
                 <TextView

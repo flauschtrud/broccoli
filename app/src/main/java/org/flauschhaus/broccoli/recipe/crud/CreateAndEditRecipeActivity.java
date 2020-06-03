@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.ArrayMap;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
@@ -12,8 +13,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
+import org.flauschhaus.broccoli.BooleanUtils;
 import org.flauschhaus.broccoli.R;
-import org.flauschhaus.broccoli.category.CategoryRepository;
+import org.flauschhaus.broccoli.category.Category;
 import org.flauschhaus.broccoli.databinding.ActivityNewRecipeBinding;
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.RecipeRepository;
@@ -28,9 +30,6 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
-
-    @Inject
-    CategoryRepository categoryRepository;
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int REQUEST_IMAGE_GET = 2;
@@ -150,6 +149,32 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
         }
 
         viewModel.getRecipe().setDirty(true);
+    }
+
+    public void onCategoryClick(View view) {
+        viewModel.getCategories().observe(this, categories -> {
+
+            CharSequence[] categoryNames = categories.stream().map(Category::getName).toArray(CharSequence[]::new);
+            boolean[] checkedCategories = categories.stream().map(category -> viewModel.getRecipe().getCategories().contains(category)).collect(BooleanUtils.toBooleanArray);
+
+            AlertDialog alertDialog = new AlertDialog.Builder(this)
+                    .setTitle(R.string.categories)
+                    .setMultiChoiceItems(categoryNames, checkedCategories, (dialog, which, isChecked) -> {
+                        Category category = categories.get(which);
+                        viewModel.getRecipe().getCoreRecipe().setDirty(true);
+                        if (isChecked) {
+                            viewModel.getRecipe().addCategory(category);
+                        }
+                        else {
+                            viewModel.getRecipe().removeCategory(category);
+                        }
+                    })
+                    .setPositiveButton(R.string.action_choose, (dialog, id) -> {})
+                    .setNegativeButton(R.string.cancel, (dialog, id) -> {})
+                    .create();
+            alertDialog.show();
+
+        });
     }
 
     @Override

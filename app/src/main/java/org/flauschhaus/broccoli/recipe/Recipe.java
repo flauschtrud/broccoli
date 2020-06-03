@@ -1,9 +1,12 @@
 package org.flauschhaus.broccoli.recipe;
 
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
 import androidx.room.Embedded;
 import androidx.room.Junction;
 import androidx.room.Relation;
 
+import org.flauschhaus.broccoli.BR;
 import org.flauschhaus.broccoli.category.Category;
 
 import java.io.Serializable;
@@ -11,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Recipe implements Serializable {
+public class Recipe extends BaseObservable implements Serializable {
 
     @Embedded
     private CoreRecipe coreRecipe = new CoreRecipe();
@@ -31,12 +34,23 @@ public class Recipe implements Serializable {
         this.coreRecipe = coreRecipe;
     }
 
+    @Bindable
     public List<Category> getCategories() {
         return categories;
     }
 
     public void setCategories(List<Category> categories) {
         this.categories = categories;
+    }
+
+    public void addCategory(Category category) {
+        this.categories.add(category);
+        notifyPropertyChanged(BR.categories);
+    }
+
+    public void removeCategory(Category category) {
+        this.categories.remove(category);
+        notifyPropertyChanged(BR.categories);
     }
 
     public long getRecipeId() {

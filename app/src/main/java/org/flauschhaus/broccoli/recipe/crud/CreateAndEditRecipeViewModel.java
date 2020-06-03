@@ -2,13 +2,17 @@ package org.flauschhaus.broccoli.recipe.crud;
 
 import android.net.Uri;
 
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
+import org.flauschhaus.broccoli.category.Category;
+import org.flauschhaus.broccoli.category.CategoryRepository;
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.RecipeRepository;
 import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 import javax.inject.Inject;
@@ -17,6 +21,7 @@ public class CreateAndEditRecipeViewModel extends ViewModel {
 
     private RecipeRepository recipeRepository;
     private RecipeImageService recipeImageService;
+    private CategoryRepository categoryRepository;
 
     private Recipe recipe = new Recipe();
     private boolean isFinishedBySaving = false;
@@ -24,9 +29,10 @@ public class CreateAndEditRecipeViewModel extends ViewModel {
     private String oldImageName;
 
     @Inject
-    CreateAndEditRecipeViewModel(RecipeRepository recipeRepository, RecipeImageService recipeImageService) {
+    CreateAndEditRecipeViewModel(RecipeRepository recipeRepository, RecipeImageService recipeImageService, CategoryRepository categoryRepository) {
         this.recipeRepository = recipeRepository;
         this.recipeImageService = recipeImageService;
+        this.categoryRepository = categoryRepository;
     }
 
     @Override
@@ -115,6 +121,10 @@ public class CreateAndEditRecipeViewModel extends ViewModel {
     private void setImageNameAndMarkDirty(String imageName) {
         recipe.setImageName(imageName);
         recipe.setDirty(true);
+    }
+
+    LiveData<List<Category>> getCategories() {
+        return categoryRepository.findAll();
     }
 
 }
