@@ -135,7 +135,7 @@ public class CreateAndEditRecipeActivityTest {
         onView(withText("Hauptgerichte")).perform(click());
         onView(withText("Nachtisch")).perform(click());
         onView(withText("Nachtisch")).perform(click());
-        onView(withText(R.string.action_choose)).perform(click());
+        onView(withText(R.string.ok)).perform(click());
 
         onView(withId(R.id.new_description)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getDescription()));
         onView(withId(R.id.new_source)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getSource()));

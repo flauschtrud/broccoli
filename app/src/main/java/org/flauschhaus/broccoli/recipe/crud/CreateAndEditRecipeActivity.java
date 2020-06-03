@@ -157,21 +157,27 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
             CharSequence[] categoryNames = categories.stream().map(Category::getName).toArray(CharSequence[]::new);
             boolean[] checkedCategories = categories.stream().map(category -> viewModel.getRecipe().getCategories().contains(category)).collect(BooleanUtils.toBooleanArray);
 
-            AlertDialog alertDialog = new AlertDialog.Builder(this)
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this)
                     .setTitle(R.string.categories)
-                    .setMultiChoiceItems(categoryNames, checkedCategories, (dialog, which, isChecked) -> {
-                        Category category = categories.get(which);
-                        viewModel.getRecipe().setDirty(true);
-                        if (isChecked) {
-                            viewModel.getRecipe().addCategory(category);
-                        }
-                        else {
-                            viewModel.getRecipe().removeCategory(category);
-                        }
-                    })
-                    .setPositiveButton(R.string.action_choose, (dialog, id) -> {})
-                    .create();
-            alertDialog.show();
+                    .setPositiveButton(R.string.ok, (dialog, id) -> {});
+
+            if (categoryNames.length == 0) {
+                dialogBuilder.setMessage(R.string.no_categories);
+            } else {
+                dialogBuilder.setMultiChoiceItems(categoryNames, checkedCategories, (dialog, which, isChecked) -> {
+                    Category category = categories.get(which);
+                    viewModel.getRecipe().setDirty(true);
+                    if (isChecked) {
+                        viewModel.getRecipe().addCategory(category);
+                    }
+                    else {
+                        viewModel.getRecipe().removeCategory(category);
+                    }
+                });
+            }
+
+            dialogBuilder.create()
+                    .show();
 
         });
     }
