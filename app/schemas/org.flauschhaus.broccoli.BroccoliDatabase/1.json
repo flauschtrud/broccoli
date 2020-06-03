@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "03dda085010cafb64d2a125101afacf9",
+    "identityHash": "93b7d97eacfa8f79cf39b6b6eeba9727",
     "entities": [
       {
         "tableName": "recipes",
@@ -122,14 +122,23 @@
           ],
           "autoGenerate": false
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_recipes_with_categories_categoryId",
+            "unique": false,
+            "columnNames": [
+              "categoryId"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_recipes_with_categories_categoryId` ON `${TABLE_NAME}` (`categoryId`)"
+          }
+        ],
         "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '03dda085010cafb64d2a125101afacf9')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '93b7d97eacfa8f79cf39b6b6eeba9727')"
     ]
   }
 }

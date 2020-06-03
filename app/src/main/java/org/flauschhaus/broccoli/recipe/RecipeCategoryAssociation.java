@@ -1,8 +1,16 @@
 package org.flauschhaus.broccoli.recipe;
 
 import androidx.room.Entity;
+import androidx.room.Index;
 
-@Entity(tableName = "recipes_with_categories", primaryKeys = {"recipeId", "categoryId"})
+@Entity(
+        tableName = "recipes_with_categories",
+        primaryKeys = {
+                "recipeId", "categoryId"
+        },
+        indices = {
+                @Index("categoryId")
+        })
 public class RecipeCategoryAssociation {
     private long recipeId;
     private long categoryId;
