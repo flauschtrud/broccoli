@@ -24,9 +24,6 @@ public class CoreRecipe extends BaseObservable implements Serializable {
     private String ingredients = "";
     private String directions = "";
 
-    @Ignore
-    private boolean isDirty = false;
-
     public long getRecipeId() {
         return recipeId;
     }
@@ -99,14 +96,6 @@ public class CoreRecipe extends BaseObservable implements Serializable {
 
     public void setDirections(String directions) {
         this.directions = directions;
-    }
-
-    public boolean isDirty() {
-        return isDirty;
-    }
-
-    public void setDirty(boolean dirty) {
-        isDirty = dirty;
     }
 
     @Override

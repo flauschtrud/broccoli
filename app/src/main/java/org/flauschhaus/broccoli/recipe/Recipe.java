@@ -3,6 +3,7 @@ package org.flauschhaus.broccoli.recipe;
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 import androidx.room.Embedded;
+import androidx.room.Ignore;
 import androidx.room.Junction;
 import androidx.room.Relation;
 
@@ -25,6 +26,9 @@ public class Recipe extends BaseObservable implements Serializable {
             associateBy = @Junction(RecipeCategoryAssociation.class)
     )
     private List<Category> categories = new ArrayList<>();
+
+    @Ignore
+    private boolean isDirty = false;
 
     public CoreRecipe getCoreRecipe() {
         return coreRecipe;
@@ -126,11 +130,11 @@ public class Recipe extends BaseObservable implements Serializable {
     }
 
     public boolean isDirty() {
-        return coreRecipe.isDirty(); //TODO really? reicht eigentlich hier
+        return isDirty;
     }
 
     public void setDirty(boolean dirty) {
-        this.coreRecipe.setDirty(dirty); //TODO really?
+        isDirty = dirty;
     }
 
     @Override

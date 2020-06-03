@@ -145,7 +145,7 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
 
     public void onTextChanged(CharSequence s, int start, int before, int count) {
         if (start == 0 && before == 0) { // call triggered by data binding
-            return;
+            return; // TODO does also return when a single character is typed https://github.com/JanaFlauschata/broccoli/issues/20
         }
 
         viewModel.getRecipe().setDirty(true);
@@ -161,7 +161,7 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
                     .setTitle(R.string.categories)
                     .setMultiChoiceItems(categoryNames, checkedCategories, (dialog, which, isChecked) -> {
                         Category category = categories.get(which);
-                        viewModel.getRecipe().getCoreRecipe().setDirty(true);
+                        viewModel.getRecipe().setDirty(true);
                         if (isChecked) {
                             viewModel.getRecipe().addCategory(category);
                         }
@@ -170,7 +170,6 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
                         }
                     })
                     .setPositiveButton(R.string.action_choose, (dialog, id) -> {})
-                    .setNegativeButton(R.string.cancel, (dialog, id) -> {})
                     .create();
             alertDialog.show();
 
