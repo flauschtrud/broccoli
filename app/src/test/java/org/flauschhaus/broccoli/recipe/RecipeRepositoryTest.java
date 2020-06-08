@@ -2,19 +2,23 @@ package org.flauschhaus.broccoli.recipe;
 
 import androidx.lifecycle.LiveData;
 
+import org.flauschhaus.broccoli.category.Category;
 import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -32,6 +36,13 @@ public class RecipeRepositoryTest {
 
     private RecipeRepository recipeRepository;
 
+    private ArgumentCaptor<RecipeCategoryAssociation> associationCaptor = ArgumentCaptor.forClass(RecipeCategoryAssociation.class);
+
+    private static Category newCategory = new Category("neu");
+    {
+        newCategory.setCategoryId(5L);
+    }
+
     @Before
     public void setUp() {
         when(recipeDAO.findAll()).thenReturn(allRecipes);
@@ -47,24 +58,43 @@ public class RecipeRepositoryTest {
     @Test
     public void insert() throws ExecutionException, InterruptedException {
         Recipe recipe = new Recipe();
-
+        recipe.addCategory(newCategory);
+        doNothing().when(recipeDAO).insert(associationCaptor.capture());
+        when(recipeDAO.insert(recipe.getCoreRecipe())).thenReturn(12L);
+        
         CompletableFuture<RecipeRepository.InsertionType> completableFuture = recipeRepository.insertOrUpdate(recipe);
         RecipeRepository.InsertionType insertionType = completableFuture.get();
 
         assertThat(insertionType, is(RecipeRepository.InsertionType.INSERT));
-        verify(recipeDAO).insert(recipe.getCoreRecipe());
+
+        RecipeCategoryAssociation categoryAssociation = associationCaptor.getValue();
+        assertThat(categoryAssociation.getCategoryId(), is(5L));
+        assertThat(categoryAssociation.getRecipeId(), is(12L));
     }
 
     @Test
     public void update() throws ExecutionException, InterruptedException {
         Recipe recipe = new Recipe();
-        recipe.setRecipeId(5);
+        recipe.setRecipeId(12);
+        recipe.addCategory(newCategory);
+
+        doNothing().when(recipeDAO).insert(associationCaptor.capture());
+
+        List<RecipeCategoryAssociation> oldAssociations = new ArrayList<>();
+        RecipeCategoryAssociation oldAssociation = new RecipeCategoryAssociation(12L, 5L);
+        oldAssociations.add(oldAssociation);
+        when(recipeDAO.getCategoriesFor(12)).thenReturn(oldAssociations);
 
         CompletableFuture<RecipeRepository.InsertionType> completableFuture = recipeRepository.insertOrUpdate(recipe);
         RecipeRepository.InsertionType insertionType = completableFuture.get();
 
         assertThat(insertionType, is(RecipeRepository.InsertionType.UPDATE));
         verify(recipeDAO).update(recipe.getCoreRecipe());
+        verify(recipeDAO).delete(oldAssociation);
+
+        RecipeCategoryAssociation categoryAssociation = associationCaptor.getValue();
+        assertThat(categoryAssociation.getCategoryId(), is(5L));
+        assertThat(categoryAssociation.getRecipeId(), is(12L));
     }
 
     @Test

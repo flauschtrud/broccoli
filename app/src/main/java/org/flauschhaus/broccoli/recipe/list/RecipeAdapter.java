@@ -28,9 +28,7 @@ public class RecipeAdapter extends ListAdapter<Recipe, RecipeAdapter.RecipeHolde
 
         @Override
         public boolean areContentsTheSame(Recipe oldItem, Recipe newItem) {
-            return oldItem.getImageName().equals(newItem.getImageName()) &&
-                    oldItem.getTitle().equals(newItem.getTitle()) &&
-                    oldItem.getDescription().equals(newItem.getDescription());
+            return oldItem.equals(newItem);
         }
 
     };

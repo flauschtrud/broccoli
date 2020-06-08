@@ -16,18 +16,24 @@ public interface RecipeDAO {
     @Insert
     long insert(CoreRecipe recipe);
 
-    @Insert
-    void insert(RecipeCategoryAssociation recipeCategoryAssociation);
-
     @Update
     void update(CoreRecipe recipe);
 
     @Delete
     void delete(CoreRecipe recipe);
 
+    @Insert
+    void insert(RecipeCategoryAssociation recipeCategoryAssociation);
+
+    @Delete
+    void delete(RecipeCategoryAssociation recipeCategoryAssociation);
+
     @Transaction
     @Query("SELECT * FROM recipes ORDER BY title")
     LiveData<List<Recipe>> findAll();
+
+    @Query("SELECT * FROM recipes_with_categories WHERE recipeId == :recipeId")
+    List<RecipeCategoryAssociation> getCategoriesFor(long recipeId);
 
 
 }

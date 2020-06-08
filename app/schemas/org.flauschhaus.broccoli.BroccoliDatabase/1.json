@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "93b7d97eacfa8f79cf39b6b6eeba9727",
+    "identityHash": "16e03661f2825d2e3963c33993692506",
     "entities": [
       {
         "tableName": "recipes",
@@ -100,7 +100,7 @@
       },
       {
         "tableName": "recipes_with_categories",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`recipeId` INTEGER NOT NULL, `categoryId` INTEGER NOT NULL, PRIMARY KEY(`recipeId`, `categoryId`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`recipeId` INTEGER NOT NULL, `categoryId` INTEGER NOT NULL, PRIMARY KEY(`recipeId`, `categoryId`), FOREIGN KEY(`recipeId`) REFERENCES `recipes`(`recipeId`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`categoryId`) REFERENCES `categories`(`categoryId`) ON UPDATE NO ACTION ON DELETE CASCADE )",
         "fields": [
           {
             "fieldPath": "recipeId",
@@ -124,6 +124,14 @@
         },
         "indices": [
           {
+            "name": "index_recipes_with_categories_recipeId",
+            "unique": false,
+            "columnNames": [
+              "recipeId"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_recipes_with_categories_recipeId` ON `${TABLE_NAME}` (`recipeId`)"
+          },
+          {
             "name": "index_recipes_with_categories_categoryId",
             "unique": false,
             "columnNames": [
@@ -132,13 +140,36 @@
             "createSql": "CREATE INDEX IF NOT EXISTS `index_recipes_with_categories_categoryId` ON `${TABLE_NAME}` (`categoryId`)"
           }
         ],
-        "foreignKeys": []
+        "foreignKeys": [
+          {
+            "table": "recipes",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "recipeId"
+            ],
+            "referencedColumns": [
+              "recipeId"
+            ]
+          },
+          {
+            "table": "categories",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "categoryId"
+            ],
+            "referencedColumns": [
+              "categoryId"
+            ]
+          }
+        ]
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '93b7d97eacfa8f79cf39b6b6eeba9727')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '16e03661f2825d2e3963c33993692506')"
     ]
   }
 }

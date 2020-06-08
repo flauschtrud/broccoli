@@ -43,6 +43,9 @@ public class RecipeRepository {
                 return InsertionType.INSERT;
             } else {
                 recipeDAO.update(recipe.getCoreRecipe());
+                List<RecipeCategoryAssociation> recipeCategoryAssociations = recipeDAO.getCategoriesFor(recipe.getRecipeId());
+                recipeCategoryAssociations.forEach(recipeCategoryAssociation -> recipeDAO.delete(recipeCategoryAssociation));
+                recipe.getCategories().forEach(category -> recipeDAO.insert(new RecipeCategoryAssociation(recipe.getRecipeId(), category.getCategoryId())));
                 return InsertionType.UPDATE;
             }
         });
