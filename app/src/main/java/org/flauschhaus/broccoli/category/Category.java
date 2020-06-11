@@ -1,7 +1,11 @@
 package org.flauschhaus.broccoli.category;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
+
+import org.flauschhaus.broccoli.BroccoliApplication;
+import org.flauschhaus.broccoli.R;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -13,7 +17,13 @@ public class Category implements Serializable {
     private long categoryId = 0;
     private String name = "";
 
+    @Ignore
     public Category(String name) {
+        this.name = name;
+    }
+
+    public Category(long categoryId, String name) {
+        this.categoryId = categoryId;
         this.name = name;
     }
 
@@ -46,4 +56,12 @@ public class Category implements Serializable {
     public int hashCode() {
         return Objects.hash(categoryId, name);
     }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    public static final Category ALL = new Category(-1, BroccoliApplication.getContext() != null? BroccoliApplication.getContext().getString(R.string.all_categories) : "All categories");
+
 }

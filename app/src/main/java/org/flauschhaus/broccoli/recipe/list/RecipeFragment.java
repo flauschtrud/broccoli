@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -15,19 +18,23 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.flauschhaus.broccoli.R;
+import org.flauschhaus.broccoli.category.Category;
 import org.flauschhaus.broccoli.recipe.Recipe;
-import org.flauschhaus.broccoli.recipe.details.RecipeDetailsActivity;
 import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity;
+import org.flauschhaus.broccoli.recipe.details.RecipeDetailsActivity;
 
 import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
 
-public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFragmentInteractionListener {
+public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFragmentInteractionListener, AdapterView.OnItemSelectedListener {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
 
+    private RecipeViewModel viewModel;
+
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         AndroidSupportInjection.inject(this);
@@ -47,10 +54,40 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
             startActivity(intent);
         });
 
-        RecipeViewModel viewModel = new ViewModelProvider(this, viewModelFactory).get(RecipeViewModel.class);
+        viewModel = new ViewModelProvider(this, viewModelFactory).get(RecipeViewModel.class);
         viewModel.getRecipes().observe(getViewLifecycleOwner(), adapter::submitList);
 
+        Spinner spinner = getActivity().findViewById(R.id.spinner);
+        if (spinner != null) {
+            spinner.setVisibility(View.VISIBLE);
+            ArrayAdapter<Category> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item);
+            arrayAdapter.add(Category.ALL);
+            viewModel.getCategories().observe(getViewLifecycleOwner(), categories -> categories.forEach(arrayAdapter::add));
+            arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spinner.setAdapter(arrayAdapter);
+            spinner.setOnItemSelectedListener(this);
+        }
+
+        if (savedInstanceState != null) {
+            viewModel.setFilter((Category) savedInstanceState.getSerializable("filter")); // TODO does not work yet
+        }
+
         return root;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Spinner spinner = getActivity().findViewById(R.id.spinner);
+        if (spinner != null) {
+            spinner.setVisibility(View.GONE);
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putSerializable("filter", viewModel.getFilter()); // TODO should also retain scroll position
+        super.onSaveInstanceState(outState);
     }
 
     @Override
@@ -58,5 +95,16 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
         Intent intent = new Intent(getContext(), RecipeDetailsActivity.class);
         intent.putExtra(Recipe.class.getName(), recipe);
         startActivity(intent);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        Category category = (Category) parent.getItemAtPosition(position);
+        viewModel.setFilter(category);
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        // intentionally empty
     }
 }

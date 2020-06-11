@@ -32,8 +32,11 @@ public interface RecipeDAO {
     @Query("SELECT * FROM recipes ORDER BY title")
     LiveData<List<Recipe>> findAll();
 
+    @Transaction
+    @Query(" SELECT recipes.recipeId, title, imageName, description, servings, preparationTime, source, ingredients, directions FROM recipes INNER JOIN recipes_with_categories ON recipes.recipeId = recipes_with_categories.recipeId WHERE recipes_with_categories.categoryId = :categoryId ORDER BY title")
+    LiveData<List<Recipe>> filterBy(long categoryId);
+
     @Query("SELECT * FROM recipes_with_categories WHERE recipeId == :recipeId")
     List<RecipeCategoryAssociation> getCategoriesFor(long recipeId);
-
 
 }

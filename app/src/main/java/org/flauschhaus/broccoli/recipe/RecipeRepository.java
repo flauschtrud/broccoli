@@ -3,6 +3,7 @@ package org.flauschhaus.broccoli.recipe;
 import androidx.lifecycle.LiveData;
 import androidx.room.Transaction;
 
+import org.flauschhaus.broccoli.category.Category;
 import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
 
 import java.util.List;
@@ -32,6 +33,10 @@ public class RecipeRepository {
 
     public LiveData<List<Recipe>> findAll() {
         return allRecipes;
+    }
+
+    public LiveData<List<Recipe>> filterBy(Category category) {
+        return recipeDAO.filterBy(category.getCategoryId());
     }
 
     @Transaction

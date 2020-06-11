@@ -43,4 +43,5 @@
     <string name="hint_new_category_name">Name</string>
     <string name="categories">Categories</string>
     <string name="no_categories">No categories have been created yet.</string>
+    <string name="all_categories">All</string>
 </resources>

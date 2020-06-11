@@ -34,12 +34,15 @@ public class RecipeRepositoryTest {
     @Mock
     private LiveData<List<Recipe>> allRecipes;
 
+    @Mock
+    private LiveData<List<Recipe>> filteredRecipes;
+
     private RecipeRepository recipeRepository;
 
     private ArgumentCaptor<RecipeCategoryAssociation> associationCaptor = ArgumentCaptor.forClass(RecipeCategoryAssociation.class);
 
     private static Category newCategory = new Category("neu");
-    {
+    static {
         newCategory.setCategoryId(5L);
     }
 
@@ -53,6 +56,14 @@ public class RecipeRepositoryTest {
     public void find_all_recipes() {
         LiveData<List<Recipe>> result = recipeRepository.findAll();
         assertThat(result, is(allRecipes));
+    }
+
+    @Test
+    public void filter_by() {
+        when(recipeDAO.filterBy(5L)).thenReturn(filteredRecipes);
+
+        LiveData<List<Recipe>> result = recipeRepository.filterBy(new Category(5L, "blupp"));
+        assertThat(result, is(filteredRecipes));
     }
 
     @Test
