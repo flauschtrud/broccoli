@@ -68,10 +68,6 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
             spinner.setOnItemSelectedListener(this);
         }
 
-        if (savedInstanceState != null) {
-            viewModel.setFilter((Category) savedInstanceState.getSerializable("filter")); // TODO does not work yet
-        }
-
         return root;
     }
 
@@ -82,12 +78,6 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
         if (spinner != null) {
             spinner.setVisibility(View.GONE);
         }
-    }
-
-    @Override
-    public void onSaveInstanceState(Bundle outState) {
-        outState.putSerializable("filter", viewModel.getFilter()); // TODO should also retain scroll position
-        super.onSaveInstanceState(outState);
     }
 
     @Override
