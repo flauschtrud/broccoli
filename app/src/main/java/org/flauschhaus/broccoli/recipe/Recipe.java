@@ -73,12 +73,14 @@ public class Recipe extends BaseObservable implements Serializable {
         this.coreRecipe.setTitle(title);
     }
 
+    @Bindable
     public String getImageName() {
         return coreRecipe.getImageName();
     }
 
     public void setImageName(String imageName) {
         this.coreRecipe.setImageName(imageName);
+        notifyPropertyChanged(org.flauschhaus.broccoli.BR.imageName);
     }
 
     public String getDescription() {
