@@ -3,6 +3,9 @@ package org.flauschhaus.broccoli.recipe.list;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -10,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -17,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.flauschhaus.broccoli.MainActivity;
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.category.Category;
 import org.flauschhaus.broccoli.recipe.Recipe;
@@ -27,7 +32,7 @@ import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
 
-public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFragmentInteractionListener, AdapterView.OnItemSelectedListener {
+public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFragmentInteractionListener, AdapterView.OnItemSelectedListener, SearchView.OnQueryTextListener {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
@@ -68,7 +73,21 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
             spinner.setOnItemSelectedListener(this);
         }
 
+        setHasOptionsMenu(true);
+
         return root;
+    }
+
+    @Override
+    public void onCreateOptionsMenu (Menu menu, MenuInflater inflater){
+        inflater.inflate(R.menu.recipes, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+
+        if (getActivity() instanceof MainActivity) {
+            SearchView searchView = new SearchView(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
+            item.setActionView(searchView);
+            searchView.setOnQueryTextListener(this);
+        }
     }
 
     @Override
@@ -96,5 +115,16 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
         // intentionally empty
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        viewModel.setSearchTerm(newText);
+        return false;
     }
 }

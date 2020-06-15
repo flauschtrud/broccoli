@@ -64,6 +64,20 @@ public class RecipeViewModelTest {
     }
 
     @Test
+    public void test_get_all_recipes_for_search_term() {
+        when(recipeRepository.searchFor("bla")).thenReturn(allRecipes);
+
+        try {
+            recipeViewModel.setFilter(Category.ALL);
+            recipeViewModel.setSearchTerm("bla");
+            recipeViewModel.getRecipes().observeForever(observer);
+            assertThat(recipeViewModel.getRecipes().getValue(), is(allRecipes.getValue()));
+        } finally {
+            recipeViewModel.getRecipes().removeObserver(observer);
+        }
+    }
+
+    @Test
     public void test_get_all_recipes_implicitly() {
         when(recipeRepository.findAll()).thenReturn(allRecipes);
 
@@ -82,6 +96,21 @@ public class RecipeViewModelTest {
 
         try {
             recipeViewModel.setFilter(filter);
+            recipeViewModel.getRecipes().observeForever(observer);
+            assertThat(recipeViewModel.getRecipes().getValue(), is(filteredRecipes.getValue()));
+        } finally {
+            recipeViewModel.getRecipes().removeObserver(observer);
+        }
+    }
+
+    @Test
+    public void test_get_filtered_recipes_for_search_termn() {
+        Category filter = new Category("bla");
+        when(recipeRepository.filterByAndSearchFor(filter, "bla")).thenReturn(filteredRecipes);
+
+        try {
+            recipeViewModel.setFilter(filter);
+            recipeViewModel.setSearchTerm("bla");
             recipeViewModel.getRecipes().observeForever(observer);
             assertThat(recipeViewModel.getRecipes().getValue(), is(filteredRecipes.getValue()));
         } finally {

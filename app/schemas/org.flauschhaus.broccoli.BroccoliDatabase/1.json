@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "16e03661f2825d2e3963c33993692506",
+    "identityHash": "563e8bae5bb1d2ff03e0ed06f16b6d5d",
     "entities": [
       {
         "tableName": "recipes",
@@ -164,12 +164,65 @@
             ]
           }
         ]
+      },
+      {
+        "ftsVersion": "FTS4",
+        "ftsOptions": {
+          "tokenizer": "simple",
+          "tokenizerArgs": [],
+          "contentTable": "recipes",
+          "languageIdColumnName": "",
+          "matchInfo": "FTS4",
+          "notIndexedColumns": [],
+          "prefixSizes": [],
+          "preferredOrder": "ASC"
+        },
+        "contentSyncTriggers": [
+          "CREATE TRIGGER IF NOT EXISTS room_fts_content_sync_recipes_fts_BEFORE_UPDATE BEFORE UPDATE ON `recipes` BEGIN DELETE FROM `recipes_fts` WHERE `docid`=OLD.`rowid`; END",
+          "CREATE TRIGGER IF NOT EXISTS room_fts_content_sync_recipes_fts_BEFORE_DELETE BEFORE DELETE ON `recipes` BEGIN DELETE FROM `recipes_fts` WHERE `docid`=OLD.`rowid`; END",
+          "CREATE TRIGGER IF NOT EXISTS room_fts_content_sync_recipes_fts_AFTER_UPDATE AFTER UPDATE ON `recipes` BEGIN INSERT INTO `recipes_fts`(`docid`, `title`, `description`, `source`, `ingredients`) VALUES (NEW.`rowid`, NEW.`title`, NEW.`description`, NEW.`source`, NEW.`ingredients`); END",
+          "CREATE TRIGGER IF NOT EXISTS room_fts_content_sync_recipes_fts_AFTER_INSERT AFTER INSERT ON `recipes` BEGIN INSERT INTO `recipes_fts`(`docid`, `title`, `description`, `source`, `ingredients`) VALUES (NEW.`rowid`, NEW.`title`, NEW.`description`, NEW.`source`, NEW.`ingredients`); END"
+        ],
+        "tableName": "recipes_fts",
+        "createSql": "CREATE VIRTUAL TABLE IF NOT EXISTS `${TABLE_NAME}` USING FTS4(`title` TEXT, `description` TEXT, `source` TEXT, `ingredients` TEXT, content=`recipes`)",
+        "fields": [
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "source",
+            "columnName": "source",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "ingredients",
+            "columnName": "ingredients",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '16e03661f2825d2e3963c33993692506')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '563e8bae5bb1d2ff03e0ed06f16b6d5d')"
     ]
   }
 }

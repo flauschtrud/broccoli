@@ -32,7 +32,7 @@ public class RecipeRepositoryTest {
     private RecipeImageService recipeImageService;
 
     @Mock
-    private LiveData<List<Recipe>> allRecipes;
+    private LiveData<List<Recipe>> recipes;
 
     @Mock
     private LiveData<List<Recipe>> filteredRecipes;
@@ -48,22 +48,38 @@ public class RecipeRepositoryTest {
 
     @Before
     public void setUp() {
-        when(recipeDAO.findAll()).thenReturn(allRecipes);
+        when(recipeDAO.findAll()).thenReturn(recipes);
         recipeRepository = new RecipeRepository(recipeDAO, recipeImageService);
     }
 
     @Test
     public void find_all_recipes() {
         LiveData<List<Recipe>> result = recipeRepository.findAll();
-        assertThat(result, is(allRecipes));
+        assertThat(result, is(recipes));
     }
 
     @Test
     public void filter_by() {
-        when(recipeDAO.filterBy(5L)).thenReturn(filteredRecipes);
+        when(recipeDAO.filterBy(5L)).thenReturn(recipes);
 
         LiveData<List<Recipe>> result = recipeRepository.filterBy(new Category(5L, "blupp"));
-        assertThat(result, is(filteredRecipes));
+        assertThat(result, is(recipes));
+    }
+
+    @Test
+    public void search_for() {
+        when(recipeDAO.searchFor("*bla*")).thenReturn(recipes);
+
+        LiveData<List<Recipe>> result = recipeRepository.searchFor("bla");
+        assertThat(result, is(recipes));
+    }
+
+    @Test
+    public void filter_and_search_for() {
+        when(recipeDAO.filterByAndSearchFor(5L, "*bla*")).thenReturn(recipes);
+
+        LiveData<List<Recipe>> result = recipeRepository.filterByAndSearchFor(new Category(5L, "blupp"), "bla");
+        assertThat(result, is(recipes));
     }
 
     @Test

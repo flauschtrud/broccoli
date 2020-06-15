@@ -39,6 +39,16 @@ public class RecipeRepository {
         return recipeDAO.filterBy(category.getCategoryId());
     }
 
+    public LiveData<List<Recipe>> searchFor(String term) {
+        String wildcardQuery = String.format("*%s*", term);
+        return recipeDAO.searchFor(wildcardQuery);
+    }
+
+    public LiveData<List<Recipe>> filterByAndSearchFor(Category category, String term) {
+        String wildcardQuery = String.format("*%s*", term);
+        return recipeDAO.filterByAndSearchFor(category.getCategoryId(), wildcardQuery);
+    }
+
     @Transaction
     public CompletableFuture<InsertionType> insertOrUpdate(Recipe recipe) {
         return CompletableFuture.supplyAsync(() -> {
