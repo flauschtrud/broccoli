@@ -40,12 +40,12 @@ public class RecipeRepository {
     }
 
     public LiveData<List<Recipe>> searchFor(String term) {
-        String wildcardQuery = String.format("*%s*", term);
+        String wildcardQuery = String.format("%s*", term);
         return recipeDAO.searchFor(wildcardQuery);
     }
 
     public LiveData<List<Recipe>> filterByAndSearchFor(Category category, String term) {
-        String wildcardQuery = String.format("*%s*", term);
+        String wildcardQuery = String.format("%s*", term);
         return recipeDAO.filterByAndSearchFor(category.getCategoryId(), wildcardQuery);
     }
 
