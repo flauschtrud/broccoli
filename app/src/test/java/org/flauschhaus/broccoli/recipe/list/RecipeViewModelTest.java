@@ -2,7 +2,6 @@ package org.flauschhaus.broccoli.recipe.list;
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 
 import org.flauschhaus.broccoli.category.Category;
@@ -12,12 +11,11 @@ import org.flauschhaus.broccoli.recipe.RecipeRepository;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -39,80 +37,46 @@ public class RecipeViewModelTest {
     @Mock
     private LiveData<List<Category>> categories;
 
-    private Recipe firstRecipe = new Recipe();
-    private Recipe secondRecipe = new Recipe();
-
-    private LiveData<List<Recipe>> allRecipes = givenRecipesAsLiveData(firstRecipe, secondRecipe);
-    private LiveData<List<Recipe>> filteredRecipes = givenRecipesAsLiveData(firstRecipe);
-
-    private Observer<List<Recipe>> observer = recipes -> {};
+    @Mock
+    private LiveData<List<Recipe>> recipes;
 
     @InjectMocks
     private RecipeViewModel recipeViewModel;
 
-    @Test
-    public void test_get_all_recipes() {
-        when(recipeRepository.findAll()).thenReturn(allRecipes);
-
-        try {
-            recipeViewModel.setFilter(Category.ALL);
-            recipeViewModel.getRecipes().observeForever(observer);
-            assertThat(recipeViewModel.getRecipes().getValue(), is(allRecipes.getValue()));
-        } finally {
-            recipeViewModel.getRecipes().removeObserver(observer);
-        }
-    }
+    private ArgumentCaptor<RecipeRepository.SearchCriteria> criteriaArgumentCaptor = ArgumentCaptor.forClass(RecipeRepository.SearchCriteria.class);
+    private Observer<List<Recipe>> observer = recipes -> {};
 
     @Test
-    public void test_get_all_recipes_for_search_term() {
-        when(recipeRepository.searchFor("bla")).thenReturn(allRecipes);
+    public void test_get_recipes_for_criteria() {
+        when(recipeRepository.find(criteriaArgumentCaptor.capture())).thenReturn(recipes);
 
         try {
-            recipeViewModel.setFilter(Category.ALL);
-            recipeViewModel.setSearchTerm("bla");
-            recipeViewModel.getRecipes().observeForever(observer);
-            assertThat(recipeViewModel.getRecipes().getValue(), is(allRecipes.getValue()));
-        } finally {
-            recipeViewModel.getRecipes().removeObserver(observer);
-        }
-    }
-
-    @Test
-    public void test_get_all_recipes_implicitly() {
-        when(recipeRepository.findAll()).thenReturn(allRecipes);
-
-        try {
-            recipeViewModel.getRecipes().observeForever(observer);
-            assertThat(recipeViewModel.getRecipes().getValue(), is(allRecipes.getValue()));
-        } finally {
-            recipeViewModel.getRecipes().removeObserver(observer);
-        }
-    }
-
-    @Test
-    public void test_get_filtered_recipes() {
-        Category filter = new Category("bla");
-        when(recipeRepository.filterBy(filter)).thenReturn(filteredRecipes);
-
-        try {
+            Category filter = new Category(5L, "Bla");
             recipeViewModel.setFilter(filter);
+            recipeViewModel.setSearchTerm("blupp");
+
             recipeViewModel.getRecipes().observeForever(observer);
-            assertThat(recipeViewModel.getRecipes().getValue(), is(filteredRecipes.getValue()));
+
+            RecipeRepository.SearchCriteria criteria = criteriaArgumentCaptor.getValue();
+            assertThat(criteria.getCategory(), is(filter));
+            assertThat(criteria.getSearchTerm(), is("blupp"));
+            assertThat(recipeViewModel.getRecipes().getValue(), is(recipes.getValue()));
         } finally {
             recipeViewModel.getRecipes().removeObserver(observer);
         }
     }
 
     @Test
-    public void test_get_filtered_recipes_for_search_termn() {
-        Category filter = new Category("bla");
-        when(recipeRepository.filterByAndSearchFor(filter, "bla")).thenReturn(filteredRecipes);
+    public void test_get_recipes_for_criteria_implicitly() {
+        when(recipeRepository.find(criteriaArgumentCaptor.capture())).thenReturn(recipes);
 
         try {
-            recipeViewModel.setFilter(filter);
-            recipeViewModel.setSearchTerm("bla");
             recipeViewModel.getRecipes().observeForever(observer);
-            assertThat(recipeViewModel.getRecipes().getValue(), is(filteredRecipes.getValue()));
+
+            RecipeRepository.SearchCriteria criteria = criteriaArgumentCaptor.getValue();
+            assertThat(criteria.getCategory(), is(Category.ALL));
+            assertThat(criteria.getSearchTerm(), is(""));
+            assertThat(recipeViewModel.getRecipes().getValue(), is(recipes.getValue()));
         } finally {
             recipeViewModel.getRecipes().removeObserver(observer);
         }
@@ -122,11 +86,6 @@ public class RecipeViewModelTest {
     public void get_categories() {
         when(categoryRepository.findAll()).thenReturn(categories);
         assertThat(recipeViewModel.getCategories(), is(categories));
-    }
-
-    private static MutableLiveData<List<Recipe>> givenRecipesAsLiveData(Recipe... recipes) {
-        List<Recipe> recipeList = new ArrayList<>(Arrays.asList(recipes));
-        return new MutableLiveData<>(recipeList);
     }
 
 }

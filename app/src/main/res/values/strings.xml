@@ -46,4 +46,5 @@
     <string name="all_recipes">All recipes</string>
     <string name="action_details_unlike">Unlike</string>
     <string name="action_details_like">Like</string>
+    <string name="favorites">Favorites</string>
 </resources>

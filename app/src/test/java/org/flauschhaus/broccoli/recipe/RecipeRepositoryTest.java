@@ -34,12 +34,9 @@ public class RecipeRepositoryTest {
     @Mock
     private LiveData<List<Recipe>> recipes;
 
-    @Mock
-    private LiveData<List<Recipe>> filteredRecipes;
-
     private RecipeRepository recipeRepository;
-
     private ArgumentCaptor<RecipeCategoryAssociation> associationCaptor = ArgumentCaptor.forClass(RecipeCategoryAssociation.class);
+    private RecipeRepository.SearchCriteria criteria;
 
     private static Category newCategory = new Category("neu");
     static {
@@ -50,11 +47,12 @@ public class RecipeRepositoryTest {
     public void setUp() {
         when(recipeDAO.findAll()).thenReturn(recipes);
         recipeRepository = new RecipeRepository(recipeDAO, recipeImageService);
+        criteria = new RecipeRepository.SearchCriteria();
     }
 
     @Test
     public void find_all_recipes() {
-        LiveData<List<Recipe>> result = recipeRepository.findAll();
+        LiveData<List<Recipe>> result = recipeRepository.find(criteria);
         assertThat(result, is(recipes));
     }
 
@@ -62,7 +60,9 @@ public class RecipeRepositoryTest {
     public void filter_by() {
         when(recipeDAO.filterBy(5L)).thenReturn(recipes);
 
-        LiveData<List<Recipe>> result = recipeRepository.filterBy(new Category(5L, "blupp"));
+        criteria.setCategory(new Category(5L, "blupp"));
+
+        LiveData<List<Recipe>> result = recipeRepository.find(criteria);
         assertThat(result, is(recipes));
     }
 
@@ -70,7 +70,9 @@ public class RecipeRepositoryTest {
     public void search_for() {
         when(recipeDAO.searchFor("bla*")).thenReturn(recipes);
 
-        LiveData<List<Recipe>> result = recipeRepository.searchFor("bla");
+        criteria.setSearchTerm("bla");
+
+        LiveData<List<Recipe>> result = recipeRepository.find(criteria);
         assertThat(result, is(recipes));
     }
 
@@ -78,7 +80,10 @@ public class RecipeRepositoryTest {
     public void filter_and_search_for() {
         when(recipeDAO.filterByAndSearchFor(5L, "bla*")).thenReturn(recipes);
 
-        LiveData<List<Recipe>> result = recipeRepository.filterByAndSearchFor(new Category(5L, "blupp"), "bla");
+        criteria.setCategory(new Category(5L, "blupp"));
+        criteria.setSearchTerm("bla");
+
+        LiveData<List<Recipe>> result = recipeRepository.find(criteria);
         assertThat(result, is(recipes));
     }
 

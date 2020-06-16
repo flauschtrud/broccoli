@@ -31,20 +31,30 @@ public class RecipeRepository {
         allRecipes = recipeDAO.findAll();
     }
 
-    public LiveData<List<Recipe>> findAll() {
+    public LiveData<List<Recipe>> find(SearchCriteria criteria) {
+        Category category = criteria.getCategory();
+        String searchTerm = criteria.getSearchTerm();
+        if (category == Category.ALL) {
+            return "".equals(searchTerm)? findAll() : searchFor(searchTerm);
+        } else {
+            return "".equals(searchTerm)? filterBy(category) : filterByAndSearchFor(category, searchTerm);
+        }
+    }
+
+    private LiveData<List<Recipe>> findAll() {
         return allRecipes;
     }
 
-    public LiveData<List<Recipe>> filterBy(Category category) {
+    private LiveData<List<Recipe>> filterBy(Category category) {
         return recipeDAO.filterBy(category.getCategoryId());
     }
 
-    public LiveData<List<Recipe>> searchFor(String term) {
+    private LiveData<List<Recipe>> searchFor(String term) {
         String wildcardQuery = String.format("%s*", term);
         return recipeDAO.searchFor(wildcardQuery);
     }
 
-    public LiveData<List<Recipe>> filterByAndSearchFor(Category category, String term) {
+    private LiveData<List<Recipe>> filterByAndSearchFor(Category category, String term) {
         String wildcardQuery = String.format("%s*", term);
         return recipeDAO.filterByAndSearchFor(category.getCategoryId(), wildcardQuery);
     }
@@ -71,6 +81,36 @@ public class RecipeRepository {
                 recipeImageService.deleteImage(recipe.getImageName()),
                 CompletableFuture.runAsync(() -> recipeDAO.delete(recipe.getCoreRecipe()))
         );
+    }
+
+    public static class SearchCriteria {
+        private Category category = Category.ALL;
+        private String searchTerm = "";
+        private boolean justFavorites = false;
+
+        public Category getCategory() {
+            return category;
+        }
+
+        public void setCategory(Category category) {
+            this.category = category;
+        }
+
+        public String getSearchTerm() {
+            return searchTerm;
+        }
+
+        public void setSearchTerm(String searchTerm) {
+            this.searchTerm = searchTerm;
+        }
+
+        public boolean isJustFavorites() {
+            return justFavorites;
+        }
+
+        public void setJustFavorites(boolean justFavorites) {
+            this.justFavorites = justFavorites;
+        }
     }
 
 }

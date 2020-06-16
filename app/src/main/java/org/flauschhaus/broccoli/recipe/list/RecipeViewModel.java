@@ -17,22 +17,14 @@ import javax.inject.Inject;
 public class RecipeViewModel extends ViewModel {
 
     private LiveData<List<Recipe>> recipes;
-    private MutableLiveData<RecipeFilter> filterLiveData = new MutableLiveData<>();
+    private MutableLiveData<RecipeRepository.SearchCriteria> criteriaLiveData = new MutableLiveData<>();
 
     private CategoryRepository categoryRepository;
 
     @Inject
     RecipeViewModel(RecipeRepository recipeRepository, CategoryRepository categoryRepository) {
-        filterLiveData.setValue(new RecipeFilter());
-        recipes = Transformations.switchMap(filterLiveData, filter -> {
-            Category category = filter.getCategory();
-            String searchTerm = filter.getSearchTerm();
-            if (category == Category.ALL) {
-                return "".equals(searchTerm)? recipeRepository.findAll() : recipeRepository.searchFor(searchTerm);
-            } else {
-                return "".equals(searchTerm)? recipeRepository.filterBy(category) : recipeRepository.filterByAndSearchFor(category, searchTerm);
-            }
-        });
+        criteriaLiveData.setValue(new RecipeRepository.SearchCriteria());
+        recipes = Transformations.switchMap(criteriaLiveData, recipeRepository::find);
         this.categoryRepository = categoryRepository;
     }
 
@@ -43,38 +35,17 @@ public class RecipeViewModel extends ViewModel {
     LiveData<List<Recipe>> getRecipes() { return recipes; }
 
     void setFilter(Category category) {
-        RecipeFilter newFilter = new RecipeFilter();
+        RecipeRepository.SearchCriteria newFilter = new RecipeRepository.SearchCriteria();
         newFilter.setCategory(category);
-        newFilter.setSearchTerm(filterLiveData.getValue().getSearchTerm());
-        this.filterLiveData.setValue(newFilter);
+        newFilter.setSearchTerm(criteriaLiveData.getValue().getSearchTerm());
+        this.criteriaLiveData.setValue(newFilter);
     }
 
     void setSearchTerm(String searchTerm) {
-        RecipeFilter newFilter = new RecipeFilter();
-        newFilter.setCategory(filterLiveData.getValue().getCategory());
+        RecipeRepository.SearchCriteria newFilter = new RecipeRepository.SearchCriteria();
+        newFilter.setCategory(criteriaLiveData.getValue().getCategory());
         newFilter.setSearchTerm(searchTerm);
-        this.filterLiveData.setValue(newFilter);
-    }
-
-    private static class RecipeFilter {
-        private Category category = Category.ALL;
-        private String searchTerm = "";
-
-        Category getCategory() {
-            return category;
-        }
-
-        void setCategory(Category category) {
-            this.category = category;
-        }
-
-        String getSearchTerm() {
-            return searchTerm;
-        }
-
-        void setSearchTerm(String searchTerm) {
-            this.searchTerm = searchTerm;
-        }
+        this.criteriaLiveData.setValue(newFilter);
     }
 
 }
