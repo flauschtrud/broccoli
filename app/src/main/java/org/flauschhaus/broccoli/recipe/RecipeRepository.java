@@ -6,6 +6,7 @@ import androidx.room.Transaction;
 import org.flauschhaus.broccoli.category.Category;
 import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
@@ -18,8 +19,6 @@ public class RecipeRepository {
     private RecipeDAO recipeDAO;
     private RecipeImageService recipeImageService;
 
-    private LiveData<List<Recipe>> allRecipes;
-
     public enum InsertionType {
         INSERT, UPDATE
     }
@@ -28,35 +27,44 @@ public class RecipeRepository {
     RecipeRepository(RecipeDAO recipeDAO, RecipeImageService recipeImageService) {
         this.recipeDAO = recipeDAO;
         this.recipeImageService = recipeImageService;
-        allRecipes = recipeDAO.findAll();
     }
 
     public LiveData<List<Recipe>> find(SearchCriteria criteria) {
         Category category = criteria.getCategory();
         String searchTerm = criteria.getSearchTerm();
-        if (category == Category.ALL) {
-            return "".equals(searchTerm)? findAll() : searchFor(searchTerm);
+        if (category == Category.ALL || category == Category.FAVORITES) {
+            List<Boolean> favoriteStates = getChosenFavoriteStates(category);
+            return "".equals(searchTerm)? findAll(favoriteStates) : searchFor(searchTerm, favoriteStates);
         } else {
             return "".equals(searchTerm)? filterBy(category) : filterByAndSearchFor(category, searchTerm);
         }
     }
 
-    private LiveData<List<Recipe>> findAll() {
-        return allRecipes;
+    private LiveData<List<Recipe>> findAll(List<Boolean> favoritesList) {
+        return recipeDAO.findAll(favoritesList);
     }
 
     private LiveData<List<Recipe>> filterBy(Category category) {
         return recipeDAO.filterBy(category.getCategoryId());
     }
 
-    private LiveData<List<Recipe>> searchFor(String term) {
+    private LiveData<List<Recipe>> searchFor(String term, List<Boolean> favoritesList) {
         String wildcardQuery = String.format("%s*", term);
-        return recipeDAO.searchFor(wildcardQuery);
+        return recipeDAO.searchFor(wildcardQuery, favoritesList);
     }
 
     private LiveData<List<Recipe>> filterByAndSearchFor(Category category, String term) {
         String wildcardQuery = String.format("%s*", term);
         return recipeDAO.filterByAndSearchFor(category.getCategoryId(), wildcardQuery);
+    }
+
+    private List<Boolean> getChosenFavoriteStates(Category category) {
+        List<Boolean> favoriteStates = new ArrayList<>();
+        favoriteStates.add(Boolean.TRUE);
+        if (category != Category.FAVORITES) {
+            favoriteStates.add(Boolean.FALSE);
+        }
+        return favoriteStates;
     }
 
     @Transaction
@@ -86,7 +94,6 @@ public class RecipeRepository {
     public static class SearchCriteria {
         private Category category = Category.ALL;
         private String searchTerm = "";
-        private boolean justFavorites = false;
 
         public Category getCategory() {
             return category;
@@ -102,14 +109,6 @@ public class RecipeRepository {
 
         public void setSearchTerm(String searchTerm) {
             this.searchTerm = searchTerm;
-        }
-
-        public boolean isJustFavorites() {
-            return justFavorites;
-        }
-
-        public void setJustFavorites(boolean justFavorites) {
-            this.justFavorites = justFavorites;
         }
     }
 

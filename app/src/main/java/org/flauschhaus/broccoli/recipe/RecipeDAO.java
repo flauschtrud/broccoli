@@ -29,16 +29,16 @@ public interface RecipeDAO {
     void delete(RecipeCategoryAssociation recipeCategoryAssociation);
 
     @Transaction
-    @Query("SELECT * FROM recipes ORDER BY title")
-    LiveData<List<Recipe>> findAll();
+    @Query("SELECT * FROM recipes WHERE favorite IN (:favorite) ORDER BY title")
+    LiveData<List<Recipe>> findAll(List<Boolean> favorite);
 
     @Transaction
     @Query(" SELECT recipes.recipeId, title, imageName, description, servings, preparationTime, source, ingredients, directions, favorite FROM recipes INNER JOIN recipes_with_categories ON recipes.recipeId = recipes_with_categories.recipeId WHERE recipes_with_categories.categoryId = :categoryId ORDER BY title")
     LiveData<List<Recipe>> filterBy(long categoryId);
 
     @Transaction
-    @Query("SELECT * FROM recipes JOIN recipes_fts ON (recipes.recipeId = recipes_fts.docid) WHERE recipes_fts MATCH :term ORDER BY SUBSTR(OFFSETS(recipes_fts), 1, 1), recipes.title")
-    LiveData<List<Recipe>> searchFor(String term);
+    @Query("SELECT * FROM recipes JOIN recipes_fts ON (recipes.recipeId = recipes_fts.docid) WHERE recipes_fts MATCH :term AND favorite IN (:favorite) ORDER BY SUBSTR(OFFSETS(recipes_fts), 1, 1), recipes.title")
+    LiveData<List<Recipe>> searchFor(String term, List<Boolean> favorite);
 
     @Transaction
     @Query("SELECT recipes.recipeId, recipes.title, imageName, recipes.description, servings, preparationTime, recipes.source, recipes.ingredients, directions, favorite FROM recipes JOIN recipes_fts ON (recipes.recipeId = recipes_fts.docid) INNER JOIN recipes_with_categories ON recipes.recipeId = recipes_with_categories.recipeId WHERE recipes_with_categories.categoryId = :categoryId AND recipes_fts MATCH :term ORDER BY SUBSTR(OFFSETS(recipes_fts), 1, 1), recipes.title")

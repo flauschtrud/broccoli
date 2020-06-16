@@ -18,6 +18,8 @@ import java.util.concurrent.ExecutionException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsIterableContaining.hasItem;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -35,7 +37,9 @@ public class RecipeRepositoryTest {
     private LiveData<List<Recipe>> recipes;
 
     private RecipeRepository recipeRepository;
+
     private ArgumentCaptor<RecipeCategoryAssociation> associationCaptor = ArgumentCaptor.forClass(RecipeCategoryAssociation.class);
+    private ArgumentCaptor<List<Boolean>> favoriteStatesCaptor = ArgumentCaptor.forClass(List.class);
     private RecipeRepository.SearchCriteria criteria;
 
     private static Category newCategory = new Category("neu");
@@ -45,14 +49,33 @@ public class RecipeRepositoryTest {
 
     @Before
     public void setUp() {
-        when(recipeDAO.findAll()).thenReturn(recipes);
         recipeRepository = new RecipeRepository(recipeDAO, recipeImageService);
         criteria = new RecipeRepository.SearchCriteria();
     }
 
     @Test
     public void find_all_recipes() {
+        when(recipeDAO.findAll(favoriteStatesCaptor.capture())).thenReturn(recipes);
+
         LiveData<List<Recipe>> result = recipeRepository.find(criteria);
+
+        List<Boolean> favoriteStates = favoriteStatesCaptor.getValue();
+        assertThat(favoriteStates.size(), is(2));
+        assertThat(favoriteStates, hasItem(Boolean.TRUE));
+        assertThat(favoriteStates, hasItem(Boolean.FALSE));
+        assertThat(result, is(recipes));
+    }
+
+    @Test
+    public void find_all_favorites() {
+        when(recipeDAO.findAll(favoriteStatesCaptor.capture())).thenReturn(recipes);
+
+        criteria.setCategory(Category.FAVORITES);
+        LiveData<List<Recipe>> result = recipeRepository.find(criteria);
+
+        List<Boolean> favoriteStates = favoriteStatesCaptor.getValue();
+        assertThat(favoriteStates.size(), is(1));
+        assertThat(favoriteStates, hasItem(Boolean.TRUE));
         assertThat(result, is(recipes));
     }
 
@@ -68,11 +91,31 @@ public class RecipeRepositoryTest {
 
     @Test
     public void search_for() {
-        when(recipeDAO.searchFor("bla*")).thenReturn(recipes);
+        when(recipeDAO.searchFor(eq("bla*"), favoriteStatesCaptor.capture())).thenReturn(recipes);
 
         criteria.setSearchTerm("bla");
 
         LiveData<List<Recipe>> result = recipeRepository.find(criteria);
+
+        List<Boolean> favoriteStates = favoriteStatesCaptor.getValue();
+        assertThat(favoriteStates.size(), is(2));
+        assertThat(favoriteStates, hasItem(Boolean.TRUE));
+        assertThat(favoriteStates, hasItem(Boolean.FALSE));
+        assertThat(result, is(recipes));
+    }
+
+    @Test
+    public void search_in_favorites() {
+        when(recipeDAO.searchFor(eq("bla*"), favoriteStatesCaptor.capture())).thenReturn(recipes);
+
+        criteria.setSearchTerm("bla");
+        criteria.setCategory(Category.FAVORITES);
+
+        LiveData<List<Recipe>> result = recipeRepository.find(criteria);
+
+        List<Boolean> favoriteStates = favoriteStatesCaptor.getValue();
+        assertThat(favoriteStates.size(), is(1));
+        assertThat(favoriteStates, hasItem(Boolean.TRUE));
         assertThat(result, is(recipes));
     }
 
