@@ -36,6 +36,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.flauschhaus.broccoli.util.RecyclerViewAssertions.hasItemsCount;
 import static org.flauschhaus.broccoli.util.RecyclerViewMatcher.withRecyclerView;
 import static org.hamcrest.Matchers.allOf;
+import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 
 @RunWith(AndroidJUnit4.class)
@@ -58,7 +59,7 @@ public class RecipeFragmentTest {
         List<Recipe> recipes = new ArrayList<>();
         recipes.add(lauchkuchen);
         recipes.add(nusskuchen);
-        when(recipeRepository.findAll()).thenReturn(new MutableLiveData<>(recipes));
+        when(recipeRepository.find(any(RecipeRepository.SearchCriteria.class))).thenReturn(new MutableLiveData<>(recipes));
 
         Intents.init();
         launchInContainer(RecipeFragment.class);
