@@ -19,6 +19,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -39,7 +40,9 @@ import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withSubstring;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -52,6 +55,7 @@ public class RecipeDetailsActivityTest {
     private ActivityScenario<RecipeDetailsActivity> scenario;
 
     private static Recipe lauchkuchen = RecipeTestUtil.createLauchkuchen();
+    private ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
 
     @Before
     public void setUp() {
@@ -98,7 +102,20 @@ public class RecipeDetailsActivityTest {
         onView(allOf(withId(R.id.direction_text), hasSibling(withText("2"))))
                 .check(matches(withText("Kochen und backen.")));
 
+        onView(withId(R.id.action_details_like)).check(matches(isDisplayed()));
+
         lauchkuchen.getCategories().forEach(category -> onView(withId(R.id.details_categories)).check(matches(withSubstring(category.getName()))));
+    }
+
+    @Test
+    public void toggle_favorite() {
+        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.UPDATE));
+        onView(withId(R.id.action_details_like)).perform(click());
+        onView(withId(R.id.action_details_unlike)).check(matches(isDisplayed()));
+
+        Recipe recipe = recipeCaptor.getValue();
+        assertThat(recipe.getTitle(), is(lauchkuchen.getTitle()));
+        assertThat(recipe.isFavorite(), is(true));
     }
 
     @Test

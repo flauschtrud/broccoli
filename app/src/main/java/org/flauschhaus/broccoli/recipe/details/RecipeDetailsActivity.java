@@ -44,6 +44,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     RecipeRepository recipeRepository;
 
     private ActivityRecipeDetailsBinding binding;
+    private Menu menu;
 
     private static final int REQUEST_EDIT = 1;
 
@@ -78,6 +79,12 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.details, menu);
+
+        MenuItem item = binding.getRecipe().isFavorite()? menu.findItem(R.id.action_details_unlike) : menu.findItem(R.id.action_details_like);
+        item.setVisible(true);
+
+        this.menu = menu;
+
         return true;
     }
 
@@ -107,6 +114,15 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 .setNegativeButton(R.string.cancel, (dialog, id) -> {})
                 .create();
         alertDialog.show();
+    }
+
+    public void toggleFavorite(MenuItem item) {
+        binding.getRecipe().setFavorite(!binding.getRecipe().isFavorite());
+        recipeRepository.insertOrUpdate(binding.getRecipe()).thenRun(() -> runOnUiThread(() -> {
+            item.setVisible(false);
+            MenuItem newItem = binding.getRecipe().isFavorite()? menu.findItem(R.id.action_details_unlike) : menu.findItem(R.id.action_details_like);
+            newItem.setVisible(true);
+        }));
     }
 
     @BindingAdapter("categories")

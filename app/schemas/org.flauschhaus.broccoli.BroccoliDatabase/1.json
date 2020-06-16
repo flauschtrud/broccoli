@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "563e8bae5bb1d2ff03e0ed06f16b6d5d",
+    "identityHash": "2b750dfd633679ef1cd7cb342cdf4b29",
     "entities": [
       {
         "tableName": "recipes",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`recipeId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `imageName` TEXT, `description` TEXT, `servings` TEXT, `preparationTime` TEXT, `source` TEXT, `ingredients` TEXT, `directions` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`recipeId` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `imageName` TEXT, `description` TEXT, `servings` TEXT, `preparationTime` TEXT, `source` TEXT, `ingredients` TEXT, `directions` TEXT, `favorite` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "recipeId",
@@ -61,6 +61,12 @@
             "columnName": "directions",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "favorite",
+            "columnName": "favorite",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -222,7 +228,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '563e8bae5bb1d2ff03e0ed06f16b6d5d')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2b750dfd633679ef1cd7cb342cdf4b29')"
     ]
   }
 }

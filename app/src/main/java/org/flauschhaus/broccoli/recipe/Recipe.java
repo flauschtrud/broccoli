@@ -131,6 +131,14 @@ public class Recipe extends BaseObservable implements Serializable {
         this.coreRecipe.setDirections(directions);
     }
 
+    public boolean isFavorite() {
+        return coreRecipe.isFavorite();
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.coreRecipe.setFavorite(favorite);
+    }
+
     public boolean isDirty() {
         return isDirty;
     }

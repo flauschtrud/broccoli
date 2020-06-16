@@ -2,6 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/action_details_unlike"
+        android:icon="@drawable/ic_favorite_24dp"
+        android:title="@string/action_details_unlike"
+        android:onClick="toggleFavorite"
+        android:visible="false"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_details_like"
+        android:icon="@drawable/ic_favorite_border_24dp"
+        android:title="@string/action_details_like"
+        android:onClick="toggleFavorite"
+        android:visible="false"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/action_details_edit"
         android:icon="@drawable/ic_menu_edit_24dp"
         android:title="@string/action_details_edit"

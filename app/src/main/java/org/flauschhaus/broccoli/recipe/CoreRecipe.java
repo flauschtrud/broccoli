@@ -21,6 +21,8 @@ public class CoreRecipe implements Serializable {
     private String ingredients = "";
     private String directions = "";
 
+    private boolean favorite = false;
+
     public long getRecipeId() {
         return recipeId;
     }
@@ -93,12 +95,21 @@ public class CoreRecipe implements Serializable {
         this.directions = directions;
     }
 
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CoreRecipe that = (CoreRecipe) o;
         return recipeId == that.recipeId &&
+                favorite == that.favorite &&
                 Objects.equals(title, that.title) &&
                 Objects.equals(imageName, that.imageName) &&
                 Objects.equals(description, that.description) &&
@@ -111,6 +122,6 @@ public class CoreRecipe implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(recipeId, title, imageName, description, servings, preparationTime, source, ingredients, directions);
+        return Objects.hash(recipeId, title, imageName, description, servings, preparationTime, source, ingredients, directions, favorite);
     }
 }

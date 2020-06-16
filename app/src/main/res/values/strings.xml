@@ -44,4 +44,6 @@
     <string name="categories">Categories</string>
     <string name="no_categories">No categories have been created yet.</string>
     <string name="all_recipes">All recipes</string>
+    <string name="action_details_unlike">Unlike</string>
+    <string name="action_details_like">Like</string>
 </resources>
