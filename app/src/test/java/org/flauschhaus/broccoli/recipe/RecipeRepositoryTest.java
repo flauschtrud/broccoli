@@ -68,7 +68,7 @@ public class RecipeRepositoryTest {
 
     @Test
     public void search_for() {
-        when(recipeDAO.searchFor("*bla*")).thenReturn(recipes);
+        when(recipeDAO.searchFor("bla*")).thenReturn(recipes);
 
         LiveData<List<Recipe>> result = recipeRepository.searchFor("bla");
         assertThat(result, is(recipes));
@@ -76,7 +76,7 @@ public class RecipeRepositoryTest {
 
     @Test
     public void filter_and_search_for() {
-        when(recipeDAO.filterByAndSearchFor(5L, "*bla*")).thenReturn(recipes);
+        when(recipeDAO.filterByAndSearchFor(5L, "bla*")).thenReturn(recipes);
 
         LiveData<List<Recipe>> result = recipeRepository.filterByAndSearchFor(new Category(5L, "blupp"), "bla");
         assertThat(result, is(recipes));
