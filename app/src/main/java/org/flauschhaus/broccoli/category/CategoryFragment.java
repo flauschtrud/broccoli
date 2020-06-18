@@ -19,7 +19,7 @@ import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
 
-public class CategoryFragment extends Fragment implements CategoryDialog.OnSaveListener {
+public class CategoryFragment extends Fragment implements CategoryDialog.OnSaveListener, CategoryAdapter.OnListFragmentInteractionListener {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
@@ -36,7 +36,7 @@ public class CategoryFragment extends Fragment implements CategoryDialog.OnSaveL
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
         CategoryAdapter adapter = new CategoryAdapter();
-        //adapter.setListener(this);
+        adapter.setListener(this);
         recyclerView.setAdapter(adapter);
 
         viewModel = new ViewModelProvider(this, viewModelFactory).get(CategoryViewModel.class);
@@ -44,7 +44,7 @@ public class CategoryFragment extends Fragment implements CategoryDialog.OnSaveL
 
         FloatingActionButton fab = root.findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
-            CategoryDialog dialog = new CategoryDialog(this);
+            CategoryDialog dialog = new CategoryDialog(this, new Category(""));
             dialog.show(getParentFragmentManager(), "CategoryDialogTag");
         });
 
@@ -53,7 +53,12 @@ public class CategoryFragment extends Fragment implements CategoryDialog.OnSaveL
 
     @Override
     public void saveCategory(Category category) {
-        viewModel.add(category);
+        viewModel.insertOrUpdate(category);
     }
 
+    @Override
+    public void onListFragmentInteraction(Category category) {
+        CategoryDialog dialog = new CategoryDialog(this, category);
+        dialog.show(getParentFragmentManager(), "CategoryDialogTag");
+    }
 }

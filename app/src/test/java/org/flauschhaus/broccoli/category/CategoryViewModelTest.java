@@ -38,10 +38,10 @@ public class CategoryViewModelTest {
     }
 
     @Test
-    public void add_category() {
+    public void insert_or_update_category() {
         Category category = new Category("blupp");
-        categoryViewModel.add(category);
-        verify(categoryRepository).insert(category);
+        categoryViewModel.insertOrUpdate(category);
+        verify(categoryRepository).insertOrUpdate(category);
     }
 
 }

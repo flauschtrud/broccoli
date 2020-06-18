@@ -18,9 +18,11 @@ import org.flauschhaus.broccoli.databinding.DialogAddCategoryBinding;
 public class CategoryDialog extends AppCompatDialogFragment {
 
     private OnSaveListener onSaveListener;
+    private Category category;
 
-    public CategoryDialog(OnSaveListener onSaveListener) {
+    public CategoryDialog(OnSaveListener onSaveListener, Category category) {
         this.onSaveListener = onSaveListener;
+        this.category = new Category(category.getCategoryId(), category.getName());
     }
 
     @Override
@@ -29,7 +31,7 @@ public class CategoryDialog extends AppCompatDialogFragment {
         View view = inflater.inflate(R.layout.dialog_add_category, null);
 
         DialogAddCategoryBinding binding = DataBindingUtil.bind(view);
-        binding.setCategory(new Category(""));
+        binding.setCategory(category);
 
         EditText editText = view.findViewById(R.id.new_category_name);
         editText.addTextChangedListener(new TextWatcher() {
@@ -52,7 +54,7 @@ public class CategoryDialog extends AppCompatDialogFragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setView(view)
-                .setTitle(R.string.dialog_add_category)
+                .setTitle(R.string.dialog_add_or_edit_category)
                 .setPositiveButton(R.string.action_save, (dialog, id) -> onSaveListener.saveCategory(binding.getCategory()))
                 .setNegativeButton(R.string.cancel, (dialog, id) -> {});
 

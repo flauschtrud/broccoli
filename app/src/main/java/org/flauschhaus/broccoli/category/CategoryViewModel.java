@@ -22,8 +22,8 @@ public class CategoryViewModel extends ViewModel {
         return categories;
     }
 
-    void add(Category category) {
-        categoryRepository.insert(category);
+    void insertOrUpdate(Category category) {
+        categoryRepository.insertOrUpdate(category);
     }
 
 }

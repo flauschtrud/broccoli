@@ -64,7 +64,7 @@ public class CategoryFragmentTest {
 
     @Test
     public void add_new_category() {
-        doNothing().when(categoryRepository).insert(categoryCaptor.capture());
+        doNothing().when(categoryRepository).insertOrUpdate(categoryCaptor.capture());
 
         onView(withId(R.id.fab)).perform(click());
         onView(withId(R.id.new_category_name)).perform(typeText("Mimi"));
@@ -74,6 +74,20 @@ public class CategoryFragmentTest {
 
         Category category = categoryCaptor.getValue();
         assertThat(category.getName(), is("Mimi"));
+    }
+
+    @Test
+    public void edit_category() {
+        doNothing().when(categoryRepository).insertOrUpdate(categoryCaptor.capture());
+
+        onView(withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_category_name)).perform(click());
+        onView(withId(R.id.new_category_name)).perform(typeText("iti"));
+        onView(withText(R.string.action_save))
+                .inRoot(isDialog())
+                .perform(click());
+
+        Category category = categoryCaptor.getValue();
+        assertThat(category.getName(), is("Bluppiti"));
     }
 
     @Test

@@ -39,7 +39,7 @@
     <string name="take_photo">Take photo</string>
     <string name="pick_photo">Pick photo</string>
     <string name="menu_categories">Categories</string>
-    <string name="dialog_add_category">Add Category</string>
+    <string name="dialog_add_or_edit_category">Add or edit category</string>
     <string name="hint_new_category_name">Name</string>
     <string name="categories">Categories</string>
     <string name="no_categories">No categories have been created yet.</string>

@@ -13,6 +13,8 @@ import org.flauschhaus.broccoli.databinding.CategoryItemBinding;
 
 public class CategoryAdapter extends ListAdapter<Category, CategoryAdapter.CategoryHolder> { // TODO generalize this and RecipeAdapter
 
+    private CategoryAdapter.OnListFragmentInteractionListener listener;
+
     CategoryAdapter() {
         super(DIFF_CALLBACK);
     }
@@ -42,7 +44,15 @@ public class CategoryAdapter extends ListAdapter<Category, CategoryAdapter.Categ
     @Override
     public void onBindViewHolder(@NonNull CategoryHolder holder, int position) {
         Category currentCategory = getItem(position);
-        holder.bind(currentCategory);
+        holder.bind(currentCategory); holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onListFragmentInteraction(currentCategory);
+            }
+        });
+    }
+
+    void setListener(OnListFragmentInteractionListener listener) {
+        this.listener = listener;
     }
 
     class CategoryHolder extends RecyclerView.ViewHolder {
@@ -58,6 +68,10 @@ public class CategoryAdapter extends ListAdapter<Category, CategoryAdapter.Categ
             binding.setVariable(BR.category, obj);
             binding.executePendingBindings();
         }
+    }
+
+    public interface OnListFragmentInteractionListener {
+        void onListFragmentInteraction(Category category);
     }
 
 }
