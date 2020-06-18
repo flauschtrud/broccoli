@@ -58,8 +58,11 @@ public class CategoryDialog extends AppCompatDialogFragment {
         builder.setView(view)
                 .setTitle(category.getCategoryId() == 0? R.string.dialog_add_category : R.string.dialog_edit_category)
                 .setPositiveButton(R.string.action_save, (dialog, id) -> onChangeListener.saveCategory(category))
-                .setNeutralButton(R.string.action_delete, (dialog, id) -> {})
                 .setNegativeButton(R.string.cancel, (dialog, id) -> {});
+
+        if(category.getCategoryId() != 0) {
+             builder.setNeutralButton(R.string.action_delete, (dialog, id) -> {});
+        }
 
         return builder.create();
     }
