@@ -1,12 +1,14 @@
 package org.flauschhaus.broccoli.category;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
@@ -17,11 +19,11 @@ import org.flauschhaus.broccoli.databinding.DialogAddCategoryBinding;
 
 public class CategoryDialog extends AppCompatDialogFragment {
 
-    private OnSaveListener onSaveListener;
+    private OnChangeListener onChangeListener;
     private Category category;
 
-    public CategoryDialog(OnSaveListener onSaveListener, Category category) {
-        this.onSaveListener = onSaveListener;
+    public CategoryDialog(OnChangeListener onChangeListener, Category category) {
+        this.onChangeListener = onChangeListener;
         this.category = new Category(category.getCategoryId(), category.getName());
     }
 
@@ -33,7 +35,7 @@ public class CategoryDialog extends AppCompatDialogFragment {
         DialogAddCategoryBinding binding = DataBindingUtil.bind(view);
         binding.setCategory(category);
 
-        EditText editText = view.findViewById(R.id.new_category_name);
+        EditText editText = view.findViewById(R.id.category_name);
         editText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -54,8 +56,9 @@ public class CategoryDialog extends AppCompatDialogFragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setView(view)
-                .setTitle(R.string.dialog_add_or_edit_category)
-                .setPositiveButton(R.string.action_save, (dialog, id) -> onSaveListener.saveCategory(binding.getCategory()))
+                .setTitle(category.getCategoryId() == 0? R.string.dialog_add_category : R.string.dialog_edit_category)
+                .setPositiveButton(R.string.action_save, (dialog, id) -> onChangeListener.saveCategory(category))
+                .setNeutralButton(R.string.action_delete, (dialog, id) -> {})
                 .setNegativeButton(R.string.cancel, (dialog, id) -> {});
 
         return builder.create();
@@ -67,10 +70,21 @@ public class CategoryDialog extends AppCompatDialogFragment {
 
         AlertDialog dialog = (AlertDialog) getDialog();
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+
+        dialog.getButton(Dialog.BUTTON_NEUTRAL).setOnClickListener(v -> {
+            TextView warning = dialog.findViewById(R.id.delete_category_warning);
+            if (warning.getVisibility() == View.VISIBLE) {
+                onChangeListener.deleteCategory(category);
+                dialog.dismiss();
+            }
+            warning.setVisibility(View.VISIBLE);
+            dialog.getButton(DialogInterface.BUTTON_NEUTRAL).setTextColor(getResources().getColor(R.color.design_default_color_error));
+        });
     }
 
-    interface OnSaveListener {
+    interface OnChangeListener {
         void saveCategory(Category category);
+        void deleteCategory(Category category);
     }
 
 }

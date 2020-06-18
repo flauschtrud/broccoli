@@ -24,6 +24,7 @@ import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.RootMatchers.isDialog;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.flauschhaus.broccoli.util.RecyclerViewAssertions.hasItemsCount;
@@ -67,7 +68,7 @@ public class CategoryFragmentTest {
         doNothing().when(categoryRepository).insertOrUpdate(categoryCaptor.capture());
 
         onView(withId(R.id.fab)).perform(click());
-        onView(withId(R.id.new_category_name)).perform(typeText("Mimi"));
+        onView(withId(R.id.category_name)).perform(typeText("Mimi"));
         onView(withText(R.string.action_save))
                 .inRoot(isDialog())
                 .perform(click());
@@ -81,13 +82,30 @@ public class CategoryFragmentTest {
         doNothing().when(categoryRepository).insertOrUpdate(categoryCaptor.capture());
 
         onView(withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_category_name)).perform(click());
-        onView(withId(R.id.new_category_name)).perform(typeText("iti"));
+        onView(withId(R.id.category_name)).perform(typeText("iti"));
         onView(withText(R.string.action_save))
                 .inRoot(isDialog())
                 .perform(click());
 
         Category category = categoryCaptor.getValue();
         assertThat(category.getName(), is("Bluppiti"));
+    }
+
+    @Test
+    public void delete_category() {
+        doNothing().when(categoryRepository).delete(categoryCaptor.capture());
+
+        onView(withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_category_name)).perform(click());
+        onView(withText(R.string.action_delete))
+                .inRoot(isDialog())
+                .perform(click());
+        onView(withId(R.id.delete_category_warning)).check(matches(isDisplayed()));
+        onView(withText(R.string.action_delete))
+                .inRoot(isDialog())
+                .perform(click());
+
+        Category category = categoryCaptor.getValue();
+        assertThat(category.getName(), is("Blupp"));
     }
 
     @Test

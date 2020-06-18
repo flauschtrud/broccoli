@@ -19,7 +19,7 @@ import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
 
-public class CategoryFragment extends Fragment implements CategoryDialog.OnSaveListener, CategoryAdapter.OnListFragmentInteractionListener {
+public class CategoryFragment extends Fragment implements CategoryDialog.OnChangeListener, CategoryAdapter.OnListFragmentInteractionListener {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
@@ -54,6 +54,11 @@ public class CategoryFragment extends Fragment implements CategoryDialog.OnSaveL
     @Override
     public void saveCategory(Category category) {
         viewModel.insertOrUpdate(category);
+    }
+
+    @Override
+    public void deleteCategory(Category category) {
+        viewModel.delete(category);
     }
 
     @Override

@@ -26,4 +26,7 @@ public class CategoryViewModel extends ViewModel {
         categoryRepository.insertOrUpdate(category);
     }
 
+    public void delete(Category category) {
+        categoryRepository.delete(category);
+    }
 }

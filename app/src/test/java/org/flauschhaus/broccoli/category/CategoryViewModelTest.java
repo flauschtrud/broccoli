@@ -44,4 +44,11 @@ public class CategoryViewModelTest {
         verify(categoryRepository).insertOrUpdate(category);
     }
 
+    @Test
+    public void delete_category() {
+        Category category = new Category("blupp");
+        categoryViewModel.delete(category);
+        verify(categoryRepository).delete(category);
+    }
+
 }

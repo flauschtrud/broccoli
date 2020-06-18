@@ -106,7 +106,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     public void delete(MenuItem menuItem) {
         AlertDialog alertDialog = new AlertDialog.Builder(this)
                 .setMessage(R.string.dialog_delete_recipe)
-                .setPositiveButton(R.string.action_details_delete, (dialog, id) -> {
+                .setPositiveButton(R.string.action_delete, (dialog, id) -> {
                     recipeRepository.delete(binding.getRecipe())
                         .thenRun(() -> runOnUiThread(() -> Toast.makeText(getApplicationContext(), getString(R.string.toast_recipe_deleted), Toast.LENGTH_SHORT).show()));
                     finish();

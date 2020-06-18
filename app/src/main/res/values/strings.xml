@@ -21,7 +21,7 @@
     <string name="hint_new_recipe_ingredients">Ingredients</string>
     <string name="ingredients">Ingredients</string>
     <string name="toast_error_creating_image_file">Could not create image file.</string>
-    <string name="action_details_delete">Delete</string>
+    <string name="action_delete">Delete</string>
     <string name="toast_recipe_deleted">Recipe deleted.</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
@@ -39,7 +39,8 @@
     <string name="take_photo">Take photo</string>
     <string name="pick_photo">Pick photo</string>
     <string name="menu_categories">Categories</string>
-    <string name="dialog_add_or_edit_category">Add or edit category</string>
+    <string name="dialog_add_category">Add category</string>
+    <string name="dialog_edit_category">Edit category</string>
     <string name="hint_new_category_name">Name</string>
     <string name="categories">Categories</string>
     <string name="no_categories">No categories have been created yet.</string>
@@ -47,4 +48,5 @@
     <string name="action_details_unlike">Unlike</string>
     <string name="action_details_like">Like</string>
     <string name="favorites">Favorites</string>
+    <string name="category_delete_warning">Do you really want to delete this category and remove all its assignments?</string>
 </resources>

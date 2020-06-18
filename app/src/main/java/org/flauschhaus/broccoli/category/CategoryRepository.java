@@ -24,6 +24,10 @@ public class CategoryRepository { //TODO add unit test
         return allCategories;
     }
 
+    public void delete(Category category) {
+        CompletableFuture.runAsync(() -> categoryDAO.delete(category));
+    }
+
     public void insertOrUpdate(Category category) {
         if (category.getCategoryId() == 0) {
             CompletableFuture.runAsync(() -> categoryDAO.insert(category));
