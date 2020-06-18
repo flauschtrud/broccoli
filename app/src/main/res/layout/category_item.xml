@@ -9,8 +9,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:padding="8dp">
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/text_margin">
 
         <TextView
             android:id="@+id/card_text_view_category_name"
