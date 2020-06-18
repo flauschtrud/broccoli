@@ -51,8 +51,8 @@ public class CategoryFragmentTest {
         component.inject(getApplication());
 
         List<Category> categories = new ArrayList<>();
-        categories.add(new Category("Blupp"));
-        categories.add(new Category("Lala"));
+        categories.add(new Category(1, "Blupp"));
+        categories.add(new Category(2, "Lala"));
         when(categoryRepository.findAll()).thenReturn(new MutableLiveData<>(categories));
 
         launchInContainer(CategoryFragment.class, null, R.style.Theme_AppCompat, null);
