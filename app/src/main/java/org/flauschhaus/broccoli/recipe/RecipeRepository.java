@@ -32,12 +32,17 @@ public class RecipeRepository {
     public LiveData<List<Recipe>> find(SearchCriteria criteria) {
         Category category = criteria.getCategory();
         String searchTerm = criteria.getSearchTerm();
+
         if (category == Category.ALL || category == Category.FAVORITES) {
             List<Boolean> favoriteStates = getChosenFavoriteStates(category);
             return "".equals(searchTerm)? findAll(favoriteStates) : searchFor(searchTerm, favoriteStates);
-        } else {
-            return "".equals(searchTerm)? filterBy(category) : filterByAndSearchFor(category, searchTerm);
         }
+
+        if (category == Category.UNASSIGNED) {
+            return "".equals(searchTerm)? findUnassigned() : searchForUnassigned(searchTerm);
+        }
+
+        return "".equals(searchTerm)? filterBy(category) : filterByAndSearchFor(category, searchTerm);
     }
 
     private LiveData<List<Recipe>> findAll(List<Boolean> favoritesList) {
@@ -56,6 +61,15 @@ public class RecipeRepository {
     private LiveData<List<Recipe>> filterByAndSearchFor(Category category, String term) {
         String wildcardQuery = String.format("%s*", term);
         return recipeDAO.filterByAndSearchFor(category.getCategoryId(), wildcardQuery);
+    }
+
+    private LiveData<List<Recipe>> findUnassigned() {
+        return recipeDAO.findUnassigned();
+    }
+
+    private LiveData<List<Recipe>> searchForUnassigned(String term) {
+        String wildcardQuery = String.format("%s*", term);
+        return recipeDAO.searchForUnassigned(wildcardQuery);
     }
 
     private List<Boolean> getChosenFavoriteStates(Category category) {

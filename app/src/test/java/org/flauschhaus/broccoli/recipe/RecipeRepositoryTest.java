@@ -80,6 +80,16 @@ public class RecipeRepositoryTest {
     }
 
     @Test
+    public void find_all_unassigned() {
+        when(recipeDAO.findUnassigned()).thenReturn(recipes);
+
+        criteria.setCategory(Category.UNASSIGNED);
+
+        LiveData<List<Recipe>> result = recipeRepository.find(criteria);
+        assertThat(result, is(recipes));
+    }
+
+    @Test
     public void filter_by() {
         when(recipeDAO.filterBy(5L)).thenReturn(recipes);
 
@@ -129,6 +139,18 @@ public class RecipeRepositoryTest {
         LiveData<List<Recipe>> result = recipeRepository.find(criteria);
         assertThat(result, is(recipes));
     }
+
+    @Test
+    public void search_for_unassigned() {
+        when(recipeDAO.searchForUnassigned("bla*")).thenReturn(recipes);
+
+        criteria.setCategory(Category.UNASSIGNED);
+        criteria.setSearchTerm("bla");
+
+        LiveData<List<Recipe>> result = recipeRepository.find(criteria);
+        assertThat(result, is(recipes));
+    }
+
 
     @Test
     public void insert() throws ExecutionException, InterruptedException {

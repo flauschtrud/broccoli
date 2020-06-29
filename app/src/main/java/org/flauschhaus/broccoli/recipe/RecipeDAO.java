@@ -44,6 +44,14 @@ public interface RecipeDAO {
     @Query("SELECT recipes.recipeId, recipes.title, imageName, recipes.description, servings, preparationTime, recipes.source, recipes.ingredients, directions, favorite FROM recipes JOIN recipes_fts ON (recipes.recipeId = recipes_fts.docid) INNER JOIN recipes_with_categories ON recipes.recipeId = recipes_with_categories.recipeId WHERE recipes_with_categories.categoryId = :categoryId AND recipes_fts MATCH :term ORDER BY SUBSTR(OFFSETS(recipes_fts), 1, 1), recipes.title")
     LiveData<List<Recipe>> filterByAndSearchFor(long categoryId, String term);
 
+    @Transaction
+    @Query("SELECT * FROM recipes WHERE NOT EXISTS (SELECT * FROM recipes_with_categories WHERE recipeId = recipes.recipeId) ORDER BY title")
+    LiveData<List<Recipe>> findUnassigned();
+
+    @Transaction
+    @Query("SELECT * FROM recipes JOIN recipes_fts ON (recipes.recipeId = recipes_fts.docid) WHERE recipes_fts MATCH :term AND NOT EXISTS (SELECT * FROM recipes_with_categories WHERE recipeId = recipes.recipeId) ORDER BY SUBSTR(OFFSETS(recipes_fts), 1, 1), recipes.title")
+    LiveData<List<Recipe>> searchForUnassigned(String term);
+
     @Query("SELECT * FROM recipes_with_categories WHERE recipeId == :recipeId")
     List<RecipeCategoryAssociation> getCategoriesFor(long recipeId);
 
