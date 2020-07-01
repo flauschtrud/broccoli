@@ -32,12 +32,19 @@ import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
 
+import static android.app.Activity.RESULT_OK;
+
 public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFragmentInteractionListener, AdapterView.OnItemSelectedListener, SearchView.OnQueryTextListener {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
 
     private RecipeViewModel viewModel;
+
+    private MenuItem searchItem;
+    private SearchView searchView;
+
+    private static final int REQUEST_CRUD = 1;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -56,7 +63,7 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
         FloatingActionButton fab = root.findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(getActivity(), CreateAndEditRecipeActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, REQUEST_CRUD);
         });
 
         viewModel = new ViewModelProvider(this, viewModelFactory).get(RecipeViewModel.class);
@@ -83,11 +90,11 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
     @Override
     public void onCreateOptionsMenu (Menu menu, MenuInflater inflater){
         inflater.inflate(R.menu.recipes, menu);
-        MenuItem item = menu.findItem(R.id.action_search);
+        searchItem = menu.findItem(R.id.action_search);
 
         if (getActivity() instanceof MainActivity) {
-            SearchView searchView = new SearchView(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
-            item.setActionView(searchView);
+            searchView = new SearchView(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
+            searchItem.setActionView(searchView);
             searchView.setOnQueryTextListener(this);
         }
     }
@@ -115,6 +122,23 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
     }
 
     @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CRUD && resultCode == RESULT_OK) {
+            Recipe recipe = (Recipe) data.getSerializableExtra(Recipe.class.getName());
+            Spinner spinner = getActivity().findViewById(R.id.spinner);
+            if (spinner != null) {
+                spinner.setSelection(0);
+                viewModel.setFilter(Category.ALL);
+            }
+            if (getActivity() instanceof MainActivity) {
+                searchItem.expandActionView();
+                searchView.post(() -> searchView.setQuery(recipe.getTitle(), false));
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
     public void onNothingSelected(AdapterView<?> parent) {
         // intentionally empty
     }
@@ -129,4 +153,5 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
         viewModel.setSearchTerm(newText);
         return false;
     }
+
 }
