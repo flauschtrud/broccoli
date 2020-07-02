@@ -16,6 +16,12 @@
         android:visible="false"
         app:showAsAction="always" />
     <item
+        android:id="@+id/action_details_share"
+        android:icon="@drawable/ic_menu_share_24dp"
+        android:title="@string/action_details_edit"
+        android:onClick="share"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/action_details_edit"
         android:icon="@drawable/ic_menu_edit_24dp"
         android:title="@string/action_details_edit"

@@ -2,6 +2,8 @@ package org.flauschhaus.broccoli.recipe;
 
 import android.app.Application;
 
+import org.flauschhaus.broccoli.recipe.sharing.RecipeSharingService;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -15,5 +17,11 @@ public class RecipeModule {
     @Singleton
     Compressor compressor(Application application) {
         return new Compressor(application);
+    }
+
+    @Provides
+    @Singleton
+    RecipeSharingService recipeSharingService() {
+        return new RecipeSharingService();
     }
 }

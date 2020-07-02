@@ -3,6 +3,7 @@ package org.flauschhaus.broccoli.recipe.details;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,6 +31,7 @@ import org.flauschhaus.broccoli.recipe.RecipeRepository;
 import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import org.flauschhaus.broccoli.recipe.directions.DirectionBuilder;
 import org.flauschhaus.broccoli.recipe.ingredients.IngredientBuilder;
+import org.flauschhaus.broccoli.recipe.sharing.RecipeSharingService;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -42,6 +44,9 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
     @Inject
     RecipeRepository recipeRepository;
+
+    @Inject
+    RecipeSharingService recipeSharingService;
 
     private ActivityRecipeDetailsBinding binding;
     private Menu menu;
@@ -123,6 +128,19 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             MenuItem newItem = binding.getRecipe().isFavorite()? menu.findItem(R.id.action_details_unlike) : menu.findItem(R.id.action_details_like);
             newItem.setVisible(true);
         }));
+    }
+
+    public void share(MenuItem item) { // TODO test
+        String html = recipeSharingService.toHtml(binding.getRecipe());
+
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_HTML_TEXT, html);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(html, Html.FROM_HTML_MODE_COMPACT));
+        sendIntent.setType("text/plain");
+
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        startActivity(shareIntent);
     }
 
     @BindingAdapter("categories")
