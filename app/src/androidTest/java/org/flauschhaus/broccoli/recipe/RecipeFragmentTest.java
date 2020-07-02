@@ -77,7 +77,7 @@ public class RecipeFragmentTest {
 
     @Test
     public void trigger_new_recipe_activity_when_fab_is_clicked() {
-        onView(withId(R.id.fab)).perform(click());
+        onView(withId(R.id.fab_recipes)).perform(click());
         intended(hasComponent(CreateAndEditRecipeActivity.class.getName()));
     }
 

@@ -45,7 +45,7 @@ public class CategoryFragment extends Fragment implements CategoryDialog.OnChang
         viewModel = new ViewModelProvider(this, viewModelFactory).get(CategoryViewModel.class);
         viewModel.getCategories().observe(getViewLifecycleOwner(), adapter::submitList);
 
-        FloatingActionButton fab = root.findViewById(R.id.fab);
+        FloatingActionButton fab = root.findViewById(R.id.fab_categories);
         fab.setOnClickListener(view -> {
             CategoryDialog dialog = new CategoryDialog(this, new Category(""));
             dialog.show(getParentFragmentManager(), "CategoryDialogTag");

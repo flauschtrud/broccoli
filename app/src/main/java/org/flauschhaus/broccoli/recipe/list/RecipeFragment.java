@@ -60,7 +60,7 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
         adapter.setListener(this);
         recyclerView.setAdapter(adapter);
 
-        FloatingActionButton fab = root.findViewById(R.id.fab);
+        FloatingActionButton fab = root.findViewById(R.id.fab_recipes);
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(getActivity(), CreateAndEditRecipeActivity.class);
             startActivityForResult(intent, REQUEST_CRUD);

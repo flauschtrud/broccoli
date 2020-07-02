@@ -50,4 +50,5 @@
     <string name="favorites">Favorites</string>
     <string name="category_delete_warning">Do you really want to delete this category and remove all its assignments?</string>
     <string name="unassigned">Unassigned recipes</string>
+    <string name="search">Search</string>
 </resources>

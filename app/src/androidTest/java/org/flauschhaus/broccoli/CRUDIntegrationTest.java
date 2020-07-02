@@ -45,7 +45,7 @@ public class CRUDIntegrationTest {
     public void crud() {
         onView(withId(R.id.recycler_view)).check(hasItemsCount(0));
 
-        onView(withId(R.id.fab)).perform(click());
+        onView(withId(R.id.fab_recipes)).perform(click());
         onView(withId(R.id.new_title)).perform(typeText("Lauchkuchen"));
         onView(withId(R.id.button_save_recipe)).perform(click());
 

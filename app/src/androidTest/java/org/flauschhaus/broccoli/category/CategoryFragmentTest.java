@@ -67,7 +67,7 @@ public class CategoryFragmentTest {
     public void add_new_category() {
         doNothing().when(categoryRepository).insertOrUpdate(categoryCaptor.capture());
 
-        onView(withId(R.id.fab)).perform(click());
+        onView(withId(R.id.fab_categories)).perform(click());
         onView(withId(R.id.category_name)).perform(typeText("Mimi"));
         onView(withText(R.string.action_save))
                 .inRoot(isDialog())
