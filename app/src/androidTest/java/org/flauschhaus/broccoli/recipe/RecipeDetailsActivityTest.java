@@ -2,6 +2,7 @@ package org.flauschhaus.broccoli.recipe;
 
 import android.app.Instrumentation;
 import android.content.Intent;
+import android.net.Uri;
 
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.core.app.ApplicationProvider;
@@ -13,7 +14,8 @@ import org.flauschhaus.broccoli.DaggerMockApplicationComponent;
 import org.flauschhaus.broccoli.MockApplicationComponent;
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.recipe.details.RecipeDetailsActivity;
-import org.flauschhaus.broccoli.recipe.sharing.RecipeSharingService;
+import org.flauschhaus.broccoli.recipe.sharing.ShareService;
+import org.flauschhaus.broccoli.recipe.sharing.ShareableRecipe;
 import org.flauschhaus.broccoli.util.RecipeTestUtil;
 import org.junit.After;
 import org.junit.Before;
@@ -37,6 +39,7 @@ import static androidx.test.espresso.intent.Intents.intending;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasAction;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasExtra;
+import static androidx.test.espresso.intent.matcher.IntentMatchers.hasFlag;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasType;
 import static androidx.test.espresso.matcher.RootMatchers.isDialog;
 import static androidx.test.espresso.matcher.ViewMatchers.hasSibling;
@@ -59,7 +62,7 @@ public class RecipeDetailsActivityTest {
     RecipeRepository recipeRepository;
 
     @Inject
-    RecipeSharingService recipeSharingService;
+    ShareService shareService;
 
     private ActivityScenario<RecipeDetailsActivity> scenario;
 
@@ -129,7 +132,8 @@ public class RecipeDetailsActivityTest {
 
     @Test
     public void share() {
-        when(recipeSharingService.toPlainText(recipeCaptor.capture())).thenReturn("Lauchkuchen in plain text.");
+        Uri imageUri = Uri.parse("https://www.blablupp.com/image");
+        when(shareService.toShareableRecipe(recipeCaptor.capture())).thenReturn(new ShareableRecipe("Lauchkuchen in plain text.", imageUri));
 
         onView(withId(R.id.action_details_share)).perform(click());
 
@@ -141,7 +145,9 @@ public class RecipeDetailsActivityTest {
                         allOf( hasAction(Intent.ACTION_SEND),
                                 hasExtra(Intent.EXTRA_SUBJECT, lauchkuchen.getTitle()),
                                 hasExtra(Intent.EXTRA_TEXT, "Lauchkuchen in plain text."),
-                                hasType("text/plain")
+                                hasExtra(Intent.EXTRA_STREAM, imageUri),
+                                hasType("text/plain"),
+                                hasFlag(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                         ))));
     }
 

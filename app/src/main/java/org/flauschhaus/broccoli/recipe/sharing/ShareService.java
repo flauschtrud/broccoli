@@ -1,26 +1,37 @@
 package org.flauschhaus.broccoli.recipe.sharing;
 
 import android.app.Application;
+import android.net.Uri;
 
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.directions.DirectionBuilder;
+import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
 import org.flauschhaus.broccoli.recipe.ingredients.IngredientBuilder;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 @Singleton
-public class RecipeSharingService {
+public class ShareService {
 
     private Application application;
+    private RecipeImageService recipeImageService;
 
     @Inject
-    RecipeSharingService(Application application) {
+    ShareService(Application application, RecipeImageService recipeImageService) {
         this.application = application;
+        this.recipeImageService = recipeImageService;
     }
 
-    public String toPlainText(Recipe recipe) {
+    public ShareableRecipe toShareableRecipe(Recipe recipe) {
+        String plainText = toPlainText(recipe);
+        Uri imageUri = "".equals(recipe.getImageName())? Uri.EMPTY : recipeImageService.getUri(recipe.getImageName());
+
+        return new ShareableRecipe(plainText, imageUri);
+    }
+
+    private String toPlainText(Recipe recipe) {
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append(recipe.getTitle().toUpperCase()).append("\n\n");
@@ -69,4 +80,5 @@ public class RecipeSharingService {
     private String getDirectionsString() {
         return application.getString(R.string.directions);
     }
+
 }

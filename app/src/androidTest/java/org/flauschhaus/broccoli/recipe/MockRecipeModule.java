@@ -2,7 +2,7 @@ package org.flauschhaus.broccoli.recipe;
 
 import org.flauschhaus.broccoli.category.CategoryRepository;
 import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
-import org.flauschhaus.broccoli.recipe.sharing.RecipeSharingService;
+import org.flauschhaus.broccoli.recipe.sharing.ShareService;
 
 import javax.inject.Singleton;
 
@@ -34,7 +34,7 @@ public class MockRecipeModule extends RecipeModule {
 
     @Provides
     @Singleton
-    RecipeSharingService recipeSharingService() {
-        return mock(RecipeSharingService.class);
+    ShareService shareService() {
+        return mock(ShareService.class);
     }
 }

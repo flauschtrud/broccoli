@@ -80,6 +80,11 @@ public class RecipeImageService {
         });
     }
 
+    public Uri getUri(String imageName) {
+        File file = findImage(imageName);
+        return FileProvider.getUriForFile(application, AUTHORITY, file);
+    }
+
     File findImage(String imageName) {
         File savedImage = getSavedImage(imageName);
 

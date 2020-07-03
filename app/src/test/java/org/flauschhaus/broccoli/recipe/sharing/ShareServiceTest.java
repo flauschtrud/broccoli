@@ -1,9 +1,11 @@
 package org.flauschhaus.broccoli.recipe.sharing;
 
 import android.app.Application;
+import android.net.Uri;
 
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.recipe.Recipe;
+import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,18 +15,25 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class RecipeSharingServiceTest {
+public class ShareServiceTest {
 
     @Mock
     private Application application;
 
-    @InjectMocks
-    private RecipeSharingService recipeSharingService;
+    @Mock
+    private RecipeImageService recipeImageService;
 
-    private String plainTextRecipeFull = "LAUCHKUCHEN\n" +
+    @Mock
+    private Uri imageUri;
+
+    @InjectMocks
+    private ShareService shareService;
+
+    private static final String PLAIN_TEXT_RECIPE_FULL = "LAUCHKUCHEN\n" +
             "\n" +
             "Servings: 4 Portionen\n" +
             "Preparation time: 1h\n" +
@@ -41,7 +50,7 @@ public class RecipeSharingServiceTest {
             "\n" +
             "Shared via Broccoli";
 
-    private String plainTextRecipeMinimal = "LAUCHKUCHEN\n" +
+    private static final String PLAIN_TEXT_RECIPE_MINIMAL = "LAUCHKUCHEN\n" +
             "\n" +
             "Ingredients:\n" +
             "- 500g Mehl\n" +
@@ -70,10 +79,14 @@ public class RecipeSharingServiceTest {
         recipe.setDescription("Das ist toll!");
         recipe.setIngredients("- 500g Mehl\n - 100g Margarine  ");
         recipe.setDirections(" 1. Erst dies. \n 2. Dann das. ");
+        recipe.setImageName("image/bla.jpg");
 
-        String result = recipeSharingService.toPlainText(recipe);
+        when(recipeImageService.getUri("image/bla.jpg")).thenReturn(imageUri);
 
-        assertThat(result, is(plainTextRecipeFull));
+        ShareableRecipe result = shareService.toShareableRecipe(recipe);
+
+        assertThat(result.getPlainText(), is(PLAIN_TEXT_RECIPE_FULL));
+        assertThat(result.getImageUri(), is(imageUri));
     }
 
     @Test
@@ -83,8 +96,10 @@ public class RecipeSharingServiceTest {
         recipe.setIngredients("- 500g Mehl\n - 100g Margarine  ");
         recipe.setDirections(" 1. Erst dies. \n 2. Dann das. ");
 
-        String result = recipeSharingService.toPlainText(recipe);
+        ShareableRecipe result = shareService.toShareableRecipe(recipe);
 
-        assertThat(result, is(plainTextRecipeMinimal));
+        verifyNoInteractions(recipeImageService);
+        assertThat(result.getPlainText(), is(PLAIN_TEXT_RECIPE_MINIMAL));
+        assertThat(result.getImageUri(), is(Uri.EMPTY));
     }
 }

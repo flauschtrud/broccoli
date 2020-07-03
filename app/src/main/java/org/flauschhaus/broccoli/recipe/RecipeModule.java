@@ -2,8 +2,6 @@ package org.flauschhaus.broccoli.recipe;
 
 import android.app.Application;
 
-import org.flauschhaus.broccoli.recipe.sharing.RecipeSharingService;
-
 import javax.inject.Singleton;
 
 import dagger.Module;

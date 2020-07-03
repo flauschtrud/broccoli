@@ -2,6 +2,7 @@ package org.flauschhaus.broccoli.recipe.details;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -30,7 +31,8 @@ import org.flauschhaus.broccoli.recipe.RecipeRepository;
 import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import org.flauschhaus.broccoli.recipe.directions.DirectionBuilder;
 import org.flauschhaus.broccoli.recipe.ingredients.IngredientBuilder;
-import org.flauschhaus.broccoli.recipe.sharing.RecipeSharingService;
+import org.flauschhaus.broccoli.recipe.sharing.ShareService;
+import org.flauschhaus.broccoli.recipe.sharing.ShareableRecipe;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -45,7 +47,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     RecipeRepository recipeRepository;
 
     @Inject
-    RecipeSharingService recipeSharingService;
+    ShareService shareService;
 
     private ActivityRecipeDetailsBinding binding;
     private Menu menu;
@@ -130,16 +132,20 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     }
 
     public void share(MenuItem item) {
-        String shareableRecipe = recipeSharingService.toPlainText(binding.getRecipe());
+        ShareableRecipe shareableRecipe = shareService.toShareableRecipe(binding.getRecipe());
 
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_SUBJECT, binding.getRecipe().getTitle());
-        sendIntent.putExtra(Intent.EXTRA_TEXT, shareableRecipe);
-        sendIntent.setType("text/plain");
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, binding.getRecipe().getTitle());
+        shareIntent.putExtra(Intent.EXTRA_TEXT, shareableRecipe.getPlainText());
+        if (shareableRecipe.getImageUri() != Uri.EMPTY) {
+            shareIntent.putExtra(Intent.EXTRA_STREAM, shareableRecipe.getImageUri());
+        }
+        shareIntent.setType("text/plain");
 
-        Intent shareIntent = Intent.createChooser(sendIntent, null);
-        startActivity(shareIntent);
+        shareIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+        startActivity(Intent.createChooser(shareIntent, null));
     }
 
     @BindingAdapter("categories")
