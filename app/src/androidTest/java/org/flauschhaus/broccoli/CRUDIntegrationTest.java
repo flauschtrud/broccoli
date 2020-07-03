@@ -11,6 +11,7 @@ import org.junit.runner.RunWith;
 
 import static androidx.test.core.app.ActivityScenario.launch;
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.typeText;
@@ -20,6 +21,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.flauschhaus.broccoli.util.RecyclerViewAssertions.hasItemsCount;
 import static org.flauschhaus.broccoli.util.RecyclerViewMatcher.withRecyclerView;
 import static org.hamcrest.core.AllOf.allOf;
@@ -53,8 +55,8 @@ public class CRUDIntegrationTest {
         onView(withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_title)).check(matches(withText("Lauchkuchen")));
 
         onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(0, click()));
-        onView(withId(R.id.action_details_edit)).perform(click());
-        onView(withId(R.id.new_title)).perform(replaceText("Leckerster Lauchkuchen"));
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
+        onView(withText(R.string.action_details_edit)).perform(click());        onView(withId(R.id.new_title)).perform(replaceText("Leckerster Lauchkuchen"));
         onView(withId(R.id.button_save_recipe)).perform(click());
         onView(allOf(withClassName(endsWith("ImageButton")), withParent(withId(R.id.toolbar)))).perform(click());
 
@@ -62,7 +64,8 @@ public class CRUDIntegrationTest {
         onView(withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_title)).check(matches(withText("Leckerster Lauchkuchen")));
 
         onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(0, click()));
-        onView(withId(R.id.action_details_delete)).perform(click());
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
+        onView(withText(R.string.action_delete)).perform(click());
         onView(withId(android.R.id.button1)).perform(click());
 
         onView(withId(R.id.recycler_view)).check(hasItemsCount(0));
