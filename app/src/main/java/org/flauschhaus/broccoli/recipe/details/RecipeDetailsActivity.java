@@ -135,7 +135,6 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_HTML_TEXT, html);
         sendIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY));
         sendIntent.setType("text/plain");
 
