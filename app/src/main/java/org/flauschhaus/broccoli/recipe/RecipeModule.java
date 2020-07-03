@@ -19,9 +19,4 @@ public class RecipeModule {
         return new Compressor(application);
     }
 
-    @Provides
-    @Singleton
-    RecipeSharingService recipeSharingService() {
-        return new RecipeSharingService();
-    }
 }
