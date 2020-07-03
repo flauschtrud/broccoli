@@ -7,13 +7,13 @@ import androidx.test.core.app.ActivityScenario;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.espresso.intent.Intents;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.platform.app.InstrumentationRegistry;
 
 import org.flauschhaus.broccoli.BroccoliApplication;
 import org.flauschhaus.broccoli.DaggerMockApplicationComponent;
 import org.flauschhaus.broccoli.MockApplicationComponent;
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.recipe.details.RecipeDetailsActivity;
+import org.flauschhaus.broccoli.recipe.sharing.RecipeSharingService;
 import org.flauschhaus.broccoli.util.RecipeTestUtil;
 import org.junit.After;
 import org.junit.Before;
@@ -28,11 +28,16 @@ import javax.inject.Inject;
 import static android.app.Activity.RESULT_OK;
 import static androidx.test.core.app.ActivityScenario.launch;
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.intent.Intents.intended;
 import static androidx.test.espresso.intent.Intents.intending;
+import static androidx.test.espresso.intent.matcher.IntentMatchers.hasAction;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
+import static androidx.test.espresso.intent.matcher.IntentMatchers.hasExtra;
+import static androidx.test.espresso.intent.matcher.IntentMatchers.hasType;
 import static androidx.test.espresso.matcher.RootMatchers.isDialog;
 import static androidx.test.espresso.matcher.ViewMatchers.hasSibling;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
@@ -40,6 +45,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withSubstring;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.is;
@@ -51,6 +57,9 @@ public class RecipeDetailsActivityTest {
 
     @Inject
     RecipeRepository recipeRepository;
+
+    @Inject
+    RecipeSharingService recipeSharingService;
 
     private ActivityScenario<RecipeDetailsActivity> scenario;
 
@@ -79,7 +88,7 @@ public class RecipeDetailsActivityTest {
     }
 
     private BroccoliApplication getApplication() {
-        return (BroccoliApplication) InstrumentationRegistry.getInstrumentation()
+        return (BroccoliApplication) getInstrumentation()
                 .getTargetContext().getApplicationContext();
     }
 
@@ -119,10 +128,30 @@ public class RecipeDetailsActivityTest {
     }
 
     @Test
+    public void share() {
+        when(recipeSharingService.toPlainText(recipeCaptor.capture())).thenReturn("Lauchkuchen in plain text.");
+
+        onView(withId(R.id.action_details_share)).perform(click());
+
+        Recipe recipe = recipeCaptor.getValue();
+        assertThat(recipe.getTitle(), is(lauchkuchen.getTitle()));
+
+        intended(allOf(hasAction(Intent.ACTION_CHOOSER),
+                hasExtra(is(Intent.EXTRA_INTENT),
+                        allOf( hasAction(Intent.ACTION_SEND),
+                                hasExtra(Intent.EXTRA_SUBJECT, lauchkuchen.getTitle()),
+                                hasExtra(Intent.EXTRA_TEXT, "Lauchkuchen in plain text."),
+                                hasType("text/plain")
+                        ))));
+    }
+
+    @Test
     public void show_a_dialog_and_delete_a_recipe() {
         when(recipeRepository.delete(lauchkuchen)).thenReturn(CompletableFuture.completedFuture(null));
 
-        onView(withId(R.id.action_details_delete)).perform(click());
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
+        onView(withText(R.string.action_delete)).perform(click());
+
         onView(withText(R.string.dialog_delete_recipe))
                 .inRoot(isDialog())
                 .check(matches(isDisplayed()));
@@ -144,7 +173,8 @@ public class RecipeDetailsActivityTest {
 
         intending(hasComponent("org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity")).respondWith(result);
 
-        onView(withId(R.id.action_details_edit)).perform(click());
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
+        onView(withText(R.string.action_details_edit)).perform(click());
 
         onView(withId(R.id.toolbar_layout)).check(matches(withContentDescription("Leckerster Lauchkuchen")));
 

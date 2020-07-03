@@ -2,6 +2,7 @@ package org.flauschhaus.broccoli.recipe.sharing;
 
 import android.app.Application;
 
+import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.directions.DirectionBuilder;
 import org.flauschhaus.broccoli.recipe.ingredients.IngredientBuilder;
@@ -15,44 +16,57 @@ public class RecipeSharingService {
     private Application application;
 
     @Inject
-    public RecipeSharingService(Application application) {
+    RecipeSharingService(Application application) {
         this.application = application;
     }
 
-    public String toHtml(Recipe recipe) {
+    public String toPlainText(Recipe recipe) {
         StringBuilder stringBuilder = new StringBuilder();
 
-        stringBuilder.append("<h1>").append(recipe.getTitle()).append("</h1>");
-        stringBuilder.append("<p>").append(getServingsString()).append(recipe.getServings()).append("<br/>").append(getPreparationTimeString()).append(recipe.getPreparationTime()).append("</p>");
-        stringBuilder.append("<p>").append(recipe.getDescription()).append("</p>");
+        stringBuilder.append(recipe.getTitle().toUpperCase()).append("\n\n");
 
-        stringBuilder.append("<p>").append(getIngredientsString()).append("</p>").append("<ul>");
-        IngredientBuilder.from(recipe.getIngredients()).forEach(ingredient -> stringBuilder.append("<li>").append(ingredient.getQuantity()).append(ingredient.getText()).append("</li>"));
-        stringBuilder.append("</ul>");
+        if (!"".equals(recipe.getServings())) {
+            stringBuilder.append(getServingsString()).append(": ").append(recipe.getServings()).append("\n");
+        }
 
-        stringBuilder.append("<p>").append(getDirectionsString()).append("</p>").append("<ol>");
-        DirectionBuilder.from(recipe.getDirections()).forEach(direction -> stringBuilder.append("<li>").append(direction.getText()).append("</li>"));
-        stringBuilder.append("</ol>");
+        if (!"".equals(recipe.getPreparationTime())) {
+            stringBuilder.append(getPreparationTimeString()).append(": ").append(recipe.getPreparationTime()).append("\n\n");
+        }
 
-        stringBuilder.append("<p>Shared via Broccoli (TODO insert link)</p>");
+        if(!"".equals(recipe.getDescription())) {
+            stringBuilder.append(recipe.getDescription()).append("\n\n");
+        }
+
+        if(!"".equals(recipe.getIngredients())) {
+            stringBuilder.append(getIngredientsString()).append(":\n");
+            IngredientBuilder.from(recipe.getIngredients()).forEach(ingredient -> stringBuilder.append("- ").append(ingredient.getQuantity()).append(ingredient.getText()).append("\n"));
+            stringBuilder.append("\n");
+        }
+
+        if(!"".equals(recipe.getDirections())) {
+            stringBuilder.append(getDirectionsString()).append(":\n");
+            DirectionBuilder.from(recipe.getDirections()).forEach(direction -> stringBuilder.append(direction.getPosition()).append(". ").append(direction.getText()).append("\n"));
+            stringBuilder.append("\n");
+        }
+
+        stringBuilder.append("Shared via Broccoli"); // TODO insert link here and localize
 
         return stringBuilder.toString();
     }
 
-    // TODO use android strings
     private String getServingsString() {
-        return "Servings: ";
+        return application.getString(R.string.hint_new_recipe_servings);
     }
 
     private String getPreparationTimeString() {
-        return "Preparation time: ";
+        return application.getString(R.string.hint_new_recipe_preparation_time);
     }
 
     private String getIngredientsString() {
-        return "Ingredients:";
+        return application.getString(R.string.ingredients);
     }
 
     private String getDirectionsString() {
-        return "Directions:";
+        return application.getString(R.string.directions);
     }
 }

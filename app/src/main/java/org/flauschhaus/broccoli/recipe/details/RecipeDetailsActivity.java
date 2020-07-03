@@ -3,7 +3,6 @@ package org.flauschhaus.broccoli.recipe.details;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -130,12 +129,13 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         }));
     }
 
-    public void share(MenuItem item) { // TODO test
-        String html = recipeSharingService.toHtml(binding.getRecipe());
+    public void share(MenuItem item) {
+        String shareableRecipe = recipeSharingService.toPlainText(binding.getRecipe());
 
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY));
+        sendIntent.putExtra(Intent.EXTRA_SUBJECT, binding.getRecipe().getTitle());
+        sendIntent.putExtra(Intent.EXTRA_TEXT, shareableRecipe);
         sendIntent.setType("text/plain");
 
         Intent shareIntent = Intent.createChooser(sendIntent, null);
