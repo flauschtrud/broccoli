@@ -23,11 +23,11 @@ public class RecipeSharingService {
         StringBuilder stringBuilder = new StringBuilder();
 
         stringBuilder.append("<h1>").append(recipe.getTitle()).append("</h1>");
-        stringBuilder.append("<p>").append(getServingsString()).append(recipe.getServings()).append("<br>").append(getPreparationTimeString()).append(recipe.getPreparationTime()).append("</p>");
+        stringBuilder.append("<p>").append(getServingsString()).append(recipe.getServings()).append("<br/>").append(getPreparationTimeString()).append(recipe.getPreparationTime()).append("</p>");
         stringBuilder.append("<p>").append(recipe.getDescription()).append("</p>");
 
         stringBuilder.append("<p>").append(getIngredientsString()).append("</p>").append("<ul>");
-        IngredientBuilder.from(recipe.getIngredients()).forEach(ingredient -> stringBuilder.append("<li>").append(ingredient.getQuantity()).append(" ").append(ingredient.getText()).append("</li>"));
+        IngredientBuilder.from(recipe.getIngredients()).forEach(ingredient -> stringBuilder.append("<li>").append(ingredient.getQuantity()).append(ingredient.getText()).append("</li>"));
         stringBuilder.append("</ul>");
 
         stringBuilder.append("<p>").append(getDirectionsString()).append("</p>").append("<ol>");

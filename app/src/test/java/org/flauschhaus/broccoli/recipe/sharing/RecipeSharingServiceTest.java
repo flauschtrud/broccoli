@@ -21,19 +21,19 @@ public class RecipeSharingServiceTest {
     @InjectMocks
     private RecipeSharingService recipeSharingService;
 
-    private String html = "<h1>Lauchkuchen</h1>\n" +
-            "<p>Servings: 4 Portionen<br /> Preparation time: 1h</p>\n" +
-            "<p>Das ist toll!</p>\n" +
-            "<p>Ingredients:</p>\n" +
-            "<ul>\n" +
-            "<li>500g Mehl</li>\n" +
-            "<li>100g Margarine</li>\n" +
-            "</ul>\n" +
-            "<p>Directions:</p>\n" +
-            "<ol>\n" +
-            "<li>Erst dies.</li>\n" +
-            "<li>Dann das.</li>\n" +
-            "</ol>\n" +
+    private String html = "<h1>Lauchkuchen</h1>" +
+            "<p>Servings: 4 Portionen<br/>Preparation time: 1h</p>" +
+            "<p>Das ist toll!</p>" +
+            "<p>Ingredients:</p>" +
+            "<ul>" +
+            "<li>500g Mehl</li>" +
+            "<li>100g Margarine</li>" +
+            "</ul>" +
+            "<p>Directions:</p>" +
+            "<ol>" +
+            "<li>Erst dies.</li>" +
+            "<li>Dann das.</li>" +
+            "</ol>" +
             "<p>Shared via Broccoli (TODO insert link)</p>";
 
     @Test
@@ -44,7 +44,7 @@ public class RecipeSharingServiceTest {
         recipe.setPreparationTime("1h"); // TODO test wenn eins davon leer
         recipe.setDescription("Das ist toll!");
         recipe.setIngredients("- 500g Mehl\n - 100g Margarine  ");
-        recipe.setDirections(" - Erst dies. \n Dann das. ");
+        recipe.setDirections(" 1. Erst dies. \n 2. Dann das. ");
 
         String result = recipeSharingService.toHtml(recipe);
 
