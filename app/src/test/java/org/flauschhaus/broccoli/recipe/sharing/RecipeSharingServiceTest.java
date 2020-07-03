@@ -39,7 +39,7 @@ public class RecipeSharingServiceTest {
             "1. Erst dies.\n" +
             "2. Dann das.\n" +
             "\n" +
-            "Shared via Broccoli (TODO insert link)";
+            "Shared via Broccoli";
 
     private String plainTextRecipeMinimal = "LAUCHKUCHEN\n" +
             "\n" +
@@ -51,7 +51,7 @@ public class RecipeSharingServiceTest {
             "1. Erst dies.\n" +
             "2. Dann das.\n" +
             "\n" +
-            "Shared via Broccoli (TODO insert link)";
+            "Shared via Broccoli";
 
     @Before
     public void setUp() {
