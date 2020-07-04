@@ -141,7 +141,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         if (shareableRecipe.getImageUri() != Uri.EMPTY) {
             shareIntent.putExtra(Intent.EXTRA_STREAM, shareableRecipe.getImageUri());
         }
-        shareIntent.setType("text/plain");
+        shareIntent.setType("image/jpeg");
 
         shareIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
