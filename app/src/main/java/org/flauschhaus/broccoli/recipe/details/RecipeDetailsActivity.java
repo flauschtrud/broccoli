@@ -29,7 +29,7 @@ import org.flauschhaus.broccoli.recipe.cooking.CookingModeActivity;
 import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import org.flauschhaus.broccoli.recipe.directions.DirectionBuilder;
 import org.flauschhaus.broccoli.recipe.ingredients.IngredientBuilder;
-import org.flauschhaus.broccoli.recipe.sharing.ShareService;
+import org.flauschhaus.broccoli.recipe.sharing.ShareableRecipeBuilder;
 import org.flauschhaus.broccoli.recipe.sharing.ShareableRecipe;
 
 import java.util.List;
@@ -45,7 +45,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     RecipeRepository recipeRepository;
 
     @Inject
-    ShareService shareService;
+    ShareableRecipeBuilder shareableRecipeBuilder;
 
     private ActivityRecipeDetailsBinding binding;
     private Menu menu;
@@ -133,7 +133,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     }
 
     public void share(MenuItem item) {
-        ShareableRecipe shareableRecipe = shareService.toShareableRecipe(binding.getRecipe());
+        ShareableRecipe shareableRecipe = shareableRecipeBuilder.from(binding.getRecipe());
 
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);

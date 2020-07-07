@@ -19,7 +19,7 @@ import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ShareServiceTest {
+public class ShareableRecipeBuilderTest {
 
     @Mock
     private Application application;
@@ -31,7 +31,7 @@ public class ShareServiceTest {
     private Uri imageUri;
 
     @InjectMocks
-    private ShareService shareService;
+    private ShareableRecipeBuilder shareableRecipeBuilder;
 
     private static final String PLAIN_TEXT_RECIPE_FULL = "LAUCHKUCHEN\n" +
             "\n" +
@@ -83,7 +83,7 @@ public class ShareServiceTest {
 
         when(recipeImageService.getUri("image/bla.jpg")).thenReturn(imageUri);
 
-        ShareableRecipe result = shareService.toShareableRecipe(recipe);
+        ShareableRecipe result = shareableRecipeBuilder.from(recipe);
 
         assertThat(result.getPlainText(), is(PLAIN_TEXT_RECIPE_FULL));
         assertThat(result.getImageUri(), is(imageUri));
@@ -96,7 +96,7 @@ public class ShareServiceTest {
         recipe.setIngredients("- 500g Mehl\n - 100g Margarine  ");
         recipe.setDirections(" 1. Erst dies. \n 2. Dann das. ");
 
-        ShareableRecipe result = shareService.toShareableRecipe(recipe);
+        ShareableRecipe result = shareableRecipeBuilder.from(recipe);
 
         verifyNoInteractions(recipeImageService);
         assertThat(result.getPlainText(), is(PLAIN_TEXT_RECIPE_MINIMAL));

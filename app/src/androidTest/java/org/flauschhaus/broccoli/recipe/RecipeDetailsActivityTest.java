@@ -15,7 +15,7 @@ import org.flauschhaus.broccoli.MockApplicationComponent;
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.recipe.cooking.CookingModeActivity;
 import org.flauschhaus.broccoli.recipe.details.RecipeDetailsActivity;
-import org.flauschhaus.broccoli.recipe.sharing.ShareService;
+import org.flauschhaus.broccoli.recipe.sharing.ShareableRecipeBuilder;
 import org.flauschhaus.broccoli.recipe.sharing.ShareableRecipe;
 import org.flauschhaus.broccoli.util.RecipeTestUtil;
 import org.junit.After;
@@ -63,7 +63,7 @@ public class RecipeDetailsActivityTest {
     RecipeRepository recipeRepository;
 
     @Inject
-    ShareService shareService;
+    ShareableRecipeBuilder shareableRecipeBuilder;
 
     private ActivityScenario<RecipeDetailsActivity> scenario;
 
@@ -134,7 +134,7 @@ public class RecipeDetailsActivityTest {
     @Test
     public void share() {
         Uri imageUri = Uri.parse("https://www.blablupp.com/image");
-        when(shareService.toShareableRecipe(recipeCaptor.capture())).thenReturn(new ShareableRecipe("Lauchkuchen in plain text.", imageUri));
+        when(shareableRecipeBuilder.from(recipeCaptor.capture())).thenReturn(new ShareableRecipe("Lauchkuchen in plain text.", imageUri));
 
         onView(withId(R.id.action_details_share)).perform(click());
 

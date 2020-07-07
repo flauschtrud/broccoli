@@ -13,18 +13,18 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 @Singleton
-public class ShareService {
+public class ShareableRecipeBuilder {
 
     private Application application;
     private RecipeImageService recipeImageService;
 
     @Inject
-    ShareService(Application application, RecipeImageService recipeImageService) {
+    ShareableRecipeBuilder(Application application, RecipeImageService recipeImageService) {
         this.application = application;
         this.recipeImageService = recipeImageService;
     }
 
-    public ShareableRecipe toShareableRecipe(Recipe recipe) { // TODO refactor to ShareableRecipeBuilder.from(recipe)
+    public ShareableRecipe from(Recipe recipe) {
         String plainText = toPlainText(recipe);
         Uri imageUri = "".equals(recipe.getImageName())? Uri.EMPTY : recipeImageService.getUri(recipe.getImageName());
 
