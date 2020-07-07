@@ -2,7 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.flauschhaus.broccoli">
 
-    <uses-feature android:name="android.hardware.camera"
+    <uses-feature
+        android:name="android.hardware.camera"
         android:required="false" />
 
     <application
@@ -21,7 +22,7 @@
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths"></meta-data>
+                android:resource="@xml/file_paths" />
         </provider>
 
         <activity
@@ -37,8 +38,12 @@
             android:name=".recipe.crud.CreateAndEditRecipeActivity"
             android:label="@string/title_activity_new_recipe"
             android:parentActivityName=".MainActivity"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
-            android:theme="@style/AppTheme.NoActionBarPrimaryDarkStatusBar" />
+            android:theme="@style/AppTheme.NoActionBarPrimaryDarkStatusBar"
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden" />
+
+        <activity android:name=".recipe.cooking.CookingModeActivity"
+            android:label="@string/title_activity_cooking_mode"
+            android:parentActivityName=".recipe.details.RecipeDetailsActivity" />
 
         <activity
             android:name=".MainActivity"

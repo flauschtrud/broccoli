@@ -24,7 +24,7 @@ public class ShareService {
         this.recipeImageService = recipeImageService;
     }
 
-    public ShareableRecipe toShareableRecipe(Recipe recipe) {
+    public ShareableRecipe toShareableRecipe(Recipe recipe) { // TODO refactor to ShareableRecipeBuilder.from(recipe)
         String plainText = toPlainText(recipe);
         Uri imageUri = "".equals(recipe.getImageName())? Uri.EMPTY : recipeImageService.getUri(recipe.getImageName());
 

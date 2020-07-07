@@ -11,6 +11,7 @@ import org.flauschhaus.broccoli.recipe.CreateAndEditRecipeActivityTest;
 import org.flauschhaus.broccoli.recipe.MockRecipeModule;
 import org.flauschhaus.broccoli.recipe.RecipeDetailsActivityTest;
 import org.flauschhaus.broccoli.recipe.RecipeFragmentTest;
+import org.flauschhaus.broccoli.recipe.cooking.CookingModeActivityTest;
 
 import javax.inject.Singleton;
 
@@ -41,5 +42,6 @@ public interface MockApplicationComponent extends ApplicationComponent {
     void inject(RecipeDetailsActivityTest test);
     void inject(RecipeFragmentTest test);
     void inject(CategoryFragmentTest test);
+    void inject(CookingModeActivityTest test);
 
 }

@@ -18,9 +18,6 @@ import androidx.core.widget.NestedScrollView;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 
-import com.google.android.material.snackbar.BaseTransientBottomBar;
-import com.google.android.material.snackbar.Snackbar;
-
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.category.Category;
 import org.flauschhaus.broccoli.databinding.ActivityRecipeDetailsBinding;
@@ -28,6 +25,7 @@ import org.flauschhaus.broccoli.databinding.DirectionItemBinding;
 import org.flauschhaus.broccoli.databinding.IngredientItemBinding;
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.RecipeRepository;
+import org.flauschhaus.broccoli.recipe.cooking.CookingModeActivity;
 import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import org.flauschhaus.broccoli.recipe.directions.DirectionBuilder;
 import org.flauschhaus.broccoli.recipe.ingredients.IngredientBuilder;
@@ -75,11 +73,14 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         binding.toolbar.setNavigationOnClickListener(v -> finish());
 
-        Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName());
+        Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName()); // TODO not available when cooking mode is closed, bundle is always null
         binding.setRecipe(recipe);
 
-        binding.fab.setOnClickListener(view -> Snackbar.make(view, "Cook me!", BaseTransientBottomBar.LENGTH_LONG)
-                .setAction("Action", null).show());
+        binding.fabCookingMode.setOnClickListener(view -> {
+            Intent intent = new Intent(getApplicationContext(), CookingModeActivity.class);
+            intent.putExtra(Recipe.class.getName(), binding.getRecipe());
+            startActivity(intent);
+        });
     }
 
     @Override

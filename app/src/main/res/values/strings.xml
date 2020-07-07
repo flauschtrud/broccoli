@@ -51,4 +51,6 @@
     <string name="category_delete_warning">Do you really want to delete this category and remove all its assignments?</string>
     <string name="unassigned">Unassigned recipes</string>
     <string name="search">Search</string>
+    <string name="title_activity_cooking_mode">Cooking mode</string>
+    <string name="no_ingredients_and_directions_yet">This recipe does not have any ingredients or directions yet. You can edit it to add some.</string>
 </resources>

@@ -13,6 +13,7 @@ import org.flauschhaus.broccoli.BroccoliApplication;
 import org.flauschhaus.broccoli.DaggerMockApplicationComponent;
 import org.flauschhaus.broccoli.MockApplicationComponent;
 import org.flauschhaus.broccoli.R;
+import org.flauschhaus.broccoli.recipe.cooking.CookingModeActivity;
 import org.flauschhaus.broccoli.recipe.details.RecipeDetailsActivity;
 import org.flauschhaus.broccoli.recipe.sharing.ShareService;
 import org.flauschhaus.broccoli.recipe.sharing.ShareableRecipe;
@@ -149,6 +150,16 @@ public class RecipeDetailsActivityTest {
                                 hasType("text/plain"),
                                 hasFlag(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                         ))));
+    }
+
+    @Test
+    public void cook() {
+        onView(withId(R.id.fab_cooking_mode)).perform(click());
+
+        intended(allOf(
+                hasComponent(CookingModeActivity.class.getName()),
+                hasExtra(Recipe.class.getName(), lauchkuchen)
+        ));
     }
 
     @Test

@@ -1,5 +1,6 @@
 package org.flauschhaus.broccoli.di;
 
+import org.flauschhaus.broccoli.recipe.cooking.CookingModeActivity;
 import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import org.flauschhaus.broccoli.recipe.details.RecipeDetailsActivity;
 
@@ -14,4 +15,7 @@ public interface ActivityModule {
 
     @ContributesAndroidInjector
     RecipeDetailsActivity recipeDetailsActivity();
+
+    @ContributesAndroidInjector
+    CookingModeActivity cookingModeActivity();
 }
