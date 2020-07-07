@@ -15,8 +15,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:text="Title"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
     <TextView
         android:id="@+id/cooking_mode_text"
@@ -27,14 +26,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:text="Ganz viel bla\n blupp\n mit vielen Absätzen \n\n und so \n mir fällt nichts mehr ein\n was soll man da noch schreiben?? \n ohje ohje\n bla\n blupp\n lala"/>
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <SeekBar
         android:id="@+id/cooking_mode_seekbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/text_margin"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
+        android:progressTint="@android:color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

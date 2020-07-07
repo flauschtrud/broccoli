@@ -37,6 +37,7 @@ public class CookingModeFragment extends Fragment {
         seekbar = view.findViewById(R.id.cooking_mode_seekbar);
         seekbar.setMax(args.getInt(MAX_STEPS) - 1);
         seekbar.setOnSeekBarChangeListener((CookingModeActivity) getActivity());
+        seekbar.setProgress(args.getInt(POSITION) - 1, false);
 
         if (args.getInt(MAX_STEPS) == 1) {
             seekbar.setVisibility(View.GONE);
@@ -48,7 +49,7 @@ public class CookingModeFragment extends Fragment {
         super.onResume();
 
         Bundle args = getArguments();
-        seekbar.setProgress(args.getInt(POSITION) - 1);
+        seekbar.setProgress(args.getInt(POSITION) - 1, false);
     }
 
 }
