@@ -73,7 +73,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         binding.toolbar.setNavigationOnClickListener(v -> finish());
 
-        Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName()); // TODO not available when cooking mode is closed, bundle is always null
+        Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName());
         binding.setRecipe(recipe);
 
         binding.fabCookingMode.setOnClickListener(view -> {

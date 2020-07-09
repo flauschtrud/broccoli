@@ -23,7 +23,7 @@ public class CookingModeAdapter extends FragmentStateAdapter {
 
         Bundle args = new Bundle();
 
-        args.putInt(CookingModeFragment.POSITION, position + 1);
+        args.putInt(CookingModeFragment.POSITION, position);
         args.putInt(CookingModeFragment.MAX_STEPS, getItemCount());
 
         PageableRecipe.Page currentPage = pageableRecipe.getPages().get(position);

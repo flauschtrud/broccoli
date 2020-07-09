@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:controls="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="viewModel" type="org.flauschhaus.broccoli.recipe.cooking.CookingModeFragmentViewModel" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:onClick="toggleSystemUI"
-    android:padding="@dimen/text_margin"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:padding="@dimen/text_margin">
 
     <TextView
         android:id="@+id/cooking_mode_title"
@@ -15,7 +22,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="@color/colorPrimary"
+        android:text="@{viewModel.title}" />
 
     <TextView
         android:id="@+id/cooking_mode_text"
@@ -26,17 +35,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:text="@{viewModel.text}" />
 
-    <SeekBar
-        android:id="@+id/cooking_mode_seekbar"
-        android:layout_width="match_parent"
+    <org.flauschhaus.broccoli.recipe.cooking.CookingModeControls
+        android:id="@+id/cooking_mode_controls"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         android:layout_marginBottom="@dimen/text_margin"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:progressTint="@android:color/transparent"
+        controls:position="@{viewModel.position}"
+        controls:maxSteps="@{viewModel.maxSteps}"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -2,7 +2,6 @@ package org.flauschhaus.broccoli.recipe.cooking;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.SeekBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
@@ -14,7 +13,7 @@ import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
 
-public class CookingModeActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
+public class CookingModeActivity extends AppCompatActivity implements CookingModeControls.OnCookingModeControlsInteractionListener  {
 
     @Inject
     PageableRecipeBuilder pageableRecipeBuilder;
@@ -78,17 +77,7 @@ public class CookingModeActivity extends AppCompatActivity implements SeekBar.On
     }
 
     @Override
-    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        viewPager.setCurrentItem(progress, false);
-    }
-
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-        // intentionally empty
-    }
-
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        // intentionally empty
+    public void onCookingModeControlsInteraction(int position) {
+        viewPager.setCurrentItem(position);
     }
 }

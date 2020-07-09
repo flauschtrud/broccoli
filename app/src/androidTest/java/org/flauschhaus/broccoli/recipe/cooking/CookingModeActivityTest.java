@@ -1,14 +1,9 @@
 package org.flauschhaus.broccoli.recipe.cooking;
 
 import android.content.Intent;
-import android.view.View;
-import android.widget.SeekBar;
 
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.core.app.ApplicationProvider;
-import androidx.test.espresso.UiController;
-import androidx.test.espresso.ViewAction;
-import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import org.flauschhaus.broccoli.BroccoliApplication;
@@ -18,7 +13,6 @@ import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.details.RecipeDetailsActivity;
 import org.flauschhaus.broccoli.util.RecipeTestUtil;
-import org.hamcrest.Matcher;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,9 +23,12 @@ import javax.inject.Inject;
 
 import static androidx.test.core.app.ActivityScenario.launch;
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.swipeLeft;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast;
+import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
@@ -99,45 +96,24 @@ public class CookingModeActivityTest {
     }
 
     @Test
-    public void read_pages_via_seeking() {
-        onView(withId(R.id.cooking_mode_seekbar)).perform(setProgress(2));
-        onView(allOf(withId(R.id.cooking_mode_title), isDisplayingAtLeast(60))).check(matches(withText("2")));
-        onView(allOf(withId(R.id.cooking_mode_text), isDisplayingAtLeast(60))).check(matches(withText("Dann das.")));
+    public void read_pages_via_seeking() throws InterruptedException {
+        onView(allOf(withId(R.id.cooking_mode_control), withContentDescription("2"), isDisplayed())).perform(click());
+        Thread.sleep(500); // TODO don't do that
+        onView(allOf(withId(R.id.cooking_mode_title), isDisplayed())).check(matches(withText("2")));
+        onView(allOf(withId(R.id.cooking_mode_text), isDisplayed())).check(matches(withText("Dann das.")));
 
-        onView(withId(R.id.cooking_mode_seekbar)).perform(setProgress(1));
-        onView(allOf(withId(R.id.cooking_mode_title), isDisplayingAtLeast(60))).check(matches(withText("1")));
-        onView(allOf(withId(R.id.cooking_mode_text), isDisplayingAtLeast(60))).check(matches(withText("Erst dies.")));
+        onView(allOf(withId(R.id.cooking_mode_control), withContentDescription("1"), isDisplayed())).perform(click());
+        Thread.sleep(500);
+        onView(allOf(withId(R.id.cooking_mode_title), isDisplayed())).check(matches(withText("1")));
+        onView(allOf(withId(R.id.cooking_mode_text), isDisplayed())).check(matches(withText("Erst dies.")));
 
-        onView(withId(R.id.cooking_mode_seekbar)).perform(setProgress(0));
-        onView(withId(R.id.cooking_mode_title)).check(matches(withText("Ingredients")));
-        onView(withId(R.id.cooking_mode_text)).check(matches(withText("100g Mehl\n50g Margarine")));
+        onView(allOf(withId(R.id.cooking_mode_control), withContentDescription("0"), isDisplayed())).perform(click());
+        Thread.sleep(500);
+        onView(allOf(withId(R.id.cooking_mode_title), isDisplayed())).check(matches(withText("Ingredients")));
+        onView(allOf(withId(R.id.cooking_mode_text), isDisplayed())).check(matches(withText("100g Mehl\n50g Margarine")));
 
         Recipe recipe = recipeCaptor.getValue();
         assertThat(recipe, is(lauchkuchen));
-    }
-
-    static ViewAction setProgress(final int progress) {
-
-        return new ViewAction() {
-
-            @Override
-            public void perform(UiController uiController, View view) {
-                SeekBar seekBar = (SeekBar) view;
-                seekBar.setProgress(progress);
-            }
-
-            @Override
-            public String getDescription() {
-                return "Set a progress on a SeekBar";
-            }
-
-            @Override
-            public Matcher<View> getConstraints() {
-                return ViewMatchers.isAssignableFrom(SeekBar.class);
-            }
-
-        };
-
     }
 
 }
