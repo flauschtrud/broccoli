@@ -136,7 +136,8 @@ public class RecipeDetailsActivityTest {
         Uri imageUri = Uri.parse("https://www.blablupp.com/image");
         when(shareableRecipeBuilder.from(recipeCaptor.capture())).thenReturn(new ShareableRecipe("Lauchkuchen in plain text.", imageUri));
 
-        onView(withId(R.id.action_details_share)).perform(click());
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
+        onView(withText(R.string.action_details_share)).perform(click());
 
         Recipe recipe = recipeCaptor.getValue();
         assertThat(recipe.getTitle(), is(lauchkuchen.getTitle()));
