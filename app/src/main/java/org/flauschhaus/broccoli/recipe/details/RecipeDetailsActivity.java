@@ -1,5 +1,7 @@
 package org.flauschhaus.broccoli.recipe.details;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -29,8 +31,8 @@ import org.flauschhaus.broccoli.recipe.cooking.CookingModeActivity;
 import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import org.flauschhaus.broccoli.recipe.directions.DirectionBuilder;
 import org.flauschhaus.broccoli.recipe.ingredients.IngredientBuilder;
-import org.flauschhaus.broccoli.recipe.sharing.ShareableRecipeBuilder;
 import org.flauschhaus.broccoli.recipe.sharing.ShareableRecipe;
+import org.flauschhaus.broccoli.recipe.sharing.ShareableRecipeBuilder;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -76,21 +78,32 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName());
         binding.setRecipe(recipe);
 
-        binding.fabCookingMode.setOnClickListener(view -> {
-            Intent intent = new Intent(getApplicationContext(), CookingModeActivity.class);
-            intent.putExtra(Recipe.class.getName(), binding.getRecipe());
-            startActivity(intent);
+        binding.fabCookingMode.setOnClickListener(view -> this.cook(null));
+        binding.fabCookingMode.addOnHideAnimationListener(new AnimatorListenerAdapter() {
+            public void onAnimationStart(Animator animator) {
+                showItem(R.id.action_details_cook);
+            }
         });
+        binding.fabCookingMode.addOnShowAnimationListener(new AnimatorListenerAdapter() {
+            public void onAnimationStart(Animator animator) {
+                hideItem(R.id.action_details_cook);
+            }
+        });
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.details, menu);
-
-        MenuItem item = binding.getRecipe().isFavorite()? menu.findItem(R.id.action_details_unlike) : menu.findItem(R.id.action_details_like);
-        item.setVisible(true);
-
         this.menu = menu;
+
+        if (binding.getRecipe().isFavorite()) {
+            showItem(R.id.action_details_unlike);
+        } else {
+            showItem(R.id.action_details_like);
+        }
+
+        hideItem(R.id.action_details_cook);
 
         return true;
     }
@@ -121,6 +134,12 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 .setNegativeButton(R.string.cancel, (dialog, id) -> {})
                 .create();
         alertDialog.show();
+    }
+
+    public void cook(MenuItem menuItem) {
+        Intent intent = new Intent(getApplicationContext(), CookingModeActivity.class);
+        intent.putExtra(Recipe.class.getName(), binding.getRecipe());
+        startActivity(intent);
     }
 
     public void toggleFavorite(MenuItem item) {
@@ -185,4 +204,13 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         return (LayoutInflater) layout.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+    private void hideItem(int id) {
+        MenuItem item = menu.findItem(id);
+        item.setVisible(false);
+    }
+
+    private void showItem(int id) {
+        MenuItem item = menu.findItem(id);
+        item.setVisible(true);
+    }
 }

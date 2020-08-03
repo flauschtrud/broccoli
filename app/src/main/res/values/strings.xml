@@ -53,4 +53,6 @@
     <string name="search">Search</string>
     <string name="title_activity_cooking_mode">Cooking mode</string>
     <string name="no_ingredients_and_directions_yet">This recipe does not have any ingredients or directions yet. You can edit it to add some.</string>
+    <string name="action_details_cook">Cook</string>
+    <string name="action_details_share">Share</string>
 </resources>

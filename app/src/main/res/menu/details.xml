@@ -16,21 +16,27 @@
         android:visible="false"
         app:showAsAction="always" />
     <item
+        android:id="@+id/action_details_cook"
+        android:icon="@drawable/ic_button_restaurant_24dp"
+        android:title="@string/action_details_cook"
+        android:onClick="cook"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/action_details_share"
         android:icon="@drawable/ic_menu_share_24dp"
-        android:title="@string/action_details_edit"
+        android:title="@string/action_details_share"
         android:onClick="share"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_details_edit"
         android:icon="@drawable/ic_menu_edit_24dp"
         android:title="@string/action_details_edit"
         android:onClick="edit"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
     <item
         android:id="@+id/action_details_delete"
         android:icon="@drawable/ic_menu_delete_24dp"
         android:title="@string/action_delete"
         android:onClick="delete"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 </menu>
