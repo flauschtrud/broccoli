@@ -17,7 +17,7 @@ public class FeedbackFragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        Intent intent = new Intent(Intent.ACTION_SEND);
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
         intent.setType("text/email");
         intent.putExtra(Intent.EXTRA_EMAIL, new String[]{ getString(R.string.feedback_email) });
         intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.feedback_subject));
