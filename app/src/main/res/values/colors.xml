@@ -9,4 +9,5 @@
     <color name="icons">#FFFFFF</color>
     <color name="divider">#BDBDBD</color>
     <color name="placeholder">#E0E0E0</color>
+    <color name="ic_launcher_background">#4CAF50</color>
 </resources>
