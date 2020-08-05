@@ -27,8 +27,8 @@ android {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
     }
     applicationVariants.all { variant ->
         variant.resValue "string", "versionName", variant.versionName

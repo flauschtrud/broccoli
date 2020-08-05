@@ -18,9 +18,9 @@
         tools:layout="@layout/fragment_recipes" />
 
     <fragment
-        android:id="@+id/nav_settings"
-        android:name="org.flauschhaus.broccoli.settings.SettingsFragment"
-        android:label="@string/menu_settings"
-        tools:layout="@layout/fragment_settings" />
+        android:id="@+id/nav_about"
+        android:name="org.flauschhaus.broccoli.about.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/fragment_about" />
 
 </navigation>

@@ -3,26 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group android:id="@+id/group_app">
 
-        <item
-            android:id="@+id/nav_recipes"
+        <item android:id="@+id/nav_recipes"
             android:icon="@drawable/ic_menu_recipes_24dp"
             android:title="@string/menu_recipes" />
 
-        <item
-            android:id="@+id/nav_categories"
+        <item android:id="@+id/nav_categories"
             android:icon="@drawable/ic_categories_24dp"
             android:title="@string/menu_categories" />
 
-        <item android:title="@string/menu_tools">
-            <menu>
-                <item
-                    android:id="@+id/nav_settings"
-                    android:icon="@drawable/ic_menu_settings_24dp"
-                    android:title="@string/menu_settings" />
-            </menu>
-        </item>
+    </group>
+
+    <group android:id="@+id/group_settings">
+
+        <item android:id="@+id/nav_about"
+            android:icon="@drawable/ic_menu_about_24dp"
+            android:title="@string/menu_about" />
 
     </group>
 
