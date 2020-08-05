@@ -57,5 +57,5 @@
     <string name="menu_feedback">Send feedback</string>
     <string name="feedback_email" translatable="false">jana.kutscheid@gmail.com</string> <!-- TODO replace with serious address -->
     <string name="feedback_subject">Feedback for Broccoli Recipe Manager</string>
-    <string name="feedback_text">Hello Jana,<br />I\'d like to provide some feedback on the Broccoli Recipe Manager:<br />…</string>
+    <string name="feedback_text">Hello Jana, I\'d like to provide some feedback on the Broccoli Recipe Manager: …</string>
 </resources>
