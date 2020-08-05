@@ -1,4 +1,4 @@
-package org.flauschhaus.broccoli.about;
+package org.flauschhaus.broccoli.settings;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

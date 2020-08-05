@@ -17,6 +17,10 @@
 
     <group android:id="@+id/group_settings">
 
+        <item android:id="@+id/nav_feedback"
+            android:icon="@drawable/ic_menu_feedback_24dp"
+            android:title="@string/menu_feedback" />
+
         <item android:id="@+id/nav_about"
             android:icon="@drawable/ic_menu_about_24dp"
             android:title="@string/menu_about" />
