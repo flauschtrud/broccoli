@@ -1,7 +1,8 @@
-name: Publish to Google Play
+name: Publish to Google Play Internal Testing
 
 on:
-    release
+  release:
+    types: [prereleased]
 
 jobs:
   build:
