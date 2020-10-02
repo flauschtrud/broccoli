@@ -141,6 +141,17 @@ public class ImportableRecipeBuilderTest {
             "    }\n" +
             "\n";
 
+    private static final String MINIMIZED_RECIPE_JSONLD = "    {\n" +
+            "    \"@context\": \"http://schema.org\",\n" +
+            "    \"@type\": \"Recipe\",\n" +
+            "            \"image\": \"https://img.chefkoch-cdn.de/rezepte/3212051478029180/bilder/1325560/crop-960x540/vegane-chocolate-chip-cookies.jpg\",\n" +
+            "                    \"recipeCategory\": \"Vegan\",\n" +
+            "                \"suitableForDiet\": \"Vegan\",\n" +
+            "    \"name\": \"Vegane Chocolate Chip Cookies\"\n" +
+            "    }\n" +
+            "\n";
+
+
     @Test
     public void example() throws JSONException {
         ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder();
@@ -156,6 +167,11 @@ public class ImportableRecipeBuilderTest {
         Recipe recipe = optionalRecipe.get();
         assertThat(recipe.getTitle(), is("Vegane Chocolate Chip Cookies"));
         assertThat(recipe.getSource(), is(URL));
+        assertThat(recipe.getServings(), is("1 Portion(en)"));
+        assertThat(recipe.getPreparationTime(), is("45 minutes"));
+        assertThat(recipe.getDescription(), is("Vegane Chocolate Chip Cookies - außen kross, innen weich, lecker und vegan, ergibt 35 Stück. Über 110 Bewertungen und für sehr lecker befunden. Mit ► Portionsrechner ► Kochbuch ► Video-Tipps!"));
+        assertThat(recipe.getIngredients(), is("20 g Chiasamen\n50 ml Wasser\n190 g Butterersatz oder Margarine, vegan\n200 g Zucker , braun, alternativ Rohrzucker\n2 TL Zuckerrübensirup , alternativ Melasse, Ahornsirup oder Agavendicksaft\n2 Pck. Vanillezucker\n300 g Weizenmehl oder Dinkelmehl, oder gemischt\n4 g Natron\nn. B. Salz\n200 g Blockschokolade , zartbitter oder Schokotröpfchen"));
+        assertThat(recipe.getDirections(), is("Den Backofen auf 180 °C Umluft vorheizen. Die Chiasamen und das Wasser in einer kleinen Schüssel vermengen und ca. 10 Minuten quellen lassen.\n\nEin Backblech mit Backpapier auslegen. Vegane Butter bzw. Margarine und Zucker mit den Schneebesen des Rührgeräts cremig verrühren. Dann die gequollenen Chiasamen, den Zuckerrübensirup und beide Päckchen Vanillezucker dazugeben und weiter rühren. Unter weiterem Rühren jetzt zuerst das Mehl hinzugeben und anschließend Natron sowie Salz. Alternativ - oder falls der Teig zu zäh ist - kann alles auch mit den Händen verknetet werden. Abschließend die Schokotröpfchen bzw. die gehackte Blockschokolade untermischen.\n\nDen nun fertigen Teig mit einem Esslöffel oder Eisportionierer klecksweise im Abstand von etwa 5 - 6 cm auf das Backpapier geben. Die Teigkleckse können - müssen jedoch nicht - mit einem Löffel noch etwas rund geformt und flach gedrückt werden.\n\nDie Cookies bei 180 °C Umluft maximal 15 Minuten backen, da sie sonst zu fest werden."));
     }
 
     @Test
@@ -167,6 +183,23 @@ public class ImportableRecipeBuilderTest {
                 .build();
 
         assertThat(optionalRecipe.isPresent(), is(false));
+    }
+
+    @Test
+    public void missing_attributes() throws JSONException {
+        ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder();
+
+        Optional<Recipe> optionalRecipe = recipeBuilder
+                .withJsonLd(new JSONObject(ORGANIZATION_JSONLD))
+                .withJsonLd(new JSONObject(MINIMIZED_RECIPE_JSONLD))
+                .from(URL)
+                .build();
+
+        assertThat(optionalRecipe.isPresent(), is(true));
+
+        Recipe recipe = optionalRecipe.get();
+        assertThat(recipe.getTitle(), is("Vegane Chocolate Chip Cookies"));
+        assertThat(recipe.getSource(), is(URL));
     }
     
 }

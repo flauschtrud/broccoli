@@ -74,6 +74,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
     implementation 'org.jsoup:jsoup:1.13.1'
+    implementation 'joda-time:joda-time:2.10.6' // can be removed with API level 26+
 
     testImplementation 'junit:junit:4.13'
     testImplementation 'org.mockito:mockito-core:3.3.0'

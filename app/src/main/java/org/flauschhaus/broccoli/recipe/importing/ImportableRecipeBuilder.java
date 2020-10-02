@@ -1,10 +1,16 @@
 package org.flauschhaus.broccoli.recipe.importing;
 
 import org.flauschhaus.broccoli.recipe.Recipe;
+import org.joda.time.Period;
+import org.joda.time.format.PeriodFormat;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 class ImportableRecipeBuilder {
 
@@ -30,6 +36,22 @@ class ImportableRecipeBuilder {
         }
 
         recipe.setTitle(recipeJson.optString("name"));
+        recipe.setServings(recipeJson.optString("recipeYield"));
+        recipe.setDescription(recipeJson.optString("description"));
+        recipe.setDirections(recipeJson.optString("recipeInstructions"));
+
+        if (recipeJson.has("totalTime")) {
+            recipe.setPreparationTime(Period.parse(recipeJson.optString("totalTime")).toString(PeriodFormat.wordBased()));
+        }
+
+        JSONArray jsonArray = recipeJson.optJSONArray("recipeIngredient");
+        if (jsonArray !=  null) {
+            List<String> list = new ArrayList<>();
+            for (int i = 0; i < jsonArray.length(); i++) {
+                list.add(jsonArray.optString(i));
+            }
+            recipe.setIngredients(list.stream().collect(Collectors.joining("\n")));
+        }
 
         return Optional.of(recipe);
     }
