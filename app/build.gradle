@@ -73,6 +73,8 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
 
+    implementation 'org.jsoup:jsoup:1.13.1'
+
     testImplementation 'junit:junit:4.13'
     testImplementation 'org.mockito:mockito-core:3.3.0'
     testImplementation 'org.hamcrest:hamcrest:2.2'

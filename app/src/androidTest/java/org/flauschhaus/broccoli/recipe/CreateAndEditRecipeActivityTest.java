@@ -48,7 +48,6 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.intent.Intents.intending;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasAction;
 import static androidx.test.espresso.matcher.RootMatchers.isDialog;
-import static androidx.test.espresso.matcher.RootMatchers.withDecorView;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -56,7 +55,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.not;
 import static org.hamcrest.Matchers.startsWith;
 import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.core.StringEndsWith.endsWith;
@@ -81,7 +79,6 @@ public class CreateAndEditRecipeActivityTest {
 
     private ActivityScenario<CreateAndEditRecipeActivity> scenario;
 
-    private View decorView;
     private ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
 
     private static final Recipe LAUCHKUCHEN = RecipeTestUtil.createLauchkuchen();
@@ -98,7 +95,6 @@ public class CreateAndEditRecipeActivityTest {
 
         Intents.init();
         scenario = launch(CreateAndEditRecipeActivity.class);
-        scenario.onActivity(activity -> decorView = activity.getWindow().getDecorView());
     }
 
     @After

@@ -19,6 +19,7 @@ import org.flauschhaus.broccoli.category.Category;
 import org.flauschhaus.broccoli.databinding.ActivityNewRecipeBinding;
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.RecipeRepository;
+import org.flauschhaus.broccoli.recipe.importing.RecipeImportService;
 
 import java.io.IOException;
 
@@ -31,6 +32,9 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
     @Inject
     ViewModelProvider.Factory viewModelFactory;
 
+    @Inject
+    RecipeImportService recipeImportService;
+
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int REQUEST_IMAGE_GET = 2;
 
@@ -42,10 +46,30 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
         AndroidInjection.inject(this);
 
         viewModel = new ViewModelProvider(this, viewModelFactory).get(CreateAndEditRecipeViewModel.class);
+        ActivityNewRecipeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_new_recipe);
 
-        if (getIntent().hasExtra(Recipe.class.getName())) {
-            Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName());
+        Intent intent = getIntent();
+
+        if (intent.hasExtra(Recipe.class.getName())) {
+            Recipe recipe = (Recipe) intent.getSerializableExtra(Recipe.class.getName());
             viewModel.setRecipe(recipe);
+        }
+
+        if (Intent.ACTION_SEND.equals(intent.getAction())) {
+            String url = intent.getStringExtra(Intent.EXTRA_TEXT);
+            recipeImportService.importFrom(url)
+                    .thenAccept(optionalRecipe -> {
+                        if (optionalRecipe.isPresent()) {
+                            viewModel.setRecipe(optionalRecipe.get());
+                            binding.setViewModel(viewModel);
+                        } else {
+                            runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_error_reading_recipe), Toast.LENGTH_LONG).show());
+                        }
+                    })
+                    .exceptionally(e -> {
+                        runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_error_importing_recipe), Toast.LENGTH_SHORT).show());
+                        return null;
+                    });
         }
 
         if (savedInstanceState != null) {
@@ -54,7 +78,6 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
             viewModel.setOldImageName(savedInstanceState.getString("oldImageName"));
         }
 
-        ActivityNewRecipeBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_new_recipe);
         binding.setActivity(this);
         binding.setViewModel(viewModel);
 

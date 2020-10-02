@@ -2,6 +2,8 @@ package org.flauschhaus.broccoli.recipe;
 
 import android.app.Application;
 
+import org.flauschhaus.broccoli.recipe.importing.RecipeImportService;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -15,6 +17,12 @@ public class RecipeModule {
     @Singleton
     Compressor compressor(Application application) {
         return new Compressor(application);
+    }
+
+    @Provides
+    @Singleton
+    RecipeImportService recipeImportService() {
+        return new RecipeImportService();
     }
 
 }
