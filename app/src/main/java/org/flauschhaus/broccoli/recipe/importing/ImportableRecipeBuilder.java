@@ -1,6 +1,9 @@
 package org.flauschhaus.broccoli.recipe.importing;
 
+import android.util.Log;
+
 import org.flauschhaus.broccoli.recipe.Recipe;
+import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
 import org.joda.time.Period;
 import org.joda.time.format.PeriodFormat;
 import org.json.JSONArray;
@@ -16,6 +19,12 @@ class ImportableRecipeBuilder {
 
     private JSONObject recipeJson;
     private Recipe recipe = new Recipe();
+
+    private RecipeImageService recipeImageService;
+
+    public ImportableRecipeBuilder(RecipeImageService recipeImageService) {
+        this.recipeImageService = recipeImageService;
+    }
 
     ImportableRecipeBuilder withJsonLd(JSONObject jsonObject) throws JSONException {
         if (jsonObject.has("@type") && "Recipe".equals(jsonObject.getString("@type"))) {
@@ -51,6 +60,16 @@ class ImportableRecipeBuilder {
                 list.add(jsonArray.optString(i));
             }
             recipe.setIngredients(list.stream().collect(Collectors.joining("\n")));
+        }
+
+        if(recipeJson.has("image")) {
+            String imageURL = recipeJson.optString("image");
+            recipeImageService.downloadToCache(imageURL)
+                    .thenAccept(imageName -> recipe.setImageName(imageName))
+                    .exceptionally(e -> {
+                        Log.e(getClass().getName(), e.getMessage());
+                        return null;
+                    });
         }
 
         return Optional.of(recipe);

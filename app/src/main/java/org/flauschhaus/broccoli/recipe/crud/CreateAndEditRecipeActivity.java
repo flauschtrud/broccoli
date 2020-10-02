@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.ArrayMap;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -67,6 +68,7 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
                         }
                     })
                     .exceptionally(e -> {
+                        Log.e(getClass().getName(), e.getMessage());
                         runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_error_importing_recipe), Toast.LENGTH_SHORT).show());
                         return null;
                     });

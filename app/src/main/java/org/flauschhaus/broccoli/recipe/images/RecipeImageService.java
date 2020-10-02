@@ -9,6 +9,7 @@ import androidx.core.content.FileProvider;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -83,6 +84,18 @@ public class RecipeImageService {
     public Uri getUri(String imageName) {
         File file = findImage(imageName);
         return FileProvider.getUriForFile(application, AUTHORITY, file);
+    }
+
+    public CompletableFuture<String> downloadToCache(String imageURL) {
+        return CompletableFuture.supplyAsync(() -> {
+            try {
+                File tempFile = createTemporaryFile();
+                FileUtils.copy(new URL(imageURL).openStream(), tempFile);
+                return tempFile.getName();
+            } catch (IOException e) {
+                throw new CompletionException(e);
+            }
+        });
     }
 
     File findImage(String imageName) {
