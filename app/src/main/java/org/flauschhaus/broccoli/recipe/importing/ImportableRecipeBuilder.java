@@ -10,6 +10,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -64,12 +66,17 @@ class ImportableRecipeBuilder {
 
         if(recipeJson.has("image")) {
             String imageURL = recipeJson.optString("image");
-            recipeImageService.downloadToCache(imageURL)
-                    .thenAccept(imageName -> recipe.setImageName(imageName))
-                    .exceptionally(e -> {
-                        Log.e(getClass().getName(), e.getMessage());
-                        return null;
-                    });
+            try {
+                File tempFile = recipeImageService.createTemporaryFile();
+                recipe.setImageName(tempFile.getName());
+                recipeImageService.downloadToCache(imageURL, tempFile)
+                        .exceptionally(e -> {
+                            Log.e(getClass().getName(), e.getMessage());
+                            return null;
+                        });
+            } catch (IOException e) {
+                Log.e(getClass().getName(), e.getMessage());
+            }
         }
 
         return Optional.of(recipe);

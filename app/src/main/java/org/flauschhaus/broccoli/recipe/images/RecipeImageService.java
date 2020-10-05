@@ -86,12 +86,10 @@ public class RecipeImageService {
         return FileProvider.getUriForFile(application, AUTHORITY, file);
     }
 
-    public CompletableFuture<String> downloadToCache(String imageURL) {
-        return CompletableFuture.supplyAsync(() -> {
+    public CompletableFuture<Void> downloadToCache(String imageURL, File tempFile) {
+        return CompletableFuture.runAsync(() -> {
             try {
-                File tempFile = createTemporaryFile();
                 FileUtils.copy(new URL(imageURL).openStream(), tempFile);
-                return tempFile.getName();
             } catch (IOException e) {
                 throw new CompletionException(e);
             }
@@ -108,7 +106,7 @@ public class RecipeImageService {
         return getTemporaryImage(imageName);
     }
 
-    private File createTemporaryFile() throws IOException {
+    public File createTemporaryFile() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
         File cacheDirectory = getCacheDirectory();
