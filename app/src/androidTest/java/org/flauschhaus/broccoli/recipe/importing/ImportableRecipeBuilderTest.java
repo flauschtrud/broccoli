@@ -33,26 +33,8 @@ public class ImportableRecipeBuilderTest {
 
     File fileInCache = new File("dir/blablupp.jpg");
 
-    private static final String URL = "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html";
-
-    private static final String ORGANIZATION_JSONLD = "{\n" +
-            "    \"@context\": \"http://schema.org\",\n" +
-            "    \"@type\": \"WebSite\",\n" +
-            "    \"name\": \"Chefkoch\",\n" +
-            "    \"url\": \"https://www.chefkoch.de\",\n" +
-            "    \"publisher\": {\n" +
-            "        \"@type\": \"Organization\",\n" +
-            "        \"name\": \"Chefkoch.de\",\n" +
-            "        \"logo\": {\n" +
-            "            \"@type\": \"ImageObject\",\n" +
-            "            \"url\": \"https://img.chefkoch-cdn.de/img/ck.de/ck-logo-20-20-de.png\",\n" +
-            "            \"width\": 20,\n" +
-            "            \"height\": 20\n" +
-            "        }\n" +
-            "    }\n" +
-            "}\n";
-
-    private static final String RECIPE_JSONLD = "    {\n" +
+    private static final String URL_CHEFKOCH = "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html";
+    private static final String RECIPE_JSONLD_CHEFKOCH = "    {\n" +
             "    \"@context\": \"http://schema.org\",\n" +
             "    \"@type\": \"Recipe\",\n" +
             "            \"image\": \"https://img.chefkoch-cdn.de/rezepte/3212051478029180/bilder/1325560/crop-960x540/vegane-chocolate-chip-cookies.jpg\",\n" +
@@ -167,6 +149,83 @@ public class ImportableRecipeBuilderTest {
             "    }\n" +
             "\n";
 
+    private static final String URL_YOAST = "https://stilettosandsprouts.de/vegane-fenchel-pasta/";
+    private static final String RECIPE_JSON_LD_YOAST = "{\n" +
+            "  \"@context\": \"http://schema.org/\",\n" +
+            "  \"@type\": \"Recipe\",\n" +
+            "  \"name\": \"Vegane Fenchel-Pasta\",\n" +
+            "  \"author\": {\n" +
+            "    \"@type\": \"Person\",\n" +
+            "    \"name\": \"Katja\"\n" +
+            "  },\n" +
+            "  \"description\": \"Pasta mit geröstetem Fenchel und Zitrone – ein herrlich leichtes Pastagericht, in nur 10 Minuten fertig zubereitet.\",\n" +
+            "  \"datePublished\": \"2018-05-15T07:00:48+00:00\",\n" +
+            "  \"image\": [\n" +
+            "    \"https://stilettosandsprouts.de/wp-content/uploads/2018/05/Vegane_Fenchel_Pasta_02_B.jpg\",\n" +
+            "    \"https://stilettosandsprouts.de/wp-content/uploads/2018/05/Vegane_Fenchel_Pasta_02_B-500x500.jpg\",\n" +
+            "    \"https://stilettosandsprouts.de/wp-content/uploads/2018/05/Vegane_Fenchel_Pasta_02_B-500x375.jpg\",\n" +
+            "    \"https://stilettosandsprouts.de/wp-content/uploads/2018/05/Vegane_Fenchel_Pasta_02_B-480x270.jpg\"\n" +
+            "  ],\n" +
+            "  \"recipeYield\": [\n" +
+            "    \"2\",\n" +
+            "    \"2 Personen\"\n" +
+            "  ],\n" +
+            "  \"cookTime\": \"PT10M\",\n" +
+            "  \"recipeIngredient\": [\n" +
+            "    \"1 Knolle Fenchel\",\n" +
+            "    \"1  Bio-Zitrone\",\n" +
+            "    \"1  Knoblauchzehe, geschält und fein gehackt\",\n" +
+            "    \"1  Schalotte, geschält und fein gehackt\",\n" +
+            "    \"1 Handvoll Petersilie, frisch, fein gehackt\",\n" +
+            "    \"5 EL Semmelbrösel\",\n" +
+            "    \"Olivenöl\",\n" +
+            "    \"Salz &amp; Pfeffer\",\n" +
+            "    \"250 g Pasta (z.B. Linguini)\"\n" +
+            "  ],\n" +
+            "  \"recipeInstructions\": [\n" +
+            "    {\n" +
+            "      \"@type\": \"HowToStep\",\n" +
+            "      \"text\": \"Vom Fenchel die oberen grünen Stängel entfernen. Dabei unbedingt das Fenchelgrün aufbewahren. Das kommt später an die Pasta ran. Die Knolle halbieren, den Strunk in der Mitte keilförmig entfernen und nun die zwei Hälften in dünne Streifen schneiden. Die Fenchel-Streifen waschen und gut abtrocknen.\",\n" +
+            "      \"name\": \"Vom Fenchel die oberen grünen Stängel entfernen. Dabei unbedingt das Fenchelgrün aufbewahren. Das kommt später an die Pasta ran. Die Knolle halbieren, den Strunk in der Mitte keilförmig entfernen und nun die zwei Hälften in dünne Streifen schneiden. Die Fenchel-Streifen waschen und gut abtrocknen.\",\n" +
+            "      \"url\": \"https://stilettosandsprouts.de/vegane-fenchel-pasta/#wprm-recipe-6504-step-0-0\"\n" +
+            "    },\n" +
+            "    {\n" +
+            "      \"@type\": \"HowToStep\",\n" +
+            "      \"text\": \"Die Pasta nach Packungsanweisung garen.\",\n" +
+            "      \"name\": \"Die Pasta nach Packungsanweisung garen.\",\n" +
+            "      \"url\": \"https://stilettosandsprouts.de/vegane-fenchel-pasta/#wprm-recipe-6504-step-0-1\"\n" +
+            "    },\n" +
+            "    {\n" +
+            "      \"@type\": \"HowToStep\",\n" +
+            "      \"text\": \"In der Zwischenzeit in einer großen Pfanne Olivenöl erhitzen und den Fenchel darin mit etwas Salz ca. 8 Minuten lang anrösten.\",\n" +
+            "      \"name\": \"In der Zwischenzeit in einer großen Pfanne Olivenöl erhitzen und den Fenchel darin mit etwas Salz ca. 8 Minuten lang anrösten.\",\n" +
+            "      \"url\": \"https://stilettosandsprouts.de/vegane-fenchel-pasta/#wprm-recipe-6504-step-0-2\"\n" +
+            "    },\n" +
+            "    {\n" +
+            "      \"@type\": \"HowToStep\",\n" +
+            "      \"text\": \"In einer kleinen Pfanne etwas Olivenöl erhitzen, Knoblauch- und Schalottenwürfel darin mit etwas Salz glasig andünsten. Zitronenabrieb, Petersilie und die Semmelbrösel hinzugeben und alles ca. 4 Minuten vorsichtig anrösten bis die Semmelbrösel leicht angebräunt sind. Die Mischung vom Herd nehmen.\",\n" +
+            "      \"name\": \"In einer kleinen Pfanne etwas Olivenöl erhitzen, Knoblauch- und Schalottenwürfel darin mit etwas Salz glasig andünsten. Zitronenabrieb, Petersilie und die Semmelbrösel hinzugeben und alles ca. 4 Minuten vorsichtig anrösten bis die Semmelbrösel leicht angebräunt sind. Die Mischung vom Herd nehmen.\",\n" +
+            "      \"url\": \"https://stilettosandsprouts.de/vegane-fenchel-pasta/#wprm-recipe-6504-step-0-3\"\n" +
+            "    },\n" +
+            "    {\n" +
+            "      \"@type\": \"HowToStep\",\n" +
+            "      \"text\": \"Die fertige Pasta abgießen. Dabei etwa ein halbes Wasserglas der Kochflüssigkeit auffangen. Abgetropfte Pasta zum Fenchel geben. Die Semmelbröselmischung dazugeben. Kochflüssigkeit nach Belieben dazugeben, damit die Pasta schön glänzend wird. Pasta ordentlich salzen und pfeffern und nach Geschmack Zitrone hinzugeben. Den Saft einer halben Zitrone verträgt das Gericht mindestens. Mit einem guten Schuss Olivenöl und mit Fenchelgrün bestreut servieren.\",\n" +
+            "      \"name\": \"Die fertige Pasta abgießen. Dabei etwa ein halbes Wasserglas der Kochflüssigkeit auffangen. Abgetropfte Pasta zum Fenchel geben. Die Semmelbröselmischung dazugeben. Kochflüssigkeit nach Belieben dazugeben, damit die Pasta schön glänzend wird. Pasta ordentlich salzen und pfeffern und nach Geschmack Zitrone hinzugeben. Den Saft einer halben Zitrone verträgt das Gericht mindestens. Mit einem guten Schuss Olivenöl und mit Fenchelgrün bestreut servieren.\",\n" +
+            "      \"url\": \"https://stilettosandsprouts.de/vegane-fenchel-pasta/#wprm-recipe-6504-step-0-4\"\n" +
+            "    }\n" +
+            "  ],\n" +
+            "  \"aggregateRating\": {\n" +
+            "    \"@type\": \"AggregateRating\",\n" +
+            "    \"ratingValue\": \"5\",\n" +
+            "    \"ratingCount\": \"4\"\n" +
+            "  },\n" +
+            "  \"@id\": \"https://stilettosandsprouts.de/vegane-fenchel-pasta/#recipe\",\n" +
+            "  \"isPartOf\": {\n" +
+            "    \"@id\": \"https://stilettosandsprouts.de/vegane-fenchel-pasta/#webpage\"\n" +
+            "  },\n" +
+            "  \"mainEntityOfPage\": \"https://stilettosandsprouts.de/vegane-fenchel-pasta/#webpage\"\n" +
+            "}";
+
     @Before
     public void setUp() {
         MockApplicationComponent component = DaggerMockApplicationComponent.builder()
@@ -182,23 +241,22 @@ public class ImportableRecipeBuilderTest {
     }
 
     @Test
-    public void example() throws JSONException, IOException {
+    public void example_chefkoch() throws JSONException, IOException {
         when(recipeImageService.createTemporaryFile()).thenReturn(fileInCache);
         when(recipeImageService.downloadToCache("https://img.chefkoch-cdn.de/rezepte/3212051478029180/bilder/1325560/crop-960x540/vegane-chocolate-chip-cookies.jpg", fileInCache)).thenReturn(CompletableFuture.completedFuture(null));
 
         ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(recipeImageService);
 
         Optional<Recipe> optionalRecipe = recipeBuilder
-                .withJsonLd(new JSONObject(ORGANIZATION_JSONLD))
-                .withJsonLd(new JSONObject(RECIPE_JSONLD))
-                .from(URL)
+                .withRecipeJsonLd(new JSONObject(RECIPE_JSONLD_CHEFKOCH))
+                .from(URL_CHEFKOCH)
                 .build();
 
         assertThat(optionalRecipe.isPresent(), is(true));
 
         Recipe recipe = optionalRecipe.get();
         assertThat(recipe.getTitle(), is("Vegane Chocolate Chip Cookies"));
-        assertThat(recipe.getSource(), is(URL));
+        assertThat(recipe.getSource(), is(URL_CHEFKOCH));
         assertThat(recipe.getServings(), is("1 Portion(en)"));
         assertThat(recipe.getPreparationTime(), is("45 minutes"));
         assertThat(recipe.getDescription(), is("Vegane Chocolate Chip Cookies - außen kross, innen weich, lecker und vegan, ergibt 35 Stück. Über 110 Bewertungen und für sehr lecker befunden. Mit ► Portionsrechner ► Kochbuch ► Video-Tipps!"));
@@ -208,11 +266,35 @@ public class ImportableRecipeBuilderTest {
     }
 
     @Test
+    public void example_yoast() throws JSONException, IOException {
+        when(recipeImageService.createTemporaryFile()).thenReturn(fileInCache);
+        when(recipeImageService.downloadToCache("https://stilettosandsprouts.de/wp-content/uploads/2018/05/Vegane_Fenchel_Pasta_02_B.jpg", fileInCache)).thenReturn(CompletableFuture.completedFuture(null));
+
+        ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(recipeImageService);
+
+        Optional<Recipe> optionalRecipe = recipeBuilder
+                .withRecipeJsonLd(new JSONObject(RECIPE_JSON_LD_YOAST))
+                .from(URL_YOAST)
+                .build();
+
+        assertThat(optionalRecipe.isPresent(), is(true));
+
+        Recipe recipe = optionalRecipe.get();
+        assertThat(recipe.getTitle(), is("Vegane Fenchel-Pasta"));
+        assertThat(recipe.getSource(), is(URL_YOAST));
+        assertThat(recipe.getServings(), is("2"));
+        assertThat(recipe.getPreparationTime(), is("10 minutes"));
+        assertThat(recipe.getDescription(), is("Pasta mit geröstetem Fenchel und Zitrone – ein herrlich leichtes Pastagericht, in nur 10 Minuten fertig zubereitet."));
+        assertThat(recipe.getIngredients(), is("1 Knolle Fenchel\n1  Bio-Zitrone\n1  Knoblauchzehe, geschält und fein gehackt\n1  Schalotte, geschält und fein gehackt\n1 Handvoll Petersilie, frisch, fein gehackt\n5 EL Semmelbrösel\nOlivenöl\nSalz &amp; Pfeffer\n250 g Pasta (z.B. Linguini)"));
+        assertThat(recipe.getDirections(), is("Vom Fenchel die oberen grünen Stängel entfernen. Dabei unbedingt das Fenchelgrün aufbewahren. Das kommt später an die Pasta ran. Die Knolle halbieren, den Strunk in der Mitte keilförmig entfernen und nun die zwei Hälften in dünne Streifen schneiden. Die Fenchel-Streifen waschen und gut abtrocknen.\nDie Pasta nach Packungsanweisung garen.\nIn der Zwischenzeit in einer großen Pfanne Olivenöl erhitzen und den Fenchel darin mit etwas Salz ca. 8 Minuten lang anrösten.\nIn einer kleinen Pfanne etwas Olivenöl erhitzen, Knoblauch- und Schalottenwürfel darin mit etwas Salz glasig andünsten. Zitronenabrieb, Petersilie und die Semmelbrösel hinzugeben und alles ca. 4 Minuten vorsichtig anrösten bis die Semmelbrösel leicht angebräunt sind. Die Mischung vom Herd nehmen.\nDie fertige Pasta abgießen. Dabei etwa ein halbes Wasserglas der Kochflüssigkeit auffangen. Abgetropfte Pasta zum Fenchel geben. Die Semmelbröselmischung dazugeben. Kochflüssigkeit nach Belieben dazugeben, damit die Pasta schön glänzend wird. Pasta ordentlich salzen und pfeffern und nach Geschmack Zitrone hinzugeben. Den Saft einer halben Zitrone verträgt das Gericht mindestens. Mit einem guten Schuss Olivenöl und mit Fenchelgrün bestreut servieren."));
+        assertThat(recipe.getImageName(), is ("blablupp.jpg"));
+    }
+
+    @Test
     public void no_Recipe_JsonLd() throws JSONException {
         ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(recipeImageService);
 
         Optional<Recipe> optionalRecipe = recipeBuilder
-                .withJsonLd(new JSONObject(ORGANIZATION_JSONLD))
                 .build();
 
         assertThat(optionalRecipe.isPresent(), is(false));
@@ -223,16 +305,15 @@ public class ImportableRecipeBuilderTest {
         ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(recipeImageService);
 
         Optional<Recipe> optionalRecipe = recipeBuilder
-                .withJsonLd(new JSONObject(ORGANIZATION_JSONLD))
-                .withJsonLd(new JSONObject(MINIMIZED_RECIPE_JSONLD))
-                .from(URL)
+                .withRecipeJsonLd(new JSONObject(MINIMIZED_RECIPE_JSONLD))
+                .from(URL_CHEFKOCH)
                 .build();
 
         assertThat(optionalRecipe.isPresent(), is(true));
 
         Recipe recipe = optionalRecipe.get();
         assertThat(recipe.getTitle(), is("Vegane Chocolate Chip Cookies"));
-        assertThat(recipe.getSource(), is(URL));
+        assertThat(recipe.getSource(), is(URL_CHEFKOCH));
     }
     
 }

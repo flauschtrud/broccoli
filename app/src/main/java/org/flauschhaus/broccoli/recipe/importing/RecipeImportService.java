@@ -2,10 +2,12 @@ package org.flauschhaus.broccoli.recipe.importing;
 
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
@@ -16,6 +18,10 @@ import java.util.concurrent.CompletionException;
 import javax.inject.Inject;
 
 public class RecipeImportService {
+
+    private static final String FIELD_GRAPH = "@graph";
+    private static final String FIELD_TYPE = "@type";
+    private static final String TYPE_RECIPE = "Recipe";
 
     private RecipeImageService recipeImageService;
 
@@ -35,18 +41,44 @@ public class RecipeImportService {
 
             Elements jsonLds = document.select("script[type=\"application/ld+json\"]");
 
-            ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(recipeImageService);
-            jsonLds.forEach(element -> {
-                try {
-                    recipeBuilder.withJsonLd(new JSONObject(element.data()));
-                } catch (JSONException e) {
-                    throw new CompletionException(e);
-                }
-            });
-            recipeBuilder.from(url);
+            Optional<JSONObject> recipeJsonLd = findRecipe(jsonLds);
+            if (recipeJsonLd.isPresent()) {
+                return new ImportableRecipeBuilder(recipeImageService).withRecipeJsonLd(recipeJsonLd.get()).from(url).build();
+            }
 
-            return recipeBuilder.build();
+            return Optional.empty();
         });
+    }
+
+    private Optional<JSONObject> findRecipe(Elements jsonLds) {
+        for (Element element : jsonLds) {
+            try {
+
+                JSONObject jsonObject = new JSONObject(element.data());
+                if (isRecipe(jsonObject)) {
+                    return Optional.of(jsonObject);
+                }
+
+                if (jsonObject.has(FIELD_GRAPH)) {
+                    JSONArray graph = jsonObject.getJSONArray(FIELD_GRAPH);
+
+                    for (int i=0; i<graph.length(); i++) {
+                        JSONObject child = graph.getJSONObject(i);
+                        if (isRecipe(child)) {
+                            return Optional.of(child);
+                        }
+                    }
+
+                }
+            } catch (JSONException e) {
+                throw new CompletionException(e);
+            }
+        }
+        return Optional.empty();
+    }
+
+    private boolean isRecipe(JSONObject jsonObject) {
+        return jsonObject.has(FIELD_TYPE) && TYPE_RECIPE.equals(jsonObject.optString(FIELD_TYPE));
     }
 
 }
