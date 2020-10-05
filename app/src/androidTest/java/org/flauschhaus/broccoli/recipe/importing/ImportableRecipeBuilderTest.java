@@ -13,6 +13,8 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
@@ -28,6 +30,8 @@ public class ImportableRecipeBuilderTest {
 
     @Inject
     RecipeImageService recipeImageService;
+
+    File fileInCache = new File("dir/blablupp.jpg");
 
     private static final String URL = "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html";
 
@@ -178,8 +182,9 @@ public class ImportableRecipeBuilderTest {
     }
 
     @Test
-    public void example() throws JSONException {
-        when(recipeImageService.downloadToCache("https://img.chefkoch-cdn.de/rezepte/3212051478029180/bilder/1325560/crop-960x540/vegane-chocolate-chip-cookies.jpg")).thenReturn(CompletableFuture.completedFuture("blablupp.jpg"));
+    public void example() throws JSONException, IOException {
+        when(recipeImageService.createTemporaryFile()).thenReturn(fileInCache);
+        when(recipeImageService.downloadToCache("https://img.chefkoch-cdn.de/rezepte/3212051478029180/bilder/1325560/crop-960x540/vegane-chocolate-chip-cookies.jpg", fileInCache)).thenReturn(CompletableFuture.completedFuture(null));
 
         ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(recipeImageService);
 
