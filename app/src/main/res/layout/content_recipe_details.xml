@@ -37,7 +37,7 @@
                     app:layout_constraintTop_toTopOf="@id/details_servings"
                     app:layout_constraintBottom_toBottomOf="@id/details_servings"
                     android:src="@drawable/ic_person_24dp"
-                    android:tint="@color/divider"/>
+                    app:tint="@color/divider"/>
 
                 <TextView
                     android:id="@+id/details_servings"
@@ -60,7 +60,7 @@
                     android:layout_marginStart="50dp"
                     android:layout_marginEnd="@dimen/text_margin"
                     android:src="@drawable/ic_time_24dp"
-                    android:tint="@color/divider"/>
+                    app:tint="@color/divider"/>
 
                 <TextView
                     android:id="@+id/details_preparation_time"
@@ -88,7 +88,7 @@
                     app:layout_constraintTop_toTopOf="@id/details_categories"
                     app:layout_constraintBottom_toBottomOf="@id/details_categories"
                     android:src="@drawable/ic_categories_24dp"
-                    android:tint="@color/divider"/>
+                    app:tint="@color/divider"/>
 
                 <TextView
                     android:id="@+id/details_categories"
@@ -129,7 +129,7 @@
                         app:layout_constraintTop_toTopOf="@id/details_source"
                         app:layout_constraintBottom_toBottomOf="@id/details_source"
                         android:src="@drawable/ic_link_24dp"
-                        android:tint="@color/divider"/>
+                        app:tint="@color/divider"/>
 
                     <TextView
                         android:id="@+id/details_source"
@@ -138,6 +138,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toEndOf="@id/details_icon_source"
                         app:layout_constraintEnd_toEndOf="parent"
+                        android:textColorLink="@color/colorPrimary"
                         android:layout_marginStart="10dp"
                         android:autoLink="web"
                         android:text="@{recipe.source}" />
