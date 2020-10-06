@@ -13,6 +13,10 @@ import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
 
+import static androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_DRAGGING;
+import static androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_IDLE;
+import static androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_SETTLING;
+
 public class CookingModeActivity extends AppCompatActivity implements CookingModeControls.OnCookingModeControlsInteractionListener  {
 
     @Inject
@@ -37,6 +41,24 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
 
         viewPager = findViewById(R.id.cooking_mode_pager);
         viewPager.setAdapter(adapter);
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+
+            private boolean settled = false;
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+                super.onPageScrollStateChanged(state);
+                if (state == SCROLL_STATE_DRAGGING) {
+                    settled = false;
+                }
+                if (state == SCROLL_STATE_SETTLING) {
+                    settled = true;
+                }
+                if (state == SCROLL_STATE_IDLE && !settled) {
+                    finish();
+                }
+            }
+        });
     }
 
     @Override
