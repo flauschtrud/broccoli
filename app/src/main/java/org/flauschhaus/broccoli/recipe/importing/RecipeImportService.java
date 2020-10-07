@@ -1,10 +1,13 @@
 package org.flauschhaus.broccoli.recipe.importing;
 
+import android.util.Log;
+
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONTokener;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -41,7 +44,7 @@ public class RecipeImportService {
 
             Elements jsonLds = document.select("script[type=\"application/ld+json\"]");
 
-            Optional<JSONObject> recipeJsonLd = findRecipe(jsonLds);
+            Optional<JSONObject> recipeJsonLd = findRecipeIn(jsonLds);
             if (recipeJsonLd.isPresent()) {
                 return new ImportableRecipeBuilder(recipeImageService).withRecipeJsonLd(recipeJsonLd.get()).from(url).build();
             }
@@ -50,28 +53,45 @@ public class RecipeImportService {
         });
     }
 
-    private Optional<JSONObject> findRecipe(Elements jsonLds) {
+    private Optional<JSONObject> findRecipeIn(Elements jsonLds) {
         for (Element element : jsonLds) {
             try {
 
-                JSONObject jsonObject = new JSONObject(element.data());
-                if (isRecipe(jsonObject)) {
-                    return Optional.of(jsonObject);
+                Object json = new JSONTokener(element.data()).nextValue();
+
+                if (theRecipeIsTheTopLevelObject(json)) {
+                    return Optional.of((JSONObject) json);
                 }
 
-                if (jsonObject.has(FIELD_GRAPH)) {
-                    JSONArray graph = jsonObject.getJSONArray(FIELD_GRAPH);
+                if (thereIsAGraphObject(json)) {
+                    JSONArray graph = ((JSONObject) json).getJSONArray(FIELD_GRAPH);
 
-                    for (int i=0; i<graph.length(); i++) {
-                        JSONObject child = graph.getJSONObject(i);
-                        if (isRecipe(child)) {
-                            return Optional.of(child);
-                        }
+                    Optional<JSONObject> optionalRecipe = findRecipeIn(graph);
+                    if (optionalRecipe.isPresent()) {
+                        return optionalRecipe;
                     }
-
                 }
+
+                if (theTopLevelStructureIsAnArray(json)) {
+                    Optional<JSONObject> optionalRecipe = findRecipeIn((JSONArray) json);
+                    if (optionalRecipe.isPresent()) {
+                        return optionalRecipe;
+                    }
+                }
+
             } catch (JSONException e) {
-                throw new CompletionException(e);
+                Log.e(getClass().getName(), e.getMessage());
+                return Optional.empty();
+            }
+        }
+        return Optional.empty();
+    }
+
+    private Optional<JSONObject> findRecipeIn(JSONArray jsonArray) throws JSONException {
+        for (int i=0; i<jsonArray.length(); i++) {
+            JSONObject child = jsonArray.getJSONObject(i);
+            if (isRecipe(child)) {
+                return Optional.of(child);
             }
         }
         return Optional.empty();
@@ -79,6 +99,18 @@ public class RecipeImportService {
 
     private boolean isRecipe(JSONObject jsonObject) {
         return jsonObject.has(FIELD_TYPE) && TYPE_RECIPE.equals(jsonObject.optString(FIELD_TYPE));
+    }
+
+    private boolean theTopLevelStructureIsAnArray(Object json) {
+        return json instanceof JSONArray;
+    }
+
+    private boolean thereIsAGraphObject(Object json) {
+        return json instanceof JSONObject && ((JSONObject) json).has(FIELD_GRAPH);
+    }
+
+    private boolean theRecipeIsTheTopLevelObject(Object json) {
+        return json instanceof JSONObject && isRecipe((JSONObject) json);
     }
 
 }

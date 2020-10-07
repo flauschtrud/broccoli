@@ -78,4 +78,22 @@ public class ImportingIntegrationTest {
         onView(withId(R.id.new_ingredients)).check(matches(withText("1 Knolle Fenchel\n1  Bio-Zitrone\n1  Knoblauchzehe, geschält und fein gehackt\n1  Schalotte, geschält und fein gehackt\n1 Handvoll Petersilie, frisch, fein gehackt\n5 EL Semmelbrösel\nOlivenöl\nSalz &amp; Pfeffer\n250 g Pasta (z.B. Linguini)")));
         onView(withId(R.id.new_directions)).check(matches(withText("Vom Fenchel die oberen grünen Stängel entfernen. Dabei unbedingt das Fenchelgrün aufbewahren. Das kommt später an die Pasta ran. Die Knolle halbieren, den Strunk in der Mitte keilförmig entfernen und nun die zwei Hälften in dünne Streifen schneiden. Die Fenchel-Streifen waschen und gut abtrocknen.\nDie Pasta nach Packungsanweisung garen.\nIn der Zwischenzeit in einer großen Pfanne Olivenöl erhitzen und den Fenchel darin mit etwas Salz ca. 8 Minuten lang anrösten.\nIn einer kleinen Pfanne etwas Olivenöl erhitzen, Knoblauch- und Schalottenwürfel darin mit etwas Salz glasig andünsten. Zitronenabrieb, Petersilie und die Semmelbrösel hinzugeben und alles ca. 4 Minuten vorsichtig anrösten bis die Semmelbrösel leicht angebräunt sind. Die Mischung vom Herd nehmen.\nDie fertige Pasta abgießen. Dabei etwa ein halbes Wasserglas der Kochflüssigkeit auffangen. Abgetropfte Pasta zum Fenchel geben. Die Semmelbröselmischung dazugeben. Kochflüssigkeit nach Belieben dazugeben, damit die Pasta schön glänzend wird. Pasta ordentlich salzen und pfeffern und nach Geschmack Zitrone hinzugeben. Den Saft einer halben Zitrone verträgt das Gericht mindestens. Mit einem guten Schuss Olivenöl und mit Fenchelgrün bestreut servieren.")));
     }
+
+    @Test
+    public void import_new_recipe_with_arrified_json() throws InterruptedException {
+        Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CreateAndEditRecipeActivity.class);
+        intent.setAction(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT, "https://www.gutekueche.de/fladenbrot-grundrezept-rezept-1673");
+        scenario = launch(intent);
+
+        Thread.sleep(3000); // TODO don't do this
+
+        onView(withId(R.id.new_title)).check(matches(withText("Fladenbrot Grundrezept")));
+        onView(withId(R.id.new_source)).check(matches(withText("https://www.gutekueche.de/fladenbrot-grundrezept-rezept-1673")));
+        onView(withId(R.id.new_servings)).check(matches(withText("4 Portionen")));
+        onView(withId(R.id.new_preparation_time)).check(matches(withText("20 minutes")));
+        onView(withId(R.id.new_description)).check(matches(withSubstring("Dieses Grundrezept für Fladenbrot ohne Hefe passt zu vielen Gerichten. Das einfache und schnelle Rezept ist sehr variabel.")));
+        onView(withId(R.id.new_ingredients)).check(matches(withText("200 g Mehl, Typ 550\n3 EL Olivenöl\n1 Prise Salz\n100 ml Wasser")));
+        onView(withId(R.id.new_directions)).check(matches(withText("Für dieses sehr einfache Fladenbrot zuerst das Mehl in eine Schüssel geben, Salz, Wasser und Olivenöl dazugeben und alle Zutaten zu einem Teig verkneten - am besten mit der Hand. Dann den Teig für 10 Minuten quellen lassen und erneut für 5 Minuten kneten, sodass ein glatter Teig entsteht.\nDann aus dem Teig 4 dünne Fladen formen, eine gusseiserne Pfanne ohne Fett erhitzen und die Teigfladen darin nacheinander backen bis sich die ersten braunen Flecken zeigen. Dann auch auf der anderen Seite backen..")));
+    }
 }
