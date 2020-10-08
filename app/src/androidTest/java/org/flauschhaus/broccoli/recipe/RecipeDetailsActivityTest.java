@@ -15,6 +15,7 @@ import org.flauschhaus.broccoli.MockApplicationComponent;
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.recipe.cooking.CookingModeActivity;
 import org.flauschhaus.broccoli.recipe.details.RecipeDetailsActivity;
+import org.flauschhaus.broccoli.recipe.sharing.ShareRecipeAsFileService;
 import org.flauschhaus.broccoli.recipe.sharing.ShareableRecipeBuilder;
 import org.flauschhaus.broccoli.recipe.sharing.ShareableRecipe;
 import org.flauschhaus.broccoli.util.RecipeTestUtil;
@@ -24,6 +25,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 
+import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 
 import javax.inject.Inject;
@@ -64,6 +66,9 @@ public class RecipeDetailsActivityTest {
 
     @Inject
     ShareableRecipeBuilder shareableRecipeBuilder;
+
+    @Inject
+    ShareRecipeAsFileService shareRecipeAsFileService;
 
     private ActivityScenario<RecipeDetailsActivity> scenario;
 
@@ -149,6 +154,26 @@ public class RecipeDetailsActivityTest {
                                 hasExtra(Intent.EXTRA_TEXT, "Lauchkuchen in plain text."),
                                 hasExtra(Intent.EXTRA_STREAM, imageUri),
                                 hasType("text/plain"),
+                                hasFlag(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                        ))));
+    }
+
+    @Test
+    public void share_as_file() throws IOException {
+        Uri recipeUri = Uri.parse("content://bla");
+        when(shareRecipeAsFileService.shareAsFile(recipeCaptor.capture())).thenReturn(recipeUri);
+
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
+        onView(withText(R.string.action_details_share_as_file)).perform(click());
+
+        Recipe recipe = recipeCaptor.getValue();
+        assertThat(recipe.getTitle(), is(lauchkuchen.getTitle()));
+
+        intended(allOf(hasAction(Intent.ACTION_CHOOSER),
+                hasExtra(is(Intent.EXTRA_INTENT),
+                        allOf( hasAction(Intent.ACTION_SEND),
+                                hasExtra(Intent.EXTRA_STREAM, recipeUri),
+                                hasType("application/json"),
                                 hasFlag(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                         ))));
     }

@@ -21,8 +21,10 @@ import org.flauschhaus.broccoli.databinding.ActivityNewRecipeBinding;
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.RecipeRepository;
 import org.flauschhaus.broccoli.recipe.importing.RecipeImportService;
+import org.flauschhaus.broccoli.recipe.sharing.ShareRecipeAsFileService;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import javax.inject.Inject;
 
@@ -35,6 +37,9 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
 
     @Inject
     RecipeImportService recipeImportService;
+
+    @Inject
+    ShareRecipeAsFileService shareRecipeAsFileService;
 
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private static final int REQUEST_IMAGE_GET = 2;
@@ -74,6 +79,17 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
                         runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_error_importing_recipe), Toast.LENGTH_SHORT).show());
                         return null;
                     });
+        }
+
+        if (Intent.ACTION_DEFAULT.equals(intent.getAction())) {
+            Uri uri = getIntent().getData();
+            Optional<Recipe> optionalRecipe = shareRecipeAsFileService.loadFromFile(uri);
+            if (optionalRecipe.isPresent()) {
+                viewModel.setRecipe(optionalRecipe.get());
+            } else {
+                runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_error_importing_recipe), Toast.LENGTH_SHORT).show());
+            }
+
         }
 
         if (savedInstanceState != null) {

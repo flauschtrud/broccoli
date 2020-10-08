@@ -76,6 +76,10 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.13.1'
     implementation 'joda-time:joda-time:2.10.6' // can be removed with API level 26+
 
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.10.1'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.10.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.1'
+
     testImplementation 'junit:junit:4.13'
     testImplementation 'org.mockito:mockito-core:3.3.0'
     testImplementation 'org.hamcrest:hamcrest:2.2'

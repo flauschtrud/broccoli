@@ -7,6 +7,8 @@ import androidx.room.Ignore;
 import androidx.room.Junction;
 import androidx.room.Relation;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.flauschhaus.broccoli.BR;
 import org.flauschhaus.broccoli.category.Category;
 
@@ -30,6 +32,7 @@ public class Recipe extends BaseObservable implements Serializable {
     @Ignore
     private boolean isDirty = false;
 
+    @JsonIgnore
     public CoreRecipe getCoreRecipe() {
         return coreRecipe;
     }
@@ -57,6 +60,7 @@ public class Recipe extends BaseObservable implements Serializable {
         notifyPropertyChanged(BR.categories);
     }
 
+    @JsonIgnore
     public long getRecipeId() {
         return coreRecipe.getRecipeId();
     }
@@ -139,6 +143,7 @@ public class Recipe extends BaseObservable implements Serializable {
         this.coreRecipe.setFavorite(favorite);
     }
 
+    @JsonIgnore
     public boolean isDirty() {
         return isDirty;
     }

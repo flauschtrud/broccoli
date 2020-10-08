@@ -28,6 +28,11 @@
         android:onClick="share"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_details_share_as_file"
+        android:title="@string/action_details_share_as_file"
+        android:onClick="shareAsFile"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_details_edit"
         android:icon="@drawable/ic_menu_edit_24dp"
         android:title="@string/action_details_edit"

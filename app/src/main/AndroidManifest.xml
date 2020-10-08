@@ -60,6 +60,16 @@
                 <data android:mimeType="text/plain" />
             </intent-filter>
 
+            <!-- https://stackoverflow.com/a/61331671/5369519 -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="content" />
+                <data android:host="*"/>
+                <data android:mimeType="application/json" />
+            </intent-filter>
+
         </activity>
 
         <activity

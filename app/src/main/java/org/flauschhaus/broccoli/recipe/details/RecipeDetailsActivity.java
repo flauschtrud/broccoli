@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,10 +31,12 @@ import org.flauschhaus.broccoli.recipe.RecipeRepository;
 import org.flauschhaus.broccoli.recipe.cooking.CookingModeActivity;
 import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import org.flauschhaus.broccoli.recipe.directions.DirectionBuilder;
+import org.flauschhaus.broccoli.recipe.sharing.ShareRecipeAsFileService;
 import org.flauschhaus.broccoli.recipe.ingredients.IngredientBuilder;
 import org.flauschhaus.broccoli.recipe.sharing.ShareableRecipe;
 import org.flauschhaus.broccoli.recipe.sharing.ShareableRecipeBuilder;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -45,6 +48,9 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
     @Inject
     RecipeRepository recipeRepository;
+
+    @Inject
+    ShareRecipeAsFileService shareRecipeAsFileService;
 
     @Inject
     ShareableRecipeBuilder shareableRecipeBuilder;
@@ -80,11 +86,13 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
         binding.fabCookingMode.setOnClickListener(view -> this.cook(null));
         binding.fabCookingMode.addOnHideAnimationListener(new AnimatorListenerAdapter() {
+            @Override
             public void onAnimationStart(Animator animator) {
                 showItem(R.id.action_details_cook);
             }
         });
         binding.fabCookingMode.addOnShowAnimationListener(new AnimatorListenerAdapter() {
+            @Override
             public void onAnimationStart(Animator animator) {
                 hideItem(R.id.action_details_cook);
             }
@@ -162,7 +170,23 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             shareIntent.putExtra(Intent.EXTRA_STREAM, shareableRecipe.getImageUri());
         }
         shareIntent.setType("text/plain");
+        shareIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
+        startActivity(Intent.createChooser(shareIntent, null));
+    }
+
+    public void shareAsFile(MenuItem item) {
+        Uri exportedRecipe = null;
+        try {
+            exportedRecipe = shareRecipeAsFileService.shareAsFile(binding.getRecipe());
+        } catch (IOException e) {
+            Log.e(getClass().getName(), e.getMessage());
+        }
+
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_STREAM, exportedRecipe);
+        shareIntent.setType("application/json");
         shareIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
         startActivity(Intent.createChooser(shareIntent, null));

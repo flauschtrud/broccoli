@@ -3,6 +3,7 @@ package org.flauschhaus.broccoli.recipe;
 import org.flauschhaus.broccoli.category.CategoryRepository;
 import org.flauschhaus.broccoli.recipe.cooking.PageableRecipeBuilder;
 import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
+import org.flauschhaus.broccoli.recipe.sharing.ShareRecipeAsFileService;
 import org.flauschhaus.broccoli.recipe.sharing.ShareableRecipeBuilder;
 
 import javax.inject.Singleton;
@@ -43,5 +44,11 @@ public class MockRecipeModule extends RecipeModule {
     @Singleton
     PageableRecipeBuilder pageableRecipeBuilder() {
         return mock(PageableRecipeBuilder.class);
+    }
+
+    @Provides
+    @Singleton
+    ShareRecipeAsFileService shareRecipeAsFileService() {
+        return mock(ShareRecipeAsFileService.class);
     }
 }
