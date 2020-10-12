@@ -10,6 +10,7 @@ import org.flauschhaus.broccoli.DaggerMockApplicationComponent;
 import org.flauschhaus.broccoli.MockApplicationComponent;
 import org.flauschhaus.broccoli.category.Category;
 import org.flauschhaus.broccoli.recipe.Recipe;
+import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,6 +30,9 @@ public class ShareRecipeAsFileServiceTest {
     @Inject
     Application application;
 
+    @Inject
+    RecipeImageService recipeImageService;
+
     private ShareRecipeAsFileService shareRecipeAsFileService;
 
     @Before
@@ -39,7 +43,7 @@ public class ShareRecipeAsFileServiceTest {
         component.inject(this);
         component.inject(getApplication());
 
-        shareRecipeAsFileService = new ShareRecipeAsFileService(application);
+        shareRecipeAsFileService = new ShareRecipeAsFileService(application, recipeImageService);
     }
 
     private BroccoliApplication getApplication() {

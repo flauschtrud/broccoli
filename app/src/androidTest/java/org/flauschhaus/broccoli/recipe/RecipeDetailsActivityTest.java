@@ -173,7 +173,7 @@ public class RecipeDetailsActivityTest {
                 hasExtra(is(Intent.EXTRA_INTENT),
                         allOf( hasAction(Intent.ACTION_SEND),
                                 hasExtra(Intent.EXTRA_STREAM, recipeUri),
-                                hasType("application/json"),
+                                hasType("application/broccoli"),
                                 hasFlag(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                         ))));
     }

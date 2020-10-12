@@ -6,6 +6,8 @@ import android.os.Environment;
 
 import androidx.core.content.FileProvider;
 
+import org.flauschhaus.broccoli.FileUtils;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,7 +36,7 @@ public class RecipeImageService {
     }
 
     public Uri createTemporaryImage() throws IOException {
-        File temporaryFile = createTemporaryFile();
+        File temporaryFile = createTemporaryImageFileInCache();
         return FileProvider.getUriForFile(application, AUTHORITY, temporaryFile);
     }
 
@@ -58,7 +60,7 @@ public class RecipeImageService {
         return CompletableFuture.supplyAsync(() -> {
             try {
                 InputStream inputStream = application.getContentResolver().openInputStream(pickedImage);
-                File temporaryFile = createTemporaryFile();
+                File temporaryFile = createTemporaryImageFileInCache();
                 FileUtils.copy(inputStream, temporaryFile);
                 return temporaryFile.getName();
             } catch (IOException e) {
@@ -96,7 +98,7 @@ public class RecipeImageService {
         });
     }
 
-    File findImage(String imageName) {
+    public File findImage(String imageName) {
         File savedImage = getSavedImage(imageName);
 
         if  (savedImage.exists()) {
@@ -106,7 +108,7 @@ public class RecipeImageService {
         return getTemporaryImage(imageName);
     }
 
-    public File createTemporaryFile() throws IOException {
+    public File createTemporaryImageFileInCache() throws IOException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
         File cacheDirectory = getCacheDirectory();

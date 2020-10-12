@@ -61,4 +61,5 @@
     <string name="toast_error_importing_recipe">The recipe could not be imported.</string>
     <string name="toast_error_reading_recipe">This website does not provide a recipe format that Broccoli can read. Please enter the recipe details by copy and pasting.</string>
     <string name="action_details_share_as_file">Share as file</string>
+    <string name="toast_could_not_export_recipe">The recipe could not be exported.</string>
 </resources>

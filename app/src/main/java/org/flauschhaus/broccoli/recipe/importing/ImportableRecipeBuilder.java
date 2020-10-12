@@ -137,7 +137,7 @@ class ImportableRecipeBuilder {
         }
 
         try {
-            File tempFile = recipeImageService.createTemporaryFile();
+            File tempFile = recipeImageService.createTemporaryImageFileInCache();
             recipe.setImageName(tempFile.getName());
             recipeImageService.downloadToCache(imageURL, tempFile)
                     .exceptionally(e -> {

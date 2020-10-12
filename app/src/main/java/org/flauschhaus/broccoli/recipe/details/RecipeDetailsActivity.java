@@ -176,20 +176,20 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     }
 
     public void shareAsFile(MenuItem item) {
-        Uri exportedRecipe = null;
         try {
-            exportedRecipe = shareRecipeAsFileService.shareAsFile(binding.getRecipe());
+            Uri exportedRecipe = shareRecipeAsFileService.shareAsFile(binding.getRecipe());
+
+            Intent shareIntent = new Intent();
+            shareIntent.setAction(Intent.ACTION_SEND);
+            shareIntent.putExtra(Intent.EXTRA_STREAM, exportedRecipe);
+            shareIntent.setType("application/broccoli");
+            shareIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+            startActivity(Intent.createChooser(shareIntent, null));
         } catch (IOException e) {
             Log.e(getClass().getName(), e.getMessage());
+            Toast.makeText(getApplicationContext(), getString(R.string.toast_could_not_export_recipe), Toast.LENGTH_LONG).show();
         }
-
-        Intent shareIntent = new Intent();
-        shareIntent.setAction(Intent.ACTION_SEND);
-        shareIntent.putExtra(Intent.EXTRA_STREAM, exportedRecipe);
-        shareIntent.setType("application/json");
-        shareIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-
-        startActivity(Intent.createChooser(shareIntent, null));
     }
 
     @BindingAdapter("categories")

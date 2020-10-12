@@ -242,7 +242,7 @@ public class ImportableRecipeBuilderTest {
 
     @Test
     public void example_chefkoch() throws JSONException, IOException {
-        when(recipeImageService.createTemporaryFile()).thenReturn(fileInCache);
+        when(recipeImageService.createTemporaryImageFileInCache()).thenReturn(fileInCache);
         when(recipeImageService.downloadToCache("https://img.chefkoch-cdn.de/rezepte/3212051478029180/bilder/1325560/crop-960x540/vegane-chocolate-chip-cookies.jpg", fileInCache)).thenReturn(CompletableFuture.completedFuture(null));
 
         ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(recipeImageService);
@@ -267,7 +267,7 @@ public class ImportableRecipeBuilderTest {
 
     @Test
     public void example_yoast() throws JSONException, IOException {
-        when(recipeImageService.createTemporaryFile()).thenReturn(fileInCache);
+        when(recipeImageService.createTemporaryImageFileInCache()).thenReturn(fileInCache);
         when(recipeImageService.downloadToCache("https://stilettosandsprouts.de/wp-content/uploads/2018/05/Vegane_Fenchel_Pasta_02_B.jpg", fileInCache)).thenReturn(CompletableFuture.completedFuture(null));
 
         ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(recipeImageService);

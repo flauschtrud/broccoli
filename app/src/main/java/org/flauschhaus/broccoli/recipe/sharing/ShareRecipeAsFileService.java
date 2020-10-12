@@ -6,15 +6,24 @@ import android.util.Log;
 
 import androidx.core.content.FileProvider;
 
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.flauschhaus.broccoli.recipe.Recipe;
+import org.flauschhaus.broccoli.FileUtils;
+import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Optional;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+import java.util.zip.ZipOutputStream;
 
 import javax.inject.Inject;
 
@@ -23,25 +32,43 @@ public class ShareRecipeAsFileService {
     private static final String AUTHORITY = "org.flauschhaus.broccoli.fileprovider";
 
     private Application application;
+    private RecipeImageService recipeImageService;
 
     @Inject
-    public ShareRecipeAsFileService(Application application) {
+    public ShareRecipeAsFileService(Application application, RecipeImageService recipeImageService) {
         this.application = application;
+        this.recipeImageService = recipeImageService;
     }
 
     public Uri shareAsFile(Recipe recipe) throws IOException {
         String title = recipe.getTitle();
-        String jsonFileName = title.replaceAll("[^a-zA-Z0-9\\.\\-]", "_") + ".json";
-        File temporaryFile = new File(application.getCacheDir(), jsonFileName);
 
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.writeValue(temporaryFile, recipe);
+        String zipFileName = title.replaceAll("[^a-zA-Z0-9\\.\\-]", "_") + ".broccoli";
+        File zipFile = new File(application.getCacheDir(), zipFileName);
 
-        return FileProvider.getUriForFile(application, AUTHORITY, temporaryFile);
+        try (FileOutputStream fos = new FileOutputStream(zipFile); ZipOutputStream zos = new ZipOutputStream(fos)) {
+            String jsonFileName = title.replaceAll("[^a-zA-Z0-9\\.\\-]", "_") + ".json";
+            ZipEntry recipeEntry = new ZipEntry(jsonFileName);
+            zos.putNextEntry(recipeEntry);
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.configure(JsonGenerator.Feature.AUTO_CLOSE_TARGET, false);
+            objectMapper.writeValue(zos, recipe);
+            zos.closeEntry();
+
+            if (recipe.getImageName().length() > 0) {
+                ZipEntry imageEntry = new ZipEntry(recipe.getImageName());
+                zos.putNextEntry(imageEntry);
+                File imageFile = recipeImageService.findImage(recipe.getImageName());
+                FileUtils.copy(imageFile, zos);
+            }
+        }
+
+        return FileProvider.getUriForFile(application, AUTHORITY, zipFile);
     }
 
     public Optional<Recipe> loadFromFile(Uri uri) {
         ObjectMapper objectMapper = new ObjectMapper();
+
         InputStream inputStream;
         try {
             inputStream = application.getContentResolver().openInputStream(uri);
@@ -50,18 +77,37 @@ public class ShareRecipeAsFileService {
             return Optional.empty();
         }
 
-        Recipe recipe;
-        try {
-            recipe = objectMapper.readValue(inputStream, Recipe.class);
+        Recipe recipe = null;
+        String imageName =  null;
+
+        try (ZipInputStream zis = new ZipInputStream(inputStream); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
+            ZipEntry zipEntry;
+            while ((zipEntry = zis.getNextEntry()) != null) {
+                if (zipEntry.getName().endsWith(".json")) {
+                    FileUtils.copy(zis, out);
+                    recipe = objectMapper.readValue(new ByteArrayInputStream(out.toByteArray()), Recipe.class);
+                } else if (zipEntry.getName().endsWith(".jpg")) {
+                    File extractedImage = recipeImageService.createTemporaryImageFileInCache();
+                    FileUtils.copy(zis, extractedImage);
+                    imageName = extractedImage.getName();
+                }
+            }
+            zis.closeEntry();
         } catch (IOException e) {
             Log.e(getClass().getName(), e.getMessage());
             return Optional.empty();
         }
 
-        recipe.getCategories().clear();
-        recipe.setFavorite(false);
-        recipe.setImageName("");
-        return Optional.of(recipe);
+        if (recipe != null) {
+            recipe.getCategories().clear();
+            recipe.setFavorite(false);
+            if (imageName != null) {
+                recipe.setImageName(imageName);
+            }
+            return Optional.of(recipe);
+        }
+
+        return Optional.empty();
     }
 
 }
