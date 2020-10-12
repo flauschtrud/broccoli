@@ -17,6 +17,7 @@ public class Category implements Serializable {
     private long categoryId = 0;
     private String name = "";
 
+    @Ignore
     public Category() {}
 
     @Ignore

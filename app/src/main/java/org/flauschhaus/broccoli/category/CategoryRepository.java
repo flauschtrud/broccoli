@@ -3,13 +3,15 @@ package org.flauschhaus.broccoli.category;
 import androidx.lifecycle.LiveData;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 @Singleton
-public class CategoryRepository { //TODO add unit test
+public class CategoryRepository {
 
     private CategoryDAO categoryDAO;
     private LiveData<List<Category>> allCategories;
@@ -36,4 +38,10 @@ public class CategoryRepository { //TODO add unit test
         }
     }
 
+    public CompletableFuture<List<Category>> retainExisting(List<Category> categories) {
+        return CompletableFuture.supplyAsync(() -> categories.stream()
+                    .map(category -> categoryDAO.searchByName(category.getName()))
+                    .filter(Objects::nonNull)
+                    .collect(Collectors.toList()));
+    }
 }
