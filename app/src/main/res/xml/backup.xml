@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <Preference
+        app:icon="@drawable/ic_backup_24dp"
+        app:key="trigger_backup"
+        app:title="@string/restore_data">
+
+        <intent
+            android:targetPackage="org.flauschhaus.broccoli"
+            android:targetClass="org.flauschhaus.broccoli.backup.BackupActivity"/>
+
+    </Preference>
+
+</PreferenceScreen>

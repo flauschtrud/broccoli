@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Preference
+        app:key="backup"
+        app:icon="@drawable/ic_backup_24dp"
+        app:title="@string/backup_data"
+        app:summary="@string/last_backup"/>
+
+    <Preference
+        app:key="restore"
+        app:icon="@drawable/ic_backup_restore_24dp"
+        app:title="@string/restore_data" />
+
+</PreferenceScreen>

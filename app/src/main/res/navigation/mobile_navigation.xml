@@ -18,6 +18,16 @@
         tools:layout="@layout/fragment_recipes" />
 
     <fragment
+        android:id="@+id/nav_backup_and_restore"
+        android:name="org.flauschhaus.broccoli.backup.BackupAndRestoreFragment"
+        android:label="@string/menu_backup_and_restore" />
+
+    <fragment
+        android:id="@+id/nav_backup"
+        android:name="org.flauschhaus.broccoli.backup.BackupAndRestoreFragment$BackupFragment"
+        android:label="@string/backup_data" />
+
+    <fragment
         android:id="@+id/nav_feedback"
         android:name="org.flauschhaus.broccoli.settings.FeedbackFragment"
         android:label="@string/menu_feedback"

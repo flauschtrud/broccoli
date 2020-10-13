@@ -64,6 +64,9 @@ dependencies {
         exclude group: 'androidx.test', module : 'core'
     }
 
+    def preference_version = "1.1.1"
+    implementation "androidx.preference:preference:$preference_version"
+
     implementation 'com.google.dagger:dagger:2.26'
     annotationProcessor "com.google.dagger:dagger-compiler:2.26"
     implementation 'com.google.dagger:dagger-android:2.26'
