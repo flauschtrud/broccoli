@@ -6,7 +6,6 @@ import android.util.Log;
 
 import androidx.core.content.FileProvider;
 
-import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.flauschhaus.broccoli.FileUtils;
@@ -35,12 +34,14 @@ public class ShareRecipeAsFileService {
     private static final String AUTHORITY = "org.flauschhaus.broccoli.fileprovider";
 
     private Application application;
+    private RecipeZipWriter recipeZipWriter;
     private RecipeImageService recipeImageService;
     private CategoryRepository categoryRepository;
 
     @Inject
-    public ShareRecipeAsFileService(Application application, RecipeImageService recipeImageService, CategoryRepository categoryRepository) {
+    public ShareRecipeAsFileService(Application application, RecipeZipWriter recipeZipWriter, RecipeImageService recipeImageService, CategoryRepository categoryRepository) {
         this.application = application;
+        this.recipeZipWriter = recipeZipWriter;
         this.recipeImageService = recipeImageService;
         this.categoryRepository = categoryRepository;
     }
@@ -52,20 +53,7 @@ public class ShareRecipeAsFileService {
         File zipFile = new File(application.getCacheDir(), zipFileName);
 
         try (FileOutputStream fos = new FileOutputStream(zipFile); ZipOutputStream zos = new ZipOutputStream(fos)) {
-            String jsonFileName = title.replaceAll("[^a-zA-Z0-9\\.\\-]", "_") + ".json";
-            ZipEntry recipeEntry = new ZipEntry(jsonFileName);
-            zos.putNextEntry(recipeEntry);
-            ObjectMapper objectMapper = new ObjectMapper();
-            objectMapper.configure(JsonGenerator.Feature.AUTO_CLOSE_TARGET, false);
-            objectMapper.writeValue(zos, recipe);
-            zos.closeEntry();
-
-            if (recipe.getImageName().length() > 0) {
-                ZipEntry imageEntry = new ZipEntry(recipe.getImageName());
-                zos.putNextEntry(imageEntry);
-                File imageFile = recipeImageService.findImage(recipe.getImageName());
-                FileUtils.copy(imageFile, zos);
-            }
+            recipeZipWriter.write(recipe).to(zos);
         }
 
         return FileProvider.getUriForFile(application, AUTHORITY, zipFile);

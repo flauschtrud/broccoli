@@ -55,4 +55,8 @@ public interface RecipeDAO {
     @Query("SELECT * FROM recipes_with_categories WHERE recipeId == :recipeId")
     List<RecipeCategoryAssociation> getCategoriesFor(long recipeId);
 
+    @Transaction
+    @Query("SELECT * FROM recipes")
+    List<Recipe> findAll();
+
 }

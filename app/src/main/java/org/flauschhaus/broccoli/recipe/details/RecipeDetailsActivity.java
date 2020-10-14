@@ -4,6 +4,8 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -185,7 +187,13 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             shareIntent.setType("application/broccoli");
             shareIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
-            startActivity(Intent.createChooser(shareIntent, null));
+            Intent chooser = Intent.createChooser(shareIntent, null);
+            List<ResolveInfo> resInfoList = this.getPackageManager().queryIntentActivities(chooser, PackageManager.MATCH_DEFAULT_ONLY);
+            for (ResolveInfo resolveInfo : resInfoList) {
+                String packageName = resolveInfo.activityInfo.packageName;
+                grantUriPermission(packageName, exportedRecipe, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            }
+            startActivity(chooser);
         } catch (IOException e) {
             Log.e(getClass().getName(), e.getMessage());
             Toast.makeText(getApplicationContext(), getString(R.string.toast_could_not_export_recipe), Toast.LENGTH_LONG).show();

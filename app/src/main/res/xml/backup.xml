@@ -5,12 +5,6 @@
     <Preference
         app:icon="@drawable/ic_backup_24dp"
         app:key="trigger_backup"
-        app:title="@string/restore_data">
-
-        <intent
-            android:targetPackage="org.flauschhaus.broccoli"
-            android:targetClass="org.flauschhaus.broccoli.backup.BackupActivity"/>
-
-    </Preference>
+        app:title="@string/backup_data" />
 
 </PreferenceScreen>

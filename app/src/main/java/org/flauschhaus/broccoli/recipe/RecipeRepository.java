@@ -105,6 +105,10 @@ public class RecipeRepository {
         );
     }
 
+    public CompletableFuture<List<Recipe>> findAll() {
+        return CompletableFuture.supplyAsync(() -> recipeDAO.findAll());
+    }
+
     public static class SearchCriteria {
         private Category category = Category.ALL;
         private String searchTerm = "";
