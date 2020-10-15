@@ -14,6 +14,7 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.FileProvider;
 
 import org.flauschhaus.broccoli.BroccoliApplication;
+import org.flauschhaus.broccoli.BuildConfig;
 import org.flauschhaus.broccoli.R;
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.RecipeRepository;
@@ -63,6 +64,8 @@ public class BackupService extends JobIntentService {
         File zipFile = new File(application.getCacheDir(), zipFileName);
 
         try (FileOutputStream fos = new FileOutputStream(zipFile); ZipOutputStream zos = new ZipOutputStream(fos)) {
+            zos.setComment(String.valueOf(BuildConfig.VERSION_CODE));
+
             List<Recipe> recipes = recipeRepository.findAll().get();
 
             int numberOfRecipes = recipes.size();

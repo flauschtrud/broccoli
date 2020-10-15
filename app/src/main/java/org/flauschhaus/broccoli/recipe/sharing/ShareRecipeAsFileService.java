@@ -8,6 +8,7 @@ import androidx.core.content.FileProvider;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import org.flauschhaus.broccoli.BuildConfig;
 import org.flauschhaus.broccoli.FileUtils;
 import org.flauschhaus.broccoli.category.Category;
 import org.flauschhaus.broccoli.category.CategoryRepository;
@@ -53,6 +54,7 @@ public class ShareRecipeAsFileService {
         File zipFile = new File(application.getCacheDir(), zipFileName);
 
         try (FileOutputStream fos = new FileOutputStream(zipFile); ZipOutputStream zos = new ZipOutputStream(fos)) {
+            zos.setComment(String.valueOf(BuildConfig.VERSION_CODE));
             recipeZipWriter.write(recipe).to(zos);
         }
 
