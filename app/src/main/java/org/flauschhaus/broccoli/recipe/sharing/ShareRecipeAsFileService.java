@@ -6,25 +6,15 @@ import android.util.Log;
 
 import androidx.core.content.FileProvider;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import org.flauschhaus.broccoli.BuildConfig;
-import org.flauschhaus.broccoli.FileUtils;
-import org.flauschhaus.broccoli.category.Category;
-import org.flauschhaus.broccoli.category.CategoryRepository;
 import org.flauschhaus.broccoli.recipe.Recipe;
-import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.List;
 import java.util.Optional;
-import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
@@ -34,17 +24,15 @@ public class ShareRecipeAsFileService {
 
     private static final String AUTHORITY = "org.flauschhaus.broccoli.fileprovider";
 
-    private Application application;
-    private RecipeZipWriter recipeZipWriter;
-    private RecipeImageService recipeImageService;
-    private CategoryRepository categoryRepository;
+    private final Application application;
+    private final RecipeZipWriter recipeZipWriter;
+    private final RecipeZipReader recipeZipReader;
 
     @Inject
-    public ShareRecipeAsFileService(Application application, RecipeZipWriter recipeZipWriter, RecipeImageService recipeImageService, CategoryRepository categoryRepository) {
+    public ShareRecipeAsFileService(Application application, RecipeZipWriter recipeZipWriter, RecipeZipReader recipeZipReader) {
         this.application = application;
         this.recipeZipWriter = recipeZipWriter;
-        this.recipeImageService = recipeImageService;
-        this.categoryRepository = categoryRepository;
+        this.recipeZipReader = recipeZipReader;
     }
 
     public Uri shareAsFile(Recipe recipe) throws IOException {
@@ -62,8 +50,6 @@ public class ShareRecipeAsFileService {
     }
 
     public Optional<Recipe> loadFromFile(Uri uri) {
-        ObjectMapper objectMapper = new ObjectMapper();
-
         InputStream inputStream;
         try {
             inputStream = application.getContentResolver().openInputStream(uri);
@@ -72,42 +58,12 @@ public class ShareRecipeAsFileService {
             return Optional.empty();
         }
 
-        Recipe recipe = null;
-        String imageName =  null;
-
-        try (ZipInputStream zis = new ZipInputStream(inputStream); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
-            ZipEntry zipEntry;
-            while ((zipEntry = zis.getNextEntry()) != null) {
-                if (zipEntry.getName().endsWith(".json")) {
-                    FileUtils.copy(zis, out);
-                    recipe = objectMapper.readValue(new ByteArrayInputStream(out.toByteArray()), Recipe.class);
-                } else if (zipEntry.getName().endsWith(".jpg")) {
-                    File extractedImage = recipeImageService.createTemporaryImageFileInCache();
-                    FileUtils.copy(zis, extractedImage);
-                    imageName = extractedImage.getName();
-                }
-            }
-            zis.closeEntry();
+        try (ZipInputStream zis = new ZipInputStream(inputStream)) {
+            return recipeZipReader.read().unfavored().from(zis);
         } catch (IOException e) {
             Log.e(getClass().getName(), e.getMessage());
             return Optional.empty();
         }
-
-        if (recipe != null) {
-            try {
-                List<Category> retainedCategories = categoryRepository.retainExisting(recipe.getCategories()).get();
-                recipe.setCategories(retainedCategories);
-                recipe.setFavorite(false);
-                if (imageName != null) {
-                    recipe.setImageName(imageName);
-                }
-                return Optional.of(recipe);
-            } catch (Exception e) {
-                Log.e(getClass().getName(), e.getMessage());
-            }
-        }
-
-        return Optional.empty();
     }
 
 }

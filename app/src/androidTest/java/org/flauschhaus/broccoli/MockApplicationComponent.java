@@ -6,6 +6,7 @@ import org.flauschhaus.broccoli.category.CategoryFragmentTest;
 import org.flauschhaus.broccoli.di.ActivityModule;
 import org.flauschhaus.broccoli.di.ApplicationComponent;
 import org.flauschhaus.broccoli.di.FragmentModule;
+import org.flauschhaus.broccoli.di.ServiceModule;
 import org.flauschhaus.broccoli.di.ViewModelModule;
 import org.flauschhaus.broccoli.recipe.CreateAndEditRecipeActivityTest;
 import org.flauschhaus.broccoli.recipe.MockRecipeModule;
@@ -26,6 +27,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
         ViewModelModule.class,
         ActivityModule.class,
         FragmentModule.class,
+        ServiceModule.class,
         AndroidSupportInjectionModule.class,
         MockRecipeModule.class
 })

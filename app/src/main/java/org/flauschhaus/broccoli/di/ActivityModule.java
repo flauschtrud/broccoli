@@ -1,6 +1,5 @@
 package org.flauschhaus.broccoli.di;
 
-import org.flauschhaus.broccoli.backup.BackupService;
 import org.flauschhaus.broccoli.recipe.cooking.CookingModeActivity;
 import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import org.flauschhaus.broccoli.recipe.details.RecipeDetailsActivity;
@@ -20,6 +19,4 @@ public interface ActivityModule {
     @ContributesAndroidInjector
     CookingModeActivity cookingModeActivity();
 
-    @ContributesAndroidInjector
-    BackupService backupService();
 }

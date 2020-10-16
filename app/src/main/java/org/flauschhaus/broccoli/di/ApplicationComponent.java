@@ -16,6 +16,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
         ViewModelModule.class,
         ActivityModule.class,
         FragmentModule.class,
+        ServiceModule.class,
         AndroidSupportInjectionModule.class,
         DatabaseModule.class,
         RecipeModule.class

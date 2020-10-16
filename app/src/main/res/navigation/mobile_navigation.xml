@@ -25,7 +25,12 @@
     <fragment
         android:id="@+id/nav_backup"
         android:name="org.flauschhaus.broccoli.backup.BackupAndRestoreFragment$BackupFragment"
-        android:label="@string/backup_data" />
+        android:label="@string/backup_recipes" />
+
+    <fragment
+        android:id="@+id/nav_restore"
+        android:name="org.flauschhaus.broccoli.backup.BackupAndRestoreFragment$RestoreFragment"
+        android:label="@string/restore_recipes" />
 
     <fragment
         android:id="@+id/nav_feedback"

@@ -16,7 +16,7 @@ import javax.inject.Inject;
 
 public class RecipeZipWriter {
 
-    private RecipeImageService recipeImageService;
+    private final RecipeImageService recipeImageService;
 
     @Inject
     public RecipeZipWriter(RecipeImageService recipeImageService) {
@@ -29,16 +29,10 @@ public class RecipeZipWriter {
 
     public class RecipeZipWriterBuilder {
 
-        private Recipe recipe;
-        private String subDirectory;
+        private final Recipe recipe;
 
         public RecipeZipWriterBuilder(Recipe recipe) {
             this.recipe = recipe;
-        }
-
-        public RecipeZipWriterBuilder inSubDirectory(String subDirectory) {
-            this.subDirectory = subDirectory;
-            return this;
         }
 
         public void to(ZipOutputStream zos) throws IOException {
@@ -58,17 +52,12 @@ public class RecipeZipWriter {
         }
 
         private String getEntryNameFor(Recipe recipe) {
-            String jsonFileName = recipe.getTitle().replaceAll("[^a-zA-Z0-9\\.\\-]", "_") + ".json";
-            return getEntryNameFor(jsonFileName);
-        }
-
-        private String getEntryNameFor(String fileName) {
-            return subDirectory != null? subDirectory + File.separator + fileName : fileName;
+            return recipe.getTitle().replaceAll("[^a-zA-Z0-9\\.\\-]", "_") + ".json";
         }
 
         private void writeRecipeImage(ZipOutputStream zos) throws IOException {
             if (recipe.getImageName().length() > 0) {
-                ZipEntry imageEntry = new ZipEntry(getEntryNameFor(recipe.getImageName()));
+                ZipEntry imageEntry = new ZipEntry(recipe.getImageName());
                 zos.putNextEntry(imageEntry);
                 File imageFile = recipeImageService.findImage(recipe.getImageName());
                 FileUtils.copy(imageFile, zos);

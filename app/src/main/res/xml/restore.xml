@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <Preference
-        app:icon="@drawable/ic_backup_24dp"
-        app:key="trigger_backup"
-        app:title="@string/backup_recipes" />
+        app:icon="@drawable/ic_backup_restore_24dp"
+        app:key="trigger_restore"
+        app:title="@string/restore_recipes" />
 
 </PreferenceScreen>

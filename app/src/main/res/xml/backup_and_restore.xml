@@ -4,12 +4,12 @@
     <Preference
         app:key="backup"
         app:icon="@drawable/ic_backup_24dp"
-        app:title="@string/backup_data"
+        app:title="@string/backup_recipes"
         app:summary="@string/last_backup"/>
 
     <Preference
         app:key="restore"
         app:icon="@drawable/ic_backup_restore_24dp"
-        app:title="@string/restore_data" />
+        app:title="@string/restore_recipes" />
 
 </PreferenceScreen>

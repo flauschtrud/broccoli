@@ -26,6 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
 import javax.inject.Inject;
@@ -47,6 +48,8 @@ public class BackupService extends JobIntentService {
     @Inject
     RecipeRepository recipeRepository;
 
+    private NotificationManagerCompat notificationManager;
+
     public static void enqueueWork(Context context, Intent intent) {
         enqueueWork(context, BackupService.class, JOB_ID, intent);
     }
@@ -55,6 +58,8 @@ public class BackupService extends JobIntentService {
     public void onCreate() {
         super.onCreate();
         AndroidInjection.inject(this);
+
+        notificationManager = NotificationManagerCompat.from(this);
     }
 
     @Override
@@ -71,8 +76,16 @@ public class BackupService extends JobIntentService {
             int numberOfRecipes = recipes.size();
             for (int i = 0; i < numberOfRecipes; i++) {
                 notifyProgress(numberOfRecipes, i);
+
                 Recipe recipe = recipes.get(i);
-                recipeZipWriter.write(recipe).inSubDirectory(recipe.getRecipeId() + "_" + recipe.getTitle().replaceAll("[^a-zA-Z0-9\\.\\-]", "_")).to(zos);
+                ZipEntry entry = new ZipEntry(recipe.getRecipeId() + "_" + recipe.getTitle().replaceAll("[^a-zA-Z0-9\\.\\-]", "_") + ".broccoli");
+                zos.putNextEntry(entry);
+
+                ZipOutputStream nestedZos = new ZipOutputStream(zos);
+                recipeZipWriter.write(recipe).to(nestedZos);
+                nestedZos.finish();
+
+                zos.closeEntry();
             }
 
             Uri archiveUri = FileProvider.getUriForFile(application, AUTHORITY, zipFile);
@@ -87,11 +100,10 @@ public class BackupService extends JobIntentService {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, BroccoliApplication.CHANNEL_ID_BACKUP)
                 .setSmallIcon(R.drawable.ic_button_restaurant_24dp)
                 .setContentTitle(getString(R.string.backup_in_progress))
-                .setContentText(getString(R.string.backup_recipe) + " " + i+1 + "/" + numberOfRecipes)
+                .setContentText(getString(R.string.backup_recipe_count, i+1,  numberOfRecipes))
                 .setProgress(numberOfRecipes, i,false)
                 .setNotificationSilent()
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         notificationManager.notify(NOTIFICATION_ID, builder.build());
     }
 
@@ -109,7 +121,6 @@ public class BackupService extends JobIntentService {
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .addAction(R.drawable.ic_launcher_foreground, "Save", pendingIntent);
 
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         notificationManager.notify(NOTIFICATION_ID, builder.build());
     }
 
@@ -120,7 +131,6 @@ public class BackupService extends JobIntentService {
                 .setContentText(getString(R.string.backup_failed_message))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         notificationManager.notify(NOTIFICATION_ID, builder.build());
     }
 }

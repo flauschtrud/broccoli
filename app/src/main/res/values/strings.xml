@@ -1,11 +1,7 @@
 <resources>
     <string name="app_name">Broccoli</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Broccoli</string>
     <string name="nav_header_subtitle">The Simple and Green Recipe Manager</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
     <string name="menu_recipes">Recipes</string>
     <string name="hint_new_recipe_title">Title</string>
     <string name="hint_new_recipe_description">Description</string>
@@ -30,7 +26,7 @@
     <string name="dialog_discard_changes">Discard changes?</string>
     <string name="action_discard">Discard</string>
     <string name="action_details_edit">Edit</string>
-    <string name="toast_recipe_updated">Recipe  updated.</string>
+    <string name="toast_recipe_updated">Recipe updated.</string>
     <string name="change_image">Change image</string>
     <string name="remove_photo">Remove photo</string>
     <string name="take_photo">Take photo</string>
@@ -62,16 +58,22 @@
     <string name="toast_error_reading_recipe">This website does not provide a recipe format that Broccoli can read. Please enter the recipe details by copy and pasting.</string>
     <string name="action_details_share_as_file">Share as file</string>
     <string name="toast_could_not_export_recipe">The recipe could not be exported.</string>
-    <string name="backup_data">Backup recipes</string>
-    <string name="restore_data">Restore recipes</string>
+    <string name="backup_recipes">Backup recipes</string>
+    <string name="restore_recipes">Restore recipes</string>
     <string name="last_backup">Last backup: 13.10.2020</string>
     <string name="menu_backup_and_restore">Backup &amp; restore</string>
     <string name="channel_name_backup">Backup &amp; Restore</string>
     <string name="channel_description_backup">Provide notifications about the progress of backup and restore actions.</string>
     <string name="backup_in_progress">Backup in progress</string>
-    <string name="backup_recipe">Recipe</string>
+    <string name="backup_recipe_count">Recipe %1$d/%2$d</string>
     <string name="backup_complete">Backup complete</string>
     <string name="backup_complete_prompt">Now save your archive in the cloud.</string>
     <string name="backup_failed">Backup failed</string>
     <string name="backup_failed_message">The recipes could not be archived.</string>
+    <string name="restore_in_progress">Restore in progress</string>
+    <string name="recipes_restored">%1$d recipe(s) restored</string>
+    <string name="restore_failed">Restore failed</string>
+    <string name="restore_failed_message">The recipes could not be restored.</string>
+    <string name="restore_complete">Restore complete</string>
+    <string name="restore_complete_message">%1$d recipes have been restored.</string>
 </resources>

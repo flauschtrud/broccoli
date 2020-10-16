@@ -11,7 +11,6 @@ import org.flauschhaus.broccoli.MockApplicationComponent;
 import org.flauschhaus.broccoli.category.Category;
 import org.flauschhaus.broccoli.category.CategoryRepository;
 import org.flauschhaus.broccoli.recipe.Recipe;
-import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,7 +24,8 @@ import javax.inject.Inject;
 
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.empty;
+import static org.hamcrest.Matchers.is;
 import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.when;
 
@@ -36,7 +36,10 @@ public class ShareRecipeAsFileServiceTest {
     Application application;
 
     @Inject
-    RecipeImageService recipeImageService;
+    RecipeZipWriter recipeZipWriter;
+
+    @Inject
+    RecipeZipReader recipeZipReader;
 
     @Inject
     CategoryRepository categoryRepository;
@@ -51,7 +54,7 @@ public class ShareRecipeAsFileServiceTest {
         component.inject(this);
         component.inject(getApplication());
 
-        shareRecipeAsFileService = new ShareRecipeAsFileService(application, recipeImageService, categoryRepository);
+        shareRecipeAsFileService = new ShareRecipeAsFileService(application, recipeZipWriter, recipeZipReader);
     }
 
     private BroccoliApplication getApplication() {
