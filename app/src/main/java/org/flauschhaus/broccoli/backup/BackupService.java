@@ -129,7 +129,7 @@ public class BackupService extends JobIntentService {
     }
 
     private void notifyCompletion(Uri archiveUri) {
-        Intent backupIntent = new Intent(this, BackupActivity.class);
+        Intent backupIntent = new Intent(this, SaveBackupActivity.class);
         backupIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         backupIntent.setData(archiveUri);
         backupIntent.putExtra("notificationId", NOTIFICATION_ID);

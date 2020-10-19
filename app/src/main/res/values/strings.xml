@@ -58,9 +58,12 @@
     <string name="toast_error_reading_recipe">This website does not provide a recipe format that Broccoli can read. Please enter the recipe details by copy and pasting.</string>
     <string name="action_details_share_as_file">Share as file</string>
     <string name="toast_could_not_export_recipe">The recipe could not be exported.</string>
+    <string name="backup">Backup</string>
+    <string name="restore">Restore</string>
     <string name="backup_recipes">Backup recipes</string>
+    <string name="backup_recipes_message">Create a backup of all recipes and categories. You will be asked to choose a location to save the archive after the backup has completed.</string>
     <string name="restore_recipes">Restore recipes</string>
-    <string name="last_backup">Last backup: 13.10.2020</string>
+    <string name="restore_recipes_message">Choose an archive to restore recipes and categories from.</string>
     <string name="menu_backup_and_restore">Backup &amp; restore</string>
     <string name="channel_name_backup">Backup &amp; Restore</string>
     <string name="channel_description_backup">Provide notifications about the progress of backup and restore actions.</string>

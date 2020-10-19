@@ -11,7 +11,7 @@ import androidx.core.app.NotificationManagerCompat;
 
 import java.util.List;
 
-public class BackupActivity extends Activity {
+public class SaveBackupActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

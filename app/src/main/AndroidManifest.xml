@@ -90,7 +90,7 @@
             android:parentActivityName=".recipe.details.RecipeDetailsActivity" />
 
         <activity
-            android:name=".backup.BackupActivity"
+            android:name=".backup.SaveBackupActivity"
             android:label="@string/backup_recipes"
             android:theme="@android:style/Theme.NoDisplay"
             android:taskAffinity=""

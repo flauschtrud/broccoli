@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <Preference
-        app:key="backup"
-        app:icon="@drawable/ic_backup_24dp"
-        app:title="@string/backup_recipes"
-        app:summary="@string/last_backup"/>
+    <PreferenceCategory
+        app:key="backup_category"
+        app:title="@string/backup">
 
-    <Preference
-        app:key="restore"
-        app:icon="@drawable/ic_backup_restore_24dp"
-        app:title="@string/restore_recipes" />
+        <Preference
+            app:icon="@drawable/ic_backup_24dp"
+            app:key="backup"
+            app:summary="@string/backup_recipes_message"
+            app:title="@string/backup_recipes" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        app:key="restore_category"
+        app:title="@string/restore">
+
+        <Preference
+            app:icon="@drawable/ic_backup_restore_24dp"
+            app:key="restore"
+            app:summary="@string/restore_recipes_message"
+            app:title="@string/restore_recipes" />
+
+    </PreferenceCategory>
 
 </PreferenceScreen>
