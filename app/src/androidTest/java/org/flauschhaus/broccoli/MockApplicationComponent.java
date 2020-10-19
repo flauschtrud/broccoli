@@ -2,6 +2,7 @@ package org.flauschhaus.broccoli;
 
 import android.app.Application;
 
+import org.flauschhaus.broccoli.backup.BackupAndRestoreServiceTest;
 import org.flauschhaus.broccoli.category.CategoryFragmentTest;
 import org.flauschhaus.broccoli.di.ActivityModule;
 import org.flauschhaus.broccoli.di.ApplicationComponent;
@@ -49,5 +50,6 @@ public interface MockApplicationComponent extends ApplicationComponent {
     void inject(CookingModeActivityTest test);
     void inject(ImportableRecipeBuilderTest test);
     void inject(ShareRecipeAsFileServiceTest test);
+    void inject(BackupAndRestoreServiceTest test);
 
 }

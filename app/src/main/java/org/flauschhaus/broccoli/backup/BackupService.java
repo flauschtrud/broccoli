@@ -22,10 +22,13 @@ import org.flauschhaus.broccoli.recipe.sharing.RecipeZipWriter;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.concurrent.ExecutionException;
+import java.util.function.ObjIntConsumer;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -50,6 +53,28 @@ public class BackupService extends JobIntentService {
 
     private NotificationManagerCompat notificationManager;
 
+    private ObjIntConsumer<Integer> progressNotifier = (numberOfRecipes, i) -> {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, BroccoliApplication.CHANNEL_ID_BACKUP)
+                .setSmallIcon(R.drawable.ic_button_restaurant_24dp)
+                .setContentTitle(getString(R.string.backup_in_progress))
+                .setContentText(getString(R.string.backup_recipe_count, i+1,  numberOfRecipes))
+                .setProgress(numberOfRecipes, i,false)
+                .setNotificationSilent()
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        notificationManager.notify(NOTIFICATION_ID, builder.build());
+    };
+
+    public BackupService() {
+        super();
+    }
+
+    // for testing purposes
+    BackupService(Application application, RecipeZipWriter recipeZipWriter, RecipeRepository recipeRepository) {
+        this.application = application;
+        this.recipeZipWriter = recipeZipWriter;
+        this.recipeRepository = recipeRepository;
+    }
+
     public static void enqueueWork(Context context, Intent intent) {
         enqueueWork(context, BackupService.class, JOB_ID, intent);
     }
@@ -64,6 +89,17 @@ public class BackupService extends JobIntentService {
 
     @Override
     protected void onHandleWork(@NonNull Intent intent) {
+       try {
+            Uri archiveUri = backup(progressNotifier);
+            notifyCompletion(archiveUri);
+        } catch (Exception e) {
+            Log.e(getClass().getName(), e.getMessage());
+            notifyError();
+        }
+    }
+
+    // package private for testing purposes
+    Uri backup(ObjIntConsumer<Integer> notifier) throws IOException, ExecutionException, InterruptedException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
         String zipFileName = "EXPORT_" + timeStamp + ".broccoli-archive";
         File zipFile = new File(application.getCacheDir(), zipFileName);
@@ -75,7 +111,7 @@ public class BackupService extends JobIntentService {
 
             int numberOfRecipes = recipes.size();
             for (int i = 0; i < numberOfRecipes; i++) {
-                notifyProgress(numberOfRecipes, i);
+                notifier.accept(numberOfRecipes, i);
 
                 Recipe recipe = recipes.get(i);
                 ZipEntry entry = new ZipEntry(recipe.getRecipeId() + "_" + recipe.getTitle().replaceAll("[^a-zA-Z0-9\\.\\-]", "_") + ".broccoli");
@@ -88,23 +124,8 @@ public class BackupService extends JobIntentService {
                 zos.closeEntry();
             }
 
-            Uri archiveUri = FileProvider.getUriForFile(application, AUTHORITY, zipFile);
-            notifyCompletion(archiveUri);
-        } catch (Exception e) {
-            Log.e(getClass().getName(), e.getMessage());
-            notifyError();
+            return FileProvider.getUriForFile(application, AUTHORITY, zipFile);
         }
-    }
-
-    private void notifyProgress(int numberOfRecipes, int i) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, BroccoliApplication.CHANNEL_ID_BACKUP)
-                .setSmallIcon(R.drawable.ic_button_restaurant_24dp)
-                .setContentTitle(getString(R.string.backup_in_progress))
-                .setContentText(getString(R.string.backup_recipe_count, i+1,  numberOfRecipes))
-                .setProgress(numberOfRecipes, i,false)
-                .setNotificationSilent()
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        notificationManager.notify(NOTIFICATION_ID, builder.build());
     }
 
     private void notifyCompletion(Uri archiveUri) {

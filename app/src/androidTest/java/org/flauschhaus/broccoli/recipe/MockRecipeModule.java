@@ -1,5 +1,7 @@
 package org.flauschhaus.broccoli.recipe;
 
+import android.content.res.Resources;
+
 import org.flauschhaus.broccoli.category.CategoryRepository;
 import org.flauschhaus.broccoli.recipe.cooking.PageableRecipeBuilder;
 import org.flauschhaus.broccoli.recipe.images.RecipeImageService;
