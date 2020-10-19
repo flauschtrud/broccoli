@@ -1,7 +1,5 @@
 package org.flauschhaus.broccoli.category;
 
-import androidx.lifecycle.MutableLiveData;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -48,5 +46,22 @@ public class CategoryRepositoryTest {
         assertThat(retainedCategories, hasSize(2));
         assertThat(retainedCategories, hasItem(hauptgerichte));
         assertThat(retainedCategories, hasItem(kuchen));
+    }
+
+    @Test
+    public void retain_non_existing() throws ExecutionException, InterruptedException {
+        when(categoryDAO.searchByName("Hauptgerichte")).thenReturn(new Category(1, "Hauptgerichte"));
+        when(categoryDAO.searchByName("Suppen")).thenReturn(null);
+        when(categoryDAO.searchByName("Kuchen")).thenReturn(new Category(12, "Kuchen"));
+
+        List<Category> categories = new ArrayList<>();
+        Category suppen = new Category(7, "Suppen");
+        categories.add(suppen);
+        categories.add(new Category(5, "Hauptgerichte"));
+        categories.add(new Category(12, "Kuchen"));
+
+        List<Category> retainedCategories = categoryRepository.retainNonExisting(categories).get();
+        assertThat(retainedCategories, hasSize(1));
+        assertThat(retainedCategories, hasItem(suppen));
     }
 }

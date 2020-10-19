@@ -74,7 +74,6 @@
     <string name="backup_failed">Backup failed</string>
     <string name="backup_failed_message">The recipes could not be archived.</string>
     <string name="restore_in_progress">Restore in progress</string>
-    <string name="recipes_restored">%1$d recipe(s) restored</string>
     <string name="restore_failed">Restore failed</string>
     <string name="restore_failed_message">The recipes could not be restored.</string>
     <string name="restore_complete">Restore complete</string>

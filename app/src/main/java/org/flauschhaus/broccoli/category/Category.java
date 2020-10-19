@@ -4,6 +4,8 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.flauschhaus.broccoli.BroccoliApplication;
 import org.flauschhaus.broccoli.R;
 
@@ -14,6 +16,7 @@ import java.util.Objects;
 public class Category implements Serializable {
 
     @PrimaryKey(autoGenerate = true)
+    @JsonIgnore
     private long categoryId = 0;
     private String name = "";
 

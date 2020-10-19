@@ -40,9 +40,15 @@ public class RecipeZipReader {
     public class RecipeZipWriterBuilder {
 
         private boolean unfavored = false;
+        private boolean keepOnlyExistingCategories = false;
 
         public RecipeZipWriterBuilder unfavored() {
             unfavored = true;
+            return this;
+        }
+
+        public RecipeZipWriterBuilder keepOnlyExistingCategories() {
+            keepOnlyExistingCategories = true;
             return this;
         }
 
@@ -70,8 +76,10 @@ public class RecipeZipReader {
 
             if (recipe != null) {
                 try {
-                    List<Category> retainedCategories = categoryRepository.retainExisting(recipe.getCategories()).get();
-                    recipe.setCategories(retainedCategories);
+                    if (keepOnlyExistingCategories) {
+                        List<Category> retainedCategories = categoryRepository.retainExisting(recipe.getCategories()).get();
+                        recipe.setCategories(retainedCategories);
+                    }
 
                     if (unfavored) {
                         recipe.setFavorite(false);
@@ -80,6 +88,7 @@ public class RecipeZipReader {
                     if (imageName != null) {
                         recipe.setImageName(imageName);
                     }
+
                     return Optional.of(recipe);
                 } catch (Exception e) {
                     Log.e(getClass().getName(), e.getMessage());

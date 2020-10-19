@@ -13,9 +13,14 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.FileProvider;
 
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.flauschhaus.broccoli.BroccoliApplication;
 import org.flauschhaus.broccoli.BuildConfig;
 import org.flauschhaus.broccoli.R;
+import org.flauschhaus.broccoli.category.Category;
+import org.flauschhaus.broccoli.category.CategoryRepository;
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.RecipeRepository;
 import org.flauschhaus.broccoli.recipe.sharing.RecipeZipWriter;
@@ -51,6 +56,9 @@ public class BackupService extends JobIntentService {
     @Inject
     RecipeRepository recipeRepository;
 
+    @Inject
+    CategoryRepository categoryRepository;
+
     private NotificationManagerCompat notificationManager;
 
     private ObjIntConsumer<Integer> progressNotifier = (numberOfRecipes, i) -> {
@@ -69,10 +77,11 @@ public class BackupService extends JobIntentService {
     }
 
     // for testing purposes
-    BackupService(Application application, RecipeZipWriter recipeZipWriter, RecipeRepository recipeRepository) {
+    BackupService(Application application, RecipeZipWriter recipeZipWriter, RecipeRepository recipeRepository, CategoryRepository categoryRepository) {
         this.application = application;
         this.recipeZipWriter = recipeZipWriter;
         this.recipeRepository = recipeRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     public static void enqueueWork(Context context, Intent intent) {
@@ -107,8 +116,15 @@ public class BackupService extends JobIntentService {
         try (FileOutputStream fos = new FileOutputStream(zipFile); ZipOutputStream zos = new ZipOutputStream(fos)) {
             zos.setComment(String.valueOf(BuildConfig.VERSION_CODE));
 
-            List<Recipe> recipes = recipeRepository.findAll().get();
+            List<Category> categories = categoryRepository.findAll().getValue();
+            ZipEntry categoryEntry = new ZipEntry("categories.json");
+            zos.putNextEntry(categoryEntry);
+            ObjectMapper objectMapper = new ObjectMapper();
+            objectMapper.configure(JsonGenerator.Feature.AUTO_CLOSE_TARGET, false);
+            objectMapper.writeValue(zos, categories);
+            zos.closeEntry();
 
+            List<Recipe> recipes = recipeRepository.findAll().get();
             int numberOfRecipes = recipes.size();
             for (int i = 0; i < numberOfRecipes; i++) {
                 notifier.accept(numberOfRecipes, i);

@@ -30,11 +30,11 @@ public class CategoryRepository {
         CompletableFuture.runAsync(() -> categoryDAO.delete(category));
     }
 
-    public void insertOrUpdate(Category category) {
+    public CompletableFuture<Void> insertOrUpdate(Category category) {
         if (category.getCategoryId() == 0) {
-            CompletableFuture.runAsync(() -> categoryDAO.insert(category));
+            return CompletableFuture.runAsync(() -> categoryDAO.insert(category));
         } else {
-            CompletableFuture.runAsync(() -> categoryDAO.update(category));
+            return CompletableFuture.runAsync(() -> categoryDAO.update(category));
         }
     }
 
@@ -43,5 +43,11 @@ public class CategoryRepository {
                     .map(category -> categoryDAO.searchByName(category.getName()))
                     .filter(Objects::nonNull)
                     .collect(Collectors.toList()));
+    }
+
+    public CompletableFuture<List<Category>> retainNonExisting(List<Category> categories) {
+        return CompletableFuture.supplyAsync(() -> categories.stream()
+                .filter(category -> categoryDAO.searchByName(category.getName()) == null)
+                .collect(Collectors.toList()));
     }
 }

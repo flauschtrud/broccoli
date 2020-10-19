@@ -59,7 +59,10 @@ public class ShareRecipeAsFileService {
         }
 
         try (ZipInputStream zis = new ZipInputStream(inputStream)) {
-            return recipeZipReader.read().unfavored().from(zis);
+            return recipeZipReader.read()
+                    .unfavored()
+                    .keepOnlyExistingCategories()
+                    .from(zis);
         } catch (IOException e) {
             Log.e(getClass().getName(), e.getMessage());
             return Optional.empty();

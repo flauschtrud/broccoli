@@ -3,11 +3,13 @@ package org.flauschhaus.broccoli.backup;
 import android.app.Application;
 import android.net.Uri;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import org.flauschhaus.broccoli.BroccoliApplication;
 import org.flauschhaus.broccoli.DaggerMockApplicationComponent;
 import org.flauschhaus.broccoli.MockApplicationComponent;
+import org.flauschhaus.broccoli.category.Category;
 import org.flauschhaus.broccoli.category.CategoryRepository;
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.RecipeRepository;
@@ -37,11 +39,6 @@ import static org.mockito.Mockito.when;
 @RunWith(AndroidJUnit4.class)
 public class BackupAndRestoreServiceTest {
 
-    private BackupService backupService ;
-    private RestoreService restoreService;
-
-    private ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
-
     @Inject
     Application application;
 
@@ -60,6 +57,12 @@ public class BackupAndRestoreServiceTest {
     @Inject
     RecipeImageService recipeImageService;
 
+    private BackupService backupService ;
+    private RestoreService restoreService;
+
+    private ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
+    private ArgumentCaptor<Category> categoryCaptor = ArgumentCaptor.forClass(Category.class);
+
     @Before
     public void setUp() {
         MockApplicationComponent component = DaggerMockApplicationComponent.builder()
@@ -68,8 +71,8 @@ public class BackupAndRestoreServiceTest {
         component.inject(this);
         component.inject(getApplication());
 
-        backupService = new BackupService(application, recipeZipWriter, recipeRepository);
-        restoreService = new RestoreService(application, recipeZipReader, recipeRepository, recipeImageService);
+        backupService = new BackupService(application, recipeZipWriter, recipeRepository, categoryRepository);
+        restoreService = new RestoreService(application, recipeZipReader, recipeRepository, recipeImageService, categoryRepository);
     }
 
     private BroccoliApplication getApplication() {
@@ -79,6 +82,8 @@ public class BackupAndRestoreServiceTest {
 
     @Test
     public void backup_and_restore_roundtrip() throws InterruptedException, ExecutionException, IOException {
+        Category originalCategory = new Category(5, "Hauptgerichte");
+
         Recipe originalRecipe = new Recipe();
         originalRecipe.setTitle("Lauchkuchen");
 
@@ -86,12 +91,21 @@ public class BackupAndRestoreServiceTest {
         recipes.add(originalRecipe);
         when(recipeRepository.findAll()).thenReturn(CompletableFuture.completedFuture(recipes));
 
-        when(categoryRepository.retainExisting(anyList())).thenReturn(CompletableFuture.completedFuture(new ArrayList<>()));
+        ArrayList<Category> categories = new ArrayList<>();
+        categories.add(originalCategory);
+        when(categoryRepository.findAll()).thenReturn(new MutableLiveData<>(categories));
+
+        when(categoryRepository.retainNonExisting(anyList())).thenAnswer(i -> CompletableFuture.completedFuture(i.getArguments()[0]));
+        when(categoryRepository.retainExisting(anyList())).thenAnswer(i -> CompletableFuture.completedFuture(i.getArguments()[0]));
 
         when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(INSERT));
+        when(categoryRepository.insertOrUpdate(categoryCaptor.capture())).thenReturn(CompletableFuture.completedFuture(null));
 
         Uri uri = backupService.backup((numberOfRecipes, i) -> {});
-        restoreService.restore(uri, i -> {}, () -> {}, i -> {});
+        restoreService.restore(uri, () -> {}, i -> {});
+
+        Category category = categoryCaptor.getValue();
+        assertThat(category.getName(), is("Hauptgerichte"));
 
         Recipe recipe = recipeCaptor.getValue();
         assertThat(recipe.getTitle(), is("Lauchkuchen"));
