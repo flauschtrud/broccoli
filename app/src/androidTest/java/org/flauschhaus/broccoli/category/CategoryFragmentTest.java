@@ -15,6 +15,7 @@ import org.mockito.ArgumentCaptor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 import javax.inject.Inject;
 
@@ -65,7 +66,7 @@ public class CategoryFragmentTest {
 
     @Test
     public void add_new_category() {
-        doNothing().when(categoryRepository).insertOrUpdate(categoryCaptor.capture());
+        when(categoryRepository.insertOrUpdate(categoryCaptor.capture())).thenReturn(CompletableFuture.completedFuture(null));
 
         onView(withId(R.id.fab_categories)).perform(click());
         onView(withId(R.id.category_name)).perform(typeText("Mimi"));
@@ -79,7 +80,7 @@ public class CategoryFragmentTest {
 
     @Test
     public void edit_category() {
-        doNothing().when(categoryRepository).insertOrUpdate(categoryCaptor.capture());
+        when(categoryRepository.insertOrUpdate(categoryCaptor.capture())).thenReturn(CompletableFuture.completedFuture(null));
 
         onView(withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_category_name)).perform(click());
         onView(withId(R.id.category_name)).perform(typeText("iti"));
