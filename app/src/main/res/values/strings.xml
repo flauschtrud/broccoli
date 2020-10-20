@@ -80,4 +80,5 @@
     <string name="restore_complete_message">%1$d recipes have been restored.</string>
     <string name="restore_alert_message">Do you want to restore all the recipes and categories from this archive?</string>
     <string name="restore_action">Restore</string>
+    <string name="backup_last_backup">Last backup</string>
 </resources>

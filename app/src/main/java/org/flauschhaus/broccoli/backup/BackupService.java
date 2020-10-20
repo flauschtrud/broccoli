@@ -12,6 +12,7 @@ import androidx.core.app.JobIntentService;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.FileProvider;
+import androidx.preference.PreferenceManager;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -24,6 +25,8 @@ import org.flauschhaus.broccoli.category.CategoryRepository;
 import org.flauschhaus.broccoli.recipe.Recipe;
 import org.flauschhaus.broccoli.recipe.RecipeRepository;
 import org.flauschhaus.broccoli.recipe.sharing.RecipeZipWriter;
+import org.joda.time.LocalDate;
+import org.joda.time.format.DateTimeFormat;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -99,8 +102,9 @@ public class BackupService extends JobIntentService {
     @Override
     protected void onHandleWork(@NonNull Intent intent) {
        try {
-            Uri archiveUri = backup(progressNotifier);
-            notifyCompletion(archiveUri);
+           Uri archiveUri = backup(progressNotifier);
+           saveLastBackupDate();
+           notifyCompletion(archiveUri);
         } catch (Exception e) {
             Log.e(getClass().getName(), e.getMessage());
             notifyError();
@@ -169,5 +173,13 @@ public class BackupService extends JobIntentService {
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
         notificationManager.notify(NOTIFICATION_ID, builder.build());
+    }
+
+    private void saveLastBackupDate() {
+        String localizedCalendarDate = DateTimeFormat.shortDate().print(new LocalDate());
+        PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
+                .edit()
+                .putString("last-backup-date", localizedCalendarDate)
+                .apply();
     }
 }
