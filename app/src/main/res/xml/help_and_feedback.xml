@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <Preference
+            app:icon="@drawable/ic_menu_feedback_24dp"
+            app:key="feedback"
+            app:title="@string/send_feedback"
+            app:summary="@string/send_feedback_message">
+
+                <intent android:action="android.intent.action.SENDTO"
+                    android:data="mailto:jana.kutscheid@gmail.com"> <!-- TODO replace with serious address -->
+                        <extra
+                            android:name="android.intent.extra.SUBJECT"
+                            android:value="@string/feedback_subject"/>
+                </intent>
+
+        </Preference>
+
+        <Preference
+            app:icon="@drawable/ic_info_24dp"
+            app:key="version"
+            app:title="@string/version"
+            app:summary="@string/versionName"
+            app:selectable="false" />
+
+</PreferenceScreen>

@@ -23,15 +23,8 @@
         android:label="@string/menu_backup_and_restore" />
 
     <fragment
-        android:id="@+id/nav_feedback"
-        android:name="org.flauschhaus.broccoli.settings.FeedbackFragment"
-        android:label="@string/menu_feedback"
-        tools:layout="@layout/fragment_feedback" />
-
-    <fragment
-        android:id="@+id/nav_about"
-        android:name="org.flauschhaus.broccoli.settings.AboutFragment"
-        android:label="@string/menu_about"
-        tools:layout="@layout/fragment_about" />
+        android:id="@+id/nav_help_and_feedback"
+        android:name="org.flauschhaus.broccoli.help.HelpAndFeedbackFragment"
+        android:label="@string/help_and_feedback" />
 
 </navigation>
