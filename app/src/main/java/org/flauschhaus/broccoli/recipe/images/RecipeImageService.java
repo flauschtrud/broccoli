@@ -88,10 +88,10 @@ public class RecipeImageService {
         return FileProvider.getUriForFile(application, AUTHORITY, file);
     }
 
-    public CompletableFuture<Void> downloadToCache(String imageURL, File tempFile) {
+    public CompletableFuture<Void> downloadToCache(URL imageURL, File tempFile) {
         return CompletableFuture.runAsync(() -> {
             try {
-                FileUtils.copy(new URL(imageURL).openStream(), tempFile);
+                FileUtils.copy(imageURL.openStream(), tempFile);
             } catch (IOException e) {
                 throw new CompletionException(e);
             }

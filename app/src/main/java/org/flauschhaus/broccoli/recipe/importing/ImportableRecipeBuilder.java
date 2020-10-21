@@ -11,6 +11,8 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -128,18 +130,20 @@ class ImportableRecipeBuilder {
             return;
         }
 
-        String imageURL;
-        JSONArray imagesArray = recipeJson.optJSONArray(JSON_LD_RECIPE_IMAGE);
-        if (imagesArray == null) {
-            imageURL = recipeJson.optString(JSON_LD_RECIPE_IMAGE);
-        } else {
-            imageURL = imagesArray.optString(0);
+        URL url;
+        try {
+            String imageURL = getImageUrl();
+            url = new URL(imageURL);
+        } catch (MalformedURLException e) {
+            Log.e(getClass().getName(), e.getMessage());
+            return;
         }
+
 
         try {
             File tempFile = recipeImageService.createTemporaryImageFileInCache();
             recipe.setImageName(tempFile.getName());
-            recipeImageService.downloadToCache(imageURL, tempFile)
+            recipeImageService.downloadToCache(url, tempFile)
                     .exceptionally(e -> {
                         Log.e(getClass().getName(), e.getMessage());
                         return null;
@@ -148,6 +152,20 @@ class ImportableRecipeBuilder {
             Log.e(getClass().getName(), e.getMessage());
         }
 
+    }
+
+    private String getImageUrl() {
+        JSONArray imagesArray = recipeJson.optJSONArray(JSON_LD_RECIPE_IMAGE);
+        if (imagesArray != null) {
+            return imagesArray.optString(0);
+        }
+
+        JSONObject imagesObject = recipeJson.optJSONObject(JSON_LD_RECIPE_IMAGE);
+        if (imagesObject != null) {
+            return imagesObject.optString("url");
+        }
+
+        return recipeJson.optString(JSON_LD_RECIPE_IMAGE);
     }
 
 }

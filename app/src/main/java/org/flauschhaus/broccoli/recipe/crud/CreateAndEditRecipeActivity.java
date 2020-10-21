@@ -68,7 +68,9 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
                         if (optionalRecipe.isPresent()) {
                             Recipe recipe = optionalRecipe.get();
                             viewModel.setRecipe(recipe);
-                            viewModel.setNewImageName(recipe.getImageName());
+                            if (!"".equals(recipe.getImageName())) {
+                                viewModel.setNewImageName(recipe.getImageName());
+                            }
                             binding.setViewModel(viewModel);
                         } else {
                             runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_error_reading_recipe), Toast.LENGTH_LONG).show());
