@@ -8,14 +8,21 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
@@ -33,13 +40,15 @@ import org.flauschhaus.broccoli.recipe.RecipeRepository;
 import org.flauschhaus.broccoli.recipe.cooking.CookingModeActivity;
 import org.flauschhaus.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import org.flauschhaus.broccoli.recipe.directions.DirectionBuilder;
-import org.flauschhaus.broccoli.recipe.sharing.ShareRecipeAsFileService;
 import org.flauschhaus.broccoli.recipe.ingredients.IngredientBuilder;
+import org.flauschhaus.broccoli.recipe.sharing.ShareRecipeAsFileService;
 import org.flauschhaus.broccoli.recipe.sharing.ShareableRecipe;
 import org.flauschhaus.broccoli.recipe.sharing.ShareableRecipeBuilder;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import javax.inject.Inject;
@@ -61,6 +70,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     private Menu menu;
 
     private static final int REQUEST_EDIT = 1;
+    private static int colorPrimary = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +110,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             }
         });
 
+        colorPrimary = getResources().getColor(R.color.colorPrimary, getTheme());
     }
 
     @Override
@@ -198,6 +209,38 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             Log.e(getClass().getName(), e.getMessage());
             Toast.makeText(getApplicationContext(), getString(R.string.toast_could_not_export_recipe), Toast.LENGTH_LONG).show();
         }
+    }
+
+    @BindingAdapter("description")
+    public static void bindDescription(TextView textView, String description) {
+        SpannableString spannableString = new SpannableString(description);
+
+        Pattern pattern = Pattern.compile("#[^\\s!@#$%^&*()=+.\\/,\\[{\\]};:'\"?><]+");
+        Matcher matcher = pattern.matcher(description);
+        while (matcher.find()) {
+            String hashtag = matcher.group();
+            ClickableSpan clickableSpan = new ClickableSpan() {
+                @Override
+                public void onClick(@NonNull View view) {
+                    Intent intent = new Intent();
+                    intent.putExtra("hashtag", hashtag);
+
+                    RecipeDetailsActivity activity = (RecipeDetailsActivity) view.getContext();
+                    activity.setResult(RESULT_OK, intent);
+                    activity.finish();
+                }
+
+                @Override
+                public void updateDrawState(TextPaint paint) {
+                    super.updateDrawState(paint);
+                    paint.setColor(colorPrimary);
+                }
+            };
+            spannableString.setSpan(clickableSpan, matcher.start(), matcher.end(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+
+        textView.setText(spannableString);
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     @BindingAdapter("categories")

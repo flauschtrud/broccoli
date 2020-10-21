@@ -45,6 +45,7 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
     private SearchView searchView;
 
     private static final int REQUEST_CRUD = 1;
+    private static final int REQUEST_DETAILS = 2;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -112,7 +113,7 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
     public void onListFragmentInteraction(Recipe recipe) {
         Intent intent = new Intent(getContext(), RecipeDetailsActivity.class);
         intent.putExtra(Recipe.class.getName(), recipe);
-        startActivity(intent);
+        startActivityForResult(intent, REQUEST_DETAILS);
     }
 
     @Override
@@ -134,6 +135,9 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
                 searchItem.expandActionView();
                 searchView.post(() -> searchView.setQuery(recipe.getTitle(), false));
             }
+        } else if (requestCode == REQUEST_DETAILS && resultCode == RESULT_OK && data.hasExtra("hashtag")) {
+            searchItem.expandActionView();
+            searchView.post(() -> searchView.setQuery(data.getStringExtra("hashtag"), false));
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
