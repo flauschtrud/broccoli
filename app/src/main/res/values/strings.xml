@@ -80,4 +80,5 @@
     <string name="send_feedback_message">Tell us what would make cooking with Broccoli for you even better :)</string>
     <string name="feedback_subject">Feedback for Broccoli Recipe Manager</string>
     <string name="version">Version</string>
+    <string name="enjoy_your_meal">Enjoy your meal!</string>
 </resources>

@@ -40,6 +40,8 @@ public class PageableRecipeBuilder {
         List<Direction> directions = DirectionBuilder.from(recipe.getDirections());
         directions.forEach(direction -> pageableRecipe.addPage(new Page(String.valueOf(direction.getPosition()), direction.getText())));
 
+        pageableRecipe.addPage(new Page("", application.getString(R.string.enjoy_your_meal)));
+
         return pageableRecipe;
     }
 

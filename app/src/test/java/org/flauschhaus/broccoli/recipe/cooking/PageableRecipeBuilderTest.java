@@ -28,6 +28,7 @@ public class PageableRecipeBuilderTest {
     public void setUp() {
         when(application.getString(R.string.ingredients)).thenReturn("Ingredients");
         when(application.getString(R.string.no_ingredients_and_directions_yet)).thenReturn("Nothing there...");
+        when(application.getString(R.string.enjoy_your_meal)).thenReturn("Enjoy your meal!");
     }
 
     @Test
@@ -39,11 +40,12 @@ public class PageableRecipeBuilderTest {
 
         PageableRecipe pageableRecipe = pageableRecipeBuilder.from(recipe);
 
-        assertThat(pageableRecipe.getPages().size(), is(3));
+        assertThat(pageableRecipe.getPages().size(), is(4));
 
         assertPage(pageableRecipe.getPages().get(0), "Ingredients", "500g Mehl\n100g Margarine");
         assertPage(pageableRecipe.getPages().get(1), "1", "Erst dies.");
         assertPage(pageableRecipe.getPages().get(2), "2", "Dann das.");
+        assertPage(pageableRecipe.getPages().get(3), "", "Enjoy your meal!");
     }
 
     @Test
