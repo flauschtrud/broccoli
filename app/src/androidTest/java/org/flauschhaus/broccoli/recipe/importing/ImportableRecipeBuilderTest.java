@@ -228,6 +228,178 @@ public class ImportableRecipeBuilderTest {
             "  \"mainEntityOfPage\": \"https://stilettosandsprouts.de/vegane-fenchel-pasta/#webpage\"\n" +
             "}";
 
+    private static final String URL_YOAST_WITH_SECTIONS = "https://veggie-einhorn.de/saftiger-veganer-zitronenkuchen/";
+    private static final String RECIPE_YOAST_WITH_SECTIONS = "{\n" +
+            "      \"@context\": \"http://schema.org/\",\n" +
+            "      \"@type\": \"Recipe\",\n" +
+            "      \"name\": \"Saftiger Veganer Zitronenkuchen\",\n" +
+            "      \"author\": {\n" +
+            "        \"@type\": \"Person\",\n" +
+            "        \"name\": \"Karen Wilkening\"\n" +
+            "      },\n" +
+            "      \"description\": \"&#x25b6; Super saftiger veganer Zitronenkuchen &#x25b6; Einfaches, sehr leckeres Rezept &#x25b6; Kommt immer gut an&#x25b6; Für 30 cm Kastenbackform.\",\n" +
+            "      \"datePublished\": \"2019-07-01T20:18:20+00:00\",\n" +
+            "      \"image\": [\n" +
+            "        \"https://veggie-einhorn.de/wp-content/uploads/Einfacher-veganer-Zitronenkuchen-saftig.jpg\",\n" +
+            "        \"https://veggie-einhorn.de/wp-content/uploads/Einfacher-veganer-Zitronenkuchen-saftig-500x500.jpg\",\n" +
+            "        \"https://veggie-einhorn.de/wp-content/uploads/Einfacher-veganer-Zitronenkuchen-saftig-500x375.jpg\",\n" +
+            "        \"https://veggie-einhorn.de/wp-content/uploads/Einfacher-veganer-Zitronenkuchen-saftig-480x270.jpg\"\n" +
+            "      ],\n" +
+            "      \"recipeYield\": [\n" +
+            "        \"1\",\n" +
+            "        \"1 Kuchen\"\n" +
+            "      ],\n" +
+            "      \"totalTime\": \"PT75M\",\n" +
+            "      \"recipeIngredient\": [\n" +
+            "        \"300 g Mehl\",\n" +
+            "        \"200 g Zucker\",\n" +
+            "        \"1 Tüte Backpulver\",\n" +
+            "        \"1 Tüte Vanillezucker\",\n" +
+            "        \"250 ml Vanille-Sojamilch\",\n" +
+            "        \"100 g Öl (Rapsöl oder Sonnenblumenöl)\",\n" +
+            "        \"50 ml Zitronensaft\",\n" +
+            "        \"geriebene Zitronenschale\",\n" +
+            "        \"evtl. Backaroma Zitrone\",\n" +
+            "        \"150 g Puderzucker\",\n" +
+            "        \"2 EL Zitronensaft\"\n" +
+            "      ],\n" +
+            "      \"recipeInstructions\": [\n" +
+            "        {\n" +
+            "          \"@type\": \"HowToSection\",\n" +
+            "          \"name\": \"Vorbereiten:\",\n" +
+            "          \"itemListElement\": [\n" +
+            "            {\n" +
+            "              \"@type\": \"HowToStep\",\n" +
+            "              \"text\": \"Kastenbackform mit Backpapier auslegen oder einfetten.\",\n" +
+            "              \"name\": \"Kastenbackform mit Backpapier auslegen oder einfetten.\",\n" +
+            "              \"url\": \"https://veggie-einhorn.de/saftiger-veganer-zitronenkuchen/#wprm-recipe-36837-step-0-0\"\n" +
+            "            },\n" +
+            "            {\n" +
+            "              \"@type\": \"HowToStep\",\n" +
+            "              \"text\": \"2 Zitronen abreiben und auspressen.\",\n" +
+            "              \"name\": \"2 Zitronen abreiben und auspressen.\",\n" +
+            "              \"url\": \"https://veggie-einhorn.de/saftiger-veganer-zitronenkuchen/#wprm-recipe-36837-step-0-1\"\n" +
+            "            },\n" +
+            "            {\n" +
+            "              \"@type\": \"HowToStep\",\n" +
+            "              \"text\": \"Backofen vorheizen auf 180 °C (Ober-Unter-Hitze).\",\n" +
+            "              \"name\": \"Backofen vorheizen auf 180 °C (Ober-Unter-Hitze).\",\n" +
+            "              \"url\": \"https://veggie-einhorn.de/saftiger-veganer-zitronenkuchen/#wprm-recipe-36837-step-0-2\"\n" +
+            "            }\n" +
+            "          ]\n" +
+            "        },\n" +
+            "        {\n" +
+            "          \"@type\": \"HowToSection\",\n" +
+            "          \"name\": \"Trockene Zutaten mischen:\",\n" +
+            "          \"itemListElement\": [\n" +
+            "            {\n" +
+            "              \"@type\": \"HowToStep\",\n" +
+            "              \"text\": \"In eine Schüssel geben:300 g Mehl 200 g Zucker1 Tüte Backpulver1 Tüte VanillezuckerAbgeriebene ZitronenschaleGut mischen.\",\n" +
+            "              \"name\": \"In eine Schüssel geben:300 g Mehl 200 g Zucker1 Tüte Backpulver1 Tüte VanillezuckerAbgeriebene ZitronenschaleGut mischen.\",\n" +
+            "              \"url\": \"https://veggie-einhorn.de/saftiger-veganer-zitronenkuchen/#wprm-recipe-36837-step-1-0\"\n" +
+            "            }\n" +
+            "          ]\n" +
+            "        },\n" +
+            "        {\n" +
+            "          \"@type\": \"HowToSection\",\n" +
+            "          \"name\": \"Feuchte Zutaten zufügen:\",\n" +
+            "          \"itemListElement\": [\n" +
+            "            {\n" +
+            "              \"@type\": \"HowToStep\",\n" +
+            "              \"text\": \"250 ml Sojamilch Vanille100 g Öl50 ml Zitronensaft\",\n" +
+            "              \"name\": \"250 ml Sojamilch Vanille100 g Öl50 ml Zitronensaft\",\n" +
+            "              \"url\": \"https://veggie-einhorn.de/saftiger-veganer-zitronenkuchen/#wprm-recipe-36837-step-2-0\"\n" +
+            "            },\n" +
+            "            {\n" +
+            "              \"@type\": \"HowToStep\",\n" +
+            "              \"text\": \"Evtl. weiteres Zitronenaroma zufügen(Backaroma oder Zitronenöl)\",\n" +
+            "              \"name\": \"Evtl. weiteres Zitronenaroma zufügen(Backaroma oder Zitronenöl)\",\n" +
+            "              \"url\": \"https://veggie-einhorn.de/saftiger-veganer-zitronenkuchen/#wprm-recipe-36837-step-2-1\"\n" +
+            "            }\n" +
+            "          ]\n" +
+            "        },\n" +
+            "        {\n" +
+            "          \"@type\": \"HowToSection\",\n" +
+            "          \"name\": \"Teig mixen und in Backform füllen:\",\n" +
+            "          \"itemListElement\": [\n" +
+            "            {\n" +
+            "              \"@type\": \"HowToStep\",\n" +
+            "              \"text\": \"Kurz gut durchmixen.\",\n" +
+            "              \"name\": \"Kurz gut durchmixen.\",\n" +
+            "              \"url\": \"https://veggie-einhorn.de/saftiger-veganer-zitronenkuchen/#wprm-recipe-36837-step-3-0\"\n" +
+            "            },\n" +
+            "            {\n" +
+            "              \"@type\": \"HowToStep\",\n" +
+            "              \"text\": \"In die vorbereitete Kastenbackform füllen.\",\n" +
+            "              \"name\": \"In die vorbereitete Kastenbackform füllen.\",\n" +
+            "              \"url\": \"https://veggie-einhorn.de/saftiger-veganer-zitronenkuchen/#wprm-recipe-36837-step-3-1\"\n" +
+            "            }\n" +
+            "          ]\n" +
+            "        },\n" +
+            "        {\n" +
+            "          \"@type\": \"HowToSection\",\n" +
+            "          \"name\": \"Backen:\",\n" +
+            "          \"itemListElement\": [\n" +
+            "            {\n" +
+            "              \"@type\": \"HowToStep\",\n" +
+            "              \"text\": \"Im vorgeheizten Ofen bei 180 °C (Ober-Unter-Hitze) 60 Minuten backen.(Stäbchenprobe)\",\n" +
+            "              \"name\": \"Im vorgeheizten Ofen bei 180 °C (Ober-Unter-Hitze) 60 Minuten backen.(Stäbchenprobe)\",\n" +
+            "              \"url\": \"https://veggie-einhorn.de/saftiger-veganer-zitronenkuchen/#wprm-recipe-36837-step-4-0\"\n" +
+            "            },\n" +
+            "            {\n" +
+            "              \"@type\": \"HowToStep\",\n" +
+            "              \"text\": \"Kuchen in der Form abkühlen lassen.\",\n" +
+            "              \"name\": \"Kuchen in der Form abkühlen lassen.\",\n" +
+            "              \"url\": \"https://veggie-einhorn.de/saftiger-veganer-zitronenkuchen/#wprm-recipe-36837-step-4-1\"\n" +
+            "            }\n" +
+            "          ]\n" +
+            "        },\n" +
+            "        {\n" +
+            "          \"@type\": \"HowToSection\",\n" +
+            "          \"name\": \"Zitronenglasur:\",\n" +
+            "          \"itemListElement\": [\n" +
+            "            {\n" +
+            "              \"@type\": \"HowToStep\",\n" +
+            "              \"text\": \"150 g Puderzucker sieben.Mit 2 EL Zitronensaft verrühren.Auf dem Kuchen verteilen.\",\n" +
+            "              \"name\": \"150 g Puderzucker sieben.Mit 2 EL Zitronensaft verrühren.Auf dem Kuchen verteilen.\",\n" +
+            "              \"url\": \"https://veggie-einhorn.de/saftiger-veganer-zitronenkuchen/#wprm-recipe-36837-step-5-0\"\n" +
+            "            }\n" +
+            "          ]\n" +
+            "        }\n" +
+            "      ],\n" +
+            "      \"aggregateRating\": {\n" +
+            "        \"@type\": \"AggregateRating\",\n" +
+            "        \"ratingValue\": \"4.97\",\n" +
+            "        \"ratingCount\": \"29\"\n" +
+            "      },\n" +
+            "      \"recipeCategory\": [\n" +
+            "        \"Backen\"\n" +
+            "      ],\n" +
+            "      \"recipeCuisine\": [\n" +
+            "        \"vegan\"\n" +
+            "      ],\n" +
+            "      \"suitableForDiet\": [\n" +
+            "        \"https://schema.org/LowLactoseDiet\",\n" +
+            "        \"https://schema.org/VeganDiet\"\n" +
+            "      ],\n" +
+            "      \"keywords\": \"einfach, mit öl, ohne butter, ohne ei, ohne milch, super saftig\",\n" +
+            "      \"nutrition\": {\n" +
+            "        \"@type\": \"NutritionInformation\",\n" +
+            "        \"servingSize\": \"1 Stück (bei 12 Stücken)\",\n" +
+            "        \"calories\": \"292 kcal\",\n" +
+            "        \"carbohydrateContent\": \"49 g\",\n" +
+            "        \"proteinContent\": \"3.8 g\",\n" +
+            "        \"fatContent\": \"8.4 g\",\n" +
+            "        \"saturatedFatContent\": \"0.75 g\",\n" +
+            "        \"sugarContent\": \"31 g\"\n" +
+            "      },\n" +
+            "      \"@id\": \"https://veggie-einhorn.de/saftiger-veganer-zitronenkuchen/#recipe\",\n" +
+            "      \"isPartOf\": {\n" +
+            "        \"@id\": \"https://veggie-einhorn.de/saftiger-veganer-zitronenkuchen/#webpage\"\n" +
+            "      },\n" +
+            "      \"mainEntityOfPage\": \"https://veggie-einhorn.de/saftiger-veganer-zitronenkuchen/#webpage\"\n" +
+            "    }";
+
     @Before
     public void setUp() {
         MockApplicationComponent component = DaggerMockApplicationComponent.builder()
@@ -289,6 +461,31 @@ public class ImportableRecipeBuilderTest {
         assertThat(recipe.getDescription(), is("Pasta mit geröstetem Fenchel und Zitrone – ein herrlich leichtes Pastagericht, in nur 10 Minuten fertig zubereitet."));
         assertThat(recipe.getIngredients(), is("1 Knolle Fenchel\n1  Bio-Zitrone\n1  Knoblauchzehe, geschält und fein gehackt\n1  Schalotte, geschält und fein gehackt\n1 Handvoll Petersilie, frisch, fein gehackt\n5 EL Semmelbrösel\nOlivenöl\nSalz &amp; Pfeffer\n250 g Pasta (z.B. Linguini)"));
         assertThat(recipe.getDirections(), is("Vom Fenchel die oberen grünen Stängel entfernen. Dabei unbedingt das Fenchelgrün aufbewahren. Das kommt später an die Pasta ran. Die Knolle halbieren, den Strunk in der Mitte keilförmig entfernen und nun die zwei Hälften in dünne Streifen schneiden. Die Fenchel-Streifen waschen und gut abtrocknen.\nDie Pasta nach Packungsanweisung garen.\nIn der Zwischenzeit in einer großen Pfanne Olivenöl erhitzen und den Fenchel darin mit etwas Salz ca. 8 Minuten lang anrösten.\nIn einer kleinen Pfanne etwas Olivenöl erhitzen, Knoblauch- und Schalottenwürfel darin mit etwas Salz glasig andünsten. Zitronenabrieb, Petersilie und die Semmelbrösel hinzugeben und alles ca. 4 Minuten vorsichtig anrösten bis die Semmelbrösel leicht angebräunt sind. Die Mischung vom Herd nehmen.\nDie fertige Pasta abgießen. Dabei etwa ein halbes Wasserglas der Kochflüssigkeit auffangen. Abgetropfte Pasta zum Fenchel geben. Die Semmelbröselmischung dazugeben. Kochflüssigkeit nach Belieben dazugeben, damit die Pasta schön glänzend wird. Pasta ordentlich salzen und pfeffern und nach Geschmack Zitrone hinzugeben. Den Saft einer halben Zitrone verträgt das Gericht mindestens. Mit einem guten Schuss Olivenöl und mit Fenchelgrün bestreut servieren."));
+        assertThat(recipe.getImageName(), is ("blablupp.jpg"));
+    }
+
+    @Test
+    public void example_yoast_with_sections() throws JSONException, IOException {
+        when(recipeImageService.createTemporaryImageFileInCache()).thenReturn(fileInCache);
+        when(recipeImageService.downloadToCache(eq(new URL("https://veggie-einhorn.de/wp-content/uploads/Einfacher-veganer-Zitronenkuchen-saftig.jpg")), eq(fileInCache))).thenReturn(CompletableFuture.completedFuture(null));
+
+        ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(recipeImageService);
+
+        Optional<Recipe> optionalRecipe = recipeBuilder
+                .withRecipeJsonLd(new JSONObject(RECIPE_YOAST_WITH_SECTIONS))
+                .from(URL_YOAST_WITH_SECTIONS)
+                .build();
+
+        assertThat(optionalRecipe.isPresent(), is(true));
+
+        Recipe recipe = optionalRecipe.get();
+        assertThat(recipe.getTitle(), is("Saftiger Veganer Zitronenkuchen"));
+        assertThat(recipe.getSource(), is(URL_YOAST_WITH_SECTIONS));
+        assertThat(recipe.getServings(), is("1"));
+        assertThat(recipe.getPreparationTime(), is("75 minutes"));
+        assertThat(recipe.getDescription(), is("&#x25b6; Super saftiger veganer Zitronenkuchen &#x25b6; Einfaches, sehr leckeres Rezept &#x25b6; Kommt immer gut an&#x25b6; Für 30 cm Kastenbackform."));
+        assertThat(recipe.getIngredients(), is("300 g Mehl\n200 g Zucker\n1 Tüte Backpulver\n1 Tüte Vanillezucker\n250 ml Vanille-Sojamilch\n100 g Öl (Rapsöl oder Sonnenblumenöl)\n50 ml Zitronensaft\ngeriebene Zitronenschale\nevtl. Backaroma Zitrone\n150 g Puderzucker\n2 EL Zitronensaft"));
+        assertThat(recipe.getDirections(), is("VORBEREITEN: Kastenbackform mit Backpapier auslegen oder einfetten. 2 Zitronen abreiben und auspressen. Backofen vorheizen auf 180 °C (Ober-Unter-Hitze).\nTROCKENE ZUTATEN MISCHEN: In eine Schüssel geben:300 g Mehl 200 g Zucker1 Tüte Backpulver1 Tüte VanillezuckerAbgeriebene ZitronenschaleGut mischen.\nFEUCHTE ZUTATEN ZUFÜGEN: 250 ml Sojamilch Vanille100 g Öl50 ml Zitronensaft Evtl. weiteres Zitronenaroma zufügen(Backaroma oder Zitronenöl)\nTEIG MIXEN UND IN BACKFORM FÜLLEN: Kurz gut durchmixen. In die vorbereitete Kastenbackform füllen.\nBACKEN: Im vorgeheizten Ofen bei 180 °C (Ober-Unter-Hitze) 60 Minuten backen.(Stäbchenprobe) Kuchen in der Form abkühlen lassen.\nZITRONENGLASUR: 150 g Puderzucker sieben.Mit 2 EL Zitronensaft verrühren.Auf dem Kuchen verteilen."));
         assertThat(recipe.getImageName(), is ("blablupp.jpg"));
     }
 
