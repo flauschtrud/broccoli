@@ -36,7 +36,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
-import java.util.function.ObjIntConsumer;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -63,17 +62,6 @@ public class BackupService extends JobIntentService {
     CategoryRepository categoryRepository;
 
     private NotificationManagerCompat notificationManager;
-
-    private ObjIntConsumer<Integer> progressNotifier = (numberOfRecipes, i) -> {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, BroccoliApplication.CHANNEL_ID_BACKUP)
-                .setSmallIcon(R.drawable.ic_button_restaurant_24dp)
-                .setContentTitle(getString(R.string.backup_in_progress))
-                .setContentText(getString(R.string.backup_recipe_count, i+1,  numberOfRecipes))
-                .setProgress(numberOfRecipes, i,false)
-                .setNotificationSilent()
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        notificationManager.notify(NOTIFICATION_ID, builder.build());
-    };
 
     public BackupService() {
         super();
@@ -102,7 +90,8 @@ public class BackupService extends JobIntentService {
     @Override
     protected void onHandleWork(@NonNull Intent intent) {
        try {
-           Uri archiveUri = backup(progressNotifier);
+           notifyProgress();
+           Uri archiveUri = backup();
            saveLastBackupDate();
            notifyCompletion(archiveUri);
         } catch (Exception e) {
@@ -112,7 +101,7 @@ public class BackupService extends JobIntentService {
     }
 
     // package private for testing purposes
-    Uri backup(ObjIntConsumer<Integer> notifier) throws IOException, ExecutionException, InterruptedException {
+    Uri backup() throws IOException, ExecutionException, InterruptedException {
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
         String zipFileName = "EXPORT_" + timeStamp + ".broccoli-archive";
         File zipFile = new File(application.getCacheDir(), zipFileName);
@@ -129,10 +118,7 @@ public class BackupService extends JobIntentService {
             zos.closeEntry();
 
             List<Recipe> recipes = recipeRepository.findAll().get();
-            int numberOfRecipes = recipes.size();
-            for (int i = 0; i < numberOfRecipes; i++) {
-                notifier.accept(numberOfRecipes, i);
-
+            for (int i = 0; i < recipes.size(); i++) {
                 Recipe recipe = recipes.get(i);
                 ZipEntry entry = new ZipEntry(recipe.getRecipeId() + "_" + recipe.getTitle().replaceAll("[^a-zA-Z0-9\\.\\-]", "_") + ".broccoli");
                 zos.putNextEntry(entry);
@@ -146,6 +132,16 @@ public class BackupService extends JobIntentService {
 
             return FileProvider.getUriForFile(application, AUTHORITY, zipFile);
         }
+    }
+
+    private void notifyProgress() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, BroccoliApplication.CHANNEL_ID_BACKUP)
+                .setSmallIcon(R.drawable.ic_button_restaurant_24dp)
+                .setContentTitle(getString(R.string.backup_in_progress))
+                .setProgress(0, 0,true)
+                .setNotificationSilent()
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        notificationManager.notify(NOTIFICATION_ID, builder.build());
     }
 
     private void notifyCompletion(Uri archiveUri) {

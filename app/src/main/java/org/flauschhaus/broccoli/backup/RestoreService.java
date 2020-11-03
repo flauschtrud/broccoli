@@ -27,14 +27,12 @@ import org.flauschhaus.broccoli.recipe.sharing.RecipeZipReader;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ExecutionException;
-import java.util.function.IntConsumer;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -63,34 +61,6 @@ public class RestoreService extends JobIntentService {
     CategoryRepository categoryRepository;
 
     private NotificationManagerCompat notificationManager;
-
-    private Runnable progressNotifier = () -> {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, BroccoliApplication.CHANNEL_ID_BACKUP)
-                .setSmallIcon(R.drawable.ic_button_restaurant_24dp)
-                .setContentTitle(getString(R.string.restore_in_progress))
-                .setProgress(0, 0,true)
-                .setNotificationSilent()
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        notificationManager.notify(NOTIFICATION_ID, builder.build());
-    };
-
-    private Runnable errorNotifier = () -> {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, BroccoliApplication.CHANNEL_ID_BACKUP)
-                .setSmallIcon(R.drawable.ic_button_restaurant_24dp)
-                .setContentTitle(getString(R.string.restore_failed))
-                .setContentText(getString(R.string.restore_failed_message))
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        notificationManager.notify(NOTIFICATION_ID, builder.build());
-    };
-
-    private IntConsumer completionNotifier = i -> {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, BroccoliApplication.CHANNEL_ID_BACKUP)
-                .setSmallIcon(R.drawable.ic_button_restaurant_24dp)
-                .setContentTitle(getString(R.string.restore_complete))
-                .setContentText(getString(R.string.restore_complete_message, i))
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        notificationManager.notify(NOTIFICATION_ID, builder.build());
-    };
 
     public RestoreService() {
         super();
@@ -121,24 +91,18 @@ public class RestoreService extends JobIntentService {
     protected void onHandleWork(@NonNull Intent intent) {
         Uri uri = intent.getData();
         try {
-            progressNotifier.run();
-            restore(uri, errorNotifier, completionNotifier);
-        } catch (IOException e) {
+            notifyProgress();
+            int numberOfRecipes = restore(uri);
+            notifyCompletion(numberOfRecipes);
+        } catch (Exception e) {
             Log.e(getClass().getName(), e.getMessage());
-            errorNotifier.run();
+            notifyError();
         }
     }
 
     // package private for testing purposes
-    void restore(Uri uri, Runnable errorNotifier, IntConsumer completionNotifier) throws IOException {
-        InputStream inputStream;
-        try {
-            inputStream = application.getContentResolver().openInputStream(uri);
-        } catch (FileNotFoundException e) {
-            Log.e(getClass().getName(), e.getMessage());
-            errorNotifier.run();
-            return;
-        }
+    int restore(Uri uri) throws IOException, ExecutionException, InterruptedException {
+        InputStream inputStream = application.getContentResolver().openInputStream(uri);
 
         List<Recipe> recipes = new ArrayList<>();
         List<Category> categories = new ArrayList<>();
@@ -160,13 +124,8 @@ public class RestoreService extends JobIntentService {
             zis.closeEntry();
         }
 
-        try {
-            save(categories, recipes);
-            completionNotifier.accept(count);
-        } catch (Exception e) {
-            Log.e(getClass().getName(), e.getMessage());
-            errorNotifier.run();
-        }
+        save(categories, recipes);
+        return count;
     }
 
     @Transaction
@@ -184,6 +143,34 @@ public class RestoreService extends JobIntentService {
                 recipeImageService.moveImage(recipe.getImageName());
             }
         }
+    }
+
+    private void notifyProgress() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, BroccoliApplication.CHANNEL_ID_BACKUP)
+                .setSmallIcon(R.drawable.ic_button_restaurant_24dp)
+                .setContentTitle(getString(R.string.restore_in_progress))
+                .setProgress(0, 0,true)
+                .setNotificationSilent()
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        notificationManager.notify(NOTIFICATION_ID, builder.build());
+    }
+
+    private void notifyCompletion(int numberOfRecipes) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, BroccoliApplication.CHANNEL_ID_BACKUP)
+                .setSmallIcon(R.drawable.ic_button_restaurant_24dp)
+                .setContentTitle(getString(R.string.restore_complete))
+                .setContentText(getString(R.string.restore_complete_message, numberOfRecipes))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        notificationManager.notify(NOTIFICATION_ID, builder.build());
+    }
+
+    private void notifyError() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, BroccoliApplication.CHANNEL_ID_BACKUP)
+                .setSmallIcon(R.drawable.ic_button_restaurant_24dp)
+                .setContentTitle(getString(R.string.restore_failed))
+                .setContentText(getString(R.string.restore_failed_message))
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        notificationManager.notify(NOTIFICATION_ID, builder.build());
     }
 
 }

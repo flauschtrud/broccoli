@@ -101,8 +101,10 @@ public class BackupAndRestoreServiceTest {
         when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(INSERT));
         when(categoryRepository.insertOrUpdate(categoryCaptor.capture())).thenReturn(CompletableFuture.completedFuture(null));
 
-        Uri uri = backupService.backup((numberOfRecipes, i) -> {});
-        restoreService.restore(uri, () -> {}, i -> {});
+        Uri uri = backupService.backup();
+        int numberOfRecipes = restoreService.restore(uri);
+
+        assertThat(numberOfRecipes, is(1));
 
         Category category = categoryCaptor.getValue();
         assertThat(category.getName(), is("Hauptgerichte"));
