@@ -1,8 +1,5 @@
-Welcome to Broccoli 0.4.0. Let's build a security net!
+Welcome to Broccoli 0.4.1. This is only a small update.
 
-Are you afraid of losing or breaking your phone and being robbed of all your precious recipes?
-Then do not hesitate, use our new backup and restore functionality and save your recipe data in your favorite cloud.
-
-We've also fixed a few minor bugs regarding the import from websites and made the cooking mode even friendlier.
+We've fixed problems with backups of larger recipe collections and made it possible to import some more recipes from the web.
 
 Have fun cooking!
