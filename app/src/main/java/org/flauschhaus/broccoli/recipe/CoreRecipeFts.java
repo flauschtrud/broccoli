@@ -3,7 +3,7 @@ package org.flauschhaus.broccoli.recipe;
 import androidx.room.Entity;
 import androidx.room.Fts4;
 
-@Fts4(contentEntity = CoreRecipe.class)
+@Fts4(contentEntity = CoreRecipe.class, tokenizer = "unicode61", tokenizerArgs = "tokenchars=#")
 @Entity(tableName = "recipes_fts")
 public class CoreRecipeFts {
 

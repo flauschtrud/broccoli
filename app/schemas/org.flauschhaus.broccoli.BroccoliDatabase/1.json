@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "2b750dfd633679ef1cd7cb342cdf4b29",
+    "identityHash": "1548e88f42d976a4b4915ca1cfa71e00",
     "entities": [
       {
         "tableName": "recipes",
@@ -174,8 +174,10 @@
       {
         "ftsVersion": "FTS4",
         "ftsOptions": {
-          "tokenizer": "simple",
-          "tokenizerArgs": [],
+          "tokenizer": "unicode61",
+          "tokenizerArgs": [
+            "tokenchars=#"
+          ],
           "contentTable": "recipes",
           "languageIdColumnName": "",
           "matchInfo": "FTS4",
@@ -190,7 +192,7 @@
           "CREATE TRIGGER IF NOT EXISTS room_fts_content_sync_recipes_fts_AFTER_INSERT AFTER INSERT ON `recipes` BEGIN INSERT INTO `recipes_fts`(`docid`, `title`, `description`, `source`, `ingredients`) VALUES (NEW.`rowid`, NEW.`title`, NEW.`description`, NEW.`source`, NEW.`ingredients`); END"
         ],
         "tableName": "recipes_fts",
-        "createSql": "CREATE VIRTUAL TABLE IF NOT EXISTS `${TABLE_NAME}` USING FTS4(`title` TEXT, `description` TEXT, `source` TEXT, `ingredients` TEXT, content=`recipes`)",
+        "createSql": "CREATE VIRTUAL TABLE IF NOT EXISTS `${TABLE_NAME}` USING FTS4(`title` TEXT, `description` TEXT, `source` TEXT, `ingredients` TEXT, tokenize=unicode61 `tokenchars=#`, content=`recipes`)",
         "fields": [
           {
             "fieldPath": "title",
@@ -228,7 +230,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2b750dfd633679ef1cd7cb342cdf4b29')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1548e88f42d976a4b4915ca1cfa71e00')"
     ]
   }
 }
