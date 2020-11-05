@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable name="category" type="org.flauschhaus.broccoli.category.Category" />
+        <variable name="category" type="com.flauschcode.broccoli.category.Category" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

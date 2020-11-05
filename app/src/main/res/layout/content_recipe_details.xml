@@ -4,7 +4,7 @@
     <data>
         <import type="android.view.View"/>
         <import type="android.text.TextUtils"/>
-        <variable name="recipe" type="org.flauschhaus.broccoli.recipe.Recipe" />
+        <variable name="recipe" type="com.flauschcode.broccoli.recipe.Recipe" />
     </data>
 
     <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context=".recipe.details.RecipeDetailsActivity"
+        tools:context="com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity"
         tools:showIn="@layout/activity_recipe_details">
 
         <LinearLayout

@@ -7,24 +7,24 @@
 
     <fragment
         android:id="@+id/nav_recipes"
-        android:name="org.flauschhaus.broccoli.recipe.list.RecipeFragment"
+        android:name="com.flauschcode.broccoli.recipe.list.RecipeFragment"
         android:label="@string/menu_recipes"
         tools:layout="@layout/fragment_recipes" />
 
     <fragment
         android:id="@+id/nav_categories"
-        android:name="org.flauschhaus.broccoli.category.CategoryFragment"
+        android:name="com.flauschcode.broccoli.category.CategoryFragment"
         android:label="@string/menu_categories"
         tools:layout="@layout/fragment_recipes" />
 
     <fragment
         android:id="@+id/nav_backup_and_restore"
-        android:name="org.flauschhaus.broccoli.backup.BackupAndRestoreFragment"
+        android:name="com.flauschcode.broccoli.backup.BackupAndRestoreFragment"
         android:label="@string/menu_backup_and_restore" />
 
     <fragment
         android:id="@+id/nav_help_and_feedback"
-        android:name="org.flauschhaus.broccoli.help.HelpAndFeedbackFragment"
+        android:name="com.flauschcode.broccoli.help.HelpAndFeedbackFragment"
         android:label="@string/help_and_feedback" />
 
 </navigation>

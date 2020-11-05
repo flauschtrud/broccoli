@@ -4,7 +4,7 @@
     xmlns:controls="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable name="viewModel" type="org.flauschhaus.broccoli.recipe.cooking.CookingModeFragmentViewModel" />
+        <variable name="viewModel" type="com.flauschcode.broccoli.recipe.cooking.CookingModeFragmentViewModel" />
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,7 +38,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:text="@{viewModel.text}" />
 
-    <org.flauschhaus.broccoli.recipe.cooking.CookingModeControls
+    <com.flauschcode.broccoli.recipe.cooking.CookingModeControls
         android:id="@+id/cooking_mode_controls"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

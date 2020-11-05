@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:keepScreenOn="true"
-    tools:context=".recipe.cooking.CookingModeActivity">
+    tools:context="com.flauschcode.broccoli.recipe.cooking.CookingModeActivity">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/cooking_mode_pager"

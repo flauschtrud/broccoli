@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.flauschhaus.broccoli">
+    package="com.flauschcode.broccoli">
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -20,7 +20,7 @@
     </queries>
 
     <application
-        android:name=".BroccoliApplication"
+        android:name="com.flauschcode.broccoli.BroccoliApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -30,7 +30,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="org.flauschhaus.broccoli.fileprovider"
+            android:authorities="com.flauschcode.broccoli.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
@@ -39,29 +39,29 @@
         </provider>
 
         <service
-            android:name=".backup.BackupService"
+            android:name="com.flauschcode.broccoli.backup.BackupService"
             android:permission="android.permission.BIND_JOB_SERVICE"
             android:exported="false"/>
 
         <service
-            android:name=".backup.RestoreService"
+            android:name="com.flauschcode.broccoli.backup.RestoreService"
             android:permission="android.permission.BIND_JOB_SERVICE"
             android:exported="false"/>
 
         <activity
-            android:name=".recipe.details.RecipeDetailsActivity"
-            android:parentActivityName=".MainActivity"
+            android:name="com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity"
+            android:parentActivityName="com.flauschcode.broccoli.MainActivity"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="org.flauschhaus.broccoli.MainActivity" />
+                android:value="com.flauschcode.broccoli.MainActivity" />
         </activity>
 
         <activity
-            android:name=".recipe.crud.CreateAndEditRecipeActivity"
+            android:name="com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity"
             android:label="@string/title_activity_new_recipe"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="com.flauschcode.broccoli.MainActivity"
             android:theme="@style/AppTheme.NoActionBarPrimaryDarkStatusBar"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
 
@@ -85,20 +85,20 @@
         </activity>
 
         <activity
-            android:name=".recipe.cooking.CookingModeActivity"
+            android:name="com.flauschcode.broccoli.recipe.cooking.CookingModeActivity"
             android:label="@string/title_activity_cooking_mode"
-            android:parentActivityName=".recipe.details.RecipeDetailsActivity" />
+            android:parentActivityName="com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity" />
 
         <activity
-            android:name=".backup.SaveBackupActivity"
+            android:name="com.flauschcode.broccoli.backup.SaveBackupActivity"
             android:label="@string/backup_recipes"
             android:theme="@android:style/Theme.NoDisplay"
             android:taskAffinity=""
             android:excludeFromRecents="true"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName="com.flauschcode.broccoli.MainActivity" />
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.flauschcode.broccoli.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
