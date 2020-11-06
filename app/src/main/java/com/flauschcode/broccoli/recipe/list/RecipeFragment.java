@@ -127,20 +127,25 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CRUD && resultCode == RESULT_OK) {
             Recipe recipe = (Recipe) data.getSerializableExtra(Recipe.class.getName());
-            Spinner spinner = getActivity().findViewById(R.id.spinner);
-            if (spinner != null) {
-                spinner.setSelection(0);
-                viewModel.setFilter(Category.ALL);
-            }
+            resetCategory();
             if (getActivity() instanceof MainActivity) {
                 searchItem.expandActionView();
                 searchView.post(() -> searchView.setQuery(recipe.getTitle(), false));
             }
         } else if (requestCode == REQUEST_DETAILS && resultCode == RESULT_OK && data.hasExtra("hashtag")) {
+            resetCategory();
             searchItem.expandActionView();
             searchView.post(() -> searchView.setQuery(data.getStringExtra("hashtag"), false));
         }
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    private void resetCategory() {
+        Spinner spinner = getActivity().findViewById(R.id.spinner);
+        if (spinner != null) {
+            spinner.setSelection(0);
+            viewModel.setFilter(Category.ALL);
+        }
     }
 
     @Override
