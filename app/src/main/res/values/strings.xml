@@ -80,4 +80,19 @@
     <string name="feedback_subject">Feedback for Broccoli Recipe Manager</string>
     <string name="version">Version</string>
     <string name="enjoy_your_meal">Enjoy your meal!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="seasonal_calendar">Seasonal calendar</string>
+    <string name="region">Region</string>
+    <string name="region_germany">Germany</string> <!-- TODO just temporarily -->
+    <string name="region_australia">Australia</string> <!-- TODO just temporarily -->
+
+    <!-- seasonal food -->
+    <string name="apple">apple</string>
+    <string name="apple_terms">apple, apples</string>
+
+    <string name="leek">leek</string>
+    <string name="leek_terms">leek</string>
+
+    <string name="lemon">lemon</string>
+    <string name="lemon_terms">lemon, lemons</string>
 </resources>

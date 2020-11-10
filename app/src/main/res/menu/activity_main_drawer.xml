@@ -13,6 +13,10 @@
             android:icon="@drawable/ic_categories_24dp"
             android:title="@string/menu_categories" />
 
+        <item android:id="@+id/nav_seasons"
+            android:icon="@drawable/placeholder"
+            android:title="@string/seasonal_calendar" />
+
     </group>
 
     <group android:id="@+id/group_settings">
@@ -20,6 +24,10 @@
         <item android:id="@+id/nav_backup_and_restore"
             android:icon="@drawable/ic_import_export_24dp"
             android:title="@string/menu_backup_and_restore" />
+
+        <item android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings_24"
+            android:title="@string/menu_settings" />
 
         <item android:id="@+id/nav_help_and_feedback"
             android:icon="@drawable/ic_help_24"

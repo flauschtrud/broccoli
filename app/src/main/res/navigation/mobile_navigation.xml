@@ -18,9 +18,20 @@
         tools:layout="@layout/fragment_recipes" />
 
     <fragment
+        android:id="@+id/nav_seasons"
+        android:name="com.flauschcode.broccoli.seasons.SeasonsFragment"
+        android:label="@string/seasonal_calendar"
+        tools:layout="@layout/fragment_seasons" />
+
+    <fragment
         android:id="@+id/nav_backup_and_restore"
         android:name="com.flauschcode.broccoli.backup.BackupAndRestoreFragment"
         android:label="@string/menu_backup_and_restore" />
+
+    <fragment
+        android:id="@+id/nav_settings"
+        android:name="com.flauschcode.broccoli.settings.SettingsFragment"
+        android:label="@string/menu_settings" />
 
     <fragment
         android:id="@+id/nav_help_and_feedback"

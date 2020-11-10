@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        app:key="seasonal-calendar"
+        app:title="@string/seasonal_calendar">
+
+        <ListPreference
+            app:icon="@drawable/ic_place_24"
+            android:defaultValue="pref_color_red_value"
+            android:entries="@array/region_labels"
+            android:entryValues="@array/region_values"
+            android:key="seasonal-calendar-region"
+            android:title="@string/region"
+            app:useSimpleSummaryProvider="true" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>
