@@ -76,6 +76,7 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
             spinner.setVisibility(View.VISIBLE);
             ArrayAdapter<Category> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item);
             arrayAdapter.add(Category.ALL);
+            arrayAdapter.add(Category.SEASONAL);
             arrayAdapter.add(Category.UNASSIGNED);
             arrayAdapter.add(Category.FAVORITES);
             viewModel.getCategories().observe(getViewLifecycleOwner(), categories -> categories.forEach(arrayAdapter::add));

@@ -71,6 +71,6 @@ public class Category implements Serializable {
     public static final Category ALL = new Category(-1, BroccoliApplication.getContext() != null? BroccoliApplication.getContext().getString(R.string.all_recipes) : "All recipes");
     public static final Category FAVORITES = new Category(-2, BroccoliApplication.getContext() != null? BroccoliApplication.getContext().getString(R.string.favorites) : "Favorites");
     public static final Category UNASSIGNED = new Category(-3, BroccoliApplication.getContext() != null? BroccoliApplication.getContext().getString(R.string.unassigned) : "Unassigned");
-
+    public static final Category SEASONAL = new Category(-4, BroccoliApplication.getContext() != null? BroccoliApplication.getContext().getString(R.string.seasonal) : "Seasonal");
 
 }

@@ -5,10 +5,14 @@ import androidx.room.Transaction;
 
 import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.recipe.images.RecipeImageService;
+import com.flauschcode.broccoli.seasons.SeasonalCalendar;
+import com.flauschcode.broccoli.seasons.SeasonalCalendarHolder;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -18,15 +22,17 @@ public class RecipeRepository {
 
     private RecipeDAO recipeDAO;
     private RecipeImageService recipeImageService;
+    private SeasonalCalendarHolder seasonalCalendarHolder;
 
     public enum InsertionType {
         INSERT, UPDATE
     }
 
     @Inject
-    RecipeRepository(RecipeDAO recipeDAO, RecipeImageService recipeImageService) {
+    RecipeRepository(RecipeDAO recipeDAO, RecipeImageService recipeImageService, SeasonalCalendarHolder seasonalCalendarHolder) {
         this.recipeDAO = recipeDAO;
         this.recipeImageService = recipeImageService;
+        this.seasonalCalendarHolder = seasonalCalendarHolder;
     }
 
     public LiveData<List<Recipe>> find(SearchCriteria criteria) {
@@ -40,6 +46,10 @@ public class RecipeRepository {
 
         if (category == Category.UNASSIGNED) {
             return "".equals(searchTerm)? findUnassigned() : searchForUnassigned(searchTerm);
+        }
+
+        if (category == Category.SEASONAL) {
+            return "".equals(searchTerm)? findSeasonal() : searchForSeasonal(searchTerm);
         }
 
         return "".equals(searchTerm)? filterBy(category) : filterByAndSearchFor(category, searchTerm);
@@ -70,6 +80,26 @@ public class RecipeRepository {
     private LiveData<List<Recipe>> searchForUnassigned(String term) {
         String wildcardQuery = String.format("%s*", term);
         return recipeDAO.searchForUnassigned(wildcardQuery);
+    }
+
+    private LiveData<List<Recipe>> findSeasonal() {
+        String seasonalSearchTerm = getSeasonalSearchTerm();
+        return recipeDAO.findSeasonal(seasonalSearchTerm);
+    }
+
+    private LiveData<List<Recipe>> searchForSeasonal(String term) {
+        String wildcardQuery = String.format("%s*", term);
+        String seasonalSearchTerm = getSeasonalSearchTerm();
+        return recipeDAO.searchForSeasonal(seasonalSearchTerm, wildcardQuery);
+    }
+
+    private String getSeasonalSearchTerm() {
+        Optional<SeasonalCalendar> seasonalCalendarOptional = seasonalCalendarHolder.get();
+        if (seasonalCalendarOptional.isPresent()) {
+            SeasonalCalendar seasonalCalendar = seasonalCalendarOptional.get();
+            return seasonalCalendar.getSearchTermsForCurrentMonth().stream().map(term -> "\"" + term + "\"").collect(Collectors.joining(" OR "));
+        }
+        return "";
     }
 
     private List<Boolean> getChosenFavoriteStates(Category category) {

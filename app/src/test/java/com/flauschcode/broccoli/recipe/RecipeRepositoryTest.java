@@ -3,11 +3,10 @@ package com.flauschcode.broccoli.recipe;
 import androidx.lifecycle.LiveData;
 
 import com.flauschcode.broccoli.category.Category;
-import com.flauschcode.broccoli.recipe.Recipe;
-import com.flauschcode.broccoli.recipe.RecipeCategoryAssociation;
-import com.flauschcode.broccoli.recipe.RecipeDAO;
-import com.flauschcode.broccoli.recipe.RecipeRepository;
 import com.flauschcode.broccoli.recipe.images.RecipeImageService;
+import com.flauschcode.broccoli.seasons.SeasonalCalendar;
+import com.flauschcode.broccoli.seasons.SeasonalCalendarHolder;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,7 +15,10 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -38,6 +40,12 @@ public class RecipeRepositoryTest {
     private RecipeImageService recipeImageService;
 
     @Mock
+    private SeasonalCalendarHolder seasonalCalendarHolder;
+
+    @Mock
+    private SeasonalCalendar seasonalCalendar;
+
+    @Mock
     private LiveData<List<Recipe>> recipes;
 
     private RecipeRepository recipeRepository;
@@ -53,7 +61,7 @@ public class RecipeRepositoryTest {
 
     @Before
     public void setUp() {
-        recipeRepository = new RecipeRepository(recipeDAO, recipeImageService);
+        recipeRepository = new RecipeRepository(recipeDAO, recipeImageService, seasonalCalendarHolder);
         criteria = new RecipeRepository.SearchCriteria();
     }
 
@@ -152,6 +160,40 @@ public class RecipeRepositoryTest {
         criteria.setSearchTerm("bla");
 
         LiveData<List<Recipe>> result = recipeRepository.find(criteria);
+        assertThat(result, is(recipes));
+    }
+
+    @Test
+    public void find_seasonal_recipes() {
+        when(recipeDAO.findSeasonal(eq("\"apples\" OR \"leek\""))).thenReturn(recipes);
+        when(seasonalCalendarHolder.get()).thenReturn(Optional.of(seasonalCalendar));
+        Set<String> searchTerms = new HashSet<String>();
+        searchTerms.add("apples");
+        searchTerms.add("leek");
+        when(seasonalCalendar.getSearchTermsForCurrentMonth()).thenReturn(searchTerms);
+
+        criteria.setCategory(Category.SEASONAL);
+        criteria.setSearchTerm("");
+
+        LiveData<List<Recipe>> result = recipeRepository.find(criteria);
+
+        assertThat(result, is(recipes));
+    }
+
+    @Test
+    public void find_and_search_for_seasonal_recipes() {
+        when(recipeDAO.searchForSeasonal(eq("\"apples\" OR \"leek\""), eq("bla*"))).thenReturn(recipes);
+        when(seasonalCalendarHolder.get()).thenReturn(Optional.of(seasonalCalendar));
+        Set<String> searchTerms = new HashSet<String>();
+        searchTerms.add("apples");
+        searchTerms.add("leek");
+        when(seasonalCalendar.getSearchTermsForCurrentMonth()).thenReturn(searchTerms);
+
+        criteria.setCategory(Category.SEASONAL);
+        criteria.setSearchTerm("bla");
+
+        LiveData<List<Recipe>> result = recipeRepository.find(criteria);
+
         assertThat(result, is(recipes));
     }
 

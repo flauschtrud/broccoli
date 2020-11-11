@@ -52,6 +52,14 @@ public interface RecipeDAO {
     @Query("SELECT * FROM recipes JOIN recipes_fts ON (recipes.recipeId = recipes_fts.docid) WHERE recipes_fts MATCH :term AND NOT EXISTS (SELECT * FROM recipes_with_categories WHERE recipeId = recipes.recipeId) ORDER BY SUBSTR(OFFSETS(recipes_fts), 1, 1), recipes.title COLLATE NOCASE")
     LiveData<List<Recipe>> searchForUnassigned(String term);
 
+    @Transaction
+    @Query("SELECT * FROM recipes JOIN recipes_fts ON (recipes.recipeId = recipes_fts.docid) WHERE recipes_fts.ingredients MATCH :seasonalTerm ORDER BY SUBSTR(OFFSETS(recipes_fts), 1, 1), recipes.title COLLATE NOCASE")
+    LiveData<List<Recipe>> findSeasonal(String seasonalTerm);
+
+    @Transaction
+    @Query("SELECT * FROM recipes JOIN recipes_fts ON (recipes.recipeId = recipes_fts.docid) WHERE recipes_fts MATCH :term AND recipes_fts.rowid IN (SELECT rowid FROM recipes_fts WHERE recipes_fts.ingredients MATCH :seasonalTerm) ORDER BY SUBSTR(OFFSETS(recipes_fts), 1, 1), recipes.title COLLATE NOCASE")
+    LiveData<List<Recipe>> searchForSeasonal(String seasonalTerm, String term);
+
     @Query("SELECT * FROM recipes_with_categories WHERE recipeId == :recipeId")
     List<RecipeCategoryAssociation> getCategoriesFor(long recipeId);
 

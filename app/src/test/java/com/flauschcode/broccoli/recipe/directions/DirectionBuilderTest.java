@@ -1,8 +1,5 @@
 package com.flauschcode.broccoli.recipe.directions;
 
-import com.flauschcode.broccoli.recipe.directions.Direction;
-import com.flauschcode.broccoli.recipe.directions.DirectionBuilder;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;

@@ -1,22 +1,25 @@
 package com.flauschcode.broccoli.seasons;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class SeasonalFood {
 
     private String name;
-    private String terms;
+    private List<String> terms;
 
     public SeasonalFood(String name, String terms) {
         this.name = name;
-        this.terms = terms;
+        this.terms = new ArrayList<>(Arrays.asList(terms.split("\\s*,\\s*")));
     }
 
     public String getName() {
         return name;
     }
 
-    public String getTerms() {
+    public List<String> getTerms() {
         return terms;
     }
 
@@ -25,7 +28,7 @@ public class SeasonalFood {
     public String toString() {
         return "SeasonalFood{" +
                 "name='" + name + '\'' +
-                ", terms='" + terms + '\'' +
+                ", terms=" + terms +
                 '}';
     }
 
