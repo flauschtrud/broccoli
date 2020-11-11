@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.flauschcode.broccoli.recipe.images.ImageBindingAdapter;
 import com.flauschcode.broccoli.recipe.images.RecipeImageService;
+import com.flauschcode.broccoli.seasons.SeasonalCalendarHolder;
+import com.flauschcode.broccoli.seasons.SeasonsBindingAdapter;
 
 import dagger.Module;
 import dagger.Provides;
@@ -16,6 +18,12 @@ class BindingModule {
     @DataBinding
     ImageBindingAdapter imageBindingAdapter(RecipeImageService recipeImageService) {
         return new ImageBindingAdapter(recipeImageService);
+    }
+
+    @Provides
+    @DataBinding
+    SeasonsBindingAdapter seasonsBindingAdapter(SeasonalCalendarHolder seasonalCalendarHolder) {
+        return new SeasonsBindingAdapter(seasonalCalendarHolder);
     }
 
     @Provides

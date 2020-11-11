@@ -14,7 +14,7 @@
             android:title="@string/menu_categories" />
 
         <item android:id="@+id/nav_seasons"
-            android:icon="@drawable/placeholder"
+            android:icon="@drawable/ic_eco_24"
             android:title="@string/seasonal_calendar" />
 
     </group>
