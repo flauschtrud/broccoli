@@ -30,21 +30,18 @@ import androidx.core.widget.NestedScrollView;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 
-import com.flauschcode.broccoli.category.Category;
-import com.flauschcode.broccoli.recipe.directions.DirectionBuilder;
-import com.flauschcode.broccoli.recipe.ingredients.IngredientBuilder;
-import com.flauschcode.broccoli.recipe.sharing.ShareRecipeAsFileService;
-import com.flauschcode.broccoli.recipe.sharing.ShareableRecipe;
-import com.flauschcode.broccoli.recipe.sharing.ShareableRecipeBuilder;
-
 import com.flauschcode.broccoli.R;
+import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.databinding.ActivityRecipeDetailsBinding;
 import com.flauschcode.broccoli.databinding.DirectionItemBinding;
-import com.flauschcode.broccoli.databinding.IngredientItemBinding;
 import com.flauschcode.broccoli.recipe.Recipe;
 import com.flauschcode.broccoli.recipe.RecipeRepository;
 import com.flauschcode.broccoli.recipe.cooking.CookingModeActivity;
 import com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity;
+import com.flauschcode.broccoli.recipe.directions.DirectionBuilder;
+import com.flauschcode.broccoli.recipe.sharing.ShareRecipeAsFileService;
+import com.flauschcode.broccoli.recipe.sharing.ShareableRecipe;
+import com.flauschcode.broccoli.recipe.sharing.ShareableRecipeBuilder;
 
 import java.io.IOException;
 import java.util.List;
@@ -261,18 +258,6 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         DirectionBuilder.from(directions).forEach(direction -> {
             DirectionItemBinding binding = DataBindingUtil.inflate(inflater, R.layout.direction_item, layout, true);
             binding.setDirection(direction);
-        });
-    }
-
-    @BindingAdapter("ingredients")
-    public static void bindIngredients(LinearLayout layout, String ingredients) {
-        layout.removeAllViews();
-
-        LayoutInflater inflater = getLayoutInflater(layout);
-
-        IngredientBuilder.from(ingredients).forEach(ingredient -> {
-            IngredientItemBinding binding = DataBindingUtil.inflate(inflater, R.layout.ingredient_item, layout, true);
-            binding.setIngredient(ingredient);
         });
     }
 

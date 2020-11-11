@@ -7,6 +7,7 @@ public class Ingredient {
     // for simplicity reasons this will be a String as long as scaling of recipes is not implemented
     private String quantity;
     private String text;
+    private boolean seasonal = false;
 
     public Ingredient(String quantity, String text) {
         this.quantity = quantity;
@@ -19,6 +20,14 @@ public class Ingredient {
 
     public String getText() {
         return text;
+    }
+
+    public boolean isSeasonal() {
+        return seasonal;
+    }
+
+    public void setSeasonal(boolean seasonal) {
+        this.seasonal = seasonal;
     }
 
     @Override
@@ -35,11 +44,4 @@ public class Ingredient {
         return Objects.hash(quantity, text);
     }
 
-    @Override
-    public String toString() {
-        return "Ingredient{" +
-                "quantity='" + quantity + '\'' +
-                ", text='" + text + '\'' +
-                '}';
-    }
 }
