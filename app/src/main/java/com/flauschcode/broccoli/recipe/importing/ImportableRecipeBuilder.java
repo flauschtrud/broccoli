@@ -4,8 +4,7 @@ import android.util.Log;
 
 import com.flauschcode.broccoli.recipe.Recipe;
 import com.flauschcode.broccoli.recipe.images.RecipeImageService;
-import org.joda.time.Period;
-import org.joda.time.format.PeriodFormat;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -13,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -98,7 +98,8 @@ class ImportableRecipeBuilder {
     }
 
     private void setParsedAndWordedPreparationTime(String jsonLdRecipeCookTime) {
-        recipe.setPreparationTime(Period.parse(recipeJson.optString(jsonLdRecipeCookTime)).toString(PeriodFormat.wordBased()));
+        Duration duration = Duration.parse(recipeJson.optString(jsonLdRecipeCookTime));
+        recipe.setPreparationTime(DurationFormatter.format(duration));
     }
 
     private void contributeIngredients() {

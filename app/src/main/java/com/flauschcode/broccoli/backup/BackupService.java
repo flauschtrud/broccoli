@@ -17,22 +17,21 @@ import androidx.preference.PreferenceManager;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.flauschcode.broccoli.BroccoliApplication;
-import com.flauschcode.broccoli.category.Category;
-import com.flauschcode.broccoli.category.CategoryRepository;
-
 import com.flauschcode.broccoli.BuildConfig;
 import com.flauschcode.broccoli.R;
-
+import com.flauschcode.broccoli.category.Category;
+import com.flauschcode.broccoli.category.CategoryRepository;
 import com.flauschcode.broccoli.recipe.Recipe;
 import com.flauschcode.broccoli.recipe.RecipeRepository;
 import com.flauschcode.broccoli.recipe.sharing.RecipeZipWriter;
-import org.joda.time.LocalDate;
-import org.joda.time.format.DateTimeFormat;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -173,7 +172,9 @@ public class BackupService extends JobIntentService {
     }
 
     private void saveLastBackupDate() {
-        String localizedCalendarDate = DateTimeFormat.shortDate().print(new LocalDate());
+        LocalDate date = LocalDate.now();
+        String localizedCalendarDate = date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
+
         PreferenceManager.getDefaultSharedPreferences(getApplicationContext())
                 .edit()
                 .putString("last-backup-date", localizedCalendarDate)

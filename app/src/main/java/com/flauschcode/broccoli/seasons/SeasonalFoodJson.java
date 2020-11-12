@@ -1,5 +1,6 @@
 package com.flauschcode.broccoli.seasons;
 
+import java.time.Month;
 import java.util.List;
 
 class SeasonalFoodJson {
