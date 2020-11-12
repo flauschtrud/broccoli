@@ -2,7 +2,7 @@ package com.flauschcode.broccoli.di;
 
 import com.flauschcode.broccoli.category.CategoryFragment;
 import com.flauschcode.broccoli.recipe.list.RecipeFragment;
-import com.flauschcode.broccoli.seasons.SeasonsFragment;
+import com.flauschcode.broccoli.seasons.MonthFragment;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -17,5 +17,5 @@ public interface FragmentModule {
     CategoryFragment categoryFragment();
 
     @ContributesAndroidInjector
-    SeasonsFragment seasonalFragment();
+    MonthFragment monthFragment();
 }
