@@ -17,17 +17,18 @@ import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.flauschcode.broccoli.BR;
 import com.flauschcode.broccoli.MainActivity;
-import com.flauschcode.broccoli.category.Category;
-import com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import com.flauschcode.broccoli.R;
-
+import com.flauschcode.broccoli.RecyclerViewAdapter;
+import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.recipe.Recipe;
 import com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity;
+import com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import javax.inject.Inject;
 
@@ -35,7 +36,7 @@ import dagger.android.support.AndroidSupportInjection;
 
 import static android.app.Activity.RESULT_OK;
 
-public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFragmentInteractionListener, AdapterView.OnItemSelectedListener, SearchView.OnQueryTextListener {
+public class RecipeFragment extends Fragment implements AdapterView.OnItemSelectedListener, SearchView.OnQueryTextListener {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
@@ -58,8 +59,22 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
         RecyclerView recyclerView = root.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
-        RecipeAdapter adapter = new RecipeAdapter();
-        adapter.setListener(this);
+        ListAdapter<Recipe, RecyclerViewAdapter<Recipe>.Holder> adapter = new RecyclerViewAdapter<Recipe>() {
+            @Override
+            protected int getLayoutResourceId() {
+                return R.layout.recipe_item;
+            }
+
+            @Override
+            protected int getBindingVariableId() {
+                return BR.recipe;
+            }
+
+            @Override
+            protected void onItemClick(Recipe item) {
+                onListInteraction(item);
+            }
+        };
         recyclerView.setAdapter(adapter);
 
         FloatingActionButton fab = root.findViewById(R.id.fab_recipes);
@@ -112,13 +127,6 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
     }
 
     @Override
-    public void onListFragmentInteraction(Recipe recipe) {
-        Intent intent = new Intent(getContext(), RecipeDetailsActivity.class);
-        intent.putExtra(Recipe.class.getName(), recipe);
-        startActivityForResult(intent, REQUEST_DETAILS);
-    }
-
-    @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Category category = (Category) parent.getItemAtPosition(position);
         viewModel.setFilter(category);
@@ -141,14 +149,6 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    private void resetCategory() {
-        Spinner spinner = getActivity().findViewById(R.id.spinner);
-        if (spinner != null) {
-            spinner.setSelection(0);
-            viewModel.setFilter(Category.ALL);
-        }
-    }
-
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
         // intentionally empty
@@ -163,6 +163,20 @@ public class RecipeFragment extends Fragment implements RecipeAdapter.OnListFrag
     public boolean onQueryTextChange(String newText) {
         viewModel.setSearchTerm(newText);
         return false;
+    }
+
+    private void onListInteraction(Recipe recipe) {
+        Intent intent = new Intent(getContext(), RecipeDetailsActivity.class);
+        intent.putExtra(Recipe.class.getName(), recipe);
+        startActivityForResult(intent, REQUEST_DETAILS);
+    }
+
+    private void resetCategory() {
+        Spinner spinner = getActivity().findViewById(R.id.spinner);
+        if (spinner != null) {
+            spinner.setSelection(0);
+            viewModel.setFilter(Category.ALL);
+        }
     }
 
 }

@@ -10,8 +10,11 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.flauschcode.broccoli.BR;
+import com.flauschcode.broccoli.RecyclerViewAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import com.flauschcode.broccoli.R;
@@ -20,7 +23,7 @@ import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
 
-public class CategoryFragment extends Fragment implements CategoryDialog.OnChangeListener, CategoryAdapter.OnListFragmentInteractionListener {
+public class CategoryFragment extends Fragment implements CategoryDialog.OnChangeListener {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
@@ -39,8 +42,22 @@ public class CategoryFragment extends Fragment implements CategoryDialog.OnChang
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
-        CategoryAdapter adapter = new CategoryAdapter();
-        adapter.setListener(this);
+        ListAdapter<Category, RecyclerViewAdapter<Category>.Holder> adapter = new RecyclerViewAdapter<Category>() {
+            @Override
+            protected int getLayoutResourceId() {
+                return R.layout.category_item;
+            }
+
+            @Override
+            protected int getBindingVariableId() {
+                return BR.category;
+            }
+
+            @Override
+            protected void onItemClick(Category item) {
+                onListInteraction(item);
+            }
+        };
         recyclerView.setAdapter(adapter);
 
         viewModel = new ViewModelProvider(this, viewModelFactory).get(CategoryViewModel.class);
@@ -65,8 +82,7 @@ public class CategoryFragment extends Fragment implements CategoryDialog.OnChang
         viewModel.delete(category);
     }
 
-    @Override
-    public void onListFragmentInteraction(Category category) {
+    public void onListInteraction(Category category) {
         CategoryDialog dialog = new CategoryDialog(this, category);
         dialog.show(getParentFragmentManager(), "CategoryDialogTag");
     }
