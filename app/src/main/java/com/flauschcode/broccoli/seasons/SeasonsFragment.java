@@ -31,7 +31,7 @@ public class SeasonsFragment extends Fragment {
         TabLayout tabLayout = root.findViewById(R.id.seasons_tablayout);
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.setText(Month.of(position+1).getDisplayName(TextStyle.FULL_STANDALONE, getResources().getConfiguration().getLocales().get(0)))).attach();
 
-        viewPager.setCurrentItem(LocalDate.now().getMonth().getValue()-1);
+        viewPager.setCurrentItem(LocalDate.now().getMonth().getValue()-1, false);
 
         return root;
     }

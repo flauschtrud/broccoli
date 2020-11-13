@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="seasonalFood" type="com.flauschcode.broccoli.seasons.SeasonalFood" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="?attr/selectableItemBackground"
+        android:padding="@dimen/text_margin">
+
+        <TextView
+            android:id="@+id/seasonal_food_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{seasonalFood.name}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:id="@+id/seasonal_food_terms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{seasonalFood.terms.toString()}" />
+
+        <LinearLayout
+            android:id="@+id/seasonal_food_months"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:months="@{seasonalFood.months}"/>
+
+    </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

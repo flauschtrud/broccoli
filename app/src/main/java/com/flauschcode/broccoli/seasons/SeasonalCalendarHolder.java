@@ -58,7 +58,7 @@ public class SeasonalCalendarHolder {
 
         seasonalCalendar = new SeasonalCalendar();
         seasonalCalendarJson.getFood().forEach(seasonalFoodJson -> {
-            SeasonalFood seasonalFood = new SeasonalFood(getLocalizedNameFor(seasonalFoodJson.getName()), getSearchTermsFor(seasonalFoodJson.getName()));
+            SeasonalFood seasonalFood = new SeasonalFood(getLocalizedNameFor(seasonalFoodJson.getName()), getSearchTermsFor(seasonalFoodJson.getName()), seasonalFoodJson.getMonths());
             seasonalFoodJson.getMonths().forEach(month -> seasonalCalendar.add(seasonalFood, month));
         });
     }

@@ -7,6 +7,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.time.Month;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -21,8 +22,10 @@ public class SeasonalCalendarTest {
     public void construct_and_use_calendar() {
         SeasonalCalendar seasonalCalendar = new SeasonalCalendar();
 
-        SeasonalFood apple = new SeasonalFood("Apfel", "Apfel, Äpfel");
-        SeasonalFood leek = new SeasonalFood("Lauch", "Lauch, Porree");
+        List<Month> months = new ArrayList<>();
+        months.add(Month.OCTOBER);
+        SeasonalFood apple = new SeasonalFood("Apfel", "Apfel, Äpfel", months);
+        SeasonalFood leek = new SeasonalFood("Lauch", "Lauch, Porree", months);
 
         seasonalCalendar.add(apple, Month.OCTOBER);
         seasonalCalendar.add(leek, Month.OCTOBER);

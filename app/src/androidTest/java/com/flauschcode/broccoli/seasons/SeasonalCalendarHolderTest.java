@@ -10,6 +10,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import java.time.Month;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
@@ -53,8 +55,20 @@ public class SeasonalCalendarHolderTest {
         Optional<SeasonalCalendar> seasonalCalendarOptional = holder.get();
         assertThat(seasonalCalendarOptional.isPresent(), is(true));
 
-        SeasonalFood flauschfrucht = new SeasonalFood("flauschfrucht", "flauschfrucht");
-        SeasonalFood apple = new SeasonalFood("apple", "apple, apples");
+        List<Month> augustDecember = new ArrayList<>();
+        augustDecember.add(Month.AUGUST);
+        augustDecember.add(Month.SEPTEMBER);
+        augustDecember.add(Month.OCTOBER);
+        augustDecember.add(Month.NOVEMBER);
+        augustDecember.add(Month.DECEMBER);
+
+        List<Month> octoberDecember = new ArrayList<>();
+        octoberDecember.add(Month.OCTOBER);
+        octoberDecember.add(Month.NOVEMBER);
+        octoberDecember.add(Month.DECEMBER);
+
+        SeasonalFood flauschfrucht = new SeasonalFood("flauschfrucht", "flauschfrucht", octoberDecember);
+        SeasonalFood apple = new SeasonalFood("apple", "apple, apples", augustDecember);
 
         SeasonalCalendar seasonalCalendar = seasonalCalendarOptional.get();
 
