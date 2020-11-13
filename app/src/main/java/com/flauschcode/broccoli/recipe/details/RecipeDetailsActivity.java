@@ -25,11 +25,13 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 
+import com.flauschcode.broccoli.BroccoliApplication;
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.databinding.ActivityRecipeDetailsBinding;
@@ -68,7 +70,6 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     private Menu menu;
 
     private static final int REQUEST_EDIT = 1;
-    private static int colorPrimary = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +109,6 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             }
         });
 
-        colorPrimary = getResources().getColor(R.color.colorPrimary, getTheme());
     }
 
     @Override
@@ -231,7 +231,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 @Override
                 public void updateDrawState(TextPaint paint) {
                     super.updateDrawState(paint);
-                    paint.setColor(colorPrimary);
+                    paint.setColor(ContextCompat.getColor(BroccoliApplication.getContext(), R.color.colorPrimary));
                 }
             };
             spannableString.setSpan(clickableSpan, matcher.start(), matcher.end(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

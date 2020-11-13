@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 
 import com.flauschcode.broccoli.R;
@@ -83,7 +84,8 @@ public class CategoryDialog extends AppCompatDialogFragment {
                 dialog.dismiss();
             }
             warning.setVisibility(View.VISIBLE);
-            dialog.getButton(BUTTON_NEUTRAL).setTextColor(getResources().getColor(R.color.design_default_color_error));
+
+            dialog.getButton(BUTTON_NEUTRAL).setTextColor(ContextCompat.getColor(dialog.getContext(), R.color.design_default_color_error));
         });
     }
 
