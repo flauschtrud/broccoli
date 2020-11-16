@@ -88,13 +88,13 @@
     <string name="region_australia">Australia</string> <!-- TODO just temporarily -->
 
     <!-- seasonal food -->
-    <string name="apple">apple</string>
+    <string name="apple">Apple</string>
     <string name="apple_terms">apple, apples</string>
 
-    <string name="leek">leek</string>
+    <string name="leek">Leek</string>
     <string name="leek_terms">leek</string>
 
-    <string name="lemon">lemon</string>
+    <string name="lemon">Lemon</string>
     <string name="lemon_terms">lemon, lemons</string>
 
 </resources>
