@@ -16,7 +16,10 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         setPreferencesFromResource(R.xml.settings, rootKey);
 
         MultiSelectListPreference multiSelectListPreference = getPreferenceManager().findPreference("seasonal-calendar-languages");
-        multiSelectListPreference.setSummaryProvider(preference -> multiSelectListPreference.getValues().stream().collect(Collectors.joining(", ")));
+        multiSelectListPreference.setSummaryProvider(preference -> {
+            String selectedLanguages = multiSelectListPreference.getValues().stream().collect(Collectors.joining(", "));
+            return "".equals(selectedLanguages)? getString(R.string.no_language_set) : selectedLanguages;
+        });
     }
 
 }

@@ -99,6 +99,7 @@
     <string name="seasonal">Seasonal recipes</string>
     <string name="region">Region</string>
     <string name="languages">Languages</string>
+    <string name="no_language_set">No language set</string>
     <string name="region_germany">Germany</string> <!-- TODO just temporarily -->
     <string name="region_australia">Australia</string> <!-- TODO just temporarily -->
 
