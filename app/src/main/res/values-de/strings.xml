@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Broccoli</string>
+    <string name="apples">Äpfel</string>
+    <string name="apples_terms">Apfel, Äpfel</string>
+    <string name="leek">Lauch</string>
+    <string name="leek_terms">Lauch, Porree</string>
+    <string name="lemons">Zitronen</string>
+    <string name="lemons_terms">Zitrone, Zitronen</string>
+</resources>

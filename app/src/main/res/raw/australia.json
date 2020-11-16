@@ -1,11 +1,11 @@
 {
   "food": [
     {
-      "name": "apple",
+      "name": "apples",
       "months": [3, 4, 5]
     },
     {
-      "name": "lemon",
+      "name": "lemons",
       "months": [0, 10, 11]
     }
   ]

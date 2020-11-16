@@ -8,12 +8,18 @@
 
         <ListPreference
             app:icon="@drawable/ic_place_24"
-            android:defaultValue="pref_color_red_value"
             android:entries="@array/region_labels"
             android:entryValues="@array/region_values"
             android:key="seasonal-calendar-region"
             android:title="@string/region"
             app:useSimpleSummaryProvider="true" />
+
+        <MultiSelectListPreference
+            app:icon="@drawable/ic_language_24"
+            android:entries="@array/language_labels"
+            android:entryValues="@array/language_values"
+            android:key="seasonal-calendar-languages"
+            android:title="@string/languages" />
 
     </PreferenceCategory>
 

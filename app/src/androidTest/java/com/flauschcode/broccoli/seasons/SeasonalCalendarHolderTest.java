@@ -11,8 +11,10 @@ import org.junit.runner.RunWith;
 
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -47,9 +49,14 @@ public class SeasonalCalendarHolderTest {
 
     @Test
     public void get_calendar() {
+        Set<String> languages = new HashSet<>();
+        languages.add("en");
+        languages.add("de");
+
         PreferenceManager.getDefaultSharedPreferences(getApplication())
                 .edit()
                 .putString("seasonal-calendar-region", "flauschland")
+                .putStringSet("seasonal-calendar-languages", languages)
                 .apply();
 
         Optional<SeasonalCalendar> seasonalCalendarOptional = holder.get();
@@ -67,8 +74,8 @@ public class SeasonalCalendarHolderTest {
         octoberDecember.add(Month.NOVEMBER);
         octoberDecember.add(Month.DECEMBER);
 
-        SeasonalFood flauschfrucht = new SeasonalFood("flauschfrucht", "flauschfrucht", octoberDecember);
-        SeasonalFood apple = new SeasonalFood("apple", "apple, apples", augustDecember);
+        SeasonalFood flauschfrucht = new SeasonalFood("flauschfrucht", "flauschfrucht, flauschfrucht", octoberDecember);
+        SeasonalFood apple = new SeasonalFood("Apples", "Apfel, Äpfel, apple, apples", augustDecember);
 
         SeasonalCalendar seasonalCalendar = seasonalCalendarOptional.get();
 

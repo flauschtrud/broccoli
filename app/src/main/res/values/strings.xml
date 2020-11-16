@@ -2,6 +2,8 @@
     <string name="app_name">Broccoli</string>
     <string name="nav_header_title">Broccoli</string>
     <string name="nav_header_subtitle">The Simple and Green Recipe Manager</string>
+
+    <!-- CRUD -->
     <string name="menu_recipes">Recipes</string>
     <string name="hint_new_recipe_title">Title</string>
     <string name="hint_new_recipe_description">Description</string>
@@ -31,6 +33,8 @@
     <string name="remove_photo">Remove photo</string>
     <string name="take_photo">Take photo</string>
     <string name="pick_photo">Pick photo</string>
+
+    <!-- Categories -->
     <string name="menu_categories">Categories</string>
     <string name="dialog_add_category">Add category</string>
     <string name="dialog_edit_category">Edit category</string>
@@ -44,14 +48,21 @@
     <string name="category_delete_warning">Do you really want to delete this category and remove all its assignments?</string>
     <string name="unassigned">Unassigned recipes</string>
     <string name="search">Search</string>
+
+    <!-- Cooking mode -->
     <string name="title_activity_cooking_mode">Cooking mode</string>
     <string name="no_ingredients_and_directions_yet">This recipe does not have any ingredients or directions yet. You can edit it to add some.</string>
     <string name="action_details_cook">Cook</string>
+    <string name="enjoy_your_meal">Enjoy your meal!</string>
+
+    <!-- Sharing and export/import -->
     <string name="action_details_share">Share</string>
     <string name="toast_error_importing_recipe">The recipe could not be imported.</string>
     <string name="toast_error_reading_recipe">This website does not provide a recipe format that Broccoli can read. Please enter the recipe details by copy and pasting.</string>
     <string name="action_details_share_as_file">Share as file</string>
     <string name="toast_could_not_export_recipe">The recipe could not be exported.</string>
+
+    <!-- Backup & restore -->
     <string name="backup">Backup</string>
     <string name="restore">Restore</string>
     <string name="backup_recipes">Backup recipes</string>
@@ -74,27 +85,35 @@
     <string name="restore_alert_message">Do you want to restore all the recipes and categories from this archive?</string>
     <string name="restore_action">Restore</string>
     <string name="backup_last_backup">Last backup</string>
+
+    <!-- Settings/feedback -->
     <string name="help_and_feedback">Help &amp; feedback</string>
     <string name="send_feedback">Send feedback</string>
     <string name="send_feedback_message">Tell us what would make cooking with Broccoli for you even better :)</string>
     <string name="feedback_subject">Feedback for Broccoli Recipe Manager</string>
     <string name="version">Version</string>
-    <string name="enjoy_your_meal">Enjoy your meal!</string>
     <string name="menu_settings">Settings</string>
+
+    <!-- Seasons -->
     <string name="seasonal_calendar">Seasonal calendar</string>
     <string name="seasonal">Seasonal recipes</string>
     <string name="region">Region</string>
+    <string name="languages">Languages</string>
     <string name="region_germany">Germany</string> <!-- TODO just temporarily -->
     <string name="region_australia">Australia</string> <!-- TODO just temporarily -->
 
+    <!-- languages for seasonal calendar -->
+    <string name="english">English</string>
+    <string name="german">German</string>
+
     <!-- seasonal food -->
-    <string name="apple">Apple</string>
-    <string name="apple_terms">apple, apples</string>
+    <string name="apples">Apples</string>
+    <string name="apples_terms">apple, apples</string>
 
     <string name="leek">Leek</string>
     <string name="leek_terms">leek</string>
 
-    <string name="lemon">Lemon</string>
-    <string name="lemon_terms">lemon, lemons</string>
+    <string name="lemons">Lemons</string>
+    <string name="lemons_terms">lemon, lemons</string>
 
 </resources>
