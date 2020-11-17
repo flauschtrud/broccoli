@@ -48,6 +48,11 @@ public class SeasonalCalendarHolder implements SharedPreferences.OnSharedPrefere
         seasonalCalendar = null;
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(application);
+        if (!sharedPreferences.getBoolean("seasonal-calendar-enabled", false)) {
+            Log.d(getClass().getName(), "The seasons feature is not enabled.");
+            return;
+        }
+
         String resourceName = sharedPreferences.getString("seasonal-calendar-region", null);
         if (resourceName == null) {
             Log.d(getClass().getName(), "No region has been selected yet.");
@@ -106,7 +111,7 @@ public class SeasonalCalendarHolder implements SharedPreferences.OnSharedPrefere
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
-        if (s.equals("seasonal-calendar-region") || s.equals("seasonal-calendar-languages")) {
+        if (s.equals("seasonal-calendar-enabled") || s.equals("seasonal-calendar-region") || s.equals("seasonal-calendar-languages")) {
             this.preload();
         }
     }

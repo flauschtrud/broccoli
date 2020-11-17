@@ -1,6 +1,7 @@
 package com.flauschcode.broccoli.recipe.list;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,6 +17,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
@@ -91,7 +93,12 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
             spinner.setVisibility(View.VISIBLE);
             ArrayAdapter<Category> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item);
             arrayAdapter.add(Category.ALL);
-            arrayAdapter.add(Category.SEASONAL);
+
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            if (sharedPreferences.getBoolean("seasonal-calendar-enabled", false)) {
+                arrayAdapter.add(Category.SEASONAL);
+            }
+
             arrayAdapter.add(Category.UNASSIGNED);
             arrayAdapter.add(Category.FAVORITES);
             viewModel.getCategories().observe(getViewLifecycleOwner(), categories -> categories.forEach(arrayAdapter::add));

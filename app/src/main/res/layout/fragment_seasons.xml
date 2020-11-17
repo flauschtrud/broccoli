@@ -6,6 +6,15 @@
     android:orientation="vertical"
     android:theme="@style/AppTheme">
 
+    <TextView
+        android:id="@+id/seasons_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:visibility="gone"
+        android:gravity="center"
+        android:text="@string/seasons_not_enabled_message" />
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/seasons_tablayout"
         android:layout_height="wrap_content"

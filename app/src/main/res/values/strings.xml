@@ -97,7 +97,9 @@
 
     <!-- Seasons -->
     <string name="seasonal_calendar">Seasonal calendar</string>
+    <string name="enable_seasonal_calendar">Enable seasonal calendar</string>
     <string name="seasonal">Seasonal recipes</string>
+    <string name="seasons_not_enabled_message">The seasonal calendar has not yet been enabled. You can configure it in the settings.</string>
     <string name="region">Region</string>
     <string name="languages">Languages</string>
     <string name="no_language_set">No language set</string>
