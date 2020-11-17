@@ -2,6 +2,12 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <ListPreference
+        app:icon="@drawable/ic_categories_24dp"
+        android:key="preferred-category"
+        android:title="@string/preferred_category"
+        app:useSimpleSummaryProvider="true" />
+
     <PreferenceCategory
         app:iconSpaceReserved="false"
         app:key="seasonal-calendar-category"

@@ -94,8 +94,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
             ArrayAdapter<Category> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item);
             arrayAdapter.add(Category.ALL);
 
-            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-            if (sharedPreferences.getBoolean("seasonal-calendar-enabled", false)) {
+            if (seasonalCalendarIsEnabled()) {
                 arrayAdapter.add(Category.SEASONAL);
             }
 
@@ -103,8 +102,13 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
             arrayAdapter.add(Category.FAVORITES);
             viewModel.getCategories().observe(getViewLifecycleOwner(), categories -> categories.forEach(arrayAdapter::add));
             arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
             spinner.setAdapter(arrayAdapter);
             spinner.setOnItemSelectedListener(this);
+
+            Category preferredCategory = getPreferredCategory();
+            int position = arrayAdapter.getPosition(preferredCategory);
+            spinner.setSelection(position);
         }
 
         setHasOptionsMenu(true);
@@ -183,6 +187,24 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         if (spinner != null) {
             spinner.setSelection(0);
             viewModel.setFilter(Category.ALL);
+        }
+    }
+
+    private boolean seasonalCalendarIsEnabled() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        return sharedPreferences.getBoolean("seasonal-calendar-enabled", false);
+    }
+
+    private Category getPreferredCategory() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String preferredCategoryId = sharedPreferences.getString("preferred-category", "-1");
+        switch (preferredCategoryId)  {
+            case "-2":
+                return Category.FAVORITES;
+            case "-4":
+                return Category.SEASONAL;
+            default:
+                return Category.ALL;
         }
     }
 

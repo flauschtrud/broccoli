@@ -48,6 +48,7 @@
     <string name="category_delete_warning">Do you really want to delete this category and remove all its assignments?</string>
     <string name="unassigned">Unassigned recipes</string>
     <string name="search">Search</string>
+    <string name="preferred_category">Preferred category</string>
 
     <!-- Cooking mode -->
     <string name="title_activity_cooking_mode">Cooking mode</string>
