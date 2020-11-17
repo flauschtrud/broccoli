@@ -2,24 +2,26 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:key="general-settings-category"
+        app:title="@string/general_settings">
+
     <ListPreference
         app:icon="@drawable/ic_categories_24dp"
         android:key="preferred-category"
         android:title="@string/preferred_category"
         app:useSimpleSummaryProvider="true" />
 
+    </PreferenceCategory>
+
     <PreferenceCategory
         app:iconSpaceReserved="false"
         app:key="seasonal-calendar-category"
         app:title="@string/seasonal_calendar">
 
-        <SwitchPreferenceCompat
-            app:key="seasonal-calendar-enabled"
-            app:title="@string/enable_seasonal_calendar" />
-
         <ListPreference
             app:icon="@drawable/ic_place_24"
-            app:dependency="seasonal-calendar-enabled"
             android:entries="@array/region_labels"
             android:entryValues="@array/region_values"
             android:key="seasonal-calendar-region"
@@ -28,7 +30,6 @@
 
         <MultiSelectListPreference
             app:icon="@drawable/ic_language_24"
-            app:dependency="seasonal-calendar-enabled"
             android:entries="@array/language_labels"
             android:entryValues="@array/language_values"
             android:key="seasonal-calendar-languages"

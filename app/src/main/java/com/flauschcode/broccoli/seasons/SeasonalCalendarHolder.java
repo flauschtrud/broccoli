@@ -48,16 +48,24 @@ public class SeasonalCalendarHolder implements SharedPreferences.OnSharedPrefere
         seasonalCalendar = null;
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(application);
-        if (!sharedPreferences.getBoolean("seasonal-calendar-enabled", false)) {
-            Log.d(getClass().getName(), "The seasons feature is not enabled.");
-            return;
-        }
-
         String resourceName = sharedPreferences.getString("seasonal-calendar-region", null);
         if (resourceName == null) {
             Log.d(getClass().getName(), "No region has been selected yet.");
             return;
         }
+
+        Set<String> languages = sharedPreferences.getStringSet("seasonal-calendar-languages", new HashSet<>());
+        if (languages.isEmpty()) {
+            Log.d(getClass().getName(), "No languages have been selected yet.");
+            return;
+        }
+
+        List<Resources> resources = new ArrayList<>();
+        languages.forEach(language -> {
+            Configuration configuration = new Configuration(application.getResources().getConfiguration());
+            configuration.setLocale(new Locale(language));
+            resources.add(application.createConfigurationContext(configuration).getResources());
+        });
 
         SeasonalCalendarJson seasonalCalendarJson;
         try {
@@ -69,14 +77,6 @@ public class SeasonalCalendarHolder implements SharedPreferences.OnSharedPrefere
             Log.e(getClass().getName(), e.getMessage());
             return;
         }
-
-        List<Resources> resources = new ArrayList<>();
-        Set<String> languages = sharedPreferences.getStringSet("seasonal-calendar-languages", new HashSet<>());
-        languages.forEach(language -> {
-            Configuration configuration = new Configuration(application.getResources().getConfiguration());
-            configuration.setLocale(new Locale(language));
-            resources.add(application.createConfigurationContext(configuration).getResources());
-        });
 
         seasonalCalendar = new SeasonalCalendar();
         seasonalCalendarJson.getFood().forEach(seasonalFoodJson -> {
@@ -111,7 +111,7 @@ public class SeasonalCalendarHolder implements SharedPreferences.OnSharedPrefere
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
-        if (s.equals("seasonal-calendar-enabled") || s.equals("seasonal-calendar-region") || s.equals("seasonal-calendar-languages")) {
+        if (s.equals("seasonal-calendar-region") || s.equals("seasonal-calendar-languages")) {
             this.preload();
         }
     }

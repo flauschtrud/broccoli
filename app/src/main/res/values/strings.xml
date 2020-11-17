@@ -95,15 +95,15 @@
     <string name="feedback_subject">Feedback for Broccoli Recipe Manager</string>
     <string name="version">Version</string>
     <string name="menu_settings">Settings</string>
+    <string name="general_settings">General settings</string>
 
     <!-- Seasons -->
     <string name="seasonal_calendar">Seasonal calendar</string>
-    <string name="enable_seasonal_calendar">Enable seasonal calendar</string>
     <string name="seasonal">Seasonal recipes</string>
-    <string name="seasons_not_enabled_message">The seasonal calendar has not yet been enabled. You can configure it in the settings.</string>
+    <string name="seasons_not_configured_message">The seasonal calendar has not been fully configured yet. You can do that in the settings.</string>
     <string name="region">Region</string>
     <string name="languages">Languages</string>
-    <string name="no_language_set">No language set</string>
+    <string name="no_language_set">Choose at least one language</string>
     <string name="seasons_feedback_message">Do you miss your region, language or favorite food? Tell us about it!</string>
     <string name="seasons_feedback_subject">Feedback for Broccoli Seasonal Calendar</string>
 

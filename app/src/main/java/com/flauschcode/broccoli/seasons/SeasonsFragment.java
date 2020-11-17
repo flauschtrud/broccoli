@@ -18,6 +18,7 @@ import com.google.android.material.tabs.TabLayoutMediator;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.TextStyle;
+import java.util.HashSet;
 
 public class SeasonsFragment extends Fragment {
 
@@ -26,21 +27,30 @@ public class SeasonsFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_seasons, container, false);
 
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        if (!sharedPreferences.getBoolean("seasonal-calendar-enabled", false)) {
+        ViewPager2 viewPager = root.findViewById(R.id.seasons_pager);
+        TabLayout tabLayout = root.findViewById(R.id.seasons_tablayout);
+
+        if (seasonalCalendarHasNotBeenConfiguredYet()) {
             root.findViewById(R.id.seasons_text).setVisibility(View.VISIBLE);
+            viewPager.setVisibility(View.GONE);
+            tabLayout.setVisibility(View.GONE);
             return root;
         }
 
         SeasonsAdapter seasonsAdapter = new SeasonsAdapter(this);
-        ViewPager2 viewPager = root.findViewById(R.id.seasons_pager);
         viewPager.setAdapter(seasonsAdapter);
 
-        TabLayout tabLayout = root.findViewById(R.id.seasons_tablayout);
-        new TabLayoutMediator(tabLayout, viewPager, (tab, position) -> tab.setText(Month.of(position+1).getDisplayName(TextStyle.FULL_STANDALONE, getResources().getConfiguration().getLocales().get(0)))).attach();
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) ->
+                tab.setText(Month.of(position+1).getDisplayName(TextStyle.FULL_STANDALONE, getResources().getConfiguration().getLocales().get(0))))
+                .attach();
 
         viewPager.setCurrentItem(LocalDate.now().getMonth().getValue()-1, false);
 
         return root;
+    }
+
+    private boolean seasonalCalendarHasNotBeenConfiguredYet() {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        return sharedPreferences.getString("seasonal-calendar-region", null) ==  null || sharedPreferences.getStringSet("seasonal-calendar-languages", new HashSet<>()).isEmpty();
     }
 }

@@ -91,13 +91,10 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         Spinner spinner = getActivity().findViewById(R.id.spinner);
         if (spinner != null) {
             spinner.setVisibility(View.VISIBLE);
+
             ArrayAdapter<Category> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item);
             arrayAdapter.add(Category.ALL);
-
-            if (seasonalCalendarIsEnabled()) {
-                arrayAdapter.add(Category.SEASONAL);
-            }
-
+            arrayAdapter.add(Category.SEASONAL);
             arrayAdapter.add(Category.UNASSIGNED);
             arrayAdapter.add(Category.FAVORITES);
             viewModel.getCategories().observe(getViewLifecycleOwner(), categories -> categories.forEach(arrayAdapter::add));
@@ -188,11 +185,6 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
             spinner.setSelection(0);
             viewModel.setFilter(Category.ALL);
         }
-    }
-
-    private boolean seasonalCalendarIsEnabled() {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        return sharedPreferences.getBoolean("seasonal-calendar-enabled", false);
     }
 
     private Category getPreferredCategory() {
