@@ -9,7 +9,7 @@
             app:summary="@string/send_feedback_message">
 
                 <intent android:action="android.intent.action.SENDTO"
-                    android:data="mailto:support@flauschcode.com">
+                    android:data="@string/feedback_mailto">
                         <extra
                             android:name="android.intent.extra.SUBJECT"
                             android:value="@string/feedback_subject"/>

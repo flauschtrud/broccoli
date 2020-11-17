@@ -89,6 +89,7 @@
     <!-- Settings/feedback -->
     <string name="help_and_feedback">Help &amp; feedback</string>
     <string name="send_feedback">Send feedback</string>
+    <string name="feedback_mailto" translatable="false">mailto:support@flauschcode.com</string>
     <string name="send_feedback_message">Tell us what would make cooking with Broccoli for you even better :)</string>
     <string name="feedback_subject">Feedback for Broccoli Recipe Manager</string>
     <string name="version">Version</string>
@@ -100,6 +101,10 @@
     <string name="region">Region</string>
     <string name="languages">Languages</string>
     <string name="no_language_set">No language set</string>
+    <string name="seasons_feedback_message">Do you miss your region, language or favorite food? Tell us about it!</string>
+    <string name="seasons_feedback_subject">Feedback for Broccoli Seasonal Calendar</string>
+
+    <!-- regions for seasonal calendar -->
     <string name="region_germany">Germany</string> <!-- TODO just temporarily -->
     <string name="region_australia">Australia</string> <!-- TODO just temporarily -->
 
