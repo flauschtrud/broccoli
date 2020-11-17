@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.flauschcode.broccoli.BroccoliApplication;
 import com.flauschcode.broccoli.recipe.RecipeModule;
+import com.flauschcode.broccoli.seasons.SeasonsModule;
 
 import javax.inject.Singleton;
 
@@ -19,7 +20,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
         ServiceModule.class,
         AndroidSupportInjectionModule.class,
         DatabaseModule.class,
-        RecipeModule.class
+        RecipeModule.class,
+        SeasonsModule.class
 })
 public interface ApplicationComponent {
 

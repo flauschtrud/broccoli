@@ -18,20 +18,22 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Optional;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
-import javax.inject.Inject;
-
-// TODO not really singleton yet
-public class SeasonalCalendarHolder {
+public class SeasonalCalendarHolder implements SharedPreferences.OnSharedPreferenceChangeListener {
 
     private final Application application;
 
     private SeasonalCalendar seasonalCalendar;
     
-    @Inject
     public SeasonalCalendarHolder(Application application) {
         this.application = application;
+        PreferenceManager.getDefaultSharedPreferences(application).registerOnSharedPreferenceChangeListener(this);
+    }
+
+    public CompletableFuture<Void> preload() {
+        return CompletableFuture.runAsync(this::tryToBuildSeasonalCalendar);
     }
 
     public Optional<SeasonalCalendar> get() {
@@ -42,7 +44,6 @@ public class SeasonalCalendarHolder {
         return Optional.ofNullable(seasonalCalendar);
     }
 
-    // TODO async preload
     private void tryToBuildSeasonalCalendar() {
         seasonalCalendar = null;
 
@@ -103,4 +104,10 @@ public class SeasonalCalendarHolder {
         return fallback;
     }
 
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
+        if (s.equals("seasonal-calendar-region") || s.equals("seasonal-calendar-languages")) {
+            this.preload();
+        }
+    }
 }

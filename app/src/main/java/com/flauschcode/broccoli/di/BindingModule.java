@@ -28,6 +28,14 @@ class BindingModule {
 
     @Provides
     @DataBinding
+    SeasonalCalendarHolder seasonalCalendarHolder(Application application) {
+        SeasonalCalendarHolder seasonalCalendarHolder = new SeasonalCalendarHolder(application);
+        seasonalCalendarHolder.preload();
+        return seasonalCalendarHolder;
+    }
+
+    @Provides
+    @DataBinding
     // Might make sense to refactor RecipeImageService since the method which uses the compressor is not really needed in DataBinding scope
     Compressor compressor(Application application) {
         return new Compressor(application);
