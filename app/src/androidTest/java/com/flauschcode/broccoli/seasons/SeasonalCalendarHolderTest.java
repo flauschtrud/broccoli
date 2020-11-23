@@ -48,7 +48,7 @@ public class SeasonalCalendarHolderTest {
    }
 
     @Test
-    public void get_calendar() {
+    public void get_calendar() throws InterruptedException {
         Set<String> languages = new HashSet<>();
         languages.add("en");
         languages.add("de");
@@ -58,6 +58,8 @@ public class SeasonalCalendarHolderTest {
                 .putString("seasonal-calendar-region", "flauschland")
                 .putStringSet("seasonal-calendar-languages", languages)
                 .apply();
+
+        Thread.sleep(500); // TODO don't do this
 
         Optional<SeasonalCalendar> seasonalCalendarOptional = holder.get();
         assertThat(seasonalCalendarOptional.isPresent(), is(true));
@@ -75,7 +77,7 @@ public class SeasonalCalendarHolderTest {
         octoberDecember.add(Month.DECEMBER);
 
         SeasonalFood flauschfrucht = new SeasonalFood("flauschfrucht", "flauschfrucht, flauschfrucht", octoberDecember);
-        SeasonalFood apple = new SeasonalFood("Apples", "Apfel, Äpfel, apple, apples", augustDecember);
+        SeasonalFood apple = new SeasonalFood("Apples", "Apfel, Äpfel, apple", augustDecember);
 
         SeasonalCalendar seasonalCalendar = seasonalCalendarOptional.get();
 

@@ -53,7 +53,7 @@ public class ImportingIntegrationTest {
         intent.putExtra(Intent.EXTRA_TEXT, "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html");
         scenario = launch(intent);
 
-        Thread.sleep(3000); // TODO don't do this
+        Thread.sleep(5000); // TODO don't do this
 
         onView(ViewMatchers.withId(R.id.new_title)).check(matches(withText("Vegane Chocolate Chip Cookies")));
         onView(withId(R.id.new_source)).check(matches(withText("https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html")));
@@ -71,7 +71,7 @@ public class ImportingIntegrationTest {
         intent.putExtra(Intent.EXTRA_TEXT, "https://stilettosandsprouts.de/vegane-fenchel-pasta/");
         scenario = launch(intent);
 
-        Thread.sleep(3000); // TODO don't do this
+        Thread.sleep(5000); // TODO don't do this
 
         onView(withId(R.id.new_title)).check(matches(withText("Vegane Fenchel-Pasta")));
         onView(withId(R.id.new_source)).check(matches(withText("https://stilettosandsprouts.de/vegane-fenchel-pasta/")));
@@ -89,7 +89,7 @@ public class ImportingIntegrationTest {
         intent.putExtra(Intent.EXTRA_TEXT, "https://www.gutekueche.de/fladenbrot-grundrezept-rezept-1673");
         scenario = launch(intent);
 
-        Thread.sleep(3000); // TODO don't do this
+        Thread.sleep(5000); // TODO don't do this
 
         onView(withId(R.id.new_title)).check(matches(withText("Fladenbrot Grundrezept")));
         onView(withId(R.id.new_source)).check(matches(withText("https://www.gutekueche.de/fladenbrot-grundrezept-rezept-1673")));
