@@ -10,6 +10,8 @@ import android.widget.LinearLayout;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.BindingAdapter;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,6 +21,7 @@ import com.flauschcode.broccoli.BroccoliApplication;
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.RecyclerViewAdapter;
 
+import java.io.Serializable;
 import java.time.Month;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -48,6 +51,8 @@ public class MonthFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_month, container, false);
 
+        NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+
         RecyclerView recyclerView = root.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         ListAdapter<SeasonalFood, RecyclerViewAdapter<SeasonalFood>.Holder> adapter = new RecyclerViewAdapter<SeasonalFood>() {
@@ -63,7 +68,9 @@ public class MonthFragment extends Fragment {
 
             @Override
             protected void onItemClick(SeasonalFood item) {
-                // TODO search
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("terms", (Serializable) item.getTerms());
+                navController.navigate(R.id.nav_recipes, bundle);
             }
         };
         recyclerView.setAdapter(adapter);

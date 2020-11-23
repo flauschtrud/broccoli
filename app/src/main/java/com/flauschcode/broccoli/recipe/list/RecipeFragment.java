@@ -32,6 +32,9 @@ import com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
@@ -122,7 +125,15 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
             searchView = new SearchView(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
             searchItem.setActionView(searchView);
             searchView.setOnQueryTextListener(this);
+
+            if (getArguments() != null && getArguments().getSerializable("terms") instanceof List) {
+                resetCategory();
+                List<String> searchTerms = (List<String>) getArguments().getSerializable("terms");
+                searchItem.expandActionView();
+                searchView.post(() -> searchView.setQuery(searchTerms.stream().map(term -> "\"" + term + "\"").collect(Collectors.joining(" OR ")), false));
+            }
         }
+
     }
 
     @Override
