@@ -122,7 +122,7 @@ class ImportableRecipeBuilder {
             for (int i = 0; i < instructionsArray.length(); i++) {
 
                 JSONObject instructionObject = instructionsArray.optJSONObject(i);
-                if (instructionObject.has(TYPE) && HOW_TO_SECTION.equals(instructionObject.optString(TYPE))) {
+                if (instructionObject != null && instructionObject.has(TYPE) && HOW_TO_SECTION.equals(instructionObject.optString(TYPE))) {
                     directions.add(contributeSection(instructionObject));
                 } else {
                     directions.add(contributeStep(instructionsArray, i));
