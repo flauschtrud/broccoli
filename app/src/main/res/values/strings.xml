@@ -108,21 +108,128 @@
     <string name="seasons_feedback_subject">Feedback for Broccoli Seasonal Calendar</string>
 
     <!-- regions for seasonal calendar -->
-    <string name="region_germany">Germany</string> <!-- TODO just temporarily -->
-    <string name="region_australia">Australia</string> <!-- TODO just temporarily -->
+    <string name="region_central_europe">Central europe</string>
 
     <!-- languages for seasonal calendar -->
     <string name="english">English</string>
     <string name="german">German</string>
 
     <!-- seasonal food -->
-    <string name="apples">Apples</string>
-    <string name="apples_terms">apple, apples</string>
+    <string name="eggplant">Eggplants</string>
+    <string name="eggplant_terms">eggplant</string>
+
+    <string name="cauliflower">Cauliflower</string>
+    <string name="cauliflower_terms">cauliflower</string>
+
+    <string name="broad_bean">Broad beans</string>
+    <string name="broad_bean_terms">broad bean, fava bean, faba bean</string>
+
+    <string name="bean">Beans</string>
+    <string name="bean_terms">green bean, runner bean</string>
+
+    <string name="broccoli">Broccoli</string>
+    <string name="broccoli_terms">broccoli</string>
+
+    <string name="chinese_cabbage">Chinese cabbage</string>
+    <string name="chinese_cabbage_terms">chinese cabbage</string>
+
+    <string name="pea">Peas</string>
+    <string name="pea_terms">peas</string>
+
+    <string name="fennel">Fennel</string>
+    <string name="fennel_terms">fennel</string>
+
+    <string name="kale">Kale</string>
+    <string name="kale_terms">kale</string>
+
+    <string name="cucumber">Cucumbers</string>
+    <string name="cucumber_terms">cucumber</string>
+
+    <string name="celeriac">Celeriac</string>
+    <string name="celeriac_terms">celeriac</string>
+
+    <string name="kohlrabi">Kohlrabi</string>
+    <string name="kohlrabi_terms">kohlrabi</string>
+
+    <string name="pumpkin">Pumpkin</string>
+    <string name="pumpkin_terms">pumpkin, hokkaido, butternut</string>
 
     <string name="leek">Leek</string>
     <string name="leek_terms">leek</string>
 
-    <string name="lemons">Lemons</string>
-    <string name="lemons_terms">lemon, lemons</string>
+    <string name="corn">Corn</string>
+    <string name="corn_terms">corn</string>
+
+    <string name="chard">Chard</string>
+    <string name="chard_terms">chard</string>
+
+    <string name="carrot">Carrots</string>
+    <string name="carrot_terms">carrot</string>
+
+    <string name="paprika">Paprika</string>
+    <string name="paprika_terms">paprika, bell pepper</string>
+
+    <string name="parsnip">Parsnip</string>
+    <string name="parsnip_terms">parsnip</string>
+
+    <string name="brussels_sprouts">Brussels sprouts</string>
+    <string name="brussels_sprouts_terms">brussels sprouts</string>
+
+    <string name="beetroot">Beetroot</string>
+    <string name="beetroot_terms">beet, beetroot</string>
+
+    <string name="red_cabbage">Red cabbage</string>
+    <string name="red_cabbage_terms">red cabbage</string>
+
+    <string name="salsify">Salsify root</string>
+    <string name="salsify_terms">salsify</string>
+
+    <string name="asparagus">Asparagus</string>
+    <string name="asparagus_terms">asparagus</string>
+
+    <string name="spinach">Spinach</string>
+    <string name="spinach_terms">spinach</string>
+
+    <string name="celery">Celery</string>
+    <string name="celery_terms">celery</string>
+
+    <string name="turnip">Turnips</string>
+    <string name="turnip_terms">turnip</string>
+
+    <string name="tomato">Tomatoes</string>
+    <string name="tomato_terms">tomato</string>
+
+    <string name="white_cabbage">White cabbage</string>
+    <string name="white_cabbage_terms">white cabbage</string>
+
+    <string name="savoy_cabbage">Savoy cabbage</string>
+    <string name="savoy_cabbage_terms">savoy cabbage</string>
+
+    <string name="zucchini">Zucchini</string>
+    <string name="zucchini_terms">zucchini</string>
+
+    <string name="wild_garlic">Wild garlic</string>
+    <string name="wild_garlic_terms">wild garlic</string>
+
+    <string name="apple">Apples</string>
+    <string name="apple_terms">apple</string>
+
+    <string name="apricot">Apricots</string>
+    <string name="apricot_terms">apricot</string>
+
+    <string name="pear">Pears</string>
+    <string name="pear_terms">pear</string>
+
+    <string name="strawberry">Strawberries</string>
+    <string name="strawberry_terms">strawberries</string>
+
+    <string name="cherry">Cherries</string>
+    <string name="cherry_terms">cherries</string>
+
+    <string name="rhubarb">Rhubarb</string>
+    <string name="rhubarb_terms">rhubarb</string>
+
+    <string name="plum">Plums</string>
+    <string name="plum_terms">plum</string>
 
 </resources>
