@@ -21,7 +21,9 @@ import com.flauschcode.broccoli.RecyclerViewAdapter;
 
 import java.time.Month;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
@@ -66,13 +68,14 @@ public class MonthFragment extends Fragment {
         };
         recyclerView.setAdapter(adapter);
 
-        seasonalCalendarHolder.get().ifPresent(seasonalCalendar -> adapter.submitList(seasonalCalendar.getSeasonalFoodFor(month)));
+        seasonalCalendarHolder.get().ifPresent(seasonalCalendar -> adapter.submitList(seasonalCalendar.getSeasonalFoodFor(month).stream().sorted(Comparator.comparing(SeasonalFood::getName)).collect(Collectors.toList())));
 
         return root;
     }
 
     @BindingAdapter("months")
     public static void bind(LinearLayout layout, List<Month> months) {
+        layout.removeAllViews();
         Arrays.stream(Month.values()).forEach(otherMonth -> {
             View.inflate(layout.getContext(), R.layout.seasonal_icon, layout);
             ImageView imageView = (ImageView) layout.getChildAt(otherMonth.getValue()-1);
