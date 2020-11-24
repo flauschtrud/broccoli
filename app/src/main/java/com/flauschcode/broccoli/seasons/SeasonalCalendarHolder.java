@@ -44,7 +44,7 @@ public class SeasonalCalendarHolder implements SharedPreferences.OnSharedPrefere
         return Optional.ofNullable(seasonalCalendar);
     }
 
-    private void tryToBuildSeasonalCalendar() {
+    private synchronized void tryToBuildSeasonalCalendar() {
         seasonalCalendar = null;
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(application);

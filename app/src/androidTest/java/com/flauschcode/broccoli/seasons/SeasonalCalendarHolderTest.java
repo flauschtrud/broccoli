@@ -17,8 +17,9 @@ import java.util.Optional;
 import java.util.Set;
 
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.CoreMatchers.*;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.collection.IsEmptyCollection.empty;
 
@@ -48,7 +49,7 @@ public class SeasonalCalendarHolderTest {
    }
 
     @Test
-    public void get_calendar() throws InterruptedException {
+    public void get_calendar() {
         Set<String> languages = new HashSet<>();
         languages.add("en");
         languages.add("de");
@@ -58,8 +59,6 @@ public class SeasonalCalendarHolderTest {
                 .putString("seasonal-calendar-region", "flauschland")
                 .putStringSet("seasonal-calendar-languages", languages)
                 .apply();
-
-        Thread.sleep(500); // TODO don't do this
 
         Optional<SeasonalCalendar> seasonalCalendarOptional = holder.get();
         assertThat(seasonalCalendarOptional.isPresent(), is(true));
