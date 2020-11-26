@@ -101,6 +101,7 @@
     <string name="seasonal_calendar">Seasonal calendar</string>
     <string name="seasonal">Seasonal recipes</string>
     <string name="seasons_not_configured_message">The seasonal calendar has not been fully configured yet. You can do that in the settings.</string>
+    <string name="seasons_month_range" translatable="false">%1$s - %2$s</string>
     <string name="region">Region</string>
     <string name="languages">Languages</string>
     <string name="no_language_set">Choose at least one language</string>
