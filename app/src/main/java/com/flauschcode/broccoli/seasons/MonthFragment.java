@@ -1,6 +1,7 @@
 package com.flauschcode.broccoli.seasons;
 
 import android.content.res.Resources;
+import android.icu.text.Collator;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -77,7 +78,8 @@ public class MonthFragment extends Fragment {
         };
         recyclerView.setAdapter(adapter);
 
-        seasonalCalendarHolder.get().ifPresent(seasonalCalendar -> adapter.submitList(seasonalCalendar.getSeasonalFoodFor(month).stream().sorted(Comparator.comparing(SeasonalFood::getName)).collect(Collectors.toList())));
+        Collator collator = Collator.getInstance(getResources().getConfiguration().getLocales().get(0));
+        seasonalCalendarHolder.get().ifPresent(seasonalCalendar -> adapter.submitList(seasonalCalendar.getSeasonalFoodFor(month).stream().sorted(Comparator.comparing(SeasonalFood::getName, collator)).collect(Collectors.toList())));
 
         return root;
     }
