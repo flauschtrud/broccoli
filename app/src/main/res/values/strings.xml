@@ -58,6 +58,8 @@
 
     <!-- Sharing and export/import -->
     <string name="action_details_share">Share</string>
+    <string name="shared_with">Shared with %1$s</string>
+    <string name="playstore_url" translatable="false">https://play.google.com/store/apps/details?id=com.flauschcode.broccoli</string>
     <string name="toast_error_importing_recipe">The recipe could not be imported.</string>
     <string name="toast_error_reading_recipe">This website does not provide a recipe format that Broccoli can read. Please enter the recipe details by copy and pasting.</string>
     <string name="action_details_share_as_file">Share as file</string>

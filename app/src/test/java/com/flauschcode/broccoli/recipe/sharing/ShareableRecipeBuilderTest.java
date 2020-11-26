@@ -40,6 +40,7 @@ public class ShareableRecipeBuilderTest {
             "\n" +
             "Servings: 4 Portionen\n" +
             "Preparation time: 1h\n" +
+            "Source: www.flauschhaus.org\n" +
             "\n" +
             "Das ist toll!\n" +
             "\n" +
@@ -51,7 +52,7 @@ public class ShareableRecipeBuilderTest {
             "1. Erst dies.\n" +
             "2. Dann das.\n" +
             "\n" +
-            "Shared via Broccoli";
+            "Shared with BROCCOLI_URL";
 
     private static final String PLAIN_TEXT_RECIPE_MINIMAL = "LAUCHKUCHEN\n" +
             "\n" +
@@ -63,14 +64,17 @@ public class ShareableRecipeBuilderTest {
             "1. Erst dies.\n" +
             "2. Dann das.\n" +
             "\n" +
-            "Shared via Broccoli";
+            "Shared with BROCCOLI_URL";
 
     @Before
     public void setUp() {
         when(application.getString(R.string.hint_new_recipe_servings)).thenReturn("Servings");
         when(application.getString(R.string.hint_new_recipe_preparation_time)).thenReturn("Preparation time");
+        when(application.getString(R.string.hint_new_recipe_source)).thenReturn("Source");
         when(application.getString(R.string.ingredients)).thenReturn("Ingredients");
         when(application.getString(R.string.directions)).thenReturn("Directions");
+        when(application.getString(R.string.playstore_url)).thenReturn("BROCCOLI_URL");
+        when(application.getString(R.string.shared_with,  "BROCCOLI_URL")).thenReturn("Shared with BROCCOLI_URL");
     }
 
     @Test
@@ -80,6 +84,7 @@ public class ShareableRecipeBuilderTest {
         recipe.setServings("4 Portionen");
         recipe.setPreparationTime("1h");
         recipe.setDescription("Das ist toll!");
+        recipe.setSource("www.flauschhaus.org");
         recipe.setIngredients("- 500g Mehl\n - 100g Margarine  ");
         recipe.setDirections(" 1. Erst dies. \n 2. Dann das. ");
         recipe.setImageName("image/bla.jpg");
