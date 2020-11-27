@@ -1,31 +1,32 @@
 package com.flauschcode.broccoli.seasons;
 
+import android.content.res.Resources;
+import android.icu.text.Collator;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.TextView;
 
-import androidx.core.content.ContextCompat;
 import androidx.databinding.BindingAdapter;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.flauschcode.broccoli.BR;
-import com.flauschcode.broccoli.BroccoliApplication;
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.RecyclerViewAdapter;
 
 import java.io.Serializable;
 import java.time.Month;
-import java.util.Arrays;
+import java.time.format.TextStyle;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 import java.util.stream.Collectors;
 
 import javax.inject.Inject;
@@ -55,6 +56,8 @@ public class MonthFragment extends Fragment {
 
         RecyclerView recyclerView = root.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+
         ListAdapter<SeasonalFood, RecyclerViewAdapter<SeasonalFood>.Holder> adapter = new RecyclerViewAdapter<SeasonalFood>() {
             @Override
             protected int getLayoutResourceId() {
@@ -75,21 +78,24 @@ public class MonthFragment extends Fragment {
         };
         recyclerView.setAdapter(adapter);
 
-        seasonalCalendarHolder.get().ifPresent(seasonalCalendar -> adapter.submitList(seasonalCalendar.getSeasonalFoodFor(month).stream().sorted(Comparator.comparing(SeasonalFood::getName)).collect(Collectors.toList())));
+        Collator collator = Collator.getInstance(getResources().getConfiguration().getLocales().get(0));
+        seasonalCalendarHolder.get().ifPresent(seasonalCalendar -> adapter.submitList(seasonalCalendar.getSeasonalFoodFor(month).stream().sorted(Comparator.comparing(SeasonalFood::getName, collator)).collect(Collectors.toList())));
 
         return root;
     }
 
     @BindingAdapter("months")
-    public static void bind(LinearLayout layout, List<Month> months) {
-        layout.removeAllViews();
-        Arrays.stream(Month.values()).forEach(otherMonth -> {
-            View.inflate(layout.getContext(), R.layout.seasonal_icon, layout);
-            ImageView imageView = (ImageView) layout.getChildAt(otherMonth.getValue()-1);
-            if (months.contains(otherMonth)) {
-                imageView.setImageTintList(ContextCompat.getColorStateList(BroccoliApplication.getContext(), R.color.colorPrimary));
-            }
-        });
+    public static void bind(TextView textView, List<Month> months) {
+        Month first = months.get(0);
+        Month last = months.get(months.size()-1);
 
+        Resources resources = textView.getContext().getResources();
+        Locale locale = resources.getConfiguration().getLocales().get(0);
+
+        String firstDisplayName = first.getDisplayName(TextStyle.SHORT_STANDALONE, locale);
+        String lastDisplayName = last.getDisplayName(TextStyle.SHORT_STANDALONE, locale);
+
+        textView.setText(resources.getString(R.string.seasons_month_range, firstDisplayName, lastDisplayName));
     }
+
 }

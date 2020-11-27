@@ -9,6 +9,7 @@ import com.flauschcode.broccoli.seasons.SeasonalCalendar;
 import com.flauschcode.broccoli.seasons.SeasonalCalendarHolder;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
@@ -38,6 +39,12 @@ public class RecipeRepository {
     public LiveData<List<Recipe>> find(SearchCriteria criteria) {
         Category category = criteria.getCategory();
         String searchTerm = criteria.getSearchTerm();
+
+        if (!criteria.getSeasonalTerms().isEmpty()) {
+            String wildcardQuery = String.format("%s*", searchTerm);
+            String seasonalTerm = buildQueryFor(criteria.getSeasonalTerms());
+            return "".equals(searchTerm)? recipeDAO.findSeasonal(seasonalTerm) : recipeDAO.searchForSeasonal(seasonalTerm, wildcardQuery);
+        }
 
         if (category == Category.ALL || category == Category.FAVORITES) {
             List<Boolean> favoriteStates = getChosenFavoriteStates(category);
@@ -97,9 +104,13 @@ public class RecipeRepository {
         Optional<SeasonalCalendar> seasonalCalendarOptional = seasonalCalendarHolder.get();
         if (seasonalCalendarOptional.isPresent()) {
             SeasonalCalendar seasonalCalendar = seasonalCalendarOptional.get();
-            return seasonalCalendar.getSearchTermsForCurrentMonth().stream().map(term -> "\"" + term + "\"").collect(Collectors.joining(" OR "));
+            return buildQueryFor(seasonalCalendar.getSearchTermsForCurrentMonth());
         }
         return "";
+    }
+
+    private String buildQueryFor(Collection<String> seasonalTerms) {
+        return seasonalTerms.stream().map(term -> "\"" + term + "\"").collect(Collectors.joining(" OR "));
     }
 
     private List<Boolean> getChosenFavoriteStates(Category category) {
@@ -142,6 +153,7 @@ public class RecipeRepository {
     public static class SearchCriteria {
         private Category category = Category.ALL;
         private String searchTerm = "";
+        private List<String> seasonalTerms = new ArrayList<>();
 
         public Category getCategory() {
             return category;
@@ -158,6 +170,15 @@ public class RecipeRepository {
         public void setSearchTerm(String searchTerm) {
             this.searchTerm = searchTerm;
         }
+
+        public List<String> getSeasonalTerms() {
+            return seasonalTerms;
+        }
+
+        public void setSeasonalTerms(List<String> seasonalTerms) {
+            this.seasonalTerms = seasonalTerms;
+        }
+
     }
 
 }

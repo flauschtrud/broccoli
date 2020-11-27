@@ -58,6 +58,8 @@
 
     <!-- Sharing and export/import -->
     <string name="action_details_share">Share</string>
+    <string name="shared_with">Shared with %1$s</string>
+    <string name="playstore_url" translatable="false">https://play.google.com/store/apps/details?id=com.flauschcode.broccoli</string>
     <string name="toast_error_importing_recipe">The recipe could not be imported.</string>
     <string name="toast_error_reading_recipe">This website does not provide a recipe format that Broccoli can read. Please enter the recipe details by copy and pasting.</string>
     <string name="action_details_share_as_file">Share as file</string>
@@ -101,6 +103,7 @@
     <string name="seasonal_calendar">Seasonal calendar</string>
     <string name="seasonal">Seasonal recipes</string>
     <string name="seasons_not_configured_message">The seasonal calendar has not been fully configured yet. You can do that in the settings.</string>
+    <string name="seasons_month_range" translatable="false">%1$s - %2$s</string>
     <string name="region">Region</string>
     <string name="languages">Languages</string>
     <string name="no_language_set">Choose at least one language</string>
@@ -116,16 +119,16 @@
 
     <!-- seasonal food -->
     <string name="eggplant">Eggplants</string>
-    <string name="eggplant_terms">eggplant</string>
+    <string name="eggplant_terms">eggplant, eggplants, aubergine, aubergines</string>
 
     <string name="cauliflower">Cauliflower</string>
-    <string name="cauliflower_terms">cauliflower</string>
+    <string name="cauliflower_terms">cauliflower, cauliflowers</string>
 
     <string name="broad_bean">Broad beans</string>
-    <string name="broad_bean_terms">broad bean, fava bean, faba bean</string>
+    <string name="broad_bean_terms">broad beans, fava beans, faba beans</string>
 
     <string name="bean">Beans</string>
-    <string name="bean_terms">green bean, runner bean</string>
+    <string name="bean_terms">green beans, runner beans</string>
 
     <string name="broccoli">Broccoli</string>
     <string name="broccoli_terms">broccoli</string>
@@ -143,7 +146,7 @@
     <string name="kale_terms">kale</string>
 
     <string name="cucumber">Cucumbers</string>
-    <string name="cucumber_terms">cucumber</string>
+    <string name="cucumber_terms">cucumber, cucumbers</string>
 
     <string name="celeriac">Celeriac</string>
     <string name="celeriac_terms">celeriac</string>
@@ -152,7 +155,7 @@
     <string name="kohlrabi_terms">kohlrabi</string>
 
     <string name="pumpkin">Pumpkin</string>
-    <string name="pumpkin_terms">pumpkin, hokkaido, butternut</string>
+    <string name="pumpkin_terms">pumpkin, pumpkins, hokkaido, butternut</string>
 
     <string name="leek">Leek</string>
     <string name="leek_terms">leek</string>
@@ -164,19 +167,19 @@
     <string name="chard_terms">chard</string>
 
     <string name="carrot">Carrots</string>
-    <string name="carrot_terms">carrot</string>
+    <string name="carrot_terms">carrot, carrots</string>
 
     <string name="paprika">Paprika</string>
-    <string name="paprika_terms">paprika, bell pepper</string>
+    <string name="paprika_terms">paprika, paprikas, bell pepper, bell peppers</string>
 
     <string name="parsnip">Parsnip</string>
-    <string name="parsnip_terms">parsnip</string>
+    <string name="parsnip_terms">parsnip, parsnips</string>
 
     <string name="brussels_sprouts">Brussels sprouts</string>
     <string name="brussels_sprouts_terms">brussels sprouts</string>
 
     <string name="beetroot">Beetroot</string>
-    <string name="beetroot_terms">beet, beetroot</string>
+    <string name="beetroot_terms">beet, beets, beetroot</string>
 
     <string name="red_cabbage">Red cabbage</string>
     <string name="red_cabbage_terms">red cabbage</string>
@@ -194,10 +197,10 @@
     <string name="celery_terms">celery</string>
 
     <string name="turnip">Turnips</string>
-    <string name="turnip_terms">turnip</string>
+    <string name="turnip_terms">turnip, turnips</string>
 
     <string name="tomato">Tomatoes</string>
-    <string name="tomato_terms">tomato</string>
+    <string name="tomato_terms">tomato, tomatoes</string>
 
     <string name="white_cabbage">White cabbage</string>
     <string name="white_cabbage_terms">white cabbage</string>
@@ -206,19 +209,19 @@
     <string name="savoy_cabbage_terms">savoy cabbage</string>
 
     <string name="zucchini">Zucchini</string>
-    <string name="zucchini_terms">zucchini</string>
+    <string name="zucchini_terms">zucchini, courgette, courgettes</string>
 
     <string name="wild_garlic">Wild garlic</string>
     <string name="wild_garlic_terms">wild garlic</string>
 
     <string name="apple">Apples</string>
-    <string name="apple_terms">apple</string>
+    <string name="apple_terms">apple, apples</string>
 
     <string name="apricot">Apricots</string>
-    <string name="apricot_terms">apricot</string>
+    <string name="apricot_terms">apricot, apricots</string>
 
     <string name="pear">Pears</string>
-    <string name="pear_terms">pear</string>
+    <string name="pear_terms">pear, pears</string>
 
     <string name="strawberry">Strawberries</string>
     <string name="strawberry_terms">strawberries</string>
@@ -230,6 +233,6 @@
     <string name="rhubarb_terms">rhubarb</string>
 
     <string name="plum">Plums</string>
-    <string name="plum_terms">plum</string>
+    <string name="plum_terms">plum, plums</string>
 
 </resources>

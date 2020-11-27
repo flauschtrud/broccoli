@@ -13,6 +13,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:visibility="gone"
         android:gravity="center"
+        android:padding="@dimen/text_margin"
         android:text="@string/seasons_not_configured_message" />
 
     <com.google.android.material.tabs.TabLayout

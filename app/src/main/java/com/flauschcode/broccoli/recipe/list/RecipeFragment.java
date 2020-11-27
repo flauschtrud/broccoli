@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
@@ -33,7 +34,6 @@ import com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
@@ -50,6 +50,8 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
 
     private MenuItem searchItem;
     private SearchView searchView;
+    private Spinner spinner;
+    private Button toolbarButton;
 
     private static final int REQUEST_CRUD = 1;
     private static final int REQUEST_DETAILS = 2;
@@ -91,29 +93,38 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         viewModel = new ViewModelProvider(this, viewModelFactory).get(RecipeViewModel.class);
         viewModel.getRecipes().observe(getViewLifecycleOwner(), adapter::submitList);
 
-        Spinner spinner = getActivity().findViewById(R.id.spinner);
-        if (spinner != null) {
-            spinner.setVisibility(View.VISIBLE);
+        setUpSpinner();
 
-            ArrayAdapter<Category> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item);
-            arrayAdapter.add(Category.ALL);
-            arrayAdapter.add(Category.SEASONAL);
-            arrayAdapter.add(Category.UNASSIGNED);
-            arrayAdapter.add(Category.FAVORITES);
-            viewModel.getCategories().observe(getViewLifecycleOwner(), categories -> categories.forEach(arrayAdapter::add));
-            arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-            spinner.setAdapter(arrayAdapter);
-            spinner.setOnItemSelectedListener(this);
-
-            Category preferredCategory = getPreferredCategory();
-            int position = arrayAdapter.getPosition(preferredCategory);
-            spinner.setSelection(position);
+        toolbarButton = getActivity().findViewById(R.id.toolbar_button);
+        if (getArguments() != null && getArguments().getSerializable("terms") instanceof List) {
+            resetCategory();
+            List<String> searchTerms = (List<String>) getArguments().getSerializable("terms"); // TODO argument action stuff, method
+            toolbarButton.setText(searchTerms.toString());
+            toolbarButton.setVisibility(View.VISIBLE);
+            toolbarButton.setOnClickListener(view -> {
+                getArguments().clear();
+                resetCategory();
+                toolbarButton.setVisibility(View.GONE);
+                spinner.setVisibility(View.VISIBLE);
+            });
+            spinner.post(() -> viewModel.setSeasonalTerms(searchTerms));
         }
 
         setHasOptionsMenu(true);
 
         return root;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        if (getArguments() == null || !(getArguments().getSerializable("terms") instanceof List)) {
+            toolbarButton.setVisibility(View.GONE);
+            spinner.setVisibility(View.VISIBLE);
+            spinner.setOnItemSelectedListener(this);
+        }
+
     }
 
     @Override
@@ -125,24 +136,14 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
             searchView = new SearchView(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
             searchItem.setActionView(searchView);
             searchView.setOnQueryTextListener(this);
-
-            if (getArguments() != null && getArguments().getSerializable("terms") instanceof List) {
-                resetCategory();
-                List<String> searchTerms = (List<String>) getArguments().getSerializable("terms");
-                searchItem.expandActionView();
-                searchView.post(() -> searchView.setQuery(searchTerms.stream().map(term -> "\"" + term + "\"").collect(Collectors.joining(" OR ")), false));
-            }
         }
-
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        Spinner spinner = getActivity().findViewById(R.id.spinner);
-        if (spinner != null) {
-            spinner.setVisibility(View.GONE);
-        }
+        spinner.setVisibility(View.GONE);
+        toolbarButton.setVisibility(View.GONE);
     }
 
     @Override
@@ -162,6 +163,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
             }
         } else if (requestCode == REQUEST_DETAILS && resultCode == RESULT_OK && data.hasExtra("hashtag")) {
             resetCategory();
+            getArguments().clear();
             searchItem.expandActionView();
             searchView.post(() -> searchView.setQuery(data.getStringExtra("hashtag"), false));
         }
@@ -191,11 +193,24 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     }
 
     private void resetCategory() {
-        Spinner spinner = getActivity().findViewById(R.id.spinner);
-        if (spinner != null) {
-            spinner.setSelection(0);
-            viewModel.setFilter(Category.ALL);
-        }
+        spinner.setSelection(0);
+        viewModel.setFilter(Category.ALL);
+    }
+
+    private void setUpSpinner() {
+        spinner = getActivity().findViewById(R.id.spinner);
+        ArrayAdapter<Category> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item);
+        arrayAdapter.add(Category.ALL);
+        arrayAdapter.add(Category.SEASONAL);
+        arrayAdapter.add(Category.UNASSIGNED);
+        arrayAdapter.add(Category.FAVORITES);
+        viewModel.getCategories().observe(getViewLifecycleOwner(), categories -> categories.forEach(arrayAdapter::add));
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(arrayAdapter);
+
+        Category preferredCategory = getPreferredCategory();
+        int position = arrayAdapter.getPosition(preferredCategory);
+        spinner.setSelection(position, false);
     }
 
     private Category getPreferredCategory() {

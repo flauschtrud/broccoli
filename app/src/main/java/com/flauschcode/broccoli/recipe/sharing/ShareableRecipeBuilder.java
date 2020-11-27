@@ -42,7 +42,15 @@ public class ShareableRecipeBuilder {
         }
 
         if (!"".equals(recipe.getPreparationTime())) {
-            stringBuilder.append(getPreparationTimeString()).append(": ").append(recipe.getPreparationTime()).append("\n\n");
+            stringBuilder.append(getPreparationTimeString()).append(": ").append(recipe.getPreparationTime()).append("\n");
+        }
+
+        if (!"".equals(recipe.getSource())) {
+            stringBuilder.append(getSourceString()).append(": ").append(recipe.getSource()).append("\n");
+        }
+
+        if (!"".equals(recipe.getServings()) || !"".equals(recipe.getPreparationTime()) || !"".equals(recipe.getSource())) {
+            stringBuilder.append("\n");
         }
 
         if(!"".equals(recipe.getDescription())) {
@@ -61,7 +69,7 @@ public class ShareableRecipeBuilder {
             stringBuilder.append("\n");
         }
 
-        stringBuilder.append("Shared via Broccoli"); // TODO insert link here and localize
+        stringBuilder.append(getSharedWithString());
 
         return stringBuilder.toString();
     }
@@ -74,12 +82,20 @@ public class ShareableRecipeBuilder {
         return application.getString(R.string.hint_new_recipe_preparation_time);
     }
 
+    private String getSourceString() {
+        return application.getString(R.string.hint_new_recipe_source);
+    }
+
     private String getIngredientsString() {
         return application.getString(R.string.ingredients);
     }
 
     private String getDirectionsString() {
         return application.getString(R.string.directions);
+    }
+
+    private String getSharedWithString() {
+        return application.getString(R.string.shared_with, application.getString(R.string.playstore_url));
     }
 
 }

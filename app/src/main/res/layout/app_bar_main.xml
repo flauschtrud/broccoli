@@ -25,6 +25,16 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay"
                 android:visibility="gone"/>
 
+            <Button
+                android:id="@+id/toolbar_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:padding="4dp"
+                app:drawableEndCompat="@drawable/ic_close_24dp"
+                android:background="@drawable/button_background"
+                android:visibility="gone" />
+
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
