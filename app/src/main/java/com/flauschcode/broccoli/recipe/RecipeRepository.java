@@ -39,6 +39,11 @@ public class RecipeRepository {
         Category category = criteria.getCategory();
         String searchTerm = criteria.getSearchTerm();
 
+        if (!"".equals(criteria.getSeasonalTerm())) {
+            String wildcardQuery = String.format("%s*", searchTerm);
+            return "".equals(searchTerm)? recipeDAO.findSeasonal(criteria.getSeasonalTerm()) : recipeDAO.searchForSeasonal(criteria.getSeasonalTerm(), wildcardQuery);
+        }
+
         if (category == Category.ALL || category == Category.FAVORITES) {
             List<Boolean> favoriteStates = getChosenFavoriteStates(category);
             return "".equals(searchTerm)? findAll(favoriteStates) : searchFor(searchTerm, favoriteStates);
@@ -142,6 +147,7 @@ public class RecipeRepository {
     public static class SearchCriteria {
         private Category category = Category.ALL;
         private String searchTerm = "";
+        private String seasonalTerm = "";
 
         public Category getCategory() {
             return category;
@@ -157,6 +163,14 @@ public class RecipeRepository {
 
         public void setSearchTerm(String searchTerm) {
             this.searchTerm = searchTerm;
+        }
+
+        public String getSeasonalTerm() {
+            return seasonalTerm;
+        }
+
+        public void setSeasonalTerm(String seasonalTerm) {
+            this.seasonalTerm = seasonalTerm;
         }
     }
 

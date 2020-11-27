@@ -44,7 +44,14 @@ public class RecipeViewModel extends ViewModel {
     void setSearchTerm(String searchTerm) {
         RecipeRepository.SearchCriteria newFilter = new RecipeRepository.SearchCriteria();
         newFilter.setCategory(criteriaLiveData.getValue().getCategory());
+        newFilter.setSeasonalTerm(criteriaLiveData.getValue().getSeasonalTerm());
         newFilter.setSearchTerm(searchTerm);
+        this.criteriaLiveData.setValue(newFilter);
+    }
+
+    void setSeasonalTerm(String seasonalTerm) {
+        RecipeRepository.SearchCriteria newFilter = new RecipeRepository.SearchCriteria();
+        newFilter.setSeasonalTerm(seasonalTerm);
         this.criteriaLiveData.setValue(newFilter);
     }
 
