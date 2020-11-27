@@ -1,8 +1,12 @@
-Welcome to Broccoli 0.6.0. Get seasonal!
+Welcome to Broccoli 0.6.1. We have many improvements for you!
 
-You want to save resources while cooking?
-Find out which of your recipes use seasonal ingredients with our new seasonal calendar.
+The seasonal calendar has been simplified so it can be understood better and the logic behind it has been tweaked so that it should fit most recipes.
 
-For now we have added a calendar for Central Europe in English and German. More to come!
+And we have fixed many issues, for example
+- duplicate entries in the seasonal calendar
+- wrong sorting in the seasonal calendar
+- buttons getting missing
+
+And furthermore you can now share a recipe including its source URL, so that your friends can easily research more about it.
 
 Have fun cooking!
