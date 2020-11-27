@@ -16,6 +16,7 @@ import com.flauschcode.broccoli.recipe.ingredients.IngredientBuilder;
 import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
@@ -50,7 +51,7 @@ public class SeasonsBindingAdapter {
         return (LayoutInflater) layout.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-    private boolean isSeasonal(String ingredientText) {
+    protected boolean isSeasonal(String ingredientText) {
         Optional<SeasonalCalendar> seasonalCalendarOptional = seasonalCalendarHolder.get();
 
         if (!seasonalCalendarOptional.isPresent()) {
@@ -58,7 +59,8 @@ public class SeasonsBindingAdapter {
         }
 
         SeasonalCalendar seasonalCalendar = seasonalCalendarOptional.get();
-        String regex = String.join("|", seasonalCalendar.getSearchTermsForCurrentMonth());
+
+        String regex = seasonalCalendar.getSearchTermsForCurrentMonth().stream().map(searchTerm -> searchTerm + "(\\W|$)").collect(Collectors.joining("|"));
         if ("".equals(regex)) {
             return false;
         }

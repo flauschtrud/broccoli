@@ -34,7 +34,6 @@ import com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
@@ -100,8 +99,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         if (getArguments() != null && getArguments().getSerializable("terms") instanceof List) {
             resetCategory();
             List<String> searchTerms = (List<String>) getArguments().getSerializable("terms"); // TODO argument action stuff, method
-            String searchTerm = searchTerms.stream().map(term -> "\"" + term + "\"").collect(Collectors.joining(" OR "));
-            toolbarButton.setText(searchTerm);
+            toolbarButton.setText(searchTerms.toString());
             toolbarButton.setVisibility(View.VISIBLE);
             toolbarButton.setOnClickListener(view -> {
                 getArguments().clear();
@@ -109,7 +107,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
                 toolbarButton.setVisibility(View.GONE);
                 spinner.setVisibility(View.VISIBLE);
             });
-            spinner.post(() -> viewModel.setSeasonalTerm(searchTerm));
+            spinner.post(() -> viewModel.setSeasonalTerms(searchTerms));
         }
 
         setHasOptionsMenu(true);
