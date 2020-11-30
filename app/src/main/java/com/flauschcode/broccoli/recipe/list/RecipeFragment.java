@@ -102,8 +102,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
             toolbarButton.setText(searchTerms.toString());
             toolbarButton.setVisibility(View.VISIBLE);
             toolbarButton.setOnClickListener(view -> {
-                getArguments().clear();
-                resetCategory();
+                resetCategoryAndArguments();
                 toolbarButton.setVisibility(View.GONE);
                 spinner.setVisibility(View.VISIBLE);
             });
@@ -156,14 +155,13 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CRUD && resultCode == RESULT_OK) {
             Recipe recipe = (Recipe) data.getSerializableExtra(Recipe.class.getName());
-            resetCategory();
+            resetCategoryAndArguments();
             if (getActivity() instanceof MainActivity) {
                 searchItem.expandActionView();
                 searchView.post(() -> searchView.setQuery(recipe.getTitle(), false));
             }
         } else if (requestCode == REQUEST_DETAILS && resultCode == RESULT_OK && data.hasExtra("hashtag")) {
-            resetCategory();
-            getArguments().clear();
+            resetCategoryAndArguments();
             searchItem.expandActionView();
             searchView.post(() -> searchView.setQuery(data.getStringExtra("hashtag"), false));
         }
@@ -195,6 +193,13 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     private void resetCategory() {
         spinner.setSelection(0);
         viewModel.setFilter(Category.ALL);
+    }
+
+    private void resetCategoryAndArguments() {
+        resetCategory();
+        if (getArguments() != null) {
+            getArguments().clear();
+        }
     }
 
     private void setUpSpinner() {
