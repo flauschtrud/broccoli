@@ -1,12 +1,13 @@
 package com.flauschcode.broccoli.seasons;
 
+import java.io.Serializable;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
-public class SeasonalFood {
+public class SeasonalFood implements Serializable {
 
     private final String name;
     private final List<String> terms;

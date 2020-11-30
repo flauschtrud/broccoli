@@ -21,7 +21,6 @@ import com.flauschcode.broccoli.BR;
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.RecyclerViewAdapter;
 
-import java.io.Serializable;
 import java.time.Month;
 import java.time.format.TextStyle;
 import java.util.Comparator;
@@ -70,10 +69,9 @@ public class MonthFragment extends Fragment {
             }
 
             @Override
-            protected void onItemClick(SeasonalFood item) {
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("terms", (Serializable) item.getTerms());
-                navController.navigate(R.id.nav_recipes, bundle);
+            protected void onItemClick(SeasonalFood seasonalFood) {
+                SeasonsFragmentDirections.ActionSearchForSeasonalFood actionSearchForSeasonalFood = SeasonsFragmentDirections.actionSearchForSeasonalFood(seasonalFood);
+                navController.navigate(actionSearchForSeasonalFood);
             }
         };
         recyclerView.setAdapter(adapter);

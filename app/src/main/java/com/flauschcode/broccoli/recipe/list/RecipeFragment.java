@@ -31,9 +31,8 @@ import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.recipe.Recipe;
 import com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity;
+import com.flauschcode.broccoli.seasons.SeasonalFood;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -96,17 +95,20 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         setUpSpinner();
 
         toolbarButton = getActivity().findViewById(R.id.toolbar_button);
-        if (getArguments() != null && getArguments().getSerializable("terms") instanceof List) {
+
+        SeasonalFood seasonalFood = RecipeFragmentArgs.fromBundle(getArguments()).getSeasonalFood();
+        if (seasonalFood != null) {
             resetCategory();
-            List<String> searchTerms = (List<String>) getArguments().getSerializable("terms"); // TODO argument action stuff, method
-            toolbarButton.setText(searchTerms.toString());
+
+            toolbarButton.setText(seasonalFood.getName());
             toolbarButton.setVisibility(View.VISIBLE);
             toolbarButton.setOnClickListener(view -> {
                 resetCategoryAndArguments();
                 toolbarButton.setVisibility(View.GONE);
                 spinner.setVisibility(View.VISIBLE);
             });
-            spinner.post(() -> viewModel.setSeasonalTerms(searchTerms));
+
+            spinner.post(() -> viewModel.setSeasonalTerms(seasonalFood.getTerms()));
         }
 
         setHasOptionsMenu(true);
@@ -118,7 +120,8 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     public void onResume() {
         super.onResume();
 
-        if (getArguments() == null || !(getArguments().getSerializable("terms") instanceof List)) {
+        SeasonalFood seasonalFood = RecipeFragmentArgs.fromBundle(getArguments()).getSeasonalFood();
+        if (seasonalFood == null) {
             toolbarButton.setVisibility(View.GONE);
             spinner.setVisibility(View.VISIBLE);
             spinner.setOnItemSelectedListener(this);
