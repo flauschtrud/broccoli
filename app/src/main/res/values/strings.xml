@@ -49,6 +49,7 @@
     <string name="unassigned">Unassigned recipes</string>
     <string name="search">Search</string>
     <string name="preferred_category">Preferred category</string>
+    <string name="search_in">Search in %1$s</string>
 
     <!-- Cooking mode -->
     <string name="title_activity_cooking_mode">Cooking mode</string>

@@ -34,6 +34,8 @@ import com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity;
 import com.flauschcode.broccoli.seasons.SeasonalFood;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.Optional;
+
 import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
@@ -95,9 +97,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         setUpSpinner();
 
         toolbarButton = getActivity().findViewById(R.id.toolbar_button);
-
-        SeasonalFood seasonalFood = RecipeFragmentArgs.fromBundle(getArguments()).getSeasonalFood();
-        if (seasonalFood != null) {
+        getSeasonalFoodArgument().ifPresent(seasonalFood -> {
             resetCategory();
 
             toolbarButton.setText(seasonalFood.getName());
@@ -108,8 +108,11 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
                 spinner.setVisibility(View.VISIBLE);
             });
 
-            spinner.post(() -> viewModel.setSeasonalTerms(seasonalFood.getTerms()));
-        }
+            spinner.post(() -> {
+                viewModel.setSeasonalTerms(seasonalFood.getTerms());
+                viewModel.setFilterName(seasonalFood.getName());
+            });
+        });
 
         setHasOptionsMenu(true);
 
@@ -120,13 +123,11 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     public void onResume() {
         super.onResume();
 
-        SeasonalFood seasonalFood = RecipeFragmentArgs.fromBundle(getArguments()).getSeasonalFood();
-        if (seasonalFood == null) {
+        if (!getSeasonalFoodArgument().isPresent()) {
             toolbarButton.setVisibility(View.GONE);
             spinner.setVisibility(View.VISIBLE);
             spinner.setOnItemSelectedListener(this);
         }
-
     }
 
     @Override
@@ -137,6 +138,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         if (getActivity() instanceof MainActivity) {
             searchView = new SearchView(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
             searchItem.setActionView(searchView);
+            viewModel.getFilterName().observe(getViewLifecycleOwner(), filterName -> searchView.setQueryHint(getString(R.string.search_in, filterName.toUpperCase())));
             searchView.setOnQueryTextListener(this);
         }
     }
@@ -152,6 +154,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Category category = (Category) parent.getItemAtPosition(position);
         viewModel.setFilter(category);
+        viewModel.setFilterName(category.getName());
     }
 
     @Override
@@ -196,6 +199,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     private void resetCategory() {
         spinner.setSelection(0);
         viewModel.setFilter(Category.ALL);
+        viewModel.setFilterName(Category.ALL.getName());
     }
 
     private void resetCategoryAndArguments() {
@@ -219,6 +223,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         Category preferredCategory = getPreferredCategory();
         int position = arrayAdapter.getPosition(preferredCategory);
         spinner.setSelection(position, false);
+        viewModel.setFilterName(preferredCategory.getName());
     }
 
     private Category getPreferredCategory() {
@@ -232,6 +237,10 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
             default:
                 return Category.ALL;
         }
+    }
+
+    private Optional<SeasonalFood> getSeasonalFoodArgument() {
+        return Optional.ofNullable(RecipeFragmentArgs.fromBundle(getArguments()).getSeasonalFood());
     }
 
 }
