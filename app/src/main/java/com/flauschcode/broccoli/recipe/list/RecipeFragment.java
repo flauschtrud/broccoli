@@ -16,8 +16,11 @@ import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
@@ -49,6 +52,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
 
     private RecipeViewModel viewModel;
 
+    private Toolbar toolbar;
     private MenuItem searchItem;
     private SearchView searchView;
     private Spinner spinner;
@@ -94,15 +98,21 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         viewModel = new ViewModelProvider(this, viewModelFactory).get(RecipeViewModel.class);
         viewModel.getRecipes().observe(getViewLifecycleOwner(), adapter::submitList);
 
+        LayoutInflater mInflater= LayoutInflater.from(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
+        toolbar = getActivity().findViewById(R.id.toolbar);
+        toolbarButton = (Button) mInflater.inflate(R.layout.seasonal_result_button, null);
+        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        toolbar.addView(toolbarButton, layoutParams);
+
         setUpSpinner();
 
-        toolbarButton = getActivity().findViewById(R.id.toolbar_button);
         getSeasonalFoodArgument().ifPresent(seasonalFood -> {
             resetCategory();
 
             toolbarButton.setText(seasonalFood.getName());
-            toolbarButton.setVisibility(View.VISIBLE);
             toolbarButton.setOnClickListener(view -> {
+                NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+                navController.popBackStack(R.id.nav_seasons, true);
                 resetCategoryAndArguments();
                 toolbarButton.setVisibility(View.GONE);
                 spinner.setVisibility(View.VISIBLE);
@@ -123,10 +133,12 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     public void onResume() {
         super.onResume();
 
-        if (!getSeasonalFoodArgument().isPresent()) {
+        if (getSeasonalFoodArgument().isPresent()) {
+            toolbarButton.setVisibility(View.VISIBLE);
+            spinner.setVisibility(View.GONE);
+        } else {
             toolbarButton.setVisibility(View.GONE);
             spinner.setVisibility(View.VISIBLE);
-            spinner.setOnItemSelectedListener(this);
         }
     }
 
@@ -146,8 +158,8 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        spinner.setVisibility(View.GONE);
-        toolbarButton.setVisibility(View.GONE);
+        toolbar.removeView(spinner);
+        toolbar.removeView(toolbarButton);
     }
 
     @Override
@@ -210,7 +222,6 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     }
 
     private void setUpSpinner() {
-        spinner = getActivity().findViewById(R.id.spinner);
         ArrayAdapter<Category> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item);
         arrayAdapter.add(Category.ALL);
         arrayAdapter.add(Category.SEASONAL);
@@ -218,7 +229,14 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         arrayAdapter.add(Category.FAVORITES);
         viewModel.getCategories().observe(getViewLifecycleOwner(), categories -> categories.forEach(arrayAdapter::add));
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        LayoutInflater mInflater= LayoutInflater.from(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
+        spinner = (Spinner) mInflater.inflate(R.layout.spinner, null);
+        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        toolbar.addView(spinner, layoutParams);
+
         spinner.setAdapter(arrayAdapter);
+        spinner.setOnItemSelectedListener(this);
 
         Category preferredCategory = getPreferredCategory();
         int position = arrayAdapter.getPosition(preferredCategory);
