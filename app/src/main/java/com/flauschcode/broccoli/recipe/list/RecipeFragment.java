@@ -98,12 +98,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         viewModel = new ViewModelProvider(this, viewModelFactory).get(RecipeViewModel.class);
         viewModel.getRecipes().observe(getViewLifecycleOwner(), adapter::submitList);
 
-        LayoutInflater mInflater= LayoutInflater.from(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
-        toolbar = getActivity().findViewById(R.id.toolbar);
-        toolbarButton = (Button) mInflater.inflate(R.layout.seasonal_result_button, null);
-        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        toolbar.addView(toolbarButton, layoutParams);
-
+        setUpToolbarButton();
         setUpSpinner();
 
         getSeasonalFoodArgument().ifPresent(seasonalFood -> {
@@ -242,6 +237,16 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         int position = arrayAdapter.getPosition(preferredCategory);
         spinner.setSelection(position, false);
         viewModel.setFilterName(preferredCategory.getName());
+    }
+
+    private void setUpToolbarButton() {
+        LayoutInflater mInflater= LayoutInflater.from(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
+        toolbar = getActivity().findViewById(R.id.toolbar);
+        toolbarButton = (Button) mInflater.inflate(R.layout.seasonal_result_button, null);
+        Toolbar.LayoutParams layoutParams = new Toolbar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        int margin = getResources().getDimensionPixelSize(R.dimen.toolbar_button_margin);
+        layoutParams.setMargins(margin, margin, margin, margin);
+        toolbar.addView(toolbarButton, layoutParams);
     }
 
     private Category getPreferredCategory() {
