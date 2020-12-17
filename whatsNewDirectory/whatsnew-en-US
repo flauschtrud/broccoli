@@ -1,12 +1,10 @@
-Welcome to Broccoli 0.6.1. We have many improvements for you!
+Welcome to Broccoli 0.6.2. We have many improvements for you!
 
-The seasonal calendar has been simplified so it can be understood better and the logic behind it has been tweaked so that it should fit most recipes.
+You can now easily see in which category you are searching.
 
-And we have fixed many issues, like
-- duplicate entries
-- wrong sorting
-- buttons getting missing
-
-Furthermore you can now share a recipe including its source URL, so that your friends can easily research more about it.
+And we have fixed many things, like
+- broken hashtag search
+- missing seasonal icons
+- navigation issues
 
 Have fun cooking!
