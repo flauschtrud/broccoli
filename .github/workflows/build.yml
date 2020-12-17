@@ -1,9 +1,7 @@
-name: Feature Builds
+name: Android CI
 
 on:
-  push:
-    branches-ignore:
-      - master
+  push
 
 jobs:
   test:
