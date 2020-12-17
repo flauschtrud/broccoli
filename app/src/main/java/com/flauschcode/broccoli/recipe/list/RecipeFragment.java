@@ -98,6 +98,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         viewModel = new ViewModelProvider(this, viewModelFactory).get(RecipeViewModel.class);
         viewModel.getRecipes().observe(getViewLifecycleOwner(), adapter::submitList);
 
+        toolbar = getActivity().findViewById(R.id.toolbar);
         setUpToolbarButton();
         setUpSpinner();
 
@@ -129,11 +130,17 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         super.onResume();
 
         if (getSeasonalFoodArgument().isPresent()) {
-            toolbarButton.setVisibility(View.VISIBLE);
-            spinner.setVisibility(View.GONE);
+            safeSetVisibility(toolbarButton, View.VISIBLE);
+            safeSetVisibility(spinner, View.GONE);
         } else {
-            toolbarButton.setVisibility(View.GONE);
-            spinner.setVisibility(View.VISIBLE);
+            safeSetVisibility(toolbarButton, View.GONE);
+            safeSetVisibility(spinner, View.VISIBLE);
+        }
+    }
+
+    private void safeSetVisibility(View view, int visibility) {
+        if (view != null) {
+            view.setVisibility(visibility);
         }
     }
 
@@ -153,8 +160,11 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        toolbar.removeView(spinner);
-        toolbar.removeView(toolbarButton);
+
+        if (toolbar != null) {
+            toolbar.removeView(spinner);
+            toolbar.removeView(toolbarButton);
+        }
     }
 
     @Override
@@ -217,6 +227,10 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     }
 
     private void setUpSpinner() {
+        if (!(getActivity() instanceof MainActivity)) {
+            return;
+        }
+
         ArrayAdapter<Category> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item);
         arrayAdapter.add(Category.ALL);
         arrayAdapter.add(Category.SEASONAL);
@@ -240,8 +254,11 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     }
 
     private void setUpToolbarButton() {
-        LayoutInflater mInflater= LayoutInflater.from(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
-        toolbar = getActivity().findViewById(R.id.toolbar);
+        if (!(getActivity() instanceof MainActivity)) {
+            return;
+        }
+
+        LayoutInflater mInflater = LayoutInflater.from(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
         toolbarButton = (Button) mInflater.inflate(R.layout.seasonal_result_button, null);
         Toolbar.LayoutParams layoutParams = new Toolbar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         int margin = getResources().getDimensionPixelSize(R.dimen.toolbar_button_margin);
