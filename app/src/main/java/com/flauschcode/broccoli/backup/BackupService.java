@@ -156,7 +156,7 @@ public class BackupService extends JobIntentService {
                 .setContentTitle(getString(R.string.backup_complete))
                 .setContentText(getString(R.string.backup_complete_prompt))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                .addAction(R.drawable.ic_launcher_foreground, "Save", pendingIntent);
+                .setContentIntent(pendingIntent);
 
         notificationManager.notify(NOTIFICATION_ID, builder.build());
     }

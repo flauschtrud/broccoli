@@ -1,5 +1,7 @@
 package com.flauschcode.broccoli.recipe;
 
+import android.os.Bundle;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.test.espresso.intent.Intents;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
@@ -9,11 +11,12 @@ import com.flauschcode.broccoli.BroccoliApplication;
 import com.flauschcode.broccoli.DaggerMockApplicationComponent;
 import com.flauschcode.broccoli.MockApplicationComponent;
 import com.flauschcode.broccoli.R;
-
+import com.flauschcode.broccoli.category.CategoryRepository;
 import com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity;
 import com.flauschcode.broccoli.recipe.list.RecipeFragment;
 import com.flauschcode.broccoli.util.RecipeTestUtil;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -46,6 +49,9 @@ public class RecipeFragmentTest {
     @Inject
     RecipeRepository recipeRepository;
 
+    @Inject
+    CategoryRepository categoryRepository;
+
     private final Recipe lauchkuchen = RecipeTestUtil.createLauchkuchen();
     private final Recipe nusskuchen = RecipeTestUtil.createNusskuchen();
 
@@ -62,8 +68,10 @@ public class RecipeFragmentTest {
         recipes.add(nusskuchen);
         when(recipeRepository.find(any(RecipeRepository.SearchCriteria.class))).thenReturn(new MutableLiveData<>(recipes));
 
+        when(categoryRepository.findAll()).thenReturn(new MutableLiveData<>(new ArrayList<>()));
+
         Intents.init();
-        launchInContainer(RecipeFragment.class);
+        launchInContainer(RecipeFragment.class, new Bundle());
     }
 
     @After

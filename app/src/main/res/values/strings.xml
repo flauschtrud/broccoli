@@ -49,6 +49,7 @@
     <string name="unassigned">Unassigned recipes</string>
     <string name="search">Search</string>
     <string name="preferred_category">Preferred category</string>
+    <string name="search_in">Search in %1$s</string>
 
     <!-- Cooking mode -->
     <string name="title_activity_cooking_mode">Cooking mode</string>
@@ -77,7 +78,7 @@
     <string name="channel_description_backup">Provide notifications about the progress of backup and restore actions.</string>
     <string name="backup_in_progress">Backup in progress</string>
     <string name="backup_complete">Backup complete</string>
-    <string name="backup_complete_prompt">Now save your archive in the cloud.</string>
+    <string name="backup_complete_prompt">Tap here to save your archive in the cloud.</string>
     <string name="backup_failed">Backup failed</string>
     <string name="backup_failed_message">The recipes could not be archived.</string>
     <string name="restore_in_progress">Restore in progress</string>

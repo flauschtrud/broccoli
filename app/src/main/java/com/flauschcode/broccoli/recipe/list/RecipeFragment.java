@@ -16,8 +16,11 @@ import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.ListAdapter;
@@ -31,9 +34,10 @@ import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.recipe.Recipe;
 import com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity;
+import com.flauschcode.broccoli.seasons.SeasonalFood;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.List;
+import java.util.Optional;
 
 import javax.inject.Inject;
 
@@ -48,6 +52,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
 
     private RecipeViewModel viewModel;
 
+    private Toolbar toolbar;
     private MenuItem searchItem;
     private SearchView searchView;
     private Spinner spinner;
@@ -93,22 +98,27 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         viewModel = new ViewModelProvider(this, viewModelFactory).get(RecipeViewModel.class);
         viewModel.getRecipes().observe(getViewLifecycleOwner(), adapter::submitList);
 
+        toolbar = getActivity().findViewById(R.id.toolbar);
+        setUpToolbarButton();
         setUpSpinner();
 
-        toolbarButton = getActivity().findViewById(R.id.toolbar_button);
-        if (getArguments() != null && getArguments().getSerializable("terms") instanceof List) {
+        getSeasonalFoodArgument().ifPresent(seasonalFood -> {
             resetCategory();
-            List<String> searchTerms = (List<String>) getArguments().getSerializable("terms"); // TODO argument action stuff, method
-            toolbarButton.setText(searchTerms.toString());
-            toolbarButton.setVisibility(View.VISIBLE);
+
+            toolbarButton.setText(seasonalFood.getName());
             toolbarButton.setOnClickListener(view -> {
-                getArguments().clear();
-                resetCategory();
+                NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+                navController.popBackStack(R.id.nav_seasons, true);
+                resetCategoryAndArguments();
                 toolbarButton.setVisibility(View.GONE);
                 spinner.setVisibility(View.VISIBLE);
             });
-            spinner.post(() -> viewModel.setSeasonalTerms(searchTerms));
-        }
+
+            spinner.post(() -> {
+                viewModel.setSeasonalTerms(seasonalFood.getTerms());
+                viewModel.setFilterName(seasonalFood.getName());
+            });
+        });
 
         setHasOptionsMenu(true);
 
@@ -119,12 +129,19 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     public void onResume() {
         super.onResume();
 
-        if (getArguments() == null || !(getArguments().getSerializable("terms") instanceof List)) {
-            toolbarButton.setVisibility(View.GONE);
-            spinner.setVisibility(View.VISIBLE);
-            spinner.setOnItemSelectedListener(this);
+        if (getSeasonalFoodArgument().isPresent()) {
+            safeSetVisibility(toolbarButton, View.VISIBLE);
+            safeSetVisibility(spinner, View.GONE);
+        } else {
+            safeSetVisibility(toolbarButton, View.GONE);
+            safeSetVisibility(spinner, View.VISIBLE);
         }
+    }
 
+    private void safeSetVisibility(View view, int visibility) {
+        if (view != null) {
+            view.setVisibility(visibility);
+        }
     }
 
     @Override
@@ -135,6 +152,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         if (getActivity() instanceof MainActivity) {
             searchView = new SearchView(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
             searchItem.setActionView(searchView);
+            viewModel.getFilterName().observe(getViewLifecycleOwner(), filterName -> searchView.setQueryHint(getString(R.string.search_in, filterName.toUpperCase())));
             searchView.setOnQueryTextListener(this);
         }
     }
@@ -142,28 +160,31 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        spinner.setVisibility(View.GONE);
-        toolbarButton.setVisibility(View.GONE);
+
+        if (toolbar != null) {
+            toolbar.removeView(spinner);
+            toolbar.removeView(toolbarButton);
+        }
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Category category = (Category) parent.getItemAtPosition(position);
         viewModel.setFilter(category);
+        viewModel.setFilterName(category.getName());
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_CRUD && resultCode == RESULT_OK) {
             Recipe recipe = (Recipe) data.getSerializableExtra(Recipe.class.getName());
-            resetCategory();
+            resetCategoryAndArguments();
             if (getActivity() instanceof MainActivity) {
                 searchItem.expandActionView();
                 searchView.post(() -> searchView.setQuery(recipe.getTitle(), false));
             }
         } else if (requestCode == REQUEST_DETAILS && resultCode == RESULT_OK && data.hasExtra("hashtag")) {
-            resetCategory();
-            getArguments().clear();
+            resetCategoryAndArguments();
             searchItem.expandActionView();
             searchView.post(() -> searchView.setQuery(data.getStringExtra("hashtag"), false));
         }
@@ -195,10 +216,21 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     private void resetCategory() {
         spinner.setSelection(0);
         viewModel.setFilter(Category.ALL);
+        viewModel.setFilterName(Category.ALL.getName());
+    }
+
+    private void resetCategoryAndArguments() {
+        resetCategory();
+        if (getArguments() != null) {
+            getArguments().clear();
+        }
     }
 
     private void setUpSpinner() {
-        spinner = getActivity().findViewById(R.id.spinner);
+        if (!(getActivity() instanceof MainActivity)) {
+            return;
+        }
+
         ArrayAdapter<Category> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item);
         arrayAdapter.add(Category.ALL);
         arrayAdapter.add(Category.SEASONAL);
@@ -206,11 +238,32 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         arrayAdapter.add(Category.FAVORITES);
         viewModel.getCategories().observe(getViewLifecycleOwner(), categories -> categories.forEach(arrayAdapter::add));
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        LayoutInflater mInflater= LayoutInflater.from(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
+        spinner = (Spinner) mInflater.inflate(R.layout.spinner, null);
+        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        toolbar.addView(spinner, layoutParams);
+
         spinner.setAdapter(arrayAdapter);
+        spinner.setOnItemSelectedListener(this);
 
         Category preferredCategory = getPreferredCategory();
         int position = arrayAdapter.getPosition(preferredCategory);
         spinner.setSelection(position, false);
+        viewModel.setFilterName(preferredCategory.getName());
+    }
+
+    private void setUpToolbarButton() {
+        if (!(getActivity() instanceof MainActivity)) {
+            return;
+        }
+
+        LayoutInflater mInflater = LayoutInflater.from(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
+        toolbarButton = (Button) mInflater.inflate(R.layout.seasonal_result_button, null);
+        Toolbar.LayoutParams layoutParams = new Toolbar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        int margin = getResources().getDimensionPixelSize(R.dimen.toolbar_button_margin);
+        layoutParams.setMargins(margin, margin, margin, margin);
+        toolbar.addView(toolbarButton, layoutParams);
     }
 
     private Category getPreferredCategory() {
@@ -224,6 +277,10 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
             default:
                 return Category.ALL;
         }
+    }
+
+    private Optional<SeasonalFood> getSeasonalFoodArgument() {
+        return Optional.ofNullable(RecipeFragmentArgs.fromBundle(getArguments()).getSeasonalFood());
     }
 
 }

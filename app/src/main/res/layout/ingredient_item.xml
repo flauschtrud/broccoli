@@ -16,6 +16,9 @@
             android:id="@+id/ingredient_quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@id/ingredient_text"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:textStyle="bold"
@@ -23,18 +26,24 @@
 
         <TextView
             android:id="@+id/ingredient_text"
-            app:layout_constraintStart_toEndOf="@id/ingredient_quantity"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintEnd_toStartOf="@id/ingredient_seasonal_icon"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/ingredient_quantity"
+            app:layout_constraintTop_toTopOf="parent"
             android:text="@{ingredient.text}"/>
 
         <ImageView
+            android:id="@+id/ingredient_seasonal_icon"
             android:layout_width="@dimen/text_margin"
             android:layout_height="@dimen/text_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toEndOf="@id/ingredient_text"
-            app:layout_constraintTop_toTopOf="@id/ingredient_text"
-            app:layout_constraintBottom_toBottomOf="@id/ingredient_text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:src="@drawable/ic_eco_24"
             android:visibility="@{ingredient.seasonal ? View.VISIBLE : View.GONE}"
             app:tint="@color/colorPrimary" />

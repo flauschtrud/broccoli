@@ -18,12 +18,14 @@ public class RecipeViewModel extends ViewModel {
 
     private LiveData<List<Recipe>> recipes;
     private MutableLiveData<RecipeRepository.SearchCriteria> criteriaLiveData = new MutableLiveData<>();
+    private MutableLiveData<String> filterName = new MutableLiveData<>();
 
     private CategoryRepository categoryRepository;
 
     @Inject
     RecipeViewModel(RecipeRepository recipeRepository, CategoryRepository categoryRepository) {
         criteriaLiveData.setValue(new RecipeRepository.SearchCriteria());
+        filterName.setValue("");
         recipes = Transformations.switchMap(criteriaLiveData, recipeRepository::find);
         this.categoryRepository = categoryRepository;
     }
@@ -53,6 +55,14 @@ public class RecipeViewModel extends ViewModel {
         RecipeRepository.SearchCriteria newFilter = new RecipeRepository.SearchCriteria();
         newFilter.setSeasonalTerms(seasonalTerms);
         this.criteriaLiveData.setValue(newFilter);
+    }
+
+    public MutableLiveData<String> getFilterName() {
+        return filterName;
+    }
+
+    void setFilterName(String filterName) {
+        this.filterName.setValue(filterName);
     }
 
 }
