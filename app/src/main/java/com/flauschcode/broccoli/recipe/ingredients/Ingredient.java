@@ -18,8 +18,16 @@ public class Ingredient {
         return quantity;
     }
 
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
+
     public String getText() {
         return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 
     public boolean isSeasonal() {

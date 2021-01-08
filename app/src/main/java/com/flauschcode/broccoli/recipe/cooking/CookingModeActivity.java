@@ -2,7 +2,9 @@ package com.flauschcode.broccoli.recipe.cooking;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -33,14 +35,7 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
 
         setContentView(R.layout.activity_cooking_mode);
 
-        Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName());
-        PageableRecipe pageableRecipe = pageableRecipeBuilder.from(recipe);
-
-        CookingModeAdapter adapter = new CookingModeAdapter(this);
-        adapter.setPageableRecipe(pageableRecipe != null? pageableRecipe : new PageableRecipe());
-
         viewPager = findViewById(R.id.cooking_mode_pager);
-        viewPager.setAdapter(adapter);
         viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
 
             private boolean settled = false;
@@ -59,6 +54,47 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
                 }
             }
         });
+
+        findViewById(R.id.button_scaling).setOnClickListener(view -> showScalingDialog());
+
+        createPageableRecipe();
+    }
+
+    private void createPageableRecipe(float scaleFactor) {
+        Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName());
+        PageableRecipe pageableRecipe = pageableRecipeBuilder.scale(scaleFactor).from(recipe);
+
+        setPageableRecipe(pageableRecipe);
+    }
+
+    private void createPageableRecipe() {
+        Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName());
+        PageableRecipe pageableRecipe = pageableRecipeBuilder.from(recipe);
+
+        setPageableRecipe(pageableRecipe);
+    }
+
+    private void setPageableRecipe(PageableRecipe pageableRecipe) {
+        CookingModeAdapter adapter = new CookingModeAdapter(this);
+        adapter.setPageableRecipe(pageableRecipe != null? pageableRecipe : new PageableRecipe());
+
+        viewPager.setAdapter(adapter);
+    }
+
+    private void showScalingDialog() {
+        View view = getLayoutInflater().inflate(R.layout.dialog_scaling, null);
+
+        AlertDialog alertDialog = new AlertDialog.Builder(this)
+                .setTitle(R.string.scaling)
+                .setMessage(R.string.scaling_message)
+                .setView(view)
+                .setPositiveButton(R.string.ok, (dialog, id) -> {
+                    EditText inputScaleFactor = view.findViewById(R.id.input_scale_factor);
+                    createPageableRecipe(Float.parseFloat(inputScaleFactor.getText().toString()));
+                })
+                .setNegativeButton(R.string.cancel, (dialog, id) -> {})
+                .create();
+        alertDialog.show();
     }
 
     @Override

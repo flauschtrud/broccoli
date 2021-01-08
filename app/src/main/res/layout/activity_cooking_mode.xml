@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fullscreen_layout"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:keepScreenOn="true"
-    tools:context="com.flauschcode.broccoli.recipe.cooking.CookingModeActivity">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:theme="@style/AppTheme">
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/cooking_mode_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageButton
+        android:id="@+id/button_scaling"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:backgroundTint="@color/icons"
+        android:tint="@color/colorPrimary"
+        app:srcCompat="@drawable/ic_tune_24" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

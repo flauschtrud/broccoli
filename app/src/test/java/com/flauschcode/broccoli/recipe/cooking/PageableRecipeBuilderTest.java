@@ -32,6 +32,7 @@ public class PageableRecipeBuilderTest {
         when(application.getString(R.string.ingredients)).thenReturn("Ingredients");
         when(application.getString(R.string.no_ingredients_and_directions_yet)).thenReturn("Nothing there...");
         when(application.getString(R.string.enjoy_your_meal)).thenReturn("Enjoy your meal!");
+        when(application.getString(R.string.not_scaled)).thenReturn("not scaled");
     }
 
     @Test
@@ -46,6 +47,23 @@ public class PageableRecipeBuilderTest {
         assertThat(pageableRecipe.getPages().size(), is(4));
 
         assertPage(pageableRecipe.getPages().get(0), "Ingredients", "500g Mehl\n100g Margarine");
+        assertPage(pageableRecipe.getPages().get(1), "1", "Erst dies.");
+        assertPage(pageableRecipe.getPages().get(2), "2", "Dann das.");
+        assertPage(pageableRecipe.getPages().get(3), "", "Enjoy your meal!");
+    }
+
+    @Test
+    public void to_scaled_pageable_recipe() {
+        Recipe recipe = new Recipe();
+        recipe.setTitle("Lauchkuchen");
+        recipe.setIngredients("- 500g Mehl\n - 1/2TL Salz\n  - je 1TL Gewürz");
+        recipe.setDirections(" 1. Erst dies. \n 2. Dann das. ");
+
+        PageableRecipe pageableRecipe = pageableRecipeBuilder.scale(2f).from(recipe);
+
+        assertThat(pageableRecipe.getPages().size(), is(4));
+
+        assertPage(pageableRecipe.getPages().get(0), "Ingredients", "1000g Mehl\n1TL Salz\nje 1TL Gewürz (not scaled)");
         assertPage(pageableRecipe.getPages().get(1), "1", "Erst dies.");
         assertPage(pageableRecipe.getPages().get(2), "2", "Dann das.");
         assertPage(pageableRecipe.getPages().get(3), "", "Enjoy your meal!");
