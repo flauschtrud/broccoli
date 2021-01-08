@@ -55,7 +55,6 @@
     <string name="title_activity_cooking_mode">Cooking mode</string>
     <string name="no_ingredients_and_directions_yet">This recipe does not have any ingredients or directions yet. You can edit it to add some.</string>
     <string name="action_details_cook">Cook</string>
-    <string name="enjoy_your_meal">Enjoy your meal!</string>
     <string name="scaling">Scaling</string>
     <string name="scaling_message">Do you want to cook more or less?</string>
     <string name="default_scale_factor" translatable="false">1</string>
