@@ -9,6 +9,7 @@ import com.flauschcode.broccoli.recipe.directions.DirectionBuilder;
 import com.flauschcode.broccoli.recipe.ingredients.Ingredient;
 import com.flauschcode.broccoli.recipe.ingredients.IngredientBuilder;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,6 +18,7 @@ import javax.inject.Inject;
 public class PageableRecipeBuilder {
 
     private static final float MINUS_ONE = -1.0f;
+    private static DecimalFormat decimalFormat = new DecimalFormat("0.##");
 
     private final Application application;
 
@@ -71,7 +73,7 @@ public class PageableRecipeBuilder {
 
     private static String prettyPrint(float f) {
         int i = (int) f;
-        return f == i ? String.valueOf(i) : String.valueOf(f);
+        return f == i ? String.valueOf(i) : decimalFormat.format(f);
     }
 
     private String getIngredientsString() {
