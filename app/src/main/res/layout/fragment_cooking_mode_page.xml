@@ -7,49 +7,58 @@
         <variable name="viewModel" type="com.flauschcode.broccoli.recipe.cooking.CookingModeFragmentViewModel" />
     </data>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:onClick="toggleSystemUI"
-    android:padding="@dimen/text_margin">
-
-    <TextView
-        android:id="@+id/cooking_mode_title"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/cooking_mode_text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-        android:textColor="@color/colorPrimary"
-        android:text="@{viewModel.title}" />
+        android:layout_height="match_parent"
+        android:onClick="toggleSystemUI"
+        android:padding="@dimen/text_margin">
 
-    <TextView
-        android:id="@+id/cooking_mode_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:gravity="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:text="@{viewModel.text}" />
+        <LinearLayout
+            android:id="@+id/cooking_mode_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@id/cooking_mode_controls"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <com.flauschcode.broccoli.recipe.cooking.CookingModeControls
-        android:id="@+id/cooking_mode_controls"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="@dimen/text_margin"
-        controls:position="@{viewModel.position}"
-        controls:maxSteps="@{viewModel.maxSteps}"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/cooking_mode_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="32dp"
+                android:text="@{viewModel.title}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textColor="@color/colorPrimary" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/cooking_mode_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:scrollbars="vertical"
+                android:text="@{viewModel.text}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+        </LinearLayout>
+
+        <com.flauschcode.broccoli.recipe.cooking.CookingModeControls
+            android:id="@+id/cooking_mode_controls"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="32dp"
+            android:paddingBottom="@dimen/text_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cooking_mode_layout"
+            controls:maxSteps="@{viewModel.maxSteps}"
+            controls:position="@{viewModel.position}" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
