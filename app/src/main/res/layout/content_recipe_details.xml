@@ -46,7 +46,8 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@id/details_icon_servings"
-                    android:layout_marginStart="5dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="50dp"
                     android:text="@{recipe.servings}" />
 
                 <ImageView
@@ -57,7 +58,6 @@
                     app:layout_constraintStart_toEndOf="@id/details_servings"
                     app:layout_constraintTop_toTopOf="@id/details_preparation_time"
                     app:layout_constraintBottom_toBottomOf="@id/details_preparation_time"
-                    android:layout_marginStart="50dp"
                     android:layout_marginEnd="@dimen/text_margin"
                     android:src="@drawable/ic_time_24dp"
                     app:tint="@color/divider"/>
