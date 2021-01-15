@@ -17,6 +17,7 @@
             android:layout_margin="20dp"
             android:hint="@string/hint_new_category_name"
             android:singleLine="true"
+            android:inputType="textCapSentences"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:text="@={category.name}"/>
