@@ -1,5 +1,7 @@
 package com.flauschcode.broccoli.recipe.sharing;
 
+import android.util.Log;
+
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.flauschcode.broccoli.FileUtils;
@@ -36,6 +38,7 @@ public class RecipeZipWriter {
         }
 
         public void to(ZipOutputStream zos) throws IOException {
+            sanitizeImage();
             writeRecipe(zos);
             writeRecipeImage(zos);
         }
@@ -62,6 +65,18 @@ public class RecipeZipWriter {
                 File imageFile = recipeImageService.findImage(recipe.getImageName());
                 FileUtils.copy(imageFile, zos);
                 zos.closeEntry();
+            }
+        }
+
+        /**
+         * Could not find a better way to avoid problems like https://github.com/flauschtrud/broccoli/issues/119.
+         * It would be nice to be able to remove a broken recipe from the zip after an exception occurs,
+         * but this is not possible with old school Java zipping. And stupid Android does not support JAVA NIO zip file system.
+         */
+        private void sanitizeImage() {
+            if (recipe.getImageName().length() > 0 && !recipeImageService.findImage(recipe.getImageName()).exists()) {
+                Log.w(getClass().getName(), "The image file \"" + recipe.getImageName() + "\" for recipe \"" + recipe.getTitle() + "\" does not exist.");
+                recipe.setImageName("");
             }
         }
     }
