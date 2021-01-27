@@ -76,7 +76,7 @@ public class SeasonalCalendarHolderTest {
         octoberDecember.add(Month.DECEMBER);
 
         SeasonalFood flauschfrucht = new SeasonalFood("flauschfrucht", "flauschfrucht, flauschfrucht", octoberDecember);
-        SeasonalFood apple = new SeasonalFood("Apples", "Apfel, Äpfel, apple", augustDecember);
+        SeasonalFood apple = new SeasonalFood("Apples", "Apfel, Äpfel, apple, apples", augustDecember);
 
         SeasonalCalendar seasonalCalendar = seasonalCalendarOptional.get();
 
