@@ -67,11 +67,7 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
             recipeImportService.importFrom(url)
                     .thenAccept(optionalRecipe -> {
                         if (optionalRecipe.isPresent()) {
-                            Recipe recipe = optionalRecipe.get();
-                            viewModel.setRecipe(recipe);
-                            if (!"".equals(recipe.getImageName())) {
-                                viewModel.setNewImageName(recipe.getImageName());
-                            }
+                            applyRecipeToViewModel(optionalRecipe.get());
                             binding.setViewModel(viewModel);
                         } else {
                             runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_error_reading_recipe), Toast.LENGTH_LONG).show());
@@ -88,7 +84,7 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
             Uri uri = getIntent().getData();
             Optional<Recipe> optionalRecipe = shareRecipeAsFileService.loadFromFile(uri);
             if (optionalRecipe.isPresent()) {
-                viewModel.setRecipe(optionalRecipe.get());
+                applyRecipeToViewModel(optionalRecipe.get());
             } else {
                 runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_error_importing_recipe), Toast.LENGTH_SHORT).show());
             }
@@ -246,6 +242,13 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
         outState.putString("newImageName", viewModel.getNewImageName());
         outState.putString("oldImageName", viewModel.getOldImageName());
         super.onSaveInstanceState(outState);
+    }
+
+    private void applyRecipeToViewModel(Recipe recipe) {
+        viewModel.setRecipe(recipe);
+        if (!"".equals(recipe.getImageName())) {
+            viewModel.setNewImageName(recipe.getImageName());
+        }
     }
 
 }
