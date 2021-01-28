@@ -54,7 +54,7 @@ public class PageableRecipeBuilderTest {
     public void to_scaled_pageable_recipe() {
         Recipe recipe = new Recipe();
         recipe.setTitle("Lauchkuchen");
-        recipe.setIngredients("- 500g Mehl\n - 1/2TL Salz\n  - je 1TL Gewürz");
+        recipe.setIngredients("- 500g Mehl\n - ½TL Salz\n  - je 1TL Gewürz");
         recipe.setDirections(" 1. Erst dies. \n 2. Dann das. ");
 
         PageableRecipe pageableRecipe = pageableRecipeBuilder.scale(2f).from(recipe);

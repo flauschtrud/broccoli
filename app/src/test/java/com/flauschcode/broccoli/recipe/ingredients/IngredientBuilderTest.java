@@ -67,6 +67,15 @@ public class IngredientBuilderTest {
     }
 
     @Test
+    public void vulgar_fractions_should_be_detected() {
+        ingredients = IngredientBuilder.from("½ Packungen Mehl\n ¾ Cup Wasser\n ⅔ TL Salz");
+        assertThat(ingredients, hasSize(3));
+        assertThat(ingredients, hasItem(new Ingredient("½", " Packungen Mehl")));
+        assertThat(ingredients, hasItem(new Ingredient("¾", " Cup Wasser")));
+        assertThat(ingredients, hasItem(new Ingredient("⅔", " TL Salz")));
+    }
+
+    @Test
     public void missing_quantity_should_be_tolerated() {
         ingredients = IngredientBuilder.from("Ganz viel Liebe.");
         assertThat(ingredients, hasSize(1));

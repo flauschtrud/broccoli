@@ -10,6 +10,7 @@ import com.flauschcode.broccoli.recipe.ingredients.Ingredient;
 import com.flauschcode.broccoli.recipe.ingredients.IngredientBuilder;
 
 import java.text.DecimalFormat;
+import java.text.Normalizer;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,17 +59,28 @@ public class PageableRecipeBuilder {
 
     private void scale(Ingredient ingredient) {
         try {
-            float quantity;
-            if (ingredient.getQuantity().contains("/")) {
-                String[] rat = ingredient.getQuantity().split("/");
-                quantity = Float.parseFloat(rat[0]) / Float.parseFloat(rat[1]);
-            } else {
-                quantity = Float.parseFloat(ingredient.getQuantity());
-            }
+            float quantity = parseQuantity(ingredient.getQuantity());
             ingredient.setQuantity(prettyPrint(quantity * scaleFactor));
         } catch (NumberFormatException e) {
             ingredient.setText(new StringBuilder(ingredient.getText()).append(" (").append(getNotScaledString()).append(")").toString());
         }
+    }
+
+    private float parseQuantity(String quantity) {
+        if (quantity.contains("/")) {
+            String[] rat = quantity.split("/");
+            return Float.parseFloat(rat[0]) / Float.parseFloat(rat[1]);
+        }
+
+        // https://stackoverflow.com/a/26039424/5369519
+        if (quantity.matches("[¼½¾⅐⅑⅒⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]")) {
+            String[] fraction = Normalizer.normalize(quantity, Normalizer.Form.NFKD).split("\u2044");
+            if (fraction.length == 2) {
+                return (float) Integer.parseInt(fraction[0]) / Integer.parseInt(fraction[1]);
+            }
+        }
+
+        return Float.parseFloat(quantity);
     }
 
     private static String prettyPrint(float f) {

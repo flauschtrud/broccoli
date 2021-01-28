@@ -48,6 +48,15 @@ public class Ingredient {
     }
 
     @Override
+    public String toString() {
+        return "Ingredient{" +
+                "quantity='" + quantity + '\'' +
+                ", text='" + text + '\'' +
+                ", seasonal=" + seasonal +
+                '}';
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(quantity, text);
     }
