@@ -14,11 +14,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
 
 import javax.inject.Inject;
 
@@ -33,8 +31,6 @@ public class ImportableRecipeBuilderTest {
 
     @Inject
     RecipeImageService recipeImageService;
-
-    File fileInCache = new File("dir/blablupp.jpg");
 
     private static final String URL_CHEFKOCH = "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html";
     private static final String RECIPE_JSONLD_CHEFKOCH = "    {\n" +
@@ -417,8 +413,7 @@ public class ImportableRecipeBuilderTest {
 
     @Test
     public void example_chefkoch() throws JSONException, IOException {
-        when(recipeImageService.createTemporaryImageFileInCache()).thenReturn(fileInCache);
-        when(recipeImageService.downloadToCache(eq(new URL("https://img.chefkoch-cdn.de/rezepte/3212051478029180/bilder/1325560/crop-960x540/vegane-chocolate-chip-cookies.jpg")), eq(fileInCache))).thenReturn(CompletableFuture.completedFuture(null));
+        when(recipeImageService.downloadToCache(eq(new URL("https://img.chefkoch-cdn.de/rezepte/3212051478029180/bilder/1325560/crop-960x540/vegane-chocolate-chip-cookies.jpg")))).thenReturn("blablupp.jpg");
 
         ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(recipeImageService);
 
@@ -442,8 +437,7 @@ public class ImportableRecipeBuilderTest {
 
     @Test
     public void example_yoast() throws JSONException, IOException {
-        when(recipeImageService.createTemporaryImageFileInCache()).thenReturn(fileInCache);
-        when(recipeImageService.downloadToCache(eq(new URL("https://stilettosandsprouts.de/wp-content/uploads/2018/05/Vegane_Fenchel_Pasta_02_B.jpg")), eq(fileInCache))).thenReturn(CompletableFuture.completedFuture(null));
+        when(recipeImageService.downloadToCache(eq(new URL("https://stilettosandsprouts.de/wp-content/uploads/2018/05/Vegane_Fenchel_Pasta_02_B.jpg")))).thenReturn("blablupp.jpg");
 
         ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(recipeImageService);
 
@@ -467,8 +461,7 @@ public class ImportableRecipeBuilderTest {
 
     @Test
     public void example_yoast_with_sections() throws JSONException, IOException {
-        when(recipeImageService.createTemporaryImageFileInCache()).thenReturn(fileInCache);
-        when(recipeImageService.downloadToCache(eq(new URL("https://veggie-einhorn.de/wp-content/uploads/Einfacher-veganer-Zitronenkuchen-saftig.jpg")), eq(fileInCache))).thenReturn(CompletableFuture.completedFuture(null));
+        when(recipeImageService.downloadToCache(eq(new URL("https://veggie-einhorn.de/wp-content/uploads/Einfacher-veganer-Zitronenkuchen-saftig.jpg")))).thenReturn("blablupp.jpg");
 
         ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(recipeImageService);
 

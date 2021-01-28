@@ -8,7 +8,6 @@ import com.flauschcode.broccoli.recipe.images.RecipeImageService;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -170,13 +169,8 @@ class ImportableRecipeBuilder {
 
 
         try {
-            File tempFile = recipeImageService.createTemporaryImageFileInCache();
-            recipe.setImageName(tempFile.getName());
-            recipeImageService.downloadToCache(url, tempFile)
-                    .exceptionally(e -> {
-                        Log.e(getClass().getName(), e.getMessage());
-                        return null;
-                    });
+            String imageName = recipeImageService.downloadToCache(url);
+            recipe.setImageName(imageName);
         } catch (IOException e) {
             Log.e(getClass().getName(), e.getMessage());
         }
