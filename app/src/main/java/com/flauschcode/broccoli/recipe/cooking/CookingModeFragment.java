@@ -1,9 +1,11 @@
 package com.flauschcode.broccoli.recipe.cooking;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
@@ -33,6 +35,9 @@ public class CookingModeFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         Bundle args = getArguments();
+
+        TextView yourTextView = view.findViewById(R.id.cooking_mode_text);
+        yourTextView.setMovementMethod(new ScrollingMovementMethod());
 
         viewModel.setTitle(args.getString(TITLE));
         viewModel.setText(args.getString(TEXT));
