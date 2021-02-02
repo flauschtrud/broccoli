@@ -8,9 +8,8 @@ import com.flauschcode.broccoli.recipe.directions.Direction;
 import com.flauschcode.broccoli.recipe.directions.DirectionBuilder;
 import com.flauschcode.broccoli.recipe.ingredients.Ingredient;
 import com.flauschcode.broccoli.recipe.ingredients.IngredientBuilder;
+import com.flauschcode.broccoli.recipe.ingredients.ScaledQuantity;
 
-import java.text.DecimalFormat;
-import java.text.Normalizer;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,7 +18,6 @@ import javax.inject.Inject;
 public class PageableRecipeBuilder {
 
     private static final float MINUS_ONE = -1.0f;
-    private static DecimalFormat decimalFormat = new DecimalFormat("0.##");
 
     private final Application application;
 
@@ -46,7 +44,7 @@ public class PageableRecipeBuilder {
         List<Ingredient> ingredients = IngredientBuilder.from(recipe.getIngredients());
 
         if (scaleFactor != MINUS_ONE) {
-            ingredients.forEach(this::scale);
+            ingredients.forEach(ingredient -> ingredient.setQuantity(ScaledQuantity.from(ingredient.getQuantity(), scaleFactor)));
         }
 
         pageableRecipe.addPage(new PageableRecipe.Page(getIngredientsString(), ingredients.stream().map(ingredient -> ingredient.getQuantity() + ingredient.getText()).collect(Collectors.joining("\n"))));
@@ -57,47 +55,12 @@ public class PageableRecipeBuilder {
         return pageableRecipe;
     }
 
-    private void scale(Ingredient ingredient) {
-        try {
-            float quantity = parseQuantity(ingredient.getQuantity());
-            ingredient.setQuantity(prettyPrint(quantity * scaleFactor));
-        } catch (NumberFormatException e) {
-            ingredient.setText(new StringBuilder(ingredient.getText()).append(" (").append(getNotScaledString()).append(")").toString());
-        }
-    }
-
-    private float parseQuantity(String quantity) {
-        if (quantity.contains("/")) {
-            String[] rat = quantity.split("/");
-            return Float.parseFloat(rat[0]) / Float.parseFloat(rat[1]);
-        }
-
-        // https://stackoverflow.com/a/26039424/5369519
-        if (quantity.matches("[¼½¾⅐⅑⅒⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]")) {
-            String[] fraction = Normalizer.normalize(quantity, Normalizer.Form.NFKD).split("\u2044");
-            if (fraction.length == 2) {
-                return (float) Integer.parseInt(fraction[0]) / Integer.parseInt(fraction[1]);
-            }
-        }
-
-        return Float.parseFloat(quantity);
-    }
-
-    private static String prettyPrint(float f) {
-        int i = (int) f;
-        return f == i ? String.valueOf(i) : decimalFormat.format(f);
-    }
-
     private String getIngredientsString() {
         return application.getString(R.string.ingredients);
     }
 
     private String getNoDataString() {
         return application.getString(R.string.no_ingredients_and_directions_yet);
-    }
-
-    private String getNotScaledString() {
-        return application.getString(R.string.not_scaled);
     }
 
 }
