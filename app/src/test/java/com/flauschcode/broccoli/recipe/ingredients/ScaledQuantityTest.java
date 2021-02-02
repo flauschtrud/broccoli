@@ -21,8 +21,8 @@ public class ScaledQuantityTest {
 
     @Test
     public void scale_vulgar_fraction_quantity() {
-        String scaled = ScaledQuantity.from("¾", 2f);
-        assertThat(scaled,  is("1,5"));
+        String scaled = ScaledQuantity.from("½", 2f);
+        assertThat(scaled,  is("1"));
     }
 
     @Test
