@@ -27,7 +27,7 @@ public class ScaledQuantityTest {
 
     @Test
     public void scale_range_quantity() {
-        String scaled = ScaledQuantity.from("1-2", 2f);
+        String scaled = ScaledQuantity.from("1 - 2", 2f);
         assertThat(scaled,  is("2-4"));
     }
 

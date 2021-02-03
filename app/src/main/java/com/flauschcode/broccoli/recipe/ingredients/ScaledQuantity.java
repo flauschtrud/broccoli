@@ -39,7 +39,7 @@ public class ScaledQuantity {
     }
 
     private static String scaledRange(String quantity, float scaleFactor) {
-        String[] ranges = quantity.split("-");
+        String[] ranges = quantity.replace(" ", "").split("-");
         String first = prettyPrint(Integer.parseInt(ranges[0]) * scaleFactor);
         String second = prettyPrint(Integer.parseInt(ranges[1]) * scaleFactor);
         return new StringBuilder(first).append("-").append(second).toString();
