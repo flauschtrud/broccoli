@@ -1,7 +1,6 @@
-Welcome to Broccoli 0.7.1. We're giving you some fixes and improvements!
+Welcome to Broccoli 0.7.2. We're giving you some fixes and improvements!
 
-Firstly we fixed an import bug that broke our backup process. And you can now again enjoy uninterrupted full screen mode while cooking.
-
-Some further UI improvements will hopefully make cooking easier for you!
+Scrolling long ingredient lists does now work in cooking mode.
+And you can now also scale ingredients with range quantities.
 
 Have fun cooking!
