@@ -1,6 +1,5 @@
 package com.flauschcode.broccoli.recipe.cooking;
 
-import android.app.Activity;
 import android.content.Intent;
 
 import androidx.test.core.app.ActivityScenario;
@@ -11,7 +10,6 @@ import com.flauschcode.broccoli.BroccoliApplication;
 import com.flauschcode.broccoli.DaggerMockApplicationComponent;
 import com.flauschcode.broccoli.MockApplicationComponent;
 import com.flauschcode.broccoli.R;
-
 import com.flauschcode.broccoli.recipe.Recipe;
 import com.flauschcode.broccoli.util.RecipeTestUtil;
 
@@ -27,7 +25,6 @@ import static androidx.test.core.app.ActivityScenario.launch;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.swipeLeft;
-import static androidx.test.espresso.action.ViewActions.swipeRight;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast;
@@ -117,22 +114,6 @@ public class CookingModeActivityTest {
 
         Recipe recipe = recipeCaptor.getValue();
         assertThat(recipe, is(lauchkuchen));
-    }
-
-    @Test
-    public void finish_cooking_mode_by_swiping_right_on_the_first_page() {
-        onView(withId(R.id.cooking_mode_pager)).perform(swipeRight());
-
-        assertThat(scenario.getResult().getResultCode(), is(Activity.RESULT_CANCELED));
-    }
-
-    @Test
-    public void finish_cooking_mode_by_swiping_left_on_the_last_page() {
-        onView(withId(R.id.cooking_mode_pager)).perform(swipeLeft());
-        onView(withId(R.id.cooking_mode_pager)).perform(swipeLeft());
-        onView(withId(R.id.cooking_mode_pager)).perform(swipeLeft());
-
-        assertThat(scenario.getResult().getResultCode(), is(Activity.RESULT_CANCELED));
     }
 
 }
