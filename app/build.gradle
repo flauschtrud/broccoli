@@ -52,7 +52,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 
-    def nav_version = "2.3.2"
+    def nav_version = "2.3.3"
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
 
@@ -60,7 +60,7 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation 'id.zelory:compressor:2.1.0' // 3.0.0 does not work with Java
 
-    def room_version = "2.2.5"
+    def room_version = "2.2.6"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
     testImplementation "androidx.room:room-testing:$room_version"
