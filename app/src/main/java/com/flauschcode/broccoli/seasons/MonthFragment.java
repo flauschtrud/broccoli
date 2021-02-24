@@ -39,6 +39,11 @@ public class MonthFragment extends Fragment {
 
     private final Month month;
 
+    public MonthFragment() {
+        super();
+        this.month = Month.JANUARY;
+    }
+
     public MonthFragment(Month month) {
         super();
         this.month = month;
