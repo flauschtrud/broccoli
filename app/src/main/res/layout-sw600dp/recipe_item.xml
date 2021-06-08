@@ -97,8 +97,6 @@
 
         </androidx.cardview.widget.CardView>
 
-        <include layout="@layout/recyclerview_ad" />
-
     </LinearLayout>
 
 </layout>
