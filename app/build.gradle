@@ -3,7 +3,7 @@ apply plugin: "androidx.navigation.safeargs"
 
 def versionMajor = 0
 def versionMinor = 7
-def versionPatch = 2
+def versionPatch = 3
 def versionBuild = 0
 
 android {
@@ -73,6 +73,9 @@ dependencies {
 
     def preference_version = "1.1.1"
     implementation "androidx.preference:preference:$preference_version"
+
+    def billing_version = "4.0.0"
+    implementation "com.android.billingclient:billing:$billing_version"
 
     implementation 'com.google.dagger:dagger:2.26'
     annotationProcessor "com.google.dagger:dagger-compiler:2.26"
