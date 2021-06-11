@@ -121,6 +121,9 @@
     <string name="english">English</string>
     <string name="german">German</string>
 
+    <!-- support -->
+    <string name="menu_support">Support the app</string>
+
     <!-- seasonal food -->
     <string name="eggplant">Eggplants</string>
     <string name="eggplant_terms">eggplant, eggplants, aubergine, aubergines</string>

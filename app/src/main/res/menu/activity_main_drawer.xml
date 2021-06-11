@@ -19,6 +19,12 @@
 
     </group>
 
+    <group>
+        <item android:id="@+id/nav_support"
+            android:icon="@drawable/ic_menu_support_24"
+            android:title="@string/menu_support" />
+    </group>
+
     <group android:id="@+id/group_settings">
 
         <item android:id="@+id/nav_backup_and_restore"
