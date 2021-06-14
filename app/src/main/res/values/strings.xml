@@ -123,6 +123,20 @@
 
     <!-- support -->
     <string name="menu_support">Support the app</string>
+    <string name="support_thanks_title">Thank you…</string>
+    <string name="support_thanks_message">… for supporting this app!</string>
+    <string name="support_community_edition_title">Community Edition</string>
+    <string name="support_community_edition_perk_recipes">Unlimited number of recipes</string>
+    <string name="support_community_edition_perk_cooking_mode">Distraction free cooking mode</string>
+    <string name="support_community_edition_perk_seasonal_calendar">Seasonal calendar</string>
+    <string name="support_community_edition_perk_backup">Manual backup</string>
+    <string name="support_community_edition_perk_ad_free">Ad-free experience</string>
+    <string name="support_community_edition_free_for_everyone">FREE FOR EVERYONE</string>
+    <string name="support_supporter_edition_title">Supporter Edition</string>
+    <string name="support_supporter_edition_perk_community_features">All features of the Community Edition</string>
+    <string name="support_supporter_edition_perk_categories">Unlimited number of custom categories</string>
+    <string name="support_supporter_edition_perk_support_developer">Support an indie developer</string>
+    <string name="support_supporter_edition_get">Get</string>
 
     <!-- seasonal food -->
     <string name="eggplant">Eggplants</string>
