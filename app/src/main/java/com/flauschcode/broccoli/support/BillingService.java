@@ -9,6 +9,8 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.android.billingclient.api.AcknowledgePurchaseParams;
+import com.android.billingclient.api.AcknowledgePurchaseResponseListener;
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
 import com.android.billingclient.api.BillingFlowParams;
@@ -26,13 +28,13 @@ import javax.inject.Inject;
 
 public class BillingService {
 
-    private Application application;
+    private Application application; // TODO still needed?
 
     private final BillingClient billingClient;
     private SkuDetails skuDetailsPremium;
 
     private MutableLiveData<String> premiumPrice = new MutableLiveData<>();
-    private MutableLiveData<Boolean> isPremium = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isPremium = new MutableLiveData<>(false);
 
     @Inject
     public BillingService(Application application) {
@@ -44,13 +46,30 @@ public class BillingService {
                 new PurchasesUpdatedListener() {
                     @Override
                     public void onPurchasesUpdated(@NonNull BillingResult billingResult, @Nullable List<Purchase> list) {
-                        list.forEach(purchase -> {
-                            Log.d("PURCHASE order id", purchase.getOrderId());
-                            Log.d("PURCHASE developer payload", purchase.getDeveloperPayload());
-                            Log.d("PURCHASE purchase state (purchased = 1, pending = 2)", String.valueOf(purchase.getPurchaseState()));
+                        if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) { // TODO extract
+                            list.forEach(purchase -> {
+                                Log.d("PURCHASE order id", purchase.getOrderId());
+                                Log.d("PURCHASE developer payload", purchase.getDeveloperPayload());
+                                Log.d("PURCHASE purchase state (purchased = 1, pending = 2)", String.valueOf(purchase.getPurchaseState()));
 
-                            checkPremiumStateFor(purchase);
-                        });
+                                // acknowledge
+                                AcknowledgePurchaseParams acknowledgePurchaseParams =
+                                        AcknowledgePurchaseParams.newBuilder()
+                                                .setPurchaseToken(purchase.getPurchaseToken())
+                                                .build();
+                                billingClient.acknowledgePurchase(acknowledgePurchaseParams, new AcknowledgePurchaseResponseListener() {
+                                    @Override
+                                    public void onAcknowledgePurchaseResponse(@NonNull BillingResult billingResult) {
+                                        Log.d("PURCHASE acknowledged", billingResult.getDebugMessage());
+                                    }
+                                });
+
+                                checkPremiumStateFor(purchase);
+                            });
+                        } else {
+                            Log.d("PURCHASE NOT OK response code", String.valueOf(billingResult.getResponseCode())); // TODO handle cancel/already owned
+                            Log.d("PURCHASE NOT OK message", billingResult.getDebugMessage());
+                        }
                     }
                 }).build();
 
@@ -68,7 +87,6 @@ public class BillingService {
                 Log.d("DEBUG MESSAGE", billingResult.getDebugMessage());
                 Log.d("BILLING CLIENT READY AFTER SETUP?", String.valueOf(billingClient.isReady()));
 
-                isPremium.postValue(false);
                 billingClient.queryPurchasesAsync(BillingClient.SkuType.INAPP, (billingResult1, list) -> list.forEach(BillingService.this::checkPremiumStateFor));
 
                 billingClient.querySkuDetailsAsync(SkuDetailsParams.newBuilder()
