@@ -1,5 +1,7 @@
 package com.flauschcode.broccoli.category;
 
+import android.os.Bundle;
+
 import androidx.lifecycle.MutableLiveData;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -57,7 +59,7 @@ public class CategoryFragmentTest {
         categories.add(new Category(2, "Lala"));
         when(categoryRepository.findAll()).thenReturn(new MutableLiveData<>(categories));
 
-        launchInContainer(CategoryFragment.class, null, R.style.Theme_AppCompat, null);
+        launchInContainer(CategoryFragment.class, new Bundle(), R.style.Theme_AppCompat);
     }
 
     private BroccoliApplication getApplication() {

@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -52,7 +51,6 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
 
     private RecipeViewModel viewModel;
 
-    private Toolbar toolbar;
     private MenuItem searchItem;
     private SearchView searchView;
     private Spinner spinner;
@@ -98,10 +96,13 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         viewModel = new ViewModelProvider(this, viewModelFactory).get(RecipeViewModel.class);
         viewModel.getRecipes().observe(getViewLifecycleOwner(), adapter::submitList);
 
-        toolbar = getActivity().findViewById(R.id.toolbar);
-        setUpToolbarButton();
+        Toolbar toolbar = root.findViewById(R.id.toolbar_recipes);
+        setUpMenu(toolbar);
+
+        spinner = root.findViewById(R.id.spinner);
         setUpSpinner();
 
+        toolbarButton = root.findViewById(R.id.toolbar_button);
         getSeasonalFoodArgument().ifPresent(seasonalFood -> {
             resetCategory();
 
@@ -120,7 +121,20 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
             });
         });
 
-        setHasOptionsMenu(true);
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (!searchView.isIconified()) {
+                    toolbar.collapseActionView();
+                } else {
+                    if (isEnabled()) {
+                        setEnabled(false);
+                        requireActivity().onBackPressed();
+                    }
+                }
+
+            }
+        });
 
         return root;
     }
@@ -141,29 +155,6 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     private void safeSetVisibility(View view, int visibility) {
         if (view != null) {
             view.setVisibility(visibility);
-        }
-    }
-
-    @Override
-    public void onCreateOptionsMenu (Menu menu, MenuInflater inflater){
-        inflater.inflate(R.menu.recipes, menu);
-        searchItem = menu.findItem(R.id.action_search);
-
-        if (getActivity() instanceof MainActivity) {
-            searchView = new SearchView(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
-            searchItem.setActionView(searchView);
-            viewModel.getFilterName().observe(getViewLifecycleOwner(), filterName -> searchView.setQueryHint(getString(R.string.search_in, filterName.toUpperCase())));
-            searchView.setOnQueryTextListener(this);
-        }
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-
-        if (toolbar != null) {
-            toolbar.removeView(spinner);
-            toolbar.removeView(toolbarButton);
         }
     }
 
@@ -226,11 +217,16 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         }
     }
 
-    private void setUpSpinner() {
-        if (!(getActivity() instanceof MainActivity)) {
-            return;
-        }
+    private void setUpMenu(Toolbar toolbar) {
+        toolbar.inflateMenu(R.menu.recipes);
+        searchItem = toolbar.getMenu().findItem(R.id.action_search);
+        searchView = new SearchView(toolbar.getContext());
+        searchItem.setActionView(searchView);
+        viewModel.getFilterName().observe(getViewLifecycleOwner(), filterName -> searchView.setQueryHint(getString(R.string.search_in, filterName.toUpperCase())));
+        searchView.setOnQueryTextListener(this);
+    }
 
+    private void setUpSpinner() {
         ArrayAdapter<Category> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item);
         arrayAdapter.add(Category.ALL);
         arrayAdapter.add(Category.SEASONAL);
@@ -239,11 +235,6 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         viewModel.getCategories().observe(getViewLifecycleOwner(), categories -> categories.forEach(arrayAdapter::add));
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        LayoutInflater mInflater= LayoutInflater.from(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
-        spinner = (Spinner) mInflater.inflate(R.layout.spinner, null);
-        ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        toolbar.addView(spinner, layoutParams);
-
         spinner.setAdapter(arrayAdapter);
         spinner.setOnItemSelectedListener(this);
 
@@ -251,19 +242,6 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         int position = arrayAdapter.getPosition(preferredCategory);
         spinner.setSelection(position, false);
         viewModel.setFilterName(preferredCategory.getName());
-    }
-
-    private void setUpToolbarButton() {
-        if (!(getActivity() instanceof MainActivity)) {
-            return;
-        }
-
-        LayoutInflater mInflater = LayoutInflater.from(((MainActivity) getActivity()).getSupportActionBar().getThemedContext());
-        toolbarButton = (Button) mInflater.inflate(R.layout.seasonal_result_button, null);
-        Toolbar.LayoutParams layoutParams = new Toolbar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        int margin = getResources().getDimensionPixelSize(R.dimen.toolbar_button_margin);
-        layoutParams.setMargins(margin, margin, margin, margin);
-        toolbar.addView(toolbarButton, layoutParams);
     }
 
     private Category getPreferredCategory() {
