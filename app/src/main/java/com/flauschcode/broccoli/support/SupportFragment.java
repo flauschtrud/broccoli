@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -31,6 +32,17 @@ public class SupportFragment extends Fragment {
         getSupporterEditionButton.setOnClickListener(v -> billingService.purchaseSupporterEdition(getActivity()));
 
         billingService.getPremiumPrice().observe(getViewLifecycleOwner(), premiumPrice -> getSupporterEditionButton.setText("Get for " + premiumPrice));
+
+        billingService.isEnabled().observe(getViewLifecycleOwner(), isEnabled -> {
+            TextView errorMessageTextView = root.findViewById(R.id.supporter_edition_error_message);
+            if (Boolean.FALSE.equals(isEnabled)) {
+                getSupporterEditionButton.setVisibility(View.GONE);
+                errorMessageTextView.setVisibility(View.VISIBLE);
+            } else {
+                getSupporterEditionButton.setVisibility(View.VISIBLE);
+                errorMessageTextView.setVisibility(View.GONE);
+            }
+        });
 
         billingService.isPremium().observe(getViewLifecycleOwner(), isPremium -> {
             if (Boolean.TRUE.equals(isPremium)) {

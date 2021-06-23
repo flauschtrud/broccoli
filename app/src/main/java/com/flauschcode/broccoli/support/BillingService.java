@@ -35,6 +35,7 @@ public class BillingService {
 
     private MutableLiveData<String> premiumPrice = new MutableLiveData<>();
     private MutableLiveData<Boolean> isPremium = new MutableLiveData<>(false);
+    private MutableLiveData<Boolean> isEnabled = new MutableLiveData<>(false);
 
     @Inject
     public BillingService(Application application) {
@@ -87,6 +88,12 @@ public class BillingService {
                 Log.d("DEBUG MESSAGE", billingResult.getDebugMessage());
                 Log.d("BILLING CLIENT READY AFTER SETUP?", String.valueOf(billingClient.isReady()));
 
+                if (billingResult.getResponseCode() != BillingClient.BillingResponseCode.OK) {
+                    isEnabled.postValue(false);
+                    return;
+                }
+                isEnabled.postValue(true);
+
                 billingClient.queryPurchasesAsync(BillingClient.SkuType.INAPP, (billingResult1, list) -> list.forEach(BillingService.this::checkPremiumStateFor));
 
                 billingClient.querySkuDetailsAsync(SkuDetailsParams.newBuilder()
@@ -128,13 +135,13 @@ public class BillingService {
     public void purchaseSupporterEdition(Activity activity) { // TODO wtf
 
         BillingFlowParams billingFlowParams = BillingFlowParams.newBuilder()
-                .setSkuDetails(skuDetailsPremium)
+                .setSkuDetails(skuDetailsPremium) // TODO check not null
                 .build();
         BillingResult billingResult = billingClient.launchBillingFlow(activity, billingFlowParams);
         if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
             Log.e("PURCHASE", "Billing flow in progress.");
         } else {
-            Log.e("PURCHASE", "Billing failed: + " + billingResult.getDebugMessage());
+            Log.e("PURCHASE", "Billing failed: + " + billingResult.getResponseCode() + ": " + billingResult.getDebugMessage());
         }
     }
 
@@ -144,6 +151,10 @@ public class BillingService {
 
     public LiveData<String> getPremiumPrice() {
         return premiumPrice;
+    }
+
+    public MutableLiveData<Boolean> isEnabled() {
+        return isEnabled;
     }
 
 }

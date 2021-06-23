@@ -117,6 +117,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/support_community_edition_free_for_everyone"
+            android:textAllCaps="true"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -185,6 +187,19 @@
             android:padding="@dimen/text_margin"
             android:text="@string/support_supporter_edition_get"
             android:textColor="@color/icons"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/supporter_edition_support" />
+
+        <TextView
+            android:id="@+id/supporter_edition_error_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@string/support_supporter_edition_get_error_message"
+            android:textAllCaps="true"
+            android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
