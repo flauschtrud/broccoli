@@ -1,5 +1,6 @@
 package com.flauschcode.broccoli.recipe.list;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -42,8 +45,6 @@ import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
 
-import static android.app.Activity.RESULT_OK;
-
 public class RecipeFragment extends Fragment implements AdapterView.OnItemSelectedListener, SearchView.OnQueryTextListener {
 
     @Inject
@@ -55,9 +56,6 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     private SearchView searchView;
     private Spinner spinner;
     private Button toolbarButton;
-
-    private static final int REQUEST_CRUD = 1;
-    private static final int REQUEST_DETAILS = 2;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -88,9 +86,21 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         recyclerView.setAdapter(adapter);
 
         FloatingActionButton fab = root.findViewById(R.id.fab_recipes);
+        ActivityResultLauncher<Intent> crudResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        Recipe recipe = (Recipe) result.getData().getSerializableExtra(Recipe.class.getName());
+                        resetCategoryAndArguments();
+                        if (getActivity() instanceof MainActivity) {
+                            searchItem.expandActionView();
+                            searchView.post(() -> searchView.setQuery(recipe.getTitle(), false));
+                        }
+                    }
+                });
         fab.setOnClickListener(view -> {
             Intent intent = new Intent(getActivity(), CreateAndEditRecipeActivity.class);
-            startActivityForResult(intent, REQUEST_CRUD);
+            crudResultLauncher.launch(intent);
         });
 
         viewModel = new ViewModelProvider(this, viewModelFactory).get(RecipeViewModel.class);
@@ -166,23 +176,6 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CRUD && resultCode == RESULT_OK) {
-            Recipe recipe = (Recipe) data.getSerializableExtra(Recipe.class.getName());
-            resetCategoryAndArguments();
-            if (getActivity() instanceof MainActivity) {
-                searchItem.expandActionView();
-                searchView.post(() -> searchView.setQuery(recipe.getTitle(), false));
-            }
-        } else if (requestCode == REQUEST_DETAILS && resultCode == RESULT_OK && data.hasExtra("hashtag")) {
-            resetCategoryAndArguments();
-            searchItem.expandActionView();
-            searchView.post(() -> searchView.setQuery(data.getStringExtra("hashtag"), false));
-        }
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
     public void onNothingSelected(AdapterView<?> parent) {
         // intentionally empty
     }
@@ -198,10 +191,20 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         return false;
     }
 
+    ActivityResultLauncher<Intent> detailsResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK && result.getData().hasExtra("hashtag")) {
+                    resetCategoryAndArguments();
+                    searchItem.expandActionView();
+                    searchView.post(() -> searchView.setQuery(result.getData().getStringExtra("hashtag"), false));
+                }
+            });
+
     private void onListInteraction(Recipe recipe) {
         Intent intent = new Intent(getContext(), RecipeDetailsActivity.class);
         intent.putExtra(Recipe.class.getName(), recipe);
-        startActivityForResult(intent, REQUEST_DETAILS);
+        detailsResultLauncher.launch(intent);
     }
 
     private void resetCategory() {

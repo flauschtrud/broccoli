@@ -2,6 +2,7 @@ package com.flauschcode.broccoli.recipe.details;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -22,6 +23,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -68,8 +71,6 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
     private ActivityRecipeDetailsBinding binding;
     private Menu menu;
-
-    private static final int REQUEST_EDIT = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,19 +128,19 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_EDIT && resultCode == RESULT_OK) {
-            Recipe recipe = (Recipe) data.getSerializableExtra(Recipe.class.getName());
-            binding.setRecipe(recipe);
-        }
-        super.onActivityResult(requestCode, resultCode, data);
-    }
+    ActivityResultLauncher<Intent> editRecipeResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Recipe recipe = (Recipe) result.getData().getSerializableExtra(Recipe.class.getName());
+                    binding.setRecipe(recipe);
+                }
+            });
 
     public void edit(MenuItem menuItem) {
         Intent intent = new Intent(this, CreateAndEditRecipeActivity.class);
         intent.putExtra(Recipe.class.getName(), binding.getRecipe());
-        startActivityForResult(intent, REQUEST_EDIT);
+        editRecipeResultLauncher.launch(intent);
     }
 
     public void delete(MenuItem menuItem) {

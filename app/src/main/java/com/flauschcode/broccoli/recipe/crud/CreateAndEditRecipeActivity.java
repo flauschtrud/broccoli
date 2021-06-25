@@ -3,12 +3,13 @@ package com.flauschcode.broccoli.recipe.crud;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -41,9 +42,6 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
 
     @Inject
     ShareRecipeAsFileService shareRecipeAsFileService;
-
-    private static final int REQUEST_IMAGE_CAPTURE = 1;
-    private static final int REQUEST_IMAGE_GET = 2;
 
     private CreateAndEditRecipeViewModel viewModel;
 
@@ -164,25 +162,29 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    ActivityResultLauncher<Uri> takePictureResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.TakePicture(),
+            result -> {
+                if (Boolean.TRUE.equals(result)) {
+                    viewModel.confirmImageHasBeenTaken();
+                }
+            });
+
     private void takePicture() {
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            try {
-                Uri imageUri = viewModel.createAndRememberImage();
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-                startActivityForResult(intent, REQUEST_IMAGE_CAPTURE);
-            } catch (IOException ex) {
-                Toast.makeText(this, getString(R.string.toast_error_creating_image_file), Toast.LENGTH_SHORT).show();
-            }
+        try {
+            Uri imageUri = viewModel.createAndRememberImage();
+            takePictureResultLauncher.launch(imageUri);
+        } catch (IOException ex) {
+            Toast.makeText(this, getString(R.string.toast_error_creating_image_file), Toast.LENGTH_SHORT).show();
         }
     }
 
+    ActivityResultLauncher<String> getContentResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.GetContent(),
+            uri -> viewModel.confirmImageHasBeenPicked(uri));
+
     private void pickPicture() {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("image/*");
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(intent, REQUEST_IMAGE_GET);
-        }
+        getContentResultLauncher.launch("image/*");
     }
 
     public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -222,18 +224,6 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
                     .show();
 
         });
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            viewModel.confirmImageHasBeenTaken();
-        }
-        else if (requestCode == REQUEST_IMAGE_GET && resultCode == RESULT_OK) {
-            Uri uri = data.getData();
-            viewModel.confirmImageHasBeenPicked(uri);
-        }
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
