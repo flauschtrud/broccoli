@@ -127,9 +127,13 @@ public class BillingService {
     }
 
     private void checkPremiumStateFor(Purchase purchase) {
-        if (purchase.getSkus().contains("premium") && purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED) {
+        if (purchase.getSkus().contains("premium") && purchase.getPurchaseState() == Purchase.PurchaseState.PURCHASED && isSignatureValid(purchase)) { // TODO acknowledge again? just in case?
             isPremium.postValue(true);
         }
+    }
+
+    private boolean isSignatureValid(@NonNull Purchase purchase) {
+        return SupportUtil.verifyPurchase(purchase.getOriginalJson(), purchase.getSignature());
     }
 
     public void purchaseSupporterEdition(Activity activity) { // TODO wtf

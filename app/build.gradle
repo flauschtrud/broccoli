@@ -6,6 +6,12 @@ def versionMinor = 7
 def versionPatch = 3
 def versionBuild = 0
 
+def getBase64EncodedPublicKey() {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    return properties.getProperty("base64EncodedPublicKey");
+}
+
 android {
     compileSdkVersion 30
     buildToolsVersion "29.0.2"
@@ -15,6 +21,7 @@ android {
         targetSdkVersion 30
         versionCode versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionBuild
         versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+        buildConfigField "String", "BASE64_ENCODED_PUBLIC_KEY", "\"" + getBase64EncodedPublicKey() + "\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
