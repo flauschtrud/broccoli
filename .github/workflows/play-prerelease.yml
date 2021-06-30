@@ -21,7 +21,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build Release Bundle with Gradle
-        run: ./gradlew clean bundleRelease
+        run: ./gradlew clean bundleRelease -Pbase64EncodedPublicKey=${{secrets.PUBLIC_KEY}}
 
       - name: Build Release
         uses: r0adkll/sign-android-release@v1
