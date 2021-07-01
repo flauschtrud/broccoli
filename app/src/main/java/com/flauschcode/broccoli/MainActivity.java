@@ -1,6 +1,7 @@
 package com.flauschcode.broccoli;
 
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -10,15 +11,24 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.flauschcode.broccoli.support.BillingService;
 import com.google.android.material.navigation.NavigationView;
+
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjection;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
+    @Inject
+    BillingService billingService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AndroidInjection.inject(this);
 
         setContentView(R.layout.activity_main);
 
@@ -45,6 +55,9 @@ public class MainActivity extends AppCompatActivity {
             return handled;
 
         });
+
+        TextView subtitle = navigationView.getHeaderView(0).findViewById(R.id.header_subtitle);
+        billingService.isPremium().observe(this, isPremium -> subtitle.setText(Boolean.TRUE.equals(isPremium)? getString(R.string.support_supporter_edition_title) : getString(R.string.support_community_edition_title)));
     }
 
     @Override

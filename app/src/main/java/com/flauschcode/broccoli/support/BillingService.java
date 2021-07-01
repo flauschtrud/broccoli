@@ -25,7 +25,9 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
+@Singleton
 public class BillingService {
 
     private Application application; // TODO still needed?
@@ -89,7 +91,7 @@ public class BillingService {
                 Log.d("BILLING CLIENT READY AFTER SETUP?", String.valueOf(billingClient.isReady()));
 
                 if (billingResult.getResponseCode() != BillingClient.BillingResponseCode.OK) {
-                    isEnabled.postValue(false);
+                    isEnabled.postValue(false); // TODO retry
                     return;
                 }
                 isEnabled.postValue(true);
