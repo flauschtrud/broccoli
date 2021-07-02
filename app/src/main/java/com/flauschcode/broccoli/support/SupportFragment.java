@@ -31,8 +31,6 @@ public class SupportFragment extends Fragment {
         Button getSupporterEditionButton = root.findViewById(R.id.get_supporter_edition_button);
         getSupporterEditionButton.setOnClickListener(v -> billingService.purchaseSupporterEdition(getActivity()));
 
-        billingService.getPremiumPrice().observe(getViewLifecycleOwner(), premiumPrice -> getSupporterEditionButton.setText("Get for " + premiumPrice));
-
         billingService.isEnabled().observe(getViewLifecycleOwner(), isEnabled -> {
             TextView errorMessageTextView = root.findViewById(R.id.supporter_edition_error_message);
             if (Boolean.FALSE.equals(isEnabled)) {
