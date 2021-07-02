@@ -2,6 +2,8 @@ package com.flauschcode.broccoli.support;
 
 import android.app.Activity;
 import android.app.Application;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
@@ -31,30 +33,35 @@ import javax.inject.Singleton;
 @Singleton
 public class BillingService implements BillingClientStateListener, PurchasesUpdatedListener {
 
-    public static final String PREMIUM_SKU_NAME = "premium";
     private final BillingClient billingClient;
+
+    private static final Handler handler = new Handler(Looper.getMainLooper());
+    private static final long RECONNECT_TIMER_START_MILLISECONDS = 1000L;
+    private static final long RECONNECT_TIMER_MAX_TIME_MILLISECONDS = 1000L * 60L * 15L; // 15 mins
+    private long reconnectMilliseconds = RECONNECT_TIMER_START_MILLISECONDS;
 
     private final MutableLiveData<Boolean> isPremium = new MutableLiveData<>(false);
     private final MutableLiveData<Boolean> isEnabled = new MutableLiveData<>(false);
+    private static final String PREMIUM_SKU_NAME = "premium";
 
     @Inject
     public BillingService(Application application) {
-        // TODO crashes without Google Play Services https://developers.google.com/android/reference/com/google/android/gms/common/GoogleApiAvailability#isGooglePlayServicesAvailable(android.content.Context)
         billingClient = BillingClient.newBuilder(application).enablePendingPurchases().setListener(this).build();
         billingClient.startConnection(this);
     }
 
     @Override
     public void onBillingServiceDisconnected() {
-        Log.d("BILLING SERVICE", "Billing service DISCONNECTED!");
-        // TODO handle the retrying of the connection yourself
+        Log.e(getClass().getSimpleName(), "Billing service disconnected.");
+        retryBillingServiceConnectionWithExponentialBackoff();
     }
 
     @Override
     public void onBillingSetupFinished(@NonNull BillingResult billingResult) {
         if (billingResult.getResponseCode() != BillingClient.BillingResponseCode.OK) {
-            isEnabled.postValue(false); // TODO retry
-            Log.e(getClass().getName(), "onBillingSetupFinished: " + billingResult.getResponseCode() + " " + billingResult.getDebugMessage());
+            isEnabled.postValue(false);
+            Log.e(getClass().getSimpleName(), "onBillingSetupFinished: " + billingResult.getResponseCode() + " " + billingResult.getDebugMessage());
+            retryBillingServiceConnectionWithExponentialBackoff();
             return;
         }
         isEnabled.postValue(true);
@@ -65,12 +72,12 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
     @Override
     public void onPurchasesUpdated(@NonNull BillingResult billingResult, @Nullable List<Purchase> list) {
         if (billingResult.getResponseCode() != BillingClient.BillingResponseCode.OK) {
-            Log.e(getClass().getName(), "onPurchasesUpdated: " + billingResult.getResponseCode() + " " + billingResult.getDebugMessage());
+            Log.e(getClass().getSimpleName(), "onPurchasesUpdated: " + billingResult.getResponseCode() + " " + billingResult.getDebugMessage());
             return;
         }
 
         if (list == null) {
-            Log.e(getClass().getName(), "onPurchasesUpdated: Purchase list is null.");
+            Log.e(getClass().getSimpleName(), "onPurchasesUpdated: Purchase list is null.");
             return;
         }
 
@@ -86,19 +93,19 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
             @Override
             public void onSkuDetailsResponse(@NonNull BillingResult billingResult, @Nullable List<SkuDetails> list) {
                 if (BillingClient.BillingResponseCode.OK != billingResult.getResponseCode()) {
-                    Log.e(getClass().getName(), "onSkuDetailsResponse: " + billingResult.getResponseCode() + " " + billingResult.getDebugMessage());
+                    Log.e(getClass().getSimpleName(), "onSkuDetailsResponse: " + billingResult.getResponseCode() + " " + billingResult.getDebugMessage());
                     return;
                 }
 
                 if (list == null || list.isEmpty()) {
-                    Log.e(getClass().getName(), "onSkuDetailsResponse: Found null or empty SkuDetails.");
+                    Log.e(getClass().getSimpleName(), "onSkuDetailsResponse: Found null or empty SkuDetails.");
                     return;
                 }
 
                 Optional<SkuDetails> skuDetailsPremium = list.stream().filter(skuDetails -> PREMIUM_SKU_NAME.equals(skuDetails.getSku())).findFirst();
 
                 if (!skuDetailsPremium.isPresent()) {
-                    Log.e(getClass().getName(), "onSkuDetailsResponse: Could not find " + PREMIUM_SKU_NAME + " SKU.");
+                    Log.e(getClass().getSimpleName(), "onSkuDetailsResponse: Could not find " + PREMIUM_SKU_NAME + " SKU.");
                     return;
                 }
 
@@ -108,7 +115,7 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
 
                 BillingResult billingResultBilling = billingClient.launchBillingFlow(activity, billingFlowParams);
                 if (billingResultBilling.getResponseCode() != BillingClient.BillingResponseCode.OK) {
-                    Log.e(getClass().getName(), "Billing flow failed: " + billingResultBilling.getResponseCode() + " " + billingResultBilling.getDebugMessage());
+                    Log.e(getClass().getSimpleName(), "Billing flow failed: " + billingResultBilling.getResponseCode() + " " + billingResultBilling.getDebugMessage());
                 }
             }
         });
@@ -125,17 +132,17 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
 
     private void process(Purchase purchase) {
         if (!purchase.getSkus().contains(PREMIUM_SKU_NAME)) {
-            Log.e(getClass().getName(), "Unknown purchase: " + purchase.getOrderId());
+            Log.e(getClass().getSimpleName(), "Unknown purchase: " + purchase.getOrderId());
             return;
         }
 
         if (purchase.getPurchaseState() != Purchase.PurchaseState.PURCHASED) {
-            Log.e(getClass().getName(), "Purchase is not yet in state PURCHASED: " + purchase.getOrderId());
+            Log.e(getClass().getSimpleName(), "Purchase is not yet in state PURCHASED: " + purchase.getOrderId());
             return;
         }
 
         if (!isSignatureValid(purchase)) {
-            Log.e(getClass().getName(), "Invalid signature for purchase: " + purchase.getOrderId());
+            Log.e(getClass().getSimpleName(), "Invalid signature for purchase: " + purchase.getOrderId());
             return;
         }
 
@@ -160,10 +167,17 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
             @Override
             public void onAcknowledgePurchaseResponse(@NonNull BillingResult billingResult) {
                 if (BillingClient.BillingResponseCode.OK != billingResult.getResponseCode()) {
-                    Log.e(getClass().getName(), "onAcknowledgePurchaseResponse: " + billingResult.getResponseCode() + " " + billingResult.getDebugMessage());
+                    Log.e(getClass().getSimpleName(), "onAcknowledgePurchaseResponse: " + billingResult.getResponseCode() + " " + billingResult.getDebugMessage());
                 }
             }
         });
+    }
+
+    private void retryBillingServiceConnectionWithExponentialBackoff() {
+        Log.d(getClass().getSimpleName(), "Trying to reconnect to billing service after " + reconnectMilliseconds/1000 + " seconds.");
+        handler.postDelayed(() -> billingClient.startConnection(this), reconnectMilliseconds);
+        reconnectMilliseconds = Math.min(reconnectMilliseconds * 2,
+                RECONNECT_TIMER_MAX_TIME_MILLISECONDS);
     }
 
 }
