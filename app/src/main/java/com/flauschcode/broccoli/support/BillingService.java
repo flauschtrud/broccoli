@@ -23,16 +23,16 @@ import com.android.billingclient.api.SkuDetailsResponseListener;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 @Singleton
-public class BillingService implements BillingClientStateListener, PurchasesUpdatedListener, SkuDetailsResponseListener {
+public class BillingService implements BillingClientStateListener, PurchasesUpdatedListener {
 
     public static final String PREMIUM_SKU_NAME = "premium";
     private final BillingClient billingClient;
-    private SkuDetails skuDetailsPremium;
 
     private final MutableLiveData<Boolean> isPremium = new MutableLiveData<>(false);
     private final MutableLiveData<Boolean> isEnabled = new MutableLiveData<>(false);
@@ -59,13 +59,7 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
         }
         isEnabled.postValue(true);
 
-        // TODO also do this in onResume of the app?
         billingClient.queryPurchasesAsync(BillingClient.SkuType.INAPP, (billingResult1, list) -> list.forEach(BillingService.this::process));
-
-        billingClient.querySkuDetailsAsync(SkuDetailsParams.newBuilder()
-                .setType(BillingClient.SkuType.INAPP)
-                .setSkusList(Collections.singletonList(PREMIUM_SKU_NAME))
-                .build(), this); // TODO only when click on button?
     }
 
     @Override
@@ -83,31 +77,42 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
         list.forEach(this::process);
     }
 
-    @Override
-    public void onSkuDetailsResponse(@NonNull BillingResult billingResult, @Nullable List<SkuDetails> list) {
-        if (BillingClient.BillingResponseCode.OK != billingResult.getResponseCode()) {
-            Log.e(getClass().getName(), "onSkuDetailsResponse: " + billingResult.getResponseCode() + " " + billingResult.getDebugMessage());
-            return;
-        }
-
-        if (list == null || list.isEmpty()) {
-            Log.e(getClass().getName(), "onSkuDetailsResponse: Found null or empty SkuDetails.");
-            return;
-        }
-
-        list.stream().filter(skuDetails -> PREMIUM_SKU_NAME.equals(skuDetails.getSku())).findFirst().ifPresent(skuDetails -> skuDetailsPremium = skuDetails);
-    }
-
     public void purchaseSupporterEdition(Activity activity) {
-        BillingFlowParams billingFlowParams = BillingFlowParams.newBuilder()
-                .setSkuDetails(skuDetailsPremium) // TODO check not null, maybe combine the querying of the skudetails with this?
-                .build();
-        BillingResult billingResult = billingClient.launchBillingFlow(activity, billingFlowParams);
-        if (billingResult.getResponseCode() == BillingClient.BillingResponseCode.OK) {
-            Log.e("PURCHASE", "Billing flow in progress.");
-        } else {
-            Log.e("PURCHASE", "Billing failed: + " + billingResult.getResponseCode() + ": " + billingResult.getDebugMessage());
-        }
+        // it is a little slower to query the SKUs just before purchase, but they are only ever needed if a purchase has to made anyway
+        billingClient.querySkuDetailsAsync(SkuDetailsParams.newBuilder()
+                .setType(BillingClient.SkuType.INAPP)
+                .setSkusList(Collections.singletonList(PREMIUM_SKU_NAME))
+                .build(), new SkuDetailsResponseListener() {
+            @Override
+            public void onSkuDetailsResponse(@NonNull BillingResult billingResult, @Nullable List<SkuDetails> list) {
+                if (BillingClient.BillingResponseCode.OK != billingResult.getResponseCode()) {
+                    Log.e(getClass().getName(), "onSkuDetailsResponse: " + billingResult.getResponseCode() + " " + billingResult.getDebugMessage());
+                    return;
+                }
+
+                if (list == null || list.isEmpty()) {
+                    Log.e(getClass().getName(), "onSkuDetailsResponse: Found null or empty SkuDetails.");
+                    return;
+                }
+
+                Optional<SkuDetails> skuDetailsPremium = list.stream().filter(skuDetails -> PREMIUM_SKU_NAME.equals(skuDetails.getSku())).findFirst();
+
+                if (!skuDetailsPremium.isPresent()) {
+                    Log.e(getClass().getName(), "onSkuDetailsResponse: Could not find " + PREMIUM_SKU_NAME + " SKU.");
+                    return;
+                }
+
+                BillingFlowParams billingFlowParams = BillingFlowParams.newBuilder()
+                        .setSkuDetails(skuDetailsPremium.get())
+                        .build();
+
+                BillingResult billingResultBilling = billingClient.launchBillingFlow(activity, billingFlowParams);
+                if (billingResultBilling.getResponseCode() != BillingClient.BillingResponseCode.OK) {
+                    Log.e(getClass().getName(), "Billing flow failed: " + billingResultBilling.getResponseCode() + " " + billingResultBilling.getDebugMessage());
+                }
+            }
+        });
+
     }
 
     public LiveData<Boolean> isPremium() {
