@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.ArrayMap;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ import com.flauschcode.broccoli.recipe.RecipeRepository;
 
 import java.io.IOException;
 import java.util.Optional;
+import java.util.regex.Matcher;
 
 import javax.inject.Inject;
 
@@ -61,7 +63,7 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
         }
 
         if (Intent.ACTION_SEND.equals(intent.getAction())) {
-            String url = intent.getStringExtra(Intent.EXTRA_TEXT);
+            String url = parseUrlFrom(intent);
             recipeImportService.importFrom(url)
                     .thenAccept(optionalRecipe -> {
                         if (optionalRecipe.isPresent()) {
@@ -239,6 +241,16 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
         if (!"".equals(recipe.getImageName())) {
             viewModel.setNewImageName(recipe.getImageName());
         }
+    }
+
+    private String parseUrlFrom(Intent intent) {
+        String extra = intent.getStringExtra(Intent.EXTRA_TEXT);
+        Matcher matcher = Patterns.WEB_URL.matcher(extra);
+        if (matcher.find()) {
+            return matcher.group();
+        }
+        Log.e(getClass().getName(), "Could not extract valid URL from :'" + extra + "'.");
+        return extra;
     }
 
 }
