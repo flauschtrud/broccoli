@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -97,8 +98,12 @@ class ImportableRecipeBuilder {
     }
 
     private void setParsedAndWordedPreparationTime(String jsonLdRecipeCookTime) {
-        Duration duration = Duration.parse(recipeJson.optString(jsonLdRecipeCookTime));
-        recipe.setPreparationTime(DurationFormatter.format(duration));
+        try {
+            Duration duration = Duration.parse(recipeJson.optString(jsonLdRecipeCookTime));
+            recipe.setPreparationTime(DurationFormatter.format(duration));
+        } catch (DateTimeParseException e) { // for rare cases where the JSON contains some time properties with null values
+            Log.e(getClass().getName(), e.getMessage());
+        }
     }
 
     private void contributeIngredients() {
