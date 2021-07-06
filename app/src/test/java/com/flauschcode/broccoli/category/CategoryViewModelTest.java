@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData;
 import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.category.CategoryRepository;
 import com.flauschcode.broccoli.category.CategoryViewModel;
+import com.flauschcode.broccoli.support.BillingService;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -26,6 +27,9 @@ public class CategoryViewModelTest {
     private CategoryRepository categoryRepository;
 
     @Mock
+    private BillingService billingService;
+
+    @Mock
     private LiveData<List<Category>> liveData;
 
     private CategoryViewModel categoryViewModel;
@@ -33,7 +37,7 @@ public class CategoryViewModelTest {
     @Before
     public void setUp() {
         when(categoryRepository.findAll()).thenReturn(liveData);
-        categoryViewModel = new CategoryViewModel(categoryRepository);
+        categoryViewModel = new CategoryViewModel(categoryRepository, billingService);
     }
 
     @Test

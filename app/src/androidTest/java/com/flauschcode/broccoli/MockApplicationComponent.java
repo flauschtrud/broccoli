@@ -32,6 +32,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
         ServiceModule.class,
         AndroidSupportInjectionModule.class,
         MockRecipeModule.class,
+        MockBillingModule.class,
         SeasonsModule.class
 })
 public interface MockApplicationComponent extends ApplicationComponent {

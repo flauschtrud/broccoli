@@ -45,6 +45,9 @@ import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 
+/*
+ TODO at the moment this test just works when there is a premium user logged into the Play Store at the testing device
+ */
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class FilteringAndSearchingIntegrationTest {

@@ -35,7 +35,7 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
 
     private final BillingClient billingClient;
 
-    private static final Handler handler = new Handler(Looper.getMainLooper());
+    private final Handler handler;
     private static final long RECONNECT_TIMER_START_MILLISECONDS = 1000L;
     private static final long RECONNECT_TIMER_MAX_TIME_MILLISECONDS = 1000L * 60L * 15L; // 15 mins
     private long reconnectMilliseconds = RECONNECT_TIMER_START_MILLISECONDS;
@@ -46,6 +46,7 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
 
     @Inject
     public BillingService(Application application) {
+        handler = new Handler(Looper.getMainLooper());
         billingClient = BillingClient.newBuilder(application).enablePendingPurchases().setListener(this).build();
         billingClient.startConnection(this);
     }

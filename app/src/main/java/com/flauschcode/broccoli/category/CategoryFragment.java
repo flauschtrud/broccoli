@@ -14,10 +14,9 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.flauschcode.broccoli.BR;
+import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.RecyclerViewAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import com.flauschcode.broccoli.R;
 
 import javax.inject.Inject;
 
@@ -67,6 +66,14 @@ public class CategoryFragment extends Fragment implements CategoryDialog.OnChang
         fab.setOnClickListener(view -> {
             CategoryDialog dialog = new CategoryDialog(this, new Category(""));
             dialog.show(getParentFragmentManager(), "CategoryDialogTag");
+        });
+
+        View categoriesMessageLayout = root.findViewById(R.id.categories_message_layout);
+        viewModel.isPremium().observe(getViewLifecycleOwner(), observedValue -> {
+            boolean isPremium = Boolean.TRUE.equals(observedValue);
+            recyclerView.setVisibility(isPremium ? View.VISIBLE : View.GONE);
+            fab.setVisibility(isPremium ? View.VISIBLE : View.GONE);
+            categoriesMessageLayout.setVisibility(isPremium ? View.GONE : View.VISIBLE);
         });
 
         return root;

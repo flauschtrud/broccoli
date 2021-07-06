@@ -8,6 +8,7 @@ import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.flauschcode.broccoli.BroccoliApplication;
 import com.flauschcode.broccoli.MockApplicationComponent;
+import com.flauschcode.broccoli.support.BillingService;
 import com.flauschcode.broccoli.util.RecyclerViewAssertions;
 import com.flauschcode.broccoli.util.RecyclerViewMatcher;
 
@@ -44,6 +45,9 @@ public class CategoryFragmentTest {
     @Inject
     CategoryRepository categoryRepository;
 
+    @Inject
+    BillingService billingService;
+
     private ArgumentCaptor<Category> categoryCaptor = ArgumentCaptor.forClass(Category.class);
 
     @Before
@@ -58,6 +62,8 @@ public class CategoryFragmentTest {
         categories.add(new Category(1, "Blupp"));
         categories.add(new Category(2, "Lala"));
         when(categoryRepository.findAll()).thenReturn(new MutableLiveData<>(categories));
+
+        when(billingService.isPremium()).thenReturn(new MutableLiveData<>(true));
 
         launchInContainer(CategoryFragment.class, new Bundle(), R.style.Theme_AppCompat);
     }
