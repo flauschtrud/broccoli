@@ -104,7 +104,7 @@
     <string name="general_settings">General settings</string>
 
     <!-- Seasons -->
-    <string name="seasonal_calendar">Seasonal calendar</string>
+    <string name="seasonal_calendar">Seasonal calendar (Beta)</string>
     <string name="seasonal">Seasonal recipes</string>
     <string name="seasons_not_configured_message">The seasonal calendar has not been fully configured yet. You can do that in the settings.</string>
     <string name="seasons_month_range" translatable="false">%1$s - %2$s</string>
@@ -128,7 +128,7 @@
     <string name="support_community_edition_title" translatable="false">Community Edition</string>
     <string name="support_community_edition_perk_recipes">Unlimited recipes</string>
     <string name="support_community_edition_perk_cooking_mode">Distraction free cooking mode</string>
-    <string name="support_community_edition_perk_seasonal_calendar">Seasonal calendar</string>
+    <string name="support_community_edition_perk_seasonal_calendar">Seasonal calendar (Beta)</string>
     <string name="support_community_edition_perk_backup">Manual backup</string>
     <string name="support_community_edition_perk_ad_free">Ad-free experience</string>
     <string name="support_community_edition_free_for_everyone">Free for everyone</string>
