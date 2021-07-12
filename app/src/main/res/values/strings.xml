@@ -123,8 +123,6 @@
 
     <!-- support -->
     <string name="menu_support">Support the app</string>
-    <string name="support_thanks_title">Thank you…</string>
-    <string name="support_thanks_message">… for supporting this app!</string>
     <string name="support_community_edition_title" translatable="false">Community Edition</string>
     <string name="support_community_edition_perk_recipes">Unlimited recipes</string>
     <string name="support_community_edition_perk_cooking_mode">Distraction free cooking mode</string>
@@ -137,7 +135,10 @@
     <string name="support_supporter_edition_perk_categories">Unlimited custom categories</string>
     <string name="support_supporter_edition_perk_support_developer">Support an indie developer</string>
     <string name="support_supporter_edition_buy">Buy</string>
-    <string name="support_supporter_edition_get_error_message">Please sign in to Google Play Store</string>
+    <string name="support_supporter_edition_thanks">Thanks for your support!</string>
+    <string name="support_supporter_edition_get_error_message">Please sign in to Google Play Store.</string>
+    <string name="support_rate">Give us a rating</string>
+    <string name="support_share">Share the app</string>
     <string name="support_categories_message">Become a supporter of the app and create unlimited custom categories to manage your recipes.</string>
     <string name="support_learn_more">Learn more</string>
 

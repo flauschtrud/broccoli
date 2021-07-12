@@ -41,7 +41,6 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
     private long reconnectMilliseconds = RECONNECT_TIMER_START_MILLISECONDS;
 
     private final MutableLiveData<Boolean> isPremium = new MutableLiveData<>(false);
-    private final MutableLiveData<Boolean> isEnabled = new MutableLiveData<>(false);
     private static final String PREMIUM_SKU_NAME = "premium";
 
     @Inject
@@ -60,12 +59,10 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
     @Override
     public void onBillingSetupFinished(@NonNull BillingResult billingResult) {
         if (billingResult.getResponseCode() != BillingClient.BillingResponseCode.OK) {
-            isEnabled.postValue(false);
             Log.e(getClass().getSimpleName(), "onBillingSetupFinished: " + billingResult.getResponseCode() + " " + billingResult.getDebugMessage());
             retryBillingServiceConnectionWithExponentialBackoff();
             return;
         }
-        isEnabled.postValue(true);
 
         billingClient.queryPurchasesAsync(BillingClient.SkuType.INAPP, (billingResult1, list) -> list.forEach(BillingService.this::process));
     }
@@ -85,7 +82,12 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
         list.forEach(this::process);
     }
 
-    public void purchaseSupporterEdition(Activity activity) {
+    public void purchaseSupporterEdition(Activity activity) throws BillingException {
+        if (!billingClient.isReady()) {
+            Log.e(getClass().getSimpleName(), "purchaseSupporterEdition: A purchase has been requested but the billing service is not ready yet.");
+            throw new BillingException("The Billing service is not ready yet.");
+        }
+
         // it is a little slower to query the SKUs just before purchase, but they are only ever needed if a purchase has to made anyway
         billingClient.querySkuDetailsAsync(SkuDetailsParams.newBuilder()
                 .setType(BillingClient.SkuType.INAPP)
@@ -125,10 +127,6 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
 
     public LiveData<Boolean> isPremium() {
         return isPremium;
-    }
-
-    public MutableLiveData<Boolean> isEnabled() {
-        return isEnabled;
     }
 
     private void process(Purchase purchase) {
@@ -181,4 +179,9 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
                 RECONNECT_TIMER_MAX_TIME_MILLISECONDS);
     }
 
+    static class BillingException extends Exception {
+        public BillingException(String s) {
+            super(s);
+        }
+    }
 }

@@ -1,51 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/support_layout_thanks"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/text_margin"
-        android:layout_marginTop="@dimen/text_margin"
-        android:layout_marginEnd="@dimen/text_margin"
-        android:background="@drawable/border_primary"
-        android:visibility="gone">
-
-        <TextView
-            android:id="@+id/support_thanks_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/support_thanks_title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/colorPrimary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/support_thanks_message"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawablePadding="5dp"
-            android:text="@string/support_thanks_message"
-            app:drawableStartCompat="@drawable/ic_favorite_border_24dp"
-            app:drawableTint="@color/colorPrimary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/support_thanks_title" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/support_layout_community_edition"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_marginStart="@dimen/text_margin"
         android:layout_marginTop="@dimen/text_margin"
         android:layout_marginEnd="@dimen/text_margin"
         android:layout_weight="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/support_layout_supporter_edition"
+        app:layout_constraintBottom_toBottomOf="@id/support_layout_supporter_edition"
         android:background="@drawable/border_accent">
 
         <TextView
@@ -53,9 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/support_community_edition_title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <TextView
             android:id="@+id/community_edition_recipes"
@@ -64,9 +34,7 @@
             android:drawablePadding="@dimen/text_margin"
             android:text="@string/support_community_edition_perk_recipes"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
-            app:drawableTint="@color/colorAccent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/community_edition_title" />
+            app:drawableTint="@color/colorAccent" />
 
         <TextView
             android:id="@+id/community_edition_cooking_mode"
@@ -75,9 +43,7 @@
             android:drawablePadding="@dimen/text_margin"
             android:text="@string/support_community_edition_perk_cooking_mode"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
-            app:drawableTint="@color/colorAccent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/community_edition_recipes" />
+            app:drawableTint="@color/colorAccent" />
 
         <TextView
             android:id="@+id/community_edition_seasonal_calendar"
@@ -86,9 +52,7 @@
             android:drawablePadding="@dimen/text_margin"
             android:text="@string/support_community_edition_perk_seasonal_calendar"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
-            app:drawableTint="@color/colorAccent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/community_edition_cooking_mode" />
+            app:drawableTint="@color/colorAccent" />
 
         <TextView
             android:id="@+id/community_edition_backup"
@@ -97,9 +61,7 @@
             android:drawablePadding="@dimen/text_margin"
             android:text="@string/support_community_edition_perk_backup"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
-            app:drawableTint="@color/colorAccent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/community_edition_seasonal_calendar" />
+            app:drawableTint="@color/colorAccent" />
 
         <TextView
             android:id="@+id/community_edition_ad_free"
@@ -108,31 +70,32 @@
             android:drawablePadding="@dimen/text_margin"
             android:text="@string/support_community_edition_perk_ad_free"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
-            app:drawableTint="@color/colorAccent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/community_edition_backup" />
+            app:drawableTint="@color/colorAccent" />
 
         <TextView
             android:id="@+id/community_edition_free"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="8dp"
             android:text="@string/support_community_edition_free_for_everyone"
+            android:layout_gravity="center"
             android:textAllCaps="true"
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/community_edition_ad_free" />
+            android:textAlignment="center" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/support_layout_supporter_edition"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
         android:layout_marginTop="@dimen/text_margin"
         android:layout_marginEnd="@dimen/text_margin"
         android:layout_weight="1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@id/support_layout_community_edition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/support_layout_community_edition"
         android:background="@drawable/border_primary">
 
         <TextView
@@ -141,9 +104,7 @@
             android:layout_height="wrap_content"
             android:text="@string/support_supporter_edition_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/colorPrimary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textColor="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/supporter_edition_all_features"
@@ -152,9 +113,7 @@
             android:drawablePadding="@dimen/text_margin"
             android:text="@string/support_supporter_edition_perk_community_features"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
-            app:drawableTint="@color/colorPrimary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/supporter_edition_title" />
+            app:drawableTint="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/supporter_edition_categories"
@@ -163,9 +122,7 @@
             android:drawablePadding="@dimen/text_margin"
             android:text="@string/support_supporter_edition_perk_categories"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
-            app:drawableTint="@color/colorPrimary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/supporter_edition_all_features" />
+            app:drawableTint="@color/colorPrimary" />
 
         <TextView
             android:id="@+id/supporter_edition_support"
@@ -174,36 +131,68 @@
             android:drawablePadding="@dimen/text_margin"
             android:text="@string/support_supporter_edition_perk_support_developer"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
-            app:drawableTint="@color/colorPrimary"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/supporter_edition_categories" />
+            app:drawableTint="@color/colorPrimary" />
 
         <Button
             android:id="@+id/get_supporter_edition_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="@dimen/text_margin"
+            android:padding="@dimen/text_margin"
             android:background="@drawable/button_background_primary"
+            android:drawableStart="@drawable/ic_store_24"
+            android:drawablePadding="@dimen/text_margin"
+            android:drawableTint="@color/icons"
             android:text="@string/support_supporter_edition_buy"
-            android:textColor="@color/icons"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/supporter_edition_support" />
+            android:textColor="@color/icons" />
 
         <TextView
-            android:id="@+id/supporter_edition_error_message"
+            android:id="@+id/supporter_edition_thanks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="8dp"
             android:visibility="gone"
-            android:text="@string/support_supporter_edition_get_error_message"
+            android:layout_gravity="center"
+            android:text="@string/support_supporter_edition_thanks"
             android:textAllCaps="true"
             android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/supporter_edition_support" />
+            android:textColor="@color/colorPrimary"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/give_rating_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/support_layout_community_edition"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/text_margin"
+        android:padding="@dimen/text_margin"
+        android:background="@drawable/button_background_primary"
+        android:drawableStart="@drawable/ic_star_rate_24"
+        android:drawablePadding="@dimen/text_margin"
+        android:drawableTint="@color/icons"
+        android:text="@string/support_rate"
+        android:textColor="@color/icons" />
+
+    <Button
+        android:id="@+id/share_app_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/give_rating_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="@dimen/text_margin"
+        android:padding="@dimen/text_margin"
+        android:background="@drawable/button_background_primary"
+        android:drawableStart="@drawable/ic_menu_share_24dp"
+        android:drawablePadding="@dimen/text_margin"
+        android:drawableTint="@color/icons"
+        android:text="@string/support_share"
+        android:textColor="@color/icons" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
