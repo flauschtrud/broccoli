@@ -23,7 +23,6 @@ def getBase64EncodedPublicKey() {
 
 android {
     compileSdkVersion 30
-    buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.flauschcode.broccoli"
         minSdkVersion 26
