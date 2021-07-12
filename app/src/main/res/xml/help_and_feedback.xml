@@ -21,7 +21,12 @@
             app:icon="@drawable/ic_info_24dp"
             app:key="version"
             app:title="@string/version"
-            app:summary="@string/versionName"
-            app:selectable="false" />
+            app:summary="@string/versionName" />
+
+        <Preference
+            app:icon="@drawable/ic_info_24dp"
+            app:key="oss-licenses"
+            app:title="@string/oss_license_title"
+            app:summary="@string/preferences_license_summary" />
 
 </PreferenceScreen>

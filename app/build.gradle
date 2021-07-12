@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: "androidx.navigation.safeargs"
+apply plugin: "com.google.android.gms.oss-licenses-plugin"
 
 def versionMajor = 0
 def versionMinor = 8
@@ -87,6 +88,8 @@ dependencies {
 
     def billing_version = "4.0.0"
     implementation "com.android.billingclient:billing:$billing_version"
+
+    implementation 'com.google.android.gms:play-services-oss-licenses:17.0.0'
 
     def dagger_version = "2.35.1"
     implementation group: 'com.google.dagger', name: 'dagger', version: "$dagger_version"
