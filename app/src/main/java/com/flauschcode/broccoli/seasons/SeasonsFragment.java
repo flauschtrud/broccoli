@@ -31,7 +31,7 @@ public class SeasonsFragment extends Fragment {
         TabLayout tabLayout = root.findViewById(R.id.seasons_tablayout);
 
         if (seasonalCalendarHasNotBeenConfiguredYet()) {
-            root.findViewById(R.id.seasons_text).setVisibility(View.VISIBLE);
+            root.findViewById(R.id.seasons_not_configured_layout).setVisibility(View.VISIBLE);
             viewPager.setVisibility(View.GONE);
             tabLayout.setVisibility(View.GONE);
             return root;

@@ -106,7 +106,8 @@
     <!-- Seasons -->
     <string name="seasonal_calendar">Seasonal calendar (Beta)</string>
     <string name="seasonal">Seasonal recipes</string>
-    <string name="seasons_not_configured_message">The seasonal calendar has not been fully configured yet. You can do that in the settings.</string>
+    <string name="seasons_not_configured_message">The seasonal calendar has not been fully configured yet.</string>
+    <string name="seasons_not_configured_action">Configure</string>
     <string name="seasons_month_range" translatable="false">%1$s - %2$s</string>
     <string name="region">Region</string>
     <string name="languages">Languages</string>

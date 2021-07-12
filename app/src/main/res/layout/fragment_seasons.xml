@@ -6,15 +6,42 @@
     android:orientation="vertical"
     android:theme="@style/AppTheme">
 
-    <TextView
-        android:id="@+id/seasons_text"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/seasons_not_configured_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:visibility="gone"
-        android:gravity="center"
-        android:padding="@dimen/text_margin"
-        android:text="@string/seasons_not_configured_message" />
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/seasons_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/text_margin"
+            android:text="@string/seasons_not_configured_message"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toTopOf="@id/seasons_configure"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <Button
+            android:id="@+id/seasons_configure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin"
+            android:background="@drawable/button_background_primary"
+            android:onClick="navigateToSettingsPage"
+            android:padding="@dimen/text_margin"
+            android:text="@string/seasons_not_configured_action"
+            android:textColor="@color/icons"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seasons_message" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/seasons_tablayout"
