@@ -10,46 +10,45 @@ public class ScaledQuantity {
 
     private ScaledQuantity() {}
 
-    private static DecimalFormat decimalFormat = new DecimalFormat("0.##");
+    private static final DecimalFormat decimalFormat = new DecimalFormat("0.##");
 
     public static String from(String quantity, float scaleFactor) {
         try {
             if (isRange(quantity)) {
-                return scaledRange(quantity, scaleFactor);
+                String[] ranges = quantity.replace(" ", "").split("-");
+                String first = scale(ranges[0], scaleFactor);
+                String second = scale(ranges[1], scaleFactor);
+                return first + "-" + second;
             }
 
-            if (isFraction(quantity)) {
-                return scaledFraction(quantity, scaleFactor);
-            }
-
-            if (isVulgarFraction(quantity)) {
-                return scaledVulgarFraction(quantity, scaleFactor);
-            }
-
-            float q = Float.parseFloat(quantity);
-            return prettyPrint(q * scaleFactor);
+            return scale(quantity, scaleFactor);
         } catch (NumberFormatException e) {
-            return new StringBuilder().append("(").append(getNotScaledString()).append(") ").append(quantity).toString();
+            return "(" + getNotScaledString() + ") " + quantity;
         }
+    }
+
+    private static String scale(String quantity, float scaleFactor) {
+        if (isFraction(quantity)) {
+            return scaleFraction(quantity, scaleFactor);
+        }
+
+        if (isVulgarFraction(quantity)) {
+            return scaleVulgarFraction(quantity, scaleFactor);
+        }
+
+        float q = Float.parseFloat(quantity);
+        return prettyPrint(q * scaleFactor);
     }
 
     private static boolean isRange(String quantity) {
         return quantity.contains("-");
-
-    }
-
-    private static String scaledRange(String quantity, float scaleFactor) {
-        String[] ranges = quantity.replace(" ", "").split("-");
-        String first = prettyPrint(Integer.parseInt(ranges[0]) * scaleFactor);
-        String second = prettyPrint(Integer.parseInt(ranges[1]) * scaleFactor);
-        return new StringBuilder(first).append("-").append(second).toString();
     }
 
     private static boolean isFraction(String quantity) {
         return quantity.contains("/");
     }
 
-    private static String scaledFraction(String quantity, float scaleFactor) {
+    private static String scaleFraction(String quantity, float scaleFactor) {
         String[] rat = quantity.split("/");
         float f = Float.parseFloat(rat[0]) / Float.parseFloat(rat[1]);
         return prettyPrint(f * scaleFactor);
@@ -60,7 +59,7 @@ public class ScaledQuantity {
         return quantity.matches("[¼½¾⅐⅑⅒⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]");
     }
 
-    private static String scaledVulgarFraction(String quantity, float scaleFactor) {
+    private static String scaleVulgarFraction(String quantity, float scaleFactor) {
         String[] fraction = Normalizer.normalize(quantity, Normalizer.Form.NFKD).split("\u2044");
         if (fraction.length == 2) {
             float f = (float) Integer.parseInt(fraction[0]) / Integer.parseInt(fraction[1]);

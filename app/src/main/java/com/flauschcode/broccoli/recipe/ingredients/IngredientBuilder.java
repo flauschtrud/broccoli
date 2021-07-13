@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class IngredientBuilder {
 
     private static final Pattern newLinePattern = Pattern.compile("\n");
-    private static final Pattern quantityPattern = Pattern.compile("^\\s*([¼½¾⅐⅑⅒⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]|\\d+([,/.-])*\\d*)(?!$)");
+    private static final Pattern quantityPattern = Pattern.compile("^\\s*([¼½¾⅐⅑⅒⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]|\\d+([,/.-])*\\d*)(\\s*-\\s*([¼½¾⅐⅑⅒⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]|\\d+([,/.-])*\\d*))?(?!$)");
 
     private IngredientBuilder() {}
 

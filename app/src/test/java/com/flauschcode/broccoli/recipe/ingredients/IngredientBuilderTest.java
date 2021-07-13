@@ -93,8 +93,9 @@ public class IngredientBuilderTest {
 
     @Test
     public void range_quantities_should_be_detected() {
-        ingredients = IngredientBuilder.from("2-3 Zwiebeln");
-        assertThat(ingredients, hasSize(1));
-        assertThat(ingredients, hasItem(new Ingredient("2-3", " Zwiebeln")));
+        ingredients = IngredientBuilder.from("2 - 3 Zwiebeln\n 1/2-1 EL Chiliflocken");
+        assertThat(ingredients, hasSize(2));
+        assertThat(ingredients, hasItem(new Ingredient("2 - 3", " Zwiebeln")));
+        assertThat(ingredients, hasItem(new Ingredient("1/2-1", " EL Chiliflocken")));
     }
 }

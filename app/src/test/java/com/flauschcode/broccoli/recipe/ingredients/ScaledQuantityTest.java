@@ -32,6 +32,12 @@ public class ScaledQuantityTest {
     }
 
     @Test
+    public void scale_fraction_range_quantity() {
+        String scaled = ScaledQuantity.from("1/2 - 1", 2f);
+        assertThat(scaled,  is("1-2"));
+    }
+
+    @Test
     public void scale_non_scalable_quantity() {
         String scaled = ScaledQuantity.from("je 1", 2f);
         assertThat(scaled,  is("(not scaled) je 1"));
