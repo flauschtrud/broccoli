@@ -22,12 +22,10 @@ import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
 
-public class CategoryFragment extends Fragment implements CategoryDialog.OnChangeListener {
+public class CategoryFragment extends Fragment {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
-
-    private CategoryViewModel viewModel;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -59,14 +57,11 @@ public class CategoryFragment extends Fragment implements CategoryDialog.OnChang
         };
         recyclerView.setAdapter(adapter);
 
-        viewModel = new ViewModelProvider(this, viewModelFactory).get(CategoryViewModel.class);
+        CategoryViewModel viewModel = new ViewModelProvider(this, viewModelFactory).get(CategoryViewModel.class);
         viewModel.getCategories().observe(getViewLifecycleOwner(), adapter::submitList);
 
         FloatingActionButton fab = root.findViewById(R.id.fab_categories);
-        fab.setOnClickListener(view -> {
-            CategoryDialog dialog = new CategoryDialog(this, new Category(""));
-            dialog.show(getParentFragmentManager(), "CategoryDialogTag");
-        });
+        fab.setOnClickListener(view -> CategoryDialog.newInstance(new Category("")).show(getParentFragmentManager(), "CategoryDialogTag"));
 
         View categoriesMessageLayout = root.findViewById(R.id.categories_message_layout);
         viewModel.isPremium().observe(getViewLifecycleOwner(), observedValue -> {
@@ -79,18 +74,7 @@ public class CategoryFragment extends Fragment implements CategoryDialog.OnChang
         return root;
     }
 
-    @Override
-    public void saveCategory(Category category) {
-        viewModel.insertOrUpdate(category);
-    }
-
-    @Override
-    public void deleteCategory(Category category) {
-        viewModel.delete(category);
-    }
-
     public void onListInteraction(Category category) {
-        CategoryDialog dialog = new CategoryDialog(this, category);
-        dialog.show(getParentFragmentManager(), "CategoryDialogTag");
+        CategoryDialog.newInstance(category).show(getParentFragmentManager(), "CategoryDialogTag");
     }
 }

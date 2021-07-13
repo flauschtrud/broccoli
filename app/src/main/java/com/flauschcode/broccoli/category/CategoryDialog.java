@@ -1,66 +1,59 @@
 package com.flauschcode.broccoli.category;
 
+import static android.content.DialogInterface.BUTTON_NEUTRAL;
+
 import android.app.Dialog;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.databinding.DialogAddCategoryBinding;
 
-import static android.content.DialogInterface.BUTTON_NEUTRAL;
-import static android.content.DialogInterface.BUTTON_POSITIVE;
+import javax.inject.Inject;
+
+import dagger.android.support.AndroidSupportInjection;
 
 public class CategoryDialog extends AppCompatDialogFragment {
 
-    private OnChangeListener onChangeListener;
-    private Category category;
+    @Inject
+    ViewModelProvider.Factory viewModelFactory;
 
-    public CategoryDialog(OnChangeListener onChangeListener, Category category) {
-        this.onChangeListener = onChangeListener;
-        this.category = new Category(category.getCategoryId(), category.getName());
+    private Category category;
+    private CategoryViewModel viewModel;
+
+    public static CategoryDialog newInstance(Category category) {
+        Bundle args = new Bundle();
+        args.putSerializable("category", new Category(category.getCategoryId(), category.getName()));
+        CategoryDialog f = new CategoryDialog();
+        f.setArguments(args);
+        return f;
     }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+        AndroidSupportInjection.inject(this);
+
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_add_category, null);
+
+        viewModel = new ViewModelProvider(this, viewModelFactory).get(CategoryViewModel.class);
+        category = (Category) getArguments().getSerializable("category");
 
         DialogAddCategoryBinding binding = DataBindingUtil.bind(view);
         binding.setCategory(category);
 
-        EditText editText = view.findViewById(R.id.category_name);
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // intentionally empty
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // intentionally empty
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                AlertDialog dialog = (AlertDialog) getDialog();
-                dialog.getButton(BUTTON_POSITIVE).setEnabled(s.length() > 0);
-            }
-        });
-
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setView(view)
                 .setTitle(category.getCategoryId() == 0? R.string.dialog_add_category : R.string.dialog_edit_category)
-                .setPositiveButton(R.string.action_save, (dialog, id) -> onChangeListener.saveCategory(category))
+                .setPositiveButton(R.string.action_save, (dialog, id) -> viewModel.insertOrUpdate(category))
                 .setNegativeButton(R.string.cancel, (dialog, id) -> {});
 
         if(category.getCategoryId() != 0) {
@@ -75,23 +68,17 @@ public class CategoryDialog extends AppCompatDialogFragment {
         super.onResume();
 
         AlertDialog dialog = (AlertDialog) getDialog();
-        dialog.getButton(BUTTON_POSITIVE).setEnabled(false);
 
         dialog.getButton(BUTTON_NEUTRAL).setOnClickListener(v -> {
             TextView warning = dialog.findViewById(R.id.delete_category_warning);
             if (warning.getVisibility() == View.VISIBLE) {
-                onChangeListener.deleteCategory(category);
+                viewModel.delete(category);
                 dialog.dismiss();
             }
             warning.setVisibility(View.VISIBLE);
 
             dialog.getButton(BUTTON_NEUTRAL).setTextColor(ContextCompat.getColor(dialog.getContext(), R.color.design_default_color_error));
         });
-    }
-
-    interface OnChangeListener {
-        void saveCategory(Category category);
-        void deleteCategory(Category category);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.flauschcode.broccoli.di;
 
+import com.flauschcode.broccoli.category.CategoryDialog;
 import com.flauschcode.broccoli.category.CategoryFragment;
 import com.flauschcode.broccoli.recipe.list.RecipeFragment;
 import com.flauschcode.broccoli.seasons.MonthFragment;
@@ -16,6 +17,9 @@ public interface FragmentModule {
 
     @ContributesAndroidInjector()
     CategoryFragment categoryFragment();
+
+    @ContributesAndroidInjector
+    CategoryDialog categoryDialog();
 
     @ContributesAndroidInjector
     MonthFragment monthFragment();
