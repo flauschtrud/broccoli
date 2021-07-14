@@ -11,9 +11,9 @@
     <string name="action_save">Save</string>
     <string name="toast_new_recipe">New recipe added.</string>
     <string name="toast_title_is_empty">Please add a title.</string>
-    <string name="hint_new_recipe_directions">Directions</string>
+    <string name="hint_new_recipe_directions">Step 1\nStep 2\nStep 3</string>
     <string name="directions">Directions</string>
-    <string name="hint_new_recipe_ingredients">Ingredients</string>
+    <string name="hint_new_recipe_ingredients">Ingredient 1\nIngredient 2\nIngredient 3</string>
     <string name="ingredients">Ingredients</string>
     <string name="toast_error_creating_image_file">Could not create image file.</string>
     <string name="action_delete">Delete</string>
