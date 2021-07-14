@@ -1,11 +1,15 @@
 package com.flauschcode.broccoli.category;
 
 import static android.content.DialogInterface.BUTTON_NEUTRAL;
+import static android.content.DialogInterface.BUTTON_POSITIVE;
 
 import android.app.Dialog;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -50,6 +54,25 @@ public class CategoryDialog extends AppCompatDialogFragment {
         DialogAddCategoryBinding binding = DataBindingUtil.bind(view);
         binding.setCategory(category);
 
+        EditText editText = view.findViewById(R.id.category_name);
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // intentionally empty
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // intentionally empty
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                AlertDialog dialog = (AlertDialog) getDialog();
+                dialog.getButton(BUTTON_POSITIVE).setEnabled(s.length() > 0);
+            }
+        });
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setView(view)
                 .setTitle(category.getCategoryId() == 0? R.string.dialog_add_category : R.string.dialog_edit_category)
@@ -68,6 +91,9 @@ public class CategoryDialog extends AppCompatDialogFragment {
         super.onResume();
 
         AlertDialog dialog = (AlertDialog) getDialog();
+
+        EditText editText = getDialog().findViewById(R.id.category_name);
+        dialog.getButton(BUTTON_POSITIVE).setEnabled(editText.getText().length() > 0);
 
         dialog.getButton(BUTTON_NEUTRAL).setOnClickListener(v -> {
             TextView warning = dialog.findViewById(R.id.delete_category_warning);
