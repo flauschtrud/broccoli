@@ -67,6 +67,8 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         RecyclerView recyclerView = root.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
+
+        View emptyMessageTextView = root.findViewById(R.id.recipes_empty);
         ListAdapter<Recipe, RecyclerViewAdapter<Recipe>.Holder> adapter = new RecyclerViewAdapter<Recipe>() {
             @Override
             protected int getLayoutResourceId() {
@@ -81,6 +83,11 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
             @Override
             protected void onItemClick(Recipe item) {
                 onListInteraction(item);
+            }
+
+            @Override
+            protected void onAdapterDataChanged(int itemCount) {
+                emptyMessageTextView.setVisibility(itemCount == 0? View.VISIBLE : View.GONE);
             }
         };
         recyclerView.setAdapter(adapter);

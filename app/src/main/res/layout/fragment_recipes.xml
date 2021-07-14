@@ -40,6 +40,16 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <TextView
+        android:id="@+id/recipes_empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="32dp"
+        android:text="@string/create_a_recipe"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
     <include layout="@layout/recipes_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

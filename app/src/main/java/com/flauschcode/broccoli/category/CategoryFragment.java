@@ -37,8 +37,9 @@ public class CategoryFragment extends Fragment {
         RecyclerView recyclerView = root.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setHasFixedSize(true);
-        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        recyclerView.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
 
+        View emptyMessageTextView = root.findViewById(R.id.categories_empty);
         ListAdapter<Category, RecyclerViewAdapter<Category>.Holder> adapter = new RecyclerViewAdapter<Category>() {
             @Override
             protected int getLayoutResourceId() {
@@ -54,7 +55,13 @@ public class CategoryFragment extends Fragment {
             protected void onItemClick(Category item) {
                 onListInteraction(item);
             }
+
+            @Override
+            protected void onAdapterDataChanged(int itemCount) {
+                emptyMessageTextView.setVisibility(itemCount == 0? View.VISIBLE : View.GONE);
+            }
         };
+
         recyclerView.setAdapter(adapter);
 
         CategoryViewModel viewModel = new ViewModelProvider(this, viewModelFactory).get(CategoryViewModel.class);

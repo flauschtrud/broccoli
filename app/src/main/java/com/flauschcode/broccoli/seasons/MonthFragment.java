@@ -79,6 +79,11 @@ public class MonthFragment extends Fragment {
                 SeasonsFragmentDirections.ActionSearchForSeasonalFood actionSearchForSeasonalFood = SeasonsFragmentDirections.actionSearchForSeasonalFood(seasonalFood);
                 navController.navigate(actionSearchForSeasonalFood);
             }
+
+            @Override
+            protected void onAdapterDataChanged(int itemCount) {
+                // intentionally empty
+            }
         };
         recyclerView.setAdapter(adapter);
 

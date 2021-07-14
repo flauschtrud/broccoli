@@ -5,6 +5,7 @@
 
     <!-- CRUD -->
     <string name="menu_recipes">Recipes</string>
+    <string name="create_a_recipe">Welcome to Broccoli!\nLet\'s get started.\n\nYou can import a recipe via your browser\'s share button or create a new one with the plus button.</string>
     <string name="hint_new_recipe_title">Title</string>
     <string name="hint_new_recipe_description">Description</string>
     <string name="title_activity_new_recipe">New Recipe</string>
@@ -36,6 +37,7 @@
 
     <!-- Categories -->
     <string name="menu_categories">Categories</string>
+    <string name="create_a_category">Create custom categories to manage your recipes.</string>
     <string name="dialog_add_category">Add category</string>
     <string name="dialog_edit_category">Edit category</string>
     <string name="hint_new_category_name">Name</string>
