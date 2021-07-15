@@ -38,6 +38,7 @@
                 android:id="@+id/cooking_mode_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:minHeight="@dimen/min_height_for_accessibility"
                 android:gravity="center"
                 android:scrollbars="vertical"
                 android:onClick="toggleSystemUI"
