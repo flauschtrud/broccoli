@@ -18,7 +18,8 @@
         android:layout_gravity="top|end"
         android:layout_margin="@dimen/fab_margin"
         android:backgroundTint="@color/icons"
-        android:tint="@color/colorPrimary"
+        android:contentDescription="@string/scale_the_ingredients"
+        app:tint="@color/colorPrimary"
         app:srcCompat="@drawable/ic_tune_24" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

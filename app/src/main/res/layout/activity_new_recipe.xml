@@ -66,7 +66,8 @@
                     android:scaleType="centerCrop"
                     android:onClick="@{() -> activity.onImageClick()}"
                     app:placeholder="@{@drawable/placeholder}"
-                    app:imageName="@{viewModel.recipe.imageName}" />
+                    app:imageName="@{viewModel.recipe.imageName}"
+                    android:contentDescription="@string/recipe_image_accessability"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -78,6 +79,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:contentDescription="@string/change_image"
                         android:src="@drawable/ic_photo_camera_24dp"/>
 
                 </LinearLayout>
@@ -99,6 +101,7 @@
                     app:layout_constraintTop_toTopOf="@id/new_title"
                     app:layout_constraintBottom_toBottomOf="@id/new_title"
                     android:src="@drawable/ic_title_24dp"
+                    android:importantForAccessibility="no"
                     app:tint="@color/divider"/>
 
                 <EditText
@@ -124,6 +127,7 @@
                     app:layout_constraintTop_toTopOf="@id/new_categories"
                     app:layout_constraintBottom_toBottomOf="@id/new_categories"
                     android:src="@drawable/ic_categories_24dp"
+                    android:importantForAccessibility="no"
                     app:tint="@color/divider"/>
 
                 <EditText
@@ -153,6 +157,7 @@
                     app:layout_constraintTop_toTopOf="@id/new_description"
                     app:layout_constraintBottom_toBottomOf="@id/new_description"
                     android:src="@drawable/ic_info_24dp"
+                    android:importantForAccessibility="no"
                     app:tint="@color/divider"/>
 
                 <EditText
@@ -178,6 +183,7 @@
                     app:layout_constraintTop_toTopOf="@id/new_source"
                     app:layout_constraintBottom_toBottomOf="@id/new_source"
                     android:src="@drawable/ic_link_24dp"
+                    android:importantForAccessibility="no"
                     app:tint="@color/divider"/>
 
                 <EditText
@@ -203,6 +209,7 @@
                     app:layout_constraintTop_toTopOf="@id/new_servings"
                     app:layout_constraintBottom_toBottomOf="@id/new_servings"
                     android:src="@drawable/ic_person_24dp"
+                    android:importantForAccessibility="no"
                     app:tint="@color/divider"/>
 
                 <EditText
@@ -228,6 +235,7 @@
                     app:layout_constraintTop_toTopOf="@id/new_preparation_time"
                     app:layout_constraintBottom_toBottomOf="@id/new_preparation_time"
                     android:src="@drawable/ic_time_24dp"
+                    android:importantForAccessibility="no"
                     app:tint="@color/divider"/>
 
                 <EditText
@@ -253,6 +261,7 @@
                     app:layout_constraintTop_toTopOf="@id/new_ingredients"
                     app:layout_constraintBottom_toBottomOf="@id/new_ingredients"
                     android:src="@drawable/ic_list_bulleted_24dp"
+                    android:importantForAccessibility="no"
                     app:tint="@color/divider"/>
 
                 <EditText
@@ -278,6 +287,7 @@
                     app:layout_constraintTop_toTopOf="@id/new_directions"
                     app:layout_constraintBottom_toBottomOf="@id/new_directions"
                     android:src="@drawable/ic_list_numbered_24dp"
+                    android:importantForAccessibility="no"
                     app:tint="@color/divider"/>
 
                 <EditText

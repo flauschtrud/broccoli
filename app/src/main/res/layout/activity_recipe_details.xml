@@ -39,7 +39,8 @@
                     android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
                     app:layout_collapseMode="parallax"
-                    app:imageName="@{recipe.imageName}"/>
+                    app:imageName="@{recipe.imageName}"
+                    android:contentDescription="@string/recipe_image_accessability" />
 
                 <View
                     android:layout_width="match_parent"
@@ -68,6 +69,7 @@
             android:layout_margin="@dimen/fab_margin"
             app:layout_anchor="@id/app_bar"
             app:layout_anchorGravity="bottom|end"
+            android:contentDescription="@string/action_details_cook"
             app:srcCompat="@drawable/ic_button_restaurant_24dp" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

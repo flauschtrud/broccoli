@@ -1,5 +1,26 @@
 package com.flauschcode.broccoli.recipe.cooking;
 
+import static androidx.test.core.app.ActivityScenario.launch;
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.action.ViewActions.clearText;
+import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.swipeLeft;
+import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.RootMatchers.isDialog;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast;
+import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
+import static org.mockito.Mockito.when;
+
 import android.content.Intent;
 
 import androidx.test.core.app.ActivityScenario;
@@ -21,22 +42,6 @@ import org.mockito.ArgumentCaptor;
 
 import javax.inject.Inject;
 
-import static androidx.test.core.app.ActivityScenario.launch;
-import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.swipeLeft;
-import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast;
-import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withText;
-import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.allOf;
-import static org.hamcrest.Matchers.is;
-import static org.mockito.Mockito.when;
-
 @RunWith(AndroidJUnit4.class)
 public class CookingModeActivityTest {
 
@@ -45,8 +50,10 @@ public class CookingModeActivityTest {
 
     private ActivityScenario<CookingModeActivity> scenario;
 
-    private static Recipe lauchkuchen = RecipeTestUtil.createLauchkuchen();
-    private ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
+    private static final Recipe lauchkuchen = RecipeTestUtil.createLauchkuchen();
+
+    private final ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
+    private final ArgumentCaptor<Float> scaleFactorCaptor = ArgumentCaptor.forClass(Float.class);
 
     @Before
     public void setUp() {
@@ -61,6 +68,7 @@ public class CookingModeActivityTest {
         pageableRecipe.addPage(new PageableRecipe.Page("1", "Erst dies."));
         pageableRecipe.addPage(new PageableRecipe.Page("2", "Dann das."));
 
+        when(pageableRecipeBuilder.scale(scaleFactorCaptor.capture())).thenReturn(pageableRecipeBuilder);
         when(pageableRecipeBuilder.from(recipeCaptor.capture())).thenReturn(pageableRecipe);
 
         Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CookingModeActivity.class);
@@ -114,6 +122,46 @@ public class CookingModeActivityTest {
 
         Recipe recipe = recipeCaptor.getValue();
         assertThat(recipe, is(lauchkuchen));
+    }
+
+    @Test
+    public void scale() {
+        onView(withId(R.id.fullscreen_layout)).perform(click());
+        onView(withId(R.id.fullscreen_layout)).perform(click()); // scaling button is not visible for Espresso otherwise
+
+        onView(withId(R.id.button_scaling)).perform(click());
+
+        onView(withText(R.string.scaling_message))
+                .inRoot(isDialog())
+                .check(matches(isDisplayed()));
+
+        onView(withId(R.id.input_scale_factor))
+                .inRoot(isDialog())
+                .perform(typeText("2"));
+        onView(withId(android.R.id.button1)).perform(click());
+
+        Float scaleFactor = scaleFactorCaptor.getValue();
+        assertThat(scaleFactor, is(2.0f));
+    }
+
+    @Test
+    public void scale_with_missing_input() {
+        onView(withId(R.id.fullscreen_layout)).perform(click());
+        onView(withId(R.id.fullscreen_layout)).perform(click()); // scaling button is not visible for Espresso otherwise
+
+        onView(withId(R.id.button_scaling)).perform(click());
+
+        onView(withText(R.string.scaling_message))
+                .inRoot(isDialog())
+                .check(matches(isDisplayed()));
+
+        onView(withId(R.id.input_scale_factor))
+                .inRoot(isDialog())
+                .perform(clearText());
+        onView(withId(android.R.id.button1)).perform(click());
+
+        verify(pageableRecipeBuilder).from(recipeCaptor.capture());
+        verifyNoMoreInteractions(pageableRecipeBuilder);
     }
 
 }

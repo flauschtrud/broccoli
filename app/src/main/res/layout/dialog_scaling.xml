@@ -16,7 +16,7 @@
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@string/default_scale_factor"/>
+            android:hint="@string/hint_scale_factor" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

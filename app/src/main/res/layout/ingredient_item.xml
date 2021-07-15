@@ -46,6 +46,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:src="@drawable/ic_eco_24"
             android:visibility="@{ingredient.seasonal ? View.VISIBLE : View.GONE}"
+            android:contentDescription="@string/seasonal_accessability"
             app:tint="@color/colorPrimary" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

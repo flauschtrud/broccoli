@@ -1,6 +1,7 @@
 package com.flauschcode.broccoli.recipe.cooking;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
@@ -63,12 +64,14 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
         View view = getLayoutInflater().inflate(R.layout.dialog_scaling, null);
 
         AlertDialog alertDialog = new AlertDialog.Builder(this)
-                .setTitle(R.string.scaling)
+                .setTitle(R.string.scale_the_ingredients)
                 .setMessage(R.string.scaling_message)
                 .setView(view)
                 .setPositiveButton(R.string.ok, (dialog, id) -> {
                     EditText inputScaleFactor = view.findViewById(R.id.input_scale_factor);
-                    createPageableRecipe(Float.parseFloat(inputScaleFactor.getText().toString()));
+                    if (!TextUtils.isEmpty(inputScaleFactor.getText())) {
+                        createPageableRecipe(Float.parseFloat(inputScaleFactor.getText().toString()));
+                    }
                 })
                 .setNegativeButton(R.string.cancel, (dialog, id) -> {})
                 .create();
@@ -116,4 +119,5 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
     public void onCookingModeControlsInteraction(int position) {
         viewPager.setCurrentItem(position);
     }
+
 }
