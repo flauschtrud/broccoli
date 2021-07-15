@@ -30,7 +30,7 @@
     <string name="action_discard">Discard</string>
     <string name="action_details_edit">Edit</string>
     <string name="toast_recipe_updated">Recipe updated.</string>
-    <string name="recipe_image_accessability">Recipe image</string>
+    <string name="recipe_image_accessibility">Recipe image</string>
     <string name="change_image">Change image</string>
     <string name="remove_photo">Remove photo</string>
     <string name="take_photo">Take photo</string>
@@ -108,7 +108,7 @@
 
     <!-- Seasons -->
     <string name="seasonal_calendar">Seasonal calendar (Beta)</string>
-    <string name="seasonal_accessability">Seasonal</string>
+    <string name="seasonal_accessibility">Seasonal</string>
     <string name="seasonal_recipes">Seasonal recipes</string>
     <string name="seasons_not_configured_message">The seasonal calendar has not been fully configured yet.</string>
     <string name="seasons_not_configured_action">Configure</string>

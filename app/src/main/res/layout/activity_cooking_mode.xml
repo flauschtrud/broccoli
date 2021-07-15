@@ -19,7 +19,7 @@
         android:layout_margin="@dimen/fab_margin"
         android:backgroundTint="@color/icons"
         android:contentDescription="@string/scale_the_ingredients"
-        android:minHeight="48dp"
+        android:minHeight="@dimen/min_height_for_accessibility"
         app:srcCompat="@drawable/ic_tune_24"
         app:tint="@color/colorPrimary" />
 

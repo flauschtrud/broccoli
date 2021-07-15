@@ -34,7 +34,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:placeholder="@{@drawable/placeholder}"
                     app:imageName="@{recipe.imageName}"
-                    android:contentDescription="@string/recipe_image_accessability" />
+                    android:contentDescription="@string/recipe_image_accessibility" />
 
                 <TextView
                     android:id="@+id/card_text_view_title"
@@ -93,7 +93,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:ingredients="@{recipe.ingredients}"
-                    android:contentDescription="@string/seasonal_accessability" />
+                    android:contentDescription="@string/seasonal_accessibility" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

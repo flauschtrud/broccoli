@@ -21,7 +21,7 @@
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp"
+                android:minHeight="@dimen/min_height_for_accessibility"
                 android:contentDescription="@string/categories"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
 
@@ -29,7 +29,7 @@
                 android:id="@+id/toolbar_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:minHeight="48dp"
+                android:minHeight="@dimen/min_height_for_accessibility"
                 android:paddingStart="@dimen/text_margin"
                 android:paddingEnd="8dp"
                 android:drawablePadding = "4dp"

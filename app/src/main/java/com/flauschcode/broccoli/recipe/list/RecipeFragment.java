@@ -232,6 +232,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         searchItem = toolbar.getMenu().findItem(R.id.action_search);
         searchView = new SearchView(toolbar.getContext());
         searchView.setMaxWidth(Integer.MAX_VALUE);
+        searchView.setMinimumHeight(requireContext().getResources().getDimensionPixelSize(R.dimen.min_height_for_accessibility));
         searchItem.setActionView(searchView);
         viewModel.getFilterName().observe(getViewLifecycleOwner(), filterName -> searchView.setQueryHint(getString(R.string.search_in, filterName.toUpperCase())));
         searchView.setOnQueryTextListener(this);

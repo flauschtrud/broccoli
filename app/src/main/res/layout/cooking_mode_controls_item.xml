@@ -5,7 +5,7 @@
     android:id="@+id/cooking_mode_control"
     android:adjustViewBounds="true"
     android:layout_width="0dp"
-    android:maxHeight="48dp"
+    android:minHeight="@dimen/min_height_for_accessibility"
     android:layout_height="wrap_content"
     android:layout_weight="1"
     android:padding="5dp"
