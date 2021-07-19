@@ -6,7 +6,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
         <item name="android:spinnerItemStyle">@style/spinnerItemStyle</item>
         <item name="editTextStyle">@style/editTextStyle</item>
     </style>

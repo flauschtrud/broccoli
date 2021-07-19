@@ -71,6 +71,7 @@
             app:layout_anchor="@id/app_bar"
             app:layout_anchorGravity="bottom|end"
             android:contentDescription="@string/action_details_cook"
+            app:tint="@color/colorOnPrimary"
             app:srcCompat="@drawable/ic_button_restaurant_24dp" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

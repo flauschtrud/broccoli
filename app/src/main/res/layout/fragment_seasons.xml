@@ -35,7 +35,7 @@
             android:onClick="navigateToSettingsPage"
             android:padding="@dimen/text_margin"
             android:text="@string/seasons_not_configured_action"
-            android:textColor="@color/icons"
+            android:textColor="@color/colorOnPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

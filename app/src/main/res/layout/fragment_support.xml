@@ -91,7 +91,7 @@
         app:layout_constraintStart_toEndOf="@id/support_layout_community_edition"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/support_layout_community_edition"
-        android:background="@drawable/border_icons">
+        android:background="@drawable/border_accent">
 
         <TextView
             android:id="@+id/supporter_edition_title"
@@ -138,9 +138,9 @@
             android:background="@drawable/button_background_primary"
             android:drawableStart="@drawable/ic_store_24"
             android:drawablePadding="@dimen/text_margin"
-            android:drawableTint="@color/icons"
+            android:drawableTint="@color/colorOnPrimary"
             android:text="@string/support_supporter_edition_buy"
-            android:textColor="@color/icons" />
+            android:textColor="@color/colorOnPrimary" />
 
         <TextView
             android:id="@+id/supporter_edition_thanks"
@@ -169,9 +169,9 @@
         android:background="@drawable/button_background_primary"
         android:drawableStart="@drawable/ic_star_rate_24"
         android:drawablePadding="@dimen/text_margin"
-        android:drawableTint="@color/icons"
+        android:drawableTint="@color/colorOnPrimary"
         android:text="@string/support_rate"
-        android:textColor="@color/icons" />
+        android:textColor="@color/colorOnPrimary" />
 
     <Button
         android:id="@+id/share_app_button"
@@ -186,8 +186,8 @@
         android:background="@drawable/button_background_primary"
         android:drawableStart="@drawable/ic_menu_share_24dp"
         android:drawablePadding="@dimen/text_margin"
-        android:drawableTint="@color/icons"
+        android:drawableTint="@color/colorOnPrimary"
         android:text="@string/support_share"
-        android:textColor="@color/icons" />
+        android:textColor="@color/colorOnPrimary" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -62,7 +62,7 @@
                     android:layout_height="@dimen/app_bar_height"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:background="@color/placeholder"
+                    android:background="?attr/colorControlNormal"
                     android:scaleType="centerCrop"
                     android:onClick="@{() -> activity.onImageClick()}"
                     app:placeholder="@{@drawable/placeholder}"
@@ -80,7 +80,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:contentDescription="@string/change_image"
-                        app:tint="@color/colorPrimary"
                         android:src="@drawable/ic_photo_camera_24dp"/>
 
                 </LinearLayout>

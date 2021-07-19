@@ -35,7 +35,7 @@
             android:onClick="navigateToSupportPage"
             android:padding="@dimen/text_margin"
             android:text="@string/support_learn_more"
-            android:textColor="@color/icons"
+            android:textColor="@color/colorOnPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -68,8 +68,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:tint="@color/icons"
         android:contentDescription="@string/dialog_add_category"
+        app:tint="@color/colorOnPrimary"
         app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
