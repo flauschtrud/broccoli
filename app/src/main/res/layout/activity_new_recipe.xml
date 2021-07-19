@@ -282,7 +282,7 @@
                     android:inputType="textCapSentences|textMultiLine"
                     android:maxLines="10"
                     android:layout_margin="20dp"
-                    android:hint="@string/hint_new_recipe_ingredients"
+                    android:hint="@string/ingredients"
                     android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
                     android:text="@={viewModel.recipe.ingredients}"
                     android:importantForAutofill="no" />
@@ -309,7 +309,7 @@
                     android:inputType="textCapSentences|textMultiLine"
                     android:maxLines="10"
                     android:layout_margin="20dp"
-                    android:hint="@string/hint_new_recipe_directions"
+                    android:hint="@string/directions"
                     android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
                     android:text="@={viewModel.recipe.directions}"
                     android:importantForAutofill="no" />
