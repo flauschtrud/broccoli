@@ -31,6 +31,6 @@
         android:id="@+id/header_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/nav_header_subtitle" />
+        android:text="@string/support_community_edition_title" />
 
 </LinearLayout>

@@ -11,4 +11,4 @@
     android:padding="5dp"
     android:src="@drawable/ic_bullet_24dp"
     android:contentDescription="@null"
-    app:tint="@color/colorAccent" />
+    app:tint="?attr/colorControlNormal" />

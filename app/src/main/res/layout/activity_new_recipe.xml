@@ -80,6 +80,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:contentDescription="@string/change_image"
+                        app:tint="@color/colorPrimary"
                         android:src="@drawable/ic_photo_camera_24dp"/>
 
                 </LinearLayout>
@@ -90,6 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingStart="20dp"
+                android:paddingEnd="0dp"
                 android:layout_marginBottom="20dp">
 
                 <ImageView
@@ -108,7 +110,6 @@
                     android:id="@+id/new_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/min_height_for_accessibility"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toEndOf="@id/icon_title"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -117,7 +118,8 @@
                     android:singleLine="true"
                     android:hint="@string/hint_new_recipe_title"
                     android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
-                    android:text="@={viewModel.recipe.title}"/>
+                    android:text="@={viewModel.recipe.title}"
+                    android:importantForAutofill="no" />
 
                 <ImageView
                     android:id="@+id/icon_categories"
@@ -135,7 +137,6 @@
                     android:id="@+id/new_categories"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/min_height_for_accessibility"
                     app:layout_constraintTop_toBottomOf="@id/new_title"
                     app:layout_constraintStart_toEndOf="@id/icon_categories"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -143,12 +144,13 @@
                     android:singleLine="true"
                     android:hint="@string/categories"
                     android:drawableEnd="@drawable/ic_arrow_drop_down_24dp"
-                    android:drawableTint="@color/colorAccent"
+                    android:drawableTint="@color/colorPrimary"
                     android:inputType="none"
                     android:focusable="false"
                     android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
                     android:onClick="onCategoryClick"
-                    app:categories="@{viewModel.recipe.categories}"/>
+                    app:categories="@{viewModel.recipe.categories}"
+                    android:importantForAutofill="no" />
 
                 <ImageView
                     android:id="@+id/icon_description"
@@ -166,7 +168,6 @@
                     android:id="@+id/new_description"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/min_height_for_accessibility"
                     app:layout_constraintTop_toBottomOf="@id/new_categories"
                     app:layout_constraintStart_toEndOf="@id/icon_description"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -175,7 +176,8 @@
                     android:layout_margin="20dp"
                     android:hint="@string/hint_new_recipe_description"
                     android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
-                    android:text="@={viewModel.recipe.description}"/>
+                    android:text="@={viewModel.recipe.description}"
+                    android:importantForAutofill="no" />
 
                 <ImageView
                     android:id="@+id/icon_source"
@@ -193,7 +195,6 @@
                     android:id="@+id/new_source"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/min_height_for_accessibility"
                     app:layout_constraintTop_toBottomOf="@id/new_description"
                     app:layout_constraintStart_toEndOf="@id/icon_source"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -202,7 +203,8 @@
                     android:singleLine="true"
                     android:hint="@string/hint_new_recipe_source"
                     android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
-                    android:text="@={viewModel.recipe.source}"/>
+                    android:text="@={viewModel.recipe.source}"
+                    android:importantForAutofill="no" />
 
                 <ImageView
                     android:id="@+id/icon_servings"
@@ -220,7 +222,6 @@
                     android:id="@+id/new_servings"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/min_height_for_accessibility"
                     app:layout_constraintTop_toBottomOf="@id/new_source"
                     app:layout_constraintStart_toEndOf="@id/icon_servings"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -229,7 +230,8 @@
                     android:singleLine="true"
                     android:hint="@string/hint_new_recipe_servings"
                     android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
-                    android:text="@={viewModel.recipe.servings}"/>
+                    android:text="@={viewModel.recipe.servings}"
+                    android:importantForAutofill="no" />
 
                 <ImageView
                     android:id="@+id/icon_preparation_time"
@@ -247,7 +249,6 @@
                     android:id="@+id/new_preparation_time"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/min_height_for_accessibility"
                     app:layout_constraintTop_toBottomOf="@id/new_servings"
                     app:layout_constraintStart_toEndOf="@id/icon_preparation_time"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -256,7 +257,8 @@
                     android:singleLine="true"
                     android:hint="@string/hint_new_recipe_preparation_time"
                     android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
-                    android:text="@={viewModel.recipe.preparationTime}"/>
+                    android:text="@={viewModel.recipe.preparationTime}"
+                    android:importantForAutofill="no" />
 
                 <ImageView
                     android:id="@+id/icon_ingredients"
@@ -274,7 +276,6 @@
                     android:id="@+id/new_ingredients"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/min_height_for_accessibility"
                     app:layout_constraintTop_toBottomOf="@id/new_preparation_time"
                     app:layout_constraintStart_toEndOf="@id/icon_ingredients"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -283,7 +284,8 @@
                     android:layout_margin="20dp"
                     android:hint="@string/hint_new_recipe_ingredients"
                     android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
-                    android:text="@={viewModel.recipe.ingredients}"/>
+                    android:text="@={viewModel.recipe.ingredients}"
+                    android:importantForAutofill="no" />
 
                 <ImageView
                     android:id="@+id/icon_directions"
@@ -301,7 +303,6 @@
                     android:id="@+id/new_directions"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/min_height_for_accessibility"
                     app:layout_constraintTop_toBottomOf="@id/new_ingredients"
                     app:layout_constraintStart_toEndOf="@id/icon_directions"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -310,7 +311,8 @@
                     android:layout_margin="20dp"
                     android:hint="@string/hint_new_recipe_directions"
                     android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
-                    android:text="@={viewModel.recipe.directions}"/>
+                    android:text="@={viewModel.recipe.directions}"
+                    android:importantForAutofill="no" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

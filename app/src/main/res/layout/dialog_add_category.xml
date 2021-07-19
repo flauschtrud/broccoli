@@ -14,14 +14,14 @@
             android:id="@+id/category_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="@dimen/min_height_for_accessibility"
             android:layout_margin="20dp"
             android:hint="@string/hint_new_category_name"
             android:singleLine="true"
             android:inputType="textCapSentences"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="@={category.name}"/>
+            android:text="@={category.name}"
+            android:importantForAutofill="no" />
 
         <TextView
             android:id="@+id/delete_category_warning"

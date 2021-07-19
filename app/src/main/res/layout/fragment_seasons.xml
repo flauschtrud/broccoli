@@ -47,6 +47,7 @@
         android:id="@+id/seasons_tablayout"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:contentDescription="@string/seasonal_calendar"
         app:tabGravity="start"
         app:tabMode="scrollable" />
 

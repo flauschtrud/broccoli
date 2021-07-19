@@ -54,6 +54,7 @@
                     android:layout_height="?attr/actionBarSize"
                     android:clickable="true"
                     android:focusable="true"
+                    android:importantForAccessibility="no"
                     app:layout_collapseMode="pin"
                     app:popupTheme="@style/AppTheme.PopupOverlay" />
 

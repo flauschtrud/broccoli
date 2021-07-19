@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/support_layout_supporter_edition"
         app:layout_constraintBottom_toBottomOf="@id/support_layout_supporter_edition"
-        android:background="@drawable/border_accent">
+        android:background="@drawable/border_icons">
 
         <TextView
             android:id="@+id/community_edition_title"
@@ -33,8 +33,7 @@
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/text_margin"
             android:text="@string/support_community_edition_perk_recipes"
-            app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
-            app:drawableTint="@color/colorAccent" />
+            app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
 
         <TextView
             android:id="@+id/community_edition_cooking_mode"
@@ -42,8 +41,7 @@
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/text_margin"
             android:text="@string/support_community_edition_perk_cooking_mode"
-            app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
-            app:drawableTint="@color/colorAccent" />
+            app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
 
         <TextView
             android:id="@+id/community_edition_seasonal_calendar"
@@ -51,8 +49,7 @@
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/text_margin"
             android:text="@string/support_community_edition_perk_seasonal_calendar"
-            app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
-            app:drawableTint="@color/colorAccent" />
+            app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
 
         <TextView
             android:id="@+id/community_edition_backup"
@@ -60,8 +57,7 @@
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/text_margin"
             android:text="@string/support_community_edition_perk_backup"
-            app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
-            app:drawableTint="@color/colorAccent" />
+            app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
 
         <TextView
             android:id="@+id/community_edition_ad_free"
@@ -69,8 +65,7 @@
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/text_margin"
             android:text="@string/support_community_edition_perk_ad_free"
-            app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
-            app:drawableTint="@color/colorAccent" />
+            app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
 
         <TextView
             android:id="@+id/community_edition_free"
@@ -96,7 +91,7 @@
         app:layout_constraintStart_toEndOf="@id/support_layout_community_edition"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/support_layout_community_edition"
-        android:background="@drawable/border_primary">
+        android:background="@drawable/border_icons">
 
         <TextView
             android:id="@+id/supporter_edition_title"

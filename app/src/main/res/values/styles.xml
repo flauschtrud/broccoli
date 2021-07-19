@@ -7,9 +7,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <item name="android:spinnerItemStyle">
-            @style/spinnerItemStyle
-        </item>
+        <item name="android:spinnerItemStyle">@style/spinnerItemStyle</item>
+        <item name="editTextStyle">@style/editTextStyle</item>
     </style>
 
     <style name="AppTheme.NoActionBarPrimaryDarkStatusBar">
@@ -24,6 +23,11 @@
     <style name="spinnerItemStyle">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Title</item>
         <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="editTextStyle" parent="@android:style/Widget.EditText">
+        <item name="android:minHeight">@dimen/min_height_for_accessibility</item>
+        <item name="android:textColorHint">?attr/colorControlNormal</item>
     </style>
 
 </resources>

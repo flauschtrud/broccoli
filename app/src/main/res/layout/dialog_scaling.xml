@@ -10,14 +10,14 @@
             android:id="@+id/input_scale_factor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="@dimen/min_height_for_accessibility"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:singleLine="true"
             android:inputType="numberDecimal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:hint="@string/hint_scale_factor" />
+            android:hint="@string/hint_scale_factor"
+            android:importantForAutofill="no" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
