@@ -5,4 +5,5 @@
     <color name="primary_light">#60ad5e</color>
     <color name="colorAccent">#2e7d32</color>
     <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorControlNormal">#616161</color>
 </resources>
