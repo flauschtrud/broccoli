@@ -1,7 +1,5 @@
 package com.flauschcode.broccoli.recipe.details;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -97,18 +95,6 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         binding.setRecipe(recipe);
 
         binding.fabCookingMode.setOnClickListener(view -> this.cook(null));
-        binding.fabCookingMode.addOnHideAnimationListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationStart(Animator animator) {
-                showItem(R.id.action_details_cook);
-            }
-        });
-        binding.fabCookingMode.addOnShowAnimationListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationStart(Animator animator) {
-                hideItem(R.id.action_details_cook);
-            }
-        });
 
     }
 
@@ -117,13 +103,8 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.details, menu);
         this.menu = menu;
 
-        if (binding.getRecipe().isFavorite()) {
-            showItem(R.id.action_details_unlike);
-        } else {
-            showItem(R.id.action_details_like);
-        }
-
-        hideItem(R.id.action_details_cook);
+        MenuItem item = binding.getRecipe().isFavorite()? menu.findItem(R.id.action_details_unlike) : menu.findItem(R.id.action_details_like);
+        item.setVisible(true);
 
         return true;
     }
@@ -266,13 +247,4 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         return (LayoutInflater) layout.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-    private void hideItem(int id) {
-        MenuItem item = menu.findItem(id);
-        item.setVisible(false);
-    }
-
-    private void showItem(int id) {
-        MenuItem item = menu.findItem(id);
-        item.setVisible(true);
-    }
 }

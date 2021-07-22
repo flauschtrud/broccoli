@@ -1,37 +1,5 @@
 package com.flauschcode.broccoli.recipe;
 
-import android.app.Instrumentation;
-import android.content.Intent;
-import android.net.Uri;
-
-import androidx.test.core.app.ActivityScenario;
-import androidx.test.core.app.ApplicationProvider;
-import androidx.test.espresso.intent.Intents;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-
-import com.flauschcode.broccoli.BroccoliApplication;
-import com.flauschcode.broccoli.DaggerMockApplicationComponent;
-import com.flauschcode.broccoli.MockApplicationComponent;
-import com.flauschcode.broccoli.R;
-
-import com.flauschcode.broccoli.recipe.cooking.CookingModeActivity;
-import com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity;
-import com.flauschcode.broccoli.recipe.sharing.ShareRecipeAsFileService;
-import com.flauschcode.broccoli.recipe.sharing.ShareableRecipeBuilder;
-import com.flauschcode.broccoli.recipe.sharing.ShareableRecipe;
-import com.flauschcode.broccoli.util.RecipeTestUtil;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.ArgumentCaptor;
-
-import java.io.IOException;
-import java.util.concurrent.CompletableFuture;
-
-import javax.inject.Inject;
-
 import static android.app.Activity.RESULT_OK;
 import static androidx.test.core.app.ActivityScenario.launch;
 import static androidx.test.espresso.Espresso.onView;
@@ -49,7 +17,6 @@ import static androidx.test.espresso.intent.matcher.IntentMatchers.hasType;
 import static androidx.test.espresso.matcher.RootMatchers.isDialog;
 import static androidx.test.espresso.matcher.ViewMatchers.hasSibling;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
-import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withSubstring;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
@@ -59,6 +26,37 @@ import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+
+import android.app.Instrumentation;
+import android.content.Intent;
+import android.net.Uri;
+
+import androidx.test.core.app.ActivityScenario;
+import androidx.test.core.app.ApplicationProvider;
+import androidx.test.espresso.intent.Intents;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+
+import com.flauschcode.broccoli.BroccoliApplication;
+import com.flauschcode.broccoli.DaggerMockApplicationComponent;
+import com.flauschcode.broccoli.MockApplicationComponent;
+import com.flauschcode.broccoli.R;
+import com.flauschcode.broccoli.recipe.cooking.CookingModeActivity;
+import com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity;
+import com.flauschcode.broccoli.recipe.sharing.ShareRecipeAsFileService;
+import com.flauschcode.broccoli.recipe.sharing.ShareableRecipe;
+import com.flauschcode.broccoli.recipe.sharing.ShareableRecipeBuilder;
+import com.flauschcode.broccoli.util.RecipeTestUtil;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+
+import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
+
+import javax.inject.Inject;
 
 @RunWith(AndroidJUnit4.class)
 public class RecipeDetailsActivityTest {
@@ -105,8 +103,7 @@ public class RecipeDetailsActivityTest {
 
     @Test
     public void display_all_the_data_of_a_recipe() {
-        onView(withId(R.id.toolbar_layout)).check(matches(withContentDescription(lauchkuchen.getTitle())));
-
+        onView(withId(R.id.details_title)).check(matches(withText(lauchkuchen.getTitle())));
         onView(withId(R.id.details_description)).check(matches(withText(lauchkuchen.getDescription())));
         onView(withId(R.id.details_source)).check(matches(withText(lauchkuchen.getSource())));
         onView(withId(R.id.details_servings)).check(matches(withText(lauchkuchen.getServings())));
@@ -221,8 +218,7 @@ public class RecipeDetailsActivityTest {
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
         onView(withText(R.string.action_details_edit)).perform(click());
 
-        onView(withId(R.id.toolbar_layout)).check(matches(withContentDescription("Leckerster Lauchkuchen")));
-
+        onView(withId(R.id.details_title)).check(matches(withText("Leckerster Lauchkuchen")));
         onView(withId(R.id.details_servings)).check(matches(withText("1 Portion")));
 
         onView(allOf(withId(R.id.direction_text), hasSibling(withText("1"))))
