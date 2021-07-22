@@ -69,6 +69,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:contentDescription="@string/dialog_add_category"
+        app:backgroundTint="@color/colorControlNormal"
         app:tint="@color/colorOnPrimary"
         app:srcCompat="@android:drawable/ic_input_add" />
 
