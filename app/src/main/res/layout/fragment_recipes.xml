@@ -51,7 +51,8 @@
         android:gravity="center"
         android:padding="32dp"
         android:text="@string/create_a_recipe"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:visibility="gone"/>
 
     <include layout="@layout/recipes_list"
         android:layout_width="match_parent"
