@@ -4,6 +4,7 @@ import android.content.Intent;
 
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.core.app.ApplicationProvider;
+import androidx.test.espresso.accessibility.AccessibilityChecks;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
@@ -13,6 +14,7 @@ import com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 
 import com.flauschcode.broccoli.R;
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -40,6 +42,11 @@ https://stilettosandsprouts.de/vegane-fenchel-pasta/ (Yoast, most complicated)
 public class ImportingIntegrationTest {
 
     private ActivityScenario<MainActivity> scenario;
+
+    @Before
+    public void setUp() {
+        AccessibilityChecks.enable();
+    }
 
     @After
     public void tearDown() {

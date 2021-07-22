@@ -1,5 +1,11 @@
 package com.flauschcode.broccoli.recipe.importing;
 
+import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Mockito.when;
+
+import androidx.test.espresso.accessibility.AccessibilityChecks;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import com.flauschcode.broccoli.BroccoliApplication;
@@ -19,12 +25,6 @@ import java.net.URL;
 import java.util.Optional;
 
 import javax.inject.Inject;
-
-import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.when;
 
 @RunWith(AndroidJUnit4.class)
 public class ImportableRecipeBuilderTest {
@@ -399,6 +399,8 @@ public class ImportableRecipeBuilderTest {
 
     @Before
     public void setUp() {
+        AccessibilityChecks.enable();
+
         MockApplicationComponent component = DaggerMockApplicationComponent.builder()
                 .application(getApplication())
                 .build();
@@ -413,7 +415,7 @@ public class ImportableRecipeBuilderTest {
 
     @Test
     public void example_chefkoch() throws JSONException, IOException {
-        when(recipeImageService.downloadToCache(eq(new URL("https://img.chefkoch-cdn.de/rezepte/3212051478029180/bilder/1325560/crop-960x540/vegane-chocolate-chip-cookies.jpg")))).thenReturn("blablupp.jpg");
+        when(recipeImageService.downloadToCache(new URL("https://img.chefkoch-cdn.de/rezepte/3212051478029180/bilder/1325560/crop-960x540/vegane-chocolate-chip-cookies.jpg"))).thenReturn("blablupp.jpg");
 
         ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(recipeImageService);
 
@@ -437,7 +439,7 @@ public class ImportableRecipeBuilderTest {
 
     @Test
     public void example_yoast() throws JSONException, IOException {
-        when(recipeImageService.downloadToCache(eq(new URL("https://stilettosandsprouts.de/wp-content/uploads/2018/05/Vegane_Fenchel_Pasta_02_B.jpg")))).thenReturn("blablupp.jpg");
+        when(recipeImageService.downloadToCache(new URL("https://stilettosandsprouts.de/wp-content/uploads/2018/05/Vegane_Fenchel_Pasta_02_B.jpg"))).thenReturn("blablupp.jpg");
 
         ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(recipeImageService);
 
@@ -461,7 +463,7 @@ public class ImportableRecipeBuilderTest {
 
     @Test
     public void example_yoast_with_sections() throws JSONException, IOException {
-        when(recipeImageService.downloadToCache(eq(new URL("https://veggie-einhorn.de/wp-content/uploads/Einfacher-veganer-Zitronenkuchen-saftig.jpg")))).thenReturn("blablupp.jpg");
+        when(recipeImageService.downloadToCache(new URL("https://veggie-einhorn.de/wp-content/uploads/Einfacher-veganer-Zitronenkuchen-saftig.jpg"))).thenReturn("blablupp.jpg");
 
         ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(recipeImageService);
 
@@ -484,7 +486,7 @@ public class ImportableRecipeBuilderTest {
     }
 
     @Test
-    public void no_Recipe_JsonLd() throws JSONException {
+    public void no_Recipe_JsonLd() {
         ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(recipeImageService);
 
         Optional<Recipe> optionalRecipe = recipeBuilder

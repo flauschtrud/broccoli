@@ -3,6 +3,7 @@ package com.flauschcode.broccoli.category;
 import android.os.Bundle;
 
 import androidx.lifecycle.MutableLiveData;
+import androidx.test.espresso.accessibility.AccessibilityChecks;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
 
@@ -52,6 +53,8 @@ public class CategoryFragmentTest {
 
     @Before
     public void setUp() {
+        AccessibilityChecks.enable();
+
         MockApplicationComponent component = DaggerMockApplicationComponent.builder()
                 .application(getApplication())
                 .build();

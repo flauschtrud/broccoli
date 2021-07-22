@@ -1,29 +1,5 @@
 package com.flauschcode.broccoli;
 
-import android.view.Gravity;
-import android.view.View;
-
-import androidx.appcompat.widget.SearchView;
-import androidx.test.core.app.ActivityScenario;
-import androidx.test.espresso.UiController;
-import androidx.test.espresso.ViewAction;
-import androidx.test.espresso.matcher.ViewMatchers;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.filters.LargeTest;
-
-import com.flauschcode.broccoli.category.Category;
-import com.flauschcode.broccoli.util.RecyclerViewAssertions;
-import com.flauschcode.broccoli.util.RecyclerViewMatcher;
-
-import com.flauschcode.broccoli.R;
-import org.hamcrest.Description;
-import org.hamcrest.Matcher;
-import org.hamcrest.TypeSafeMatcher;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
 import static androidx.test.core.app.ActivityScenario.launch;
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
@@ -45,6 +21,30 @@ import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
 
+import android.view.Gravity;
+import android.view.View;
+
+import androidx.appcompat.widget.SearchView;
+import androidx.test.core.app.ActivityScenario;
+import androidx.test.espresso.UiController;
+import androidx.test.espresso.ViewAction;
+import androidx.test.espresso.accessibility.AccessibilityChecks;
+import androidx.test.espresso.matcher.ViewMatchers;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.filters.LargeTest;
+
+import com.flauschcode.broccoli.category.Category;
+import com.flauschcode.broccoli.util.RecyclerViewAssertions;
+import com.flauschcode.broccoli.util.RecyclerViewMatcher;
+
+import org.hamcrest.Description;
+import org.hamcrest.Matcher;
+import org.hamcrest.TypeSafeMatcher;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
 /*
  TODO at the moment this test just works when there is a premium user logged into the Play Store at the testing device
  */
@@ -56,6 +56,7 @@ public class FilteringAndSearchingIntegrationTest {
 
     @Before
     public void setUp() {
+        AccessibilityChecks.enable();
         scenario = launch(MainActivity.class);
     }
 

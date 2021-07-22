@@ -1,6 +1,7 @@
 package com.flauschcode.broccoli.seasons;
 
 import androidx.preference.PreferenceManager;
+import androidx.test.espresso.accessibility.AccessibilityChecks;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import com.flauschcode.broccoli.BroccoliApplication;
@@ -30,6 +31,7 @@ public class SeasonalCalendarHolderTest {
 
     @Before
     public void setUp() {
+        AccessibilityChecks.enable();
         holder = new SeasonalCalendarHolder(getApplication());
     }
 

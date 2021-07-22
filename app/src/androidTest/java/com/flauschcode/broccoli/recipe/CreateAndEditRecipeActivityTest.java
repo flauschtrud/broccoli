@@ -8,6 +8,7 @@ import android.provider.MediaStore;
 import androidx.lifecycle.MutableLiveData;
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.core.app.ApplicationProvider;
+import androidx.test.espresso.accessibility.AccessibilityChecks;
 import androidx.test.espresso.intent.Intents;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -85,6 +86,8 @@ public class CreateAndEditRecipeActivityTest {
 
     @Before
     public void setUp() {
+        AccessibilityChecks.enable();
+
         // TODO find out how to get a JUnit role working
         MockApplicationComponent component = DaggerMockApplicationComponent.builder()
                 .application(getApplication())

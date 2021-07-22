@@ -4,6 +4,7 @@ import android.app.Application;
 import android.net.Uri;
 
 import androidx.lifecycle.MutableLiveData;
+import androidx.test.espresso.accessibility.AccessibilityChecks;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import com.flauschcode.broccoli.BroccoliApplication;
@@ -66,6 +67,8 @@ public class BackupAndRestoreServiceTest {
 
     @Before
     public void setUp() {
+        AccessibilityChecks.enable();
+
         MockApplicationComponent component = DaggerMockApplicationComponent.builder()
                 .application(getApplication())
                 .build();
