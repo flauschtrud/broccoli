@@ -31,7 +31,7 @@
                 app:contentScrim="?attr/colorPrimary"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:toolbarId="@+id/toolbar"
-                app:title="@{recipe.title}">
+                app:title=" ">
 
                 <ImageView
                     android:id="@+id/backdrop"
@@ -45,7 +45,8 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="160dp"
-                    android:layout_gravity="bottom"
+                    app:layout_collapseMode="pin"
+                    android:fitsSystemWindows="true"
                     android:background="@drawable/scrim"/>
 
                 <androidx.appcompat.widget.Toolbar
