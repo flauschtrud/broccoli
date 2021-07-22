@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/nav_recipes"
         android:name="com.flauschcode.broccoli.recipe.list.RecipeFragment"
-        android:label="@string/menu_recipes"
+        android:label="@string/recipes"
         tools:layout="@layout/fragment_recipes">
 
         <argument

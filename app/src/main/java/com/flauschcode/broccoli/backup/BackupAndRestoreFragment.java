@@ -33,7 +33,7 @@ public class BackupAndRestoreFragment extends PreferenceFragmentCompat {
                             .setTitle(R.string.restore)
                             .setMessage(R.string.restore_alert_message)
                             .setNeutralButton(R.string.cancel, (dialog, id) -> {})
-                            .setPositiveButton(R.string.restore_action, (dialog, id) -> {
+                            .setPositiveButton(R.string.ok, (dialog, id) -> {
                                 Intent intent = new Intent(getActivity(), RestoreService.class);
                                 intent.setData(uri);
                                 RestoreService.enqueueWork(getContext(), intent);

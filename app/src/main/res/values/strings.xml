@@ -3,7 +3,7 @@
     <string name="nav_header_title">Broccoli</string>
 
     <!-- CRUD -->
-    <string name="menu_recipes">Recipes</string>
+    <string name="recipes">Recipes</string>
     <string name="create_a_recipe">No recipes found.\n\nYou can import a recipe via your browser\'s share button or create a new one with the plus button.</string>
     <string name="hint_new_recipe_title">Title</string>
     <string name="hint_new_recipe_description">Description</string>
@@ -107,6 +107,7 @@
     <string name="seasonal_calendar">Seasonal calendar (Beta)</string>
     <string name="seasonal_accessibility">Seasonal</string>
     <string name="seasonal_recipes">Seasonal recipes</string>
+    <string name="seasonal_ingredients_accessibility">Seasonal ingredients</string>
     <string name="seasons_not_configured_message">The seasonal calendar has not been fully configured yet.</string>
     <string name="seasons_not_configured_action">Configure</string>
     <string name="seasons_month_range" translatable="false">%1$s - %2$s</string>

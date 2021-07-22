@@ -9,6 +9,7 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:contentDescription="@string/seasonal_ingredients_accessibility"
         android:paddingBottom="90dp"
         android:clipToPadding="false"
         android:scrollbars="vertical"
