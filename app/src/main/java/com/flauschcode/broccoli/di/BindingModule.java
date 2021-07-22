@@ -29,9 +29,7 @@ class BindingModule {
     @Provides
     @DataBinding
     SeasonalCalendarHolder seasonalCalendarHolder(Application application) {
-        SeasonalCalendarHolder seasonalCalendarHolder = new SeasonalCalendarHolder(application);
-        seasonalCalendarHolder.preload();
-        return seasonalCalendarHolder;
+        return new SeasonalCalendarHolder(application);
     }
 
     @Provides

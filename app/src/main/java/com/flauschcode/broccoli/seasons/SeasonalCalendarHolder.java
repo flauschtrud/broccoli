@@ -32,12 +32,10 @@ public class SeasonalCalendarHolder implements SharedPreferences.OnSharedPrefere
         PreferenceManager.getDefaultSharedPreferences(application).registerOnSharedPreferenceChangeListener(this);
     }
 
-    public CompletableFuture<Void> preload() {
-        return CompletableFuture.runAsync(this::tryToBuildSeasonalCalendar);
-    }
-
+    // TODO work with LiveData
     public Optional<SeasonalCalendar> get() {
         if (seasonalCalendar == null) {
+            Log.d(getClass().getName(), "Try to build seasonal calendar because it is still null.");
             tryToBuildSeasonalCalendar();
         }
         
@@ -45,7 +43,9 @@ public class SeasonalCalendarHolder implements SharedPreferences.OnSharedPrefere
     }
 
     private synchronized void tryToBuildSeasonalCalendar() {
-        seasonalCalendar = null;
+        if (seasonalCalendar != null) {
+            return;
+        }
 
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(application);
         String resourceName = sharedPreferences.getString("seasonal-calendar-region", null);
@@ -68,9 +68,8 @@ public class SeasonalCalendarHolder implements SharedPreferences.OnSharedPrefere
         });
 
         SeasonalCalendarJson seasonalCalendarJson;
-        try {
-            int resourceId = application.getResources().getIdentifier(resourceName, "raw", application.getPackageName());
-            InputStream inputStream = application.getResources().openRawResource(resourceId);
+        int resourceId = application.getResources().getIdentifier(resourceName, "raw", application.getPackageName());
+        try (InputStream inputStream = application.getResources().openRawResource(resourceId)) {
             ObjectMapper objectMapper = new ObjectMapper();
             seasonalCalendarJson = objectMapper.readValue(inputStream, SeasonalCalendarJson.class);
         } catch (IOException e) {
@@ -112,7 +111,9 @@ public class SeasonalCalendarHolder implements SharedPreferences.OnSharedPrefere
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String s) {
         if (s.equals("seasonal-calendar-region") || s.equals("seasonal-calendar-languages")) {
-            this.preload();
+            Log.d(getClass().getName(), "Reloading seasonal calendar...");
+            seasonalCalendar = null;
+            CompletableFuture.runAsync(this::tryToBuildSeasonalCalendar);
         }
     }
 }
