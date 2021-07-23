@@ -48,7 +48,7 @@
                     app:layout_constraintTop_toTopOf="@id/details_servings"
                     app:layout_constraintBottom_toBottomOf="@id/details_servings"
                     android:src="@drawable/ic_person_24dp"
-                    android:contentDescription="@string/hint_new_recipe_servings"
+                    android:contentDescription="@string/servings"
                     android:labelFor="@id/details_servings"
                     app:tint="?attr/colorControlNormal"/>
 
@@ -73,7 +73,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/details_preparation_time"
                     android:layout_marginEnd="@dimen/text_margin"
                     android:src="@drawable/ic_time_24dp"
-                    android:contentDescription="@string/hint_new_recipe_preparation_time"
+                    android:contentDescription="@string/preparation_time"
                     android:labelFor="@id/details_preparation_time"
                     app:tint="?attr/colorControlNormal"/>
 
@@ -146,7 +146,7 @@
                         app:layout_constraintTop_toTopOf="@id/details_source"
                         app:layout_constraintBottom_toBottomOf="@id/details_source"
                         android:src="@drawable/ic_link_24dp"
-                        android:contentDescription="@string/hint_new_recipe_source"
+                        android:contentDescription="@string/source"
                         android:labelFor="@id/details_source"
                         app:tint="?attr/colorControlNormal"/>
 

@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:padding="@dimen/text_margin"
-            android:text="@string/support_categories_message"
+            android:text="@string/become_a_supporter_categories_message"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintBottom_toTopOf="@id/categories_learn_more_button"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
             android:background="@drawable/button_background_primary"
             android:onClick="navigateToSupportPage"
             android:padding="@dimen/text_margin"
-            android:text="@string/support_learn_more"
+            android:text="@string/learn_more"
             android:textColor="@color/colorOnPrimary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +50,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:padding="32dp"
-        android:text="@string/create_a_category"
+        android:text="@string/create_a_category_prompt"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -69,7 +69,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:contentDescription="@string/dialog_add_category"
+        android:contentDescription="@string/add_category"
         app:backgroundTint="@color/colorControlNormal"
         app:tint="@color/colorOnPrimary"
         app:srcCompat="@android:drawable/ic_input_add" />

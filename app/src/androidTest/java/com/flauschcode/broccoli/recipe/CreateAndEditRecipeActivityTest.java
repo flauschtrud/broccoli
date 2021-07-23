@@ -133,7 +133,7 @@ public class CreateAndEditRecipeActivityTest {
         onView(withText("Hauptgerichte")).perform(click());
         onView(withText("Nachtisch")).perform(click());
         onView(withText("Nachtisch")).perform(click());
-        onView(withText(R.string.ok)).perform(click());
+        onView(withText(android.R.string.ok)).perform(click());
 
         onView(withId(R.id.new_description)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getDescription()));
         onView(withId(R.id.new_source)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getSource()));
@@ -263,7 +263,7 @@ public class CreateAndEditRecipeActivityTest {
     public void show_warning_on_cancel_when_recipe_is_dirty() {
         onView(withId(R.id.new_title)).perform(typeText("Mjam mjam"));
         onView(allOf(withClassName(endsWith("ImageButton")), withParent(withId(R.id.toolbar)))).perform(click());
-        onView(withText(R.string.dialog_discard_changes))
+        onView(withText(R.string.discard_changes_question))
                 .inRoot(isDialog())
                 .check(matches(isDisplayed()));
     }

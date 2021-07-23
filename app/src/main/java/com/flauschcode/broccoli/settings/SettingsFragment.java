@@ -22,7 +22,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         MultiSelectListPreference seasonalCalendarLanguagesPreference = getPreferenceManager().findPreference("seasonal-calendar-languages");
         seasonalCalendarLanguagesPreference.setSummaryProvider(preference -> {
             String selectedLanguages = seasonalCalendarLanguagesPreference.getValues().stream().collect(Collectors.joining(", "));
-            return "".equals(selectedLanguages)? getString(R.string.no_language_set) : selectedLanguages;
+            return "".equals(selectedLanguages)? getString(R.string.no_language_set_message) : selectedLanguages;
         });
 
         ListPreference preferredCategoryPreference = getPreferenceManager().findPreference("preferred-category");

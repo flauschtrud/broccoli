@@ -158,8 +158,8 @@ public class RestoreService extends JobIntentService {
     private void notifyCompletion(int numberOfRecipes) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, BroccoliApplication.CHANNEL_ID_BACKUP)
                 .setSmallIcon(R.drawable.ic_button_restaurant_24dp)
-                .setContentTitle(getString(R.string.restore_complete))
-                .setContentText(getString(R.string.restore_complete_message, numberOfRecipes))
+                .setContentTitle(getString(R.string.restore_completed))
+                .setContentText(getString(R.string.restore_completed_message, numberOfRecipes))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
         notificationManager.notify(NOTIFICATION_ID, builder.build());
     }

@@ -60,7 +60,7 @@ public class BroccoliApplication extends Application implements HasAndroidInject
     }
 
     private void createNotificationChannel() {
-        NotificationChannel channel = new NotificationChannel(CHANNEL_ID_BACKUP, getString(R.string.channel_name_backup), NotificationManager.IMPORTANCE_DEFAULT);
+        NotificationChannel channel = new NotificationChannel(CHANNEL_ID_BACKUP, getString(R.string.backup_and_restore), NotificationManager.IMPORTANCE_DEFAULT);
         channel.setDescription(getString(R.string.channel_description_backup));
         NotificationManager notificationManager = getSystemService(NotificationManager.class);
         notificationManager.createNotificationChannel(channel);

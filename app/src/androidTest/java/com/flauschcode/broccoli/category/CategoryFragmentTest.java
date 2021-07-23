@@ -82,7 +82,7 @@ public class CategoryFragmentTest {
 
         onView(withId(R.id.fab_categories)).perform(click());
         onView(withId(R.id.category_name)).perform(typeText("Mimi"));
-        onView(withText(R.string.action_save))
+        onView(withText(R.string.save_action))
                 .inRoot(isDialog())
                 .perform(click());
 
@@ -96,7 +96,7 @@ public class CategoryFragmentTest {
 
         onView(RecyclerViewMatcher.withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_category_name)).perform(click());
         onView(withId(R.id.category_name)).perform(typeText("iti"));
-        onView(withText(R.string.action_save))
+        onView(withText(R.string.save_action))
                 .inRoot(isDialog())
                 .perform(click());
 
@@ -109,11 +109,11 @@ public class CategoryFragmentTest {
         doNothing().when(categoryRepository).delete(categoryCaptor.capture());
 
         onView(RecyclerViewMatcher.withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_category_name)).perform(click());
-        onView(withText(R.string.action_delete))
+        onView(withText(R.string.delete_action))
                 .inRoot(isDialog())
                 .perform(click());
         onView(withId(R.id.delete_category_warning)).check(matches(isDisplayed()));
-        onView(withText(R.string.action_delete))
+        onView(withText(R.string.delete_action))
                 .inRoot(isDialog())
                 .perform(click());
 

@@ -50,7 +50,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:padding="32dp"
-        android:text="@string/create_a_recipe"
+        android:text="@string/create_a_recipe_prompt"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:visibility="gone"/>
 
@@ -65,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:contentDescription="@string/title_activity_new_recipe"
+        android:contentDescription="@string/new_recipe"
         app:backgroundTint="@color/colorControlNormal"
         app:tint="@color/colorOnPrimary"
         app:srcCompat="@android:drawable/ic_input_add" />

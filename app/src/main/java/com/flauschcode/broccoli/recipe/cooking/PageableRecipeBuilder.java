@@ -60,7 +60,7 @@ public class PageableRecipeBuilder {
     }
 
     private String getNoDataString() {
-        return application.getString(R.string.no_ingredients_and_directions_yet);
+        return application.getString(R.string.no_ingredients_and_directions_message);
     }
 
 }

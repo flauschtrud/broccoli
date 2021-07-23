@@ -74,7 +74,7 @@ public class ScaledQuantity {
     }
 
     private static String getNotScaledString() {
-        return BroccoliApplication.getContext() != null? BroccoliApplication.getContext().getString(R.string.not_scaled) : "not scaled";
+        return BroccoliApplication.getContext() != null? BroccoliApplication.getContext().getString(R.string.unscaled) : "not scaled";
     }
 
 }

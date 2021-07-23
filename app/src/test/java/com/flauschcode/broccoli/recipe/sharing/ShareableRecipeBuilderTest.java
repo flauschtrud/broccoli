@@ -6,8 +6,6 @@ import android.net.Uri;
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.recipe.Recipe;
 import com.flauschcode.broccoli.recipe.images.RecipeImageService;
-import com.flauschcode.broccoli.recipe.sharing.ShareableRecipe;
-import com.flauschcode.broccoli.recipe.sharing.ShareableRecipeBuilder;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -68,9 +66,9 @@ public class ShareableRecipeBuilderTest {
 
     @Before
     public void setUp() {
-        when(application.getString(R.string.hint_new_recipe_servings)).thenReturn("Servings");
-        when(application.getString(R.string.hint_new_recipe_preparation_time)).thenReturn("Preparation time");
-        when(application.getString(R.string.hint_new_recipe_source)).thenReturn("Source");
+        when(application.getString(R.string.servings)).thenReturn("Servings");
+        when(application.getString(R.string.preparation_time)).thenReturn("Preparation time");
+        when(application.getString(R.string.source)).thenReturn("Source");
         when(application.getString(R.string.ingredients)).thenReturn("Ingredients");
         when(application.getString(R.string.directions)).thenReturn("Directions");
         when(application.getString(R.string.playstore_url)).thenReturn("BROCCOLI_URL");

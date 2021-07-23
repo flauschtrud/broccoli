@@ -24,7 +24,7 @@
             android:id="@+id/community_edition_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/support_community_edition_title"
+            android:text="@string/community_edition_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
         <TextView
@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/text_margin"
-            android:text="@string/support_community_edition_perk_recipes"
+            android:text="@string/community_edition_perk_recipes"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
 
         <TextView
@@ -40,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/text_margin"
-            android:text="@string/support_community_edition_perk_cooking_mode"
+            android:text="@string/community_edition_perk_cooking_mode"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
 
         <TextView
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/text_margin"
-            android:text="@string/support_community_edition_perk_seasonal_calendar"
+            android:text="@string/community_edition_perk_seasonal_calendar"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
 
         <TextView
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/text_margin"
-            android:text="@string/support_community_edition_perk_backup"
+            android:text="@string/community_edition_perk_backup"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
 
         <TextView
@@ -64,7 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/text_margin"
-            android:text="@string/support_community_edition_perk_ad_free"
+            android:text="@string/community_edition_perk_ad_free"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
 
         <TextView
@@ -72,7 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="@string/support_community_edition_free_for_everyone"
+            android:text="@string/free_for_everyone"
             android:layout_gravity="center"
             android:textAllCaps="true"
             android:textAlignment="center" />
@@ -97,7 +97,7 @@
             android:id="@+id/supporter_edition_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/support_supporter_edition_title"
+            android:text="@string/supporter_edition_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/colorPrimary" />
 
@@ -106,7 +106,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/text_margin"
-            android:text="@string/support_supporter_edition_perk_community_features"
+            android:text="@string/supporter_edition_perk_community_features"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
             app:drawableTint="@color/colorPrimary" />
 
@@ -115,7 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/text_margin"
-            android:text="@string/support_supporter_edition_perk_categories"
+            android:text="@string/supporter_edition_perk_categories"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
             app:drawableTint="@color/colorPrimary" />
 
@@ -124,7 +124,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/text_margin"
-            android:text="@string/support_supporter_edition_perk_support_developer"
+            android:text="@string/supporter_edition_perk_support_developer"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
             app:drawableTint="@color/colorPrimary" />
 
@@ -139,7 +139,7 @@
             android:drawableStart="@drawable/ic_store_24"
             android:drawablePadding="@dimen/text_margin"
             android:drawableTint="@color/colorOnPrimary"
-            android:text="@string/support_supporter_edition_buy"
+            android:text="@string/buy"
             android:textColor="@color/colorOnPrimary" />
 
         <TextView
@@ -149,7 +149,7 @@
             android:padding="8dp"
             android:visibility="gone"
             android:layout_gravity="center"
-            android:text="@string/support_supporter_edition_thanks"
+            android:text="@string/thanks_for_your_support"
             android:textAllCaps="true"
             android:textAlignment="center"
             android:textColor="@color/colorPrimary"/>
@@ -170,7 +170,7 @@
         android:drawableStart="@drawable/ic_star_rate_24"
         android:drawablePadding="@dimen/text_margin"
         android:drawableTint="@color/colorOnPrimary"
-        android:text="@string/support_rate"
+        android:text="@string/rate_the_app"
         android:textColor="@color/colorOnPrimary" />
 
     <Button
@@ -187,7 +187,7 @@
         android:drawableStart="@drawable/ic_menu_share_24dp"
         android:drawablePadding="@dimen/text_margin"
         android:drawableTint="@color/colorOnPrimary"
-        android:text="@string/support_share"
+        android:text="@string/share_the_app"
         android:textColor="@color/colorOnPrimary" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

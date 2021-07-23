@@ -26,7 +26,7 @@
                 android:background="?attr/colorPrimary"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
                 app:layout_scrollFlags="noScroll"
-                app:title="@string/title_activity_new_recipe"
+                app:title="@string/new_recipe"
                 app:navigationIcon="@drawable/ic_close_24dp">
 
                 <Button
@@ -34,7 +34,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/transparent"
-                    android:text="@string/action_save"
+                    android:text="@string/save_action"
                     android:layout_gravity="end"
                     android:onClick="@{() -> activity.onSaveClick(viewModel.recipe)}" />
 
@@ -115,7 +115,7 @@
                     android:inputType="textCapSentences"
                     android:layout_margin="20dp"
                     android:singleLine="true"
-                    android:hint="@string/hint_new_recipe_title"
+                    android:hint="@string/title"
                     android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
                     android:text="@={viewModel.recipe.title}"
                     android:importantForAutofill="no" />
@@ -173,7 +173,7 @@
                     android:inputType="textCapSentences|textMultiLine"
                     android:maxLines="10"
                     android:layout_margin="20dp"
-                    android:hint="@string/hint_new_recipe_description"
+                    android:hint="@string/description"
                     android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
                     android:text="@={viewModel.recipe.description}"
                     android:importantForAutofill="no" />
@@ -200,7 +200,7 @@
                     android:inputType="textCapSentences"
                     android:layout_margin="20dp"
                     android:singleLine="true"
-                    android:hint="@string/hint_new_recipe_source"
+                    android:hint="@string/source"
                     android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
                     android:text="@={viewModel.recipe.source}"
                     android:importantForAutofill="no" />
@@ -227,7 +227,7 @@
                     android:inputType="textCapSentences"
                     android:layout_margin="20dp"
                     android:singleLine="true"
-                    android:hint="@string/hint_new_recipe_servings"
+                    android:hint="@string/servings"
                     android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
                     android:text="@={viewModel.recipe.servings}"
                     android:importantForAutofill="no" />
@@ -254,7 +254,7 @@
                     android:inputType="textCapSentences"
                     android:layout_margin="20dp"
                     android:singleLine="true"
-                    android:hint="@string/hint_new_recipe_preparation_time"
+                    android:hint="@string/preparation_time"
                     android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
                     android:text="@={viewModel.recipe.preparationTime}"
                     android:importantForAutofill="no" />

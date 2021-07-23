@@ -144,7 +144,7 @@ public class RecipeDetailsActivityTest {
         when(shareableRecipeBuilder.from(recipeCaptor.capture())).thenReturn(new ShareableRecipe("Lauchkuchen in plain text.", imageUri));
 
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
-        onView(withText(R.string.action_details_share)).perform(click());
+        onView(withText(R.string.share_action)).perform(click());
 
         Recipe recipe = recipeCaptor.getValue();
         assertThat(recipe.getTitle(), is(lauchkuchen.getTitle()));
@@ -166,7 +166,7 @@ public class RecipeDetailsActivityTest {
         when(shareRecipeAsFileService.shareAsFile(recipeCaptor.capture())).thenReturn(recipeUri);
 
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
-        onView(withText(R.string.action_details_share_as_file)).perform(click());
+        onView(withText(R.string.share_as_file_action)).perform(click());
 
         Recipe recipe = recipeCaptor.getValue();
         assertThat(recipe.getTitle(), is(lauchkuchen.getTitle()));
@@ -195,9 +195,9 @@ public class RecipeDetailsActivityTest {
         when(recipeRepository.delete(lauchkuchen)).thenReturn(CompletableFuture.completedFuture(null));
 
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
-        onView(withText(R.string.action_delete)).perform(click());
+        onView(withText(R.string.delete_action)).perform(click());
 
-        onView(withText(R.string.dialog_delete_recipe))
+        onView(withText(R.string.delete_recipe_question))
                 .inRoot(isDialog())
                 .check(matches(isDisplayed()));
         onView(withId(android.R.id.button1)).perform(click());
@@ -219,7 +219,7 @@ public class RecipeDetailsActivityTest {
         intending(hasComponent("com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity")).respondWith(result);
 
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
-        onView(withText(R.string.action_details_edit)).perform(click());
+        onView(withText(R.string.edit_action)).perform(click());
 
         onView(withId(R.id.details_title)).check(matches(withText("Leckerster Lauchkuchen")));
         onView(withId(R.id.details_servings)).check(matches(withText("1 Portion")));

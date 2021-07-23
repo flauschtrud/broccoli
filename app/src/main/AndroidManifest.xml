@@ -58,7 +58,7 @@
 
         <activity
             android:name="com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity"
-            android:label="@string/title_activity_new_recipe"
+            android:label="@string/new_recipe"
             android:parentActivityName="com.flauschcode.broccoli.MainActivity"
             android:theme="@style/AppTheme.NoActionBarPrimaryDarkStatusBar"
             android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
@@ -84,7 +84,7 @@
 
         <activity
             android:name="com.flauschcode.broccoli.recipe.cooking.CookingModeActivity"
-            android:label="@string/title_activity_cooking_mode"
+            android:label="@string/cooking_mode"
             android:parentActivityName="com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity" />
 
         <activity

@@ -159,12 +159,12 @@ public class FilteringAndSearchingIntegrationTest {
 
         onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(0, click()));
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
-        onView(withText(R.string.action_delete)).perform(click());
+        onView(withText(R.string.delete_action)).perform(click());
         onView(withId(android.R.id.button1)).perform(click());
 
         onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(0, click()));
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
-        onView(withText(R.string.action_delete)).perform(click());
+        onView(withText(R.string.delete_action)).perform(click());
         onView(withId(android.R.id.button1)).perform(click());
 
         onView(withId(R.id.recycler_view)).check(RecyclerViewAssertions.hasItemsCount(0));

@@ -37,7 +37,7 @@ public class SupportFragment extends Fragment {
             try {
                 billingService.purchaseSupporterEdition(getActivity());
             } catch (BillingService.BillingException e) {
-                Toast.makeText(requireActivity(), getString(R.string.support_supporter_edition_get_error_message), Toast.LENGTH_LONG).show();
+                Toast.makeText(requireActivity(), getString(R.string.play_store_sign_in_message), Toast.LENGTH_LONG).show();
             }
         });
 

@@ -22,7 +22,7 @@
     <fragment
         android:id="@+id/nav_categories"
         android:name="com.flauschcode.broccoli.category.CategoryFragment"
-        android:label="@string/menu_categories"
+        android:label="@string/categories"
         tools:layout="@layout/fragment_recipes" />
 
     <fragment
@@ -46,17 +46,17 @@
     <fragment
         android:id="@+id/nav_support"
         android:name="com.flauschcode.broccoli.support.SupportFragment"
-        android:label="@string/menu_support" />
+        android:label="@string/support_the_app" />
 
     <fragment
         android:id="@+id/nav_backup_and_restore"
         android:name="com.flauschcode.broccoli.backup.BackupAndRestoreFragment"
-        android:label="@string/menu_backup_and_restore" />
+        android:label="@string/backup_and_restore" />
 
     <fragment
         android:id="@+id/nav_settings"
         android:name="com.flauschcode.broccoli.settings.SettingsFragment"
-        android:label="@string/menu_settings" />
+        android:label="@string/settings" />
 
     <fragment
         android:id="@+id/nav_help_and_feedback"

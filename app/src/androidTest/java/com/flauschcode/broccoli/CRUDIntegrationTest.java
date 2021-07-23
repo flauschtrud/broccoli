@@ -60,7 +60,7 @@ public class CRUDIntegrationTest {
 
         onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(0, click()));
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
-        onView(withText(R.string.action_details_edit)).perform(click());        onView(withId(R.id.new_title)).perform(replaceText("Leckerster Lauchkuchen"));
+        onView(withText(R.string.edit_action)).perform(click());        onView(withId(R.id.new_title)).perform(replaceText("Leckerster Lauchkuchen"));
         onView(withId(R.id.button_save_recipe)).perform(click());
         onView(allOf(withClassName(endsWith("ImageButton")), withParent(withId(R.id.toolbar)))).perform(click());
 
@@ -69,7 +69,7 @@ public class CRUDIntegrationTest {
 
         onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(0, click()));
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
-        onView(withText(R.string.action_delete)).perform(click());
+        onView(withText(R.string.delete_action)).perform(click());
         onView(withId(android.R.id.button1)).perform(click());
 
         onView(withId(R.id.recycler_view)).check(RecyclerViewAssertions.hasItemsCount(0));

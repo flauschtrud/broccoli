@@ -75,15 +75,15 @@ public class ShareableRecipeBuilder {
     }
 
     private String getServingsString() {
-        return application.getString(R.string.hint_new_recipe_servings);
+        return application.getString(R.string.servings);
     }
 
     private String getPreparationTimeString() {
-        return application.getString(R.string.hint_new_recipe_preparation_time);
+        return application.getString(R.string.preparation_time);
     }
 
     private String getSourceString() {
-        return application.getString(R.string.hint_new_recipe_source);
+        return application.getString(R.string.source);
     }
 
     private String getIngredientsString() {

@@ -75,12 +75,12 @@ public class CategoryDialog extends AppCompatDialogFragment {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setView(view)
-                .setTitle(category.getCategoryId() == 0? R.string.dialog_add_category : R.string.dialog_edit_category)
-                .setPositiveButton(R.string.action_save, (dialog, id) -> viewModel.insertOrUpdate(category))
-                .setNegativeButton(R.string.cancel, (dialog, id) -> {});
+                .setTitle(category.getCategoryId() == 0? R.string.add_category : R.string.edit_category)
+                .setPositiveButton(R.string.save_action, (dialog, id) -> viewModel.insertOrUpdate(category))
+                .setNegativeButton(android.R.string.cancel, (dialog, id) -> {});
 
         if(category.getCategoryId() != 0) {
-             builder.setNeutralButton(R.string.action_delete, (dialog, id) -> {});
+             builder.setNeutralButton(R.string.delete_action, (dialog, id) -> {});
         }
 
         return builder.create();

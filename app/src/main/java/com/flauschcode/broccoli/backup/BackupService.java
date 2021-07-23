@@ -153,8 +153,8 @@ public class BackupService extends JobIntentService {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, BroccoliApplication.CHANNEL_ID_BACKUP)
                 .setSmallIcon(R.drawable.ic_button_restaurant_24dp)
-                .setContentTitle(getString(R.string.backup_complete))
-                .setContentText(getString(R.string.backup_complete_prompt))
+                .setContentTitle(getString(R.string.backup_completed))
+                .setContentText(getString(R.string.backup_completed_prompt))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent);
 

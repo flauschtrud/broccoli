@@ -126,13 +126,13 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
     public void delete(MenuItem menuItem) {
         AlertDialog alertDialog = new AlertDialog.Builder(this)
-                .setMessage(R.string.dialog_delete_recipe)
-                .setPositiveButton(R.string.action_delete, (dialog, id) -> {
+                .setMessage(R.string.delete_recipe_question)
+                .setPositiveButton(R.string.delete_action, (dialog, id) -> {
                     recipeRepository.delete(binding.getRecipe())
-                        .thenRun(() -> runOnUiThread(() -> Toast.makeText(getApplicationContext(), getString(R.string.toast_recipe_deleted), Toast.LENGTH_SHORT).show()));
+                        .thenRun(() -> runOnUiThread(() -> Toast.makeText(getApplicationContext(), getString(R.string.recipe_deleted_message), Toast.LENGTH_SHORT).show()));
                     finish();
                 })
-                .setNegativeButton(R.string.cancel, (dialog, id) -> {})
+                .setNegativeButton(android.R.string.cancel, (dialog, id) -> {})
                 .create();
         alertDialog.show();
     }
@@ -187,7 +187,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             startActivity(chooser);
         } catch (IOException e) {
             Log.e(getClass().getName(), e.getMessage());
-            Toast.makeText(getApplicationContext(), getString(R.string.toast_could_not_export_recipe), Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.recipe_could_not_be_exported_message), Toast.LENGTH_LONG).show();
         }
     }
 

@@ -4,8 +4,6 @@ import android.app.Application;
 
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.recipe.Recipe;
-import com.flauschcode.broccoli.recipe.cooking.PageableRecipe;
-import com.flauschcode.broccoli.recipe.cooking.PageableRecipeBuilder;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -30,7 +28,7 @@ public class PageableRecipeBuilderTest {
     @Before
     public void setUp() {
         when(application.getString(R.string.ingredients)).thenReturn("Ingredients");
-        when(application.getString(R.string.no_ingredients_and_directions_yet)).thenReturn("Nothing there...");
+        when(application.getString(R.string.no_ingredients_and_directions_message)).thenReturn("Nothing there...");
     }
 
     @Test

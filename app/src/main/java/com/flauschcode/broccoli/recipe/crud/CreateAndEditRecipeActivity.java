@@ -70,12 +70,12 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
                             applyRecipeToViewModel(optionalRecipe.get());
                             binding.setViewModel(viewModel);
                         } else {
-                            runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_error_reading_recipe), Toast.LENGTH_LONG).show());
+                            runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_read_message), Toast.LENGTH_LONG).show());
                         }
                     })
                     .exceptionally(e -> {
                         Log.e(getClass().getName(), e.getMessage());
-                        runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_error_importing_recipe), Toast.LENGTH_SHORT).show());
+                        runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_imported_message), Toast.LENGTH_SHORT).show());
                         return null;
                     });
         }
@@ -86,7 +86,7 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
             if (optionalRecipe.isPresent()) {
                 applyRecipeToViewModel(optionalRecipe.get());
             } else {
-                runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_error_importing_recipe), Toast.LENGTH_SHORT).show());
+                runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_imported_message), Toast.LENGTH_SHORT).show());
             }
 
         }
@@ -116,16 +116,16 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
         }
 
         AlertDialog alertDialog = new AlertDialog.Builder(this)
-                .setMessage(R.string.dialog_discard_changes)
-                .setPositiveButton(R.string.action_discard, (dialog, id) -> onDiscard.run())
-                .setNegativeButton(R.string.cancel, (dialog, id) -> {})
+                .setMessage(R.string.discard_changes_question)
+                .setPositiveButton(R.string.discard_action, (dialog, id) -> onDiscard.run())
+                .setNegativeButton(android.R.string.cancel, (dialog, id) -> {})
                 .create();
         alertDialog.show();
     }
 
     public void onSaveClick(Recipe recipe) {
         if (recipe.getTitle().trim().isEmpty()) {
-            Toast.makeText(this, getString(R.string.toast_title_is_empty), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.title_should_not_be_empty_message), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -133,13 +133,13 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
         viewModel.save()
                 .thenAccept(result -> {
                     if (result == RecipeRepository.InsertionType.INSERT) {
-                        runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_new_recipe), Toast.LENGTH_SHORT).show());
+                        runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_added_message), Toast.LENGTH_SHORT).show());
                     } else if (result == RecipeRepository.InsertionType.UPDATE){
-                        runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_recipe_updated), Toast.LENGTH_SHORT).show());
+                        runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_updated_message), Toast.LENGTH_SHORT).show());
                     }
                 })
                 .exceptionally(e -> {
-                    runOnUiThread(() -> Toast.makeText(this, getString(R.string.toast_error_saving_recipe), Toast.LENGTH_SHORT).show());
+                    runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_saved_message), Toast.LENGTH_SHORT).show());
                     return null;
                 });
 
@@ -177,7 +177,7 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
             Uri imageUri = viewModel.createAndRememberImage();
             takePictureResultLauncher.launch(imageUri);
         } catch (IOException ex) {
-            Toast.makeText(this, getString(R.string.toast_error_creating_image_file), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.image_could_not_be_created_message), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -205,10 +205,10 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
 
             AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this)
                     .setTitle(R.string.categories)
-                    .setPositiveButton(R.string.ok, (dialog, id) -> {});
+                    .setPositiveButton(android.R.string.ok, (dialog, id) -> {});
 
             if (categoryNames.length == 0) {
-                dialogBuilder.setMessage(R.string.no_categories);
+                dialogBuilder.setMessage(R.string.no_categories_message);
             } else {
                 dialogBuilder.setMultiChoiceItems(categoryNames, checkedCategories, (dialog, which, isChecked) -> {
                     Category category = categories.get(which);

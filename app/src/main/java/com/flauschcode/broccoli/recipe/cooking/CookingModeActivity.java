@@ -65,15 +65,15 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
 
         AlertDialog alertDialog = new AlertDialog.Builder(this)
                 .setTitle(R.string.scale_the_ingredients)
-                .setMessage(R.string.scaling_message)
+                .setMessage(R.string.scaling_question)
                 .setView(view)
-                .setPositiveButton(R.string.ok, (dialog, id) -> {
+                .setPositiveButton(android.R.string.ok, (dialog, id) -> {
                     EditText inputScaleFactor = view.findViewById(R.id.input_scale_factor);
                     if (!TextUtils.isEmpty(inputScaleFactor.getText())) {
                         createPageableRecipe(Float.parseFloat(inputScaleFactor.getText().toString()));
                     }
                 })
-                .setNegativeButton(R.string.cancel, (dialog, id) -> {})
+                .setNegativeButton(android.R.string.cancel, (dialog, id) -> {})
                 .create();
         alertDialog.show();
     }

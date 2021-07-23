@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
             android:layout_gravity="bottom|end"
-            android:contentDescription="@string/action_details_cook"
+            android:contentDescription="@string/cook_action"
             app:tint="@color/colorOnPrimary"
             app:srcCompat="@drawable/ic_button_restaurant_24dp" />
 

@@ -14,7 +14,7 @@
 
         <EditTextPreference
             app:key="last-backup-date"
-            app:title="@string/backup_last_backup"
+            app:title="@string/last_backup"
             app:selectable="false"
             app:useSimpleSummaryProvider="true" />
 

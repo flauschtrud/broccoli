@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         TextView subtitle = navigationView.getHeaderView(0).findViewById(R.id.header_subtitle);
-        billingService.isPremium().observe(this, isPremium -> subtitle.setText(Boolean.TRUE.equals(isPremium)? getString(R.string.support_supporter_edition_title) : getString(R.string.support_community_edition_title)));
+        billingService.isPremium().observe(this, isPremium -> subtitle.setText(Boolean.TRUE.equals(isPremium)? getString(R.string.supporter_edition_title) : getString(R.string.community_edition_title)));
     }
 
     @Override
