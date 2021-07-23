@@ -102,6 +102,8 @@
     <string name="version">Version</string>
     <string name="menu_settings">Settings</string>
     <string name="general_settings">General settings</string>
+    <string name="privacy_policy">Privacy policy</string>
+    <string name="privacy_policy_url" translatable="false">https://github.com/flauschtrud/broccoli-privacy-policy</string>
 
     <!-- Seasons -->
     <string name="seasonal_calendar">Seasonal calendar (Beta)</string>

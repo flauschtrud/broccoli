@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
         <Preference
-            app:icon="@drawable/ic_menu_feedback_24dp"
+            app:icon="@drawable/ic_menu_edit_24dp"
             app:key="feedback"
             app:title="@string/send_feedback"
             app:summary="@string/send_feedback_message">
@@ -29,4 +29,13 @@
             app:title="@string/oss_license_title"
             app:summary="@string/preferences_license_summary" />
 
-</PreferenceScreen>
+        <Preference
+            app:icon="@drawable/ic_privacy_tip_24"
+            app:key="privacy-policy"
+            app:title="@string/privacy_policy">
+                <intent
+                    android:action="android.intent.action.VIEW"
+                    android:data="@string/privacy_policy_url" />
+        </Preference>
+
+    </PreferenceScreen>
