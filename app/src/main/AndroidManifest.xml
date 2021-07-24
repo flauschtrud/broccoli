@@ -36,16 +36,6 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <service
-            android:name="com.flauschcode.broccoli.backup.BackupService"
-            android:permission="android.permission.BIND_JOB_SERVICE"
-            android:exported="false"/>
-
-        <service
-            android:name="com.flauschcode.broccoli.backup.RestoreService"
-            android:permission="android.permission.BIND_JOB_SERVICE"
-            android:exported="false"/>
-
         <activity
             android:name="com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity"
             android:parentActivityName="com.flauschcode.broccoli.MainActivity"
@@ -86,14 +76,6 @@
             android:name="com.flauschcode.broccoli.recipe.cooking.CookingModeActivity"
             android:label="@string/cooking_mode"
             android:parentActivityName="com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity" />
-
-        <activity
-            android:name="com.flauschcode.broccoli.backup.SaveBackupActivity"
-            android:label="@string/backup_recipes"
-            android:theme="@android:style/Theme.NoDisplay"
-            android:taskAffinity=""
-            android:excludeFromRecents="true"
-            android:parentActivityName="com.flauschcode.broccoli.MainActivity" />
 
         <activity
             android:name="com.flauschcode.broccoli.MainActivity"

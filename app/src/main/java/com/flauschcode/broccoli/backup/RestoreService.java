@@ -1,23 +1,13 @@
 package com.flauschcode.broccoli.backup;
 
 import android.app.Application;
-import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 
-import androidx.annotation.NonNull;
-import androidx.core.app.JobIntentService;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 import androidx.room.Transaction;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.flauschcode.broccoli.BroccoliApplication;
 import com.flauschcode.broccoli.FileUtils;
-
-import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.category.CategoryRepository;
 import com.flauschcode.broccoli.recipe.Recipe;
@@ -32,41 +22,26 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionException;
 import java.util.concurrent.ExecutionException;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
-import dagger.android.AndroidInjection;
+@Singleton
+public class RestoreService {
 
-public class RestoreService extends JobIntentService {
-
-    private static final int JOB_ID = 2;
-    private static final int NOTIFICATION_ID = 2;
-
-    @Inject
     Application application;
-
-    @Inject
     RecipeZipReader recipeZipReader;
-
-    @Inject
     RecipeRepository recipeRepository;
-
-    @Inject
     RecipeImageService recipeImageService;
-
-    @Inject
     CategoryRepository categoryRepository;
 
-    private NotificationManagerCompat notificationManager;
 
-    public RestoreService() {
-        super();
-    }
-
-    // for testing purposes
+    @Inject
     public RestoreService(Application application, RecipeZipReader recipeZipReader, RecipeRepository recipeRepository, RecipeImageService recipeImageService, CategoryRepository categoryRepository) {
         this.application = application;
         this.recipeZipReader = recipeZipReader;
@@ -75,38 +50,26 @@ public class RestoreService extends JobIntentService {
         this.categoryRepository = categoryRepository;
     }
 
-    public static void enqueueWork(Context context, Intent intent) {
-        enqueueWork(context, RestoreService.class, JOB_ID, intent);
-    }
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        AndroidInjection.inject(this);
-
-        notificationManager = NotificationManagerCompat.from(this);
-    }
-
-    @Override
-    protected void onHandleWork(@NonNull Intent intent) {
-        Uri uri = intent.getData();
-        try {
-            notifyProgress();
-            int numberOfRecipes = restore(uri);
-            notifyCompletion(numberOfRecipes);
-        } catch (Exception e) {
-            Log.e(getClass().getName(), e.getMessage());
-            notifyError();
-        }
+    public CompletableFuture<Integer> restore(Uri uri) {
+        return CompletableFuture.supplyAsync(() -> {
+            try {
+                return restoreInternal(uri);
+            } catch (IOException | ExecutionException e) {
+                throw new CompletionException(e);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                throw new CompletionException(e);
+            }
+        });
     }
 
     // package private for testing purposes
-    int restore(Uri uri) throws IOException, ExecutionException, InterruptedException {
+    int restoreInternal(Uri uri) throws IOException, ExecutionException, InterruptedException {
         InputStream inputStream = application.getContentResolver().openInputStream(uri);
 
         List<Recipe> recipes = new ArrayList<>();
         List<Category> categories = new ArrayList<>();
-        int count = 0;
 
         try (ZipInputStream zis = new ZipInputStream(inputStream); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
             ZipEntry zipEntry;
@@ -114,7 +77,6 @@ public class RestoreService extends JobIntentService {
                 if (zipEntry.getName().endsWith(".broccoli")) {
                     Optional<Recipe> optionalRecipe = recipeZipReader.read().from(new ZipInputStream(zis));
                     optionalRecipe.ifPresent(recipes::add);
-                    count++;
                 } else if ("categories.json".equals(zipEntry.getName())) {
                     FileUtils.copy(zis, out);
                     ObjectMapper objectMapper = new ObjectMapper();
@@ -125,7 +87,7 @@ public class RestoreService extends JobIntentService {
         }
 
         save(categories, recipes);
-        return count;
+        return recipes.size();
     }
 
     @Transaction
@@ -143,34 +105,6 @@ public class RestoreService extends JobIntentService {
                 recipeImageService.moveImage(recipe.getImageName());
             }
         }
-    }
-
-    private void notifyProgress() {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, BroccoliApplication.CHANNEL_ID_BACKUP)
-                .setSmallIcon(R.drawable.ic_button_restaurant_24dp)
-                .setContentTitle(getString(R.string.restore_in_progress))
-                .setProgress(0, 0,true)
-                .setNotificationSilent()
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        notificationManager.notify(NOTIFICATION_ID, builder.build());
-    }
-
-    private void notifyCompletion(int numberOfRecipes) {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, BroccoliApplication.CHANNEL_ID_BACKUP)
-                .setSmallIcon(R.drawable.ic_button_restaurant_24dp)
-                .setContentTitle(getString(R.string.restore_completed))
-                .setContentText(getString(R.string.restore_completed_message, numberOfRecipes))
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        notificationManager.notify(NOTIFICATION_ID, builder.build());
-    }
-
-    private void notifyError() {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, BroccoliApplication.CHANNEL_ID_BACKUP)
-                .setSmallIcon(R.drawable.ic_button_restaurant_24dp)
-                .setContentTitle(getString(R.string.restore_failed))
-                .setContentText(getString(R.string.restore_failed_message))
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
-        notificationManager.notify(NOTIFICATION_ID, builder.build());
     }
 
 }

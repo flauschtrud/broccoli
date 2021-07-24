@@ -1,10 +1,7 @@
 package com.flauschcode.broccoli;
 
 import android.app.Application;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.content.Context;
-import android.os.Build;
 
 import androidx.databinding.DataBindingUtil;
 
@@ -21,8 +18,6 @@ import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasAndroidInjector;
 
 public class BroccoliApplication extends Application implements HasAndroidInjector {
-
-    public  static final String CHANNEL_ID_BACKUP = "com.flauschcode.broccoli.channel.backup";
 
     @Inject
     DispatchingAndroidInjector<Object> dispatchingAndroidInjector;
@@ -51,19 +46,10 @@ public class BroccoliApplication extends Application implements HasAndroidInject
                 .build();
         bindingComponent.inject(this);
         DataBindingUtil.setDefaultComponent(bindingComponent);
-
-        createNotificationChannel();
     }
 
     public static Context getContext() {
         return context;
-    }
-
-    private void createNotificationChannel() {
-        NotificationChannel channel = new NotificationChannel(CHANNEL_ID_BACKUP, getString(R.string.backup_and_restore), NotificationManager.IMPORTANCE_DEFAULT);
-        channel.setDescription(getString(R.string.channel_description_backup));
-        NotificationManager notificationManager = getSystemService(NotificationManager.class);
-        notificationManager.createNotificationChannel(channel);
     }
 
 }

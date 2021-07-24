@@ -85,7 +85,7 @@ public class BackupAndRestoreServiceTest {
     }
 
     @Test
-    public void backup_and_restore_roundtrip() throws InterruptedException, ExecutionException, IOException {
+    public void backup_and_restore_roundtrip() throws InterruptedException, ExecutionException {
         Category originalCategory = new Category(5, "Hauptgerichte");
 
         Recipe originalRecipe = new Recipe();
@@ -105,8 +105,8 @@ public class BackupAndRestoreServiceTest {
         when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(INSERT));
         when(categoryRepository.insertOrUpdate(categoryCaptor.capture())).thenReturn(CompletableFuture.completedFuture(null));
 
-        Uri uri = backupService.backup();
-        int numberOfRecipes = restoreService.restore(uri);
+        Uri uri = backupService.backup().get();
+        int numberOfRecipes = restoreService.restore(uri).get();
 
         assertThat(numberOfRecipes, is(1));
 
