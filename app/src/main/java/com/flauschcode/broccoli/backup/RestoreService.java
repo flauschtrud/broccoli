@@ -15,6 +15,8 @@ import com.flauschcode.broccoli.recipe.RecipeRepository;
 import com.flauschcode.broccoli.recipe.images.RecipeImageService;
 import com.flauschcode.broccoli.recipe.sharing.RecipeZipReader;
 
+import org.apache.commons.io.input.CloseShieldInputStream;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -73,10 +75,13 @@ public class RestoreService {
 
         try (ZipInputStream zis = new ZipInputStream(inputStream); ByteArrayOutputStream out = new ByteArrayOutputStream()) {
             ZipEntry zipEntry;
+
             while ((zipEntry = zis.getNextEntry()) != null) {
                 if (zipEntry.getName().endsWith(".broccoli")) {
-                    Optional<Recipe> optionalRecipe = recipeZipReader.read().from(new ZipInputStream(zis));
-                    optionalRecipe.ifPresent(recipes::add);
+                    try (CloseShieldInputStream cloned = CloseShieldInputStream.wrap(zis); ZipInputStream nestedZis = new ZipInputStream(cloned)) {
+                        Optional<Recipe> optionalRecipe = recipeZipReader.read().from(nestedZis);
+                        optionalRecipe.ifPresent(recipes::add);
+                    }
                 } else if ("categories.json".equals(zipEntry.getName())) {
                     FileUtils.copy(zis, out);
                     ObjectMapper objectMapper = new ObjectMapper();

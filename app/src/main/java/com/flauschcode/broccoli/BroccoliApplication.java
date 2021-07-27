@@ -2,6 +2,7 @@ package com.flauschcode.broccoli;
 
 import android.app.Application;
 import android.content.Context;
+import android.os.StrictMode;
 
 import androidx.databinding.DataBindingUtil;
 
@@ -33,6 +34,12 @@ public class BroccoliApplication extends Application implements HasAndroidInject
     public void onCreate() {
         super.onCreate();
         context = this;
+
+        if(BuildConfig.DEBUG) {
+            StrictMode.enableDefaults();
+            StrictMode.allowThreadDiskReads();
+            StrictMode.allowThreadDiskWrites();
+        }
 
         ApplicationComponent applicationComponent = DaggerApplicationComponent.builder()
                 .application(this)

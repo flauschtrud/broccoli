@@ -17,6 +17,8 @@ import com.flauschcode.broccoli.recipe.Recipe;
 import com.flauschcode.broccoli.recipe.RecipeRepository;
 import com.flauschcode.broccoli.recipe.sharing.RecipeZipWriter;
 
+import org.apache.commons.io.output.CloseShieldOutputStream;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -108,9 +110,10 @@ public class BackupService {
                 ZipEntry entry = new ZipEntry(recipe.getRecipeId() + "_" + recipe.getTitle().replaceAll("[^a-zA-Z0-9\\.\\-]", "_") + ".broccoli");
                 zos.putNextEntry(entry);
 
-                ZipOutputStream nestedZos = new ZipOutputStream(zos);
-                recipeZipWriter.write(recipe).to(nestedZos);
-                nestedZos.finish();
+                try (CloseShieldOutputStream cloned = CloseShieldOutputStream.wrap(zos); ZipOutputStream nestedZos = new ZipOutputStream(cloned)) {
+                    recipeZipWriter.write(recipe).to(nestedZos);
+                    nestedZos.finish();
+                }
 
                 zos.closeEntry();
             }
