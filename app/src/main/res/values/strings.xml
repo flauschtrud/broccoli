@@ -100,8 +100,8 @@
     <string name="configure_seasons_action">Configure</string>
     <string name="seasons_month_range" translatable="false">%1$s - %2$s</string>
     <string name="region">Region</string>
-    <string name="languages">Languages</string>
-    <string name="no_language_set_message">Choose at least one language</string>
+    <string name="languages_of_recipes">Languages of recipes</string>
+    <string name="no_language_set_message">In what languages do you create your recipes? Choose at least one.</string>
     <string name="seasons_feedback_message">Do you miss your region, language or favorite food? Tell us about it!</string>
     <string name="seasons_feedback_subject">Feedback for Broccoli Seasonal Calendar</string>
 

@@ -33,7 +33,7 @@
             android:entries="@array/language_labels"
             android:entryValues="@array/language_values"
             android:key="seasonal-calendar-languages"
-            android:title="@string/languages" />
+            android:title="@string/languages_of_recipes" />
 
         <Preference
             app:icon="@drawable/ic_menu_edit_24dp"
