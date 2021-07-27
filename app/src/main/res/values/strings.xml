@@ -89,6 +89,7 @@
     <string name="settings">Settings</string>
     <string name="general_settings">General settings</string>
     <string name="privacy_policy">Privacy policy</string>
+    <string name="privacy_policy_summary">Learn more about how we protect your personal data.</string>
     <string name="privacy_policy_url" translatable="false">https://github.com/flauschtrud/broccoli-privacy-policy</string>
 
     <!-- Seasons -->

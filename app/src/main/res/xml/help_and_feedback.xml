@@ -32,7 +32,8 @@
         <Preference
             app:icon="@drawable/ic_privacy_tip_24"
             app:key="privacy-policy"
-            app:title="@string/privacy_policy">
+            app:title="@string/privacy_policy"
+            app:summary="@string/privacy_policy_summary">
                 <intent
                     android:action="android.intent.action.VIEW"
                     android:data="@string/privacy_policy_url" />
