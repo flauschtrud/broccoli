@@ -29,7 +29,6 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.flauschcode.broccoli.BR;
-import com.flauschcode.broccoli.MainActivity;
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.RecyclerViewAdapter;
 import com.flauschcode.broccoli.category.Category;
@@ -90,24 +89,21 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
                 emptyMessageTextView.setVisibility(itemCount == 0? View.VISIBLE : View.GONE);
             }
         };
+
+        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onItemRangeInserted(int positionStart, int itemCount) {
+                super.onItemRangeInserted(positionStart, itemCount);
+                recyclerView.scrollToPosition(positionStart);
+            }
+        });
+
         recyclerView.setAdapter(adapter);
 
         FloatingActionButton fab = root.findViewById(R.id.fab_recipes);
-        ActivityResultLauncher<Intent> crudResultLauncher = registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(),
-                result -> {
-                    if (result.getResultCode() == Activity.RESULT_OK) {
-                        Recipe recipe = (Recipe) result.getData().getSerializableExtra(Recipe.class.getName());
-                        resetCategoryAndArguments();
-                        if (getActivity() instanceof MainActivity) {
-                            searchItem.expandActionView();
-                            searchView.post(() -> searchView.setQuery(recipe.getTitle(), false));
-                        }
-                    }
-                });
         fab.setOnClickListener(view -> {
-            Intent intent = new Intent(getActivity(), CreateAndEditRecipeActivity.class);
-            crudResultLauncher.launch(intent);
+            resetCategoryAndArguments();
+            startActivity(new Intent(getActivity(), CreateAndEditRecipeActivity.class));
         });
 
         viewModel = new ViewModelProvider(this, viewModelFactory).get(RecipeViewModel.class);
@@ -125,7 +121,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
 
             toolbarButton.setText(seasonalFood.getName());
             toolbarButton.setOnClickListener(view -> {
-                NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment);
+                NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
                 navController.popBackStack(R.id.nav_seasons, true);
                 resetCategoryAndArguments();
                 toolbarButton.setVisibility(View.GONE);
@@ -257,7 +253,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     }
 
     private Category getPreferredCategory() {
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireActivity());
         String preferredCategoryId = sharedPreferences.getString("preferred-category", "-1");
         switch (preferredCategoryId)  {
             case "-2":

@@ -111,15 +111,13 @@ public class FilteringAndSearchingIntegrationTest {
         onView(withId(R.id.new_title)).perform(typeText("Tofucurry"));
         onView(withId(R.id.button_save_recipe)).perform(click());
 
-        // check show only this recipe
-        onView(withId(R.id.recycler_view)).check(RecyclerViewAssertions.hasItemsCount(1));
-        onView(RecyclerViewMatcher.withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_title)).check(matches(withText("Tofucurry")));
+        // check show both recipes
+        onView(withId(R.id.recycler_view)).check(RecyclerViewAssertions.hasItemsCount(2));
+        onView(RecyclerViewMatcher.withRecyclerView(R.id.recycler_view).atPositionOnView(1, R.id.card_text_view_title)).check(matches(withText("Tofucurry")));
 
         // favor this recipe
-        onView(RecyclerViewMatcher.withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_title)).perform(click());
+        onView(RecyclerViewMatcher.withRecyclerView(R.id.recycler_view).atPositionOnView(1, R.id.card_text_view_title)).perform(click());
         onView(withId(R.id.action_details_like)).perform(click());
-        pressBack();
-        pressBack();
         pressBack();
 
         // check all recipes
