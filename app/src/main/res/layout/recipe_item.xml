@@ -28,7 +28,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:placeholder="@{@drawable/placeholder_icons}"
             app:imageName="@{recipe.imageName}"
-            android:contentDescription="@string/recipe_image_accessibility" />
+            android:contentDescription="@string/recipe_photo_accessibility" />
 
         <TextView
             android:id="@+id/card_text_view_title"

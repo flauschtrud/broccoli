@@ -40,7 +40,7 @@
                     android:fitsSystemWindows="true"
                     app:layout_collapseMode="parallax"
                     app:imageName="@{recipe.imageName}"
-                    android:contentDescription="@string/recipe_image_accessibility" />
+                    android:contentDescription="@string/recipe_photo_accessibility" />
 
                 <View
                     android:layout_width="match_parent"

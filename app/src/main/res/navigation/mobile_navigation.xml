@@ -59,8 +59,8 @@
         android:label="@string/settings" />
 
     <fragment
-        android:id="@+id/nav_help_and_feedback"
-        android:name="com.flauschcode.broccoli.help.HelpAndFeedbackFragment"
-        android:label="@string/help_and_feedback" />
+        android:id="@+id/nav_about"
+        android:name="com.flauschcode.broccoli.about.AboutFragment"
+        android:label="@string/about_the_app" />
 
 </navigation>

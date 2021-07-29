@@ -67,7 +67,7 @@
                     android:onClick="@{() -> activity.onImageClick()}"
                     app:placeholder="@{@drawable/placeholder}"
                     app:imageName="@{viewModel.recipe.imageName}"
-                    android:contentDescription="@string/recipe_image_accessibility"/>
+                    android:contentDescription="@string/recipe_photo_accessibility"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -79,7 +79,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:contentDescription="@string/change_image"
+                        android:contentDescription="@string/change_photo"
                         android:src="@drawable/ic_photo_camera_24dp"/>
 
                 </LinearLayout>

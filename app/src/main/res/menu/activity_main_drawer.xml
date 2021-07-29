@@ -35,9 +35,9 @@
             android:icon="@drawable/ic_settings_24"
             android:title="@string/settings" />
 
-        <item android:id="@+id/nav_help_and_feedback"
-            android:icon="@drawable/ic_help_24"
-            android:title="@string/help_and_feedback" />
+        <item android:id="@+id/nav_about"
+            android:icon="@drawable/ic_info_24dp"
+            android:title="@string/about_the_app" />
 
     </group>
 

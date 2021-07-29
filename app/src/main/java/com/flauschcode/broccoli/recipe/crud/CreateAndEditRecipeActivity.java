@@ -24,7 +24,6 @@ import com.flauschcode.broccoli.recipe.sharing.ShareRecipeAsFileService;
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.databinding.ActivityNewRecipeBinding;
 import com.flauschcode.broccoli.recipe.Recipe;
-import com.flauschcode.broccoli.recipe.RecipeRepository;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -70,7 +69,7 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
                             applyRecipeToViewModel(optionalRecipe.get());
                             binding.setViewModel(viewModel);
                         } else {
-                            runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_read_message), Toast.LENGTH_LONG).show());
+                            runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_read_message, getString(R.string.app_name)), Toast.LENGTH_LONG).show());
                         }
                     })
                     .exceptionally(e -> {
@@ -131,13 +130,7 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
 
         viewModel.confirmFinishedBySaving();
         viewModel.save()
-                .thenAccept(result -> {
-                    if (result == RecipeRepository.InsertionType.INSERT) {
-                        runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_added_message), Toast.LENGTH_SHORT).show());
-                    } else if (result == RecipeRepository.InsertionType.UPDATE){
-                        runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_updated_message), Toast.LENGTH_SHORT).show());
-                    }
-                })
+                .thenAccept(result -> runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_saved_message), Toast.LENGTH_SHORT).show()))
                 .exceptionally(e -> {
                     runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_saved_message), Toast.LENGTH_SHORT).show());
                     return null;
@@ -159,7 +152,7 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
         items.put(getString(R.string.pick_photo), this::pickPicture);
 
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setTitle(R.string.change_image)
+        alertDialog.setTitle(R.string.change_photo)
                 .setItems(items.keySet().toArray(new CharSequence[0]), (dialog, which) -> items.valueAt(which).run());
         alertDialog.show();
     }

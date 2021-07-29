@@ -4,14 +4,14 @@
     <item
         android:id="@+id/action_details_unlike"
         android:icon="@drawable/ic_favorite_24dp"
-        android:title="@string/unlike_action"
+        android:title="@string/remove_from_favorite_action"
         android:onClick="toggleFavorite"
         android:visible="false"
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_details_like"
         android:icon="@drawable/ic_favorite_border_24dp"
-        android:title="@string/like_action"
+        android:title="@string/mark_as_favorite_action"
         android:onClick="toggleFavorite"
         android:visible="false"
         app:showAsAction="ifRoom" />

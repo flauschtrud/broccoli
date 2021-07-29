@@ -1,4 +1,4 @@
-package com.flauschcode.broccoli.help;
+package com.flauschcode.broccoli.about;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,11 +9,11 @@ import androidx.preference.PreferenceFragmentCompat;
 import com.flauschcode.broccoli.R;
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
 
-public class HelpAndFeedbackFragment extends PreferenceFragmentCompat {
+public class AboutFragment extends PreferenceFragmentCompat {
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        setPreferencesFromResource(R.xml.help_and_feedback, rootKey);
+        setPreferencesFromResource(R.xml.about, rootKey);
 
         Preference licensesPreference = findPreference("oss-licenses");
         if(licensesPreference != null){

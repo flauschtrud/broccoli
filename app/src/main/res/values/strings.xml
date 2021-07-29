@@ -4,31 +4,35 @@
     <!-- CRUD -->
     <string name="recipes">Recipes</string>
     <string name="create_a_recipe_prompt">No recipes found.\n\nYou can import a recipe via your browser\'s share button or create a new one with the plus button.</string>
+    <string name="new_recipe">New Recipe</string>
+
+    <string name="edit_action">Edit</string>
+    <string name="save_action">Save</string>
+    <string name="title_should_not_be_empty_message">Please add a title.</string>
+    <string name="recipe_saved_message">The recipe has been saved.</string>
+    <string name="recipe_could_not_be_saved_message">The recipe could not be saved.</string>
+
+    <string name="delete_action">Delete</string>
+    <string name="delete_recipe_question">Delete this recipe?</string>
+    <string name="recipe_deleted_message">The recipe has been deleted.</string>
+
+    <string name="discard_action">Discard</string>
+    <string name="discard_changes_question">Discard changes?</string>
+
     <string name="title">Title</string>
     <string name="description">Description</string>
-    <string name="new_recipe">New Recipe</string>
-    <string name="save_action">Save</string>
-    <string name="recipe_added_message">New recipe added.</string>
-    <string name="title_should_not_be_empty_message">Please add a title.</string>
-    <string name="directions">Directions</string>
-    <string name="ingredients">Ingredients</string>
-    <string name="image_could_not_be_created_message">Could not create image file.</string>
-    <string name="delete_action">Delete</string>
-    <string name="recipe_deleted_message">Recipe deleted.</string>
-    <string name="delete_recipe_question">Delete this recipe?</string>
-    <string name="recipe_could_not_be_saved_message">Could not save recipe.</string>
     <string name="source">Source</string>
     <string name="servings">Servings</string>
     <string name="preparation_time">Time</string>
-    <string name="discard_changes_question">Discard changes?</string>
-    <string name="discard_action">Discard</string>
-    <string name="edit_action">Edit</string>
-    <string name="recipe_updated_message">Recipe updated.</string>
-    <string name="recipe_image_accessibility">Recipe image</string>
-    <string name="change_image">Change image</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="directions">Directions</string> <!-- double check in translation! -->
+
+    <string name="recipe_photo_accessibility">Recipe photo</string>
+    <string name="change_photo">Change photo</string>
     <string name="remove_photo">Remove photo</string>
     <string name="take_photo">Take photo</string>
     <string name="pick_photo">Pick photo</string>
+    <string name="image_could_not_be_created_message">The image file could not be created.</string>
 
     <!-- Categories -->
     <string name="categories">Categories</string>
@@ -38,30 +42,30 @@
     <string name="category_name">Name</string>
     <string name="no_categories_message">No categories have been created yet.</string>
     <string name="all_recipes">All recipes</string>
-    <string name="unlike_action">Unlike</string>
-    <string name="like_action">Like</string>
+    <string name="mark_as_favorite_action">Mark as favorite</string>
+    <string name="remove_from_favorite_action">Remove from favorites</string>
     <string name="favorites">Favorites</string>
     <string name="delete_category_question">Do you really want to delete this category and remove all its assignments?</string>
     <string name="unassigned">Unassigned recipes</string>
     <string name="search">Search</string>
-    <string name="preferred_category">Preferred category</string>
     <string name="search_in">Search in %1$s</string>
+    <string name="preferred_category">Preferred category</string>
 
     <!-- Cooking mode -->
     <string name="cooking_mode">Cooking mode</string>
-    <string name="no_ingredients_and_directions_message">This recipe does not have any ingredients or directions yet. You can edit it to add some.</string>
+    <string name="no_ingredients_and_directions_message">This recipe does not have any ingredients or directions yet.</string>
     <string name="cook_action">Cook</string>
-    <string name="scale_the_ingredients">Scale the ingredients</string>
+    <string name="scale_the_ingredients">Adjust the amount of ingredients</string>
     <string name="scaling_question">Do you want to cook more or less?</string>
     <string name="hint_scale_factor" translatable="false">1.5</string>
-    <string name="unscaled">unscaled</string>
+    <string name="unscaled">not adjusted</string>
 
     <!-- Sharing and export/import -->
     <string name="share_action">Share</string>
     <string name="shared_with">Shared with %1$s</string>
     <string name="playstore_url" translatable="false">https://play.google.com/store/apps/details?id=com.flauschcode.broccoli</string>
     <string name="recipe_could_not_be_imported_message">The recipe could not be imported.</string>
-    <string name="recipe_could_not_be_read_message">This website does not provide a recipe format that Broccoli can read. Please enter the recipe details by copy and pasting.</string>
+    <string name="recipe_could_not_be_read_message">This website does not provide a recipe format that %1$s can read. Please enter the recipe details by copy and pasting.</string>
     <string name="share_as_file_action">Share as file</string>
     <string name="recipe_could_not_be_exported_message">The recipe could not be exported.</string>
 
@@ -69,22 +73,22 @@
     <string name="backup_and_restore">Backup &amp; restore</string>
     <string name="backup">Backup</string>
     <string name="restore">Restore</string>
-    <string name="backup_recipes">Backup recipes</string>
+    <string name="backup_recipes">Backup of recipes</string>
     <string name="backup_recipes_message">Export all your recipes and categories and save them wherever you want.</string>
-    <string name="restore_recipes">Restore recipes</string>
-    <string name="restore_recipes_message">Import all your recipes and categories from a backup file.</string>
-    <string name="backup_failed_message">The recipes could not be archived.</string>
-    <string name="restore_failed_message">The recipes could not be restored.</string>
-    <string name="restore_all_question">Do you want to import all the recipes and categories from this archive?</string>
-    <string name="restore_completed_message">%1$d recipes have been restored.</string>
+    <string name="restore_recipes">Restore of recipes</string>
+    <string name="restore_recipes_message">Import all recipes and categories from a backup file.</string>
+    <string name="backup_failed_message">The recipes could not be exported.</string>
+    <string name="restore_failed_message">The recipes could not be imported.</string>
+    <string name="restore_all_question">Do you want to import all recipes and categories from this file?</string>
+    <string name="restore_completed_message">%1$d recipes have been imported.</string>
     <string name="last_backup">Last backup</string>
 
     <!-- Settings/feedback -->
-    <string name="help_and_feedback">Help &amp; feedback</string>
+    <string name="about_the_app">About the app</string>
     <string name="send_feedback">Send feedback</string>
     <string name="feedback_mailto" translatable="false">mailto:support@flauschcode.com</string>
-    <string name="send_feedback_message">Tell us what would make cooking with Broccoli for you even better :)</string>
-    <string name="feedback_subject">Feedback for Broccoli Recipe Manager</string>
+    <string name="send_feedback_message">Did you find a bug or do you miss a feature? </string>
+    <string name="feedback_subject">Feedback for Broccoli app</string> <!-- double check in translation! -->
     <string name="version">Version</string>
     <string name="settings">Settings</string>
     <string name="general_settings">General settings</string>
@@ -94,7 +98,7 @@
 
     <!-- Seasons -->
     <string name="seasonal_calendar">Seasonal calendar (Beta)</string>
-    <string name="seasonal_accessibility">Seasonal</string>
+    <string name="seasonal_accessibility">Seasonal ingredient(s)</string>
     <string name="seasonal_recipes">Seasonal recipes</string>
     <string name="seasonal_ingredients_accessibility">Seasonal ingredients</string>
     <string name="seasons_not_configured_message">The seasonal calendar has not been fully configured yet.</string>
@@ -102,8 +106,8 @@
     <string name="seasons_month_range" translatable="false">%1$s - %2$s</string>
     <string name="region">Region</string>
     <string name="languages_of_recipes">Languages of recipes</string>
-    <string name="no_language_set_message">In what languages do you create your recipes? Choose at least one.</string>
-    <string name="seasons_feedback_message">Do you miss your region, language or favorite food? Tell us about it!</string>
+    <string name="no_language_set_message">In which languages do you create your recipes? Choose at least one language.</string>
+    <string name="seasons_feedback_message">Do you miss your region, language or favorite ingredient?</string>
     <string name="seasons_feedback_subject">Feedback for Broccoli Seasonal Calendar</string>
 
     <!-- regions for seasonal calendar -->
@@ -119,17 +123,17 @@
     <string name="community_edition_perk_recipes">Unlimited recipes</string>
     <string name="community_edition_perk_cooking_mode">Distraction free cooking mode</string>
     <string name="community_edition_perk_seasonal_calendar">Seasonal calendar (Beta)</string>
-    <string name="community_edition_perk_backup">Manual backup</string>
-    <string name="community_edition_perk_ad_free">Ad-free experience</string>
+    <string name="community_edition_perk_backup">Backup &amp; restore</string>
+    <string name="community_edition_perk_ad_free">No ads</string>
     <string name="free_for_everyone">Free for everyone</string>
     <string name="supporter_edition_title" translatable="false">Supporter Edition</string>
     <string name="supporter_edition_perk_community_features">All features of the Community Edition</string>
     <string name="supporter_edition_perk_categories">Unlimited custom categories</string>
-    <string name="supporter_edition_perk_support_developer">Support an indie developer</string>
+    <string name="supporter_edition_perk_support_developer">Support an indie developer</string> <!--double check in translation! -->
     <string name="buy">Buy</string>
     <string name="thanks_for_your_support">Thanks for your support!</string>
     <string name="play_store_sign_in_message">Please sign in to Google Play Store.</string>
-    <string name="rate_the_app">Give us a rating</string>
+    <string name="rate_the_app">Rate the app</string>
     <string name="share_the_app">Share the app</string>
     <string name="become_a_supporter_categories_message">Become a supporter of the app and create unlimited custom categories to manage your recipes.</string>
     <string name="learn_more">Learn more</string>
