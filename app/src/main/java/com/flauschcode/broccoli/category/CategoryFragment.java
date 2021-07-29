@@ -76,6 +76,7 @@ public class CategoryFragment extends Fragment {
             recyclerView.setVisibility(isPremium ? View.VISIBLE : View.GONE);
             fab.setVisibility(isPremium ? View.VISIBLE : View.GONE);
             categoriesMessageLayout.setVisibility(isPremium ? View.GONE : View.VISIBLE);
+            emptyMessageTextView.setVisibility(isPremium? View.VISIBLE : View.GONE);
         });
 
         return root;
