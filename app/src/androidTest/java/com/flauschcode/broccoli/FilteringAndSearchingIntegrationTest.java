@@ -105,6 +105,7 @@ public class FilteringAndSearchingIntegrationTest {
         onView(withText("Test")).perform(click());
         onView(withId(android.R.id.button1)).perform(click());
         onView(withId(R.id.button_save_recipe)).perform(click());
+        pressBack();
 
         // check show only this recipe
         onView(withId(R.id.recycler_view)).check(RecyclerViewAssertions.hasItemsCount(1));
@@ -114,6 +115,7 @@ public class FilteringAndSearchingIntegrationTest {
         onView(withId(R.id.fab_recipes)).perform(click());
         onView(withId(R.id.new_title)).perform(typeText("Tofucurry"));
         onView(withId(R.id.button_save_recipe)).perform(click());
+        pressBack();
 
         // check show both recipes
         onView(withId(R.id.recycler_view)).check(RecyclerViewAssertions.hasItemsCount(2));

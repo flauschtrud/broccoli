@@ -3,18 +3,15 @@ package com.flauschcode.broccoli;
 import static androidx.test.core.app.ActivityScenario.launch;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
+import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
-import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
-import static org.hamcrest.core.AllOf.allOf;
-import static org.hamcrest.core.StringEndsWith.endsWith;
 
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.espresso.accessibility.AccessibilityChecks;
@@ -54,6 +51,7 @@ public class CRUDIntegrationTest {
         onView(withId(R.id.fab_recipes)).perform(click());
         onView(withId(R.id.new_title)).perform(typeText("Lauchkuchen"));
         onView(withId(R.id.button_save_recipe)).perform(click());
+        pressBack();
 
         onView(withId(R.id.recycler_view)).check(RecyclerViewAssertions.hasItemsCount(1));
         onView(RecyclerViewMatcher.withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_title)).check(matches(withText("Lauchkuchen")));
@@ -62,7 +60,7 @@ public class CRUDIntegrationTest {
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
         onView(withText(R.string.edit_action)).perform(click());        onView(withId(R.id.new_title)).perform(replaceText("Leckerster Lauchkuchen"));
         onView(withId(R.id.button_save_recipe)).perform(click());
-        onView(allOf(withClassName(endsWith("ImageButton")), withParent(withId(R.id.toolbar)))).perform(click());
+        pressBack();
 
         onView(withId(R.id.recycler_view)).check(RecyclerViewAssertions.hasItemsCount(1));
         onView(RecyclerViewMatcher.withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_title)).check(matches(withText("Leckerster Lauchkuchen")));

@@ -89,21 +89,21 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
                 emptyMessageTextView.setVisibility(itemCount == 0? View.VISIBLE : View.GONE);
             }
         };
-
-        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
-            @Override
-            public void onItemRangeInserted(int positionStart, int itemCount) {
-                super.onItemRangeInserted(positionStart, itemCount);
-                recyclerView.scrollToPosition(positionStart);
-            }
-        });
-
         recyclerView.setAdapter(adapter);
 
         FloatingActionButton fab = root.findViewById(R.id.fab_recipes);
+        ActivityResultLauncher<Intent> crudResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        resetCategoryAndArguments();
+                        Recipe recipe = (Recipe) result.getData().getSerializableExtra(Recipe.class.getName());
+                        onListInteraction(recipe);
+                    }
+                });
         fab.setOnClickListener(view -> {
-            resetCategoryAndArguments();
-            startActivity(new Intent(getActivity(), CreateAndEditRecipeActivity.class));
+            Intent intent = new Intent(getActivity(), CreateAndEditRecipeActivity.class);
+            crudResultLauncher.launch(intent);
         });
 
         viewModel = new ViewModelProvider(this, viewModelFactory).get(RecipeViewModel.class);
