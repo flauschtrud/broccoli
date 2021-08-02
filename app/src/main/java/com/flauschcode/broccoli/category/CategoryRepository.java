@@ -1,6 +1,10 @@
 package com.flauschcode.broccoli.category;
 
+import android.app.Application;
+
 import androidx.lifecycle.LiveData;
+
+import com.flauschcode.broccoli.R;
 
 import java.util.List;
 import java.util.Objects;
@@ -16,10 +20,20 @@ public class CategoryRepository {
     private CategoryDAO categoryDAO;
     private LiveData<List<Category>> allCategories;
 
+    private final Category categoryAll;
+    private final Category categoryFavorites;
+    private final Category categoryUnassigned;
+    private final Category categorySeasonal;
+
     @Inject
-    CategoryRepository(CategoryDAO categoryDAO) {
+    CategoryRepository(Application application, CategoryDAO categoryDAO) {
         this.categoryDAO = categoryDAO;
+
         allCategories = categoryDAO.findAll();
+        categoryAll = new Category(-1, application.getString(R.string.all_recipes));
+        categoryFavorites = new Category(-2, application.getString(R.string.favorites));
+        categoryUnassigned = new Category(-3, application.getString(R.string.unassigned) );
+        categorySeasonal = new Category(-4, application.getString(R.string.seasonal_recipes));
     }
 
     public LiveData<List<Category>> findAll() {
@@ -49,5 +63,21 @@ public class CategoryRepository {
         return CompletableFuture.supplyAsync(() -> categories.stream()
                 .filter(category -> categoryDAO.searchByName(category.getName()) == null)
                 .collect(Collectors.toList()));
+    }
+
+    public Category getAllRecipesCategory() {
+        return categoryAll;
+    }
+
+    public Category getFavoritesCategory() {
+        return categoryFavorites;
+    }
+
+    public Category getUnassignedRecipesCategory() {
+        return categoryUnassigned;
+    }
+
+    public Category getSeasonalRecipesCategory() {
+        return categorySeasonal;
     }
 }

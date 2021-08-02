@@ -19,8 +19,13 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.Mockito.when;
 
+import android.app.Application;
+
 @RunWith(MockitoJUnitRunner.class)
 public class CategoryRepositoryTest {
+
+    @Mock
+    private Application application;
 
     @Mock
     private CategoryDAO categoryDAO;
@@ -29,7 +34,7 @@ public class CategoryRepositoryTest {
 
     @Before
     public void setUp() {
-        categoryRepository = new CategoryRepository(categoryDAO);
+        categoryRepository = new CategoryRepository(application, categoryDAO);
     }
 
     @Test

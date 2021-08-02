@@ -8,7 +8,7 @@ import androidx.preference.PreferenceFragmentCompat;
 
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.category.Category;
-import com.flauschcode.broccoli.recipe.RecipeRepository;
+import com.flauschcode.broccoli.category.CategoryRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ import dagger.android.support.AndroidSupportInjection;
 public class SettingsFragment extends PreferenceFragmentCompat {
 
     @Inject
-    RecipeRepository recipeRepository;
+    CategoryRepository categoryRepository;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -38,9 +38,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         ListPreference preferredCategoryPreference = getPreferenceManager().findPreference("preferred-category");
 
         List<Category> standardCategories = new ArrayList<>();
-        standardCategories.add(recipeRepository.getCategoryAll());
-        standardCategories.add(recipeRepository.getCategorySeasonal());
-        standardCategories.add(recipeRepository.getCategoryFavorites());
+        standardCategories.add(categoryRepository.getAllRecipesCategory());
+        standardCategories.add(categoryRepository.getSeasonalRecipesCategory());
+        standardCategories.add(categoryRepository.getFavoritesCategory());
 
         preferredCategoryPreference.setEntries(standardCategories.stream().map(Category::getName).toArray(CharSequence[]::new));
         preferredCategoryPreference.setEntryValues(standardCategories.stream().map(Category::getCategoryId).map(String::valueOf).toArray(CharSequence[]::new));

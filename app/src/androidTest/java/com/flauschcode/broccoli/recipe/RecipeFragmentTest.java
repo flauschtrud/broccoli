@@ -72,10 +72,10 @@ public class RecipeFragmentTest {
         component.inject(this);
         component.inject(getApplication());
 
-        when(recipeRepository.getCategoryAll()).thenReturn(CATEGORY_ALL);
-        when(recipeRepository.getCategoryFavorites()).thenReturn(CATEGORY_FAVORITES);
-        when(recipeRepository.getCategoryUnassigned()).thenReturn(CATEGORY_UNASSIGNED);
-        when(recipeRepository.getCategorySeasonal()).thenReturn(CATEGORY_SEASONAL);
+        when(categoryRepository.getAllRecipesCategory()).thenReturn(CATEGORY_ALL);
+        when(categoryRepository.getFavoritesCategory()).thenReturn(CATEGORY_FAVORITES);
+        when(categoryRepository.getUnassignedRecipesCategory()).thenReturn(CATEGORY_UNASSIGNED);
+        when(categoryRepository.getSeasonalRecipesCategory()).thenReturn(CATEGORY_SEASONAL);
 
         List<Recipe> recipes = new ArrayList<>();
         recipes.add(lauchkuchen);

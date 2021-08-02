@@ -21,12 +21,10 @@ public class RecipeViewModel extends ViewModel {
     private final MutableLiveData<RecipeRepository.SearchCriteria> criteriaLiveData = new MutableLiveData<>();
     private final MutableLiveData<String> filterName = new MutableLiveData<>();
 
-    private final RecipeRepository recipeRepository;
     private final CategoryRepository categoryRepository;
 
     @Inject
     RecipeViewModel(RecipeRepository recipeRepository, CategoryRepository categoryRepository) {
-        this.recipeRepository = recipeRepository;
         this.categoryRepository = categoryRepository;
 
         criteriaLiveData.setValue(createDefaultSearchCriteria());
@@ -71,23 +69,23 @@ public class RecipeViewModel extends ViewModel {
     }
 
     public Category getCategoryAll() {
-        return recipeRepository.getCategoryAll();
+        return categoryRepository.getAllRecipesCategory();
     }
 
     public Category getCategoryFavorites() {
-        return recipeRepository.getCategoryFavorites();
+        return categoryRepository.getFavoritesCategory();
     }
 
     public Category getCategoryUnassigned() {
-        return recipeRepository.getCategoryUnassigned();
+        return categoryRepository.getUnassignedRecipesCategory();
     }
 
     public Category getCategorySeasonal() {
-        return recipeRepository.getCategorySeasonal();
+        return categoryRepository.getSeasonalRecipesCategory();
     }
 
     private RecipeRepository.SearchCriteria createDefaultSearchCriteria() {
-        return new RecipeRepository.SearchCriteria(recipeRepository.getCategoryAll(), "", new ArrayList<>());
+        return new RecipeRepository.SearchCriteria(categoryRepository.getAllRecipesCategory(), "", new ArrayList<>());
     }
 
 }

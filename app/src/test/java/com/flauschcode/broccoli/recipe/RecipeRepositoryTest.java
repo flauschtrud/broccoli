@@ -9,11 +9,13 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import android.app.Application;
+import android.icu.util.ULocale;
 
 import androidx.lifecycle.LiveData;
 
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.category.Category;
+import com.flauschcode.broccoli.category.CategoryRepository;
 import com.flauschcode.broccoli.recipe.images.RecipeImageService;
 import com.flauschcode.broccoli.seasons.SeasonalCalendar;
 import com.flauschcode.broccoli.seasons.SeasonalCalendarHolder;
@@ -22,6 +24,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
@@ -37,9 +40,6 @@ import java.util.concurrent.ExecutionException;
 public class RecipeRepositoryTest {
 
     @Mock
-    private Application application;
-
-    @Mock
     private RecipeDAO recipeDAO;
 
     @Mock
@@ -52,8 +52,12 @@ public class RecipeRepositoryTest {
     private SeasonalCalendar seasonalCalendar;
 
     @Mock
+    private CategoryRepository categoryRepository;
+
+    @Mock
     private LiveData<List<Recipe>> recipes;
 
+    @InjectMocks
     private RecipeRepository recipeRepository;
 
     private final ArgumentCaptor<RecipeCategoryAssociation> associationCaptor = ArgumentCaptor.forClass(RecipeCategoryAssociation.class);
@@ -72,12 +76,10 @@ public class RecipeRepositoryTest {
 
     @Before
     public void setUp() {
-        when(application.getString(R.string.all_recipes)).thenReturn("All recipes");
-        when(application.getString(R.string.favorites)).thenReturn("Favorites");
-        when(application.getString(R.string.unassigned)).thenReturn("Unassigned recipes");
-        when(application.getString(R.string.seasonal_recipes)).thenReturn("Seasonal recipes");
-
-        recipeRepository = new RecipeRepository(application, recipeDAO, recipeImageService, seasonalCalendarHolder);
+        when(categoryRepository.getAllRecipesCategory()).thenReturn(CATEGORY_ALL);
+        when(categoryRepository.getFavoritesCategory()).thenReturn(CATEGORY_FAVORITES);
+        when(categoryRepository.getUnassignedRecipesCategory()).thenReturn(CATEGORY_UNASSIGNED);
+        when(categoryRepository.getSeasonalRecipesCategory()).thenReturn(CATEGORY_SEASONAL);
 
         criteria = new RecipeRepository.SearchCriteria(CATEGORY_ALL, "", new ArrayList<>());
     }

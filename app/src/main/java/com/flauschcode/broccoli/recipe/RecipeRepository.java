@@ -1,12 +1,10 @@
 package com.flauschcode.broccoli.recipe;
 
-import android.app.Application;
-
 import androidx.lifecycle.LiveData;
 import androidx.room.Transaction;
 
-import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.category.Category;
+import com.flauschcode.broccoli.category.CategoryRepository;
 import com.flauschcode.broccoli.recipe.images.RecipeImageService;
 import com.flauschcode.broccoli.seasons.SeasonalCalendar;
 import com.flauschcode.broccoli.seasons.SeasonalCalendarHolder;
@@ -27,26 +25,18 @@ public class RecipeRepository {
     private final RecipeDAO recipeDAO;
     private final RecipeImageService recipeImageService;
     private final SeasonalCalendarHolder seasonalCalendarHolder;
-
-    private final Category categoryAll;
-    private final Category categoryFavorites;
-    private final Category categoryUnassigned;
-    private final Category categorySeasonal;
+    private final CategoryRepository categoryRepository;
 
     public enum InsertionType {
         INSERT, UPDATE
     }
 
     @Inject
-    RecipeRepository(Application application, RecipeDAO recipeDAO, RecipeImageService recipeImageService, SeasonalCalendarHolder seasonalCalendarHolder) {
+    RecipeRepository(RecipeDAO recipeDAO, RecipeImageService recipeImageService, SeasonalCalendarHolder seasonalCalendarHolder, CategoryRepository categoryRepository) {
         this.recipeDAO = recipeDAO;
         this.recipeImageService = recipeImageService;
         this.seasonalCalendarHolder = seasonalCalendarHolder;
-
-        categoryAll = new Category(-1, application.getString(R.string.all_recipes));
-        categoryFavorites = new Category(-2, application.getString(R.string.favorites));
-        categoryUnassigned = new Category(-3, application.getString(R.string.unassigned) );
-        categorySeasonal = new Category(-4, application.getString(R.string.seasonal_recipes));
+        this.categoryRepository = categoryRepository;
     }
 
     public LiveData<List<Recipe>> find(SearchCriteria criteria) {
@@ -59,16 +49,16 @@ public class RecipeRepository {
             return "".equals(searchTerm)? recipeDAO.findSeasonal(seasonalTerm) : recipeDAO.searchForSeasonal(seasonalTerm, wildcardQuery);
         }
 
-        if (category.equals(getCategoryAll()) || category.equals(getCategoryFavorites())) {
+        if (category.equals(categoryRepository.getAllRecipesCategory()) || category.equals(categoryRepository.getFavoritesCategory())) {
             List<Boolean> favoriteStates = getChosenFavoriteStates(category);
             return "".equals(searchTerm)? findAll(favoriteStates) : searchFor(searchTerm, favoriteStates);
         }
 
-        if (category.equals(getCategoryUnassigned())) {
+        if (category.equals(categoryRepository.getUnassignedRecipesCategory())) {
             return "".equals(searchTerm)? findUnassigned() : searchForUnassigned(searchTerm);
         }
 
-        if (category.equals(getCategorySeasonal())) {
+        if (category.equals(categoryRepository.getSeasonalRecipesCategory())) {
             return "".equals(searchTerm)? findSeasonal() : searchForSeasonal(searchTerm);
         }
 
@@ -129,7 +119,7 @@ public class RecipeRepository {
     private List<Boolean> getChosenFavoriteStates(Category category) {
         List<Boolean> favoriteStates = new ArrayList<>();
         favoriteStates.add(Boolean.TRUE);
-        if (!category.equals(getCategoryFavorites())) {
+        if (!category.equals(categoryRepository.getFavoritesCategory())) {
             favoriteStates.add(Boolean.FALSE);
         }
         return favoriteStates;
@@ -161,22 +151,6 @@ public class RecipeRepository {
 
     public CompletableFuture<List<Recipe>> findAll() {
         return CompletableFuture.supplyAsync(recipeDAO::findAll);
-    }
-
-    public Category getCategoryAll() {
-        return categoryAll;
-    }
-
-    public Category getCategoryFavorites() {
-        return categoryFavorites;
-    }
-
-    public Category getCategoryUnassigned() {
-        return categoryUnassigned;
-    }
-
-    public Category getCategorySeasonal() {
-        return categorySeasonal;
     }
 
     public static class SearchCriteria {

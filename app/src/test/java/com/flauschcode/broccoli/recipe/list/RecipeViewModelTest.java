@@ -50,7 +50,7 @@ public class RecipeViewModelTest {
 
     @Before
     public void setUp() {
-        when(recipeRepository.getCategoryAll()).thenReturn(CATEGORY_ALL);
+        when(categoryRepository.getAllRecipesCategory()).thenReturn(CATEGORY_ALL);
         recipeViewModel = new RecipeViewModel(recipeRepository, categoryRepository);
     }
 
