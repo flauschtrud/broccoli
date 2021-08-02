@@ -54,6 +54,10 @@ public class FilteringAndSearchingIntegrationTest {
 
     private ActivityScenario<MainActivity> scenario;
 
+    private final Category CATEGORY_ALL = new Category(-1, "All recipes");
+    private final Category CATEGORY_FAVORITES = new Category(-2, "Favorites");
+    private final Category CATEGORY_UNASSIGNED = new Category(-3, "Unassigned recipes");
+
     @Before
     public void setUp() {
         AccessibilityChecks.enable();
@@ -122,18 +126,18 @@ public class FilteringAndSearchingIntegrationTest {
 
         // check all recipes
         onView(withId(R.id.spinner)).perform(click());
-        onData(allOf(is(instanceOf(Category.class)), is(Category.ALL))).perform(click());
+        onData(allOf(is(instanceOf(Category.class)), is(CATEGORY_ALL))).perform(click());
         onView(withId(R.id.recycler_view)).check(RecyclerViewAssertions.hasItemsCount(2));
 
         // check unassigned recipes
         onView(withId(R.id.spinner)).perform(click());
-        onData(allOf(is(instanceOf(Category.class)), is(Category.UNASSIGNED))).perform(click());
+        onData(allOf(is(instanceOf(Category.class)), is(CATEGORY_UNASSIGNED))).perform(click());
         onView(withId(R.id.recycler_view)).check(RecyclerViewAssertions.hasItemsCount(1));
         onView(RecyclerViewMatcher.withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_title)).check(matches(withText("Tofucurry")));
 
         // check favorite recipes
         onView(withId(R.id.spinner)).perform(click());
-        onData(allOf(is(instanceOf(Category.class)), is(Category.FAVORITES))).perform(click());
+        onData(allOf(is(instanceOf(Category.class)), is(CATEGORY_FAVORITES))).perform(click());
         onView(withId(R.id.recycler_view)).check(RecyclerViewAssertions.hasItemsCount(1));
         onView(RecyclerViewMatcher.withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_title)).check(matches(withText("Tofucurry")));
 
@@ -153,7 +157,7 @@ public class FilteringAndSearchingIntegrationTest {
 
         // delete recipes
         onView(withId(R.id.spinner)).perform(click());
-        onData(allOf(is(instanceOf(Category.class)), is(Category.ALL))).perform(click());
+        onData(allOf(is(instanceOf(Category.class)), is(CATEGORY_ALL))).perform(click());
 
         onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(0, click()));
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());

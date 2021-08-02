@@ -1,33 +1,5 @@
 package com.flauschcode.broccoli.recipe;
 
-import android.os.Bundle;
-
-import androidx.lifecycle.MutableLiveData;
-import androidx.test.espresso.accessibility.AccessibilityChecks;
-import androidx.test.espresso.intent.Intents;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.platform.app.InstrumentationRegistry;
-
-import com.flauschcode.broccoli.BroccoliApplication;
-import com.flauschcode.broccoli.DaggerMockApplicationComponent;
-import com.flauschcode.broccoli.MockApplicationComponent;
-import com.flauschcode.broccoli.R;
-import com.flauschcode.broccoli.category.CategoryRepository;
-import com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity;
-import com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity;
-import com.flauschcode.broccoli.recipe.list.RecipeFragment;
-import com.flauschcode.broccoli.util.RecipeTestUtil;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.inject.Inject;
-
 import static androidx.fragment.app.testing.FragmentScenario.launchInContainer;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -44,6 +16,35 @@ import static org.hamcrest.Matchers.allOf;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 
+import android.os.Bundle;
+
+import androidx.lifecycle.MutableLiveData;
+import androidx.test.espresso.accessibility.AccessibilityChecks;
+import androidx.test.espresso.intent.Intents;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
+
+import com.flauschcode.broccoli.BroccoliApplication;
+import com.flauschcode.broccoli.DaggerMockApplicationComponent;
+import com.flauschcode.broccoli.MockApplicationComponent;
+import com.flauschcode.broccoli.R;
+import com.flauschcode.broccoli.category.Category;
+import com.flauschcode.broccoli.category.CategoryRepository;
+import com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity;
+import com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity;
+import com.flauschcode.broccoli.recipe.list.RecipeFragment;
+import com.flauschcode.broccoli.util.RecipeTestUtil;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
+
 @RunWith(AndroidJUnit4.class)
 public class RecipeFragmentTest {
 
@@ -56,6 +57,11 @@ public class RecipeFragmentTest {
     private final Recipe lauchkuchen = RecipeTestUtil.createLauchkuchen();
     private final Recipe nusskuchen = RecipeTestUtil.createNusskuchen();
 
+    private final Category CATEGORY_ALL = new Category(-1, "All recipes");
+    private final Category CATEGORY_FAVORITES = new Category(-2, "Favorites");
+    private final Category CATEGORY_UNASSIGNED = new Category(-3, "Unassigned recipes");
+    private final Category CATEGORY_SEASONAL = new Category(-4, "Seasonal recipes");
+
     @Before
     public void setUp() {
         AccessibilityChecks.enable();
@@ -65,6 +71,11 @@ public class RecipeFragmentTest {
                 .build();
         component.inject(this);
         component.inject(getApplication());
+
+        when(recipeRepository.getCategoryAll()).thenReturn(CATEGORY_ALL);
+        when(recipeRepository.getCategoryFavorites()).thenReturn(CATEGORY_FAVORITES);
+        when(recipeRepository.getCategoryUnassigned()).thenReturn(CATEGORY_UNASSIGNED);
+        when(recipeRepository.getCategorySeasonal()).thenReturn(CATEGORY_SEASONAL);
 
         List<Recipe> recipes = new ArrayList<>();
         recipes.add(lauchkuchen);

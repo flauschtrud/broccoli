@@ -1,18 +1,28 @@
 package com.flauschcode.broccoli.recipe.ingredients;
 
-import com.flauschcode.broccoli.BroccoliApplication;
+import android.app.Application;
+
 import com.flauschcode.broccoli.R;
 
 import java.text.DecimalFormat;
 import java.text.Normalizer;
 
-public class ScaledQuantity {
+import javax.inject.Inject;
+import javax.inject.Singleton;
 
-    private ScaledQuantity() {}
+@Singleton
+public class ScaledQuantityBuilder {
+
+    private final Application application;
+
+    @Inject
+    public ScaledQuantityBuilder(Application application) {
+        this.application = application;
+    }
 
     private static final DecimalFormat decimalFormat = new DecimalFormat("0.##");
 
-    public static String from(String quantity, float scaleFactor) {
+    public String from(String quantity, float scaleFactor) {
         try {
             if (isRange(quantity)) {
                 String[] ranges = quantity.replace(" ", "").split("-");
@@ -27,7 +37,7 @@ public class ScaledQuantity {
         }
     }
 
-    private static String scale(String quantity, float scaleFactor) {
+    private String scale(String quantity, float scaleFactor) {
         if (isFraction(quantity)) {
             return scaleFraction(quantity, scaleFactor);
         }
@@ -40,26 +50,26 @@ public class ScaledQuantity {
         return prettyPrint(q * scaleFactor);
     }
 
-    private static boolean isRange(String quantity) {
+    private boolean isRange(String quantity) {
         return quantity.contains("-");
     }
 
-    private static boolean isFraction(String quantity) {
+    private boolean isFraction(String quantity) {
         return quantity.contains("/");
     }
 
-    private static String scaleFraction(String quantity, float scaleFactor) {
+    private String scaleFraction(String quantity, float scaleFactor) {
         String[] rat = quantity.split("/");
         float f = Float.parseFloat(rat[0]) / Float.parseFloat(rat[1]);
         return prettyPrint(f * scaleFactor);
     }
 
     // https://stackoverflow.com/a/26039424/5369519
-    private static boolean isVulgarFraction(String quantity) {
+    private boolean isVulgarFraction(String quantity) {
         return quantity.matches("[¼½¾⅐⅑⅒⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]");
     }
 
-    private static String scaleVulgarFraction(String quantity, float scaleFactor) {
+    private String scaleVulgarFraction(String quantity, float scaleFactor) {
         String[] fraction = Normalizer.normalize(quantity, Normalizer.Form.NFKD).split("\u2044");
         if (fraction.length == 2) {
             float f = (float) Integer.parseInt(fraction[0]) / Integer.parseInt(fraction[1]);
@@ -68,13 +78,13 @@ public class ScaledQuantity {
         throw new NumberFormatException();
     }
 
-    private static String prettyPrint(float f) {
+    private String prettyPrint(float f) {
         int i = (int) f;
         return f == i ? String.valueOf(i) : decimalFormat.format(f);
     }
 
-    private static String getNotScaledString() {
-        return BroccoliApplication.getContext() != null? BroccoliApplication.getContext().getString(R.string.unscaled) : "not scaled";
+    private String getNotScaledString() {
+        return application.getString(R.string.unscaled);
     }
 
 }

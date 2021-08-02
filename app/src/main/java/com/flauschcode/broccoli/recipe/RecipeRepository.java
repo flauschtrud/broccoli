@@ -1,8 +1,11 @@
 package com.flauschcode.broccoli.recipe;
 
+import android.app.Application;
+
 import androidx.lifecycle.LiveData;
 import androidx.room.Transaction;
 
+import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.recipe.images.RecipeImageService;
 import com.flauschcode.broccoli.seasons.SeasonalCalendar;
@@ -21,19 +24,29 @@ import javax.inject.Singleton;
 @Singleton
 public class RecipeRepository {
 
-    private RecipeDAO recipeDAO;
-    private RecipeImageService recipeImageService;
-    private SeasonalCalendarHolder seasonalCalendarHolder;
+    private final RecipeDAO recipeDAO;
+    private final RecipeImageService recipeImageService;
+    private final SeasonalCalendarHolder seasonalCalendarHolder;
+
+    private final Category categoryAll;
+    private final Category categoryFavorites;
+    private final Category categoryUnassigned;
+    private final Category categorySeasonal;
 
     public enum InsertionType {
         INSERT, UPDATE
     }
 
     @Inject
-    RecipeRepository(RecipeDAO recipeDAO, RecipeImageService recipeImageService, SeasonalCalendarHolder seasonalCalendarHolder) {
+    RecipeRepository(Application application, RecipeDAO recipeDAO, RecipeImageService recipeImageService, SeasonalCalendarHolder seasonalCalendarHolder) {
         this.recipeDAO = recipeDAO;
         this.recipeImageService = recipeImageService;
         this.seasonalCalendarHolder = seasonalCalendarHolder;
+
+        categoryAll = new Category(-1, application.getString(R.string.all_recipes));
+        categoryFavorites = new Category(-2, application.getString(R.string.favorites));
+        categoryUnassigned = new Category(-3, application.getString(R.string.unassigned) );
+        categorySeasonal = new Category(-4, application.getString(R.string.seasonal_recipes));
     }
 
     public LiveData<List<Recipe>> find(SearchCriteria criteria) {
@@ -46,16 +59,16 @@ public class RecipeRepository {
             return "".equals(searchTerm)? recipeDAO.findSeasonal(seasonalTerm) : recipeDAO.searchForSeasonal(seasonalTerm, wildcardQuery);
         }
 
-        if (category == Category.ALL || category == Category.FAVORITES) {
+        if (category.equals(getCategoryAll()) || category.equals(getCategoryFavorites())) {
             List<Boolean> favoriteStates = getChosenFavoriteStates(category);
             return "".equals(searchTerm)? findAll(favoriteStates) : searchFor(searchTerm, favoriteStates);
         }
 
-        if (category == Category.UNASSIGNED) {
+        if (category.equals(getCategoryUnassigned())) {
             return "".equals(searchTerm)? findUnassigned() : searchForUnassigned(searchTerm);
         }
 
-        if (category == Category.SEASONAL) {
+        if (category.equals(getCategorySeasonal())) {
             return "".equals(searchTerm)? findSeasonal() : searchForSeasonal(searchTerm);
         }
 
@@ -116,7 +129,7 @@ public class RecipeRepository {
     private List<Boolean> getChosenFavoriteStates(Category category) {
         List<Boolean> favoriteStates = new ArrayList<>();
         favoriteStates.add(Boolean.TRUE);
-        if (category != Category.FAVORITES) {
+        if (!category.equals(getCategoryFavorites())) {
             favoriteStates.add(Boolean.FALSE);
         }
         return favoriteStates;
@@ -132,7 +145,7 @@ public class RecipeRepository {
             } else {
                 recipeDAO.update(recipe.getCoreRecipe());
                 List<RecipeCategoryAssociation> recipeCategoryAssociations = recipeDAO.getCategoriesFor(recipe.getRecipeId());
-                recipeCategoryAssociations.forEach(recipeCategoryAssociation -> recipeDAO.delete(recipeCategoryAssociation));
+                recipeCategoryAssociations.forEach(recipeDAO::delete);
                 recipe.getCategories().forEach(category -> recipeDAO.insert(new RecipeCategoryAssociation(recipe.getRecipeId(), category.getCategoryId())));
                 return InsertionType.UPDATE;
             }
@@ -147,38 +160,59 @@ public class RecipeRepository {
     }
 
     public CompletableFuture<List<Recipe>> findAll() {
-        return CompletableFuture.supplyAsync(() -> recipeDAO.findAll());
+        return CompletableFuture.supplyAsync(recipeDAO::findAll);
+    }
+
+    public Category getCategoryAll() {
+        return categoryAll;
+    }
+
+    public Category getCategoryFavorites() {
+        return categoryFavorites;
+    }
+
+    public Category getCategoryUnassigned() {
+        return categoryUnassigned;
+    }
+
+    public Category getCategorySeasonal() {
+        return categorySeasonal;
     }
 
     public static class SearchCriteria {
-        private Category category = Category.ALL;
-        private String searchTerm = "";
-        private List<String> seasonalTerms = new ArrayList<>();
+        private Category category;
+        private String searchTerm;
+        private List<String> seasonalTerms;
+
+        public SearchCriteria(Category category, String searchTerm, List<String> seasonalTerms) {
+            this.category = category;
+            this.searchTerm = searchTerm;
+            this.seasonalTerms = seasonalTerms;
+        }
 
         public Category getCategory() {
             return category;
-        }
-
-        public void setCategory(Category category) {
-            this.category = category;
         }
 
         public String getSearchTerm() {
             return searchTerm;
         }
 
-        public void setSearchTerm(String searchTerm) {
-            this.searchTerm = searchTerm;
-        }
-
         public List<String> getSeasonalTerms() {
             return seasonalTerms;
+        }
+
+        public void setCategory(Category category) {
+            this.category = category;
+        }
+
+        public void setSearchTerm(String searchTerm) {
+            this.searchTerm = searchTerm;
         }
 
         public void setSeasonalTerms(List<String> seasonalTerms) {
             this.seasonalTerms = seasonalTerms;
         }
-
     }
 
 }

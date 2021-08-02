@@ -1,5 +1,9 @@
 package com.flauschcode.broccoli.recipe.list;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Mockito.when;
+
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
@@ -8,21 +12,16 @@ import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.category.CategoryRepository;
 import com.flauschcode.broccoli.recipe.Recipe;
 import com.flauschcode.broccoli.recipe.RecipeRepository;
-import com.flauschcode.broccoli.recipe.list.RecipeViewModel;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class RecipeViewModelTest {
@@ -42,11 +41,18 @@ public class RecipeViewModelTest {
     @Mock
     private LiveData<List<Recipe>> recipes;
 
-    @InjectMocks
     private RecipeViewModel recipeViewModel;
 
     private ArgumentCaptor<RecipeRepository.SearchCriteria> criteriaArgumentCaptor = ArgumentCaptor.forClass(RecipeRepository.SearchCriteria.class);
     private Observer<List<Recipe>> observer = recipes -> {};
+
+    private final Category CATEGORY_ALL = new Category(-1, "All recipes");
+
+    @Before
+    public void setUp() {
+        when(recipeRepository.getCategoryAll()).thenReturn(CATEGORY_ALL);
+        recipeViewModel = new RecipeViewModel(recipeRepository, categoryRepository);
+    }
 
     @Test
     public void test_get_recipes_for_criteria() {
@@ -54,7 +60,7 @@ public class RecipeViewModelTest {
 
         try {
             Category filter = new Category(5L, "Bla");
-            recipeViewModel.setFilter(filter);
+            recipeViewModel.setFilterCategory(filter);
             recipeViewModel.setSearchTerm("blupp");
 
             recipeViewModel.getRecipes().observeForever(observer);
@@ -76,7 +82,7 @@ public class RecipeViewModelTest {
             recipeViewModel.getRecipes().observeForever(observer);
 
             RecipeRepository.SearchCriteria criteria = criteriaArgumentCaptor.getValue();
-            assertThat(criteria.getCategory(), is(Category.ALL));
+            assertThat(criteria.getCategory(), is(CATEGORY_ALL));
             assertThat(criteria.getSearchTerm(), is(""));
             assertThat(recipeViewModel.getRecipes().getValue(), is(recipes.getValue()));
         } finally {

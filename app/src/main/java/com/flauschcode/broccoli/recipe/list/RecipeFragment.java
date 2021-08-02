@@ -174,7 +174,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Category category = (Category) parent.getItemAtPosition(position);
-        viewModel.setFilter(category);
+        viewModel.setFilterCategory(category);
         viewModel.setFilterName(category.getName());
     }
 
@@ -212,8 +212,9 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
 
     private void resetCategory() {
         spinner.setSelection(0);
-        viewModel.setFilter(Category.ALL);
-        viewModel.setFilterName(Category.ALL.getName());
+        Category categoryAll = viewModel.getCategoryAll();
+        viewModel.setFilterCategory(categoryAll);
+        viewModel.setFilterName(categoryAll.getName());
     }
 
     private void resetCategoryAndArguments() {
@@ -236,10 +237,10 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
 
     private void setUpSpinner() {
         ArrayAdapter<Category> arrayAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item);
-        arrayAdapter.add(Category.ALL);
-        arrayAdapter.add(Category.SEASONAL);
-        arrayAdapter.add(Category.UNASSIGNED);
-        arrayAdapter.add(Category.FAVORITES);
+        arrayAdapter.add(viewModel.getCategoryAll());
+        arrayAdapter.add(viewModel.getCategorySeasonal());
+        arrayAdapter.add(viewModel.getCategoryUnassigned());
+        arrayAdapter.add(viewModel.getCategoryFavorites());
         viewModel.getCategories().observe(getViewLifecycleOwner(), categories -> categories.forEach(arrayAdapter::add));
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -257,11 +258,11 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         String preferredCategoryId = sharedPreferences.getString("preferred-category", "-1");
         switch (preferredCategoryId)  {
             case "-2":
-                return Category.FAVORITES;
+                return viewModel.getCategoryFavorites();
             case "-4":
-                return Category.SEASONAL;
+                return viewModel.getCategorySeasonal();
             default:
-                return Category.ALL;
+                return viewModel.getCategoryAll();
         }
     }
 

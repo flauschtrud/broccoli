@@ -1,7 +1,18 @@
 package com.flauschcode.broccoli.recipe;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.hamcrest.core.IsIterableContaining.hasItem;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import android.app.Application;
+
 import androidx.lifecycle.LiveData;
 
+import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.recipe.images.RecipeImageService;
 import com.flauschcode.broccoli.seasons.SeasonalCalendar;
@@ -22,16 +33,11 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
-import static org.hamcrest.core.IsIterableContaining.hasItem;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
 @RunWith(MockitoJUnitRunner.class)
 public class RecipeRepositoryTest {
+
+    @Mock
+    private Application application;
 
     @Mock
     private RecipeDAO recipeDAO;
@@ -50,19 +56,30 @@ public class RecipeRepositoryTest {
 
     private RecipeRepository recipeRepository;
 
-    private ArgumentCaptor<RecipeCategoryAssociation> associationCaptor = ArgumentCaptor.forClass(RecipeCategoryAssociation.class);
-    private ArgumentCaptor<List<Boolean>> favoriteStatesCaptor = ArgumentCaptor.forClass(List.class);
+    private final ArgumentCaptor<RecipeCategoryAssociation> associationCaptor = ArgumentCaptor.forClass(RecipeCategoryAssociation.class);
+    private final ArgumentCaptor<List<Boolean>> favoriteStatesCaptor = ArgumentCaptor.forClass(List.class);
     private RecipeRepository.SearchCriteria criteria;
 
-    private static Category newCategory = new Category("neu");
+    private final Category CATEGORY_ALL = new Category(-1, "All recipes");
+    private final Category CATEGORY_FAVORITES = new Category(-2, "Favorites");
+    private final Category CATEGORY_UNASSIGNED = new Category(-3, "Unassigned recipes");
+    private final Category CATEGORY_SEASONAL = new Category(-4, "Seasonal recipes");
+
+    private static final Category newCategory = new Category("neu");
     static {
         newCategory.setCategoryId(5L);
     }
 
     @Before
     public void setUp() {
-        recipeRepository = new RecipeRepository(recipeDAO, recipeImageService, seasonalCalendarHolder);
-        criteria = new RecipeRepository.SearchCriteria();
+        when(application.getString(R.string.all_recipes)).thenReturn("All recipes");
+        when(application.getString(R.string.favorites)).thenReturn("Favorites");
+        when(application.getString(R.string.unassigned)).thenReturn("Unassigned recipes");
+        when(application.getString(R.string.seasonal_recipes)).thenReturn("Seasonal recipes");
+
+        recipeRepository = new RecipeRepository(application, recipeDAO, recipeImageService, seasonalCalendarHolder);
+
+        criteria = new RecipeRepository.SearchCriteria(CATEGORY_ALL, "", new ArrayList<>());
     }
 
     @Test
@@ -82,7 +99,7 @@ public class RecipeRepositoryTest {
     public void find_all_favorites() {
         when(recipeDAO.findAll(favoriteStatesCaptor.capture())).thenReturn(recipes);
 
-        criteria.setCategory(Category.FAVORITES);
+        criteria.setCategory(CATEGORY_FAVORITES);
         LiveData<List<Recipe>> result = recipeRepository.find(criteria);
 
         List<Boolean> favoriteStates = favoriteStatesCaptor.getValue();
@@ -95,7 +112,7 @@ public class RecipeRepositoryTest {
     public void find_all_unassigned() {
         when(recipeDAO.findUnassigned()).thenReturn(recipes);
 
-        criteria.setCategory(Category.UNASSIGNED);
+        criteria.setCategory(CATEGORY_UNASSIGNED);
 
         LiveData<List<Recipe>> result = recipeRepository.find(criteria);
         assertThat(result, is(recipes));
@@ -131,7 +148,7 @@ public class RecipeRepositoryTest {
         when(recipeDAO.searchFor(eq("bla*"), favoriteStatesCaptor.capture())).thenReturn(recipes);
 
         criteria.setSearchTerm("bla");
-        criteria.setCategory(Category.FAVORITES);
+        criteria.setCategory(CATEGORY_FAVORITES);
 
         LiveData<List<Recipe>> result = recipeRepository.find(criteria);
 
@@ -156,7 +173,7 @@ public class RecipeRepositoryTest {
     public void search_for_unassigned() {
         when(recipeDAO.searchForUnassigned("bla*")).thenReturn(recipes);
 
-        criteria.setCategory(Category.UNASSIGNED);
+        criteria.setCategory(CATEGORY_UNASSIGNED);
         criteria.setSearchTerm("bla");
 
         LiveData<List<Recipe>> result = recipeRepository.find(criteria);
@@ -165,14 +182,14 @@ public class RecipeRepositoryTest {
 
     @Test
     public void find_seasonal_recipes() {
-        when(recipeDAO.findSeasonal(eq("\"apples\" OR \"leek\""))).thenReturn(recipes);
+        when(recipeDAO.findSeasonal("\"apples\" OR \"leek\"")).thenReturn(recipes);
         when(seasonalCalendarHolder.get()).thenReturn(Optional.of(seasonalCalendar));
-        Set<String> searchTerms = new HashSet<String>();
+        Set<String> searchTerms = new HashSet<>();
         searchTerms.add("apples");
         searchTerms.add("leek");
         when(seasonalCalendar.getSearchTermsForCurrentMonth()).thenReturn(searchTerms);
 
-        criteria.setCategory(Category.SEASONAL);
+        criteria.setCategory(CATEGORY_SEASONAL);
         criteria.setSearchTerm("");
 
         LiveData<List<Recipe>> result = recipeRepository.find(criteria);
@@ -182,14 +199,14 @@ public class RecipeRepositoryTest {
 
     @Test
     public void find_and_search_for_seasonal_recipes() {
-        when(recipeDAO.searchForSeasonal(eq("\"apples\" OR \"leek\""), eq("bla*"))).thenReturn(recipes);
+        when(recipeDAO.searchForSeasonal("\"apples\" OR \"leek\"", "bla*")).thenReturn(recipes);
         when(seasonalCalendarHolder.get()).thenReturn(Optional.of(seasonalCalendar));
-        Set<String> searchTerms = new HashSet<String>();
+        Set<String> searchTerms = new HashSet<>();
         searchTerms.add("apples");
         searchTerms.add("leek");
         when(seasonalCalendar.getSearchTermsForCurrentMonth()).thenReturn(searchTerms);
 
-        criteria.setCategory(Category.SEASONAL);
+        criteria.setCategory(CATEGORY_SEASONAL);
         criteria.setSearchTerm("bla");
 
         LiveData<List<Recipe>> result = recipeRepository.find(criteria);

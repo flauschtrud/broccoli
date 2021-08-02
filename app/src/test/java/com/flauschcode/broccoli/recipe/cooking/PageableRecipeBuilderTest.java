@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.recipe.Recipe;
+import com.flauschcode.broccoli.recipe.ingredients.ScaledQuantityBuilder;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -21,6 +22,9 @@ public class PageableRecipeBuilderTest {
 
     @Mock
     private Application application;
+
+    @Mock
+    private ScaledQuantityBuilder scaledQuantityBuilder;
 
     @InjectMocks
     private PageableRecipeBuilder pageableRecipeBuilder;
@@ -53,6 +57,10 @@ public class PageableRecipeBuilderTest {
         recipe.setTitle("Lauchkuchen");
         recipe.setIngredients("- 500g Mehl\n - ½TL Salz\n  - je 1TL Gewürz");
         recipe.setDirections(" 1. Erst dies. \n 2. Dann das. ");
+
+        when(scaledQuantityBuilder.from("500", 2f)).thenReturn("1000");
+        when(scaledQuantityBuilder.from("½", 2f)).thenReturn("1");
+        when(scaledQuantityBuilder.from("", 2f)).thenReturn("(not scaled) ");
 
         PageableRecipe pageableRecipe = pageableRecipeBuilder.scale(2f).from(recipe);
 

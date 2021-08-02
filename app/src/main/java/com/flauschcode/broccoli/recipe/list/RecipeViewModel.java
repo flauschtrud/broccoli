@@ -10,24 +10,29 @@ import com.flauschcode.broccoli.category.CategoryRepository;
 import com.flauschcode.broccoli.recipe.Recipe;
 import com.flauschcode.broccoli.recipe.RecipeRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 
 public class RecipeViewModel extends ViewModel {
 
-    private LiveData<List<Recipe>> recipes;
-    private MutableLiveData<RecipeRepository.SearchCriteria> criteriaLiveData = new MutableLiveData<>();
-    private MutableLiveData<String> filterName = new MutableLiveData<>();
+    private final LiveData<List<Recipe>> recipes;
+    private final MutableLiveData<RecipeRepository.SearchCriteria> criteriaLiveData = new MutableLiveData<>();
+    private final MutableLiveData<String> filterName = new MutableLiveData<>();
 
-    private CategoryRepository categoryRepository;
+    private final RecipeRepository recipeRepository;
+    private final CategoryRepository categoryRepository;
 
     @Inject
     RecipeViewModel(RecipeRepository recipeRepository, CategoryRepository categoryRepository) {
-        criteriaLiveData.setValue(new RecipeRepository.SearchCriteria());
-        filterName.setValue("");
-        recipes = Transformations.switchMap(criteriaLiveData, recipeRepository::find);
+        this.recipeRepository = recipeRepository;
         this.categoryRepository = categoryRepository;
+
+        criteriaLiveData.setValue(createDefaultSearchCriteria());
+        filterName.setValue("");
+
+        recipes = Transformations.switchMap(criteriaLiveData, recipeRepository::find);
     }
 
     LiveData<List<Category>> getCategories() {
@@ -36,25 +41,25 @@ public class RecipeViewModel extends ViewModel {
 
     LiveData<List<Recipe>> getRecipes() { return recipes; }
 
-    void setFilter(Category category) {
-        RecipeRepository.SearchCriteria newFilter = new RecipeRepository.SearchCriteria();
-        newFilter.setCategory(category);
-        newFilter.setSearchTerm(criteriaLiveData.getValue().getSearchTerm());
-        this.criteriaLiveData.setValue(newFilter);
+    void setFilterCategory(Category filterCategory) {
+        RecipeRepository.SearchCriteria searchCriteria = criteriaLiveData.getValue();
+        searchCriteria.setCategory(filterCategory);
+
+        this.criteriaLiveData.setValue(searchCriteria);
     }
 
     void setSearchTerm(String searchTerm) {
-        RecipeRepository.SearchCriteria newFilter = new RecipeRepository.SearchCriteria();
-        newFilter.setCategory(criteriaLiveData.getValue().getCategory());
-        newFilter.setSeasonalTerms(criteriaLiveData.getValue().getSeasonalTerms());
-        newFilter.setSearchTerm(searchTerm);
-        this.criteriaLiveData.setValue(newFilter);
+        RecipeRepository.SearchCriteria searchCriteria = criteriaLiveData.getValue();
+        searchCriteria.setSearchTerm(searchTerm);
+
+        this.criteriaLiveData.setValue(searchCriteria);
     }
 
     void setSeasonalTerms(List<String> seasonalTerms) {
-        RecipeRepository.SearchCriteria newFilter = new RecipeRepository.SearchCriteria();
-        newFilter.setSeasonalTerms(seasonalTerms);
-        this.criteriaLiveData.setValue(newFilter);
+        RecipeRepository.SearchCriteria searchCriteria = createDefaultSearchCriteria();
+        searchCriteria.setSeasonalTerms(seasonalTerms);
+
+        this.criteriaLiveData.setValue(searchCriteria);
     }
 
     public MutableLiveData<String> getFilterName() {
@@ -63,6 +68,26 @@ public class RecipeViewModel extends ViewModel {
 
     void setFilterName(String filterName) {
         this.filterName.setValue(filterName);
+    }
+
+    public Category getCategoryAll() {
+        return recipeRepository.getCategoryAll();
+    }
+
+    public Category getCategoryFavorites() {
+        return recipeRepository.getCategoryFavorites();
+    }
+
+    public Category getCategoryUnassigned() {
+        return recipeRepository.getCategoryUnassigned();
+    }
+
+    public Category getCategorySeasonal() {
+        return recipeRepository.getCategorySeasonal();
+    }
+
+    private RecipeRepository.SearchCriteria createDefaultSearchCriteria() {
+        return new RecipeRepository.SearchCriteria(recipeRepository.getCategoryAll(), "", new ArrayList<>());
     }
 
 }

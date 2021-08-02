@@ -8,7 +8,7 @@ import com.flauschcode.broccoli.recipe.directions.Direction;
 import com.flauschcode.broccoli.recipe.directions.DirectionBuilder;
 import com.flauschcode.broccoli.recipe.ingredients.Ingredient;
 import com.flauschcode.broccoli.recipe.ingredients.IngredientBuilder;
-import com.flauschcode.broccoli.recipe.ingredients.ScaledQuantity;
+import com.flauschcode.broccoli.recipe.ingredients.ScaledQuantityBuilder;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,12 +20,14 @@ public class PageableRecipeBuilder {
     private static final float MINUS_ONE = -1.0f;
 
     private final Application application;
+    private final ScaledQuantityBuilder scaledQuantityBuilder;
 
     private float scaleFactor = MINUS_ONE;
 
     @Inject
-    PageableRecipeBuilder(Application application) {
+    PageableRecipeBuilder(Application application, ScaledQuantityBuilder scaledQuantityBuilder) {
         this.application = application;
+        this.scaledQuantityBuilder = scaledQuantityBuilder;
     }
 
     public PageableRecipeBuilder scale(float scaleFactor) {
@@ -44,7 +46,7 @@ public class PageableRecipeBuilder {
         List<Ingredient> ingredients = IngredientBuilder.from(recipe.getIngredients());
 
         if (scaleFactor != MINUS_ONE) {
-            ingredients.forEach(ingredient -> ingredient.setQuantity(ScaledQuantity.from(ingredient.getQuantity(), scaleFactor)));
+            ingredients.forEach(ingredient -> ingredient.setQuantity(scaledQuantityBuilder.from(ingredient.getQuantity(), scaleFactor)));
         }
 
         pageableRecipe.addPage(new PageableRecipe.Page(getIngredientsString(), ingredients.stream().map(ingredient -> ingredient.getQuantity() + ingredient.getText()).collect(Collectors.joining("\n"))));

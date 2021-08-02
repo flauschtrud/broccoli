@@ -1,7 +1,6 @@
 package com.flauschcode.broccoli;
 
 import android.app.Application;
-import android.content.Context;
 import android.os.StrictMode;
 
 import androidx.databinding.DataBindingUtil;
@@ -23,8 +22,6 @@ public class BroccoliApplication extends Application implements HasAndroidInject
     @Inject
     DispatchingAndroidInjector<Object> dispatchingAndroidInjector;
 
-    private static Context context;
-
     @Override
     public AndroidInjector<Object> androidInjector() {
         return dispatchingAndroidInjector;
@@ -33,7 +30,6 @@ public class BroccoliApplication extends Application implements HasAndroidInject
     @Override
     public void onCreate() {
         super.onCreate();
-        context = this;
 
         if(BuildConfig.DEBUG) {
             StrictMode.enableDefaults();
@@ -53,10 +49,6 @@ public class BroccoliApplication extends Application implements HasAndroidInject
                 .build();
         bindingComponent.inject(this);
         DataBindingUtil.setDefaultComponent(bindingComponent);
-    }
-
-    public static Context getContext() {
-        return context;
     }
 
 }

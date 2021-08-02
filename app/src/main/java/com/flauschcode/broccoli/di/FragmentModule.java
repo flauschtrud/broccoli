@@ -5,6 +5,7 @@ import com.flauschcode.broccoli.category.CategoryDialog;
 import com.flauschcode.broccoli.category.CategoryFragment;
 import com.flauschcode.broccoli.recipe.list.RecipeFragment;
 import com.flauschcode.broccoli.seasons.MonthFragment;
+import com.flauschcode.broccoli.settings.SettingsFragment;
 import com.flauschcode.broccoli.support.SupportFragment;
 
 import dagger.Module;
@@ -30,4 +31,7 @@ public interface FragmentModule {
 
     @ContributesAndroidInjector
     BackupAndRestoreFragment backupAndRestoreFragment();
+
+    @ContributesAndroidInjector
+    SettingsFragment settingsFragment();
 }
