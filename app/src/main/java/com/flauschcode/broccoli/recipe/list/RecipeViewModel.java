@@ -42,23 +42,23 @@ public class RecipeViewModel extends ViewModel {
     LiveData<List<Recipe>> getRecipes() { return recipes; }
 
     void setFilterCategory(Category filterCategory) {
-        RecipeRepository.SearchCriteria searchCriteria = criteriaLiveData.getValue();
+        RecipeRepository.SearchCriteria searchCriteria = createDefaultSearchCriteria();
         searchCriteria.setCategory(filterCategory);
-
+        searchCriteria.setSearchTerm(criteriaLiveData.getValue().getSearchTerm());
         this.criteriaLiveData.setValue(searchCriteria);
     }
 
     void setSearchTerm(String searchTerm) {
-        RecipeRepository.SearchCriteria searchCriteria = criteriaLiveData.getValue();
+        RecipeRepository.SearchCriteria searchCriteria = createDefaultSearchCriteria();
+        searchCriteria.setCategory(criteriaLiveData.getValue().getCategory());
+        searchCriteria.setSeasonalTerms(criteriaLiveData.getValue().getSeasonalTerms());
         searchCriteria.setSearchTerm(searchTerm);
-
         this.criteriaLiveData.setValue(searchCriteria);
     }
 
     void setSeasonalTerms(List<String> seasonalTerms) {
         RecipeRepository.SearchCriteria searchCriteria = createDefaultSearchCriteria();
         searchCriteria.setSeasonalTerms(seasonalTerms);
-
         this.criteriaLiveData.setValue(searchCriteria);
     }
 
