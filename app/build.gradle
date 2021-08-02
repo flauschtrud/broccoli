@@ -3,8 +3,8 @@ apply plugin: "androidx.navigation.safeargs"
 apply plugin: "com.google.android.gms.oss-licenses-plugin"
 
 def versionMajor = 0
-def versionMinor = 8
-def versionPatch = 3
+def versionMinor = 9
+def versionPatch = 0
 def versionBuild = 0
 
 def getBase64EncodedPublicKey() {
