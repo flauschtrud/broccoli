@@ -7,42 +7,6 @@
     android:layout_height="match_parent"
     android:theme="@style/AppTheme">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/categories_message_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/categories_message"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="@dimen/text_margin"
-            android:text="@string/become_a_supporter_categories_message"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintBottom_toTopOf="@id/categories_learn_more_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
-
-        <Button
-            android:id="@+id/categories_learn_more_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/text_margin"
-            android:background="@drawable/button_background_primary"
-            android:onClick="navigateToSupportPage"
-            android:padding="@dimen/text_margin"
-            android:text="@string/learn_more"
-            android:textColor="@color/colorOnPrimary"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/categories_message" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <TextView
         android:id="@+id/categories_empty"
         android:layout_width="match_parent"

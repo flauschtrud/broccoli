@@ -45,9 +45,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-/*
- TODO at the moment this test just works when there is a premium user logged into the Play Store at the testing device
- */
 @RunWith(AndroidJUnit4.class)
 @LargeTest
 public class FilteringAndSearchingIntegrationTest {

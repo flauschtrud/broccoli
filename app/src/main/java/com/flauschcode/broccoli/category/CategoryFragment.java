@@ -70,15 +70,6 @@ public class CategoryFragment extends Fragment {
         FloatingActionButton fab = root.findViewById(R.id.fab_categories);
         fab.setOnClickListener(view -> CategoryDialog.newInstance(new Category("")).show(getParentFragmentManager(), "CategoryDialogTag"));
 
-        View categoriesMessageLayout = root.findViewById(R.id.categories_message_layout);
-        viewModel.isPremium().observe(getViewLifecycleOwner(), observedValue -> {
-            boolean isPremium = Boolean.TRUE.equals(observedValue);
-            recyclerView.setVisibility(isPremium ? View.VISIBLE : View.GONE);
-            fab.setVisibility(isPremium ? View.VISIBLE : View.GONE);
-            categoriesMessageLayout.setVisibility(isPremium ? View.GONE : View.VISIBLE);
-            emptyMessageTextView.setVisibility(isPremium? View.VISIBLE : View.GONE);
-        });
-
         return root;
     }
 

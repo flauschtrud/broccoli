@@ -3,24 +3,20 @@ package com.flauschcode.broccoli.category;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.flauschcode.broccoli.support.BillingService;
-
 import java.util.List;
 
 import javax.inject.Inject;
 
 public class CategoryViewModel extends ViewModel {
 
-    private LiveData<List<Category>> categories;
+    private final CategoryRepository categoryRepository;
 
-    private CategoryRepository categoryRepository;
-    private BillingService billingService;
+    private final LiveData<List<Category>> categories;
 
     @Inject
-    CategoryViewModel(CategoryRepository categoryRepository, BillingService billingService) {
+    CategoryViewModel(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
         categories = categoryRepository.findAll();
-        this.billingService = billingService;
     }
 
     LiveData<List<Category>> getCategories() {
@@ -35,7 +31,4 @@ public class CategoryViewModel extends ViewModel {
         categoryRepository.delete(category);
     }
 
-    public LiveData<Boolean> isPremium() {
-        return billingService.isPremium();
-    }
 }

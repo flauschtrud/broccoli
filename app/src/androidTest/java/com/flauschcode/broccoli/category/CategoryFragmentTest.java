@@ -1,31 +1,5 @@
 package com.flauschcode.broccoli.category;
 
-import android.os.Bundle;
-
-import androidx.lifecycle.MutableLiveData;
-import androidx.test.espresso.accessibility.AccessibilityChecks;
-import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.platform.app.InstrumentationRegistry;
-
-import com.flauschcode.broccoli.BroccoliApplication;
-import com.flauschcode.broccoli.MockApplicationComponent;
-import com.flauschcode.broccoli.support.BillingService;
-import com.flauschcode.broccoli.util.RecyclerViewAssertions;
-import com.flauschcode.broccoli.util.RecyclerViewMatcher;
-
-import com.flauschcode.broccoli.DaggerMockApplicationComponent;
-import com.flauschcode.broccoli.R;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.ArgumentCaptor;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.CompletableFuture;
-
-import javax.inject.Inject;
-
 import static androidx.fragment.app.testing.FragmentScenario.launchInContainer;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
@@ -40,16 +14,38 @@ import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
+import android.os.Bundle;
+
+import androidx.lifecycle.MutableLiveData;
+import androidx.test.espresso.accessibility.AccessibilityChecks;
+import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
+
+import com.flauschcode.broccoli.BroccoliApplication;
+import com.flauschcode.broccoli.DaggerMockApplicationComponent;
+import com.flauschcode.broccoli.MockApplicationComponent;
+import com.flauschcode.broccoli.R;
+import com.flauschcode.broccoli.util.RecyclerViewAssertions;
+import com.flauschcode.broccoli.util.RecyclerViewMatcher;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+
+import javax.inject.Inject;
+
 @RunWith(AndroidJUnit4.class)
 public class CategoryFragmentTest {
 
     @Inject
     CategoryRepository categoryRepository;
 
-    @Inject
-    BillingService billingService;
-
-    private ArgumentCaptor<Category> categoryCaptor = ArgumentCaptor.forClass(Category.class);
+    private final ArgumentCaptor<Category> categoryCaptor = ArgumentCaptor.forClass(Category.class);
 
     @Before
     public void setUp() {
@@ -65,8 +61,6 @@ public class CategoryFragmentTest {
         categories.add(new Category(1, "Blupp"));
         categories.add(new Category(2, "Lala"));
         when(categoryRepository.findAll()).thenReturn(new MutableLiveData<>(categories));
-
-        when(billingService.isPremium()).thenReturn(new MutableLiveData<>(true));
 
         launchInContainer(CategoryFragment.class, new Bundle(), R.style.Theme_AppCompat);
     }

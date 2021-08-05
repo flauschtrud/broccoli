@@ -1,11 +1,11 @@
 package com.flauschcode.broccoli.category;
 
-import androidx.lifecycle.LiveData;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-import com.flauschcode.broccoli.category.Category;
-import com.flauschcode.broccoli.category.CategoryRepository;
-import com.flauschcode.broccoli.category.CategoryViewModel;
-import com.flauschcode.broccoli.support.BillingService;
+import androidx.lifecycle.LiveData;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,19 +15,11 @@ import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
 @RunWith(MockitoJUnitRunner.class)
 public class CategoryViewModelTest {
 
     @Mock
     private CategoryRepository categoryRepository;
-
-    @Mock
-    private BillingService billingService;
 
     @Mock
     private LiveData<List<Category>> liveData;
@@ -37,7 +29,7 @@ public class CategoryViewModelTest {
     @Before
     public void setUp() {
         when(categoryRepository.findAll()).thenReturn(liveData);
-        categoryViewModel = new CategoryViewModel(categoryRepository, billingService);
+        categoryViewModel = new CategoryViewModel(categoryRepository);
     }
 
     @Test
