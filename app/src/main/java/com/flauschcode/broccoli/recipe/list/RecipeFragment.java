@@ -201,6 +201,9 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
                     resetCategoryAndArguments();
                     searchItem.expandActionView();
                     searchView.post(() -> searchView.setQuery(result.getData().getStringExtra("hashtag"), false));
+                } else if (result.getResultCode() == Activity.RESULT_OK && result.getData().getBooleanExtra("navigateToSupportPage", false)) {
+                    NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
+                    navController.navigate(R.id.nav_support);
                 }
             });
 

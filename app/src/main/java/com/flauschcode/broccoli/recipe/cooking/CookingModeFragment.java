@@ -13,6 +13,11 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.databinding.FragmentCookingModePageBinding;
+import com.flauschcode.broccoli.support.BillingService;
+
+import javax.inject.Inject;
+
+import dagger.android.support.AndroidSupportInjection;
 
 public class CookingModeFragment extends Fragment {
 
@@ -24,8 +29,13 @@ public class CookingModeFragment extends Fragment {
     private FragmentCookingModePageBinding binding;
     private CookingModeFragmentViewModel viewModel;
 
+    @Inject
+    BillingService billingService;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        AndroidSupportInjection.inject(this);
+
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_cooking_mode_page, container, true);
         viewModel = new ViewModelProvider(this).get(CookingModeFragmentViewModel.class);
 
@@ -40,9 +50,20 @@ public class CookingModeFragment extends Fragment {
         yourTextView.setMovementMethod(new ScrollingMovementMethod());
 
         viewModel.setTitle(args.getString(TITLE));
-        viewModel.setText(args.getString(TEXT));
         viewModel.setPosition(args.getInt(POSITION));
         viewModel.setMaxSteps(args.getInt(MAX_STEPS));
+
+        billingService.isPremium().observe(getViewLifecycleOwner(), isPremium -> {
+          if (Boolean.TRUE.equals(isPremium)) {
+              viewModel.setText(args.getString(TEXT));
+              viewModel.setPremium(true);
+          } else {
+              String pageText = args.getString(TEXT);
+              viewModel.setText(pageText.substring(0, pageText.length() > 59? 59 : pageText.length()-1) + "...\n\n" + getString(R.string.become_a_supporter_cookingmode_message));
+              viewModel.setPremium(false);
+          }
+        });
+
         binding.setViewModel(viewModel);
 
         CookingModeControls controls = view.findViewById(R.id.cooking_mode_controls);

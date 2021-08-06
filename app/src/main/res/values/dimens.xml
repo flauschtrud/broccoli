@@ -10,4 +10,5 @@
     <dimen name="text_margin">16dp</dimen>
     <dimen name="toolbar_button_margin">12dp</dimen>
     <dimen name="min_height_for_accessibility">48dp</dimen>
+    <dimen name="drawable_padding">8dp</dimen>
 </resources>

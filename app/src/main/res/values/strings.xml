@@ -121,21 +121,21 @@
     <string name="support_the_app">Support the app</string>
     <string name="community_edition_title" translatable="false">Community Edition</string>
     <string name="community_edition_perk_recipes">Unlimited recipes</string>
-    <string name="community_edition_perk_cooking_mode">Distraction free cooking mode</string>
+    <string name="community_edition_perk_categories">Unlimited custom categories</string>
     <string name="community_edition_perk_seasonal_calendar">Seasonal calendar (Beta)</string>
     <string name="community_edition_perk_backup">Backup &amp; restore</string>
     <string name="community_edition_perk_ad_free">No ads</string>
     <string name="free_for_everyone">Free for everyone</string>
     <string name="supporter_edition_title" translatable="false">Supporter Edition</string>
     <string name="supporter_edition_perk_community_features">All features of the Community Edition</string>
-    <string name="supporter_edition_perk_categories">Unlimited custom categories</string>
+    <string name="supporter_edition_perk_cooking_mode">Distraction free cooking mode</string>
     <string name="supporter_edition_perk_support_developer">Support an indie developer</string> <!--double check in translation! -->
     <string name="buy">Buy</string>
     <string name="thanks_for_your_support">Thanks for your support!</string>
     <string name="play_store_sign_in_message">Please sign in to Google Play Store.</string>
     <string name="rate_the_app">Rate the app</string>
     <string name="share_the_app">Share the app</string>
-    <string name="become_a_supporter_categories_message">Become a supporter of the app and create unlimited custom categories to manage your recipes.</string>
+    <string name="become_a_supporter_cookingmode_message">Become a supporter of the app and unlock the full version of the cooking mode to enjoy distraction free cooking.</string>
     <string name="learn_more">Learn more</string>
 
     <!-- seasonal food -->

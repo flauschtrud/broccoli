@@ -1,5 +1,6 @@
 package com.flauschcode.broccoli.recipe.cooking;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -118,6 +119,13 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
     @Override
     public void onCookingModeControlsInteraction(int position) {
         viewPager.setCurrentItem(position);
+    }
+
+    public void navigateToSupportPage(View view) {
+        Intent intent = new Intent();
+        intent.putExtra("navigateToSupportPage", true);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
 }

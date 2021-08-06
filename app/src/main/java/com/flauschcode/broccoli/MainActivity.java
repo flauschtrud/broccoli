@@ -69,11 +69,6 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    public void navigateToSupportPage(View view) {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        navController.navigate(R.id.nav_support);
-    }
-
     public void navigateToSettingsPage(View view) {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         navController.navigate(R.id.nav_settings);

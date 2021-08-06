@@ -31,23 +31,23 @@
             android:id="@+id/community_edition_recipes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/text_margin"
+            android:drawablePadding="@dimen/drawable_padding"
             android:text="@string/community_edition_perk_recipes"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
 
         <TextView
-            android:id="@+id/community_edition_cooking_mode"
+            android:id="@+id/community_edition_categories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/text_margin"
-            android:text="@string/community_edition_perk_cooking_mode"
+            android:drawablePadding="@dimen/drawable_padding"
+            android:text="@string/community_edition_perk_categories"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
 
         <TextView
             android:id="@+id/community_edition_seasonal_calendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/text_margin"
+            android:drawablePadding="@dimen/drawable_padding"
             android:text="@string/community_edition_perk_seasonal_calendar"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
 
@@ -55,7 +55,7 @@
             android:id="@+id/community_edition_backup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/text_margin"
+            android:drawablePadding="@dimen/drawable_padding"
             android:text="@string/community_edition_perk_backup"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
 
@@ -63,7 +63,7 @@
             android:id="@+id/community_edition_ad_free"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/text_margin"
+            android:drawablePadding="@dimen/drawable_padding"
             android:text="@string/community_edition_perk_ad_free"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
 
@@ -105,17 +105,17 @@
             android:id="@+id/supporter_edition_all_features"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/text_margin"
+            android:drawablePadding="@dimen/drawable_padding"
             android:text="@string/supporter_edition_perk_community_features"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
             app:drawableTint="@color/colorPrimary" />
 
         <TextView
-            android:id="@+id/supporter_edition_categories"
+            android:id="@+id/supporter_edition_cooking_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/text_margin"
-            android:text="@string/supporter_edition_perk_categories"
+            android:drawablePadding="@dimen/drawable_padding"
+            android:text="@string/supporter_edition_perk_cooking_mode"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
             app:drawableTint="@color/colorPrimary" />
 
@@ -123,7 +123,7 @@
             android:id="@+id/supporter_edition_support"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/text_margin"
+            android:drawablePadding="@dimen/drawable_padding"
             android:text="@string/supporter_edition_perk_support_developer"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
             app:drawableTint="@color/colorPrimary" />
@@ -137,7 +137,7 @@
             android:padding="@dimen/text_margin"
             android:background="@drawable/button_background_primary"
             android:drawableStart="@drawable/ic_store_24"
-            android:drawablePadding="@dimen/text_margin"
+            android:drawablePadding="@dimen/drawable_padding"
             android:drawableTint="@color/colorOnPrimary"
             android:text="@string/buy"
             android:textColor="@color/colorOnPrimary" />
@@ -168,7 +168,7 @@
         android:padding="@dimen/text_margin"
         android:background="@drawable/button_background_primary"
         android:drawableStart="@drawable/ic_star_rate_24"
-        android:drawablePadding="@dimen/text_margin"
+        android:drawablePadding="@dimen/drawable_padding"
         android:drawableTint="@color/colorOnPrimary"
         android:text="@string/rate_the_app"
         android:textColor="@color/colorOnPrimary" />
@@ -185,7 +185,7 @@
         android:padding="@dimen/text_margin"
         android:background="@drawable/button_background_primary"
         android:drawableStart="@drawable/ic_menu_share_24dp"
-        android:drawablePadding="@dimen/text_margin"
+        android:drawablePadding="@dimen/drawable_padding"
         android:drawableTint="@color/colorOnPrimary"
         android:text="@string/share_the_app"
         android:textColor="@color/colorOnPrimary" />

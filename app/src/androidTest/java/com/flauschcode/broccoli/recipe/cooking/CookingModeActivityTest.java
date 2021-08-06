@@ -23,6 +23,7 @@ import static org.mockito.Mockito.when;
 
 import android.content.Intent;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.espresso.accessibility.AccessibilityChecks;
@@ -33,6 +34,7 @@ import com.flauschcode.broccoli.DaggerMockApplicationComponent;
 import com.flauschcode.broccoli.MockApplicationComponent;
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.recipe.Recipe;
+import com.flauschcode.broccoli.support.BillingService;
 import com.flauschcode.broccoli.util.RecipeTestUtil;
 
 import org.junit.After;
@@ -48,6 +50,9 @@ public class CookingModeActivityTest {
 
     @Inject
     PageableRecipeBuilder pageableRecipeBuilder;
+
+    @Inject
+    BillingService billingService;
 
     private ActivityScenario<CookingModeActivity> scenario;
 
@@ -73,6 +78,8 @@ public class CookingModeActivityTest {
 
         when(pageableRecipeBuilder.scale(scaleFactorCaptor.capture())).thenReturn(pageableRecipeBuilder);
         when(pageableRecipeBuilder.from(recipeCaptor.capture())).thenReturn(pageableRecipe);
+
+        when(billingService.isPremium()).thenReturn(new MutableLiveData<>(true));
 
         Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CookingModeActivity.class);
         intent.putExtra(Recipe.class.getName(), lauchkuchen);

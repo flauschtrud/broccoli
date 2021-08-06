@@ -32,7 +32,6 @@ import androidx.core.widget.NestedScrollView;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 
-import com.flauschcode.broccoli.BroccoliApplication;
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.databinding.ActivityRecipeDetailsBinding;
@@ -137,10 +136,21 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
+    ActivityResultLauncher<Intent> cookingModeResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK && result.getData().getBooleanExtra("navigateToSupportPage", false)) {
+                    Intent intent = new Intent();
+                    intent.putExtra("navigateToSupportPage", true);
+                    setResult(RESULT_OK, intent);
+                    finish();
+                }
+            });
+
     public void cook(MenuItem menuItem) {
         Intent intent = new Intent(getApplicationContext(), CookingModeActivity.class);
         intent.putExtra(Recipe.class.getName(), binding.getRecipe());
-        startActivity(intent);
+        cookingModeResultLauncher.launch(intent);
     }
 
     public void toggleFavorite(MenuItem item) {
