@@ -1,5 +1,14 @@
 package com.flauschcode.broccoli;
 
+import static androidx.test.core.app.ActivityScenario.launch;
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
+import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withSubstring;
+import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static com.flauschcode.broccoli.util.CustomViewActions.waitFor;
+
 import android.content.Intent;
 
 import androidx.test.core.app.ActivityScenario;
@@ -9,21 +18,12 @@ import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
 
-import com.flauschcode.broccoli.MainActivity;
 import com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 
-import com.flauschcode.broccoli.R;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-
-import static androidx.test.core.app.ActivityScenario.launch;
-import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
-import static androidx.test.espresso.matcher.ViewMatchers.withSubstring;
-import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 /*
 
@@ -54,13 +54,13 @@ public class ImportingIntegrationTest {
     }
 
     @Test
-    public void import_new_recipe_from_chefkoch() throws InterruptedException {
+    public void import_new_recipe_from_chefkoch() {
         Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CreateAndEditRecipeActivity.class);
         intent.setAction(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_TEXT, "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html");
         scenario = launch(intent);
 
-        Thread.sleep(5000); // TODO don't do this
+        onView(isRoot()).perform(waitFor(5000));
 
         onView(ViewMatchers.withId(R.id.new_title)).check(matches(withText("Vegane Chocolate Chip Cookies")));
         onView(withId(R.id.new_source)).check(matches(withText("https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html")));
@@ -72,13 +72,13 @@ public class ImportingIntegrationTest {
     }
 
     @Test
-    public void import_new_recipe_via_yoast_plugin() throws InterruptedException {
+    public void import_new_recipe_via_yoast_plugin() {
         Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CreateAndEditRecipeActivity.class);
         intent.setAction(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_TEXT, "https://stilettosandsprouts.de/vegane-fenchel-pasta/");
         scenario = launch(intent);
 
-        Thread.sleep(5000); // TODO don't do this
+        onView(isRoot()).perform(waitFor(5000));
 
         onView(withId(R.id.new_title)).check(matches(withText("Vegane Fenchel-Pasta")));
         onView(withId(R.id.new_source)).check(matches(withText("https://stilettosandsprouts.de/vegane-fenchel-pasta/")));
@@ -90,13 +90,13 @@ public class ImportingIntegrationTest {
     }
 
     @Test
-    public void import_new_recipe_with_arrified_json() throws InterruptedException {
+    public void import_new_recipe_with_arrified_json() {
         Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CreateAndEditRecipeActivity.class);
         intent.setAction(Intent.ACTION_SEND);
         intent.putExtra(Intent.EXTRA_TEXT, "https://www.gutekueche.de/fladenbrot-grundrezept-rezept-1673");
         scenario = launch(intent);
 
-        Thread.sleep(5000); // TODO don't do this
+        onView(isRoot()).perform(waitFor(5000));
 
         onView(withId(R.id.new_title)).check(matches(withText("Fladenbrot Grundrezept")));
         onView(withId(R.id.new_source)).check(matches(withText("https://www.gutekueche.de/fladenbrot-grundrezept-rezept-1673")));

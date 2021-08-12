@@ -10,10 +10,12 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.RootMatchers.isDialog;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast;
+import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
 import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
+import static com.flauschcode.broccoli.util.CustomViewActions.waitFor;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.is;
@@ -114,19 +116,19 @@ public class CookingModeActivityTest {
     }
 
     @Test
-    public void read_pages_via_seeking() throws InterruptedException {
+    public void read_pages_via_seeking() {
         onView(allOf(withId(R.id.cooking_mode_control), withContentDescription("2"), isDisplayed())).perform(click());
-        Thread.sleep(500); // TODO don't do that
+        onView(isRoot()).perform(waitFor(500));
         onView(allOf(withId(R.id.cooking_mode_title), isDisplayed())).check(matches(withText("2")));
         onView(allOf(withId(R.id.cooking_mode_text), isDisplayed())).check(matches(withText("Dann das.")));
 
         onView(allOf(withId(R.id.cooking_mode_control), withContentDescription("1"), isDisplayed())).perform(click());
-        Thread.sleep(500);
+        onView(isRoot()).perform(waitFor(500));
         onView(allOf(withId(R.id.cooking_mode_title), isDisplayed())).check(matches(withText("1")));
         onView(allOf(withId(R.id.cooking_mode_text), isDisplayed())).check(matches(withText("Erst dies.")));
 
         onView(allOf(withId(R.id.cooking_mode_control), withContentDescription("0"), isDisplayed())).perform(click());
-        Thread.sleep(500);
+        onView(isRoot()).perform(waitFor(500));
         onView(allOf(withId(R.id.cooking_mode_title), isDisplayed())).check(matches(withText("Ingredients")));
         onView(allOf(withId(R.id.cooking_mode_text), isDisplayed())).check(matches(withText("100g Mehl\n50g Margarine")));
 

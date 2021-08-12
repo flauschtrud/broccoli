@@ -14,9 +14,11 @@ import static androidx.test.espresso.contrib.NavigationViewActions.navigateTo;
 import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
+import static com.flauschcode.broccoli.util.CustomViewActions.waitFor;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
@@ -67,7 +69,7 @@ public class FilteringAndSearchingIntegrationTest {
     }
 
     @Test
-    public void filter_and_search() throws InterruptedException {
+    public void filter_and_search() {
         onView(ViewMatchers.withId(R.id.recycler_view)).check(RecyclerViewAssertions.hasItemsCount(0));
 
         // create category
@@ -77,7 +79,7 @@ public class FilteringAndSearchingIntegrationTest {
         onView(withId(R.id.nav_view))
                 .perform(navigateTo(R.id.nav_categories));
 
-        Thread.sleep(1000); // TODO why is that necessary?
+        onView(isRoot()).perform(waitFor(1000));
 
         onView(withId(R.id.recycler_view)).check(RecyclerViewAssertions.hasItemsCount(0));
 
@@ -94,7 +96,7 @@ public class FilteringAndSearchingIntegrationTest {
         onView(withId(R.id.nav_view))
                 .perform(navigateTo(R.id.nav_recipes));
 
-        Thread.sleep(1000);
+        onView(isRoot()).perform(waitFor(1000));
 
         onView(withId(R.id.fab_recipes)).perform(click());
         onView(withId(R.id.new_title)).perform(typeText("Lauchkuchen"));
@@ -177,7 +179,7 @@ public class FilteringAndSearchingIntegrationTest {
         onView(withId(R.id.nav_view))
                 .perform(navigateTo(R.id.nav_categories));
 
-        Thread.sleep(1000);
+        onView(isRoot()).perform(waitFor(1000));
 
         onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(0, click()));
         onView(withId(android.R.id.button3)).perform(click());
@@ -191,7 +193,7 @@ public class FilteringAndSearchingIntegrationTest {
 
     static class CategoryNameMatcher extends TypeSafeMatcher<Category> {
 
-        private String categoryName;
+        private final String categoryName;
 
         CategoryNameMatcher(String categoryName) {
             this.categoryName = categoryName;

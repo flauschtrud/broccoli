@@ -58,7 +58,8 @@ public class CRUDIntegrationTest {
 
         onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(0, click()));
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
-        onView(withText(R.string.edit_action)).perform(click());        onView(withId(R.id.new_title)).perform(replaceText("Leckerster Lauchkuchen"));
+        onView(withText(R.string.edit_action)).perform(click());
+        onView(withId(R.id.new_title)).perform(replaceText("Leckerster Lauchkuchen"));
         onView(withId(R.id.button_save_recipe)).perform(click());
         pressBack();
 
