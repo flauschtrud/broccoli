@@ -86,8 +86,8 @@ public class SeasonsIntegrationTest {
         // create recipe
         onView(withId(R.id.fab_recipes)).perform(click());
         onView(withId(R.id.new_title)).perform(typeText("Flauschrezept"));
-        onView(withId(android.R.id.content)).perform(swipeUp()); // scrollTo() does not work for NestedScrollViews
-        onView(withId(R.id.new_ingredients)).perform(closeSoftKeyboard(), typeText("2 flauschfrucht"));
+        onView(withId(android.R.id.content)).perform(closeSoftKeyboard(), swipeUp()); // scrollTo() does not work for NestedScrollViews
+        onView(withId(R.id.new_ingredients)).perform(typeText("2 flauschfrucht"));
         onView(withId(R.id.button_save_recipe)).perform(click());
         pressBack();
 
