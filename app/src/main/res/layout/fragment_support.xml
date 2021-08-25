@@ -134,13 +134,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/text_margin"
-            android:padding="@dimen/text_margin"
             android:background="@drawable/button_background_primary"
-            android:drawableStart="@drawable/ic_store_24"
-            android:drawablePadding="@dimen/drawable_padding"
-            android:drawableTint="@color/colorOnPrimary"
-            android:text="@string/buy"
-            android:textColor="@color/colorOnPrimary" />
+            app:icon="@drawable/ic_store_24"
+            android:text="@string/buy" />
 
         <TextView
             android:id="@+id/supporter_edition_thanks"
@@ -165,13 +161,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="@dimen/text_margin"
-        android:padding="@dimen/text_margin"
         android:background="@drawable/button_background_primary"
-        android:drawableStart="@drawable/ic_star_rate_24"
-        android:drawablePadding="@dimen/drawable_padding"
-        android:drawableTint="@color/colorOnPrimary"
-        android:text="@string/rate_the_app"
-        android:textColor="@color/colorOnPrimary" />
+        app:icon="@drawable/ic_star_rate_24"
+        android:text="@string/rate_the_app" />
 
     <Button
         android:id="@+id/share_app_button"
@@ -182,12 +174,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="@dimen/text_margin"
-        android:padding="@dimen/text_margin"
         android:background="@drawable/button_background_primary"
-        android:drawableStart="@drawable/ic_menu_share_24dp"
-        android:drawablePadding="@dimen/drawable_padding"
-        android:drawableTint="@color/colorOnPrimary"
-        android:text="@string/share_the_app"
-        android:textColor="@color/colorOnPrimary" />
+        app:icon="@drawable/ic_menu_share_24dp"
+        android:text="@string/share_the_app" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

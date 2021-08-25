@@ -54,9 +54,8 @@
                 android:layout_marginTop="@dimen/text_margin"
                 android:background="@drawable/button_background_primary"
                 android:onClick="navigateToSupportPage"
-                android:padding="@dimen/text_margin"
-                android:text="@string/learn_more"
-                android:textColor="@color/colorOnPrimary" />
+                app:icon="@drawable/ic_menu_support_24"
+                android:text="@string/learn_more" />
 
         </LinearLayout>
 
