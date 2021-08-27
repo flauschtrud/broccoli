@@ -11,7 +11,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:onClick="toggleSystemUI"
         android:padding="@dimen/text_margin">
 
         <LinearLayout
@@ -42,7 +41,6 @@
                 android:minHeight="@dimen/min_height_for_accessibility"
                 android:gravity="center"
                 android:scrollbars="vertical"
-                android:onClick="toggleSystemUI"
                 android:text="@{viewModel.text}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 

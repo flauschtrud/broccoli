@@ -8,6 +8,9 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.flauschcode.broccoli.R;
@@ -23,8 +26,6 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
     PageableRecipeBuilder pageableRecipeBuilder;
 
     private ViewPager2 viewPager;
-
-    private boolean immersive = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,33 +88,15 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
         }
     }
 
-    public void toggleSystemUI(View view) {
-        if (immersive) {
-            showSystemUI();
-        } else {
-            hideSystemUI();
-        }
-    }
-
     private void hideSystemUI() {
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_IMMERSIVE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN);
-        immersive = true;
-    }
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
-    private void showSystemUI() {
-        View decorView = getWindow().getDecorView();
-        decorView.setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        immersive = false;
+        WindowInsetsControllerCompat insetsController = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+        if (insetsController != null) {
+            insetsController.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+            insetsController.hide(WindowInsetsCompat.Type.statusBars());
+            insetsController.hide(WindowInsetsCompat.Type.navigationBars());
+        }
     }
 
     @Override
