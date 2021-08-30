@@ -24,7 +24,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.Broccoli">
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -40,7 +40,7 @@
             android:name="com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity"
             android:parentActivityName="com.flauschcode.broccoli.MainActivity"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme.TransparentStatusBar">
+            android:theme="@style/Theme.Broccoli.TransparentStatusBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.flauschcode.broccoli.MainActivity" />

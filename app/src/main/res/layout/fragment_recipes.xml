@@ -3,19 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:theme="@style/AppTheme">
+    android:theme="@style/Theme.Broccoli">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/ThemeOverlay.Broccoli.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar_recipes"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/primary_light"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+            app:popupTheme="@style/ThemeOverlay.Broccoli.PopupOverlay">
 
             <Spinner
                 android:id="@+id/spinner"
@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/min_height_for_accessibility"
                 android:contentDescription="@string/categories"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
+                app:popupTheme="@style/ThemeOverlay.Broccoli.PopupOverlay" />
 
             <Button
                 android:id="@+id/toolbar_button"

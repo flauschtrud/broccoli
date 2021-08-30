@@ -1,0 +1,25 @@
+<resources>
+
+    <style name="Base.Theme.Broccoli" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item> <!-- TODO maybe not in base -->
+
+        <item name="android:spinnerItemStyle">@style/spinnerItemStyle</item>
+        <item name="editTextStyle">@style/editTextStyle</item>
+    </style>
+    
+    <style name="Theme.Broccoli" parent="Base.Theme.Broccoli">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/colorControlNormal</item>
+    </style>
+
+    <style name="Theme.Broccoli.TransparentStatusBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="ThemeOverlay.Broccoli.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
+
+    <style name="ThemeOverlay.Broccoli.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
+
+</resources>

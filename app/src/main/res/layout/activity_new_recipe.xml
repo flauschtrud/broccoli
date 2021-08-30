@@ -17,13 +17,13 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:theme="@style/ThemeOverlay.Broccoli.AppBarOverlay">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:popupTheme="@style/ThemeOverlay.Broccoli.PopupOverlay"
                 app:layout_scrollFlags="noScroll"
                 app:title="@string/new_recipe"
                 app:navigationIcon="@drawable/ic_close_24dp">

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:theme="@style/AppTheme">
+    android:theme="@style/Theme.Broccoli">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/seasons_not_configured_layout"
