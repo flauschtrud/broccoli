@@ -14,7 +14,7 @@
             android:id="@+id/toolbar_recipes"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/primary_light"
+            android:background="?attr/colorSecondaryVariant"
             app:popupTheme="@style/ThemeOverlay.Broccoli.PopupOverlay">
 
             <Spinner

@@ -3,7 +3,7 @@
     <style name="Theme.Broccoli" parent="Base.Theme.Broccoli">
         <item name="colorPrimary">@color/green_200</item>
         <item name="colorSecondary">@color/green_200</item>
-
+        <item name="colorSecondaryVariant">?attr/colorSurface</item>
         <item name="android:statusBarColor">?attr/backgroundColor</item>
     </style>
 
