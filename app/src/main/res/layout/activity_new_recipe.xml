@@ -28,11 +28,12 @@
                 app:title="@string/new_recipe"
                 app:navigationIcon="@drawable/ic_close_24dp">
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_save_recipe"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:textColor="?attr/colorOnPrimarySurface"
                     android:text="@string/save_action"
                     android:layout_gravity="end"
                     android:onClick="@{() -> activity.onSaveClick(viewModel.recipe)}" />
