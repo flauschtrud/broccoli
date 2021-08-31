@@ -16,9 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
-            android:background="@drawable/ic_circle_24dp"
-            android:backgroundTint="?attr/colorControlNormal"
-            android:textColor="@android:color/primary_text_dark"
+            android:textColor="?attr/colorPrimary"
             android:gravity="center"
             android:text="@{String.valueOf(direction.position)}"/>
 
