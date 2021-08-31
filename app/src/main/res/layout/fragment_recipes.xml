@@ -66,8 +66,7 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:contentDescription="@string/new_recipe"
-        app:backgroundTint="@color/colorControlNormal"
-        app:tint="@color/colorOnPrimary"
+        app:tint="?attr/colorOnPrimary"
         app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
