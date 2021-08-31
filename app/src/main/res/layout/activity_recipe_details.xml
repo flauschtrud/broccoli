@@ -72,7 +72,6 @@
             android:layout_margin="@dimen/fab_margin"
             android:layout_gravity="bottom|end"
             android:contentDescription="@string/cook_action"
-            app:tint="?attr/colorOnPrimary"
             app:srcCompat="@drawable/ic_button_restaurant_24dp" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -10,6 +10,7 @@
         <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
         <item name="colorSecondaryVariant">@color/primary_light</item> <!-- TODO this is not really secondary -->
         <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorOnSecondary">?attr/colorOnPrimary</item>
         <item name="colorControlNormal">@color/colorControlNormal</item>
 
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
