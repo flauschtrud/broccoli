@@ -32,7 +32,7 @@
                 android:padding="32dp"
                 android:text="@{viewModel.title}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="?attr/colorPrimary" />
 
             <TextView
                 android:id="@+id/cooking_mode_text"

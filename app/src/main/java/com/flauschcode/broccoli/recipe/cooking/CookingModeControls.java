@@ -1,6 +1,7 @@
 package com.flauschcode.broccoli.recipe.cooking;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -8,9 +9,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import androidx.core.content.ContextCompat;
-
 import com.flauschcode.broccoli.R;
+import com.google.android.material.color.MaterialColors;
 
 import java.util.stream.IntStream;
 
@@ -84,7 +84,7 @@ public class CookingModeControls extends LinearLayout {
             ImageView imageView = getChildAt(integer).findViewById(R.id.cooking_mode_control);
             imageView.setContentDescription(String.valueOf(integer));
             if (integer == position) {
-                imageView.setImageTintList(ContextCompat.getColorStateList(getContext(), R.color.colorPrimary));
+                imageView.setImageTintList(ColorStateList.valueOf(MaterialColors.getColor(this, R.attr.colorPrimary)));
             }
             imageView.setOnClickListener(v -> listener.onCookingModeControlsInteraction(integer));
         });

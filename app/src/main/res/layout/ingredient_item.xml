@@ -47,7 +47,7 @@
             android:src="@drawable/ic_eco_24"
             android:visibility="@{ingredient.seasonal ? View.VISIBLE : View.GONE}"
             android:contentDescription="@string/seasonal_accessibility"
-            app:tint="@color/colorPrimary" />
+            app:tint="?attr/colorPrimary" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

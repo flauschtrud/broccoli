@@ -46,6 +46,7 @@ import com.flauschcode.broccoli.recipe.sharing.ShareRecipeAsFileService;
 import com.flauschcode.broccoli.recipe.sharing.ShareableRecipe;
 import com.flauschcode.broccoli.recipe.sharing.ShareableRecipeBuilder;
 import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.color.MaterialColors;
 import com.google.android.material.elevation.ElevationOverlayProvider;
 
 import java.io.IOException;
@@ -249,7 +250,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 @Override
                 public void updateDrawState(TextPaint paint) {
                     super.updateDrawState(paint);
-                    paint.setColor(ContextCompat.getColor(textView.getContext(), R.color.colorPrimary));
+                    paint.setColor(MaterialColors.getColor(textView, R.attr.colorPrimary));
                 }
             };
             spannableString.setSpan(clickableSpan, matcher.start(), matcher.end(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

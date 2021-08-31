@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAllCaps="true"
-            android:textColor="@color/colorPrimary"
+            android:textColor="?attr/colorPrimary"
             app:months="@{seasonalFood.months}"/>
 
     </LinearLayout>

@@ -157,7 +157,7 @@
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintStart_toEndOf="@id/details_icon_source"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:textColorLink="@color/colorPrimary"
+                        android:textColorLink="?attr/colorPrimary"
                         android:layout_marginStart="10dp"
                         android:autoLink="web"
                         android:text="@{recipe.source}" />
