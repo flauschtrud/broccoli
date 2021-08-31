@@ -92,6 +92,13 @@
     <string name="version">Version</string>
     <string name="settings">Settings</string>
     <string name="general_settings">General settings</string>
+    <string name="design">Design</string>
+    <string name="MODE_NIGHT_NO" translatable="false">MODE_NIGHT_NO</string>
+    <string name="MODE_NIGHT_YES" translatable="false">MODE_NIGHT_YES</string>
+    <string name="MODE_NIGHT_FOLLOW_SYSTEM" translatable="false">MODE_NIGHT_FOLLOW_SYSTEM</string>
+    <string name="light">Light</string>
+    <string name="dark">Dark</string>
+    <string name="system_default">System default</string>
     <string name="privacy_policy">Privacy policy</string>
     <string name="privacy_policy_summary">Learn more about how we protect your personal data.</string>
     <string name="privacy_policy_url" translatable="false">https://github.com/flauschtrud/broccoli-privacy-policy</string>

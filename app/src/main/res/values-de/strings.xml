@@ -183,4 +183,8 @@
     <string name="savoy_cabbage_terms">Wirsing, Wirsingkohl</string>
     <string name="wild_garlic">Bärlauch</string>
     <string name="wild_garlic_terms">Bärlauch</string>
+    <string name="light">Hell</string>
+    <string name="dark">Dunkel</string>
+    <string name="system_default">Systemstandard</string>
+    <string name="design">Design</string>
 </resources>

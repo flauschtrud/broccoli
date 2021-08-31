@@ -1,9 +1,13 @@
 package com.flauschcode.broccoli;
 
+import static com.flauschcode.broccoli.settings.SettingsFragment.THEME_KEY;
+
 import android.app.Application;
 import android.os.StrictMode;
 
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.databinding.DataBindingUtil;
+import androidx.preference.PreferenceManager;
 
 import com.flauschcode.broccoli.di.ApplicationComponent;
 import com.flauschcode.broccoli.di.BindingComponent;
@@ -49,6 +53,17 @@ public class BroccoliApplication extends Application implements HasAndroidInject
                 .build();
         bindingComponent.inject(this);
         DataBindingUtil.setDefaultComponent(bindingComponent);
+
+        String theme = PreferenceManager.getDefaultSharedPreferences(this)
+                .getString(THEME_KEY, getString(R.string.MODE_NIGHT_FOLLOW_SYSTEM));
+        if (getString(R.string.MODE_NIGHT_NO).equals(theme)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        } else if (getString(R.string.MODE_NIGHT_YES).equals(theme)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else if (getString(R.string.MODE_NIGHT_FOLLOW_SYSTEM).equals(theme)) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
+        }
+
     }
 
 }

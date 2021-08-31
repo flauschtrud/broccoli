@@ -7,11 +7,20 @@
         app:key="general-settings-category"
         app:title="@string/general_settings">
 
-    <ListPreference
-        app:icon="@drawable/ic_categories_24dp"
-        android:key="preferred-category"
-        android:title="@string/preferred_category"
-        app:useSimpleSummaryProvider="true" />
+        <ListPreference
+            android:key="preferred-category"
+            android:title="@string/preferred_category"
+            app:icon="@drawable/ic_categories_24dp"
+            app:useSimpleSummaryProvider="true" />
+
+        <ListPreference
+            android:key="theme"
+            android:title="@string/design"
+            app:icon="@drawable/ic_brightness_24"
+            app:entries="@array/theme_entries"
+            app:entryValues="@array/theme_values"
+            app:defaultValue="@string/MODE_NIGHT_FOLLOW_SYSTEM"
+            app:useSimpleSummaryProvider="true" />
 
     </PreferenceCategory>
 
