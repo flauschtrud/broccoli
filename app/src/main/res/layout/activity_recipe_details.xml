@@ -31,8 +31,7 @@
                 app:contentScrim="?attr/colorPrimary"
                 app:statusBarScrim="?attr/colorPrimaryVariant"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:toolbarId="@+id/toolbar"
-                app:title=" ">
+                app:toolbarId="@+id/toolbar">
 
                 <ImageView
                     android:id="@+id/backdrop"

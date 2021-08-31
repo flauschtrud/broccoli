@@ -44,6 +44,7 @@ import com.flauschcode.broccoli.recipe.directions.DirectionBuilder;
 import com.flauschcode.broccoli.recipe.sharing.ShareRecipeAsFileService;
 import com.flauschcode.broccoli.recipe.sharing.ShareableRecipe;
 import com.flauschcode.broccoli.recipe.sharing.ShareableRecipeBuilder;
+import com.google.android.material.appbar.AppBarLayout;
 
 import java.io.IOException;
 import java.util.List;
@@ -95,6 +96,25 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
         binding.fabCookingMode.setOnClickListener(view -> this.cook(null));
 
+        // https://stackoverflow.com/questions/31662416/show-collapsingtoolbarlayout-title-only-when-collapsed (does not work with expandedTitleTextAppearance because you would see the title fade in nonetheless)
+        binding.appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = true;
+            int scrollRange = -1;
+
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    binding.toolbarLayout.setTitle(recipe.getTitle());
+                    isShow = true;
+                } else if(isShow) {
+                    binding.toolbarLayout.setTitle(" ");
+                    isShow = false;
+                }
+            }
+        });
     }
 
     @Override
