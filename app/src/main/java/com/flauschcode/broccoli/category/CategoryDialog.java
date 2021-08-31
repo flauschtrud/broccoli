@@ -4,6 +4,7 @@ import static android.content.DialogInterface.BUTTON_NEUTRAL;
 import static android.content.DialogInterface.BUTTON_POSITIVE;
 
 import android.app.Dialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,12 +15,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatDialogFragment;
-import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.databinding.DialogAddCategoryBinding;
+import com.google.android.material.color.MaterialColors;
 
 import javax.inject.Inject;
 
@@ -68,12 +69,12 @@ public class CategoryDialog extends AppCompatDialogFragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                AlertDialog dialog = (AlertDialog) getDialog();
+                AlertDialog dialog = (AlertDialog) requireDialog();
                 dialog.getButton(BUTTON_POSITIVE).setEnabled(s.length() > 0);
             }
         });
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setView(view)
                 .setTitle(category.getCategoryId() == 0? R.string.add_category : R.string.edit_category)
                 .setPositiveButton(R.string.save_action, (dialog, id) -> viewModel.insertOrUpdate(category))
@@ -90,7 +91,7 @@ public class CategoryDialog extends AppCompatDialogFragment {
     public void onResume() {
         super.onResume();
 
-        AlertDialog dialog = (AlertDialog) getDialog();
+        AlertDialog dialog = (AlertDialog) requireDialog();
 
         EditText editText = getDialog().findViewById(R.id.category_name);
         dialog.getButton(BUTTON_POSITIVE).setEnabled(editText.getText().length() > 0);
@@ -103,7 +104,7 @@ public class CategoryDialog extends AppCompatDialogFragment {
             }
             warning.setVisibility(View.VISIBLE);
 
-            dialog.getButton(BUTTON_NEUTRAL).setTextColor(ContextCompat.getColor(dialog.getContext(), R.color.design_default_color_error));
+            dialog.getButton(BUTTON_NEUTRAL).setTextColor(MaterialColors.getColor(requireContext(), R.attr.colorError, Color.RED));
         });
     }
 
