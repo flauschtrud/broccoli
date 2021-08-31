@@ -4,7 +4,8 @@
         <item name="colorPrimary">@color/green_200</item>
         <item name="colorSecondary">@color/green_200</item>
         <item name="colorSecondaryVariant">?attr/colorSurface</item>
-        <item name="android:statusBarColor">?attr/backgroundColor</item>
+
+        <item name="statusBarScrimColor">?attr/colorSurface</item>
     </style>
 
     <style name="ThemeOverlay.Broccoli.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.ActionBar" />

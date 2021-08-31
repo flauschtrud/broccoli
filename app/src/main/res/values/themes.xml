@@ -13,7 +13,8 @@
         <item name="colorOnSecondary">?attr/colorOnPrimary</item>
         <item name="colorControlNormal">@color/colorControlNormal</item>
 
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="statusBarScrimColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">?attr/statusBarScrimColor</item>
     </style>
 
     <style name="Theme.Broccoli.TransparentStatusBar">

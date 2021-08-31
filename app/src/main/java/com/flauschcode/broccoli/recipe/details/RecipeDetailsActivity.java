@@ -32,6 +32,7 @@ import androidx.core.widget.NestedScrollView;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 
+import com.flauschcode.broccoli.BroccoliApplication;
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.databinding.ActivityRecipeDetailsBinding;
@@ -45,6 +46,7 @@ import com.flauschcode.broccoli.recipe.sharing.ShareRecipeAsFileService;
 import com.flauschcode.broccoli.recipe.sharing.ShareableRecipe;
 import com.flauschcode.broccoli.recipe.sharing.ShareableRecipeBuilder;
 import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.elevation.ElevationOverlayProvider;
 
 import java.io.IOException;
 import java.util.List;
@@ -115,6 +117,10 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 }
             }
         });
+
+        if (BroccoliApplication.isDarkMode(this)) {
+            binding.toolbarLayout.setContentScrimColor(new ElevationOverlayProvider(this).compositeOverlayWithThemeSurfaceColorIfNeeded(8f));
+        }
     }
 
     @Override

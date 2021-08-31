@@ -3,6 +3,8 @@ package com.flauschcode.broccoli;
 import static com.flauschcode.broccoli.settings.SettingsFragment.THEME_KEY;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.res.Configuration;
 import android.os.StrictMode;
 
 import androidx.appcompat.app.AppCompatDelegate;
@@ -64,6 +66,10 @@ public class BroccoliApplication extends Application implements HasAndroidInject
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
         }
 
+    }
+
+    public static boolean isDarkMode(Context context) {
+        return (context.getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
     }
 
 }
