@@ -9,6 +9,6 @@
 
     <style name="ThemeOverlay.Broccoli.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.ActionBar" />
 
-    <style name="ThemeOverlay.Broccoli.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Dark" />
+    <style name="ThemeOverlay.Broccoli.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
 
 </resources>
