@@ -29,7 +29,7 @@
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
                 app:contentScrim="?attr/colorPrimarySurface"
-                app:statusBarScrim="?attr/statusBarScrimColor"
+                app:statusBarScrim="?attr/colorStatusBarScrim"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:toolbarId="@+id/toolbar">
 

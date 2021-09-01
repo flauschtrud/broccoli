@@ -6,6 +6,7 @@
         <attr name="maxSteps" format="integer" />
     </declare-styleable>
 
-    <attr name="statusBarScrimColor" format="color" />
+    <attr name="colorStatusBarScrim" format="color" />
+    <attr name="colorSecondaryToolbar" format="color" />
 
 </resources>

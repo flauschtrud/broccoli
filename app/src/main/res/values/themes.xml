@@ -8,13 +8,14 @@
     <style name="Theme.Broccoli" parent="Base.Theme.Broccoli">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
-        <item name="colorSecondaryVariant">@color/primary_light</item> <!-- TODO this is not really secondary -->
         <item name="colorSecondary">@color/colorAccent</item>
         <item name="colorOnSecondary">?attr/colorOnPrimary</item>
         <item name="colorControlNormal">@color/colorControlNormal</item>
 
-        <item name="statusBarScrimColor">?attr/colorPrimaryVariant</item>
-        <item name="android:statusBarColor">?attr/statusBarScrimColor</item>
+        <item name="colorStatusBarScrim">?attr/colorPrimaryDark</item>
+        <item name="colorSecondaryToolbar">@color/primary_light</item>
+
+        <item name="android:statusBarColor">?attr/colorStatusBarScrim</item>
     </style>
 
     <style name="Theme.Broccoli.TransparentStatusBar">

@@ -3,9 +3,9 @@
     <style name="Theme.Broccoli" parent="Base.Theme.Broccoli">
         <item name="colorPrimary">@color/green_200</item>
         <item name="colorSecondary">@color/green_200</item>
-        <item name="colorSecondaryVariant">?attr/colorSurface</item>
 
-        <item name="statusBarScrimColor">?attr/colorSurface</item>
+        <item name="colorStatusBarScrim">?attr/colorSurface</item>
+        <item name="colorSecondaryToolbar">?attr/colorSurface</item>
     </style>
 
     <style name="ThemeOverlay.Broccoli.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.ActionBar" />
