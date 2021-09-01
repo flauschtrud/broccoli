@@ -5,4 +5,4 @@
     android:layout_height="wrap_content"
     android:padding="20dp"
     style="@android:style/Widget.Material.ProgressBar.Horizontal"
-    android:progressTint="@color/colorPrimary" />
+    android:progressTint="?attr/colorPrimary" />
