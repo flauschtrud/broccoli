@@ -12,7 +12,7 @@
         <item name="colorOnSecondary">?attr/colorOnPrimary</item>
         <item name="colorControlNormal">@color/colorControlNormal</item>
 
-        <item name="colorStatusBarScrim">?attr/colorPrimaryDark</item>
+        <item name="colorStatusBarScrim">?attr/colorPrimaryVariant</item>
         <item name="colorSecondaryToolbar">@color/primary_light</item>
 
         <item name="android:statusBarColor">?attr/colorStatusBarScrim</item>
