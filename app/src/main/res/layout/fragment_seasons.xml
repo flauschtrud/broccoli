@@ -26,12 +26,11 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/seasons_configure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/text_margin"
-            android:background="@drawable/button_background_primary"
             android:onClick="navigateToSettingsPage"
             android:text="@string/configure_seasons_action"
             app:icon="@drawable/ic_settings_24"

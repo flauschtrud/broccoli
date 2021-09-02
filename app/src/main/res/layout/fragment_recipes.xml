@@ -36,8 +36,7 @@
                 android:drawableTint="?attr/colorPrimary"
                 android:textColor="?attr/colorPrimary"
                 android:layout_margin="@dimen/toolbar_button_margin"
-                app:drawableEndCompat="@drawable/ic_close_24dp"
-                android:background="@drawable/button_background_white" />
+                app:drawableEndCompat="@drawable/ic_close_24dp" />
 
         </androidx.appcompat.widget.Toolbar>
 

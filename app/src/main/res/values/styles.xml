@@ -10,4 +10,10 @@
         <item name="android:textColorHint">?attr/colorControlNormal</item>
     </style>
 
+    <style name="buttonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">@dimen/button_radius</item>
+        <item name="android:minHeight">@dimen/min_height_for_accessibility</item>
+        <item name="android:padding">@dimen/text_margin</item>
+    </style>
+
 </resources>

@@ -5,11 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/support_layout_community_edition"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="@dimen/drawable_padding"
         android:layout_marginStart="@dimen/text_margin"
         android:layout_marginTop="@dimen/text_margin"
         android:layout_marginEnd="@dimen/text_margin"
@@ -17,20 +18,28 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/support_layout_supporter_edition"
-        app:layout_constraintBottom_toBottomOf="@id/support_layout_supporter_edition"
-        android:background="@drawable/border_icons">
+        app:layout_constraintBottom_toBottomOf="@id/support_layout_supporter_edition">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/drawable_padding">
 
         <TextView
             android:id="@+id/community_edition_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/text_margin"
+            android:layout_gravity="center"
             android:text="@string/community_edition_title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
 
         <TextView
             android:id="@+id/community_edition_recipes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/text_margin_bottom"
             android:drawablePadding="@dimen/drawable_padding"
             android:text="@string/community_edition_perk_recipes"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
@@ -39,6 +48,7 @@
             android:id="@+id/community_edition_categories"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/text_margin_bottom"
             android:drawablePadding="@dimen/drawable_padding"
             android:text="@string/community_edition_perk_categories"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
@@ -47,6 +57,7 @@
             android:id="@+id/community_edition_seasonal_calendar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/text_margin_bottom"
             android:drawablePadding="@dimen/drawable_padding"
             android:text="@string/community_edition_perk_seasonal_calendar"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
@@ -55,6 +66,7 @@
             android:id="@+id/community_edition_backup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/text_margin_bottom"
             android:drawablePadding="@dimen/drawable_padding"
             android:text="@string/community_edition_perk_backup"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
@@ -63,6 +75,7 @@
             android:id="@+id/community_edition_ad_free"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/text_margin_bottom"
             android:drawablePadding="@dimen/drawable_padding"
             android:text="@string/community_edition_perk_ad_free"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
@@ -77,34 +90,45 @@
             android:textAllCaps="true"
             android:textAlignment="center" />
 
-    </LinearLayout>
+        </LinearLayout>
 
-    <LinearLayout
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/support_layout_supporter_edition"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:orientation="vertical"
+        app:cardElevation="4dp"
+        app:cardCornerRadius="@dimen/drawable_padding"
         android:layout_marginTop="@dimen/text_margin"
         android:layout_marginEnd="@dimen/text_margin"
         android:layout_weight="1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/support_layout_community_edition"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/support_layout_community_edition"
-        android:background="@drawable/border_accent">
+        app:layout_constraintBottom_toBottomOf="@id/support_layout_community_edition">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/drawable_padding">
 
         <TextView
             android:id="@+id/supporter_edition_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/text_margin"
+            android:layout_gravity="center"
             android:text="@string/supporter_edition_title"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
             android:textColor="?attr/colorPrimary" />
 
         <TextView
             android:id="@+id/supporter_edition_all_features"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/text_margin_bottom"
             android:drawablePadding="@dimen/drawable_padding"
             android:text="@string/supporter_edition_perk_community_features"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
@@ -114,6 +138,7 @@
             android:id="@+id/supporter_edition_cooking_mode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/text_margin_bottom"
             android:drawablePadding="@dimen/drawable_padding"
             android:text="@string/supporter_edition_perk_cooking_mode"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
@@ -123,18 +148,18 @@
             android:id="@+id/supporter_edition_support"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/text_margin_bottom"
             android:drawablePadding="@dimen/drawable_padding"
             android:text="@string/supporter_edition_perk_support_developer"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
             app:drawableTint="?attr/colorPrimary" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/get_supporter_edition_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/text_margin"
-            android:background="@drawable/button_background_primary"
             app:icon="@drawable/ic_store_24"
             android:text="@string/buy" />
 
@@ -150,9 +175,11 @@
             android:textAlignment="center"
             android:textColor="?attr/colorPrimary"/>
 
-    </LinearLayout>
+        </LinearLayout>
 
-    <Button
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/give_rating_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -161,11 +188,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="@dimen/text_margin"
-        android:background="@drawable/button_background_primary"
         app:icon="@drawable/ic_star_rate_24"
         android:text="@string/rate_the_app" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/share_app_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -174,7 +200,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="@dimen/text_margin"
-        android:background="@drawable/button_background_primary"
         app:icon="@drawable/ic_menu_share_24dp"
         android:text="@string/share_the_app" />
 

@@ -44,13 +44,12 @@
                 android:text="@{viewModel.text}"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/cooking_mode_learn_more_about_supporter_edition"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="@{viewModel.isPremium? View.GONE : View.VISIBLE}"
                 android:layout_marginTop="@dimen/text_margin"
-                android:background="@drawable/button_background_primary"
                 android:onClick="navigateToSupportPage"
                 app:icon="@drawable/ic_menu_support_24"
                 android:text="@string/learn_more" />
