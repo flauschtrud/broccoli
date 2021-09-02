@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#2e7d32</color>
-    <color name="colorPrimaryDark">#005005</color>
-    <color name="primary_light">#60ad5e</color>
-    <color name="colorAccent">#2e7d32</color>
-    <color name="colorOnPrimary">#FFFFFF</color> <!-- TODO remove -->
-    <color name="colorControlNormal">#616161</color>
-    
+    <color name="green_800">#2e7d32</color>
+    <color name="green_900">#1b5e20</color>
+    <color name="green_500">#4caf50</color>
     <color name="green_200">#a5d6a7</color>
+
+    <color name="gray_600">#757575</color>
+    <color name="gray_400">#bdbdbd</color>
 </resources>

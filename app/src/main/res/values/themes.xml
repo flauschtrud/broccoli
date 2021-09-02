@@ -7,14 +7,14 @@
     </style>
     
     <style name="Theme.Broccoli" parent="Base.Theme.Broccoli">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
-        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorPrimary">@color/green_800</item>
+        <item name="colorPrimaryVariant">@color/green_900</item>
+        <item name="colorSecondary">@color/green_800</item>
         <item name="colorOnSecondary">?attr/colorOnPrimary</item>
-        <item name="colorControlNormal">@color/colorControlNormal</item>
+        <item name="colorControlNormal">@color/gray_600</item>
 
         <item name="colorStatusBarScrim">?attr/colorPrimaryVariant</item>
-        <item name="colorSecondaryToolbar">@color/primary_light</item>
+        <item name="colorSecondaryToolbar">@color/green_500</item>
         <item name="colorSurfacePrimary">?attr/colorSurface</item>
         <item name="colorOnSurfacePrimary">?attr/colorPrimary</item>
 

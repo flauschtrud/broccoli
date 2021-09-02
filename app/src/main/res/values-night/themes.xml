@@ -3,6 +3,7 @@
     <style name="Theme.Broccoli" parent="Base.Theme.Broccoli">
         <item name="colorPrimary">@color/green_200</item>
         <item name="colorSecondary">@color/green_200</item>
+        <item name="colorControlNormal">@color/gray_400</item>
 
         <item name="colorStatusBarScrim">?attr/colorSurface</item>
         <item name="colorSecondaryToolbar">?attr/colorSurface</item>
