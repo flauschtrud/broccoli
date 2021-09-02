@@ -9,4 +9,7 @@
     <attr name="colorStatusBarScrim" format="color" />
     <attr name="colorSecondaryToolbar" format="color" />
 
+    <attr name="colorSurfacePrimary" format="color" />
+    <attr name="colorOnSurfacePrimary" format="color" />
+
 </resources>
