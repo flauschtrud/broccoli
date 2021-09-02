@@ -64,7 +64,6 @@
                     android:layout_height="@dimen/app_bar_height"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:background="?attr/colorControlNormal"
                     android:scaleType="centerCrop"
                     android:onClick="@{() -> activity.onImageClick()}"
                     app:placeholder="@{@drawable/placeholder}"
