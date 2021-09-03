@@ -155,7 +155,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 .setMessage(R.string.delete_recipe_question)
                 .setPositiveButton(R.string.delete_action, (dialog, id) -> {
                     recipeRepository.delete(binding.getRecipe())
-                        .thenRun(() -> runOnUiThread(() -> Toast.makeText(getApplicationContext(), getString(R.string.recipe_deleted_message), Toast.LENGTH_SHORT).show()));
+                        .thenRun(() -> runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_deleted_message), Toast.LENGTH_SHORT).show()));
                     finish();
                 })
                 .setNegativeButton(android.R.string.cancel, (dialog, id) -> {})
@@ -224,7 +224,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             startActivity(chooser);
         } catch (IOException e) {
             Log.e(getClass().getName(), e.getMessage());
-            Toast.makeText(getApplicationContext(), getString(R.string.recipe_could_not_be_exported_message), Toast.LENGTH_LONG).show();
+            Toast.makeText(this, getString(R.string.recipe_could_not_be_exported_message), Toast.LENGTH_LONG).show();
         }
     }
 
