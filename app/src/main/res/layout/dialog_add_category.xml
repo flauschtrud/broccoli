@@ -15,6 +15,8 @@
             android:id="@+id/category_name_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingTop="@dimen/text_margin"
+            android:paddingBottom="0dp"
             app:startIconDrawable="@drawable/ic_title_24dp"
             android:hint="@string/category_name">
 

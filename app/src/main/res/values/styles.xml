@@ -17,7 +17,7 @@
     </style>
 
     <style name="textInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:paddingTop">@dimen/text_margin</item>
+        <item name="android:paddingBottom">@dimen/text_margin</item>
         <item name="android:paddingStart">@dimen/text_margin</item>
         <item name="android:paddingEnd">@dimen/text_margin</item>
         <item name="android:textColorHint">?attr/colorControlNormal</item>
