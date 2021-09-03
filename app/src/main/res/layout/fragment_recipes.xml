@@ -25,18 +25,12 @@
                 android:contentDescription="@string/categories"
                 app:popupTheme="@style/ThemeOverlay.Broccoli.PopupOverlay" />
 
-            <Button
-                android:id="@+id/toolbar_button"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chip"
+                style="@style/Widget.MaterialComponents.Chip.Entry"
+                app:ensureMinTouchTargetSize="true"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:minHeight="@dimen/min_height_for_accessibility"
-                android:paddingStart="@dimen/text_margin"
-                android:paddingEnd="8dp"
-                android:drawablePadding = "4dp"
-                android:drawableTint="?attr/colorPrimary"
-                android:textColor="?attr/colorPrimary"
-                android:layout_margin="@dimen/toolbar_button_margin"
-                app:drawableEndCompat="@drawable/ic_close_24dp" />
+                android:layout_height="wrap_content" />
 
         </androidx.appcompat.widget.Toolbar>
 

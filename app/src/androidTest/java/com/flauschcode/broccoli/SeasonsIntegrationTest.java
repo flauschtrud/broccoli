@@ -131,7 +131,7 @@ public class SeasonsIntegrationTest {
         onView(RecyclerViewMatcher.withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_title)).check(matches(withText("Flauschrezept")));
 
         // remove filter
-        onView(withId(R.id.toolbar_button)).perform(click());
+        onView(withId(R.id.chip)).perform(click());
         onView(withId(R.id.recycler_view)).check(RecyclerViewAssertions.hasItemsCount(2));
 
         // delete recipes

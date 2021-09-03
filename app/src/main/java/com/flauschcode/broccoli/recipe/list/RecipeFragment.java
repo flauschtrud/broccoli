@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.activity.OnBackPressedCallback;
@@ -36,6 +35,7 @@ import com.flauschcode.broccoli.recipe.Recipe;
 import com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity;
 import com.flauschcode.broccoli.seasons.SeasonalFood;
+import com.google.android.material.chip.Chip;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Optional;
@@ -54,7 +54,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     private MenuItem searchItem;
     private SearchView searchView;
     private Spinner spinner;
-    private Button toolbarButton;
+    private Chip seasonalIngredientChip;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -115,16 +115,16 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         spinner = root.findViewById(R.id.spinner);
         setUpSpinner();
 
-        toolbarButton = root.findViewById(R.id.toolbar_button);
+        seasonalIngredientChip = root.findViewById(R.id.chip);
         getSeasonalFoodArgument().ifPresent(seasonalFood -> {
             resetCategory();
 
-            toolbarButton.setText(seasonalFood.getName());
-            toolbarButton.setOnClickListener(view -> {
+            seasonalIngredientChip.setText(seasonalFood.getName());
+            seasonalIngredientChip.setOnClickListener(view -> {
                 NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
                 navController.popBackStack(R.id.nav_seasons, true);
                 resetCategoryAndArguments();
-                toolbarButton.setVisibility(View.GONE);
+                seasonalIngredientChip.setVisibility(View.GONE);
                 spinner.setVisibility(View.VISIBLE);
             });
 
@@ -157,10 +157,10 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         super.onResume();
 
         if (getSeasonalFoodArgument().isPresent()) {
-            safeSetVisibility(toolbarButton, View.VISIBLE);
+            safeSetVisibility(seasonalIngredientChip, View.VISIBLE);
             safeSetVisibility(spinner, View.GONE);
         } else {
-            safeSetVisibility(toolbarButton, View.GONE);
+            safeSetVisibility(seasonalIngredientChip, View.GONE);
             safeSetVisibility(spinner, View.VISIBLE);
         }
     }
