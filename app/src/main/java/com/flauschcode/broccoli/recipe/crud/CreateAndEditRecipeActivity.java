@@ -1,29 +1,33 @@
 package com.flauschcode.broccoli.recipe.crud;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.flauschcode.broccoli.BooleanUtils;
-import com.flauschcode.broccoli.category.Category;
-import com.flauschcode.broccoli.recipe.importing.RecipeImportService;
-import com.flauschcode.broccoli.recipe.sharing.ShareRecipeAsFileService;
-
 import com.flauschcode.broccoli.R;
+import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.databinding.ActivityNewRecipeBinding;
 import com.flauschcode.broccoli.recipe.Recipe;
+import com.flauschcode.broccoli.recipe.importing.RecipeImportService;
+import com.flauschcode.broccoli.recipe.sharing.ShareRecipeAsFileService;
+import com.google.android.material.color.MaterialColors;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -219,6 +223,11 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
                     .show();
 
         });
+    }
+
+    @BindingAdapter({"customIconTint"})
+    public static void setCustomIconTint(ImageView imageView, String imageName) {
+        imageView.setImageTintList(ColorStateList.valueOf(TextUtils.isEmpty(imageName)? MaterialColors.getColor(imageView, R.attr.colorControlNormal) : MaterialColors.getColor(imageView, R.attr.colorOnPrimarySurface)));
     }
 
     @Override

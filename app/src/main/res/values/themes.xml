@@ -4,6 +4,7 @@
         <item name="android:spinnerItemStyle">@style/spinnerItemStyle</item>
         <item name="editTextStyle">@style/editTextStyle</item>
         <item name="materialButtonStyle">@style/buttonStyle</item>
+        <item name="textInputStyle">@style/textInputStyle</item>
     </style>
     
     <style name="Theme.Broccoli" parent="Base.Theme.Broccoli">
