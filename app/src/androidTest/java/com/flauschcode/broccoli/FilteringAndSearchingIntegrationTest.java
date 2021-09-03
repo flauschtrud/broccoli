@@ -6,6 +6,7 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
 import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.contrib.DrawerActions.open;
@@ -100,7 +101,7 @@ public class FilteringAndSearchingIntegrationTest {
 
         onView(withId(R.id.fab_recipes)).perform(click());
         onView(withId(R.id.new_title)).perform(typeText("Lauchkuchen"));
-        onView(withId(R.id.new_categories)).perform(click());
+        onView(withId(R.id.new_categories)).perform(closeSoftKeyboard(), click());
         onView(withText("Test")).perform(click());
         onView(withId(android.R.id.button1)).perform(click());
         onView(withId(R.id.button_save_recipe)).perform(click());

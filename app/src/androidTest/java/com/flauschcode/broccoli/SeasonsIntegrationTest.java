@@ -29,6 +29,7 @@ import androidx.preference.PreferenceManager;
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.espresso.UiController;
 import androidx.test.espresso.ViewAction;
+import androidx.test.espresso.accessibility.AccessibilityChecks;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 import androidx.test.filters.LargeTest;
@@ -54,8 +55,7 @@ public class SeasonsIntegrationTest {
 
     @Before
     public void setUp() {
-        // at the moment I can't really deal with a 48dp high toolbar button
-        //AccessibilityChecks.enable();
+        AccessibilityChecks.enable();
 
         Set<String> languages = new HashSet<>();
         languages.add("de");

@@ -92,13 +92,13 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/new_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:startIconDrawable="@drawable/ic_title_24dp"
                     android:hint="@string/title">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/new_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:inputType="textCapSentences"
@@ -109,7 +109,6 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/new_categories"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:startIconDrawable="@drawable/ic_categories_24dp"
@@ -118,6 +117,7 @@
                 android:hint="@string/categories">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/new_categories"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="none"
@@ -130,13 +130,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/new_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:startIconDrawable="@drawable/ic_info_24dp"
                 android:hint="@string/description">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/new_description"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences|textMultiLine"
@@ -147,13 +147,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/new_source"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:startIconDrawable="@drawable/ic_link_24dp"
                 android:hint="@string/source">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/new_source"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences"
@@ -164,13 +164,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/new_servings"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:startIconDrawable="@drawable/ic_person_24dp"
                 android:hint="@string/servings">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/new_servings"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences"
@@ -181,13 +181,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/new_preparation_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:startIconDrawable="@drawable/ic_time_24dp"
                 android:hint="@string/preparation_time">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/new_preparation_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences"
@@ -198,13 +198,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/new_ingredients"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:startIconDrawable="@drawable/ic_list_bulleted_24dp"
                 android:hint="@string/ingredients">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/new_ingredients"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences|textMultiLine"
@@ -215,13 +215,13 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/new_directions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:startIconDrawable="@drawable/ic_list_numbered_24dp"
                 android:hint="@string/directions">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/new_directions"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapSentences|textMultiLine"
