@@ -1,10 +1,11 @@
 <resources>
 
-    <style name="Base.Theme.Broccoli" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Base.Theme.Broccoli" parent="Theme.MaterialComponents.DayNight">
         <item name="android:spinnerItemStyle">@style/spinnerItemStyle</item>
         <item name="editTextStyle">@style/editTextStyle</item>
         <item name="materialButtonStyle">@style/buttonStyle</item>
         <item name="textInputStyle">@style/textInputStyle</item>
+        <item name="actionBarTheme">@style/Theme.Broccoli.ActionBar</item>
     </style>
     
     <style name="Theme.Broccoli" parent="Base.Theme.Broccoli">
@@ -22,8 +23,18 @@
         <item name="android:statusBarColor">?attr/colorStatusBarScrim</item>
     </style>
 
-    <style name="Theme.Broccoli.TransparentStatusBar">
+    <style name="Theme.Broccoli.NoActionBar" parent="Theme.Broccoli">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.Broccoli.TransparentStatusBar" parent="Theme.Broccoli.NoActionBar">
         <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.Broccoli.ActionBar" parent="Widget.MaterialComponents.ActionBar.PrimarySurface">
+        <item name="android:textColorPrimary">?attr/colorOnPrimarySurface</item>
+        <item name="android:tint">?attr/colorOnPrimarySurface</item>
     </style>
 
     <style name="ThemeOverlay.Broccoli.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.Dark.ActionBar" />
