@@ -26,7 +26,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.databinding.BindingAdapter;
@@ -279,6 +279,24 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             binding.setDirection(direction);
         });
     }
+
+    @BindingAdapter("disableCollapsingScroll")
+    public static void bindDisableCollapsingScroll(AppBarLayout appBarLayout, boolean disabled) {
+        CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) appBarLayout.getLayoutParams();
+
+        if (params.getBehavior() == null) {
+            params.setBehavior(new AppBarLayout.Behavior());
+        }
+
+        AppBarLayout.Behavior behavior = (AppBarLayout.Behavior) params.getBehavior();
+        behavior.setDragCallback(new AppBarLayout.Behavior.DragCallback() {
+            @Override
+            public boolean canDrag(@NonNull AppBarLayout appBarLayout) {
+                return disabled;
+            }
+        });
+    }
+
 
     private static LayoutInflater getLayoutInflater(LinearLayout layout) {
         return (LayoutInflater) layout.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);

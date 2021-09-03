@@ -21,6 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/app_bar_height_details"
             android:fitsSystemWindows="true"
+            bind:expanded="@{recipe.imageName.empty? false : true}"
+            app:disableCollapsingScroll="@{recipe.imageName.empty? false : true}"
             android:theme="@style/ThemeOverlay.Broccoli.AppBarOverlay">
 
             <com.google.android.material.appbar.CollapsingToolbarLayout
