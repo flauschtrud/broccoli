@@ -179,6 +179,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?attr/colorPrimary"
                     android:text="@string/ingredients" />
 
                 <LinearLayout
@@ -202,6 +203,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?attr/colorPrimary"
                     android:text="@string/directions" />
 
                 <LinearLayout
