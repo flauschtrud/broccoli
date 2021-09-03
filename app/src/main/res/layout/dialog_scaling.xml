@@ -2,23 +2,21 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/category_name_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:startIconDrawable="@drawable/ic_tune_24"
+        android:padding="0dp"
+        android:hint="@string/hint_scale_factor">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_scale_factor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:singleLine="true"
             android:inputType="numberDecimal"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:hint="@string/hint_scale_factor"
-            android:importantForAutofill="no" />
+            android:singleLine="true" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.textfield.TextInputLayout>
 
 </layout>
