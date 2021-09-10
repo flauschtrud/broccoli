@@ -74,6 +74,7 @@ public class CategoryFragment extends Fragment {
         FeatureDiscoveryTargetBuilder.buildInContextOf(requireActivity())
                 .withTitle(getString(R.string.add_category))
                 .withDescription(getString(R.string.add_first_category))
+                .withTag("discover-add-category")
                 .discoverIfNew(fab);
 
         return root;

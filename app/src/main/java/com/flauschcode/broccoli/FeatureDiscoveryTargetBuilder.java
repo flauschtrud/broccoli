@@ -13,6 +13,7 @@ public class FeatureDiscoveryTargetBuilder {
     private final Activity activity;
     private String title;
     private String description;
+    private String tag;
 
     private FeatureDiscoveryTargetBuilder(Activity activity) {
         this.activity = activity;
@@ -32,30 +33,38 @@ public class FeatureDiscoveryTargetBuilder {
         return this;
     }
 
-    public void discoverIfNew(View view) {
-        if (hasNotBeenDiscoveredYet(view)) {
-            TapTargetView.showFor(activity, TapTarget.forView(view, title != null? title : "", description != null? description : "")
+    public FeatureDiscoveryTargetBuilder withTag(String tag) {
+        this.tag = tag;
+        return this;
+    }
+
+    public void discoverIfNew(View clickableView) {
+        if (tag == null) {
+            throw new IllegalArgumentException("The unique tag must not be null!");
+        }
+
+        if (hasNotBeenDiscoveredYet()) {
+            TapTargetView.showFor(activity, TapTarget.forView(clickableView, title != null? title : "", description != null? description : "")
                     .tintTarget(false), new TapTargetView.Listener() {
                 @Override
                 public void onTargetClick(TapTargetView view) {
                     super.onTargetClick(view);
-                    view.performClick();
-                    view.dismiss(true);
-                    markAsDiscovered(view);
+                    clickableView.performClick();
+                    markAsDiscovered();
                 }
             });
         }
     }
 
-    private void markAsDiscovered(View view) {
-        PreferenceManager.getDefaultSharedPreferences(view.getContext())
+    private void markAsDiscovered() {
+        PreferenceManager.getDefaultSharedPreferences(activity)
                 .edit()
-                .putBoolean(String.valueOf(view.getId()), true)
+                .putBoolean(tag, true)
                 .apply();
     }
 
-    private boolean hasNotBeenDiscoveredYet(View view) {
-        return PreferenceManager.getDefaultSharedPreferences(view.getContext())
-                .getBoolean(String.valueOf(view.getId()), false);
+    private boolean hasNotBeenDiscoveredYet() {
+        return !PreferenceManager.getDefaultSharedPreferences(activity)
+                .getBoolean(tag, false);
     }
 }

@@ -102,6 +102,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         FeatureDiscoveryTargetBuilder.buildInContextOf(this)
                 .withTitle(getString(R.string.cooking_mode))
                 .withDescription(getString(R.string.cooking_mode_prompt))
+                .withTag("discover-cooking-mode")
                 .discoverIfNew(binding.fabCookingMode);
 
         // https://stackoverflow.com/questions/31662416/show-collapsingtoolbarlayout-title-only-when-collapsed (does not work with expandedTitleTextAppearance because you would see the title fade in nonetheless)

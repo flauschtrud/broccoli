@@ -234,6 +234,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         FeatureDiscoveryTargetBuilder.buildInContextOf(requireActivity())
                 .withTitle(getString(R.string.new_recipe))
                 .withDescription(getString(R.string.create_first_recipe))
+                .withTag("discover-new-recipe")
                 .discoverIfNew(fab);
 
     }
