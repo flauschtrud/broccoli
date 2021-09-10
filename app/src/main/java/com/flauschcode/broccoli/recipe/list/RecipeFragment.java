@@ -28,6 +28,7 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.flauschcode.broccoli.BR;
+import com.flauschcode.broccoli.FeatureDiscoveryTargetBuilder;
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.RecyclerViewAdapter;
 import com.flauschcode.broccoli.category.Category;
@@ -92,19 +93,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         recyclerView.setAdapter(adapter);
 
         FloatingActionButton fab = root.findViewById(R.id.fab_recipes);
-        ActivityResultLauncher<Intent> crudResultLauncher = registerForActivityResult(
-                new ActivityResultContracts.StartActivityForResult(),
-                result -> {
-                    if (result.getResultCode() == Activity.RESULT_OK) {
-                        resetCategoryAndArguments();
-                        Recipe recipe = (Recipe) result.getData().getSerializableExtra(Recipe.class.getName());
-                        onListInteraction(recipe);
-                    }
-                });
-        fab.setOnClickListener(view -> {
-            Intent intent = new Intent(getActivity(), CreateAndEditRecipeActivity.class);
-            crudResultLauncher.launch(intent);
-        });
+        setUpFloatingActionButton(fab);
 
         viewModel = new ViewModelProvider(this, viewModelFactory).get(RecipeViewModel.class);
         viewModel.getRecipes().observe(getViewLifecycleOwner(), adapter::submitList);
@@ -225,6 +214,28 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         if (getArguments() != null) {
             getArguments().clear();
         }
+    }
+
+    private void setUpFloatingActionButton(FloatingActionButton fab) {
+        ActivityResultLauncher<Intent> crudResultLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == Activity.RESULT_OK) {
+                        resetCategoryAndArguments();
+                        Recipe recipe = (Recipe) result.getData().getSerializableExtra(Recipe.class.getName());
+                        onListInteraction(recipe);
+                    }
+                });
+        fab.setOnClickListener(view -> {
+            Intent intent = new Intent(getActivity(), CreateAndEditRecipeActivity.class);
+            crudResultLauncher.launch(intent);
+        });
+
+        FeatureDiscoveryTargetBuilder.buildInContextOf(requireActivity())
+                .withTitle(getString(R.string.new_recipe))
+                .withDescription(getString(R.string.create_first_recipe))
+                .discoverIfNew(fab);
+
     }
 
     private void setUpMenu(Toolbar toolbar) {

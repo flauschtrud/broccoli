@@ -187,4 +187,7 @@
     <string name="dark">Dunkel</string>
     <string name="system_default">Systemstandard</string>
     <string name="design">Design</string>
+    <string name="create_first_recipe">Erstelle dein erstes Rezept!</string>
+    <string name="add_first_category">Füge deine erste eigene Kategorie hinzu!</string>
+    <string name="cooking_mode_prompt">Koche dein Rezept ohne Ablenkung!</string>
 </resources>

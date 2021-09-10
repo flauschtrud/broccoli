@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AlertDialog;
@@ -13,6 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.flauschcode.broccoli.FeatureDiscoveryTargetBuilder;
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.recipe.Recipe;
 
@@ -36,7 +38,13 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
 
         viewPager = findViewById(R.id.cooking_mode_pager);
 
-        findViewById(R.id.button_scaling).setOnClickListener(view -> showScalingDialog());
+        Button scalingButton = findViewById(R.id.button_scaling);
+        scalingButton.setOnClickListener(view -> showScalingDialog());
+
+        FeatureDiscoveryTargetBuilder.buildInContextOf(this)
+                .withTitle(getString(R.string.scale_the_ingredients))
+                .withDescription(getString(R.string.scaling_question))
+                .discoverIfNew(scalingButton);
 
         createPageableRecipe();
     }

@@ -109,6 +109,8 @@ dependencies {
 
     implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
 
+    implementation 'com.getkeepsafe.taptargetview:taptargetview:1.13.3'
+
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.mockito:mockito-core:3.3.0'
     testImplementation 'org.hamcrest:hamcrest:2.2'

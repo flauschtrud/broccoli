@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.flauschcode.broccoli.BR;
+import com.flauschcode.broccoli.FeatureDiscoveryTargetBuilder;
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.RecyclerViewAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -69,6 +70,11 @@ public class CategoryFragment extends Fragment {
 
         FloatingActionButton fab = root.findViewById(R.id.fab_categories);
         fab.setOnClickListener(view -> CategoryDialog.newInstance(new Category("")).show(getParentFragmentManager(), "CategoryDialogTag"));
+
+        FeatureDiscoveryTargetBuilder.buildInContextOf(requireActivity())
+                .withTitle(getString(R.string.add_category))
+                .withDescription(getString(R.string.add_first_category))
+                .discoverIfNew(fab);
 
         return root;
     }

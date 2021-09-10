@@ -33,6 +33,7 @@ import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
 
 import com.flauschcode.broccoli.BroccoliApplication;
+import com.flauschcode.broccoli.FeatureDiscoveryTargetBuilder;
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.databinding.ActivityRecipeDetailsBinding;
@@ -98,6 +99,10 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         binding.setRecipe(recipe);
 
         binding.fabCookingMode.setOnClickListener(view -> this.cook(null));
+        FeatureDiscoveryTargetBuilder.buildInContextOf(this)
+                .withTitle(getString(R.string.cooking_mode))
+                .withDescription(getString(R.string.cooking_mode_prompt))
+                .discoverIfNew(binding.fabCookingMode);
 
         // https://stackoverflow.com/questions/31662416/show-collapsingtoolbarlayout-title-only-when-collapsed (does not work with expandedTitleTextAppearance because you would see the title fade in nonetheless)
         binding.appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
