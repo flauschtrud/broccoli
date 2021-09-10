@@ -12,6 +12,16 @@
         android:layout_height="match_parent" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        app:icon="@drawable/ic_close_24dp"
+        app:iconGravity="textTop"
+        android:layout_gravity="top|start"
+        android:contentDescription="@android:string/cancel" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button_scaling"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

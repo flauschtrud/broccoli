@@ -38,6 +38,9 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
 
         viewPager = findViewById(R.id.cooking_mode_pager);
 
+        Button cancelButton = findViewById(R.id.button_cancel);
+        cancelButton.setOnClickListener(view -> finish());
+
         Button scalingButton = findViewById(R.id.button_scaling);
         scalingButton.setOnClickListener(view -> showScalingDialog());
 
