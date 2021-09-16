@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.flauschcode.broccoli.category.CategoryViewModel;
+import com.flauschcode.broccoli.recipe.cooking.CookingModeViewModel;
 import com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeViewModel;
 import com.flauschcode.broccoli.recipe.list.RecipeViewModel;
 
@@ -31,5 +32,10 @@ public interface ViewModelModule {
     @IntoMap
     @ViewModelKey(CreateAndEditRecipeViewModel.class)
     ViewModel newRecipeViewModel(CreateAndEditRecipeViewModel createAndEditRecipeViewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(CookingModeViewModel.class)
+    ViewModel newCookingModeViewModel(CookingModeViewModel cookingModeViewModel);
 
 }

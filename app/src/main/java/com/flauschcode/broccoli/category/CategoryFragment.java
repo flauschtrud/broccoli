@@ -69,7 +69,7 @@ public class CategoryFragment extends Fragment {
         viewModel.getCategories().observe(getViewLifecycleOwner(), adapter::submitList);
 
         FloatingActionButton fab = root.findViewById(R.id.fab_categories);
-        fab.setOnClickListener(view -> CategoryDialog.newInstance(new Category("")).show(getParentFragmentManager(), "CategoryDialogTag"));
+        fab.setOnClickListener(view -> CategoryDialog.newInstance(new Category("")).show(getParentFragmentManager(), "CategoryDialogFragment"));
 
         FeatureDiscoveryTargetBuilder.buildInContextOf(requireActivity())
                 .withTitle(getString(R.string.add_category))
@@ -81,6 +81,6 @@ public class CategoryFragment extends Fragment {
     }
 
     public void onListInteraction(Category category) {
-        CategoryDialog.newInstance(category).show(getParentFragmentManager(), "CategoryDialogTag");
+        CategoryDialog.newInstance(category).show(getParentFragmentManager(), "CategoryDialogFragment");
     }
 }

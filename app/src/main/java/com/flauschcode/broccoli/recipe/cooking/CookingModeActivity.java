@@ -2,16 +2,14 @@ package com.flauschcode.broccoli.recipe.cooking;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.flauschcode.broccoli.FeatureDiscoveryTargetBuilder;
@@ -22,10 +20,10 @@ import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
 
-public class CookingModeActivity extends AppCompatActivity implements CookingModeControls.OnCookingModeControlsInteractionListener  {
+public class CookingModeActivity extends AppCompatActivity implements CookingModeControls.OnCookingModeControlsInteractionListener {
 
     @Inject
-    PageableRecipeBuilder pageableRecipeBuilder;
+    ViewModelProvider.Factory viewModelFactory;
 
     private ViewPager2 viewPager;
 
@@ -50,21 +48,11 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
                 .withTag("discover-scaling")
                 .discoverIfNew(scalingButton);
 
-        createPageableRecipe();
-    }
-
-    private void createPageableRecipe(float scaleFactor) {
         Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName());
-        PageableRecipe pageableRecipe = pageableRecipeBuilder.scale(scaleFactor).from(recipe);
 
-        setPageableRecipe(pageableRecipe);
-    }
-
-    private void createPageableRecipe() {
-        Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName());
-        PageableRecipe pageableRecipe = pageableRecipeBuilder.from(recipe);
-
-        setPageableRecipe(pageableRecipe);
+        CookingModeViewModel viewModel = new ViewModelProvider(this, viewModelFactory).get(CookingModeViewModel.class);
+        viewModel.setRecipe(recipe);
+        viewModel.getPageableRecipe().observe(this, this::setPageableRecipe);
     }
 
     private void setPageableRecipe(PageableRecipe pageableRecipe) {
@@ -74,40 +62,11 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
         viewPager.setAdapter(adapter);
     }
 
-    private void showScalingDialog() {
-        View view = getLayoutInflater().inflate(R.layout.dialog_scaling, null);
-
-        AlertDialog alertDialog = new AlertDialog.Builder(this)
-                .setTitle(R.string.scale_the_ingredients)
-                .setMessage(R.string.scaling_question)
-                .setView(view)
-                .setPositiveButton(android.R.string.ok, (dialog, id) -> {
-                    EditText inputScaleFactor = view.findViewById(R.id.input_scale_factor);
-                    if (!TextUtils.isEmpty(inputScaleFactor.getText())) {
-                        createPageableRecipe(Float.parseFloat(inputScaleFactor.getText().toString()));
-                    }
-                })
-                .setNegativeButton(android.R.string.cancel, (dialog, id) -> {})
-                .create();
-        alertDialog.show();
-    }
-
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
             hideSystemUI();
-        }
-    }
-
-    private void hideSystemUI() {
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
-
-        WindowInsetsControllerCompat insetsController = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
-        if (insetsController != null) {
-            insetsController.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
-            insetsController.hide(WindowInsetsCompat.Type.statusBars());
-            insetsController.hide(WindowInsetsCompat.Type.navigationBars());
         }
     }
 
@@ -123,4 +82,19 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
         finish();
     }
 
+    private void showScalingDialog() {
+        ScalingDialog scalingDialog = new ScalingDialog();
+        scalingDialog.show(getSupportFragmentManager(), "ScalingDialogFragment");
+    }
+
+    private void hideSystemUI() {
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+
+        WindowInsetsControllerCompat insetsController = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
+        if (insetsController != null) {
+            insetsController.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
+            insetsController.hide(WindowInsetsCompat.Type.statusBars());
+            insetsController.hide(WindowInsetsCompat.Type.navigationBars());
+        }
+    }
 }

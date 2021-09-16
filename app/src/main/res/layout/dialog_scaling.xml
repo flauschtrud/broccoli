@@ -3,18 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/category_name_layout"
-        android:layout_width="match_parent"
+        android:id="@+id/input_scale_layout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:startIconDrawable="@drawable/ic_tune_24"
-        android:padding="0dp"
-        android:hint="@string/hint_scale_factor">
+        app:startIconDrawable="@drawable/ic_minus_24"
+        app:endIconDrawable="@drawable/ic_plus_24"
+        app:endIconMode="custom"
+        android:hint="@string/servings"
+        android:padding="0dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_scale_factor"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
+            android:inputType="number"
             android:singleLine="true" />
 
     </com.google.android.material.textfield.TextInputLayout>

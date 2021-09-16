@@ -14,8 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatDialogFragment;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.flauschcode.broccoli.R;
@@ -26,7 +26,7 @@ import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
 
-public class CategoryDialog extends AppCompatDialogFragment {
+public class CategoryDialog extends DialogFragment {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
@@ -46,7 +46,7 @@ public class CategoryDialog extends AppCompatDialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AndroidSupportInjection.inject(this);
 
-        LayoutInflater inflater = getActivity().getLayoutInflater();
+        LayoutInflater inflater = requireActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_add_category, null);
 
         viewModel = new ViewModelProvider(this, viewModelFactory).get(CategoryViewModel.class);
