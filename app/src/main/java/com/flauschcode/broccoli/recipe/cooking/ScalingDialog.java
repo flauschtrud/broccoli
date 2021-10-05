@@ -2,16 +2,15 @@ package com.flauschcode.broccoli.recipe.cooking;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.EditText;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.flauschcode.broccoli.R;
+import com.flauschcode.broccoli.databinding.DialogScalingBinding;
 import com.google.android.material.textfield.TextInputLayout;
 
 import javax.inject.Inject;
@@ -28,42 +27,24 @@ public class ScalingDialog extends DialogFragment {
         AndroidSupportInjection.inject(this);
 
         LayoutInflater inflater = requireActivity().getLayoutInflater();
-        View view = inflater.inflate(R.layout.dialog_scaling, null);
+
+        DialogScalingBinding binding = DataBindingUtil.inflate(inflater, R.layout.dialog_scaling, null, true);
+
+        ScalingDialogViewModel scalingDialogViewModel = new ViewModelProvider(this).get(ScalingDialogViewModel.class);
+        binding.setViewModel(scalingDialogViewModel);
 
         CookingModeViewModel viewModel = new ViewModelProvider(requireActivity(), viewModelFactory).get(CookingModeViewModel.class);
-        Servings servings = Servings.createFrom(viewModel.getRecipe().getServings());
+        scalingDialogViewModel.setRecipe(viewModel.getRecipe());
 
-        EditText inputScaleFactor = view.findViewById(R.id.input_scale_factor);
-        inputScaleFactor.setText(String.valueOf(servings.getQuantity()));
-
-        TextInputLayout textInputLayout = view.findViewById(R.id.input_scale_layout);
-
-        if (!servings.getLabel().isEmpty()) {
-            textInputLayout.setHint(servings.getLabel());
-        }
-
-        textInputLayout.setStartIconOnClickListener(v -> {
-            int value = Integer.parseInt(inputScaleFactor.getText().toString());
-            value--;
-            inputScaleFactor.setText(String.valueOf(value));
-        });
-
-        textInputLayout.setEndIconOnClickListener(v -> {
-            int value = Integer.parseInt(inputScaleFactor.getText().toString());
-            value++;
-            inputScaleFactor.setText(String.valueOf(value));
-        });
+        TextInputLayout textInputLayout = binding.layoutSimpleScaling;
+        textInputLayout.setStartIconOnClickListener(v -> scalingDialogViewModel.decrementNumberOfServings());
+        textInputLayout.setEndIconOnClickListener(v -> scalingDialogViewModel.incrementNumberOfServings());
 
         return new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.scale_the_ingredients)
                 .setMessage(R.string.scaling_question)
-                .setView(view)
-                .setPositiveButton(android.R.string.ok, (dialog, id) -> {
-                    if (!TextUtils.isEmpty(inputScaleFactor.getText())) {
-                        float selectedServings = Float.parseFloat(inputScaleFactor.getText().toString());
-                        viewModel.onScale(selectedServings/servings.getQuantity());
-                    }
-                })
+                .setView(binding.getRoot())
+                .setPositiveButton(android.R.string.ok, (dialog, id) -> scalingDialogViewModel.computeScaleFactor().ifPresent(viewModel::onScale))
                 .setNegativeButton(android.R.string.cancel, (dialog, id) -> {})
                 .create();
     }

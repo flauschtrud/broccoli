@@ -142,7 +142,7 @@ public class CookingModeActivityTest {
     }
 
     @Test
-    public void scale() {
+    public void scale_simple_mode() {
         onView(withId(R.id.fullscreen_layout)).perform(click());
         onView(withId(R.id.fullscreen_layout)).perform(click()); // scaling button is not visible for Espresso otherwise
 
@@ -152,9 +152,33 @@ public class CookingModeActivityTest {
                 .inRoot(isDialog())
                 .check(matches(isDisplayed()));
 
-        onView(withId(R.id.input_scale_factor))
+        onView(withId(R.id.number_of_servings))
                 .inRoot(isDialog())
-                .perform(typeText("2"));
+                .perform(clearText(), typeText("2"));
+        onView(withId(android.R.id.button1)).perform(click());
+
+        Float scaleFactor = scaleFactorCaptor.getValue();
+        assertThat(scaleFactor, is(0.5f));
+    }
+
+    @Test
+    public void scale_pro_mode() {
+        onView(withId(R.id.fullscreen_layout)).perform(click());
+        onView(withId(R.id.fullscreen_layout)).perform(click()); // scaling button is not visible for Espresso otherwise
+
+        onView(withId(R.id.button_scaling)).perform(click());
+
+        onView(withText(R.string.scaling_question))
+                .inRoot(isDialog())
+                .check(matches(isDisplayed()));
+
+        onView(withId(R.id.button_pro_scaling))
+                .inRoot(isDialog())
+                .perform(click());
+
+        onView(withId(R.id.scale_factor))
+                .inRoot(isDialog())
+                .perform(clearText(), typeText("2"));
         onView(withId(android.R.id.button1)).perform(click());
 
         Float scaleFactor = scaleFactorCaptor.getValue();
@@ -172,7 +196,7 @@ public class CookingModeActivityTest {
                 .inRoot(isDialog())
                 .check(matches(isDisplayed()));
 
-        onView(withId(R.id.input_scale_factor))
+        onView(withId(R.id.number_of_servings))
                 .inRoot(isDialog())
                 .perform(clearText());
         onView(withId(android.R.id.button1)).perform(click());

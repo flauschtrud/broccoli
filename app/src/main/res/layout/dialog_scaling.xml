@@ -2,23 +2,82 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <import type="android.view.View"/>
+        <variable name="viewModel" type="com.flauschcode.broccoli.recipe.cooking.ScalingDialogViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggle_group_scale_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:checkedButton="@id/button_simple_scaling">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_simple_scaling"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?attr/materialButtonOutlinedStyle"
+                android:onClick="@{() -> viewModel.enableSimpleMode()}"
+                android:text="Simple" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_pro_scaling"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="?attr/materialButtonOutlinedStyle"
+                android:onClick="@{() -> viewModel.disableSimpleMode()}"
+                android:text="Pro" />
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <!-- TODO hint disappears when text is empty -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_scale_layout"
+        android:id="@+id/layout_simple_scaling"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="@{viewModel.isSimpleMode? View.VISIBLE : View.GONE}"
         app:startIconDrawable="@drawable/ic_minus_24"
         app:endIconDrawable="@drawable/ic_plus_24"
         app:endIconMode="custom"
-        android:hint="@string/servings"
+        android:hint="@{viewModel.servings.label.empty? @string/servings : viewModel.servings.label}"
         android:padding="0dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_scale_factor"
+            android:id="@+id/number_of_servings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:text="@={viewModel.numberOfServings}"/>
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layout_pro_scaling"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="@{viewModel.isSimpleMode? View.GONE : View.VISIBLE}"
+        app:startIconDrawable="@drawable/ic_tune_24"
+        android:padding="0dp"
+        android:hint="@string/hint_scale_factor">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/scale_factor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:singleLine="true"
+            android:text="@={viewModel.scaleFactor}"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
 
 </layout>
