@@ -60,7 +60,9 @@
     <string name="cook_action">Cook</string>
     <string name="scale_the_ingredients">Adjust the amount of ingredients</string>
     <string name="scaling_question">Do you want to cook more or less?</string>
-    <string name="hint_scale_factor" translatable="false">1.5</string>
+    <string name="scaling_simple">Simple</string>
+    <string name="scaling_pro">Pro</string>
+    <string name="scaling_factor">Scaling factor</string>
     <string name="unscaled">not adjusted</string>
 
     <!-- Sharing and export/import -->

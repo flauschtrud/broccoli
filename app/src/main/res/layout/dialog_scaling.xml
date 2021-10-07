@@ -10,6 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingStart="?dialogPreferredPadding"
+        android:paddingEnd="?dialogPreferredPadding"
         android:orientation="vertical">
 
         <com.google.android.material.button.MaterialButtonToggleGroup
@@ -23,31 +25,33 @@
                 android:id="@+id/button_simple_scaling"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 style="?attr/materialButtonOutlinedStyle"
                 android:onClick="@{() -> viewModel.enableSimpleMode()}"
-                android:text="Simple" />
+                android:text="@string/scaling_simple" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_pro_scaling"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 style="?attr/materialButtonOutlinedStyle"
                 android:onClick="@{() -> viewModel.disableSimpleMode()}"
-                android:text="Pro" />
+                android:text="@string/scaling_pro" />
 
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
-        <!-- TODO hint disappears when text is empty -->
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_simple_scaling"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="@{viewModel.isSimpleMode? View.VISIBLE : View.GONE}"
         app:startIconDrawable="@drawable/ic_minus_24"
         app:endIconDrawable="@drawable/ic_plus_24"
         app:endIconMode="custom"
-        android:hint="@{viewModel.servings.label.empty? @string/servings : viewModel.servings.label}"
-        android:padding="0dp">
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:hint="@{viewModel.servings.label.empty? @string/servings : viewModel.servings.label}">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/number_of_servings"
@@ -61,12 +65,12 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layout_pro_scaling"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:visibility="@{viewModel.isSimpleMode? View.GONE : View.VISIBLE}"
-        app:startIconDrawable="@drawable/ic_tune_24"
-        android:padding="0dp"
-        android:hint="@string/hint_scale_factor">
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        android:hint="@string/scaling_factor">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/scale_factor"
