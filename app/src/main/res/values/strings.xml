@@ -5,7 +5,7 @@
     <string name="recipes">Recipes</string>
     <string name="create_a_recipe_prompt">No recipes found.\n\nYou can import a recipe via your browser\'s share button or create a new one with the plus button.</string>
     <string name="new_recipe">New Recipe</string>
-    <string name="create_first_recipe">Create your first recipe!</string>
+    <string name="create_first_recipe">Create your first recipe to start your collection!</string>
 
     <string name="edit_action">Edit</string>
     <string name="save_action">Save</string>
@@ -39,7 +39,7 @@
     <string name="categories">Categories</string>
     <string name="create_a_category_prompt">Create custom categories to manage your recipes.</string>
     <string name="add_category">Add category</string>
-    <string name="add_first_category">Add your first custom category!</string>
+    <string name="add_first_category">Add your first custom category to bring order into your collection!</string>
     <string name="edit_category">Edit category</string>
     <string name="category_name">Name</string>
     <string name="no_categories_message">No categories have been created yet.</string>
@@ -55,10 +55,11 @@
 
     <!-- Cooking mode -->
     <string name="cooking_mode">Cooking mode</string>
-    <string name="cooking_mode_prompt">Cook your recipe without distractions!</string>
+    <string name="cooking_mode_prompt">Cook your recipe in fullscreen mode without distractions!</string>
     <string name="no_ingredients_and_directions_message">This recipe does not have any ingredients or directions yet.</string>
     <string name="cook_action">Cook</string>
     <string name="adjust_ingredients">Adjust ingredients</string>
+    <string name="adjust_ingredients_prompt">Choose how many servings you want to cook!</string>
     <string name="scaling_simple">Simple</string>
     <string name="scaling_pro">Pro</string>
     <string name="recipe_amount">Recipe amount</string>

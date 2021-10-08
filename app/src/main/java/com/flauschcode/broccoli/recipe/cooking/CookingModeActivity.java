@@ -44,7 +44,7 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
 
         FeatureDiscoveryTargetBuilder.buildInContextOf(this)
                 .withTitle(getString(R.string.adjust_ingredients))
-                .withDescription(getString(R.string.adjust_ingredients))
+                .withDescription(getString(R.string.adjust_ingredients_prompt))
                 .withTag("discover-scaling")
                 .discoverIfNew(scalingButton);
 
