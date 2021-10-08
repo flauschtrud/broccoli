@@ -43,8 +43,8 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
         scalingButton.setOnClickListener(view -> showScalingDialog());
 
         FeatureDiscoveryTargetBuilder.buildInContextOf(this)
-                .withTitle(getString(R.string.scale_the_ingredients))
-                .withDescription(getString(R.string.scaling_question))
+                .withTitle(getString(R.string.adjust_ingredients))
+                .withDescription(getString(R.string.adjust_ingredients))
                 .withTag("discover-scaling")
                 .discoverIfNew(scalingButton);
 

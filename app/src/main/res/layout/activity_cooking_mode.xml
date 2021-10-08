@@ -29,6 +29,6 @@
         app:icon="@drawable/ic_tune_24"
         app:iconGravity="textTop"
         android:layout_gravity="top|end"
-        android:contentDescription="@string/scale_the_ingredients" />
+        android:contentDescription="@string/adjust_ingredients" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

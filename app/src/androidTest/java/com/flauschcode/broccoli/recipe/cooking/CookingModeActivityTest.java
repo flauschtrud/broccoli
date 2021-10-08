@@ -148,7 +148,7 @@ public class CookingModeActivityTest {
 
         onView(withId(R.id.button_scaling)).perform(click());
 
-        onView(withText(R.string.scaling_question))
+        onView(withText(R.string.adjust_ingredients))
                 .inRoot(isDialog())
                 .check(matches(isDisplayed()));
 
@@ -168,7 +168,7 @@ public class CookingModeActivityTest {
 
         onView(withId(R.id.button_scaling)).perform(click());
 
-        onView(withText(R.string.scaling_question))
+        onView(withText(R.string.adjust_ingredients))
                 .inRoot(isDialog())
                 .check(matches(isDisplayed()));
 
@@ -192,7 +192,7 @@ public class CookingModeActivityTest {
 
         onView(withId(R.id.button_scaling)).perform(click());
 
-        onView(withText(R.string.scaling_question))
+        onView(withText(R.string.adjust_ingredients))
                 .inRoot(isDialog())
                 .check(matches(isDisplayed()));
 

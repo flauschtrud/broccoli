@@ -44,8 +44,7 @@
     <string name="cooking_mode">Kochmodus</string>
     <string name="no_ingredients_and_directions_message">Dieses Rezept hat noch keine Zutaten oder Anleitung.</string>
     <string name="cook_action">Kochen</string>
-    <string name="scale_the_ingredients">Passe die Menge der Zutaten an</string>
-    <string name="scaling_question">Willst du mehr oder weniger kochen?</string>
+    <string name="adjust_ingredients">Zutaten anpassen</string>
     <string name="unscaled">nicht angepasst</string>
     <string name="share_action">Teilen</string>
     <string name="shared_with">Geteilt mit %1$s</string>
@@ -190,4 +189,8 @@
     <string name="create_first_recipe">Erstelle dein erstes Rezept!</string>
     <string name="add_first_category">Füge deine erste eigene Kategorie hinzu!</string>
     <string name="cooking_mode_prompt">Koche dein Rezept ohne Ablenkung!</string>
+    <string name="scaling_simple">Einfach</string>
+    <string name="scaling_pro">Profi</string>
+    <string name="recipe_amount">Rezeptmenge</string>
+    <string name="scaling_factor">Skalierungsfaktor</string>
 </resources>

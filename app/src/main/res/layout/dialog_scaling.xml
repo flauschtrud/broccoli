@@ -10,8 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingStart="?dialogPreferredPadding"
-        android:paddingEnd="?dialogPreferredPadding"
+        android:padding="?dialogPreferredPadding"
         android:orientation="vertical">
 
         <com.google.android.material.button.MaterialButtonToggleGroup
@@ -51,7 +50,8 @@
         app:endIconMode="custom"
         android:paddingStart="0dp"
         android:paddingEnd="0dp"
-        android:hint="@{viewModel.servings.label.empty? @string/servings : viewModel.servings.label}">
+        android:paddingBottom="0dp"
+        android:hint="@{viewModel.servings.label == null? @string/recipe_amount : viewModel.servings.label.empty? @string/servings : viewModel.servings.label}">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/number_of_servings"
@@ -70,6 +70,7 @@
         android:visibility="@{viewModel.isSimpleMode? View.GONE : View.VISIBLE}"
         android:paddingStart="0dp"
         android:paddingEnd="0dp"
+        android:paddingBottom="0dp"
         android:hint="@string/scaling_factor">
 
         <com.google.android.material.textfield.TextInputEditText

@@ -19,7 +19,7 @@ public class ScalingDialogViewModel extends ViewModel {
     private final ObservableField<String> scaleFactor = new ObservableField<>("1.0");
 
     public void setRecipe(Recipe recipe) {
-        this.servings = Servings.createFrom(recipe.getServings());
+        this.servings = Servings.createFrom(recipe.getServings()).orElse(Servings.unspecified());
         this.numberOfServings.set(String.valueOf(servings.getQuantity()));
     }
 

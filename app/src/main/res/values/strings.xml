@@ -58,10 +58,10 @@
     <string name="cooking_mode_prompt">Cook your recipe without distractions!</string>
     <string name="no_ingredients_and_directions_message">This recipe does not have any ingredients or directions yet.</string>
     <string name="cook_action">Cook</string>
-    <string name="scale_the_ingredients">Adjust the amount of ingredients</string>
-    <string name="scaling_question">Do you want to cook more or less?</string>
+    <string name="adjust_ingredients">Adjust ingredients</string>
     <string name="scaling_simple">Simple</string>
     <string name="scaling_pro">Pro</string>
+    <string name="recipe_amount">Recipe amount</string>
     <string name="scaling_factor">Scaling factor</string>
     <string name="unscaled">not adjusted</string>
 

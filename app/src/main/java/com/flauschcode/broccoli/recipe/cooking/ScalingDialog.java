@@ -41,8 +41,7 @@ public class ScalingDialog extends DialogFragment {
         textInputLayout.setEndIconOnClickListener(v -> scalingDialogViewModel.incrementNumberOfServings());
 
         return new AlertDialog.Builder(requireContext())
-                .setTitle(R.string.scale_the_ingredients)
-                .setMessage(R.string.scaling_question)
+                .setTitle(R.string.adjust_ingredients)
                 .setView(binding.getRoot())
                 .setPositiveButton(android.R.string.ok, (dialog, id) -> scalingDialogViewModel.computeScaleFactor().ifPresent(viewModel::onScale))
                 .setNegativeButton(android.R.string.cancel, (dialog, id) -> {})
