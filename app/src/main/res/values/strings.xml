@@ -3,7 +3,9 @@
 
     <!-- CRUD -->
     <string name="recipes">Recipes</string>
-    <string name="create_a_recipe_prompt">No recipes found.\n\nYou can import a recipe via your browser\'s share button or create a new one with the plus button.</string>
+    <string name="no_recipes_found">No recipes found.</string>
+    <string name="create_a_recipe_prompt">create a new recipe</string>
+    <string name="import_from_the_web_prompt">import a recipe from the internet</string>
     <string name="new_recipe">New Recipe</string>
     <string name="create_first_recipe">Create your first recipe to start your collection!</string>
 
@@ -70,8 +72,8 @@
     <string name="share_action">Share</string>
     <string name="shared_with">Shared with %1$s</string>
     <string name="playstore_url" translatable="false">https://play.google.com/store/apps/details?id=com.flauschcode.broccoli</string>
-    <string name="recipe_could_not_be_imported_message">The recipe could not be imported.</string>
-    <string name="recipe_could_not_be_read_message">This website does not provide a recipe format that %1$s can read. Please enter the recipe details by copy and pasting.</string>
+    <string name="recipe_could_not_be_imported_message">Sorry, this did not work.</string>
+    <string name="recipe_could_not_be_read_message">Sorry, this recipe can not be read.</string>
     <string name="share_as_file_action">Share as file</string>
     <string name="recipe_could_not_be_exported_message">The recipe could not be exported.</string>
 

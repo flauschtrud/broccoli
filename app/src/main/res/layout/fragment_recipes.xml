@@ -36,16 +36,49 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
+    <LinearLayout
         android:id="@+id/recipes_empty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:layout_gravity="center"
-        android:gravity="center"
-        android:padding="32dp"
-        android:text="@string/create_a_recipe_prompt"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:visibility="gone"/>
+        android:padding="50dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/text_margin"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:text="@string/no_recipes_found" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:text="@string/create_a_recipe_prompt"
+            app:drawableStartCompat="@drawable/ic_plus_24"
+            android:drawablePadding="@dimen/drawable_padding"
+            app:drawableTint="?attr/colorPrimary" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:text="@string/import_from_the_web_prompt"
+            app:drawableStartCompat="@drawable/ic_menu_share_24dp"
+            android:drawablePadding="@dimen/drawable_padding"
+            app:drawableTint="?attr/colorPrimary" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <include layout="@layout/recipes_list"
         android:layout_width="match_parent"

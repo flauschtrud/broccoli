@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="recipes">Rezepte</string>
-    <string name="create_a_recipe_prompt">Keine Rezepte gefunden.\n\nDu kannst ein Rezept über den Share-Button deines Browsers importieren oder ein neues mit dem Plus-Button erstellen.</string>
+    <string name="create_a_recipe_prompt">erstelle ein neues Rezept</string>
     <string name="new_recipe">Neues Rezept</string>
     <string name="edit_action">Bearbeiten</string>
     <string name="save_action">Speichern</string>
@@ -48,8 +48,8 @@
     <string name="unscaled">nicht angepasst</string>
     <string name="share_action">Teilen</string>
     <string name="shared_with">Geteilt mit %1$s</string>
-    <string name="recipe_could_not_be_imported_message">Das Rezept konnte nicht importiert werden.</string>
-    <string name="recipe_could_not_be_read_message">Diese Website bietet kein Rezeptformat, das %1$s lesen kann. Bitte gib die Rezeptdetails durch Kopieren und Einfügen ein.</string>
+    <string name="recipe_could_not_be_imported_message">Das hat leider nicht funktioniert.</string>
+    <string name="recipe_could_not_be_read_message">Dieses Rezept kann leider nicht gelesen werden.</string>
     <string name="share_as_file_action">Als Datei teilen</string>
     <string name="recipe_could_not_be_exported_message">Das Rezept konnte nicht exportiert werden.</string>
     <string name="backup_and_restore">Sichern &amp; Wiederherstellen</string>
@@ -194,4 +194,6 @@
     <string name="recipe_amount">Rezeptmenge</string>
     <string name="scaling_factor">Skalierungsfaktor</string>
     <string name="adjust_ingredients_prompt">Wähle aus, wie viele Portionen du kochen möchtest!</string>
+    <string name="no_recipes_found">Keine Rezepte gefunden.</string>
+    <string name="import_from_the_web_prompt">importiere ein Rezept aus dem Internet</string>
 </resources>
