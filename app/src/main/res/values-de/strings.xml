@@ -186,8 +186,8 @@
     <string name="dark">Dunkel</string>
     <string name="system_default">Systemstandard</string>
     <string name="design">Design</string>
-    <string name="create_first_recipe">Erstelle dein erstes Rezept, um deine Sammlung zu beginnen!</string>
-    <string name="add_first_category">Füge deine erste eigene Kategorie hinzu, um Ordnung in deine Sammlung zu bringen!</string>
+    <string name="create_first_recipe">Erstelle dein erstes Rezept und beginne deine Sammlung!</string>
+    <string name="add_first_category">Füge deine erste eigene Kategorie hinzu und bringe Ordnung in deine Sammlung!</string>
     <string name="cooking_mode_prompt">Koche dein Rezept im Vollbildmodus ohne Ablenkungen!</string>
     <string name="scaling_simple">Einfach</string>
     <string name="scaling_pro">Profi</string>

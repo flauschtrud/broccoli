@@ -7,7 +7,7 @@
     <string name="create_a_recipe_prompt">create a new recipe</string>
     <string name="import_from_the_web_prompt">import a recipe from the internet</string>
     <string name="new_recipe">New Recipe</string>
-    <string name="create_first_recipe">Create your first recipe to start your collection!</string>
+    <string name="create_first_recipe">Create your first recipe and start your collection!</string>
 
     <string name="edit_action">Edit</string>
     <string name="save_action">Save</string>
@@ -41,7 +41,7 @@
     <string name="categories">Categories</string>
     <string name="create_a_category_prompt">Create custom categories to manage your recipes.</string>
     <string name="add_category">Add category</string>
-    <string name="add_first_category">Add your first custom category to bring order into your collection!</string>
+    <string name="add_first_category">Add your first custom category and bring order into your collection!</string>
     <string name="edit_category">Edit category</string>
     <string name="category_name">Name</string>
     <string name="no_categories_message">No categories have been created yet.</string>
