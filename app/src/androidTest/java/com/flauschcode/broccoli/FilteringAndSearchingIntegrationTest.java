@@ -166,6 +166,8 @@ public class FilteringAndSearchingIntegrationTest {
         onView(withText(R.string.delete_action)).perform(click());
         onView(withId(android.R.id.button1)).perform(click());
 
+        onView(isRoot()).perform(waitFor(500));
+
         onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(0, click()));
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
         onView(withText(R.string.delete_action)).perform(click());

@@ -33,6 +33,9 @@ public class SupportFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_support, container, false);
 
         Button getSupporterEditionButton = root.findViewById(R.id.get_supporter_edition_button);
+
+        billingService.getPremiumPrice().observe(getViewLifecycleOwner(), premiumPrice -> getSupporterEditionButton.setText(getString(R.string.buy_for, premiumPrice)));
+
         getSupporterEditionButton.setOnClickListener(v -> {
             try {
                 billingService.purchaseSupporterEdition(getActivity());

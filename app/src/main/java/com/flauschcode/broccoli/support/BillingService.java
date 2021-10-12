@@ -31,7 +31,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 @Singleton
-public class BillingService implements BillingClientStateListener, PurchasesUpdatedListener {
+public class BillingService implements BillingClientStateListener, PurchasesUpdatedListener, SkuDetailsResponseListener {
 
     private final BillingClient billingClient;
 
@@ -40,7 +40,11 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
     private static final long RECONNECT_TIMER_MAX_TIME_MILLISECONDS = 1000L * 60L * 15L; // 15 mins
     private long reconnectMilliseconds = RECONNECT_TIMER_START_MILLISECONDS;
 
+    private SkuDetails skuDetailsPremium;
+
+    private final MutableLiveData<String> premiumPrice = new MutableLiveData<>();
     private final MutableLiveData<Boolean> isPremium = new MutableLiveData<>(false);
+
     private static final String PREMIUM_SKU_NAME = "premium";
 
     @Inject
@@ -65,6 +69,11 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
         }
 
         billingClient.queryPurchasesAsync(BillingClient.SkuType.INAPP, (billingResult1, list) -> list.forEach(BillingService.this::process));
+
+        billingClient.querySkuDetailsAsync(SkuDetailsParams.newBuilder()
+                .setType(BillingClient.SkuType.INAPP)
+                .setSkusList(Collections.singletonList(PREMIUM_SKU_NAME))
+                .build(), this);
     }
 
     @Override
@@ -82,51 +91,56 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
         list.forEach(this::process);
     }
 
+    @Override
+    public void onSkuDetailsResponse(@NonNull BillingResult billingResult, @Nullable List<SkuDetails> list) {
+        if (BillingClient.BillingResponseCode.OK != billingResult.getResponseCode()) {
+            Log.e(getClass().getSimpleName(), "onSkuDetailsResponse: " + billingResult.getResponseCode() + " " + billingResult.getDebugMessage());
+            return;
+        }
+
+        if (list == null || list.isEmpty()) {
+            Log.e(getClass().getSimpleName(), "onSkuDetailsResponse: Found null or empty SkuDetails.");
+            return;
+        }
+
+        Optional<SkuDetails> firstSkuDetailsPremium = list.stream().filter(skuDetails -> PREMIUM_SKU_NAME.equals(skuDetails.getSku())).findFirst();
+
+        if (!firstSkuDetailsPremium.isPresent()) {
+            Log.e(getClass().getSimpleName(), "onSkuDetailsResponse: Could not find " + PREMIUM_SKU_NAME + " SKU.");
+            return;
+        }
+
+        skuDetailsPremium = firstSkuDetailsPremium.get();
+        premiumPrice.postValue(skuDetailsPremium.getPrice());
+    }
+
     public void purchaseSupporterEdition(Activity activity) throws BillingException {
         if (!billingClient.isReady()) {
             Log.e(getClass().getSimpleName(), "purchaseSupporterEdition: A purchase has been requested but the billing service is not ready yet.");
             throw new BillingException("The Billing service is not ready yet.");
         }
 
-        // it is a little slower to query the SKUs just before purchase, but they are only ever needed if a purchase has to made anyway
-        billingClient.querySkuDetailsAsync(SkuDetailsParams.newBuilder()
-                .setType(BillingClient.SkuType.INAPP)
-                .setSkusList(Collections.singletonList(PREMIUM_SKU_NAME))
-                .build(), new SkuDetailsResponseListener() {
-            @Override
-            public void onSkuDetailsResponse(@NonNull BillingResult billingResult, @Nullable List<SkuDetails> list) {
-                if (BillingClient.BillingResponseCode.OK != billingResult.getResponseCode()) {
-                    Log.e(getClass().getSimpleName(), "onSkuDetailsResponse: " + billingResult.getResponseCode() + " " + billingResult.getDebugMessage());
-                    return;
-                }
+        if (skuDetailsPremium == null) {
+            Log.e(getClass().getSimpleName(), "purchaseSupporterEdition: Could not find " + PREMIUM_SKU_NAME + " SKU.");
+            return;
+        }
 
-                if (list == null || list.isEmpty()) {
-                    Log.e(getClass().getSimpleName(), "onSkuDetailsResponse: Found null or empty SkuDetails.");
-                    return;
-                }
+        BillingFlowParams billingFlowParams = BillingFlowParams.newBuilder()
+                .setSkuDetails(skuDetailsPremium)
+                .build();
 
-                Optional<SkuDetails> skuDetailsPremium = list.stream().filter(skuDetails -> PREMIUM_SKU_NAME.equals(skuDetails.getSku())).findFirst();
-
-                if (!skuDetailsPremium.isPresent()) {
-                    Log.e(getClass().getSimpleName(), "onSkuDetailsResponse: Could not find " + PREMIUM_SKU_NAME + " SKU.");
-                    return;
-                }
-
-                BillingFlowParams billingFlowParams = BillingFlowParams.newBuilder()
-                        .setSkuDetails(skuDetailsPremium.get())
-                        .build();
-
-                BillingResult billingResultBilling = billingClient.launchBillingFlow(activity, billingFlowParams);
-                if (billingResultBilling.getResponseCode() != BillingClient.BillingResponseCode.OK) {
-                    Log.e(getClass().getSimpleName(), "Billing flow failed: " + billingResultBilling.getResponseCode() + " " + billingResultBilling.getDebugMessage());
-                }
-            }
-        });
-
+        BillingResult billingResultBilling = billingClient.launchBillingFlow(activity, billingFlowParams);
+        if (billingResultBilling.getResponseCode() != BillingClient.BillingResponseCode.OK) {
+            Log.e(getClass().getSimpleName(), "Billing flow failed: " + billingResultBilling.getResponseCode() + " " + billingResultBilling.getDebugMessage());
+        }
     }
 
     public LiveData<Boolean> isPremium() {
         return isPremium;
+    }
+
+    public LiveData<String> getPremiumPrice() {
+        return premiumPrice;
     }
 
     private void process(Purchase purchase) {
