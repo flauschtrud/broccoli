@@ -195,6 +195,6 @@
     <string name="scaling_factor">Skalierungsfaktor</string>
     <string name="adjust_ingredients_prompt">Wähle aus, wie viele Portionen du kochen möchtest!</string>
     <string name="no_recipes_found">Keine Rezepte gefunden.</string>
-    <string name="import_from_the_web_prompt">importiere ein Rezept aus dem Internet</string>
+    <string name="import_from_the_web_prompt">importiere ein Rezept von einer Website</string>
     <string name="buy_for">Kaufe für %1$s</string>
 </resources>
