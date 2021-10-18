@@ -160,19 +160,19 @@
     <string name="eggplant_terms">eggplant, eggplants, aubergine, aubergines</string>
 
     <string name="cauliflower">Cauliflower</string>
-    <string name="cauliflower_terms">cauliflower, cauliflowers</string>
+    <string name="cauliflower_terms">cauliflower</string>
 
     <string name="broad_bean">Broad beans</string>
     <string name="broad_bean_terms">broad beans, fava beans, faba beans</string>
 
     <string name="bean">Beans</string>
-    <string name="bean_terms">green beans, runner beans</string>
+    <string name="bean_terms">common beans, french beans, green beans</string>
 
     <string name="broccoli">Broccoli</string>
     <string name="broccoli_terms">broccoli</string>
 
     <string name="chinese_cabbage">Chinese cabbage</string>
-    <string name="chinese_cabbage_terms">chinese cabbage</string>
+    <string name="chinese_cabbage_terms">chinese cabbage, napa cabbage</string>
 
     <string name="pea">Peas</string>
     <string name="pea_terms">peas</string>
@@ -193,7 +193,7 @@
     <string name="kohlrabi_terms">kohlrabi</string>
 
     <string name="pumpkin">Pumpkin</string>
-    <string name="pumpkin_terms">pumpkin, pumpkins, hokkaido, butternut</string>
+    <string name="pumpkin_terms">pumpkin, pumpkins</string>
 
     <string name="leek">Leek</string>
     <string name="leek_terms">leek</string>
@@ -207,8 +207,8 @@
     <string name="carrot">Carrots</string>
     <string name="carrot_terms">carrot, carrots</string>
 
-    <string name="paprika">Paprika</string>
-    <string name="paprika_terms">paprika, paprikas, bell pepper, bell peppers</string>
+    <string name="bell_pepper">Bell peppers</string>
+    <string name="bell_pepper_terms">pepper, peppers, bell pepper, bell peppers</string>
 
     <string name="parsnip">Parsnip</string>
     <string name="parsnip_terms">parsnip, parsnips</string>
@@ -217,7 +217,7 @@
     <string name="brussels_sprouts_terms">brussels sprouts</string>
 
     <string name="beetroot">Beetroot</string>
-    <string name="beetroot_terms">beet, beets, beetroot</string>
+    <string name="beetroot_terms">beet, beets, beetroot, beetroots</string>
 
     <string name="red_cabbage">Red cabbage</string>
     <string name="red_cabbage_terms">red cabbage</string>
