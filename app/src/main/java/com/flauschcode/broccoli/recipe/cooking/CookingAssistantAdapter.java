@@ -5,11 +5,11 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-public class CookingModeAdapter extends FragmentStateAdapter {
+public class CookingAssistantAdapter extends FragmentStateAdapter {
 
     private PageableRecipe pageableRecipe;
     
-    CookingModeAdapter(CookingModeActivity fragmentActivity) {
+    CookingAssistantAdapter(CookingAssistantActivity fragmentActivity) {
         super(fragmentActivity);
     }
 
@@ -19,16 +19,16 @@ public class CookingModeAdapter extends FragmentStateAdapter {
 
     @Override
     public Fragment createFragment(int position) {
-        Fragment fragment = new CookingModeFragment();
+        Fragment fragment = new CookingAssistantFragment();
 
         Bundle args = new Bundle();
 
-        args.putInt(CookingModeFragment.POSITION, position);
-        args.putInt(CookingModeFragment.MAX_STEPS, getItemCount());
+        args.putInt(CookingAssistantFragment.POSITION, position);
+        args.putInt(CookingAssistantFragment.MAX_STEPS, getItemCount());
 
         PageableRecipe.Page currentPage = pageableRecipe.getPages().get(position);
-        args.putString(CookingModeFragment.TITLE, currentPage.getTitle());
-        args.putString(CookingModeFragment.TEXT, currentPage.getText());
+        args.putString(CookingAssistantFragment.TITLE, currentPage.getTitle());
+        args.putString(CookingAssistantFragment.TEXT, currentPage.getText());
 
         fragment.setArguments(args);
 

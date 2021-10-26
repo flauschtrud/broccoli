@@ -2,7 +2,7 @@ package com.flauschcode.broccoli.recipe.cooking;
 
 import androidx.lifecycle.ViewModel;
 
-public class CookingModeFragmentViewModel extends ViewModel {
+public class CookingAssistantFragmentViewModel extends ViewModel {
 
     private int position = 0;
     private int maxSteps = 0;

@@ -3,7 +3,7 @@ package com.flauschcode.broccoli.di;
 import com.flauschcode.broccoli.backup.BackupAndRestoreFragment;
 import com.flauschcode.broccoli.category.CategoryDialog;
 import com.flauschcode.broccoli.category.CategoryFragment;
-import com.flauschcode.broccoli.recipe.cooking.CookingModeFragment;
+import com.flauschcode.broccoli.recipe.cooking.CookingAssistantFragment;
 import com.flauschcode.broccoli.recipe.cooking.ScalingDialog;
 import com.flauschcode.broccoli.recipe.list.RecipeFragment;
 import com.flauschcode.broccoli.seasons.MonthFragment;
@@ -38,7 +38,7 @@ public interface FragmentModule {
     SettingsFragment settingsFragment();
 
     @ContributesAndroidInjector
-    CookingModeFragment cookingModeFragment();
+    CookingAssistantFragment cookingAssistantFragment();
 
     @ContributesAndroidInjector
     ScalingDialog scalingDialog();

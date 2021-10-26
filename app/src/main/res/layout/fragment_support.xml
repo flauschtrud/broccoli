@@ -135,12 +135,12 @@
             app:drawableTint="?attr/colorPrimary" />
 
         <TextView
-            android:id="@+id/supporter_edition_cooking_mode"
+            android:id="@+id/supporter_edition_cooking_assistant"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/text_margin_bottom"
             android:drawablePadding="@dimen/drawable_padding"
-            android:text="@string/supporter_edition_perk_cooking_mode"
+            android:text="@string/supporter_edition_perk_cooking_assistant"
             app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
             app:drawableTint="?attr/colorPrimary" />
 

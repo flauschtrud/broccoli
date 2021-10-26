@@ -48,7 +48,7 @@ import org.mockito.ArgumentCaptor;
 import javax.inject.Inject;
 
 @RunWith(AndroidJUnit4.class)
-public class CookingModeActivityTest {
+public class CookingAssistantActivityTest {
 
     @Inject
     PageableRecipeBuilder pageableRecipeBuilder;
@@ -56,7 +56,7 @@ public class CookingModeActivityTest {
     @Inject
     BillingService billingService;
 
-    private ActivityScenario<CookingModeActivity> scenario;
+    private ActivityScenario<CookingAssistantActivity> scenario;
 
     private static final Recipe lauchkuchen = RecipeTestUtil.createLauchkuchen();
 
@@ -88,7 +88,7 @@ public class CookingModeActivityTest {
 
         when(billingService.isPremium()).thenReturn(new MutableLiveData<>(true));
 
-        Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CookingModeActivity.class);
+        Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CookingAssistantActivity.class);
         intent.putExtra(Recipe.class.getName(), lauchkuchen);
         scenario = launch(intent);
     }
@@ -105,16 +105,16 @@ public class CookingModeActivityTest {
 
     @Test
     public void read_pages_via_swiping() {
-        onView(withId(R.id.cooking_mode_title)).check(matches(withText("Ingredients")));
-        onView(withId(R.id.cooking_mode_text)).check(matches(withText("100g Mehl\n50g Margarine")));
+        onView(withId(R.id.cooking_assistant_title)).check(matches(withText("Ingredients")));
+        onView(withId(R.id.cooking_assistant_text)).check(matches(withText("100g Mehl\n50g Margarine")));
 
-        onView(withId(R.id.cooking_mode_pager)).perform(swipeLeft());
-        onView(allOf(withId(R.id.cooking_mode_title), isDisplayingAtLeast(60))).check(matches(withText("1")));
-        onView(allOf(withId(R.id.cooking_mode_text), isDisplayingAtLeast(60))).check(matches(withText("Erst dies.")));
+        onView(withId(R.id.cooking_assistant_pager)).perform(swipeLeft());
+        onView(allOf(withId(R.id.cooking_assistant_title), isDisplayingAtLeast(60))).check(matches(withText("1")));
+        onView(allOf(withId(R.id.cooking_assistant_text), isDisplayingAtLeast(60))).check(matches(withText("Erst dies.")));
 
-        onView(withId(R.id.cooking_mode_pager)).perform(swipeLeft());
-        onView(allOf(withId(R.id.cooking_mode_title), isDisplayingAtLeast(60))).check(matches(withText("2")));
-        onView(allOf(withId(R.id.cooking_mode_text), isDisplayingAtLeast(60))).check(matches(withText("Dann das.")));
+        onView(withId(R.id.cooking_assistant_pager)).perform(swipeLeft());
+        onView(allOf(withId(R.id.cooking_assistant_title), isDisplayingAtLeast(60))).check(matches(withText("2")));
+        onView(allOf(withId(R.id.cooking_assistant_text), isDisplayingAtLeast(60))).check(matches(withText("Dann das.")));
 
         Recipe recipe = recipeCaptor.getValue();
         assertThat(recipe, is(lauchkuchen));
@@ -122,20 +122,20 @@ public class CookingModeActivityTest {
 
     @Test
     public void read_pages_via_seeking() {
-        onView(allOf(withId(R.id.cooking_mode_control), withContentDescription("2"), isDisplayed())).perform(click());
+        onView(allOf(withId(R.id.cooking_assistant_control), withContentDescription("2"), isDisplayed())).perform(click());
         onView(isRoot()).perform(waitFor(500));
-        onView(allOf(withId(R.id.cooking_mode_title), isDisplayed())).check(matches(withText("2")));
-        onView(allOf(withId(R.id.cooking_mode_text), isDisplayed())).check(matches(withText("Dann das.")));
+        onView(allOf(withId(R.id.cooking_assistant_title), isDisplayed())).check(matches(withText("2")));
+        onView(allOf(withId(R.id.cooking_assistant_text), isDisplayed())).check(matches(withText("Dann das.")));
 
-        onView(allOf(withId(R.id.cooking_mode_control), withContentDescription("1"), isDisplayed())).perform(click());
+        onView(allOf(withId(R.id.cooking_assistant_control), withContentDescription("1"), isDisplayed())).perform(click());
         onView(isRoot()).perform(waitFor(500));
-        onView(allOf(withId(R.id.cooking_mode_title), isDisplayed())).check(matches(withText("1")));
-        onView(allOf(withId(R.id.cooking_mode_text), isDisplayed())).check(matches(withText("Erst dies.")));
+        onView(allOf(withId(R.id.cooking_assistant_title), isDisplayed())).check(matches(withText("1")));
+        onView(allOf(withId(R.id.cooking_assistant_text), isDisplayed())).check(matches(withText("Erst dies.")));
 
-        onView(allOf(withId(R.id.cooking_mode_control), withContentDescription("0"), isDisplayed())).perform(click());
+        onView(allOf(withId(R.id.cooking_assistant_control), withContentDescription("0"), isDisplayed())).perform(click());
         onView(isRoot()).perform(waitFor(500));
-        onView(allOf(withId(R.id.cooking_mode_title), isDisplayed())).check(matches(withText("Ingredients")));
-        onView(allOf(withId(R.id.cooking_mode_text), isDisplayed())).check(matches(withText("100g Mehl\n50g Margarine")));
+        onView(allOf(withId(R.id.cooking_assistant_title), isDisplayed())).check(matches(withText("Ingredients")));
+        onView(allOf(withId(R.id.cooking_assistant_text), isDisplayed())).check(matches(withText("100g Mehl\n50g Margarine")));
 
         Recipe recipe = recipeCaptor.getValue();
         assertThat(recipe, is(lauchkuchen));

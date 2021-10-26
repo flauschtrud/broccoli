@@ -41,7 +41,7 @@
     <string name="search">Suche</string>
     <string name="search_in">Suche in %1$s</string>
     <string name="preferred_category">Bevorzugte Kategorie</string>
-    <string name="cooking_mode">Kochassistent</string>
+    <string name="cooking_assistant">Kochassistent</string>
     <string name="no_ingredients_and_directions_message">Dieses Rezept hat noch keine Zutaten oder Anleitung.</string>
     <string name="cook_action">Kochen</string>
     <string name="adjust_ingredients">Zutaten anpassen</string>
@@ -89,7 +89,7 @@
     <string name="german">Deutsch</string>
     <string name="support_the_app">Unterstütze die App</string>
     <string name="community_edition_perk_recipes">Unbegrenzte Rezepte</string>
-    <string name="supporter_edition_perk_cooking_mode">Kochassistent</string>
+    <string name="supporter_edition_perk_cooking_assistant">Kochassistent</string>
     <string name="community_edition_perk_seasonal_calendar">Saisonkalender (Beta)</string>
     <string name="community_edition_perk_backup">Sichern &amp; Wiederherstellen</string>
     <string name="community_edition_perk_ad_free">Keine Werbung</string>
@@ -102,7 +102,7 @@
     <string name="play_store_sign_in_message">Bitte melde dich im Google Play Store an.</string>
     <string name="rate_the_app">Bewerte die App</string>
     <string name="share_the_app">Teile die App</string>
-    <string name="become_a_supporter_cookingmode_message">Unterstütze die App und schalte die Vollversion des Kochassistenten frei.</string>
+    <string name="become_a_supporter_cooking_assistant_message">Unterstütze die App und schalte die Vollversion des Kochassistenten frei.</string>
     <string name="learn_more">Erfahre mehr</string>
     <string name="eggplant">Aubergine</string>
     <string name="eggplant_terms">Aubergine, Auberginen</string>
@@ -188,7 +188,7 @@
     <string name="design">Design</string>
     <string name="create_first_recipe">Erstelle dein erstes Rezept und beginne deine Sammlung!</string>
     <string name="add_first_category">Füge deine erste eigene Kategorie hinzu und bringe Ordnung in deine Sammlung!</string>
-    <string name="cooking_mode_prompt">Koche dein Rezept im Vollbildmodus ohne Ablenkungen!</string>
+    <string name="cooking_assistant_prompt">Koche dein Rezept im Vollbildmodus ohne Ablenkungen!</string>
     <string name="scaling_simple">Einfach</string>
     <string name="scaling_pro">Profi</string>
     <string name="recipe_amount">Rezeptmenge</string>

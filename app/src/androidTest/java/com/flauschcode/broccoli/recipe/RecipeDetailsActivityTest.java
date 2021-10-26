@@ -41,7 +41,7 @@ import com.flauschcode.broccoli.BroccoliApplication;
 import com.flauschcode.broccoli.DaggerMockApplicationComponent;
 import com.flauschcode.broccoli.MockApplicationComponent;
 import com.flauschcode.broccoli.R;
-import com.flauschcode.broccoli.recipe.cooking.CookingModeActivity;
+import com.flauschcode.broccoli.recipe.cooking.CookingAssistantActivity;
 import com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity;
 import com.flauschcode.broccoli.recipe.sharing.ShareRecipeAsFileService;
 import com.flauschcode.broccoli.recipe.sharing.ShareableRecipe;
@@ -182,10 +182,10 @@ public class RecipeDetailsActivityTest {
 
     @Test
     public void cook() {
-        onView(withId(R.id.fab_cooking_mode)).perform(click());
+        onView(withId(R.id.fab_cooking_assistant)).perform(click());
 
         intended(allOf(
-                hasComponent(CookingModeActivity.class.getName()),
+                hasComponent(CookingAssistantActivity.class.getName()),
                 hasExtra(Recipe.class.getName(), lauchkuchen)
         ));
     }

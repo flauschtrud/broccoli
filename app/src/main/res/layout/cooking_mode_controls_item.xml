@@ -2,7 +2,7 @@
 
 <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cooking_mode_control"
+    android:id="@+id/cooking_assistant_control"
     android:adjustViewBounds="true"
     android:layout_width="0dp"
     android:minHeight="@dimen/min_height_for_accessibility"

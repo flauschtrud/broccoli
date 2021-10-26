@@ -12,7 +12,7 @@ import com.flauschcode.broccoli.recipe.CreateAndEditRecipeActivityTest;
 import com.flauschcode.broccoli.recipe.MockRecipeModule;
 import com.flauschcode.broccoli.recipe.RecipeFragmentTest;
 import com.flauschcode.broccoli.recipe.RecipeDetailsActivityTest;
-import com.flauschcode.broccoli.recipe.cooking.CookingModeActivityTest;
+import com.flauschcode.broccoli.recipe.cooking.CookingAssistantActivityTest;
 import com.flauschcode.broccoli.recipe.importing.ImportableRecipeBuilderTest;
 import com.flauschcode.broccoli.recipe.sharing.ShareRecipeAsFileServiceTest;
 import com.flauschcode.broccoli.seasons.SeasonsModule;
@@ -48,7 +48,7 @@ public interface MockApplicationComponent extends ApplicationComponent {
     void inject(RecipeDetailsActivityTest test);
     void inject(RecipeFragmentTest test);
     void inject(CategoryFragmentTest test);
-    void inject(CookingModeActivityTest test);
+    void inject(CookingAssistantActivityTest test);
     void inject(ImportableRecipeBuilderTest test);
     void inject(ShareRecipeAsFileServiceTest test);
     void inject(BackupAndRestoreServiceTest test);

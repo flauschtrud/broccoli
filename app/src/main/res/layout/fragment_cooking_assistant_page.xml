@@ -5,7 +5,7 @@
 
     <data>
         <import type="android.view.View"/>
-        <variable name="viewModel" type="com.flauschcode.broccoli.recipe.cooking.CookingModeFragmentViewModel" />
+        <variable name="viewModel" type="com.flauschcode.broccoli.recipe.cooking.CookingAssistantFragmentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -14,18 +14,18 @@
         android:padding="@dimen/text_margin">
 
         <LinearLayout
-            android:id="@+id/cooking_mode_layout"
+            android:id="@+id/cooking_assistant_layout"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:gravity="center"
             android:orientation="vertical"
-            app:layout_constraintBottom_toTopOf="@id/cooking_mode_controls"
+            app:layout_constraintBottom_toTopOf="@id/cooking_assistant_controls"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/cooking_mode_title"
+                android:id="@+id/cooking_assistant_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -35,7 +35,7 @@
                 android:textColor="?attr/colorPrimary" />
 
             <TextView
-                android:id="@+id/cooking_mode_text"
+                android:id="@+id/cooking_assistant_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/min_height_for_accessibility"
@@ -45,7 +45,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/cooking_mode_learn_more_about_supporter_edition"
+                android:id="@+id/cooking_assistant_learn_more_about_supporter_edition"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="@{viewModel.isPremium? View.GONE : View.VISIBLE}"
@@ -56,8 +56,8 @@
 
         </LinearLayout>
 
-        <com.flauschcode.broccoli.recipe.cooking.CookingModeControls
-            android:id="@+id/cooking_mode_controls"
+        <com.flauschcode.broccoli.recipe.cooking.CookingAssistantControls
+            android:id="@+id/cooking_assistant_controls"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -66,7 +66,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cooking_mode_layout"
+            app:layout_constraintTop_toBottomOf="@id/cooking_assistant_layout"
             controls:maxSteps="@{viewModel.maxSteps}"
             controls:position="@{viewModel.position}" />
 

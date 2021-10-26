@@ -8,7 +8,7 @@ import com.flauschcode.broccoli.recipe.Recipe;
 
 import javax.inject.Inject;
 
-public class CookingModeViewModel extends ViewModel {
+public class CookingAssistantViewModel extends ViewModel {
 
     private final PageableRecipeBuilder pageableRecipeBuilder;
 
@@ -16,7 +16,7 @@ public class CookingModeViewModel extends ViewModel {
     private final MutableLiveData<PageableRecipe> pageableRecipe = new MutableLiveData<>();
 
     @Inject
-    public CookingModeViewModel(PageableRecipeBuilder pageableRecipeBuilder) {
+    public CookingAssistantViewModel(PageableRecipeBuilder pageableRecipeBuilder) {
         this.pageableRecipeBuilder = pageableRecipeBuilder;
     }
 

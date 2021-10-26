@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="CookingModeControls">
+    <declare-styleable name="CookingAssistantControls">
         <attr name="position" format="integer" />
         <attr name="maxSteps" format="integer" />
     </declare-styleable>

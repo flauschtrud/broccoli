@@ -73,9 +73,9 @@
         </activity>
 
         <activity
-            android:name="com.flauschcode.broccoli.recipe.cooking.CookingModeActivity"
+            android:name="com.flauschcode.broccoli.recipe.cooking.CookingAssistantActivity"
             android:theme="@style/Theme.Broccoli.NoActionBar"
-            android:label="@string/cooking_mode"
+            android:label="@string/cooking_assistant"
             android:parentActivityName="com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity" />
 
         <activity

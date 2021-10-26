@@ -40,7 +40,7 @@ import com.flauschcode.broccoli.databinding.ActivityRecipeDetailsBinding;
 import com.flauschcode.broccoli.databinding.DirectionItemBinding;
 import com.flauschcode.broccoli.recipe.Recipe;
 import com.flauschcode.broccoli.recipe.RecipeRepository;
-import com.flauschcode.broccoli.recipe.cooking.CookingModeActivity;
+import com.flauschcode.broccoli.recipe.cooking.CookingAssistantActivity;
 import com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import com.flauschcode.broccoli.recipe.directions.DirectionBuilder;
 import com.flauschcode.broccoli.recipe.sharing.ShareRecipeAsFileService;
@@ -98,12 +98,12 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName());
         binding.setRecipe(recipe);
 
-        binding.fabCookingMode.setOnClickListener(view -> this.cook(null));
+        binding.fabCookingAssistant.setOnClickListener(view -> this.cook(null));
         FeatureDiscoveryTargetBuilder.buildInContextOf(this)
-                .withTitle(getString(R.string.cooking_mode))
-                .withDescription(getString(R.string.cooking_mode_prompt))
+                .withTitle(getString(R.string.cooking_assistant))
+                .withDescription(getString(R.string.cooking_assistant_prompt))
                 .withTag("discover-cooking-mode")
-                .discoverIfNew(binding.fabCookingMode);
+                .discoverIfNew(binding.fabCookingAssistant);
 
         // https://stackoverflow.com/questions/31662416/show-collapsingtoolbarlayout-title-only-when-collapsed (does not work with expandedTitleTextAppearance because you would see the title fade in nonetheless)
         binding.appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
@@ -169,7 +169,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    ActivityResultLauncher<Intent> cookingModeResultLauncher = registerForActivityResult(
+    ActivityResultLauncher<Intent> cookingAssistantResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
                 if (result.getResultCode() == Activity.RESULT_OK && result.getData().getBooleanExtra("navigateToSupportPage", false)) {
@@ -181,9 +181,9 @@ public class RecipeDetailsActivity extends AppCompatActivity {
             });
 
     public void cook(MenuItem menuItem) {
-        Intent intent = new Intent(getApplicationContext(), CookingModeActivity.class);
+        Intent intent = new Intent(getApplicationContext(), CookingAssistantActivity.class);
         intent.putExtra(Recipe.class.getName(), binding.getRecipe());
-        cookingModeResultLauncher.launch(intent);
+        cookingAssistantResultLauncher.launch(intent);
     }
 
     public void toggleFavorite(MenuItem item) {

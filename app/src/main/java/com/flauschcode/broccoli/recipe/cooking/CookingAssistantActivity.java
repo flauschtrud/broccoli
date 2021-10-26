@@ -20,7 +20,7 @@ import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
 
-public class CookingModeActivity extends AppCompatActivity implements CookingModeControls.OnCookingModeControlsInteractionListener {
+public class CookingAssistantActivity extends AppCompatActivity implements CookingAssistantControls.OnCookingAssistantControlsInteractionListener {
 
     @Inject
     ViewModelProvider.Factory viewModelFactory;
@@ -32,9 +32,9 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
         super.onCreate(savedInstanceState);
         AndroidInjection.inject(this);
 
-        setContentView(R.layout.activity_cooking_mode);
+        setContentView(R.layout.activity_cooking_assistant);
 
-        viewPager = findViewById(R.id.cooking_mode_pager);
+        viewPager = findViewById(R.id.cooking_assistant_pager);
 
         Button cancelButton = findViewById(R.id.button_cancel);
         cancelButton.setOnClickListener(view -> finish());
@@ -50,13 +50,13 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
 
         Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName());
 
-        CookingModeViewModel viewModel = new ViewModelProvider(this, viewModelFactory).get(CookingModeViewModel.class);
+        CookingAssistantViewModel viewModel = new ViewModelProvider(this, viewModelFactory).get(CookingAssistantViewModel.class);
         viewModel.setRecipe(recipe);
         viewModel.getPageableRecipe().observe(this, this::setPageableRecipe);
     }
 
     private void setPageableRecipe(PageableRecipe pageableRecipe) {
-        CookingModeAdapter adapter = new CookingModeAdapter(this);
+        CookingAssistantAdapter adapter = new CookingAssistantAdapter(this);
         adapter.setPageableRecipe(pageableRecipe != null? pageableRecipe : new PageableRecipe());
 
         viewPager.setAdapter(adapter);
@@ -71,7 +71,7 @@ public class CookingModeActivity extends AppCompatActivity implements CookingMod
     }
 
     @Override
-    public void onCookingModeControlsInteraction(int position) {
+    public void onCookingAssistantControlsInteraction(int position) {
         viewPager.setCurrentItem(position);
     }
 

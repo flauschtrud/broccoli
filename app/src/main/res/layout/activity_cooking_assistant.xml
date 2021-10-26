@@ -7,7 +7,7 @@
     android:keepScreenOn="true">
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/cooking_mode_pager"
+        android:id="@+id/cooking_assistant_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

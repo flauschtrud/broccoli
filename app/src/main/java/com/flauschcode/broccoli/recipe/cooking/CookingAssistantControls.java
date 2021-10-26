@@ -14,30 +14,30 @@ import com.google.android.material.color.MaterialColors;
 
 import java.util.stream.IntStream;
 
-public class CookingModeControls extends LinearLayout {
+public class CookingAssistantControls extends LinearLayout {
 
     private int position = 0;
     private int maxSteps = 0;
 
-    private OnCookingModeControlsInteractionListener listener;
+    private OnCookingAssistantControlsInteractionListener listener;
 
-    public CookingModeControls(Context context) {
+    public CookingAssistantControls(Context context) {
         super(context);
     }
 
-    public CookingModeControls(Context context, AttributeSet attrs) {
+    public CookingAssistantControls(Context context, AttributeSet attrs) {
         super(context, attrs);
         initializeAttributes(context, attrs, 0, 0);
         buildControl();
     }
 
-    public CookingModeControls(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CookingAssistantControls(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initializeAttributes(context, attrs, defStyleAttr, 0);
         buildControl();
     }
 
-    public CookingModeControls(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public CookingAssistantControls(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         initializeAttributes(context, attrs, defStyleAttr, defStyleRes);
         buildControl();
@@ -57,15 +57,15 @@ public class CookingModeControls extends LinearLayout {
         requestLayout();
     }
 
-    public void setOnCookingModeControlsInteractionListener(OnCookingModeControlsInteractionListener listener) {
+    public void setOnCookingAssistantControlsInteractionListener(OnCookingAssistantControlsInteractionListener listener) {
         this.listener = listener;
     }
 
     private void initializeAttributes(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CookingModeControls, defStyleAttr, defStyleRes);
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs, R.styleable.CookingAssistantControls, defStyleAttr, defStyleRes);
         try {
-            position = a.getInteger(R.styleable.CookingModeControls_position, 0);
-            maxSteps = a.getInteger(R.styleable.CookingModeControls_maxSteps, 0);
+            position = a.getInteger(R.styleable.CookingAssistantControls_position, 0);
+            maxSteps = a.getInteger(R.styleable.CookingAssistantControls_maxSteps, 0);
         } finally {
             a.recycle();
         }
@@ -81,17 +81,17 @@ public class CookingModeControls extends LinearLayout {
 
         IntStream.range(0, maxSteps).forEach(integer -> {
             LayoutInflater.from(getContext()).inflate(R.layout.cooking_mode_controls_item, this, true);
-            ImageView imageView = getChildAt(integer).findViewById(R.id.cooking_mode_control);
+            ImageView imageView = getChildAt(integer).findViewById(R.id.cooking_assistant_control);
             imageView.setContentDescription(String.valueOf(integer));
             if (integer == position) {
                 imageView.setImageTintList(ColorStateList.valueOf(MaterialColors.getColor(this, R.attr.colorPrimary)));
             }
-            imageView.setOnClickListener(v -> listener.onCookingModeControlsInteraction(integer));
+            imageView.setOnClickListener(v -> listener.onCookingAssistantControlsInteraction(integer));
         });
     }
 
-    public interface OnCookingModeControlsInteractionListener {
-        void onCookingModeControlsInteraction(int position);
+    public interface OnCookingAssistantControlsInteractionListener {
+        void onCookingAssistantControlsInteraction(int position);
     }
 
 }

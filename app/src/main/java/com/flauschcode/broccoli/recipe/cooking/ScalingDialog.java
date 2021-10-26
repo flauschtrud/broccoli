@@ -33,7 +33,7 @@ public class ScalingDialog extends DialogFragment {
         ScalingDialogViewModel scalingDialogViewModel = new ViewModelProvider(this).get(ScalingDialogViewModel.class);
         binding.setViewModel(scalingDialogViewModel);
 
-        CookingModeViewModel viewModel = new ViewModelProvider(requireActivity(), viewModelFactory).get(CookingModeViewModel.class);
+        CookingAssistantViewModel viewModel = new ViewModelProvider(requireActivity(), viewModelFactory).get(CookingAssistantViewModel.class);
         scalingDialogViewModel.setRecipe(viewModel.getRecipe());
 
         TextInputLayout textInputLayout = binding.layoutSimpleScaling;
