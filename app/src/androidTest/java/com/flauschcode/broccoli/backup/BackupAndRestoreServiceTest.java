@@ -23,7 +23,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.ArgumentCaptor;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
@@ -31,7 +30,6 @@ import java.util.concurrent.ExecutionException;
 import javax.inject.Inject;
 
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
-import static com.flauschcode.broccoli.recipe.RecipeRepository.InsertionType.INSERT;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.ArgumentMatchers.anyList;
@@ -102,7 +100,7 @@ public class BackupAndRestoreServiceTest {
         when(categoryRepository.retainNonExisting(anyList())).thenAnswer(i -> CompletableFuture.completedFuture(i.getArguments()[0]));
         when(categoryRepository.retainExisting(anyList())).thenAnswer(i -> CompletableFuture.completedFuture(i.getArguments()[0]));
 
-        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(INSERT));
+        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(5L));
         when(categoryRepository.insertOrUpdate(categoryCaptor.capture())).thenReturn(CompletableFuture.completedFuture(null));
 
         Uri uri = backupService.backup().get();

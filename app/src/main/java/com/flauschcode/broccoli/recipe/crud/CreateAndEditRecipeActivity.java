@@ -73,7 +73,7 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
                             applyRecipeToViewModel(optionalRecipe.get());
                             binding.setViewModel(viewModel);
                         } else {
-                            runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_read_message, getString(R.string.app_name)), Toast.LENGTH_LONG).show());
+                            runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_read_message), Toast.LENGTH_LONG).show());
                         }
                     })
                     .exceptionally(e -> {
@@ -134,17 +134,21 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
 
         viewModel.confirmFinishedBySaving();
         viewModel.save()
-                .thenAccept(result -> runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_saved_message), Toast.LENGTH_SHORT).show()))
+                .thenAccept(id -> {
+                    runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_saved_message), Toast.LENGTH_SHORT).show());
+
+                    recipe.setRecipeId(id);
+
+                    Intent intent = new Intent();
+                    intent.putExtra(Recipe.class.getName(), recipe);
+                    setResult(RESULT_OK, intent);
+
+                    finish();
+                })
                 .exceptionally(e -> {
                     runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_saved_message), Toast.LENGTH_SHORT).show());
                     return null;
                 });
-
-        Intent intent = new Intent();
-        intent.putExtra(Recipe.class.getName(), recipe);
-        setResult(RESULT_OK, intent);
-
-        finish();
     }
 
     public void onImageClick() {

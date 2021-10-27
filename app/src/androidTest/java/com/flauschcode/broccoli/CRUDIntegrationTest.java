@@ -4,6 +4,7 @@ import static androidx.test.core.app.ActivityScenario.launch;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.Espresso.openActionBarOverflowOrOptionsMenu;
 import static androidx.test.espresso.Espresso.pressBack;
+import static androidx.test.espresso.action.ViewActions.clearText;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.action.ViewActions.typeText;
@@ -49,8 +50,15 @@ public class CRUDIntegrationTest {
         onView(ViewMatchers.withId(R.id.recycler_view)).check(RecyclerViewAssertions.hasItemsCount(0));
 
         onView(withId(R.id.fab_recipes)).perform(click());
-        onView(withId(R.id.new_title)).perform(typeText("Lauchkuchen"));
+        onView(withId(R.id.new_title)).perform(typeText("Lauchkuche"));
         onView(withId(R.id.button_save_recipe)).perform(click());
+
+        // it's important that instant editing does not create a duplicate of the recipe, see https://github.com/flauschtrud/broccoli/issues/170
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
+        onView(withText(R.string.edit_action)).perform(click());
+        onView(withId(R.id.new_title)).perform(typeText("n"));
+        onView(withId(R.id.button_save_recipe)).perform(click());
+
         pressBack();
 
         onView(withId(R.id.recycler_view)).check(RecyclerViewAssertions.hasItemsCount(1));

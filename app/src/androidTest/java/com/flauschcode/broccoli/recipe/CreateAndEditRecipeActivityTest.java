@@ -114,7 +114,7 @@ public class CreateAndEditRecipeActivityTest {
     public void save_new_recipe() throws IOException {
         when(recipeImageService.createTemporaryImage()).thenReturn(uri);
         when(uri.getLastPathSegment()).thenReturn("12345.jpg");
-        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.INSERT));
+        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(1L));
         when(recipeImageService.moveImage("12345.jpg")).thenReturn(CompletableFuture.completedFuture(null));
 
         intending(hasAction(MediaStore.ACTION_IMAGE_CAPTURE)).respondWith(new Instrumentation.ActivityResult(RESULT_OK, new Intent()));
@@ -163,7 +163,7 @@ public class CreateAndEditRecipeActivityTest {
 
     @Test
     public void edit_recipe(){
-        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.UPDATE));
+        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(1L));
 
         Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CreateAndEditRecipeActivity.class);
         intent.putExtra(Recipe.class.getName(), LAUCHKUCHEN_SAVED);
@@ -196,7 +196,7 @@ public class CreateAndEditRecipeActivityTest {
 
     @Test
     public void remove_image(){
-        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.UPDATE));
+        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(1L));
         when(recipeImageService.deleteImage(LAUCHKUCHEN_SAVED.getImageName())).thenReturn(CompletableFuture.completedFuture(null));
 
         Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CreateAndEditRecipeActivity.class);
@@ -220,7 +220,7 @@ public class CreateAndEditRecipeActivityTest {
 
     @Test
     public void replace_image() throws IOException {
-        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.UPDATE));
+        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(1L));
         when(recipeImageService.deleteImage(LAUCHKUCHEN_SAVED.getImageName())).thenReturn(CompletableFuture.completedFuture(null));
 
         when(recipeImageService.createTemporaryImage()).thenReturn(uri);
@@ -271,7 +271,7 @@ public class CreateAndEditRecipeActivityTest {
     @Test
     public void pick_image() {
         when(recipeImageService.copyImage(uri)).thenReturn(CompletableFuture.completedFuture("12345.jpg"));
-        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.INSERT));
+        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(1L));
         when(recipeImageService.moveImage("12345.jpg")).thenReturn(CompletableFuture.completedFuture(null));
 
         Intent intent = new Intent();

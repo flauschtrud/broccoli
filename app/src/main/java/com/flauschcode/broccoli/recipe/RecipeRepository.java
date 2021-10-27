@@ -27,10 +27,6 @@ public class RecipeRepository {
     private final SeasonalCalendarHolder seasonalCalendarHolder;
     private final CategoryRepository categoryRepository;
 
-    public enum InsertionType {
-        INSERT, UPDATE
-    }
-
     @Inject
     RecipeRepository(RecipeDAO recipeDAO, RecipeImageService recipeImageService, SeasonalCalendarHolder seasonalCalendarHolder, CategoryRepository categoryRepository) {
         this.recipeDAO = recipeDAO;
@@ -126,18 +122,18 @@ public class RecipeRepository {
     }
 
     @Transaction
-    public CompletableFuture<InsertionType> insertOrUpdate(Recipe recipe) {
+    public CompletableFuture<Long> insertOrUpdate(Recipe recipe) {
         return CompletableFuture.supplyAsync(() -> {
             if (recipe.getRecipeId() == 0) {
                 long recipeId = recipeDAO.insert(recipe.getCoreRecipe());
                 recipe.getCategories().forEach(category -> recipeDAO.insert(new RecipeCategoryAssociation(recipeId, category.getCategoryId())));
-                return InsertionType.INSERT;
+                return recipeId;
             } else {
                 recipeDAO.update(recipe.getCoreRecipe());
                 List<RecipeCategoryAssociation> recipeCategoryAssociations = recipeDAO.getCategoriesFor(recipe.getRecipeId());
                 recipeCategoryAssociations.forEach(recipeDAO::delete);
                 recipe.getCategories().forEach(category -> recipeDAO.insert(new RecipeCategoryAssociation(recipe.getRecipeId(), category.getCategoryId())));
-                return InsertionType.UPDATE;
+                return recipe.getRecipeId();
             }
         });
     }

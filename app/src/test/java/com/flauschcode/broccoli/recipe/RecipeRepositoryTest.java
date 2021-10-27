@@ -224,10 +224,10 @@ public class RecipeRepositoryTest {
         doNothing().when(recipeDAO).insert(associationCaptor.capture());
         when(recipeDAO.insert(recipe.getCoreRecipe())).thenReturn(12L);
         
-        CompletableFuture<RecipeRepository.InsertionType> completableFuture = recipeRepository.insertOrUpdate(recipe);
-        RecipeRepository.InsertionType insertionType = completableFuture.get();
+        CompletableFuture<Long> completableFuture = recipeRepository.insertOrUpdate(recipe);
+        Long recipeId = completableFuture.get();
 
-        assertThat(insertionType, is(RecipeRepository.InsertionType.INSERT));
+        assertThat(recipeId, is(12L));
 
         RecipeCategoryAssociation categoryAssociation = associationCaptor.getValue();
         assertThat(categoryAssociation.getCategoryId(), is(5L));
@@ -247,10 +247,10 @@ public class RecipeRepositoryTest {
         oldAssociations.add(oldAssociation);
         when(recipeDAO.getCategoriesFor(12)).thenReturn(oldAssociations);
 
-        CompletableFuture<RecipeRepository.InsertionType> completableFuture = recipeRepository.insertOrUpdate(recipe);
-        RecipeRepository.InsertionType insertionType = completableFuture.get();
+        CompletableFuture<Long> completableFuture = recipeRepository.insertOrUpdate(recipe);
+        Long recipeId = completableFuture.get();
 
-        assertThat(insertionType, is(RecipeRepository.InsertionType.UPDATE));
+        assertThat(recipeId, is(12L));
         verify(recipeDAO).update(recipe.getCoreRecipe());
         verify(recipeDAO).delete(oldAssociation);
 

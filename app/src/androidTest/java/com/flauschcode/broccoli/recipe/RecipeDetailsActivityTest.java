@@ -73,8 +73,8 @@ public class RecipeDetailsActivityTest {
 
     private ActivityScenario<RecipeDetailsActivity> scenario;
 
-    private static Recipe lauchkuchen = RecipeTestUtil.createLauchkuchen();
-    private ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
+    private static final Recipe lauchkuchen = RecipeTestUtil.createLauchkuchen();
+    private final ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
 
     @Before
     public void setUp() {
@@ -129,7 +129,7 @@ public class RecipeDetailsActivityTest {
 
     @Test
     public void toggle_favorite() {
-        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.UPDATE));
+        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(5L));
         onView(withId(R.id.action_details_like)).perform(click());
         onView(withId(R.id.action_details_unlike)).check(matches(isDisplayed()));
 

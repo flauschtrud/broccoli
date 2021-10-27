@@ -100,7 +100,7 @@ public class CreateAndEditRecipeViewModel extends ViewModel {
         }
     }
 
-    CompletableFuture<RecipeRepository.InsertionType> save() {
+    CompletableFuture<Long> save() {
         recipe.setDirty(false);
         return CompletableFuture.completedFuture(true)
                 .thenCompose(result -> oldImageName != null? recipeImageService.deleteImage(oldImageName) : CompletableFuture.completedFuture(result))

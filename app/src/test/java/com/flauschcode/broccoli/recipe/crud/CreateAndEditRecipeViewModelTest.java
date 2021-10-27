@@ -57,12 +57,12 @@ public class CreateAndEditRecipeViewModelTest {
 
     @Test
     public void just_save() throws ExecutionException, InterruptedException {
-        when(recipeRepository.insertOrUpdate(createAndEditRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.INSERT));
+        when(recipeRepository.insertOrUpdate(createAndEditRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(5L));
 
-        CompletableFuture<RecipeRepository.InsertionType> completableFuture = createAndEditRecipeViewModel.save();
+        CompletableFuture<Long> completableFuture = createAndEditRecipeViewModel.save();
 
-        RecipeRepository.InsertionType insertionType = completableFuture.get();
-        assertThat(insertionType, is(RecipeRepository.InsertionType.INSERT));
+        Long recipeId = completableFuture.get();
+        assertThat(recipeId, is(5L));
 
         verify(recipeRepository).insertOrUpdate(createAndEditRecipeViewModel.getRecipe());
         verify(recipeImageService, never()).deleteTemporaryImage(any());
@@ -80,10 +80,10 @@ public class CreateAndEditRecipeViewModelTest {
         assertThat(createAndEditRecipeViewModel.getRecipe().isDirty(), is(true));
 
         when(recipeImageService.moveImage("blupp.jpg")).thenReturn(CompletableFuture.completedFuture(null));
-        when(recipeRepository.insertOrUpdate(createAndEditRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.INSERT));
+        when(recipeRepository.insertOrUpdate(createAndEditRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(5L));
 
         createAndEditRecipeViewModel.confirmFinishedBySaving();
-        CompletableFuture<RecipeRepository.InsertionType> completableFuture = createAndEditRecipeViewModel.save();
+        CompletableFuture<Long> completableFuture = createAndEditRecipeViewModel.save();
         completableFuture.get();
 
         createAndEditRecipeViewModel.onCleared();
@@ -103,10 +103,10 @@ public class CreateAndEditRecipeViewModelTest {
         assertThat(createAndEditRecipeViewModel.getRecipe().isDirty(), is(true));
 
         when(recipeImageService.moveImage("blupp.jpg")).thenReturn(CompletableFuture.completedFuture(null));
-        when(recipeRepository.insertOrUpdate(createAndEditRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.INSERT));
+        when(recipeRepository.insertOrUpdate(createAndEditRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(5L));
 
         createAndEditRecipeViewModel.confirmFinishedBySaving();
-        CompletableFuture<RecipeRepository.InsertionType> completableFuture = createAndEditRecipeViewModel.save();
+        CompletableFuture<Long> completableFuture = createAndEditRecipeViewModel.save();
         completableFuture.get();
 
         createAndEditRecipeViewModel.onCleared();
@@ -152,10 +152,10 @@ public class CreateAndEditRecipeViewModelTest {
         createAndEditRecipeViewModel.confirmImageHasBeenRemoved();
 
         when(recipeImageService.deleteImage("old.jpg")).thenReturn(CompletableFuture.completedFuture(null));
-        when(recipeRepository.insertOrUpdate(createAndEditRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(RecipeRepository.InsertionType.UPDATE));
+        when(recipeRepository.insertOrUpdate(createAndEditRecipeViewModel.getRecipe())).thenReturn(CompletableFuture.completedFuture(5L));
 
         createAndEditRecipeViewModel.confirmFinishedBySaving();
-        CompletableFuture<RecipeRepository.InsertionType> completableFuture = createAndEditRecipeViewModel.save();
+        CompletableFuture<Long> completableFuture = createAndEditRecipeViewModel.save();
         completableFuture.get();
 
         createAndEditRecipeViewModel.onCleared();
