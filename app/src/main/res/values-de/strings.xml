@@ -197,4 +197,6 @@
     <string name="no_recipes_found">Keine Rezepte gefunden.</string>
     <string name="import_from_the_web_prompt">importiere ein Rezept von einer Website</string>
     <string name="buy_for">Kaufe für %1$s</string>
+    <string name="spanish">Spanisch</string>
+    <string name="french">Französisch</string>
 </resources>

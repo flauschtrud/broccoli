@@ -11,11 +11,15 @@
 
     <string-array name="language_labels">
         <item>@string/english</item>
+        <item>@string/spanish</item>
+        <item>@string/french</item>
         <item>@string/german</item>
     </string-array>
 
     <string-array name="language_values">
         <item>en</item>
+        <item>es</item>
+        <item>fr</item>
         <item>de</item>
     </string-array>
 

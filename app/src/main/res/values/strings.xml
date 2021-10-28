@@ -130,6 +130,8 @@
 
     <!-- languages for seasonal calendar -->
     <string name="english">English</string>
+    <string name="spanish">Spanish</string>
+    <string name="french">French</string>
     <string name="german">German</string>
 
     <!-- support -->
