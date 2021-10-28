@@ -49,8 +49,8 @@
     <string name="mark_as_favorite_action">Mark as favorite</string>
     <string name="remove_from_favorite_action">Remove from favorites</string>
     <string name="favorites">Favorites</string>
-    <string name="delete_category_question">Do you really want to delete this category and remove all its assignments?</string>
-    <string name="unassigned">Unassigned recipes</string>
+    <string name="delete_category_question">Do you really want to delete this category?</string>
+    <string name="unassigned">Recipes without category</string>
     <string name="search">Search</string>
     <string name="search_in">Search in %1$s</string>
     <string name="preferred_category">Preferred category</string>
@@ -78,12 +78,12 @@
     <string name="recipe_could_not_be_exported_message">The recipe could not be exported.</string>
 
     <!-- Backup & restore -->
-    <string name="backup_and_restore">Backup &amp; restore</string>
+    <string name="backup_and_restore">Backup and restore</string>
     <string name="backup">Backup</string>
     <string name="restore">Restore</string>
-    <string name="backup_recipes">Backup of recipes</string>
+    <string name="backup_recipes">Backup recipes</string>
     <string name="backup_recipes_message">Export all your recipes and categories and save them wherever you want.</string>
-    <string name="restore_recipes">Restore of recipes</string>
+    <string name="restore_recipes">Restore recipes</string>
     <string name="restore_recipes_message">Import all recipes and categories from a backup file.</string>
     <string name="backup_failed_message">The recipes could not be exported.</string>
     <string name="restore_failed_message">The recipes could not be imported.</string>
@@ -138,7 +138,7 @@
     <string name="community_edition_perk_recipes">Unlimited recipes</string>
     <string name="community_edition_perk_categories">Unlimited custom categories</string>
     <string name="community_edition_perk_seasonal_calendar">Seasonal calendar (Beta)</string>
-    <string name="community_edition_perk_backup">Backup &amp; restore</string>
+    <string name="community_edition_perk_backup">Backup and restore</string>
     <string name="community_edition_perk_ad_free">No ads</string>
     <string name="free_for_everyone">Free for everyone</string>
     <string name="supporter_edition_title" translatable="false">Supporter Edition</string>

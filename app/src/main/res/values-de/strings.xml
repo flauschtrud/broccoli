@@ -36,8 +36,8 @@
     <string name="mark_as_favorite_action">Als Favorit markieren</string>
     <string name="remove_from_favorite_action">Aus Favoriten entfernen</string>
     <string name="favorites">Favoriten</string>
-    <string name="delete_category_question">Willst du diese Kategorie wirklich löschen und alle Zuordnungen aufheben?</string>
-    <string name="unassigned">Nicht zugewiesene Rezepte</string>
+    <string name="delete_category_question">Willst du diese Kategorie wirklich löschen?</string>
+    <string name="unassigned">Rezepte ohne Kategorie</string>
     <string name="search">Suche</string>
     <string name="search_in">Suche in %1$s</string>
     <string name="preferred_category">Bevorzugte Kategorie</string>
@@ -52,12 +52,12 @@
     <string name="recipe_could_not_be_read_message">Dieses Rezept kann leider nicht gelesen werden.</string>
     <string name="share_as_file_action">Als Datei teilen</string>
     <string name="recipe_could_not_be_exported_message">Das Rezept konnte nicht exportiert werden.</string>
-    <string name="backup_and_restore">Sichern &amp; Wiederherstellen</string>
-    <string name="backup">Sichern</string>
-    <string name="restore">Wiederherstellen</string>
-    <string name="backup_recipes">Backup von Rezepten</string>
+    <string name="backup_and_restore">Sicherung und Wiederherstellung</string>
+    <string name="backup">Sicherung</string>
+    <string name="restore">Wiederherstellung</string>
+    <string name="backup_recipes">Rezepte sichern</string>
     <string name="backup_recipes_message">Exportiere alle deine Rezepte und Kategorien und speichere sie, wo immer du willst.</string>
-    <string name="restore_recipes">Wiederherstellen von Rezepten</string>
+    <string name="restore_recipes">Rezepte wiederherstellen</string>
     <string name="restore_recipes_message">Importiere alle Rezepte und Kategorien aus einer Sicherungsdatei.</string>
     <string name="backup_failed_message">Die Rezepte konnten nicht exportiert werden.</string>
     <string name="restore_failed_message">Die Rezepte konnten nicht importiert werden.</string>
@@ -91,7 +91,7 @@
     <string name="community_edition_perk_recipes">Unbegrenzte Rezepte</string>
     <string name="supporter_edition_perk_cooking_assistant">Kochassistent</string>
     <string name="community_edition_perk_seasonal_calendar">Saisonkalender (Beta)</string>
-    <string name="community_edition_perk_backup">Sichern &amp; Wiederherstellen</string>
+    <string name="community_edition_perk_backup">Sicherung und Wiederherstellung</string>
     <string name="community_edition_perk_ad_free">Keine Werbung</string>
     <string name="free_for_everyone">Kostenlos für alle</string>
     <string name="supporter_edition_perk_community_features">Alle Funktionen der Community Edition</string>
