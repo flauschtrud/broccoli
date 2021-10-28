@@ -56,7 +56,7 @@ public class FilteringAndSearchingIntegrationTest {
 
     private final Category CATEGORY_ALL = new Category(-1, "All recipes");
     private final Category CATEGORY_FAVORITES = new Category(-2, "Favorites");
-    private final Category CATEGORY_UNASSIGNED = new Category(-3, "Unassigned recipes");
+    private final Category CATEGORY_UNASSIGNED = new Category(-3, "Recipes without category");
 
     @Before
     public void setUp() {
