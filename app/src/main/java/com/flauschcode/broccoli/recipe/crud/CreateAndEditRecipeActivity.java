@@ -28,6 +28,10 @@ import com.flauschcode.broccoli.recipe.Recipe;
 import com.flauschcode.broccoli.recipe.importing.RecipeImportService;
 import com.flauschcode.broccoli.recipe.sharing.ShareRecipeAsFileService;
 import com.google.android.material.color.MaterialColors;
+import com.google.android.play.core.review.ReviewInfo;
+import com.google.android.play.core.review.ReviewManager;
+import com.google.android.play.core.review.ReviewManagerFactory;
+import com.google.android.play.core.tasks.Task;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -137,6 +141,10 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
                 .thenAccept(id -> {
                     runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_saved_message), Toast.LENGTH_SHORT).show());
 
+                    if (recipe.getRecipeId() <= 0 && id % 5 == 0) {
+                        tryToLaunchInAppReviewFlow();
+                    }
+
                     recipe.setRecipeId(id);
 
                     Intent intent = new Intent();
@@ -149,6 +157,20 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
                     runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_saved_message), Toast.LENGTH_SHORT).show());
                     return null;
                 });
+    }
+
+    private void tryToLaunchInAppReviewFlow() {
+        ReviewManager manager = ReviewManagerFactory.create(this);
+        Task<ReviewInfo> request = manager.requestReviewFlow();
+        request.addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                ReviewInfo reviewInfo = task.getResult();
+                manager.launchReviewFlow(this, reviewInfo);
+            } else {
+                Log.e(getClass().getName(), "Could not launch in-app review flow.", task.getException());
+            }
+        });
+
     }
 
     public void onImageClick() {
