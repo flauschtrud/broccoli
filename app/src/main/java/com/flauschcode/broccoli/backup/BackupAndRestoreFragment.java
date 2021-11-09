@@ -12,6 +12,7 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
@@ -31,11 +32,15 @@ public class BackupAndRestoreFragment extends PreferenceFragmentCompat {
     @Inject
     RestoreService restoreService;
 
+    private BackupAndRestoreFragmentViewmodel viewModel;
+
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         AndroidSupportInjection.inject(this);
 
         setPreferencesFromResource(R.xml.backup_and_restore, rootKey);
+
+        viewModel = new ViewModelProvider(this).get(BackupAndRestoreFragmentViewmodel.class);
 
         Preference backupPreference = findPreference("backup");
         if(backupPreference != null){
@@ -70,6 +75,10 @@ public class BackupAndRestoreFragment extends PreferenceFragmentCompat {
         }
     }
 
+    ActivityResultLauncher<Intent> shareArchiveResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> viewModel.getExportUri().ifPresent(exportUri -> requireActivity().getContentResolver().delete(exportUri, null,  null)));
+
     private void backup() {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.backup_recipes)
@@ -86,6 +95,7 @@ public class BackupAndRestoreFragment extends PreferenceFragmentCompat {
         backupService.backup()
                 .thenAccept(uri -> {
                         alertDialog.dismiss();
+                        viewModel.setExportUri(uri);
                         showChooser(uri);
                 })
                 .exceptionally(e -> {
@@ -109,7 +119,7 @@ public class BackupAndRestoreFragment extends PreferenceFragmentCompat {
             String packageName = resolveInfo.activityInfo.packageName;
             requireActivity().grantUriPermission(packageName, archiveUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
         }
-        startActivity(chooser);
+        shareArchiveResultLauncher.launch(chooser);
     }
 
     private void restoreFrom(Uri uri) {

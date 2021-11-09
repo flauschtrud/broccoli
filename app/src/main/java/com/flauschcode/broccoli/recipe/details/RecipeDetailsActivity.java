@@ -31,6 +31,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.widget.NestedScrollView;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.flauschcode.broccoli.BroccoliApplication;
 import com.flauschcode.broccoli.FeatureDiscoveryTargetBuilder;
@@ -71,6 +72,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     @Inject
     ShareableRecipeBuilder shareableRecipeBuilder;
 
+    private RecipeDetailsViewModel viewModel;
     private ActivityRecipeDetailsBinding binding;
     private Menu menu;
 
@@ -80,6 +82,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         AndroidInjection.inject(this);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_recipe_details);
+        viewModel = new ViewModelProvider(this).get(RecipeDetailsViewModel.class);
 
         NestedScrollView nestedScrollView = findViewById(R.id.scroll_view);
         nestedScrollView.post(() -> {
@@ -211,9 +214,14 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         startActivity(Intent.createChooser(shareIntent, null));
     }
 
+    ActivityResultLauncher<Intent> shareAsFileResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> viewModel.getExportUri().ifPresent(exportUri -> getContentResolver().delete(exportUri, null,  null)));
+
     public void shareAsFile(MenuItem item) {
         try {
             Uri exportedRecipe = shareRecipeAsFileService.shareAsFile(binding.getRecipe());
+            viewModel.setExportUri(exportedRecipe);
 
             Intent shareIntent = new Intent();
             shareIntent.setAction(Intent.ACTION_SEND);
@@ -227,7 +235,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 String packageName = resolveInfo.activityInfo.packageName;
                 grantUriPermission(packageName, exportedRecipe, Intent.FLAG_GRANT_WRITE_URI_PERMISSION | Intent.FLAG_GRANT_READ_URI_PERMISSION);
             }
-            startActivity(chooser);
+            shareAsFileResultLauncher.launch(chooser);
         } catch (IOException e) {
             Log.e(getClass().getName(), e.getMessage());
             Toast.makeText(this, getString(R.string.recipe_could_not_be_exported_message), Toast.LENGTH_LONG).show();
