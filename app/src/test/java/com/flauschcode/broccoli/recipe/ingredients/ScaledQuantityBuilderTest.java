@@ -36,8 +36,14 @@ public class ScaledQuantityBuilderTest {
     }
 
     @Test
+    public void scale_mixed_integer_quantity() {
+        String scaled = scaledQuantityBuilder.from(" 1 1/2 ", 2f);
+        assertThat(scaled,  is("3"));
+    }
+
+    @Test
     public void scale_vulgar_fraction_quantity() {
-        String scaled = scaledQuantityBuilder.from("½", 2f);
+        String scaled = scaledQuantityBuilder.from(" ½", 2f);
         assertThat(scaled,  is("1"));
     }
 

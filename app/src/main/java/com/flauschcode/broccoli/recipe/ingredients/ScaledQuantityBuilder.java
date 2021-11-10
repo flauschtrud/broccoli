@@ -23,6 +23,8 @@ public class ScaledQuantityBuilder {
     private static final DecimalFormat decimalFormat = new DecimalFormat("0.##");
 
     public String from(String quantity, float scaleFactor) {
+        quantity = quantity.trim();
+
         try {
             if (isRange(quantity)) {
                 String[] ranges = quantity.replace(" ", "").split("-");
@@ -38,6 +40,10 @@ public class ScaledQuantityBuilder {
     }
 
     private String scale(String quantity, float scaleFactor) {
+        if (isMixedInteger(quantity)) {
+            return scaleMixedInteger(quantity, scaleFactor);
+        }
+
         if (isFraction(quantity)) {
             return scaleFraction(quantity, scaleFactor);
         }
@@ -52,6 +58,20 @@ public class ScaledQuantityBuilder {
 
     private boolean isRange(String quantity) {
         return quantity.contains("-");
+    }
+
+    private boolean isMixedInteger(String quantity) {
+        return quantity.matches("\\d+ \\d+/\\d+");
+    }
+
+    private String scaleMixedInteger(String quantity, float scaleFactor) {
+        String[] mixedParts = quantity.split(" ");
+
+        String[] rat = mixedParts[1].split("/");
+        float fractionPart = Float.parseFloat(rat[0]) / Float.parseFloat(rat[1]);
+        float f = Float.parseFloat(mixedParts[0]) + fractionPart;
+
+        return prettyPrint(f * scaleFactor);
     }
 
     private boolean isFraction(String quantity) {
