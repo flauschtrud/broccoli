@@ -109,7 +109,7 @@
     <string name="system_default">System default</string>
     <string name="privacy_policy">Privacy policy</string>
     <string name="privacy_policy_summary">Learn more about how we protect your personal data.</string>
-    <string name="privacy_policy_url" translatable="false">https://github.com/flauschtrud/broccoli-privacy-policy</string>
+    <string name="privacy_policy_url" translatable="false">https://flauschcode.com/broccoli-privacy-policy/</string>
 
     <!-- Seasons -->
     <string name="seasonal_calendar">Seasonal calendar (Beta)</string>
