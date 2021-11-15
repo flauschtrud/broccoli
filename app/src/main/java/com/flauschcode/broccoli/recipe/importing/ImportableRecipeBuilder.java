@@ -20,6 +20,8 @@ import java.util.stream.Collectors;
 
 class ImportableRecipeBuilder {
 
+    private static final String ID = "@id";
+
     private static final String TYPE = "@type";
     private static final String HOW_TO_SECTION = "HowToSection";
     private static final String ITEM_LIST_ELEMENT = "itemListElement";
@@ -190,7 +192,13 @@ class ImportableRecipeBuilder {
 
         JSONObject imagesObject = recipeJson.optJSONObject(RECIPE_IMAGE);
         if (imagesObject != null) {
-            return imagesObject.optString(RECIPE_URL);
+            String url = imagesObject.optString(RECIPE_URL);
+
+            if (!url.isEmpty()) {
+                return url;
+            }
+
+            return imagesObject.optString(ID); // used by Rank Math schema
         }
 
         return recipeJson.optString(RECIPE_IMAGE);
