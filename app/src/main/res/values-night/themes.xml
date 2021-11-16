@@ -8,8 +8,6 @@
 
         <item name="colorStatusBarScrim">?attr/colorSurface</item>
         <item name="colorSecondaryToolbar">?attr/colorSurface</item>
-        <item name="colorSurfacePrimary">?attr/colorPrimary</item>
-        <item name="colorOnSurfacePrimary">?attr/colorOnPrimary</item>
     </style>
 
     <style name="ThemeOverlay.Broccoli.AppBarOverlay" parent="ThemeOverlay.MaterialComponents.ActionBar" />
