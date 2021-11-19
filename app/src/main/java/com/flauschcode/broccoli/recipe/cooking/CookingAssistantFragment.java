@@ -59,7 +59,7 @@ public class CookingAssistantFragment extends Fragment {
               viewModel.setPremium(true);
           } else {
               String pageText = args.getString(TEXT);
-              viewModel.setText(pageText.substring(0, pageText.length() > 59? 59 : pageText.length()-1) + "...\n\n" + getString(R.string.become_a_supporter_cooking_assistant_message));
+              viewModel.setText(pageText.substring(0, Math.min(pageText.length(), 59)) + "...\n\n" + getString(R.string.become_a_supporter_cooking_assistant_message));
               viewModel.setPremium(false);
           }
         });

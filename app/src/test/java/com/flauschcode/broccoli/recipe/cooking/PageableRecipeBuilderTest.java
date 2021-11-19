@@ -82,6 +82,30 @@ public class PageableRecipeBuilderTest {
         assertPage(pageableRecipe.getPages().get(0), "", "Nothing there...");
     }
 
+    @Test
+    public void to_pageable_recipe_when_there_are_only_ingredients() {
+        Recipe recipe = new Recipe();
+        recipe.setTitle("Lauchkuchen");
+        recipe.setIngredients("- 500g Mehl\n - 100g Margarine  ");
+
+        PageableRecipe pageableRecipe = pageableRecipeBuilder.from(recipe);
+
+        assertThat(pageableRecipe.getPages().size(), is(1));
+        assertPage(pageableRecipe.getPages().get(0), "Ingredients", "500g Mehl\n100g Margarine");
+    }
+
+    @Test
+    public void to_pageable_recipe_when_there_are_only_directions() {
+        Recipe recipe = new Recipe();
+        recipe.setTitle("Lauchkuchen");
+        recipe.setDirections(" 1. Test.");
+
+        PageableRecipe pageableRecipe = pageableRecipeBuilder.from(recipe);
+
+        assertThat(pageableRecipe.getPages().size(), is(1));
+        assertPage(pageableRecipe.getPages().get(0), "1", "Test.");
+    }
+
     private void assertPage(PageableRecipe.Page page, String title, String text) {
         assertThat(page.getTitle(), is(title));
         assertThat(page.getText(), is(text));

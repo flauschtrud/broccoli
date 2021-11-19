@@ -19,6 +19,8 @@ import static com.flauschcode.broccoli.util.CustomViewActions.waitFor;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.is;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyFloat;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
@@ -77,7 +79,9 @@ public class CookingAssistantActivityTest {
                 .build();
         component.inject(this);
         component.inject(getApplication());
+    }
 
+    private void givenScenarioWithLauchkuchen() {
         PageableRecipe pageableRecipe = new PageableRecipe();
         pageableRecipe.addPage(new PageableRecipe.Page("Ingredients", "100g Mehl\n50g Margarine"));
         pageableRecipe.addPage(new PageableRecipe.Page("1", "Erst dies."));
@@ -86,11 +90,13 @@ public class CookingAssistantActivityTest {
         when(pageableRecipeBuilder.scale(scaleFactorCaptor.capture())).thenReturn(pageableRecipeBuilder);
         when(pageableRecipeBuilder.from(recipeCaptor.capture())).thenReturn(pageableRecipe);
 
-        when(billingService.isPremium()).thenReturn(new MutableLiveData<>(true));
-
         Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CookingAssistantActivity.class);
         intent.putExtra(Recipe.class.getName(), lauchkuchen);
         scenario = launch(intent);
+    }
+
+    private void givenPremiumStatus(boolean isPremium) {
+        when(billingService.isPremium()).thenReturn(new MutableLiveData<>(isPremium));
     }
 
     @After
@@ -105,6 +111,9 @@ public class CookingAssistantActivityTest {
 
     @Test
     public void read_pages_via_swiping() {
+        givenPremiumStatus(true);
+        givenScenarioWithLauchkuchen();
+
         onView(withId(R.id.cooking_assistant_title)).check(matches(withText("Ingredients")));
         onView(withId(R.id.cooking_assistant_text)).check(matches(withText("100g Mehl\n50g Margarine")));
 
@@ -122,6 +131,9 @@ public class CookingAssistantActivityTest {
 
     @Test
     public void read_pages_via_seeking() {
+        givenPremiumStatus(true);
+        givenScenarioWithLauchkuchen();
+
         onView(allOf(withId(R.id.cooking_assistant_control), withContentDescription("2"), isDisplayed())).perform(click());
         onView(isRoot()).perform(waitFor(500));
         onView(allOf(withId(R.id.cooking_assistant_title), isDisplayed())).check(matches(withText("2")));
@@ -143,6 +155,9 @@ public class CookingAssistantActivityTest {
 
     @Test
     public void scale_simple_mode() {
+        givenPremiumStatus(true);
+        givenScenarioWithLauchkuchen();
+
         onView(withId(R.id.fullscreen_layout)).perform(click());
         onView(withId(R.id.fullscreen_layout)).perform(click()); // scaling button is not visible for Espresso otherwise
 
@@ -163,6 +178,9 @@ public class CookingAssistantActivityTest {
 
     @Test
     public void scale_pro_mode() {
+        givenPremiumStatus(true);
+        givenScenarioWithLauchkuchen();
+
         onView(withId(R.id.fullscreen_layout)).perform(click());
         onView(withId(R.id.fullscreen_layout)).perform(click()); // scaling button is not visible for Espresso otherwise
 
@@ -187,6 +205,9 @@ public class CookingAssistantActivityTest {
 
     @Test
     public void scale_with_missing_input() {
+        givenPremiumStatus(true);
+        givenScenarioWithLauchkuchen();
+
         onView(withId(R.id.fullscreen_layout)).perform(click());
         onView(withId(R.id.fullscreen_layout)).perform(click()); // scaling button is not visible for Espresso otherwise
 
@@ -203,6 +224,24 @@ public class CookingAssistantActivityTest {
 
         verify(pageableRecipeBuilder).from(recipeCaptor.capture());
         verifyNoMoreInteractions(pageableRecipeBuilder);
+    }
+
+    @Test
+    public void load_empty_page() { // https://github.com/flauschtrud/broccoli/issues/176
+        givenPremiumStatus(false);
+
+        PageableRecipe pageableRecipe = new PageableRecipe();
+        pageableRecipe.addPage(new PageableRecipe.Page("Ingredients", ""));
+
+        when(pageableRecipeBuilder.scale(anyFloat())).thenReturn(pageableRecipeBuilder);
+        when(pageableRecipeBuilder.from(any(Recipe.class))).thenReturn(pageableRecipe);
+
+        Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CookingAssistantActivity.class);
+        intent.putExtra(Recipe.class.getName(), new Recipe());
+        scenario = launch(intent);
+
+        onView(withId(R.id.cooking_assistant_title)).check(matches(withText("Ingredients")));
+        onView(withId(R.id.cooking_assistant_text)).check(matches(withText("...\n\nSupport the app and unlock the full version of the cooking assistant.")));
     }
 
 }

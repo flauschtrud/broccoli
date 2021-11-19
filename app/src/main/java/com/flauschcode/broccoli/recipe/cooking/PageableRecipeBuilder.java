@@ -49,7 +49,9 @@ public class PageableRecipeBuilder {
             ingredients.forEach(ingredient -> ingredient.setQuantity(scaledQuantityBuilder.from(ingredient.getQuantity(), scaleFactor)));
         }
 
-        pageableRecipe.addPage(new PageableRecipe.Page(getIngredientsString(), ingredients.stream().map(ingredient -> ingredient.getQuantity() + ingredient.getText()).collect(Collectors.joining("\n"))));
+        if (!ingredients.isEmpty()) {
+            pageableRecipe.addPage(new PageableRecipe.Page(getIngredientsString(), ingredients.stream().map(ingredient -> ingredient.getQuantity() + ingredient.getText()).collect(Collectors.joining("\n"))));
+        }
 
         List<Direction> directions = DirectionBuilder.from(recipe.getDirections());
         directions.forEach(direction -> pageableRecipe.addPage(new PageableRecipe.Page(String.valueOf(direction.getPosition()), direction.getText())));
