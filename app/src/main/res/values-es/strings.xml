@@ -199,4 +199,26 @@
     <string name="plum_terms">ciruela, ciruelas</string>
     <string name="french">Francés</string>
     <string name="spanish">Español</string>
+    <string name="region_north_america_colder">América del Norte (más fría)</string>
+    <string name="region_north_america_warmer">América del Norte (más caliente)</string>
+    <string name="avocado_terms">aguacate, aguacates</string>
+    <string name="avocado">Aguacates</string>
+    <string name="sweet_potato_terms">batata, batatas</string>
+    <string name="sweet_potato">Batatas</string>
+    <string name="lemon_terms">limón, limones</string>
+    <string name="lemon">Limones</string>
+    <string name="orange_terms">naranja, naranjas</string>
+    <string name="orange">Naranjas</string>
+    <string name="lime_terms">lima, limas</string>
+    <string name="lime">Limas</string>
+    <string name="summer_squash_terms">calabaza de verano, calabazas de verano</string>
+    <string name="summer_squash">Calabaza de verano</string>
+    <string name="winter_squash_terms">calabaza de invierno, calabazas de invierno</string>
+    <string name="winter_squash">Calabaza de invierno</string>
+    <string name="pomegranate_terms">granada, granadas</string>
+    <string name="pomegranate">Granadas</string>
+    <string name="blueberries_terms">arándanos</string>
+    <string name="blueberries">Arándanos</string>
+    <string name="raspberries_terms">frambuesas</string>
+    <string name="raspberries">Frambuesas</string>
 </resources>

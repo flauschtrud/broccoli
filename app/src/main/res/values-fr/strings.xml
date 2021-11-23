@@ -199,4 +199,26 @@
     <string name="plum_terms">prune, prunes</string>
     <string name="spanish">Espagnol</string>
     <string name="french">Français</string>
+    <string name="region_north_america_colder">Amérique du Nord (plus froide)</string>
+    <string name="region_north_america_warmer">Amérique du Nord (plus chaude)</string>
+    <string name="avocado_terms">avocat, avocats</string>
+    <string name="avocado">Avocats</string>
+    <string name="sweet_potato_terms">patate douce, patates douces</string>
+    <string name="sweet_potato">Patates douces</string>
+    <string name="lemon_terms">citron, citrons</string>
+    <string name="lemon">Citrons</string>
+    <string name="orange_terms">orange, oranges</string>
+    <string name="orange">Oranges</string>
+    <string name="lime_terms">citron vert, citrons verts, lime, limes</string>
+    <string name="lime">Citrons verts</string>
+    <string name="summer_squash_terms">courge d\'été, courges d\'été</string>
+    <string name="summer_squash">Courge d\'été</string>
+    <string name="winter_squash_terms">courge d\'hiver, courges d\'hiver</string>
+    <string name="winter_squash">Courge d\'hiver</string>
+    <string name="pomegranate_terms">grenade, grenades</string>
+    <string name="pomegranate">Grenades</string>
+    <string name="blueberries_terms">myrtilles</string>
+    <string name="blueberries">Myrtilles</string>
+    <string name="raspberries_terms">framboises</string>
+    <string name="raspberries">Framboises</string>
 </resources>

@@ -1,0 +1,176 @@
+{
+  "food": [
+    {
+      "name": "savoy_cabbage",
+      "months": [5,6,7,8,9,10,11]
+    },
+    {
+      "name": "beetroot",
+      "months": [5,6,7,8,9,10]
+    },
+    {
+      "name": "pumpkin",
+      "months": [8,9,10,11,0]
+    },
+    {
+      "name": "chinese_cabbage",
+      "months": [5,6,7,8,9,10,11]
+    },
+    {
+      "name": "chard",
+      "months": [4,5,6,7,8,9,10]
+    },
+    {
+      "name": "leek",
+      "months": [7,8,9,10,11,0]
+    },
+    {
+      "name": "parsnip",
+      "months": [8,9,10]
+    },
+    {
+      "name": "pear",
+      "months": [7,8,9,10]
+    },
+    {
+      "name": "brussels_sprouts",
+      "months": [8,9,10,11,0]
+    },
+    {
+      "name": "pea",
+      "months": [5,6,7,8,9]
+    },
+    {
+      "name": "white_cabbage",
+      "months": [5,6,7,8,9,10,11]
+    },
+    {
+      "name": "red_cabbage",
+      "months": [5,6,7,8,9,10,11]
+    },
+    {
+      "name": "turnip",
+      "months": [6,7,8,9,10,11,0,1]
+    },
+    {
+      "name": "asparagus",
+      "months": [3,4,5]
+    },
+    {
+      "name": "kohlrabi",
+      "months": [4,5,6,7,8,9,10]
+    },
+    {
+      "name": "rhubarb",
+      "months": [3,4,5,6]
+    },
+    {
+      "name": "spinach",
+      "months": [3,4,5,6,7,8,9,10,11]
+    },
+    {
+      "name": "strawberry",
+      "months": [5,6,7]
+    },
+    {
+      "name": "apricot",
+      "months": [5,6,7]
+    },
+    {
+      "name": "kale",
+      "months": [6,7,8,9,10]
+    },
+    {
+      "name": "plum",
+      "months": [6,7,8]
+    },
+    {
+      "name": "tomato",
+      "months": [6,7,8]
+    },
+    {
+      "name": "cucumber",
+      "months": [5,6,7,8,9]
+    },
+    {
+      "name": "zucchini",
+      "months": [5,6,7,8,9]
+    },
+    {
+      "name": "bell_pepper",
+      "months": [5,6,7,8,9]
+    },
+    {
+      "name": "bean",
+      "months": [5,6,7,8,9]
+    },
+    {
+      "name": "cherry",
+      "months": [5,6,7]
+    },
+    {
+      "name": "eggplant",
+      "months": [5,6,7,8,9,10]
+    },
+    {
+      "name": "broccoli",
+      "months": [5,6,7,8,9,10]
+    },
+    {
+      "name": "cauliflower",
+      "months": [5,6,7,8,9,10]
+    },
+    {
+      "name": "corn",
+      "months": [5,6,7,8,9]
+    },
+    {
+      "name": "carrot",
+      "months": [5,6,7,8,9]
+    },
+    {
+      "name": "apple",
+      "months": [7,8,9,10,11]
+    },
+    {
+      "name": "celery",
+      "months": [7,8,9,10]
+    },
+    {
+      "name": "celeriac",
+      "months": [7,8,9,10,11,0]
+    },
+    {
+      "name": "broad_bean",
+      "months": [3,4,5,6]
+    },
+    {
+      "name": "fennel",
+      "months": [5,6,7,8,9,10]
+    },
+    {
+      "name": "salsify",
+      "months": [8,9,10,11,0]
+    },
+    {
+      "name": "sweet_potato",
+      "months": [8,9,10]
+    },
+    {
+      "name": "summer_squash",
+      "months": [5,6,7,8,9]
+    },
+    {
+      "name": "winter_squash",
+      "months": [8,9,10,11]
+    },
+    {
+      "name": "blueberries",
+      "months": [5,6,7,8]
+    },
+    {
+      "name": "raspberries",
+      "months": [5,6,7,8,9]
+    }
+  ]
+}

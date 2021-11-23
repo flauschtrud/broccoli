@@ -199,4 +199,26 @@
     <string name="buy_for">Kaufe für %1$s</string>
     <string name="spanish">Spanisch</string>
     <string name="french">Französisch</string>
+    <string name="region_north_america_colder">Nordamerika (kälter)</string>
+    <string name="region_north_america_warmer">Nordamerika (wärmer)</string>
+    <string name="avocado">Avocados</string>
+    <string name="avocado_terms">Avocado, Avocados</string>
+    <string name="sweet_potato_terms">Süßkartoffel, Süßkartoffeln</string>
+    <string name="sweet_potato">Süßkartoffeln</string>
+    <string name="lemon_terms">Zitrone, Zitronen</string>
+    <string name="lemon">Zitronen</string>
+    <string name="orange_terms">Orange, Orangen</string>
+    <string name="orange">Orangen</string>
+    <string name="lime_terms">Limette, Limetten</string>
+    <string name="lime">Limetten</string>
+    <string name="summer_squash_terms">Sommerkürbis, Sommerkürbisse</string>
+    <string name="summer_squash">Sommerkürbis</string>
+    <string name="winter_squash">Winterkürbis</string>
+    <string name="winter_squash_terms">Winterkürbis, Winterkürbisse</string>
+    <string name="pomegranate_terms">Granatapfel, Granatäpfel</string>
+    <string name="pomegranate">Granatäpfel</string>
+    <string name="blueberries_terms">Heidelbeeren, Blaubeeren</string>
+    <string name="blueberries">Heidelbeeren</string>
+    <string name="raspberries_terms">Himbeeren</string>
+    <string name="raspberries">Himbeeren</string>
 </resources>
