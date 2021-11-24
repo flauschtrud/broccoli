@@ -221,4 +221,8 @@
     <string name="blueberries">Arándanos</string>
     <string name="raspberries_terms">frambuesas</string>
     <string name="raspberries">Frambuesas</string>
+    <string name="demo_recipe">Receta de demostración</string>
+    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-cremoso-y-delicioso/</string>
+    <string name="help">Ayuda</string>
+    <string name="legal_policies">Políticas legales</string>
 </resources>

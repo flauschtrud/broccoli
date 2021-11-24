@@ -221,4 +221,8 @@
     <string name="blueberries">Heidelbeeren</string>
     <string name="raspberries_terms">Himbeeren</string>
     <string name="raspberries">Himbeeren</string>
+    <string name="demo_recipe">Demo-Rezept</string>
+    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-cremig-und-lecker/</string>
+    <string name="help">Hilfe</string>
+    <string name="legal_policies">Rechtliche Hinweise</string>
 </resources>

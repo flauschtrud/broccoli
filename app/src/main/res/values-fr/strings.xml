@@ -221,4 +221,8 @@
     <string name="blueberries">Myrtilles</string>
     <string name="raspberries_terms">framboises</string>
     <string name="raspberries">Framboises</string>
+    <string name="demo_recipe">Recette de démonstration</string>
+    <string name="link_to_demo_recipe">https://flauschcode.com/houmous-cremeux-et-delicieux/</string>
+    <string name="help">Aide</string>
+    <string name="legal_policies">Politiques juridiques</string>
 </resources>

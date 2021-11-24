@@ -93,6 +93,8 @@
 
     <!-- Settings/feedback -->
     <string name="about_the_app">About the app</string>
+    <string name="help">Help</string>
+    <string name="legal_policies">Legal</string>
     <string name="send_feedback">Send feedback</string>
     <string name="feedback_mailto" translatable="false">mailto:support@flauschcode.com</string>
     <string name="send_feedback_message">Did you find a bug or do you miss a feature? </string>
@@ -110,6 +112,8 @@
     <string name="privacy_policy">Privacy policy</string>
     <string name="privacy_policy_summary">Learn more about how we protect your personal data.</string>
     <string name="privacy_policy_url" translatable="false">https://flauschcode.com/broccoli-privacy-policy/</string>
+    <string name="demo_recipe">Demo recipe</string>
+    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
 
     <!-- Seasons -->
     <string name="seasonal_calendar">Seasonal calendar (Beta)</string>
