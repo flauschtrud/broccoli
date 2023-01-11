@@ -65,9 +65,9 @@ public class ImportingIntegrationTest {
         onView(ViewMatchers.withId(R.id.new_title)).check(matches(withText("Vegane Chocolate Chip Cookies")));
         onView(withId(R.id.new_source)).check(matches(withText("https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html")));
         onView(withId(R.id.new_servings)).check(matches(withText("1 Portion(en)")));
-        onView(withId(R.id.new_preparation_time)).check(matches(withText("45m")));
+        onView(withId(R.id.new_preparation_time)).check(matches(withText("35m")));
         onView(withId(R.id.new_description)).check(matches(withSubstring("Vegane Chocolate Chip Cookies - außen kross, innen weich, lecker und vegan, ergibt 35 Stück.")));
-        onView(withId(R.id.new_ingredients)).check(matches(withText("20 g Chiasamen\n50 ml Wasser\n190 g Butterersatz oder Margarine, vegan\n200 g Zucker , braun, alternativ Rohrzucker\n2 TL Zuckerrübensirup , alternativ Melasse, Ahornsirup oder Agavendicksaft\n2 Pck. Vanillezucker\n300 g Weizenmehl oder Dinkelmehl, oder gemischt\n4 g Natron\nn. B. Salz\n200 g Blockschokolade , zartbitter oder Schokotröpfchen")));
+        onView(withId(R.id.new_ingredients)).check(matches(withText("20 g Chiasamen\n50 ml Wasser\n190 g Butterersatz oder Margarine, vegan\n200 g Zucker , braun, alternativ Rohrzucker\n2 TL Rübensirup , alternativ Melasse, Ahornsirup oder Agavendicksaft\n2 Pck. Vanillezucker\n300 g Weizenmehl oder Dinkelmehl, oder gemischt\n4 g Natron\nn. B. Salz\n200 g Blockschokolade , zartbitter oder Schokotröpfchen")));
         onView(withId(R.id.new_directions)).check(matches(withText("Den Backofen auf 180 °C Umluft vorheizen. Die Chiasamen und das Wasser in einer kleinen Schüssel vermengen und ca. 10 Minuten quellen lassen.\n\nEin Backblech mit Backpapier auslegen. Vegane Butter bzw. Margarine und Zucker mit den Schneebesen des Rührgeräts cremig verrühren. Dann die gequollenen Chiasamen, den Zuckerrübensirup und beide Päckchen Vanillezucker dazugeben und weiter rühren. Unter weiterem Rühren jetzt zuerst das Mehl hinzugeben und anschließend Natron sowie Salz. Alternativ - oder falls der Teig zu zäh ist - kann alles auch mit den Händen verknetet werden. Abschließend die Schokotröpfchen bzw. die gehackte Blockschokolade untermischen.\n\nDen nun fertigen Teig mit einem Esslöffel oder Eisportionierer klecksweise im Abstand von etwa 5 - 6 cm auf das Backpapier geben. Die Teigkleckse können - müssen jedoch nicht - mit einem Löffel noch etwas rund geformt und flach gedrückt werden.\n\nDie Cookies bei 180 °C Umluft maximal 15 Minuten backen, da sie sonst zu fest werden.")));
     }
 
@@ -101,10 +101,10 @@ public class ImportingIntegrationTest {
         onView(withId(R.id.new_title)).check(matches(withText("Fladenbrot Grundrezept")));
         onView(withId(R.id.new_source)).check(matches(withText("https://www.gutekueche.de/fladenbrot-grundrezept-rezept-1673")));
         onView(withId(R.id.new_servings)).check(matches(withText("4 Portionen")));
-        onView(withId(R.id.new_preparation_time)).check(matches(withText("20m")));
+        onView(withId(R.id.new_preparation_time)).check(matches(withText("25m")));
         onView(withId(R.id.new_description)).check(matches(withSubstring("Dieses Grundrezept für Fladenbrot ohne Hefe passt zu vielen Gerichten. Das einfache und schnelle Rezept ist sehr variabel.")));
-        onView(withId(R.id.new_ingredients)).check(matches(withText("200 g Mehl, Typ 550\n3 EL Olivenöl\n1 Prise Salz\n100 ml Wasser")));
-        onView(withId(R.id.new_directions)).check(matches(withText("Für dieses sehr einfache Fladenbrot zuerst das Mehl in eine Schüssel geben, Salz, Wasser und Olivenöl dazugeben und alle Zutaten zu einem Teig verkneten - am besten mit der Hand. Dann den Teig für 10 Minuten quellen lassen und erneut für 5 Minuten kneten, sodass ein glatter Teig entsteht.\nDann aus dem Teig 4 dünne Fladen formen, eine gusseiserne Pfanne ohne Fett erhitzen und die Teigfladen darin nacheinander backen bis sich die ersten braunen Flecken zeigen. Dann auch auf der anderen Seite backen..")));
+        onView(withId(R.id.new_ingredients)).check(matches(withText("200 g Mehl, Type 550\n3 EL Olivenöl (oder Pflanzenöl)\n3 EL Olivenöl (oder Pflanzenöl)\n1 Prise Salz\n100 ml Wasser")));
+        onView(withId(R.id.new_directions)).check(matches(withText("Zuerst das Mehl in eine Schüssel geben, Salz, Wasser und Olivenöl dazugeben und alle Zutaten zu einem Teig verkneten - am besten mit der Hand.\nDann den Teig für 10 Minuten quellen lassen und erneut für 5 Minuten kneten, so dass ein glatter Teig entsteht.\nSpäter aus dem Teig 4 dünne Fladen formen, eine gusseiserne Pfanne ohne Fett erhitzen und die Teigfladen darin nacheinander backen bis sich die ersten braunen Flecken zeigen.\nIm Anschluss die Fladen wenden und auch auf der anderen Seite backen. Video zum Rezept")));
     }
 
     @Test
