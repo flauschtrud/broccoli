@@ -38,6 +38,7 @@ import javax.inject.Inject;
 
 import static android.app.Activity.RESULT_OK;
 import static androidx.test.core.app.ActivityScenario.launch;
+import static androidx.test.core.app.ActivityScenario.launchActivityForResult;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
@@ -167,7 +168,7 @@ public class CreateAndEditRecipeActivityTest {
 
         Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CreateAndEditRecipeActivity.class);
         intent.putExtra(Recipe.class.getName(), LAUCHKUCHEN_SAVED);
-        scenario = launch(intent);
+        scenario = launchActivityForResult(intent);
 
         onView(withId(R.id.new_title)).check(matches(withText(LAUCHKUCHEN_SAVED.getTitle())));
         onView(withId(R.id.new_categories)).check(matches(withText(LAUCHKUCHEN_SAVED.getCategories().stream().map(Category::getName).collect(Collectors.joining(", ")))));
@@ -201,7 +202,7 @@ public class CreateAndEditRecipeActivityTest {
 
         Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CreateAndEditRecipeActivity.class);
         intent.putExtra(Recipe.class.getName(), LAUCHKUCHEN_SAVED);
-        scenario = launch(intent);
+        scenario = launchActivityForResult(intent);
 
         onView(withId(R.id.new_image)).perform(click());
         onView(withText(R.string.remove_photo)).perform(click());
@@ -231,7 +232,7 @@ public class CreateAndEditRecipeActivityTest {
 
         Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CreateAndEditRecipeActivity.class);
         intent.putExtra(Recipe.class.getName(), LAUCHKUCHEN_SAVED);
-        scenario = launch(intent);
+        scenario = launchActivityForResult(intent);
 
         onView(withId(R.id.new_image)).perform(click());
         onView(withText(R.string.take_photo)).perform(click());
