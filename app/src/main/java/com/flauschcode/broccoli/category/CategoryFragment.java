@@ -71,12 +71,6 @@ public class CategoryFragment extends Fragment {
         FloatingActionButton fab = root.findViewById(R.id.fab_categories);
         fab.setOnClickListener(view -> CategoryDialog.newInstance(new Category("")).show(getParentFragmentManager(), "CategoryDialogFragment"));
 
-        FeatureDiscoveryTargetBuilder.buildInContextOf(requireActivity())
-                .withTitle(getString(R.string.add_category))
-                .withDescription(getString(R.string.add_first_category))
-                .withTag("discover-add-category")
-                .discoverIfNew(fab);
-
         return root;
     }
 

@@ -42,12 +42,6 @@ public class CookingAssistantActivity extends AppCompatActivity implements Cooki
         Button scalingButton = findViewById(R.id.button_scaling);
         scalingButton.setOnClickListener(view -> showScalingDialog());
 
-        FeatureDiscoveryTargetBuilder.buildInContextOf(this)
-                .withTitle(getString(R.string.adjust_ingredients))
-                .withDescription(getString(R.string.adjust_ingredients_prompt))
-                .withTag("discover-scaling")
-                .discoverIfNew(scalingButton);
-
         Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName());
 
         CookingAssistantViewModel viewModel = new ViewModelProvider(this, viewModelFactory).get(CookingAssistantViewModel.class);

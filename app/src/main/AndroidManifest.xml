@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.flauschcode.broccoli">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -51,7 +50,8 @@
             android:theme="@style/Theme.Broccoli.NoActionBar"
             android:label="@string/new_recipe"
             android:parentActivityName="com.flauschcode.broccoli.MainActivity"
-            android:windowSoftInputMode="adjustResize|stateAlwaysHidden">
+            android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
+            android:exported="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
@@ -81,7 +81,8 @@
         <activity
             android:name="com.flauschcode.broccoli.MainActivity"
             android:theme="@style/Theme.Broccoli.NoActionBar"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

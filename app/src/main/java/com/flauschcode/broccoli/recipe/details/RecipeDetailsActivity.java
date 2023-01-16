@@ -102,11 +102,6 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         binding.setRecipe(recipe);
 
         binding.fabCookingAssistant.setOnClickListener(view -> this.cook(null));
-        FeatureDiscoveryTargetBuilder.buildInContextOf(this)
-                .withTitle(getString(R.string.cooking_assistant))
-                .withDescription(getString(R.string.cooking_assistant_prompt))
-                .withTag("discover-cooking-mode")
-                .discoverIfNew(binding.fabCookingAssistant);
 
         // https://stackoverflow.com/questions/31662416/show-collapsingtoolbarlayout-title-only-when-collapsed (does not work with expandedTitleTextAppearance because you would see the title fade in nonetheless)
         binding.appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
