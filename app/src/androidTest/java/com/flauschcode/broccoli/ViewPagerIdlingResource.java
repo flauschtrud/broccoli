@@ -4,6 +4,9 @@ import androidx.test.espresso.IdlingResource;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
+/*
+    based on https://stackoverflow.com/questions/31056918/wait-for-view-pager-animations-with-espresso
+ */
 public class ViewPagerIdlingResource implements IdlingResource {
 
     private final String mName;
