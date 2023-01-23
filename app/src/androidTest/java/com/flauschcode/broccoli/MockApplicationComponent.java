@@ -52,5 +52,6 @@ public interface MockApplicationComponent extends ApplicationComponent {
     void inject(ImportableRecipeBuilderTest test);
     void inject(ShareRecipeAsFileServiceTest test);
     void inject(BackupAndRestoreServiceTest test);
+    void inject(ImportingIntegrationTest test);
 
 }

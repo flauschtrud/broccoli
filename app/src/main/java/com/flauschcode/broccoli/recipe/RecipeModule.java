@@ -2,6 +2,8 @@ package com.flauschcode.broccoli.recipe;
 
 import android.app.Application;
 
+import androidx.test.espresso.idling.CountingIdlingResource;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -17,4 +19,9 @@ public class RecipeModule {
         return new Compressor(application);
     }
 
+    @Provides
+    @Singleton
+    CountingIdlingResource importIdlingResource(){
+        return null;
+    }
 }

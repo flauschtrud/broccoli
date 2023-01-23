@@ -18,7 +18,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.DataBindingUtil;
+import androidx.databinding.OnRebindCallback;
+import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.test.espresso.idling.CountingIdlingResource;
 
 import com.flauschcode.broccoli.BooleanUtils;
 import com.flauschcode.broccoli.R;
@@ -52,6 +55,9 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
     @Inject
     ShareRecipeAsFileService shareRecipeAsFileService;
 
+    @Inject
+    CountingIdlingResource importIdlingResource;
+
     private CreateAndEditRecipeViewModel viewModel;
 
     @Override
@@ -71,10 +77,27 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
 
         if (Intent.ACTION_SEND.equals(intent.getAction())) {
             String url = parseUrlFrom(intent);
+
+            if (importIdlingResource != null) {
+                importIdlingResource.increment();
+            }
+
             recipeImportService.importFrom(url)
                     .thenAccept(optionalRecipe -> {
                         if (optionalRecipe.isPresent()) {
                             applyRecipeToViewModel(optionalRecipe.get());
+                            binding.addOnRebindCallback(new OnRebindCallback<ActivityNewRecipeBinding>() {
+                                @Override
+                                public void onBound(ActivityNewRecipeBinding binding) {
+                                    super.onBound(binding);
+
+                                    if (importIdlingResource != null) {
+                                        importIdlingResource.decrement();
+                                    }
+
+                                    binding.removeOnRebindCallback(this);
+                                }
+                            });
                             binding.setViewModel(viewModel);
                         } else {
                             runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_read_message), Toast.LENGTH_LONG).show());

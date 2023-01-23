@@ -151,8 +151,9 @@ dependencies {
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
     androidTestImplementation "androidx.test.espresso:espresso-intents:$espresso_version"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"
-
     androidTestImplementation "androidx.test.espresso:espresso-accessibility:$espresso_version"
+
+    implementation "androidx.test.espresso:espresso-idling-resource:$espresso_version"
 
     androidTestImplementation "com.google.dagger:dagger:$dagger_version"
     androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
