@@ -12,7 +12,6 @@ import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.flauschcode.broccoli.FeatureDiscoveryTargetBuilder;
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.recipe.Recipe;
 

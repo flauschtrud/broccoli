@@ -10,12 +10,10 @@ import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.RootMatchers.isDialog;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayingAtLeast;
-import static androidx.test.espresso.matcher.ViewMatchers.isRoot;
 import static androidx.test.espresso.matcher.ViewMatchers.withContentDescription;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
-import static com.flauschcode.broccoli.util.CustomViewActions.waitFor;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.is;
@@ -30,6 +28,7 @@ import android.content.Intent;
 import androidx.lifecycle.MutableLiveData;
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.core.app.ApplicationProvider;
+import androidx.test.espresso.IdlingRegistry;
 import androidx.test.espresso.accessibility.AccessibilityChecks;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
@@ -37,6 +36,7 @@ import com.flauschcode.broccoli.BroccoliApplication;
 import com.flauschcode.broccoli.DaggerMockApplicationComponent;
 import com.flauschcode.broccoli.MockApplicationComponent;
 import com.flauschcode.broccoli.R;
+import com.flauschcode.broccoli.ViewPagerIdlingResource;
 import com.flauschcode.broccoli.recipe.Recipe;
 import com.flauschcode.broccoli.support.BillingService;
 import com.flauschcode.broccoli.util.RecipeTestUtil;
@@ -64,6 +64,8 @@ public class CookingAssistantActivityTest {
 
     private final ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
     private final ArgumentCaptor<Float> scaleFactorCaptor = ArgumentCaptor.forClass(Float.class);
+
+    private ViewPagerIdlingResource viewPagerIdlingResource;
 
     @Before
     public void setUp() {
@@ -93,6 +95,11 @@ public class CookingAssistantActivityTest {
         Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CookingAssistantActivity.class);
         intent.putExtra(Recipe.class.getName(), lauchkuchen);
         scenario = launch(intent);
+
+        scenario.onActivity(activity -> {
+            viewPagerIdlingResource = new ViewPagerIdlingResource(activity.findViewById(R.id.cooking_assistant_pager), "ViewPagerInteractions");
+            IdlingRegistry.getInstance().register(viewPagerIdlingResource);
+        });
     }
 
     private void givenPremiumStatus(boolean isPremium) {
@@ -102,6 +109,7 @@ public class CookingAssistantActivityTest {
     @After
     public void tearDown() {
         scenario.close();
+        IdlingRegistry.getInstance().unregister(viewPagerIdlingResource);
     }
 
     private BroccoliApplication getApplication() {
@@ -135,17 +143,14 @@ public class CookingAssistantActivityTest {
         givenScenarioWithLauchkuchen();
 
         onView(allOf(withId(R.id.cooking_assistant_control), withContentDescription("2"), isDisplayed())).perform(click());
-        onView(isRoot()).perform(waitFor(500));
         onView(allOf(withId(R.id.cooking_assistant_title), isDisplayed())).check(matches(withText("2")));
         onView(allOf(withId(R.id.cooking_assistant_text), isDisplayed())).check(matches(withText("Dann das.")));
 
         onView(allOf(withId(R.id.cooking_assistant_control), withContentDescription("1"), isDisplayed())).perform(click());
-        onView(isRoot()).perform(waitFor(500));
         onView(allOf(withId(R.id.cooking_assistant_title), isDisplayed())).check(matches(withText("1")));
         onView(allOf(withId(R.id.cooking_assistant_text), isDisplayed())).check(matches(withText("Erst dies.")));
 
         onView(allOf(withId(R.id.cooking_assistant_control), withContentDescription("0"), isDisplayed())).perform(click());
-        onView(isRoot()).perform(waitFor(500));
         onView(allOf(withId(R.id.cooking_assistant_title), isDisplayed())).check(matches(withText("Ingredients")));
         onView(allOf(withId(R.id.cooking_assistant_text), isDisplayed())).check(matches(withText("100g Mehl\n50g Margarine")));
 
