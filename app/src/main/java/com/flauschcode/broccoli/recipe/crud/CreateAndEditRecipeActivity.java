@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.BindingAdapter;
@@ -56,6 +57,7 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
     ShareRecipeAsFileService shareRecipeAsFileService;
 
     @Inject
+    @Nullable
     CountingIdlingResource importIdlingResource;
 
     private CreateAndEditRecipeViewModel viewModel;

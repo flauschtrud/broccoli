@@ -2,6 +2,7 @@ package com.flauschcode.broccoli.recipe;
 
 import android.app.Application;
 
+import androidx.annotation.Nullable;
 import androidx.test.espresso.idling.CountingIdlingResource;
 
 import javax.inject.Singleton;
@@ -20,6 +21,7 @@ public class RecipeModule {
     }
 
     @Provides
+    @Nullable
     @Singleton
     CountingIdlingResource importIdlingResource(){
         return null;
