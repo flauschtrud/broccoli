@@ -4,8 +4,6 @@ import static org.mockito.Mockito.mock;
 
 import android.app.Application;
 
-import androidx.test.espresso.idling.CountingIdlingResource;
-
 import com.flauschcode.broccoli.category.CategoryRepository;
 import com.flauschcode.broccoli.recipe.cooking.PageableRecipeBuilder;
 import com.flauschcode.broccoli.recipe.images.RecipeImageService;
@@ -63,9 +61,4 @@ public class MockRecipeModule {
         return new Compressor(application);
     }
 
-    @Provides
-    @Singleton
-    CountingIdlingResource importIdlingResource(){
-        return new CountingIdlingResource("RecipeImports");
-    }
 }

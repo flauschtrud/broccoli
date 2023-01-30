@@ -20,6 +20,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static com.flauschcode.broccoli.util.CustomViewActions.waitFor;
+import static com.flauschcode.broccoli.util.CustomViewActions.waitForView;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.instanceOf;
 import static org.hamcrest.Matchers.is;
@@ -80,7 +81,7 @@ public class FilteringAndSearchingIntegrationTest {
         onView(withId(R.id.nav_view))
                 .perform(navigateTo(R.id.nav_categories));
 
-        onView(isRoot()).perform(waitFor(1000));
+        onView(isRoot()).perform(waitForView(withId(R.id.recycler_view), 10000));
 
         onView(withId(R.id.recycler_view)).check(RecyclerViewAssertions.hasItemsCount(0));
 
@@ -97,7 +98,7 @@ public class FilteringAndSearchingIntegrationTest {
         onView(withId(R.id.nav_view))
                 .perform(navigateTo(R.id.nav_recipes));
 
-        onView(isRoot()).perform(waitFor(1000));
+        onView(isRoot()).perform(waitForView(withId(R.id.fab_recipes), 10000));
 
         onView(withId(R.id.fab_recipes)).perform(click());
         onView(withId(R.id.new_title)).perform(typeText("Lauchkuchen"));
@@ -166,7 +167,7 @@ public class FilteringAndSearchingIntegrationTest {
         onView(withText(R.string.delete_action)).perform(click());
         onView(withId(android.R.id.button1)).perform(click());
 
-        onView(isRoot()).perform(waitFor(500));
+        onView(isRoot()).perform(waitForView(withId(R.id.recycler_view), 10000));
 
         onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(0, click()));
         openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
@@ -182,7 +183,7 @@ public class FilteringAndSearchingIntegrationTest {
         onView(withId(R.id.nav_view))
                 .perform(navigateTo(R.id.nav_categories));
 
-        onView(isRoot()).perform(waitFor(1000));
+        onView(isRoot()).perform(waitForView(withId(R.id.recycler_view), 10000));
 
         onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(0, click()));
         onView(withId(android.R.id.button3)).perform(click());

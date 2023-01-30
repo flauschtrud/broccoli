@@ -54,6 +54,7 @@ android {
         variant.resValue "string", "versionName", variant.versionName
     }
     testOptions {
+        animationsDisabled = true
         managedDevices {
             devices {
                 pixel2api31(ManagedVirtualDevice) {

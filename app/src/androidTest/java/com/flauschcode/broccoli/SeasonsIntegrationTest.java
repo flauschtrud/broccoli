@@ -20,6 +20,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
 import static com.flauschcode.broccoli.util.CustomViewActions.waitFor;
+import static com.flauschcode.broccoli.util.CustomViewActions.waitForView;
 import static org.hamcrest.Matchers.allOf;
 
 import android.view.Gravity;
@@ -112,7 +113,7 @@ public class SeasonsIntegrationTest {
         onView(withId(R.id.nav_view))
                 .perform(navigateTo(R.id.nav_seasons));
 
-        onView(isRoot()).perform(waitFor(1000));
+        onView(isRoot()).perform(waitForView(withId(R.id.seasons_tablayout), 10000));
 
         // go to the month of November
         onView(withId(R.id.seasons_tablayout)).perform(selectTabAtPosition(10));
