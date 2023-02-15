@@ -12,9 +12,6 @@ import dagger.android.ContributesAndroidInjector;
 public interface ActivityModule {
 
     @ContributesAndroidInjector
-    MainActivity mainActivity();
-
-    @ContributesAndroidInjector
     CreateAndEditRecipeActivity createAndEditRecipeActivity();
 
     @ContributesAndroidInjector

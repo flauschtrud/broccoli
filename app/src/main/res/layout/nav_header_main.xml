@@ -29,6 +29,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="?attr/colorOnPrimarySurface"
-        android:text="@string/community_edition_title" />
+        android:text="@string/free_for_everyone" />
 
 </LinearLayout>

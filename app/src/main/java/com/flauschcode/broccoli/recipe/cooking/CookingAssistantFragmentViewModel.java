@@ -8,7 +8,6 @@ public class CookingAssistantFragmentViewModel extends ViewModel {
     private int maxSteps = 0;
     private String title = "";
     private String text = "";
-    private boolean isPremium = false;
 
     public int getPosition() {
         return position;
@@ -42,11 +41,4 @@ public class CookingAssistantFragmentViewModel extends ViewModel {
         this.text = text;
     }
 
-    public boolean isPremium() {
-        return isPremium;
-    }
-
-    public void setPremium(boolean premium) {
-        isPremium = premium;
-    }
 }

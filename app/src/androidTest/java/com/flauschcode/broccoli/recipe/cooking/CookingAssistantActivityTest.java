@@ -25,7 +25,6 @@ import static org.mockito.Mockito.when;
 
 import android.content.Intent;
 
-import androidx.lifecycle.MutableLiveData;
 import androidx.test.core.app.ActivityScenario;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.espresso.IdlingRegistry;
@@ -102,10 +101,6 @@ public class CookingAssistantActivityTest {
         });
     }
 
-    private void givenPremiumStatus(boolean isPremium) {
-        when(billingService.isPremium()).thenReturn(new MutableLiveData<>(isPremium));
-    }
-
     @After
     public void tearDown() {
         scenario.close();
@@ -119,7 +114,6 @@ public class CookingAssistantActivityTest {
 
     @Test
     public void read_pages_via_swiping() {
-        givenPremiumStatus(true);
         givenScenarioWithLauchkuchen();
 
         onView(withId(R.id.cooking_assistant_title)).check(matches(withText("Ingredients")));
@@ -139,7 +133,6 @@ public class CookingAssistantActivityTest {
 
     @Test
     public void read_pages_via_seeking() {
-        givenPremiumStatus(true);
         givenScenarioWithLauchkuchen();
 
         onView(allOf(withId(R.id.cooking_assistant_control), withContentDescription("2"), isDisplayed())).perform(click());
@@ -160,7 +153,6 @@ public class CookingAssistantActivityTest {
 
     @Test
     public void scale_simple_mode() {
-        givenPremiumStatus(true);
         givenScenarioWithLauchkuchen();
 
         onView(withId(R.id.fullscreen_layout)).perform(click());
@@ -183,7 +175,6 @@ public class CookingAssistantActivityTest {
 
     @Test
     public void scale_pro_mode() {
-        givenPremiumStatus(true);
         givenScenarioWithLauchkuchen();
 
         onView(withId(R.id.fullscreen_layout)).perform(click());
@@ -210,7 +201,6 @@ public class CookingAssistantActivityTest {
 
     @Test
     public void scale_with_missing_input() {
-        givenPremiumStatus(true);
         givenScenarioWithLauchkuchen();
 
         onView(withId(R.id.fullscreen_layout)).perform(click());
@@ -233,8 +223,6 @@ public class CookingAssistantActivityTest {
 
     @Test
     public void load_empty_page() { // https://github.com/flauschtrud/broccoli/issues/176
-        givenPremiumStatus(false);
-
         PageableRecipe pageableRecipe = new PageableRecipe();
         pageableRecipe.addPage(new PageableRecipe.Page("Ingredients", ""));
 
@@ -246,7 +234,7 @@ public class CookingAssistantActivityTest {
         scenario = launch(intent);
 
         onView(withId(R.id.cooking_assistant_title)).check(matches(withText("Ingredients")));
-        onView(withId(R.id.cooking_assistant_text)).check(matches(withText("...\n\nSupport the app and unlock the full version of the cooking assistant.")));
+        onView(withId(R.id.cooking_assistant_text)).check(matches(withText("")));
     }
 
 }

@@ -52,17 +52,7 @@ public class CookingAssistantFragment extends Fragment {
         viewModel.setTitle(args.getString(TITLE));
         viewModel.setPosition(args.getInt(POSITION));
         viewModel.setMaxSteps(args.getInt(MAX_STEPS));
-
-        billingService.isPremium().observe(getViewLifecycleOwner(), isPremium -> {
-          if (Boolean.TRUE.equals(isPremium)) {
-              viewModel.setText(args.getString(TEXT));
-              viewModel.setPremium(true);
-          } else {
-              String pageText = args.getString(TEXT);
-              viewModel.setText(pageText.substring(0, Math.min(pageText.length(), 59)) + "...\n\n" + getString(R.string.become_a_supporter_cooking_assistant_message));
-              viewModel.setPremium(false);
-          }
-        });
+        viewModel.setText(args.getString(TEXT));
 
         binding.setViewModel(viewModel);
 
