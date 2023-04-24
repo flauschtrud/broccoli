@@ -85,7 +85,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.appcompat:appcompat:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     runtimeOnly group: 'com.google.android.material', name: 'material', version: '1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -98,12 +98,12 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:1.0.0"
     implementation 'id.zelory:compressor:2.1.1' // 3.0.0 does not work with Java
 
-    def room_version = "2.5.0"
+    def room_version = "2.5.1"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
     testImplementation "androidx.room:room-testing:$room_version"
 
-    def fragment_version = "1.5.5"
+    def fragment_version = "1.5.7"
     implementation "androidx.fragment:fragment:$fragment_version"
     debugImplementation ("androidx.fragment:fragment-testing:$fragment_version"){
         exclude group: 'androidx.test', module : 'core'
@@ -112,10 +112,10 @@ dependencies {
     def preference_version = "1.2.0"
     implementation "androidx.preference:preference:$preference_version"
 
-    def billing_version = "5.1.0"
+    def billing_version = "5.2.0"
     implementation "com.android.billingclient:billing:$billing_version"
 
-    implementation 'com.google.android.gms:play-services-oss-licenses:17.0.0'
+    implementation 'com.google.android.gms:play-services-oss-licenses:17.0.1'
     implementation 'com.google.android.play:core:1.10.3'
 
     def dagger_version = "2.35.1"
@@ -141,7 +141,7 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     testImplementation 'org.mockito:mockito-core:3.3.0'
     testImplementation 'org.hamcrest:hamcrest:2.2'
-    testImplementation 'androidx.arch.core:core-testing:2.1.0'
+    testImplementation 'androidx.arch.core:core-testing:2.2.0'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'org.mockito:mockito-core:3.3.0'
