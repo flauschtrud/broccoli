@@ -106,34 +106,36 @@ dependencies {
     implementation 'com.google.android.gms:play-services-oss-licenses:17.0.1'
     implementation 'com.google.android.play:core:1.10.3'
 
-    def dagger_version = "2.35.1"
+    def dagger_version = "2.45"
     implementation group: 'com.google.dagger', name: 'dagger', version: "$dagger_version"
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
     implementation "com.google.dagger:dagger-android:$dagger_version"
     annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
     implementation "com.google.dagger:dagger-android-support:$dagger_version"
 
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.15.1'
 
-    implementation 'org.jsoup:jsoup:1.13.1'
+    implementation 'org.jsoup:jsoup:1.15.4'
 
-    implementation 'com.fasterxml.jackson.core:jackson-core:2.10.1'
-    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.10.1'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.1'
+    def jackson_version = "2.10.1 "
+    implementation "com.fasterxml.jackson.core:jackson-core:$jackson_version"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:$jackson_version"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
 
     implementation group: 'commons-io', name: 'commons-io', version: '2.11.0'
 
     implementation 'com.getkeepsafe.taptargetview:taptargetview:1.13.3'
 
+    def mockito_version = "5.3.1"
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.mockito:mockito-core:3.3.0'
+    testImplementation "org.mockito:mockito-core:$mockito_version"
     testImplementation 'org.hamcrest:hamcrest:2.2'
     testImplementation 'androidx.arch.core:core-testing:2.2.0'
 
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'org.mockito:mockito-core:3.3.0'
-    androidTestImplementation 'org.mockito:mockito-android:3.3.0'
+    androidTestImplementation "org.mockito:mockito-core:$mockito_version"
+    androidTestImplementation "org.mockito:mockito-android:$mockito_version"
     androidTestImplementation 'androidx.test:core:1.5.0'
 
     def espresso_version = "3.5.1"
