@@ -1,206 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/text_margin">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/support_layout_community_edition"
-        android:layout_width="0dp"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardElevation="4dp"
-        app:cardCornerRadius="@dimen/drawable_padding"
-        android:layout_marginStart="@dimen/text_margin"
+        android:layout_gravity="center"
         android:layout_marginTop="@dimen/text_margin"
-        android:layout_marginEnd="@dimen/text_margin"
-        android:layout_weight="1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/support_layout_supporter_edition"
-        app:layout_constraintBottom_toBottomOf="@id/support_layout_supporter_edition">
+        android:layout_marginBottom="8dp"
+        android:text="@string/support_the_app_donate"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="?attr/colorPrimary" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/drawable_padding">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/support_the_app_donate_text" />
 
-        <TextView
-            android:id="@+id/community_edition_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/text_margin"
-            android:layout_gravity="center"
-            android:text="@string/community_edition_title"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
-
-        <TextView
-            android:id="@+id/community_edition_recipes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/text_margin_bottom"
-            android:drawablePadding="@dimen/drawable_padding"
-            android:text="@string/community_edition_perk_recipes"
-            app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
-
-        <TextView
-            android:id="@+id/community_edition_categories"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/text_margin_bottom"
-            android:drawablePadding="@dimen/drawable_padding"
-            android:text="@string/community_edition_perk_categories"
-            app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
-
-        <TextView
-            android:id="@+id/community_edition_seasonal_calendar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/text_margin_bottom"
-            android:drawablePadding="@dimen/drawable_padding"
-            android:text="@string/community_edition_perk_seasonal_calendar"
-            app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
-
-        <TextView
-            android:id="@+id/community_edition_backup"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/text_margin_bottom"
-            android:drawablePadding="@dimen/drawable_padding"
-            android:text="@string/community_edition_perk_backup"
-            app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
-
-        <TextView
-            android:id="@+id/community_edition_ad_free"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/text_margin_bottom"
-            android:drawablePadding="@dimen/drawable_padding"
-            android:text="@string/community_edition_perk_ad_free"
-            app:drawableStartCompat="@drawable/ic_check_circle_outline_24" />
-
-        <TextView
-            android:id="@+id/community_edition_free"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/free_for_everyone"
-            android:layout_gravity="center"
-            android:textAllCaps="true"
-            android:textAlignment="center" />
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/support_layout_supporter_edition"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:cardElevation="4dp"
-        app:cardCornerRadius="@dimen/drawable_padding"
-        android:layout_marginTop="@dimen/text_margin"
-        android:layout_marginEnd="@dimen/text_margin"
-        android:layout_weight="1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/support_layout_community_edition"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/support_layout_community_edition">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/drawable_padding">
-
-        <TextView
-            android:id="@+id/supporter_edition_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/text_margin"
-            android:layout_gravity="center"
-            android:text="@string/supporter_edition_title"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            android:textColor="?attr/colorPrimary" />
-
-        <TextView
-            android:id="@+id/supporter_edition_all_features"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/text_margin_bottom"
-            android:drawablePadding="@dimen/drawable_padding"
-            android:text="@string/supporter_edition_perk_community_features"
-            app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
-            app:drawableTint="?attr/colorPrimary" />
-
-        <TextView
-            android:id="@+id/supporter_edition_cooking_assistant"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/text_margin_bottom"
-            android:drawablePadding="@dimen/drawable_padding"
-            android:text="@string/supporter_edition_perk_cooking_assistant"
-            app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
-            app:drawableTint="?attr/colorPrimary" />
-
-        <TextView
-            android:id="@+id/supporter_edition_support"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/text_margin_bottom"
-            android:drawablePadding="@dimen/drawable_padding"
-            android:text="@string/supporter_edition_perk_support_developer"
-            app:drawableStartCompat="@drawable/ic_check_circle_outline_24"
-            app:drawableTint="?attr/colorPrimary" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/text_margin">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/get_supporter_edition_button"
+            android:id="@+id/buy_me_cookie_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/text_margin"
-            app:icon="@drawable/ic_store_24"
-            android:text="@string/buy" />
+            android:text="@string/buy"
+            app:icon="@drawable/ic_cookie_24"
+            app:layout_constraintEnd_toStartOf="@id/buy_me_coffee_button"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/supporter_edition_thanks"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buy_me_coffee_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:visibility="gone"
             android:layout_gravity="center"
-            android:text="@string/thanks_for_your_support"
-            android:textAllCaps="true"
-            android:textAlignment="center"
-            android:textColor="?attr/colorPrimary"/>
+            android:text="@string/buy"
+            app:icon="@drawable/ic_coffee_24"
+            app:layout_constraintEnd_toStartOf="@id/buy_me_burger_button"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/buy_me_cookie_button"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/buy_me_burger_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/buy"
+            app:icon="@drawable/ic_burger_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@id/buy_me_coffee_button"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/text_margin"
+        android:layout_marginBottom="8dp"
+        android:text="@string/support_the_app_give_feedback"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="?attr/colorPrimary" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/support_the_app_give_feedback_text" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/give_rating_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/support_layout_community_edition"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="@dimen/text_margin"
-        app:icon="@drawable/ic_star_rate_24"
-        android:text="@string/rate_the_app" />
+        android:layout_marginBottom="@dimen/text_margin"
+        android:text="@string/rate_the_app"
+        app:icon="@drawable/ic_star_rate_24" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/text_margin"
+        android:layout_marginBottom="8dp"
+        android:text="@string/support_the_app_tell_your_friends"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="?attr/colorPrimary" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/support_the_app_tell_your_friends_text" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/share_app_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/give_rating_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="@dimen/text_margin"
-        app:icon="@drawable/ic_menu_share_24dp"
-        android:text="@string/share_the_app" />
+        android:text="@string/share_the_app"
+        app:icon="@drawable/ic_menu_share_24dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

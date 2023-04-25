@@ -102,23 +102,11 @@
     <string name="english">Inglés</string>
     <string name="german">Alemán</string>
     <string name="support_the_app">Apoya la aplicación</string>
-    <string name="community_edition_perk_recipes">Recetas ilimitadas</string>
-    <string name="community_edition_perk_categories">Categorías personalizadas ilimitadas</string>
-    <string name="community_edition_perk_seasonal_calendar">Calendario de temporada (Beta)</string>
-    <string name="community_edition_perk_backup">Copia de seguridad y restauración</string>
-    <string name="community_edition_perk_ad_free">Sin anuncios</string>
     <string name="free_for_everyone">Gratis para todos</string>
-    <string name="supporter_edition_perk_community_features">Todas las funciones de la Community Edition.</string>
-    <string name="supporter_edition_perk_cooking_assistant">Asistente de cocina</string>
-    <string name="supporter_edition_perk_support_developer">Apoya a una desarrolladora indie</string>
     <string name="buy">Compra</string>
-    <string name="buy_for">Compra por %1$s</string>
-    <string name="thanks_for_your_support">¡Gracias por tu apoyo!</string>
     <string name="play_store_sign_in_message">Inicia sesión en Google Play Store.</string>
     <string name="rate_the_app">Valora la aplicación</string>
     <string name="share_the_app">Comparte la aplicación</string>
-    <string name="become_a_supporter_cooking_assistant_message">Apoya la aplicación y desbloquea la versión completa del asistente de cocina.</string>
-    <string name="learn_more">Más información</string>
     <string name="eggplant">Berenjenas</string>
     <string name="eggplant_terms">berenjena, berenjenas</string>
     <string name="cauliflower">Coliflor</string>
@@ -225,4 +213,10 @@
     <string name="link_to_demo_recipe">https://flauschcode.com/hummus-cremoso-y-delicioso/</string>
     <string name="help">Ayuda</string>
     <string name="legal_policies">Políticas legales</string>
+    <string name="support_the_app_donate">Haz una donación</string>
+    <string name="support_the_app_donate_text">Broccoli es gratis para todos. Pero puedes apoyar el desarrollo de la aplicación y comprarme una galleta, un café o una hamburguesa. ¡Muchas gracias!</string>
+    <string name="support_the_app_give_feedback">Danos tu opinión</string>
+    <string name="support_the_app_give_feedback_text">¿Te gusta Broccoli? ¡Cuéntanoslo!</string>
+    <string name="support_the_app_tell_your_friends">Decirle a tus amigos</string>
+    <string name="support_the_app_tell_your_friends_text">¿A tus amigos también les gusta cocinar? ¡Háblales de Broccoli!</string>
 </resources>

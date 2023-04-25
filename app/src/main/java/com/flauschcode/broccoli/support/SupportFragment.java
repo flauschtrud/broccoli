@@ -32,22 +32,33 @@ public class SupportFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_support, container, false);
 
-        Button getSupporterEditionButton = root.findViewById(R.id.get_supporter_edition_button);
-
-        billingService.getPremiumPrice().observe(getViewLifecycleOwner(), premiumPrice -> getSupporterEditionButton.setText(getString(R.string.buy_for, premiumPrice)));
-
-        getSupporterEditionButton.setOnClickListener(v -> {
+        Button cookieButton = root.findViewById(R.id.buy_me_cookie_button);
+        billingService.getCookiePrice().observe(getViewLifecycleOwner(), cookieButton::setText);
+        cookieButton.setOnClickListener(v -> {
             try {
-                billingService.purchaseSupporterEdition(getActivity());
+                billingService.purchaseCookie(getActivity());
             } catch (BillingService.BillingException e) {
                 Toast.makeText(requireActivity(), getString(R.string.play_store_sign_in_message), Toast.LENGTH_LONG).show();
             }
         });
 
-        billingService.isPremium().observe(getViewLifecycleOwner(), isPremium -> {
-            if (Boolean.TRUE.equals(isPremium)) {
-                getSupporterEditionButton.setVisibility(View.GONE);
-                root.findViewById(R.id.supporter_edition_thanks).setVisibility(View.VISIBLE);
+        Button coffeeButton = root.findViewById(R.id.buy_me_coffee_button);
+        billingService.getCoffeePrice().observe(getViewLifecycleOwner(), coffeeButton::setText);
+        coffeeButton.setOnClickListener(v -> {
+            try {
+                billingService.purchaseCoffee(getActivity());
+            } catch (BillingService.BillingException e) {
+                Toast.makeText(requireActivity(), getString(R.string.play_store_sign_in_message), Toast.LENGTH_LONG).show();
+            }
+        });
+
+        Button burgerButton = root.findViewById(R.id.buy_me_burger_button);
+        billingService.getBurgerPrice().observe(getViewLifecycleOwner(), burgerButton::setText);
+        burgerButton.setOnClickListener(v -> {
+            try {
+                billingService.purchaseBurger(getActivity());
+            } catch (BillingService.BillingException e) {
+                Toast.makeText(requireActivity(), getString(R.string.play_store_sign_in_message), Toast.LENGTH_LONG).show();
             }
         });
 

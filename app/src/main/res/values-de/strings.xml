@@ -88,22 +88,11 @@
     <string name="english">Englisch</string>
     <string name="german">Deutsch</string>
     <string name="support_the_app">Unterstütze die App</string>
-    <string name="community_edition_perk_recipes">Unbegrenzte Rezepte</string>
-    <string name="supporter_edition_perk_cooking_assistant">Kochassistent</string>
-    <string name="community_edition_perk_seasonal_calendar">Saisonkalender (Beta)</string>
-    <string name="community_edition_perk_backup">Sicherung und Wiederherstellung</string>
-    <string name="community_edition_perk_ad_free">Keine Werbung</string>
     <string name="free_for_everyone">Kostenlos für alle</string>
-    <string name="supporter_edition_perk_community_features">Alle Funktionen der Community Edition</string>
-    <string name="community_edition_perk_categories">Unbegrenzt viele eigene Kategorien</string>
-    <string name="supporter_edition_perk_support_developer">Unterstütze eine Indie-Entwicklerin</string>
     <string name="buy">Kaufe</string>
-    <string name="thanks_for_your_support">Vielen Dank für deine Unterstützung!</string>
     <string name="play_store_sign_in_message">Bitte melde dich im Google Play Store an.</string>
     <string name="rate_the_app">Bewerte die App</string>
     <string name="share_the_app">Teile die App</string>
-    <string name="become_a_supporter_cooking_assistant_message">Unterstütze die App und schalte die Vollversion des Kochassistenten frei.</string>
-    <string name="learn_more">Erfahre mehr</string>
     <string name="eggplant">Aubergine</string>
     <string name="eggplant_terms">Aubergine, Auberginen</string>
     <string name="cauliflower">Blumenkohl</string>
@@ -196,7 +185,6 @@
     <string name="adjust_ingredients_prompt">Wähle aus, wie viele Portionen du kochen möchtest!</string>
     <string name="no_recipes_found">Keine Rezepte gefunden.</string>
     <string name="import_from_the_web_prompt">importiere ein Rezept von einer Website</string>
-    <string name="buy_for">Kaufe für %1$s</string>
     <string name="spanish">Spanisch</string>
     <string name="french">Französisch</string>
     <string name="region_north_america_colder">Nordamerika (kälter)</string>
@@ -225,4 +213,10 @@
     <string name="link_to_demo_recipe">https://flauschcode.com/hummus-cremig-und-lecker/</string>
     <string name="help">Hilfe</string>
     <string name="legal_policies">Rechtliche Hinweise</string>
+    <string name="support_the_app_donate">Spende</string>
+    <string name="support_the_app_donate_text">Broccoli ist für alle kostenlos. Aber du kannst die Entwicklung der App unterstützen und mir einen Keks, Kaffee oder Burger kaufen. Vielen Dank!</string>
+    <string name="support_the_app_give_feedback">Gib Feedback</string>
+    <string name="support_the_app_give_feedback_text">Magst du Broccoli? Erzähl uns davon!</string>
+    <string name="support_the_app_tell_your_friends">Sag es deinen Freunden</string>
+    <string name="support_the_app_tell_your_friends_text">Kochen deine Freunde auch gerne? Erzähl ihnen von Broccoli!</string>
 </resources>

@@ -9,21 +9,6 @@ def versionMinor = 1
 def versionPatch = 3
 def versionBuild = 0
 
-def getBase64EncodedPublicKey() {
-    if (project.hasProperty("base64EncodedPublicKey")) {
-        return project.getProperty("base64EncodedPublicKey")
-    }
-
-    Properties properties = new Properties()
-    properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-    if (properties.containsKey("base64EncodedPublicKey")) {
-        return properties.getProperty("base64EncodedPublicKey")
-    }
-
-    throw new InvalidUserDataException("The application's public key (base64EncodedPublicKey) has to be provided either via local.properties or as a parameter.")
-}
-
 android {
     compileSdkVersion 33
     defaultConfig {
@@ -32,7 +17,6 @@ android {
         targetSdkVersion 33
         versionCode versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionBuild
         versionName "${versionMajor}.${versionMinor}.${versionPatch}"
-        buildConfigField "String", "BASE64_ENCODED_PUBLIC_KEY", "\"" + getBase64EncodedPublicKey() + "\""
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
@@ -80,6 +64,10 @@ android {
         abortOnError false
     }
     namespace 'com.flauschcode.broccoli'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
 }
 
 dependencies {

@@ -11,27 +11,25 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-import com.android.billingclient.api.AcknowledgePurchaseParams;
-import com.android.billingclient.api.AcknowledgePurchaseResponseListener;
 import com.android.billingclient.api.BillingClient;
 import com.android.billingclient.api.BillingClientStateListener;
 import com.android.billingclient.api.BillingFlowParams;
 import com.android.billingclient.api.BillingResult;
+import com.android.billingclient.api.ConsumeParams;
+import com.android.billingclient.api.ConsumeResponseListener;
+import com.android.billingclient.api.ProductDetails;
+import com.android.billingclient.api.ProductDetailsResponseListener;
 import com.android.billingclient.api.Purchase;
 import com.android.billingclient.api.PurchasesUpdatedListener;
-import com.android.billingclient.api.SkuDetails;
-import com.android.billingclient.api.SkuDetailsParams;
-import com.android.billingclient.api.SkuDetailsResponseListener;
+import com.android.billingclient.api.QueryProductDetailsParams;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
 @Singleton
-public class BillingService implements BillingClientStateListener, PurchasesUpdatedListener, SkuDetailsResponseListener {
+public class BillingService implements BillingClientStateListener, PurchasesUpdatedListener, ProductDetailsResponseListener {
 
     private final BillingClient billingClient;
 
@@ -40,12 +38,19 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
     private static final long RECONNECT_TIMER_MAX_TIME_MILLISECONDS = 1000L * 60L * 15L; // 15 mins
     private long reconnectMilliseconds = RECONNECT_TIMER_START_MILLISECONDS;
 
-    private SkuDetails skuDetailsPremium;
+    private ProductDetails cookieDetails;
+    private final MutableLiveData<String> cookiePrice = new MutableLiveData<>();
 
-    private final MutableLiveData<String> premiumPrice = new MutableLiveData<>();
-    private final MutableLiveData<Boolean> isPremium = new MutableLiveData<>(false);
+    private ProductDetails coffeeDetails;
+    private final MutableLiveData<String> coffeePrice = new MutableLiveData<>();
+
+    private ProductDetails burgerDetails;
+    private final MutableLiveData<String> burgerPrice = new MutableLiveData<>();
 
     private static final String PREMIUM_SKU_NAME = "premium";
+    private static final String PRODUCT_ID_COOKIE = "cookie";
+    private static final String PRODUCT_ID_COFFEE = "coffee";
+    private static final String PRODUCT_ID_BURGER = "burger";
 
     @Inject
     public BillingService(Application application) {
@@ -68,12 +73,13 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
             return;
         }
 
-        billingClient.queryPurchasesAsync(BillingClient.SkuType.INAPP, (billingResult1, list) -> list.forEach(BillingService.this::process));
+        QueryProductDetailsParams queryProductDetailsParams = QueryProductDetailsParams.newBuilder()
+                        .setProductList(
+                                List.of(getProduct(PRODUCT_ID_COOKIE), getProduct(PRODUCT_ID_COFFEE), getProduct(PRODUCT_ID_BURGER))
+                        )
+                        .build();
 
-        billingClient.querySkuDetailsAsync(SkuDetailsParams.newBuilder()
-                .setType(BillingClient.SkuType.INAPP)
-                .setSkusList(Collections.singletonList(PREMIUM_SKU_NAME))
-                .build(), this);
+        billingClient.queryProductDetailsAsync(queryProductDetailsParams, this);
     }
 
     @Override
@@ -88,45 +94,83 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
             return;
         }
 
-        list.forEach(this::process);
+        list.forEach(this::handlePurchase);
     }
 
     @Override
-    public void onSkuDetailsResponse(@NonNull BillingResult billingResult, @Nullable List<SkuDetails> list) {
+    public void onProductDetailsResponse(@NonNull BillingResult billingResult, @NonNull List<ProductDetails> list) {
         if (BillingClient.BillingResponseCode.OK != billingResult.getResponseCode()) {
             Log.e(getClass().getSimpleName(), "onSkuDetailsResponse: " + billingResult.getResponseCode() + " " + billingResult.getDebugMessage());
             return;
         }
 
-        if (list == null || list.isEmpty()) {
-            Log.e(getClass().getSimpleName(), "onSkuDetailsResponse: Found null or empty SkuDetails.");
-            return;
-        }
+        list.stream().filter(productDetails -> productDetails.getProductId().equals(PRODUCT_ID_COOKIE)).findFirst().ifPresent(productDetails -> {
+            cookieDetails = productDetails;
+            cookiePrice.postValue(productDetails.getOneTimePurchaseOfferDetails().getFormattedPrice());
+        });
 
-        Optional<SkuDetails> firstSkuDetailsPremium = list.stream().filter(skuDetails -> PREMIUM_SKU_NAME.equals(skuDetails.getSku())).findFirst();
+        list.stream().filter(productDetails -> productDetails.getProductId().equals(PRODUCT_ID_COFFEE)).findFirst().ifPresent(productDetails -> {
+            coffeeDetails = productDetails;
+            coffeePrice.postValue(productDetails.getOneTimePurchaseOfferDetails().getFormattedPrice());
+        });
 
-        if (!firstSkuDetailsPremium.isPresent()) {
-            Log.e(getClass().getSimpleName(), "onSkuDetailsResponse: Could not find " + PREMIUM_SKU_NAME + " SKU.");
-            return;
-        }
-
-        skuDetailsPremium = firstSkuDetailsPremium.get();
-        premiumPrice.postValue(skuDetailsPremium.getPrice());
+        list.stream().filter(productDetails -> productDetails.getProductId().equals(PRODUCT_ID_BURGER)).findFirst().ifPresent(productDetails -> {
+            burgerDetails = productDetails;
+            burgerPrice.postValue(productDetails.getOneTimePurchaseOfferDetails().getFormattedPrice());
+        });
     }
 
-    public void purchaseSupporterEdition(Activity activity) throws BillingException {
+    public LiveData<String> getCookiePrice() {
+        return cookiePrice;
+    }
+
+    public LiveData<String> getCoffeePrice() {
+        return coffeePrice;
+    }
+
+    public LiveData<String> getBurgerPrice() {
+        return burgerPrice;
+    }
+
+    public void purchaseCookie(Activity activity) throws BillingException {
+        purchase(activity, cookieDetails);
+    }
+
+    public void purchaseCoffee(Activity activity) throws BillingException {
+        purchase(activity, coffeeDetails);
+    }
+
+    public void purchaseBurger(Activity activity) throws BillingException {
+        purchase(activity, burgerDetails);
+    }
+
+    private QueryProductDetailsParams.Product getProduct(String productId) {
+        return QueryProductDetailsParams.Product.newBuilder()
+                .setProductId(productId)
+                .setProductType(BillingClient.ProductType.INAPP)
+                .build();
+    }
+
+    private void purchase(Activity activity, ProductDetails productDetails) throws BillingException {
         if (!billingClient.isReady()) {
             Log.e(getClass().getSimpleName(), "purchaseSupporterEdition: A purchase has been requested but the billing service is not ready yet.");
             throw new BillingException("The Billing service is not ready yet.");
         }
 
-        if (skuDetailsPremium == null) {
+        if (productDetails == null) {
             Log.e(getClass().getSimpleName(), "purchaseSupporterEdition: Could not find " + PREMIUM_SKU_NAME + " SKU.");
             return;
         }
 
+        List<BillingFlowParams.ProductDetailsParams> productDetailsParamsList =
+                List.of(
+                        BillingFlowParams.ProductDetailsParams.newBuilder()
+                                .setProductDetails(productDetails)
+                                .build()
+                );
+
         BillingFlowParams billingFlowParams = BillingFlowParams.newBuilder()
-                .setSkuDetails(skuDetailsPremium)
+                .setProductDetailsParamsList(productDetailsParamsList)
                 .build();
 
         BillingResult billingResultBilling = billingClient.launchBillingFlow(activity, billingFlowParams);
@@ -135,55 +179,19 @@ public class BillingService implements BillingClientStateListener, PurchasesUpda
         }
     }
 
-    public LiveData<Boolean> isPremium() {
-        return isPremium;
-    }
-
-    public LiveData<String> getPremiumPrice() {
-        return premiumPrice;
-    }
-
-    private void process(Purchase purchase) {
-        if (!purchase.getSkus().contains(PREMIUM_SKU_NAME)) {
-            Log.e(getClass().getSimpleName(), "Unknown purchase: " + purchase.getOrderId());
-            return;
-        }
-
-        if (purchase.getPurchaseState() != Purchase.PurchaseState.PURCHASED) {
-            Log.e(getClass().getSimpleName(), "Purchase is not yet in state PURCHASED: " + purchase.getOrderId());
-            return;
-        }
-
-        if (!isSignatureValid(purchase)) {
-            Log.e(getClass().getSimpleName(), "Invalid signature for purchase: " + purchase.getOrderId());
-            return;
-        }
-
-        isPremium.postValue(true);
-
-        if (!purchase.isAcknowledged()) {
-            acknowledge(purchase);
-        }
-    }
-
-    private boolean isSignatureValid(@NonNull Purchase purchase) {
-        return SupportUtil.verifyPurchase(purchase.getOriginalJson(), purchase.getSignature());
-    }
-
-    private void acknowledge(Purchase purchase) {
-        AcknowledgePurchaseParams acknowledgePurchaseParams =
-                AcknowledgePurchaseParams.newBuilder()
+    private void handlePurchase(Purchase purchase) {
+        ConsumeParams consumeParams =
+                ConsumeParams.newBuilder()
                         .setPurchaseToken(purchase.getPurchaseToken())
                         .build();
 
-        billingClient.acknowledgePurchase(acknowledgePurchaseParams, new AcknowledgePurchaseResponseListener() {
-            @Override
-            public void onAcknowledgePurchaseResponse(@NonNull BillingResult billingResult) {
-                if (BillingClient.BillingResponseCode.OK != billingResult.getResponseCode()) {
-                    Log.e(getClass().getSimpleName(), "onAcknowledgePurchaseResponse: " + billingResult.getResponseCode() + " " + billingResult.getDebugMessage());
-                }
+        ConsumeResponseListener listener = (billingResult, purchaseToken) -> {
+            if (BillingClient.BillingResponseCode.OK != billingResult.getResponseCode()) {
+                Log.e(getClass().getSimpleName(), "Could not handle purchase: " + billingResult.getResponseCode() + " " + billingResult.getDebugMessage());
             }
-        });
+        };
+
+        billingClient.consumeAsync(consumeParams, listener);
     }
 
     private void retryBillingServiceConnectionWithExponentialBackoff() {

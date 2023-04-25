@@ -102,23 +102,11 @@
     <string name="english">Anglais</string>
     <string name="german">Allemand</string>
     <string name="support_the_app">Soutiens l\'application</string>
-    <string name="community_edition_perk_recipes">Recettes illimitées</string>
-    <string name="community_edition_perk_categories">Catégories personnalisées illimitées</string>
-    <string name="community_edition_perk_seasonal_calendar">Calendrier saisonnier (Beta)</string>
-    <string name="community_edition_perk_backup">Sauvegarde et restauration</string>
-    <string name="community_edition_perk_ad_free">Pas de pubs</string>
     <string name="free_for_everyone">Gratuit pour tous</string>
-    <string name="supporter_edition_perk_community_features">Toutes les fonctionnalités de la Community Edition</string>
-    <string name="supporter_edition_perk_cooking_assistant">Assistant de cuisine</string>
-    <string name="supporter_edition_perk_support_developer">Soutiens une développeuse indépendante</string>
     <string name="buy">Achète</string>
-    <string name="buy_for">Achète pour %1$s</string>
-    <string name="thanks_for_your_support">Merci pour ton soutien !</string>
     <string name="play_store_sign_in_message">S\'il te plaît, connecte-toi à Google Play Store.</string>
     <string name="rate_the_app">Note l\'application</string>
     <string name="share_the_app">Partage l\'application</string>
-    <string name="become_a_supporter_cooking_assistant_message">Soutiens l\'application et débloque la version complète de l\'assistant de cuisine</string>
-    <string name="learn_more">En savoir plus</string>
     <string name="eggplant">Aubergines</string>
     <string name="eggplant_terms">aubergine, aubergines</string>
     <string name="cauliflower">Chou-fleur</string>
@@ -225,4 +213,10 @@
     <string name="link_to_demo_recipe">https://flauschcode.com/houmous-cremeux-et-delicieux/</string>
     <string name="help">Aide</string>
     <string name="legal_policies">Politiques juridiques</string>
+    <string name="support_the_app_donate">Fais un don</string>
+    <string name="support_the_app_donate_text">Broccoli est gratuit pour tout le monde. Mais tu peux soutenir le développement de l\'application et m\'offrir un biscuit, un café ou un burger. Merci beaucoup !</string>
+    <string name="support_the_app_give_feedback">Donne ton avis</string>
+    <string name="support_the_app_give_feedback_text">Tu aimes Broccoli ? Dis-nous tout !</string>
+    <string name="support_the_app_tell_your_friends">Dis-le à tes amis</string>
+    <string name="support_the_app_tell_your_friends_text">Tes amis aiment aussi cuisiner ? Parle-leur de Broccoli !</string>
 </resources>

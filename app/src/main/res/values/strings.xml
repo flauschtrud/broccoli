@@ -142,25 +142,17 @@
 
     <!-- support -->
     <string name="support_the_app">Support the app</string>
-    <string name="community_edition_title" translatable="false">Community Edition</string>
-    <string name="community_edition_perk_recipes">Unlimited recipes</string>
-    <string name="community_edition_perk_categories">Unlimited custom categories</string>
-    <string name="community_edition_perk_seasonal_calendar">Seasonal calendar (Beta)</string>
-    <string name="community_edition_perk_backup">Backup and restore</string>
-    <string name="community_edition_perk_ad_free">No ads</string>
+    <string name="support_the_app_donate">Donate</string>
+    <string name="support_the_app_donate_text">Broccoli is free for everyone. But you can support the development of the app and buy me a cookie, coffee or burger. Thanks a lot!</string>
+    <string name="support_the_app_give_feedback">Give feedback</string>
+    <string name="support_the_app_give_feedback_text">Do you like Broccoli? Tell us about it!</string>
+    <string name="support_the_app_tell_your_friends">Tell your friends</string>
+    <string name="support_the_app_tell_your_friends_text">Do your friends also like to cook? Tell them about Broccoli!</string>
     <string name="free_for_everyone">Free for everyone</string>
-    <string name="supporter_edition_title" translatable="false">Supporter Edition</string>
-    <string name="supporter_edition_perk_community_features">All features of the Community Edition</string> <!-- double check in translation! -->
-    <string name="supporter_edition_perk_cooking_assistant">Cooking assistant</string>
-    <string name="supporter_edition_perk_support_developer">Support an indie developer</string> <!-- double check in translation! -->
     <string name="buy">Buy</string>
-    <string name="buy_for">Buy for %1$s</string>
-    <string name="thanks_for_your_support">Thanks for your support!</string>
     <string name="play_store_sign_in_message">Please sign in to Google Play Store.</string>
     <string name="rate_the_app">Rate the app</string>
     <string name="share_the_app">Share the app</string>
-    <string name="become_a_supporter_cooking_assistant_message">Support the app and unlock the full version of the cooking assistant.</string>
-    <string name="learn_more">Learn more</string>
 
     <!-- seasonal food -->
     <!-- the plurals are important! -->
