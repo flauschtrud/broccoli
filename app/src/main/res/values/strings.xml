@@ -116,7 +116,7 @@
     <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
 
     <!-- Seasons -->
-    <string name="seasonal_calendar">Seasonal calendar (Beta)</string>
+    <string name="seasonal_calendar">Seasonal calendar</string>
     <string name="seasonal_accessibility">Seasonal ingredient(s)</string>
     <string name="seasonal_recipes">Seasonal recipes</string>
     <string name="seasonal_ingredients_accessibility">Seasonal ingredients</string>
