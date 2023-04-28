@@ -26,7 +26,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/text_margin">
+        android:paddingTop="@dimen/text_margin"
+        android:paddingBottom="@dimen/text_margin">
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/buy_me_cookie_button"
@@ -36,7 +37,6 @@
             android:text="@string/buy"
             app:icon="@drawable/ic_cookie_24"
             app:layout_constraintEnd_toStartOf="@id/buy_me_coffee_button"
-            app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,7 +48,6 @@
             android:text="@string/buy"
             app:icon="@drawable/ic_coffee_24"
             app:layout_constraintEnd_toStartOf="@id/buy_me_burger_button"
-            app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@id/buy_me_cookie_button"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,8 +59,19 @@
             android:text="@string/buy"
             app:icon="@drawable/ic_burger_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_weight="1"
             app:layout_constraintStart_toEndOf="@id/buy_me_coffee_button"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/flow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="buy_me_cookie_button,buy_me_coffee_button,buy_me_burger_button"
+            app:flow_horizontalGap="@dimen/text_margin"
+            app:flow_horizontalStyle="packed"
+            app:flow_wrapMode="chain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
