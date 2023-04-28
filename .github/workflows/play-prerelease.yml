@@ -1,4 +1,4 @@
-name: Publish to Google Play Internal Testing
+name: Publish to Google Play Closed Testing
 
 on:
   release:
@@ -38,5 +38,5 @@ jobs:
           serviceAccountJsonPlainText: ${{secrets.SERVICE_ACCOUNT_JSON}}
           packageName: com.flauschcode.broccoli
           releaseFiles: app/build/outputs/bundle/release/app-release.aab
-          track: Release Candidate
+          track: alpha
           whatsNewDirectory: whatsNewDirectory
