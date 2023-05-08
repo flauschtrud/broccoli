@@ -143,7 +143,9 @@
     <!-- support -->
     <string name="support_the_app">Support the app</string>
     <string name="support_the_app_donate">Donate</string>
-    <string name="support_the_app_donate_text">Broccoli is free for everyone. But you can support the development of the app and buy me a cookie, coffee or burger. Thanks a lot!</string>
+    <string name="support_the_app_donate_text_playstore">Broccoli is free for everyone. But you can support the development of the app and buy me a cookie, coffee or burger. Thanks a lot!</string>
+    <string name="support_the_app_donate_text_fdroid">Broccoli is free for everyone. But you can support the development of the app and buy me a coffee. Thanks a lot!</string>
+    <string name="support_the_app_support_me_on_kofi" translatable="false">Support me on Ko-Fi</string>
     <string name="support_the_app_give_feedback">Give feedback</string>
     <string name="support_the_app_give_feedback_text">Do you like Broccoli? Tell us about it!</string>
     <string name="support_the_app_tell_your_friends">Tell your friends</string>
@@ -153,6 +155,8 @@
     <string name="play_store_sign_in_message">Please sign in to Google Play Store.</string>
     <string name="rate_the_app">Rate the app</string>
     <string name="share_the_app">Share the app</string>
+    <string name="fdroid_url" translatable="false">https://f-droid.org/packages/com.flauschcode.broccoli</string>
+    <string name="kofi_url" translatable="false">https://ko-fi.com/flauschtrud</string>
 
     <!-- seasonal food -->
     <!-- the plurals are important! -->

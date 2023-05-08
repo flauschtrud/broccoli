@@ -214,7 +214,8 @@
     <string name="help">Hilfe</string>
     <string name="legal_policies">Rechtliche Hinweise</string>
     <string name="support_the_app_donate">Spende</string>
-    <string name="support_the_app_donate_text">Broccoli ist für alle kostenlos. Aber du kannst die Entwicklung der App unterstützen und mir einen Keks, Kaffee oder Burger kaufen. Vielen Dank!</string>
+    <string name="support_the_app_donate_text_playstore">Broccoli ist für alle kostenlos. Aber du kannst die Entwicklung der App unterstützen und mir einen Keks, Kaffee oder Burger kaufen. Vielen Dank!</string>
+    <string name="support_the_app_donate_text_fdroid">Broccoli ist für alle kostenlos. Aber du kannst die Entwicklung der App unterstützen und mir einen Kaffee kaufen. Vielen Dank!</string>
     <string name="support_the_app_give_feedback">Gib Feedback</string>
     <string name="support_the_app_give_feedback_text">Magst du Broccoli? Erzähl uns davon!</string>
     <string name="support_the_app_tell_your_friends">Sag es deinen Freunden</string>

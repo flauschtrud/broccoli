@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="@string/support_the_app_donate_text" />
+        android:text="@string/support_the_app_donate_text_playstore" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

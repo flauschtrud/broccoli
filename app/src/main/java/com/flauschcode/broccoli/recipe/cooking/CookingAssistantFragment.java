@@ -13,9 +13,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.databinding.FragmentCookingAssistantPageBinding;
-import com.flauschcode.broccoli.support.BillingService;
-
-import javax.inject.Inject;
 
 import dagger.android.support.AndroidSupportInjection;
 
@@ -28,9 +25,6 @@ public class CookingAssistantFragment extends Fragment {
 
     private FragmentCookingAssistantPageBinding binding;
     private CookingAssistantFragmentViewModel viewModel;
-
-    @Inject
-    BillingService billingService;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
