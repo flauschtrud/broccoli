@@ -21,12 +21,12 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Build Release Bundle with Gradle
-        run: ./gradlew clean bundleRelease -Pbase64EncodedPublicKey=${{secrets.PUBLIC_KEY}}
+        run: ./gradlew clean bundlePlay -Pbase64EncodedPublicKey=${{secrets.PUBLIC_KEY}}
 
       - name: Build Release
         uses: r0adkll/sign-android-release@v1
         with:
-          releaseDirectory: app/build/outputs/bundle/release
+          releaseDirectory: app/build/outputs/bundle/playRelease
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
           alias: ${{ secrets.ALIAS }}
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
@@ -37,6 +37,6 @@ jobs:
         with:
           serviceAccountJsonPlainText: ${{secrets.SERVICE_ACCOUNT_JSON}}
           packageName: com.flauschcode.broccoli
-          releaseFiles: app/build/outputs/bundle/release/app-release.aab
+          releaseFiles: app/build/outputs/bundle/playRelease/app-play-release.aab
           track: alpha
           whatsNewDirectory: whatsNewDirectory
