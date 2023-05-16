@@ -37,7 +37,6 @@ import com.flauschcode.broccoli.MockApplicationComponent;
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.ViewPagerIdlingResource;
 import com.flauschcode.broccoli.recipe.Recipe;
-import com.flauschcode.broccoli.support.BillingService;
 import com.flauschcode.broccoli.util.RecipeTestUtil;
 
 import org.junit.After;
@@ -53,9 +52,6 @@ public class CookingAssistantActivityTest {
 
     @Inject
     PageableRecipeBuilder pageableRecipeBuilder;
-
-    @Inject
-    BillingService billingService;
 
     private ActivityScenario<CookingAssistantActivity> scenario;
 
