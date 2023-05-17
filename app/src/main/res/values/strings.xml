@@ -114,6 +114,8 @@
     <string name="privacy_policy_url" translatable="false">https://flauschcode.com/broccoli-privacy-policy/</string>
     <string name="demo_recipe">Demo recipe</string>
     <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
+    <string name="open_source_licenses">Open source licenses</string>
+    <string name="open_source_licenses_text">License details for open source software</string>
 
     <!-- Seasons -->
     <string name="seasonal_calendar">Seasonal calendar</string>

@@ -2,7 +2,7 @@ import com.android.build.api.dsl.ManagedVirtualDevice
 
 apply plugin: 'com.android.application'
 apply plugin: "androidx.navigation.safeargs"
-apply plugin: "com.google.android.gms.oss-licenses-plugin"
+apply plugin: 'com.mikepenz.aboutlibraries.plugin'
 
 def versionMajor = 1
 def versionMinor = 2
@@ -112,7 +112,6 @@ dependencies {
     def billing_version = "5.2.0"
     playImplementation "com.android.billingclient:billing:$billing_version"
 
-    implementation 'com.google.android.gms:play-services-oss-licenses:17.0.1'
     playImplementation 'com.google.android.play:core:1.10.3'
 
     def dagger_version = "2.45"
@@ -126,6 +125,8 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.15.1'
 
     implementation 'org.jsoup:jsoup:1.15.4'
+
+    implementation "com.mikepenz:aboutlibraries:10.6.3"
 
     def jackson_version = "2.10.1"
     implementation "com.fasterxml.jackson.core:jackson-core:$jackson_version"

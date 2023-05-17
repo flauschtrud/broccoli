@@ -4,6 +4,9 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.3.1'
@@ -13,7 +16,7 @@ buildscript {
         def nav_version = '2.5.3'
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
 
-        classpath 'com.google.android.gms:oss-licenses-plugin:0.10.6'
+        classpath "com.mikepenz.aboutlibraries.plugin:aboutlibraries-plugin:10.6.3"
     }
 }
 

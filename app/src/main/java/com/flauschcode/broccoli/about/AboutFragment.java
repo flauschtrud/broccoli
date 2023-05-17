@@ -1,13 +1,12 @@
 package com.flauschcode.broccoli.about;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.flauschcode.broccoli.R;
-import com.google.android.gms.oss.licenses.OssLicensesMenuActivity;
+import com.mikepenz.aboutlibraries.LibsBuilder;
 
 public class AboutFragment extends PreferenceFragmentCompat {
 
@@ -18,7 +17,7 @@ public class AboutFragment extends PreferenceFragmentCompat {
         Preference licensesPreference = findPreference("oss-licenses");
         if(licensesPreference != null){
             licensesPreference.setOnPreferenceClickListener(preference -> {
-                startActivity(new Intent(requireActivity(), OssLicensesMenuActivity.class));
+                new LibsBuilder().start(requireContext());
                 return true;
             });
         }

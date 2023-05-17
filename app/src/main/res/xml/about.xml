@@ -46,8 +46,8 @@
         <Preference
             app:icon="@drawable/ic_info_24dp"
             app:key="oss-licenses"
-            app:title="@string/oss_license_title"
-            app:summary="@string/preferences_license_summary" />
+            app:title="@string/open_source_licenses"
+            app:summary="@string/open_source_licenses_text" />
 
         <Preference
             app:icon="@drawable/ic_privacy_tip_24"

@@ -90,6 +90,10 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name="com.mikepenz.aboutlibraries.ui.LibsActivity"
+            android:theme="@style/Theme.Broccoli.NoActionBar" />
+
     </application>
 
 </manifest>
