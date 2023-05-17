@@ -113,7 +113,7 @@ dependencies {
     playImplementation "com.android.billingclient:billing:$billing_version"
 
     implementation 'com.google.android.gms:play-services-oss-licenses:17.0.1'
-    implementation 'com.google.android.play:core:1.10.3'
+    playImplementation 'com.google.android.play:core:1.10.3'
 
     def dagger_version = "2.45"
     implementation group: 'com.google.dagger', name: 'dagger', version: "$dagger_version"

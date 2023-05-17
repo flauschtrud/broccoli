@@ -20,7 +20,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
         AndroidSupportInjectionModule.class,
         DatabaseModule.class,
         RecipeModule.class,
-        SeasonsModule.class
+        SeasonsModule.class,
+        SupportModule.class
 })
 public interface ApplicationComponent {
 

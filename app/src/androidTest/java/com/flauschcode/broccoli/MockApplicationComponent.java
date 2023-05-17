@@ -7,6 +7,7 @@ import com.flauschcode.broccoli.category.CategoryFragmentTest;
 import com.flauschcode.broccoli.di.ActivityModule;
 import com.flauschcode.broccoli.di.ApplicationComponent;
 import com.flauschcode.broccoli.di.FragmentModule;
+import com.flauschcode.broccoli.di.SupportModule;
 import com.flauschcode.broccoli.di.ViewModelModule;
 import com.flauschcode.broccoli.recipe.CreateAndEditRecipeActivityTest;
 import com.flauschcode.broccoli.recipe.MockRecipeModule;
@@ -30,7 +31,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
         FragmentModule.class,
         AndroidSupportInjectionModule.class,
         MockRecipeModule.class,
-        SeasonsModule.class
+        SeasonsModule.class,
+        SupportModule.class
 })
 public interface MockApplicationComponent extends ApplicationComponent {
 
