@@ -30,11 +30,18 @@ jobs:
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
+      - name: Rename APK
+        run: mv ${{steps.sign_release.outputs.signedReleaseFile}} app/build/outputs/apk/fdroid/release/app-fdroid-release.apk
+
       - name: Create Release on GitHub
         uses: ncipollo/release-action@v1
         with:
-            artifacts: ${{ steps.sign_release.outputs.signedReleaseFile }}
+            artifacts: 'app/build/outputs/apk/fdroid/release/app-fdroid-release.apk'
             artifactErrorsFailBuild: true
-            prerelease: false
             tag: '${{ github.ref_name}}-fdroid'
             commit: master
+            prerelease: false
+            omitBody: true
+            makeLatest: false
+            allowUpdates: true
+            removeArtifacts: true
