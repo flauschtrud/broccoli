@@ -13,8 +13,8 @@ Broccoli is a free eco-friendly recipe app for building your <b>recipe collectio
 • easily identify seasonal ingredients
 
 <b>Cook without distraction</b>
-• use the fullscreen cooking assistant while you prepare your dish (premium feature)
-• adjust the amount of the ingredients (premium feature)
+• use the fullscreen cooking assistant while you prepare your dish
+• adjust the amount of the ingredients
 
 Broccoli is free for everyone and no account is required. If you enjoy our recipe app you can donate to support the development of the app.
 

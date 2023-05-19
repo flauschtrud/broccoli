@@ -13,8 +13,8 @@ Broccoli est une appli de recettes gratuite y éco responsable pour créer ta <b
 - identifie facilement les ingrédients de saison
 
 <b>Cuisiner sans distraction</b>
-- utilise l'assistant de cuisine en plein écran pendant que tu prépares ton plat (fonctionnalité premium).
-- ajuste la quantité des ingrédients (fonctionnalité premium).
+- utilise l'assistant de cuisine en plein écran pendant que tu prépares ton plat.
+- ajuste la quantité des ingrédients.
 
 Broccoli est gratuit pour tout le monde et aucun compte n'est nécessaire. Si tu apprécies notre appli de recettes, tu peux faire un don pour soutenir le développement de l'application.
 
