@@ -84,7 +84,7 @@ public class CookingAssistantControls extends LinearLayout {
             ImageView imageView = getChildAt(integer).findViewById(R.id.cooking_assistant_control);
             imageView.setContentDescription(String.valueOf(integer));
             if (integer == position) {
-                imageView.setImageTintList(ColorStateList.valueOf(MaterialColors.getColor(this, R.attr.colorPrimary)));
+                imageView.setImageTintList(ColorStateList.valueOf(MaterialColors.getColor(this, com.google.android.material.R.attr.colorPrimary)));
             }
             imageView.setOnClickListener(v -> listener.onCookingAssistantControlsInteraction(integer));
         });

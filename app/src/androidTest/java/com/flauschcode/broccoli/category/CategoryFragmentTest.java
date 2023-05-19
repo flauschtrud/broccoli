@@ -62,7 +62,7 @@ public class CategoryFragmentTest {
         categories.add(new Category(2, "Lala"));
         when(categoryRepository.findAll()).thenReturn(new MutableLiveData<>(categories));
 
-        launchInContainer(CategoryFragment.class, new Bundle(), R.style.Theme_AppCompat);
+        launchInContainer(CategoryFragment.class, new Bundle(), com.google.android.material.R.style.Theme_AppCompat);
     }
 
     private BroccoliApplication getApplication() {

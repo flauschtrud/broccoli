@@ -240,7 +240,7 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
 
     @BindingAdapter({"customIconTint"})
     public static void setCustomIconTint(ImageView imageView, String imageName) {
-        imageView.setImageTintList(ColorStateList.valueOf(TextUtils.isEmpty(imageName)? MaterialColors.getColor(imageView, R.attr.colorControlNormal) : MaterialColors.getColor(imageView, R.attr.colorOnPrimarySurface)));
+        imageView.setImageTintList(ColorStateList.valueOf(TextUtils.isEmpty(imageName)? MaterialColors.getColor(imageView, com.google.android.material.R.attr.colorControlNormal) : MaterialColors.getColor(imageView, com.google.android.material.R.attr.colorOnPrimarySurface)));
     }
 
     @Override

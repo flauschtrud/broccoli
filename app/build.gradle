@@ -3,6 +3,7 @@ import com.android.build.api.dsl.ManagedVirtualDevice
 apply plugin: 'com.android.application'
 apply plugin: "androidx.navigation.safeargs"
 apply plugin: 'com.mikepenz.aboutlibraries.plugin'
+apply plugin: 'org.jetbrains.kotlin.android'
 
 android {
     compileSdkVersion 33
@@ -37,6 +38,7 @@ android {
     }
     buildFeatures {
         dataBinding = true
+        buildConfig = true
     }
     applicationVariants.all { variant ->
         variant.resValue "string", "versionName", variant.versionName
@@ -79,6 +81,8 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
     runtimeOnly group: 'com.google.android.material', name: 'material', version: '1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 

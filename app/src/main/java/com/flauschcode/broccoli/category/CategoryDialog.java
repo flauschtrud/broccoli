@@ -104,7 +104,7 @@ public class CategoryDialog extends DialogFragment {
             }
             warning.setVisibility(View.VISIBLE);
 
-            dialog.getButton(BUTTON_NEUTRAL).setTextColor(MaterialColors.getColor(requireContext(), R.attr.colorError, Color.RED));
+            dialog.getButton(BUTTON_NEUTRAL).setTextColor(MaterialColors.getColor(requireContext(), com.google.android.material.R.attr.colorError, Color.RED));
         });
     }
 
