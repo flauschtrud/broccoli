@@ -13,6 +13,7 @@ jobs:
       - name: Set Up Java
         uses: actions/setup-java@v3
         with:
+          distribution: 'temurin'
           java-version: 17
       - name: Unit Tests
         run: bash ./gradlew test -Pbase64EncodedPublicKey=${{secrets.PUBLIC_KEY}} --stacktrace
@@ -27,6 +28,7 @@ jobs:
       - name: Set Up Java
         uses: actions/setup-java@v3
         with:
+          distribution: 'temurin'
           java-version: 17
 
       - name: Assemble App Debug APK

@@ -15,6 +15,7 @@ jobs:
       - name: Set Up Java
         uses: actions/setup-java@v3
         with:
+          distribution: 'temurin'
           java-version: 17
 
       - name: Grant Gradle Rights
