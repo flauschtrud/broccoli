@@ -40,6 +40,4 @@ jobs:
             artifactErrorsFailBuild: true
             tag: '${{ github.ref_name}}-fdroid'
             commit: master
-            prerelease: false
-            omitBody: true
-            makeLatest: false
+            body: 'Provides a signed APK for reproducible builds.'
