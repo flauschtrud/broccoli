@@ -1,4 +1,7 @@
 import com.android.build.api.dsl.ManagedVirtualDevice
+import com.android.tools.profgen.ArtProfileKt
+import com.android.tools.profgen.ArtProfileSerializer
+import com.android.tools.profgen.DexFile
 
 apply plugin: 'com.android.application'
 apply plugin: "androidx.navigation.safeargs"
@@ -168,5 +171,32 @@ tasks.withType(Test) {
         exceptionFormat "full"
         events "started", "skipped", "passed", "failed"
         showStandardStreams true
+    }
+}
+
+// see https://gitlab.com/fdroid/wiki/-/wikis/HOWTO:-diff-&-fix-APKs-for-Reproducible-Builds#differing-assetsdexoptbaselineprofm-easy-to-fix
+// probably not needed anymore after upgrading to AGP 8.1.0
+project.afterEvaluate {
+    tasks.each { task ->
+        if (task.name.startsWith("compile") && task.name.endsWith("ReleaseArtProfile")) {
+            task.doLast {
+                outputs.files.each { file ->
+                    if (file.name.endsWith(".profm")) {
+                        println("Sorting ${file} ...")
+                        def version = ArtProfileSerializer.valueOf("METADATA_0_0_2")
+                        def profile = ArtProfileKt.ArtProfile(file)
+                        def keys = new ArrayList(profile.profileData.keySet())
+                        def sortedData = new LinkedHashMap()
+                        Collections.sort keys, new DexFile.Companion()
+                        keys.each { key -> sortedData[key] = profile.profileData[key] }
+                        new FileOutputStream(file).with {
+                            write(version.magicBytes$profgen)
+                            write(version.versionBytes$profgen)
+                            version.write$profgen(it, sortedData, "")
+                        }
+                    }
+                }
+            }
+        }
     }
 }
