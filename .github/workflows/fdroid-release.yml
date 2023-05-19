@@ -43,5 +43,3 @@ jobs:
             prerelease: false
             omitBody: true
             makeLatest: false
-            allowUpdates: true
-            removeArtifacts: true
