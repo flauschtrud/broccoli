@@ -9,4 +9,5 @@ Recipes with seasonal ingredients are highlighted and if you’re looking for in
 
 You can get Broccoli on
 - [Google Play](https://play.google.com/store/apps/details?id=com.flauschcode.broccoli)
-- F-Droid (coming soon)
+- [F-Droid](https://f-droid.org/packages/com.flauschcode.broccoli/)
+- [GitHub](https://github.com/flauschtrud/broccoli/releases/latest)
