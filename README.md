@@ -11,3 +11,13 @@ You can get Broccoli on
 - [Google Play](https://play.google.com/store/apps/details?id=com.flauschcode.broccoli)
 - [F-Droid](https://f-droid.org/packages/com.flauschcode.broccoli/)
 - [GitHub](https://github.com/flauschtrud/broccoli/releases/latest)
+
+## Contributions
+
+### Translations
+[![Crowdin](https://badges.crowdin.net/broccoli/localized.svg)](https://crowdin.com/project/broccoli)
+
+I set up a project on [Crowdin](https://crowdin.com/project/broccoli) to manage translations. Feel free to join and tell me if you want me to add more languages.
+
+### Seasonal Calendars
+If you want to contribute by researching data for additional seasonal calendars please contact me.
