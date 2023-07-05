@@ -2,10 +2,10 @@
 <resources>
     <!-- CRUD -->
     <string name="recipes">Przepisy</string>
-    <string name="no_recipes_found">Nie znaleziono przepisów.</string>
+    <string name="no_recipes_found">Nie znaleziono żadnych przepisów.</string>
     <string name="create_a_recipe_prompt">stwórz nowy przepis</string>
     <string name="import_from_the_web_prompt">importuj przepis ze strony internetowej</string>
-    <string name="new_recipe">Nowy Przepis</string>
+    <string name="new_recipe">Nowy przepis</string>
     <string name="create_first_recipe">Stwórz swój pierwszy przepis i zacznij swoją kolekcję!</string>
     <string name="edit_action">Edytuj</string>
     <string name="save_action">Zapisz</string>
@@ -22,7 +22,7 @@
     <string name="source">Źródło</string>
     <!-- double check in translation! -->
     <string name="servings">Porcje</string>
-    <string name="preparation_time">Czas przygotowania</string>
+    <string name="preparation_time">Czas</string>
     <string name="ingredients">Składniki</string>
     <string name="directions">Sposób przygotowania</string>
     <!-- double check in translation! -->
@@ -112,9 +112,9 @@
     <string name="configure_seasons_action">Konfiguruj</string>
     <string name="region">Region</string>
     <string name="languages_of_recipes">Języki przepisów</string>
-    <string name="no_language_set_message">W jakim języku tworzysz swoje przepisy? Wybierz co najmniej jeden język.</string>
+    <string name="no_language_set_message">W jakich językach tworzysz swoje przepisy? Wybierz co najmniej jeden język.</string>
     <string name="seasons_feedback_message">Czy chciałbyś, żeby twój region, język lub ulubiony składnik został dodany?</string>
-    <string name="seasons_feedback_subject">Opinie nt. sezonowego kalendarza</string>
+    <string name="seasons_feedback_subject">Opinia dla kalendarza sezonowego</string>
     <!-- regions for seasonal calendar -->
     <string name="region_central_europe">Europa Środkowa</string>
     <string name="region_north_america_colder">Ameryka Północna (zimniej)</string>
@@ -125,9 +125,9 @@
     <string name="french">Francuski</string>
     <string name="german">Niemiecki</string>
     <!-- support -->
-    <string name="support_the_app">Wspomóż aplikację</string>
+    <string name="support_the_app">Wesprzyj aplikację</string>
     <string name="support_the_app_donate">Przekaż darowiznę</string>
-    <string name="support_the_app_donate_text_playstore">Broccoli jest darmowy dla wszystkich. Ale możesz wesprzeć rozwój aplikacji i kupić mi ciastko, kawę lub burgera. Dzięki!</string>
+    <string name="support_the_app_donate_text_playstore">Broccoli jest darmowy dla wszystkich, ale możesz wesprzeć rozwój aplikacji i kupić mi ciastko, kawę lub burgera. Dzięki!</string>
     <string name="support_the_app_donate_text_fdroid">Broccoli jest darmowy dla wszystkich, ale możesz wesprzeć rozwój aplikacji i kupić mi kawę. Dzięki!</string>
     <string name="support_the_app_give_feedback">Prześlij opinię</string>
     <string name="support_the_app_give_feedback_text">Podoba ci się Broccoli? Opowiedz nam o tym!</string>
@@ -141,23 +141,23 @@
     <!-- seasonal food -->
     <!-- the plurals are important! -->
     <string name="eggplant">Bakłażany</string>
-    <string name="eggplant_terms">bakłażan, bakłażany, oberżyna, oberżyny</string>
+    <string name="eggplant_terms">bakłażan, bakłażany, bakłażana, oberżyna, oberżyny</string>
     <string name="cauliflower">Kalafior</string>
-    <string name="cauliflower_terms">kalafior, kalafiory</string>
+    <string name="cauliflower_terms">kalafior, kalafiory, kalafiora</string>
     <string name="broad_bean">Bób</string>
-    <string name="broad_bean_terms">bób</string>
+    <string name="broad_bean_terms">bób, bobu</string>
     <string name="bean">Fasola</string>
-    <string name="bean_terms">fasola zwykła, fasola zwyczajna</string>
+    <string name="bean_terms">fasola zwykła, fasola zwyczajna, fasola, fasoli</string>
     <string name="broccoli">Brokuły</string>
-    <string name="broccoli_terms">brokuły</string>
+    <string name="broccoli_terms">brokuły, brokuła, brokułów</string>
     <string name="chinese_cabbage">Kapusta pekińska</string>
-    <string name="chinese_cabbage_terms">kapusta chińska, pakczoj, pak-choy, bok choy</string>
+    <string name="chinese_cabbage_terms">kapusta pekińska, kapusty pekińskiej, kapusta chińska, pakczoj, pak-choy, bok choy</string>
     <string name="pea">Groch</string>
-    <string name="pea_terms">groch</string>
+    <string name="pea_terms">groch, grochu</string>
     <string name="fennel">Koper włoski</string>
-    <string name="fennel_terms">fenkuł włoski, koper włoski, koper słodki</string>
+    <string name="fennel_terms">fenkuł włoski, koper włoski, kopru włoskiego, koper słodki</string>
     <string name="kale">Jarmuż</string>
-    <string name="kale_terms">jarmuż</string>
+    <string name="kale_terms">jarmuż, jarmużu</string>
     <string name="cucumber">Ogórki</string>
     <string name="cucumber_terms">ogórek, ogórki</string>
     <string name="celeriac">Seler</string>
