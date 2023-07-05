@@ -1,11 +1,11 @@
-Broccoli is a free eco-friendly recipe app for building your <b>recipe collection</b>, <b>distraction free cooking</b> and <b>seasonal ingredients</b>. Create, collect and cook!
+Broccoli jest darmową, przyjazną dla środowiska aplikacją do <b>kolekcjonowania przepisów</b>, <b>gotowania bez rozpraszania</b> i <b>szukania sezonowych składników</b>. Twórz, kolekcjonuj i gotuj!
 
-<b>Organize easily</b>
-• create an unlimited amount of recipes
-• import recipes from your favorite blogs
-• organize with categories and hashtags
-• access your recipes offline
-• backup your recipes
+<b>Łatwa organizacja</b>
+• stwórz nieograniczoną liczbę przepisów
+• importuj przepisy z twoich ulubionych blogów
+• organizuj za pomocą kategorii i hasztagów
+• korzystaj ze swoich przepisów w trybie offline
+• stwórz kopię zapasową swoich przepisów
 
 <b>Cook eco-friendly</b>
 • learn more about the seasonal ingredients in your region with the seasonal calendar
