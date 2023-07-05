@@ -48,7 +48,7 @@
     <string name="unassigned">Przepisy bez kategorii</string>
     <string name="search">Szukaj</string>
     <string name="search_in">Szukaj w %1$s</string>
-    <string name="preferred_category">Preferred category</string>
+    <string name="preferred_category">Domyślna kategoria</string>
     <!-- Cooking mode -->
     <string name="cooking_assistant">Asystent gotowania</string>
     <string name="cooking_assistant_prompt">Gotuj w trybie pełnego ekranu bez rozpraszania!</string>
