@@ -7,16 +7,16 @@ Broccoli jest darmową, przyjazną dla środowiska aplikacją do <b>kolekcjonowa
 • korzystaj ze swoich przepisów w trybie offline
 • stwórz kopię zapasową swoich przepisów
 
-<b>Cook eco-friendly</b>
-• learn more about the seasonal ingredients in your region with the seasonal calendar
-• search for seasonal recipes in your collection
-• easily identify seasonal ingredients
+<b>Gotuj z myślą o środowisku</b>
+• dowiedz się więcej o składnikach sezonowych w swoim regionie za pomocą kalendarza sezonowego
+• szukaj sezonowych przepisów w swojej kolekcji
+• łatwo rozpoznaj składniki sezonowe
 
-<b>Cook without distraction</b>
-• use the fullscreen cooking assistant while you prepare your dish
-• adjust the amount of the ingredients
+<b>Gotuj bez rozpraszania</b>
+• skorzystaj z asystenta gotowania w trybie pełnego ekranu w trakcie przygotowywania swojego dania
+• dostosuj ilość składników
 
-Broccoli is free for everyone and no account is required. If you enjoy our recipe app you can donate to support the development of the app.
+Broccoli jest darmowy dla każdego, żadne konto nie jest wymagane. Jeśli podoba ci się nasza aplikacja, możesz przekazać darowiznę, aby wesprzeć jej rozwój.
 
 Available languages (up until now): English, Spanish, French, German.
 
