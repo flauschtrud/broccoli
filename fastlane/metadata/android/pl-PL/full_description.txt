@@ -1,4 +1,4 @@
-Broccoli jest darmową, przyjazną dla środowiska aplikacją do <b>kolekcjonowania przepisów</b>, <b>gotowania bez rozpraszania</b> i <b>szukania sezonowych składników</b>. Twórz, kolekcjonuj i gotuj!
+Broccoli jest darmową, przyjazną dla środowiska aplikacją do <b>kolekcjonowania przepisów</b>, <b>gotowania bez rozpraszania</b> i <b>szukania składników sezonowych</b>. Twórz, kolekcjonuj i gotuj!
 
 <b>Łatwa organizacja</b>
 • stwórz nieograniczoną liczbę przepisów
