@@ -1,8 +1,7 @@
 name: Publish to Google Play Closed Testing
 
 on:
-  release:
-    types: [prereleased]
+  workflow_dispatch
 
 jobs:
   build:
@@ -41,3 +40,10 @@ jobs:
           releaseFiles: app/build/outputs/bundle/playRelease/app-play-release.aab
           track: alpha
           whatsNewDirectory: whatsNewDirectory
+
+      - name: Create Release on GitHub
+        uses: ncipollo/release-action@v1
+        with:
+          generateReleaseNotes: true
+          prerelease: true
+          body: 'Pre-release which has been published for alpha testing on the Play Store.'
