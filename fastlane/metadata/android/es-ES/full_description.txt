@@ -18,6 +18,4 @@ Broccoli es una app de recetas gratis y ecológica para crear tu <b>colección d
 
 Broccoli es gratis para todos y no se necesita una cuenta. Si disfrutas de nuestra app de recetas, puedes donar para apoyar el desarrollo de la aplicación.
 
-Idiomas disponibles (hasta ahora): Inglés, español, francés y alemán.
-
 ¡Empieza tu colección de recetas ahora!

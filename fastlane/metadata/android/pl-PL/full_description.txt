@@ -18,6 +18,4 @@ Broccoli jest darmową, przyjazną dla środowiska aplikacją do <b>kolekcjonowa
 
 Broccoli jest darmowy dla każdego, żadne konto nie jest wymagane. Jeśli podoba ci się nasza aplikacja, możesz przekazać darowiznę, aby wesprzeć jej rozwój.
 
-Dostępne języki (na chwilę obecną): angielski, hiszpański, francuski, niemiecki.
-
 Stwórz swoją kolekcję przepisów teraz!
