@@ -18,6 +18,7 @@
         <item>@string/spanish</item>
         <item>@string/french</item>
         <item>@string/german</item>
+        <item>@string/polish</item>
     </string-array>
 
     <string-array name="language_values">
@@ -25,6 +26,7 @@
         <item>es</item>
         <item>fr</item>
         <item>de</item>
+        <item>pl</item>
     </string-array>
 
     <string-array name="theme_entries">
