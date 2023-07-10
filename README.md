@@ -12,6 +12,20 @@ You can get Broccoli on
 - [F-Droid](https://f-droid.org/packages/com.flauschcode.broccoli/)
 - [GitHub](https://github.com/flauschtrud/broccoli/releases/latest)
 
+## FAQ
+
+### Can I Import Recipes From Text Files Into Broccoli?
+Broccoli can only import it's own backup files (which can be created via "Backup & Restore"). But if you are technical adept and have some scripting skills you can create a `broccoli-archive` file yourself.
+
+The `broccoli-archive` is basically a zip file which consists of other zip files (one `broccoli` file for each recipe) and a JSON file for the categories. Each `broccoli` file consists of an optional image file and a JSON file with describes the recipe's metadata. Create an export yourself and have a look at the resulting file.
+
+The following task have to be done:
+1. Create the JSON file for each recipe (depending on the structure of your text files)
+2. Zip this file (with an optional image file) into a `broccoli` file
+3. Create a JSON file which describes your categories (in case you have any)
+4. Zip the JSON and all the `broccoli` files into a `broccoli-archive`
+5. Import the `*.broccoli-archive` into Broccoli
+
 ## Contributions
 
 ### Translations
