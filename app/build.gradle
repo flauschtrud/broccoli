@@ -30,6 +30,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    bundle {
+        language {
+            enableSplit = false
+        }
+    }
     flavorDimensions "appstore"
     productFlavors {
         play {
