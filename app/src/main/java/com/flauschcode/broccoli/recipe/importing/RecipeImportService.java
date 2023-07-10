@@ -98,7 +98,7 @@ public class RecipeImportService {
     }
 
     private boolean isRecipe(JSONObject jsonObject) {
-        return jsonObject.has(FIELD_TYPE) && TYPE_RECIPE.equals(jsonObject.optString(FIELD_TYPE));
+        return jsonObject.has(FIELD_TYPE) && jsonObject.optString(FIELD_TYPE).contains(TYPE_RECIPE);
     }
 
     private boolean theTopLevelStructureIsAnArray(Object json) {

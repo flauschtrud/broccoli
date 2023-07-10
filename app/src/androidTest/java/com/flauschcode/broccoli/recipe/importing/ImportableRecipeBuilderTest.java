@@ -26,6 +26,9 @@ import java.util.Optional;
 
 import javax.inject.Inject;
 
+/*
+    This is not a proper unit test because JSONObject would be the mocked version of the Android SDK in a unit test
+ */
 @RunWith(AndroidJUnit4.class)
 public class ImportableRecipeBuilderTest {
 
@@ -397,6 +400,146 @@ public class ImportableRecipeBuilderTest {
             "      \"mainEntityOfPage\": \"https://veggie-einhorn.de/saftiger-veganer-zitronenkuchen/#webpage\"\n" +
             "    }";
 
+    private static final String URL_ARRIFIED_TYPE ="https://www.allrecipes.com/recipe/147103/delicious-egg-salad-for-sandwiches/";
+
+    private static final String RECIPE_ARRIFIED_TYPE = "{\n" +
+            "\"@context\": \"http://schema.org\",\n" +
+            "\"@type\": [\"Recipe\",\"NewsArticle\"]\n" +
+            ",\"headline\": \"Delicious Egg Salad for Sandwiches\"\n" +
+            ",\"datePublished\": \"2007-08-12T01:48:39.000-04:00\"\n" +
+            ",\"dateModified\": \"2007-08-12T01:48:39.000-04:00\"\n" +
+            ",\"author\": [\n" +
+            "{\"@type\": \"Person\"\n" +
+            ",\"name\": \"wifeyluvs2cook\"\n" +
+            ",\"url\": \"https://www.allrecipes.com/cook/2309128\"\n" +
+            "}\n" +
+            "]\n" +
+            ",\"description\": \"This egg salad is quick to prep and easy to make with hard-cooked eggs, mayonnaise, mustard, paprika, and green onions. Perfect for sandwiches!\"\n" +
+            ",\"image\": {\n" +
+            "\"@type\": \"ImageObject\",\n" +
+            "\"url\": \"https://www.allrecipes.com/thmb/5SN7ROsF_d5tEiEUj5Vay0TD62g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4525663-570993c0dac74778a584ff6169bf8038.jpg\",\n" +
+            "\"height\": 1500,\n" +
+            "\"width\": 1500\n" +
+            "}\n" +
+            ",\"video\": {\n" +
+            "\"@type\": \"VideoObject\",\n" +
+            "\"embedUrl\": \"https://players.brightcove.net/1033249144001/default_default/index.html?videoId=1892556557001\",\n" +
+            "\"description\": \"AR0742\",\n" +
+            "\"duration\": \"PT2M31S\",\n" +
+            "\"name\": \"Delicious Egg Salad for Sandwiches\",\n" +
+            "\"thumbnailUrl\": \"https://cf-images.us-east-1.prod.boltdns.net/v1/static/1033249144001/952e480b-889d-4527-8f06-537723f5f600/dc9f0925-7fe3-4e43-aa34-14d4f1f18b1d/1280x720/match/image.jpg\",\n" +
+            "\"uploadDate\": \"2021-02-27T17:29:07.998-05:00\"}\n" +
+            ",\"publisher\": {\n" +
+            "\"@type\": \"Organization\",\n" +
+            "\"name\": \"Allrecipes\",\n" +
+            "\"url\": \"https://www.allrecipes.com\",\n" +
+            "\"logo\": {\n" +
+            "\"@type\": \"ImageObject\",\n" +
+            "\"url\": \"https://www.allrecipes.com/thmb/Z9lwz1y0B5aX-cemPiTgpn5YB0k=/112x112/filters:no_upscale():max_bytes(150000):strip_icc()/allrecipes_logo_schema-867c69d2999b439a9eba923a445ccfe3.png\",\n" +
+            "\"width\": 112,\n" +
+            "\"height\": 112\n" +
+            "},\n" +
+            "\"brand\": \"Allrecipes\"\n" +
+            ", \"publishingPrinciples\": \"https://www.allrecipes.com/about-us-6648102#toc-editorial-guidelines\"\n" +
+            ", \"sameAs\" : [\n" +
+            "\"https://www.facebook.com/allrecipes\",\n" +
+            "\"https://www.instagram.com/allrecipes/\",\n" +
+            "\"https://www.pinterest.com/allrecipes/\",\n" +
+            "\"https://www.tiktok.com/@allrecipes\",\n" +
+            "\"https://www.youtube.com/user/allrecipes/videos\",\n" +
+            "\"https://twitter.com/Allrecipes\",\n" +
+            "\"https://flipboard.com/@Allrecipes\",\n" +
+            "\"https://en.wikipedia.org/wiki/Allrecipes.com\",\n" +
+            "\"https://apps.apple.com/us/app/allrecipes-dinner-spinner/id299515267\",\n" +
+            "\"https://play.google.com/store/apps/details?id=com.allrecipes.spinner.free&hl=en_US&gl=US\",\n" +
+            "\"https://www.youtube.com/c/foodwishes\",\n" +
+            "\"https://www.linkedin.com/company/19312/admin/\"\n" +
+            "]\n" +
+            "}\n" +
+            ",\"name\": \"Delicious Egg Salad for Sandwiches\"\n" +
+            ",\"aggregateRating\": {\n" +
+            "\"@type\": \"AggregateRating\",\n" +
+            "\"ratingValue\": \"4.7\",\n" +
+            "\"ratingCount\": \"2210\"\n" +
+            "}\n" +
+            ",\"cookTime\": \"PT15M\"\n" +
+            ",\"nutrition\": {\n" +
+            "\"@type\": \"NutritionInformation\"\n" +
+            ",\"calories\": \"344 kcal\"\n" +
+            ",\"carbohydrateContent\": \"2 g\"\n" +
+            ",\"cholesterolContent\": \"383 mg\"\n" +
+            ",\"fiberContent\": \"0 g\"\n" +
+            ",\"proteinContent\": \"13 g\"\n" +
+            ",\"saturatedFatContent\": \"6 g\"\n" +
+            ",\"sodiumContent\": \"351 mg\"\n" +
+            ",\"sugarContent\": \"1 g\"\n" +
+            ",\"fatContent\": \"32 g\"\n" +
+            ",\"unsaturatedFatContent\": \"0 g\"\n" +
+            "}\n" +
+            ",\"prepTime\": \"PT10M\"\n" +
+            ", \"recipeCategory\": [\"Lunch\"]\n" +
+            ",\"recipeIngredient\": [\n" +
+            "\"8 eggs\",\n" +
+            "\"0.5 cup mayonnaise\",\n" +
+            "\"0.25 cup chopped green onion\",\n" +
+            "\"1 teaspoon prepared yellow mustard\",\n" +
+            "\"0.25 teaspoon paprika\",\n" +
+            "\"salt and pepper to taste\" ]\n" +
+            ",\"recipeInstructions\": [\n" +
+            "{\n" +
+            "\"@type\": \"HowToStep\"\n" +
+            ",\"text\": \"Place eggs in a saucepan and cover with cold water. Bring water to a boil and immediately remove from heat. Cover and let eggs stand in hot water for 10 to 12 minutes. Remove from hot water, cool, peel, and chop.\"\n" +
+            "} ,{\n" +
+            "\"@type\": \"HowToStep\"\n" +
+            ",\"image\": [\n" +
+            "{\n" +
+            "\"@type\": \"ImageObject\",\n" +
+            "\"url\": \"https://www.allrecipes.com/thmb/5SN7ROsF_d5tEiEUj5Vay0TD62g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4525663-570993c0dac74778a584ff6169bf8038.jpg\"\n" +
+            "}\n" +
+            "]\n" +
+            ",\"text\": \"Place chopped eggs in a bowl; stir in mayonnaise, green onion, and mustard. Season with paprika, salt, and pepper. Stir and serve on your favorite bread or crackers.\"\n" +
+            "} ]\n" +
+            ",\"recipeYield\": [\"4\"]\n" +
+            ",\"totalTime\": \"PT35M\"\n" +
+            ",\"mainEntityOfPage\": {\n" +
+            "\"@type\": [\"WebPage\"]\n" +
+            ",\"@id\": \"https://www.allrecipes.com/recipe/147103/delicious-egg-salad-for-sandwiches/\"\n" +
+            ",\"breadcrumb\": {\n" +
+            "\"@type\": \"BreadcrumbList\",\n" +
+            "\"itemListElement\": [\n" +
+            "{\n" +
+            "\"@type\": \"ListItem\",\n" +
+            "\"position\": 1,\n" +
+            "\"item\": {\n" +
+            "\"@id\": \"https://www.allrecipes.com/recipes/96/salad/\",\n" +
+            "\"name\": \"Salad\"\n" +
+            "}\n" +
+            "}\n" +
+            ",\n" +
+            "{\n" +
+            "\"@type\": \"ListItem\",\n" +
+            "\"position\": 2,\n" +
+            "\"item\": {\n" +
+            "\"@id\": \"https://www.allrecipes.com/recipes/1986/salad/egg-salad/\",\n" +
+            "\"name\": \"Egg Salad Recipes\"\n" +
+            "}\n" +
+            "}\n" +
+            ",\n" +
+            "{\n" +
+            "\"@type\": \"ListItem\",\n" +
+            "\"position\": 3,\n" +
+            "\"item\": {\n" +
+            "\"@id\": \"https://www.allrecipes.com/recipe/147103/delicious-egg-salad-for-sandwiches/\",\n" +
+            "\"name\": \"Delicious Egg Salad for Sandwiches\"\n" +
+            "}\n" +
+            "}\n" +
+            "]\n" +
+            "}\n" +
+            "}\n" +
+            ", \"about\": [\n" +
+            "]\n" +
+            "}";
+
     @Before
     public void setUp() {
         AccessibilityChecks.enable();
@@ -510,5 +653,31 @@ public class ImportableRecipeBuilderTest {
         assertThat(recipe.getTitle(), is("Vegane Chocolate Chip Cookies"));
         assertThat(recipe.getSource(), is(URL_CHEFKOCH));
     }
-    
+
+    /*
+        see https://github.com/flauschtrud/broccoli/issues/189
+     */
+    @Test
+    public void arrified_type() throws JSONException, IOException {
+        when(recipeImageService.downloadToCache(new URL("https://www.allrecipes.com/thmb/5SN7ROsF_d5tEiEUj5Vay0TD62g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4525663-570993c0dac74778a584ff6169bf8038.jpg"))).thenReturn("blablupp.jpg");
+
+        ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(recipeImageService);
+
+        Optional<Recipe> optionalRecipe = recipeBuilder
+                .withRecipeJsonLd(new JSONObject(RECIPE_ARRIFIED_TYPE))
+                .from(URL_ARRIFIED_TYPE)
+                .build();
+
+        assertThat(optionalRecipe.isPresent(), is(true));
+
+        Recipe recipe = optionalRecipe.get();
+        assertThat(recipe.getTitle(), is("Delicious Egg Salad for Sandwiches"));
+        assertThat(recipe.getSource(), is(URL_ARRIFIED_TYPE));
+        assertThat(recipe.getServings(), is("4"));
+        assertThat(recipe.getPreparationTime(), is("35m"));
+        assertThat(recipe.getDescription(), is("This egg salad is quick to prep and easy to make with hard-cooked eggs, mayonnaise, mustard, paprika, and green onions. Perfect for sandwiches!"));
+        assertThat(recipe.getIngredients(), is("8 eggs\n0.5 cup mayonnaise\n0.25 cup chopped green onion\n1 teaspoon prepared yellow mustard\n0.25 teaspoon paprika\nsalt and pepper to taste"));
+        assertThat(recipe.getDirections(), is("Place eggs in a saucepan and cover with cold water. Bring water to a boil and immediately remove from heat. Cover and let eggs stand in hot water for 10 to 12 minutes. Remove from hot water, cool, peel, and chop.\nPlace chopped eggs in a bowl; stir in mayonnaise, green onion, and mustard. Season with paprika, salt, and pepper. Stir and serve on your favorite bread or crackers."));
+        assertThat(recipe.getImageName(), is ("blablupp.jpg"));
+    }
 }
