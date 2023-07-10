@@ -33,5 +33,12 @@ The following task have to be done:
 
 I set up a project on [Crowdin](https://crowdin.com/project/broccoli) to manage translations. Feel free to join and tell me if you want me to add more languages.
 
+Available languages so far:
+- English (done by non-native, feel free to report any issues)
+- Spanish (done by non-native, feel free to report any issues)
+- French (done by non-native, feel free to report any issues)
+- German
+- Polish (thanks a lot to [r-tw0](https://github.com/r-tw0) for your help!)
+
 ### Seasonal Calendars
 If you want to contribute by researching data for additional seasonal calendars please contact me.
