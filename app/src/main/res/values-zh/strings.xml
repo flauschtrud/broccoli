@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- CRUD -->
-    <string name="recipes">Recipes</string>
-    <string name="no_recipes_found">No recipes found.</string>
-    <string name="create_a_recipe_prompt">create a new recipe</string>
-    <string name="import_from_the_web_prompt">import a recipe from a website</string>
-    <string name="new_recipe">New Recipe</string>
-    <string name="create_first_recipe">Create your first recipe and start your collection!</string>
-    <string name="edit_action">Edit</string>
-    <string name="save_action">Save</string>
-    <string name="title_should_not_be_empty_message">Please add a title.</string>
-    <string name="recipe_saved_message">The recipe has been saved.</string>
-    <string name="recipe_could_not_be_saved_message">The recipe could not be saved.</string>
-    <string name="delete_action">Delete</string>
-    <string name="delete_recipe_question">Delete this recipe?</string>
-    <string name="recipe_deleted_message">The recipe has been deleted.</string>
-    <string name="discard_action">Discard</string>
+    <string name="recipes">食谱</string>
+    <string name="no_recipes_found">未找到食谱</string>
+    <string name="create_a_recipe_prompt">创建新食谱</string>
+    <string name="import_from_the_web_prompt">从网站上导入食谱</string>
+    <string name="new_recipe">新食谱</string>
+    <string name="create_first_recipe">创建您的第一个食谱并开始收藏！</string>
+    <string name="edit_action">编辑</string>
+    <string name="save_action">保存</string>
+    <string name="title_should_not_be_empty_message">请输入标题。</string>
+    <string name="recipe_saved_message">食谱已被保存.</string>
+    <string name="recipe_could_not_be_saved_message">无法保存食谱。</string>
+    <string name="delete_action">删除</string>
+    <string name="delete_recipe_question">删除此食谱？</string>
+    <string name="recipe_deleted_message">该食谱已被删除</string>
+    <string name="discard_action">丢弃</string>
     <string name="discard_changes_question">Discard changes?</string>
     <string name="title">Title</string>
     <string name="description">Description</string>
