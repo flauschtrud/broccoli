@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- CRUD -->
-    <string name="recipes">Recipes</string>
-    <string name="no_recipes_found">No recipes found.</string>
-    <string name="create_a_recipe_prompt">create a new recipe</string>
-    <string name="import_from_the_web_prompt">import a recipe from a website</string>
-    <string name="new_recipe">New Recipe</string>
-    <string name="create_first_recipe">Create your first recipe and start your collection!</string>
-    <string name="edit_action">Edit</string>
-    <string name="save_action">Save</string>
-    <string name="title_should_not_be_empty_message">Please add a title.</string>
-    <string name="recipe_saved_message">The recipe has been saved.</string>
-    <string name="recipe_could_not_be_saved_message">The recipe could not be saved.</string>
-    <string name="delete_action">Delete</string>
-    <string name="delete_recipe_question">Delete this recipe?</string>
-    <string name="recipe_deleted_message">The recipe has been deleted.</string>
-    <string name="discard_action">Discard</string>
-    <string name="discard_changes_question">Discard changes?</string>
-    <string name="title">Title</string>
-    <string name="description">Description</string>
-    <string name="source">Source</string>
+    <string name="recipes">Ricette</string>
+    <string name="no_recipes_found">Nessuna ricetta trovata.</string>
+    <string name="create_a_recipe_prompt">crea una nuova ricetta</string>
+    <string name="import_from_the_web_prompt">importa una ricetta da un sito web</string>
+    <string name="new_recipe">Nuova Ricetta</string>
+    <string name="create_first_recipe">Crea la tua prima ricetta e inizia la tua collezione!</string>
+    <string name="edit_action">Modifica</string>
+    <string name="save_action">Salva</string>
+    <string name="title_should_not_be_empty_message">Si prega di aggiungere un titolo.</string>
+    <string name="recipe_saved_message">La ricetta è stata salvata.</string>
+    <string name="recipe_could_not_be_saved_message">Impossible salvare la ricetta.</string>
+    <string name="delete_action">Cancella</string>
+    <string name="delete_recipe_question">Cancellare questa ricetta?</string>
+    <string name="recipe_deleted_message">La ricetta è stata cancellata.</string>
+    <string name="discard_action">Annulla</string>
+    <string name="discard_changes_question">Annullare le modifiche?</string>
+    <string name="title">Titolo</string>
+    <string name="description">Descrizione</string>
+    <string name="source">Fonte</string>
     <!-- double check in translation! -->
-    <string name="servings">Servings</string>
-    <string name="preparation_time">Time</string>
-    <string name="ingredients">Ingredients</string>
-    <string name="directions">Directions</string>
+    <string name="servings">Porzioni</string>
+    <string name="preparation_time">Tempo</string>
+    <string name="ingredients">Ingredienti</string>
+    <string name="directions">Istruzioni</string>
     <!-- double check in translation! -->
-    <string name="recipe_photo_accessibility">Recipe photo</string>
-    <string name="change_photo">Change photo</string>
-    <string name="remove_photo">Remove photo</string>
-    <string name="take_photo">Take photo</string>
-    <string name="pick_photo">Pick photo</string>
-    <string name="image_could_not_be_created_message">The image file could not be created.</string>
+    <string name="recipe_photo_accessibility">Foto della ricetta</string>
+    <string name="change_photo">Cambia foto</string>
+    <string name="remove_photo">Rimuovi foto</string>
+    <string name="take_photo">Scatta foto</string>
+    <string name="pick_photo">Seleziona foto</string>
+    <string name="image_could_not_be_created_message">Impossibile creare il file d\'immagine.</string>
     <!-- Categories -->
-    <string name="categories">Categories</string>
-    <string name="create_a_category_prompt">Create custom categories to manage your recipes.</string>
-    <string name="add_category">Add category</string>
+    <string name="categories">Categorie</string>
+    <string name="create_a_category_prompt">Crea categorie personalizzate per gestire le tue ricette.</string>
+    <string name="add_category">Aggiungi categoria</string>
     <string name="add_first_category">Add your first custom category and bring order into your collection!</string>
     <string name="edit_category">Edit category</string>
     <string name="category_name">Name</string>
