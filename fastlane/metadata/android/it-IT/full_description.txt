@@ -8,7 +8,7 @@ Broccoli è un'app eco-friendly gratuita per costruire la tua <b>raccolta di ric
 • fai un backup delle tue ricette
 
 <b>Cucina eco-friendly</b>
-• scopri di più sugli ingredienti di stagione nella tua zona grazie al calendario stagionale
+• scopri di più sugli ingredienti di stagione nella tua regione grazie al calendario stagionale
 • cerca ricette di stagione nella tua raccolta
 • identifica facilmente ingredienti di stagione
 
@@ -16,6 +16,6 @@ Broccoli è un'app eco-friendly gratuita per costruire la tua <b>raccolta di ric
 • utilizza a schermo intero il tuo assistente in cucina mentre prepari i tuoi piatti
 • perfeziona la quantità di ingredienti
 
-Broccoli è gratuita per tutti senza alcuna registrazione necessaria. If you enjoy our recipe app you can donate to support the development of the app.
+Broccoli è gratuita per tutti senza alcuna registrazione necessaria. Se ti piace la nostra app di ricette puoi fare una donazione per supportarne lo sviluppo.
 
-Start your recipe collection now!
+Inizia subito la tua raccolta di ricette!
