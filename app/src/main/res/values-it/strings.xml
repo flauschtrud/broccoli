@@ -3,8 +3,8 @@
     <!-- CRUD -->
     <string name="recipes">Ricette</string>
     <string name="no_recipes_found">Nessuna ricetta trovata.</string>
-    <string name="create_a_recipe_prompt">crea una nuova ricetta</string>
-    <string name="import_from_the_web_prompt">importa una ricetta da un sito web</string>
+    <string name="create_a_recipe_prompt">crea nuova ricetta</string>
+    <string name="import_from_the_web_prompt">importa da sito web</string>
     <string name="new_recipe">Nuova Ricetta</string>
     <string name="create_first_recipe">Crea la tua prima ricetta e inizia la tua raccolta!</string>
     <string name="edit_action">Modifica</string>
