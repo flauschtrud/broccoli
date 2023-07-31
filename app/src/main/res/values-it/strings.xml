@@ -11,12 +11,12 @@
     <string name="save_action">Salva</string>
     <string name="title_should_not_be_empty_message">Per favore aggiungi un titolo.</string>
     <string name="recipe_saved_message">La ricetta è stata salvata.</string>
-    <string name="recipe_could_not_be_saved_message">Impossible salvare la ricetta.</string>
+    <string name="recipe_could_not_be_saved_message">Impossibile salvare la ricetta.</string>
     <string name="delete_action">Elimina</string>
     <string name="delete_recipe_question">Eliminare questa ricetta?</string>
     <string name="recipe_deleted_message">La ricetta è stata eliminata.</string>
-    <string name="discard_action">Annulla</string>
-    <string name="discard_changes_question">Annullare le modifiche?</string>
+    <string name="discard_action">Scarta</string>
+    <string name="discard_changes_question">Scartare le modifiche?</string>
     <string name="title">Titolo</string>
     <string name="description">Descrizione</string>
     <string name="source">Origine</string>
@@ -24,7 +24,7 @@
     <string name="servings">Porzioni</string>
     <string name="preparation_time">Tempo</string>
     <string name="ingredients">Ingredienti</string>
-    <string name="directions">Istruzioni</string>
+    <string name="directions">Preparazione</string>
     <!-- double check in translation! -->
     <string name="recipe_photo_accessibility">Foto della ricetta</string>
     <string name="change_photo">Cambia foto</string>
@@ -34,7 +34,7 @@
     <string name="image_could_not_be_created_message">Impossibile creare il file d\'immagine.</string>
     <!-- Categories -->
     <string name="categories">Categorie</string>
-    <string name="create_a_category_prompt">Crea categorie personalizzate per gestire le tue ricette.</string>
+    <string name="create_a_category_prompt">Crea categorie personalizzate per organizzare le tue ricette.</string>
     <string name="add_category">Aggiungi categoria</string>
     <string name="add_first_category">Aggiungi la tua prima categoria personalizzata e fai ordine nella tua raccolta!</string>
     <string name="edit_category">Modifica categoria</string>
@@ -44,7 +44,7 @@
     <string name="mark_as_favorite_action">Aggiungi ai preferiti</string>
     <string name="remove_from_favorite_action">Rimuovi dai preferiti</string>
     <string name="favorites">Preferiti</string>
-    <string name="delete_category_question">Vuoi veramente eliminare questa categoria?</string>
+    <string name="delete_category_question">Vuoi davvero eliminare questa categoria?</string>
     <string name="unassigned">Ricette senza categoria</string>
     <string name="search">Cerca</string>
     <string name="search_in">Cerca in %1$s</string>
@@ -64,7 +64,7 @@
     <!-- Sharing and export/import -->
     <string name="share_action">Condividi</string>
     <string name="shared_with">Condividi con %1$s</string>
-    <string name="recipe_could_not_be_imported_message">Siamo spiacenti, qualcosa è andato storto.</string>
+    <string name="recipe_could_not_be_imported_message">Siamo spiacenti, si è verificato un errore.</string>
     <string name="recipe_could_not_be_read_message">Siamo spiacenti, la ricetta non è leggibile.</string>
     <string name="share_as_file_action">Condividi come file</string>
     <string name="recipe_could_not_be_exported_message">Impossibile esportare la ricetta.</string>
@@ -113,7 +113,7 @@
     <string name="region">Regione</string>
     <string name="languages_of_recipes">Lingua delle ricette</string>
     <string name="no_language_set_message">In che lingua vuoi creare le tue ricette? Scegli almeno una lingua.</string>
-    <string name="seasons_feedback_message">Non trovi la tua regione, lingua o ingrediente preferito?</string>
+    <string name="seasons_feedback_message">Non trovi la tua regione, lingua o il tuo ingrediente preferito?</string>
     <string name="seasons_feedback_subject">Feedback per il calendario stagionale</string>
     <!-- regions for seasonal calendar -->
     <string name="region_central_europe">Europa centrale</string>
@@ -126,10 +126,10 @@
     <string name="german">Tedesco</string>
     <string name="polish">Polacco</string>
     <!-- support -->
-    <string name="support_the_app">Sostieni l\'app</string>
+    <string name="support_the_app">Supporta l\'app</string>
     <string name="support_the_app_donate">Fai una donazione</string>
-    <string name="support_the_app_donate_text_playstore">Broccoli è gratuita per tutti. Ma puoi supportare lo sviluppo dell\'app offrendomi un biscotto, un caffé o un panino. Grazie mille!</string>
-    <string name="support_the_app_donate_text_fdroid">Broccoli è gratuita per tutti. Ma puoi supportare lo sviluppo dell\'app offrendomi un caffé. Grazie mille!</string>
+    <string name="support_the_app_donate_text_playstore">Broccoli è gratuita per tutti. Ma puoi supportare lo sviluppo dell\'app offrendomi un biscotto, un caffè o un panino. Grazie mille!</string>
+    <string name="support_the_app_donate_text_fdroid">Broccoli è gratuita per tutti. Ma puoi supportare lo sviluppo dell\'app offrendomi un caffè. Grazie mille!</string>
     <string name="support_the_app_give_feedback">Dai il tuo feedback</string>
     <string name="support_the_app_give_feedback_text">Ti piace Broccoli? Raccontaci perché!</string>
     <string name="support_the_app_tell_your_friends">Dillo ai tuoi amici</string>
