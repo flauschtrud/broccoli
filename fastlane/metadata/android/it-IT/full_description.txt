@@ -4,7 +4,7 @@ Broccoli è un'app gratuita per costruire la tua <b>raccolta di ricette</b> ecos
 • crea tutte le ricette che vuoi
 • importa le ricette dai tuoi blog preferiti
 • organizza per categoria e hashtag
-• accedi alle tue ricette senza connessione ad internet
+• accedi alle tue ricette senza connessione a internet
 • fai un backup delle tue ricette
 
 <b>Cucina ecosostenibile</b>
