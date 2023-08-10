@@ -58,7 +58,7 @@
     <string name="adjust_ingredients_prompt">选择烹调分量</string>
     <string name="scaling_simple">简单</string>
     <string name="scaling_pro">专业</string>
-    <string name="recipe_amount">Recipe amount</string>
+    <string name="recipe_amount">食谱分量</string>
     <string name="scaling_factor">Scaling factor</string>
     <string name="unscaled">未调整</string>
     <!-- Sharing and export/import -->
@@ -84,7 +84,7 @@
     <!-- Settings/feedback -->
     <string name="about_the_app">关于本应用</string>
     <string name="help">求助</string>
-    <string name="legal_policies">Legal</string>
+    <string name="legal_policies">法律条款</string>
     <string name="send_feedback">意见反馈</string>
     <string name="send_feedback_message">您是否发现错误或觉得缺少某功能？ </string>
     <string name="feedback_subject">Brocoli 应用的反馈</string>
@@ -98,50 +98,50 @@
     <string name="dark">暗色主题</string>
     <string name="system_default">系统默认</string>
     <string name="privacy_policy">隐私条款</string>
-    <string name="privacy_policy_summary">Learn more about how we protect your personal data.</string>
-    <string name="demo_recipe">Demo recipe</string>
+    <string name="privacy_policy_summary">了解我们如何保护您的个人数据。</string>
+    <string name="demo_recipe">示范食谱</string>
     <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="open_source_licenses_text">License details for open source software</string>
+    <string name="open_source_licenses">开源许可证</string>
+    <string name="open_source_licenses_text">开源码许可证细节</string>
     <!-- Seasons -->
     <string name="seasonal_calendar">Seasonal calendar</string>
     <string name="seasonal_accessibility">Seasonal ingredient(s)</string>
     <string name="seasonal_recipes">Seasonal recipes</string>
     <string name="seasonal_ingredients_accessibility">Seasonal ingredients</string>
     <string name="seasons_not_configured_message">The seasonal calendar has not been fully configured yet.</string>
-    <string name="configure_seasons_action">Configure</string>
-    <string name="region">Region</string>
+    <string name="configure_seasons_action">配置</string>
+    <string name="region">地区</string>
     <string name="languages_of_recipes">Languages of recipes</string>
     <string name="no_language_set_message">In which languages do you create your recipes? Choose at least one language.</string>
     <string name="seasons_feedback_message">Do you miss your region, language or favorite ingredient?</string>
     <string name="seasons_feedback_subject">Feedback for Seasonal Calendar</string>
     <!-- regions for seasonal calendar -->
-    <string name="region_central_europe">Central Europe</string>
-    <string name="region_north_america_colder">North America (colder)</string>
-    <string name="region_north_america_warmer">North America (warmer)</string>
+    <string name="region_central_europe">中欧洲</string>
+    <string name="region_north_america_colder">北美洲 (冷)</string>
+    <string name="region_north_america_warmer">北美洲 (暖)</string>
     <!-- languages for seasonal calendar -->
-    <string name="english">English</string>
-    <string name="spanish">Spanish</string>
-    <string name="french">French</string>
-    <string name="german">German</string>
-    <string name="polish">Polish</string>
+    <string name="english">英语</string>
+    <string name="spanish">西班牙语</string>
+    <string name="french">法语</string>
+    <string name="german">德语</string>
+    <string name="polish">波兰语</string>
     <!-- support -->
     <string name="support_the_app">支持本应用</string>
-    <string name="support_the_app_donate">Donate</string>
-    <string name="support_the_app_donate_text_playstore">Broccoli is free for everyone. But you can support the development of the app and buy me a cookie, coffee or burger. Thanks a lot!</string>
-    <string name="support_the_app_donate_text_fdroid">Broccoli is free for everyone. But you can support the development of the app and buy me a coffee. Thanks a lot!</string>
-    <string name="support_the_app_give_feedback">Give feedback</string>
-    <string name="support_the_app_give_feedback_text">Do you like Broccoli? Tell us about it!</string>
-    <string name="support_the_app_tell_your_friends">Tell your friends</string>
-    <string name="support_the_app_tell_your_friends_text">Do your friends also like to cook? Tell them about Broccoli!</string>
-    <string name="free_for_everyone">Free for everyone</string>
-    <string name="buy">Buy</string>
-    <string name="play_store_sign_in_message">Please sign in to Google Play Store.</string>
-    <string name="rate_the_app">Rate the app</string>
-    <string name="share_the_app">Share the app</string>
+    <string name="support_the_app_donate">捐助</string>
+    <string name="support_the_app_donate_text_playstore">Brocoli 是免费的。但您可以通过捐助来支持此应用的开发。感谢！</string>
+    <string name="support_the_app_donate_text_fdroid">Brocoli 是免费的。但您可以通过捐助来支持此应用的开发。感谢！</string>
+    <string name="support_the_app_give_feedback">提供反馈</string>
+    <string name="support_the_app_give_feedback_text">你喜欢Brocoli吗？请告诉我们！</string>
+    <string name="support_the_app_tell_your_friends">与朋友分享</string>
+    <string name="support_the_app_tell_your_friends_text">您的朋友也喜欢烹饪吗？请告诉他们Brocoli！</string>
+    <string name="free_for_everyone">完全免费</string>
+    <string name="buy">购买</string>
+    <string name="play_store_sign_in_message">请登录 Google Play 商店。</string>
+    <string name="rate_the_app">为此应用评分</string>
+    <string name="share_the_app">分享此应用</string>
     <!-- seasonal food -->
     <!-- the plurals are important! -->
-    <string name="eggplant">Eggplants</string>
+    <string name="eggplant">茄子</string>
     <string name="eggplant_terms">eggplant, eggplants, aubergine, aubergines</string>
     <string name="cauliflower">Cauliflower</string>
     <string name="cauliflower_terms">cauliflower</string>
