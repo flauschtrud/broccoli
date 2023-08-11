@@ -14,6 +14,11 @@ You can get Broccoli on
 
 ## FAQ
 
+### Why Can Some Recipes Not Be Imported via Their URL Into Broccoli?
+Broccoli searches for recipe metadata in the [JSON-LD](https://json-ld.org/) format. Many modern sites and blogs provide this metadata since it helps them with search engine optimization. But some might also choose to not expose it because they do not want any external sites and tools to scrape their content.
+
+If you want to verify if a specific site exposes JSON-LD metadata hit F12 in your browser and search for script tags with the `type="application/ld+json"` property.
+
 ### Can I Import Recipes From Text Files Into Broccoli?
 Broccoli can only import it's own backup files (which can be created via "Backup & Restore"). But if you are technical adept and have some scripting skills you can create a `broccoli-archive` file yourself.
 
