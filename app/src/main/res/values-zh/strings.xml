@@ -53,13 +53,13 @@
     <string name="cooking_assistant">烹饪助理</string>
     <string name="cooking_assistant_prompt">在全屏并不受干扰下的显示您的食谱！</string>
     <string name="no_ingredients_and_directions_message">此食谱尚无任何配方或指示。</string>
-    <string name="cook_action">Cook</string>
+    <string name="cook_action">烹煮</string>
     <string name="adjust_ingredients">调整材料</string>
     <string name="adjust_ingredients_prompt">选择烹调分量</string>
     <string name="scaling_simple">简单</string>
     <string name="scaling_pro">专业</string>
     <string name="recipe_amount">食谱分量</string>
-    <string name="scaling_factor">Scaling factor</string>
+    <string name="scaling_factor">缩放倍数</string>
     <string name="unscaled">未调整</string>
     <!-- Sharing and export/import -->
     <string name="share_action">分享</string>
@@ -104,17 +104,17 @@
     <string name="open_source_licenses">开源许可证</string>
     <string name="open_source_licenses_text">开源码许可证细节</string>
     <!-- Seasons -->
-    <string name="seasonal_calendar">Seasonal calendar</string>
-    <string name="seasonal_accessibility">Seasonal ingredient(s)</string>
-    <string name="seasonal_recipes">Seasonal recipes</string>
-    <string name="seasonal_ingredients_accessibility">Seasonal ingredients</string>
-    <string name="seasons_not_configured_message">The seasonal calendar has not been fully configured yet.</string>
+    <string name="seasonal_calendar">季节性日历</string>
+    <string name="seasonal_accessibility">季节性材料(s)</string>
+    <string name="seasonal_recipes">季节性食谱</string>
+    <string name="seasonal_ingredients_accessibility">季节性材料</string>
+    <string name="seasons_not_configured_message">尚未完全配置季节性日历。</string>
     <string name="configure_seasons_action">配置</string>
     <string name="region">地区</string>
-    <string name="languages_of_recipes">Languages of recipes</string>
-    <string name="no_language_set_message">In which languages do you create your recipes? Choose at least one language.</string>
-    <string name="seasons_feedback_message">Do you miss your region, language or favorite ingredient?</string>
-    <string name="seasons_feedback_subject">Feedback for Seasonal Calendar</string>
+    <string name="languages_of_recipes">食谱的语文</string>
+    <string name="no_language_set_message">请问您是以哪种语言创建食谱呢？请选择至少一种语言。</string>
+    <string name="seasons_feedback_message">您所在的区域、语言还是喜爱的材料不在选项中吗？</string>
+    <string name="seasons_feedback_subject">对季节性日历的反馈</string>
     <!-- regions for seasonal calendar -->
     <string name="region_central_europe">中欧洲</string>
     <string name="region_north_america_colder">北美洲 (冷)</string>
@@ -142,17 +142,17 @@
     <!-- seasonal food -->
     <!-- the plurals are important! -->
     <string name="eggplant">茄子</string>
-    <string name="eggplant_terms">eggplant, eggplants, aubergine, aubergines</string>
-    <string name="cauliflower">Cauliflower</string>
-    <string name="cauliflower_terms">cauliflower</string>
-    <string name="broad_bean">Broad beans</string>
-    <string name="broad_bean_terms">broad beans, fava beans, faba beans</string>
-    <string name="bean">Beans</string>
-    <string name="bean_terms">common beans, french beans, green beans</string>
-    <string name="broccoli">Broccoli</string>
-    <string name="broccoli_terms">broccoli</string>
-    <string name="chinese_cabbage">Chinese cabbage</string>
-    <string name="chinese_cabbage_terms">chinese cabbage, napa cabbage</string>
+    <string name="eggplant_terms">茄子、矮瓜、吊菜、落苏、紅菜、紫菜</string>
+    <string name="cauliflower">花椰菜</string>
+    <string name="cauliflower_terms">花椰菜</string>
+    <string name="broad_bean">蚕豆</string>
+    <string name="broad_bean_terms">蚕豆、胡豆、佛豆、川豆、倭豆、罗汉豆、豌豆</string>
+    <string name="bean">豆类</string>
+    <string name="bean_terms">四季豆、青豆、菜豆、荷包豆、豇豆、扁豆</string>
+    <string name="broccoli">西兰花</string>
+    <string name="broccoli_terms">西兰花</string>
+    <string name="chinese_cabbage">大白菜</string>
+    <string name="chinese_cabbage_terms">大白菜</string>
     <string name="pea">Peas</string>
     <string name="pea_terms">peas</string>
     <string name="fennel">Fennel</string>
