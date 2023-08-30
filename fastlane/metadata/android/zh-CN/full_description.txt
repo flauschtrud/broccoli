@@ -1,21 +1,21 @@
-Broccoli is a free eco-friendly recipe app for building your <b>recipe collection</b>, <b>distraction free cooking</b> and <b>seasonal ingredients</b>. Create, collect and cook!
+Brocolli是个完全免费的食谱应用。您可以<b>收藏喜欢的食谱</b>，<b>毫无干扰</b>下的烹煮食谱，还可以用<b>季节性食谱</b>并根据季节变更烹煮当季的新鲜食材。 创建、收集、烹饪您的食谱！
 
-<b>Organize easily</b>
-• create an unlimited amount of recipes
-• import recipes from your favorite blogs
-• organize with categories and hashtags
-• access your recipes offline
-• backup your recipes
+<b>轻松的管理食谱</b>
+• 无限制的创建食谱
+• 从您最喜欢的博客中导入食谱
+• 按类别和标签整理食谱
+• 无需上线
+• 备份您的食谱
 
-<b>Cook eco-friendly</b>
-• learn more about the seasonal ingredients in your region with the seasonal calendar
-• search for seasonal recipes in your collection
-• easily identify seasonal ingredients
+<b>季节性食谱</b>
+• 了解的当季新鲜食材
+• 在您的收藏中寻找季节性食谱。
+• 寻找当季食材
 
-<b>Cook without distraction</b>
-• use the fullscreen cooking assistant while you prepare your dish
-• adjust the amount of the ingredients
+<b>无干扰下烹饪</b>
+• 全屏烹饪助手
+• 调整食材份量
 
-Broccoli is free for everyone and no account is required. If you enjoy our recipe app you can donate to support the development of the app.
+Brocoli是完全免费的，不需账户便能使用。 如果您喜欢本应用，请通过捐赠来支持本应用的开发。
 
-Start your recipe collection now!
+立即开始收藏食谱吧！
