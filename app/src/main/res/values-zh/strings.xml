@@ -73,17 +73,17 @@
     <string name="backup">备份</string>
     <string name="restore">还原</string>
     <string name="backup_recipes">备份食谱</string>
-    <string name="backup_recipes_message">导出所有的食谱和分类，并随时保存</string>
+    <string name="backup_recipes_message">导出并保存所有食谱和分类</string>
     <string name="restore_recipes">还原食谱</string>
     <string name="restore_recipes_message">从备份文件导入所有食谱和类别。</string>
     <string name="backup_failed_message">无法导出食谱。</string>
     <string name="restore_failed_message">无法导入食谱。</string>
     <string name="restore_all_question">从该文件导入所有食谱和类别吗？</string>
-    <string name="restore_completed_message">%1$d 食谱已被导入。</string>
+    <string name="restore_completed_message">%1$d 个食谱已被导入。</string>
     <string name="last_backup">上一次的备份</string>
     <!-- Settings/feedback -->
     <string name="about_the_app">关于本应用</string>
-    <string name="help">求助</string>
+    <string name="help">帮助</string>
     <string name="legal_policies">法律条款</string>
     <string name="send_feedback">意见反馈</string>
     <string name="send_feedback_message">您是否发现错误或觉得缺少某功能？ </string>
