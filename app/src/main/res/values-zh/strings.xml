@@ -23,7 +23,7 @@
     <!-- double check in translation! -->
     <string name="servings">份量</string>
     <string name="preparation_time">耗时</string>
-    <string name="ingredients">材料</string>
+    <string name="ingredients">食材</string>
     <string name="directions">指示</string>
     <!-- double check in translation! -->
     <string name="recipe_photo_accessibility">食谱照片</string>
@@ -52,10 +52,10 @@
     <!-- Cooking mode -->
     <string name="cooking_assistant">烹饪助理</string>
     <string name="cooking_assistant_prompt">不受干扰的用全屏模式烹煮您的食谱！</string>
-    <string name="no_ingredients_and_directions_message">此食谱尚无任何配方或指示。</string>
+    <string name="no_ingredients_and_directions_message">此食谱尚无任何食材或指示。</string>
     <string name="cook_action">烹煮</string>
-    <string name="adjust_ingredients">调整材料</string>
-    <string name="adjust_ingredients_prompt">选择烹调分量</string>
+    <string name="adjust_ingredients">调整食材</string>
+    <string name="adjust_ingredients_prompt">选择烹调食材分量！</string>
     <string name="scaling_simple">简单</string>
     <string name="scaling_pro">高级</string>
     <string name="recipe_amount">食谱分量</string>
@@ -105,15 +105,15 @@
     <string name="open_source_licenses_text">开源码许可证细节</string>
     <!-- Seasons -->
     <string name="seasonal_calendar">季节性日历</string>
-    <string name="seasonal_accessibility">季节性材料(s)</string>
+    <string name="seasonal_accessibility">季节性食材(s)</string>
     <string name="seasonal_recipes">季节性食谱</string>
-    <string name="seasonal_ingredients_accessibility">季节性材料</string>
+    <string name="seasonal_ingredients_accessibility">季节性食材</string>
     <string name="seasons_not_configured_message">尚未完全配置季节性日历。</string>
     <string name="configure_seasons_action">配置</string>
     <string name="region">地区</string>
     <string name="languages_of_recipes">食谱的语文</string>
     <string name="no_language_set_message">请问您是以哪种语言创建食谱呢？请选择至少一种。</string>
-    <string name="seasons_feedback_message">您所在的区域、语言还是喜爱的材料不在选项中吗？</string>
+    <string name="seasons_feedback_message">您所在的区域、语言还是喜爱的食材不在选项中吗？</string>
     <string name="seasons_feedback_subject">对季节性日历的反馈</string>
     <!-- regions for seasonal calendar -->
     <string name="region_central_europe">中欧洲</string>
