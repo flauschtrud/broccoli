@@ -45,7 +45,7 @@
     <string name="remove_from_favorite_action">从收藏中删除</string>
     <string name="favorites">收藏</string>
     <string name="delete_category_question">您真的要删除此类别吗？</string>
-    <string name="unassigned">没有分类的食谱</string>
+    <string name="unassigned">无分类食谱</string>
     <string name="search">搜索</string>
     <string name="search_in">在 %1$s 中搜索</string>
     <string name="preferred_category">优先类别</string>
@@ -87,7 +87,7 @@
     <string name="legal_policies">法律条款</string>
     <string name="send_feedback">意见反馈</string>
     <string name="send_feedback_message">您是否发现错误或觉得缺少某功能？ </string>
-    <string name="feedback_subject">Brocoli 应用的反馈</string>
+    <string name="feedback_subject">Broccoli 应用的反馈</string>
     <!-- double check in translation! -->
     <string name="version">版本</string>
     <string name="settings">设置</string>
@@ -128,12 +128,12 @@
     <!-- support -->
     <string name="support_the_app">支持本应用</string>
     <string name="support_the_app_donate">捐助</string>
-    <string name="support_the_app_donate_text_playstore">Brocoli 是完全免费的。但您可以通过捐助来支持此应用的开发。感谢！</string>
-    <string name="support_the_app_donate_text_fdroid">Brocoli 是完全免费的。但您可以通过捐助来支持此应用的开发。感谢！</string>
+    <string name="support_the_app_donate_text_playstore">Broccoli 是完全免费的。但您可以通过捐助来支持此应用的开发。感谢！</string>
+    <string name="support_the_app_donate_text_fdroid">Broccoli 是完全免费的。但您可以通过捐助来支持此应用的开发。感谢！</string>
     <string name="support_the_app_give_feedback">提供反馈</string>
-    <string name="support_the_app_give_feedback_text">你喜欢Brocoli吗？请告诉我们！</string>
+    <string name="support_the_app_give_feedback_text">你喜欢Broccoli吗？请告诉我们！</string>
     <string name="support_the_app_tell_your_friends">与朋友分享</string>
-    <string name="support_the_app_tell_your_friends_text">您的朋友也喜欢烹饪吗？与他们分享Brocoli！</string>
+    <string name="support_the_app_tell_your_friends_text">您的朋友也喜欢烹饪吗？与他们分享Broccoli！</string>
     <string name="free_for_everyone">完全免费</string>
     <string name="buy">购买</string>
     <string name="play_store_sign_in_message">请登录 Google Play 商店。</string>
