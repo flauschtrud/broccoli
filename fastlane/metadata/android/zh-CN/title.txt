@@ -1,1 +1,1 @@
-Brocoli: 食谱应用
+Broccoli: 食谱应用
