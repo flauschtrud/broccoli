@@ -64,7 +64,7 @@ public class ImportingIntegrationTest {
 
         onView(ViewMatchers.withId(R.id.new_title)).check(matches(withText("Vegane Chocolate Chip Cookies")));
         onView(withId(R.id.new_source)).check(matches(withText("https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html")));
-        onView(withId(R.id.new_servings)).check(matches(withText("1 Portion(en)")));
+        onView(withId(R.id.new_servings)).check(matches(withText("1")));
         onView(withId(R.id.new_preparation_time)).check(matches(withText("35m")));
         onView(withId(R.id.new_description)).check(matches(withSubstring("Vegane Chocolate Chip Cookies - außen kross, innen weich, lecker und vegan, ergibt 35 Stück.")));
         onView(withId(R.id.new_ingredients)).check(matches(withText("20 g Chiasamen\n50 ml Wasser\n190 g Butterersatz oder Margarine, vegan\n200 g Zucker , braun, alternativ Rohrzucker\n2 TL Rübensirup , alternativ Melasse, Ahornsirup oder Agavendicksaft\n2 Pck. Vanillezucker\n300 g Weizenmehl oder Dinkelmehl, oder gemischt\n4 g Natron\nn. B. Salz\n200 g Blockschokolade , zartbitter oder Schokotröpfchen")));
