@@ -100,7 +100,7 @@
     <string name="privacy_policy">Informativa sulla privacy</string>
     <string name="privacy_policy_summary">Scopri di più su come proteggiamo i tuoi dati personali.</string>
     <string name="demo_recipe">Ricetta dimostrativa</string>
-    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-cremoso-e-delizioso/</string>
+    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
     <string name="open_source_licenses">Licenze open source</string>
     <string name="open_source_licenses_text">Dettagli licenza per il software open source</string>
     <!-- Seasons -->
@@ -152,13 +152,13 @@
     <string name="broccoli">Broccoli</string>
     <string name="broccoli_terms">broccoli</string>
     <string name="chinese_cabbage">Cavolo cinese</string>
-    <string name="chinese_cabbage_terms">cavolo cinese, cavolo napa</string>
+    <string name="chinese_cabbage_terms">cavolo di Pechino, cavoli di Pechino, pe tsai, petsai, cavolo cinese, cavoli cinesi, cavolo napa, cavoli napa</string>
     <string name="pea">Piselli</string>
     <string name="pea_terms">piselli</string>
     <string name="fennel">Finocchio</string>
     <string name="fennel_terms">finocchio</string>
     <string name="kale">Cavolo riccio</string>
-    <string name="kale_terms">cavolo riccio</string>
+    <string name="kale_terms">cavolo riccio, cavoli ricci, cavolo nero, cavoli neri</string>
     <string name="cucumber">Cetrioli</string>
     <string name="cucumber_terms">cetriolo, cetrioli</string>
     <string name="celeriac">Sedano rapa</string>
@@ -185,7 +185,7 @@
     <string name="beetroot">Barbabietola</string>
     <string name="beetroot_terms">barbabietola, barbatietole</string>
     <string name="red_cabbage">Cavolo rosso</string>
-    <string name="red_cabbage_terms">cavolo rosso, cavoli rossi</string>
+    <string name="red_cabbage_terms">cavolo rosso, cavoli rossi, cavolo cappuccio rosso, cavoli cappuccio rossi</string>
     <string name="salsify">Scorzonera</string>
     <string name="salsify_terms">scorzonera, salsefrica</string>
     <string name="asparagus">Asparagi</string>
@@ -203,7 +203,7 @@
     <string name="savoy_cabbage">Verza</string>
     <string name="savoy_cabbage_terms">verza, cavolo verza, cavoli verza, cavolo cappuccio, cavoli cappuccio</string>
     <string name="zucchini">Zucchine</string>
-    <string name="zucchini_terms">zucchina, zucchini, zucchine</string>
+    <string name="zucchini_terms">zucchina, zucchine, zucchino, zucchini</string>
     <string name="wild_garlic">Aglio orsino</string>
     <string name="wild_garlic_terms">aglio orsino, aglio selvatico</string>
     <string name="apple">Mele</string>
