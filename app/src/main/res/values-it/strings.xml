@@ -100,7 +100,7 @@
     <string name="privacy_policy">Informativa sulla privacy</string>
     <string name="privacy_policy_summary">Scopri di più su come proteggiamo i tuoi dati personali.</string>
     <string name="demo_recipe">Ricetta dimostrativa</string>
-    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
+    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-cremoso-e-delizioso/</string>
     <string name="open_source_licenses">Licenze open source</string>
     <string name="open_source_licenses_text">Dettagli licenza per il software open source</string>
     <!-- Seasons -->
@@ -125,6 +125,8 @@
     <string name="french">Francese</string>
     <string name="german">Tedesco</string>
     <string name="polish">Polacco</string>
+    <string name="italian">Italiano</string>
+    <string name="chinese">Cinese</string>
     <!-- support -->
     <string name="support_the_app">Supporta l\'app</string>
     <string name="support_the_app_donate">Fai una donazione</string>
