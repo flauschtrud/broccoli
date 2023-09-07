@@ -14,8 +14,8 @@ android {
         applicationId "com.flauschcode.broccoli"
         minSdkVersion 26
         targetSdk 34
-        versionCode 1020500
-        versionName "1.2.5"
+        versionCode 1020600
+        versionName "1.2.6"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         javaCompileOptions {
             annotationProcessorOptions {
