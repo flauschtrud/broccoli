@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- CRUD -->
-    <string name="recipes">Recipes</string>
+    <string name="recipes">Recept</string>
     <string name="no_recipes_found">No recipes found.</string>
     <string name="create_a_recipe_prompt">create a new recipe</string>
     <string name="import_from_the_web_prompt">import a recipe from a website</string>
-    <string name="new_recipe">New Recipe</string>
+    <string name="new_recipe">Nytt Recept</string>
     <string name="create_first_recipe">Create your first recipe and start your collection!</string>
-    <string name="edit_action">Edit</string>
-    <string name="save_action">Save</string>
-    <string name="title_should_not_be_empty_message">Please add a title.</string>
-    <string name="recipe_saved_message">The recipe has been saved.</string>
+    <string name="edit_action">Redigera</string>
+    <string name="save_action">Spara</string>
+    <string name="title_should_not_be_empty_message">Lägg till en titel.</string>
+    <string name="recipe_saved_message">Receptet har sparats.</string>
     <string name="recipe_could_not_be_saved_message">The recipe could not be saved.</string>
-    <string name="delete_action">Delete</string>
-    <string name="delete_recipe_question">Delete this recipe?</string>
-    <string name="recipe_deleted_message">The recipe has been deleted.</string>
+    <string name="delete_action">Radera</string>
+    <string name="delete_recipe_question">Ta bort det här receptet?</string>
+    <string name="recipe_deleted_message">Receptet har tagits bort.</string>
     <string name="discard_action">Discard</string>
     <string name="discard_changes_question">Discard changes?</string>
     <string name="title">Title</string>
-    <string name="description">Description</string>
-    <string name="source">Source</string>
+    <string name="description">Beskrivning</string>
+    <string name="source">Källa</string>
     <!-- double check in translation! -->
-    <string name="servings">Servings</string>
-    <string name="preparation_time">Time</string>
-    <string name="ingredients">Ingredients</string>
-    <string name="directions">Directions</string>
+    <string name="servings">Portioner</string>
+    <string name="preparation_time">Tid</string>
+    <string name="ingredients">Ingredienser</string>
+    <string name="directions">Instruktioner</string>
     <!-- double check in translation! -->
     <string name="recipe_photo_accessibility">Recipe photo</string>
-    <string name="change_photo">Change photo</string>
-    <string name="remove_photo">Remove photo</string>
+    <string name="change_photo">Byt bild</string>
+    <string name="remove_photo">Ta bort bild</string>
     <string name="take_photo">Take photo</string>
     <string name="pick_photo">Pick photo</string>
     <string name="image_could_not_be_created_message">The image file could not be created.</string>
     <!-- Categories -->
-    <string name="categories">Categories</string>
+    <string name="categories">Kategorier</string>
     <string name="create_a_category_prompt">Create custom categories to manage your recipes.</string>
-    <string name="add_category">Add category</string>
+    <string name="add_category">Skapa kategori</string>
     <string name="add_first_category">Add your first custom category and bring order into your collection!</string>
-    <string name="edit_category">Edit category</string>
-    <string name="category_name">Name</string>
-    <string name="no_categories_message">No categories have been created yet.</string>
-    <string name="all_recipes">All recipes</string>
-    <string name="mark_as_favorite_action">Mark as favorite</string>
-    <string name="remove_from_favorite_action">Remove from favorites</string>
-    <string name="favorites">Favorites</string>
-    <string name="delete_category_question">Do you really want to delete this category?</string>
+    <string name="edit_category">Redigera kategori</string>
+    <string name="category_name">Namn</string>
+    <string name="no_categories_message">Inga kategorier har skapats än.</string>
+    <string name="all_recipes">Alla recept</string>
+    <string name="mark_as_favorite_action">Lägg till som favorit</string>
+    <string name="remove_from_favorite_action">Ta bort från favoriter</string>
+    <string name="favorites">Favoriter</string>
+    <string name="delete_category_question">Vill du verkligen ta bort denna kategori?</string>
     <string name="unassigned">Recipes without category</string>
-    <string name="search">Search</string>
+    <string name="search">Sök</string>
     <string name="search_in">Search in %1$s</string>
     <string name="preferred_category">Preferred category</string>
     <!-- Cooking mode -->
