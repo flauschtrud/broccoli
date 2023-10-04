@@ -53,7 +53,7 @@
     <string name="cooking_assistant">Cooking assistant</string>
     <string name="cooking_assistant_prompt">Cook your recipe in fullscreen mode without distractions!</string>
     <string name="no_ingredients_and_directions_message">This recipe does not have any ingredients or directions yet.</string>
-    <string name="cook_action">Cook</string>
+    <string name="cook_action">Tillaga</string>
     <string name="adjust_ingredients">Adjust ingredients</string>
     <string name="adjust_ingredients_prompt">Choose how many servings you want to cook!</string>
     <string name="scaling_simple">Simple</string>
@@ -83,9 +83,9 @@
     <string name="last_backup">Last backup</string>
     <!-- Settings/feedback -->
     <string name="about_the_app">About the app</string>
-    <string name="help">Help</string>
+    <string name="help">Hjälp</string>
     <string name="legal_policies">Legal</string>
-    <string name="send_feedback">Send feedback</string>
+    <string name="send_feedback">Skicka feedback</string>
     <string name="send_feedback_message">Did you find a bug or do you miss a feature? </string>
     <string name="feedback_subject">Feedback for Broccoli app</string>
     <!-- double check in translation! -->
@@ -149,13 +149,13 @@
     <string name="cauliflower_terms">cauliflower</string>
     <string name="broad_bean">Broad beans</string>
     <string name="broad_bean_terms">broad beans, fava beans, faba beans</string>
-    <string name="bean">Beans</string>
+    <string name="bean">Bönor</string>
     <string name="bean_terms">common beans, french beans, green beans</string>
     <string name="broccoli">Broccoli</string>
     <string name="broccoli_terms">broccoli</string>
-    <string name="chinese_cabbage">Chinese cabbage</string>
+    <string name="chinese_cabbage">Kinakål</string>
     <string name="chinese_cabbage_terms">chinese cabbage, napa cabbage</string>
-    <string name="pea">Peas</string>
+    <string name="pea">Ärtor</string>
     <string name="pea_terms">peas</string>
     <string name="fennel">Fennel</string>
     <string name="fennel_terms">fennel</string>
