@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- CRUD -->
-    <string name="recipes">Recipes</string>
-    <string name="no_recipes_found">No recipes found.</string>
-    <string name="create_a_recipe_prompt">create a new recipe</string>
+    <string name="recipes">Recepti</string>
+    <string name="no_recipes_found">Ni jedan recept nije pronađen.</string>
+    <string name="create_a_recipe_prompt">kreiraj novi recept</string>
     <string name="import_from_the_web_prompt">import a recipe from a website</string>
     <string name="new_recipe">New Recipe</string>
     <string name="create_first_recipe">Create your first recipe and start your collection!</string>
