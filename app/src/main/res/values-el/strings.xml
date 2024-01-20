@@ -18,10 +18,10 @@
     <string name="discard_action">Discard</string>
     <string name="discard_changes_question">Discard changes?</string>
     <string name="title">Title</string>
-    <string name="description">Description</string>
-    <string name="source">Source</string>
+    <string name="description">Περιγραφή</string>
+    <string name="source">Πηγή</string>
     <!-- double check in translation! -->
-    <string name="servings">Servings</string>
+    <string name="servings">Μερίδες</string>
     <string name="preparation_time">Χρόνος</string>
     <string name="ingredients">Υλικά</string>
     <string name="directions">Οδηγίες</string>
@@ -39,14 +39,14 @@
     <string name="add_first_category">Add your first custom category and bring order into your collection!</string>
     <string name="edit_category">Επεξεργασία κατηγορίας</string>
     <string name="category_name">Όνομα</string>
-    <string name="no_categories_message">No categories have been created yet.</string>
+    <string name="no_categories_message">Δεν έχουν δημιουργηθεί ακόμα κατηγορίες.</string>
     <string name="all_recipes">All recipes</string>
-    <string name="mark_as_favorite_action">Mark as favorite</string>
-    <string name="remove_from_favorite_action">Remove from favorites</string>
-    <string name="favorites">Favorites</string>
-    <string name="delete_category_question">Do you really want to delete this category?</string>
-    <string name="unassigned">Recipes without category</string>
-    <string name="search">Search</string>
+    <string name="mark_as_favorite_action">Επισήμανση ως αγαπημένο</string>
+    <string name="remove_from_favorite_action">Αφαίρεση από τα αγαπημένα</string>
+    <string name="favorites">Αγαπημένα</string>
+    <string name="delete_category_question">Είστε σίγουροι ότι θέλετε να διαγράψετε αυτήν την κατηγορία;</string>
+    <string name="unassigned">Συνταγές χωρίς κατηγορία</string>
+    <string name="search">Αναζήτηση</string>
     <string name="search_in">Search in %1$s</string>
     <string name="preferred_category">Preferred category</string>
     <!-- Cooking mode -->
