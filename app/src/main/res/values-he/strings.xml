@@ -15,7 +15,7 @@
     <string name="delete_action">מחיקה</string>
     <string name="delete_recipe_question">האם למחוק מתכון זה?</string>
     <string name="recipe_deleted_message">המתכון נמחק</string>
-    <string name="discard_action">Discard</string>
+    <string name="discard_action">בטל </string>
     <string name="discard_changes_question">בטל שינויים</string>
     <string name="title">כותרת</string>
     <string name="description">תיאור</string>
@@ -52,19 +52,19 @@
     <!-- Cooking mode -->
     <string name="cooking_assistant">עוזר בישול</string>
     <string name="cooking_assistant_prompt">הכן את המתכון שלך מסך מלא וללא הסחות דעת!</string>
-    <string name="no_ingredients_and_directions_message">This recipe does not have any ingredients or directions yet.</string>
+    <string name="no_ingredients_and_directions_message">למתכון זה אין עדיין מרכיבים או הוראות.</string>
     <string name="cook_action">בשל</string>
     <string name="adjust_ingredients">התאם את המרכיבים</string>
-    <string name="adjust_ingredients_prompt">Choose how many servings you want to cook!</string>
-    <string name="scaling_simple">Simple</string>
-    <string name="scaling_pro">Pro</string>
-    <string name="recipe_amount">Recipe amount</string>
-    <string name="scaling_factor">Scaling factor</string>
-    <string name="unscaled">not adjusted</string>
+    <string name="adjust_ingredients_prompt">בחר כמה מנות אתה רוצה לבשל!</string>
+    <string name="scaling_simple">פשוט</string>
+    <string name="scaling_pro">פרו</string>
+    <string name="recipe_amount">כמות במתכון</string>
+    <string name="scaling_factor">מכפיל מידות</string>
+    <string name="unscaled">לא מותאם</string>
     <!-- Sharing and export/import -->
-    <string name="share_action">Share</string>
-    <string name="shared_with">Shared with %1$s</string>
-    <string name="recipe_could_not_be_imported_message">Sorry, this did not work.</string>
+    <string name="share_action">שתף</string>
+    <string name="shared_with">‏שתף באמצעות %1$s</string>
+    <string name="recipe_could_not_be_imported_message">מצטער, הפעולה לא הצליחה</string>
     <string name="recipe_could_not_be_read_message">Sorry, this recipe can not be read.</string>
     <string name="share_as_file_action">Share as file</string>
     <string name="recipe_could_not_be_exported_message">The recipe could not be exported.</string>
