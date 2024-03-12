@@ -1,21 +1,21 @@
-Broccoli is a free eco-friendly recipe app for building your <b>recipe collection</b>, <b>distraction free cooking</b> and <b>seasonal ingredients</b>. Create, collect and cook!
+Brokoli, <b>tarif koleksiyonunuzu</b>, <b>dikkat dağıtmadan yemek pişirmeyi</b> ve <b>mevsimlik malzemeleri</b> oluşturmanızı sağlayan ücretsiz, çevre dostu bir tarif uygulamasıdır. Yaratın, toplayın ve pişirin!
 
-<b>Organize easily</b>
-• create an unlimited amount of recipes
-• import recipes from your favorite blogs
-• organize with categories and hashtags
-• access your recipes offline
-• backup your recipes
+<b>Kolayca düzenleyin</b>
+• sınırsız sayıda tarif oluşturun
+• favori bloglarınızdan tarifleri içe aktarın
+• kategoriler ve hashtag'ler ile organize edin
+• tariflerinize çevrimdışı erişin
+• tariflerinizi yedekleyin
 
-<b>Cook eco-friendly</b>
-• learn more about the seasonal ingredients in your region with the seasonal calendar
-• search for seasonal recipes in your collection
-• easily identify seasonal ingredients
+<b>Çevre dostu pişirme</b>
+• mevsi̇m takvi̇mi̇ i̇le bölgeni̇zdeki̇ mevsi̇msel malzemeler hakkinda daha fazla bi̇lgi̇ edi̇ni̇n
+• koleksiyonunuzdaki mevsimsel tarifleri arayın
+• mevsimlik malzemeleri kolayca tanımlayın
 
-<b>Cook without distraction</b>
-• use the fullscreen cooking assistant while you prepare your dish
-• adjust the amount of the ingredients
+<b>Dikkatinizi dağıtmadan yemek pişirin</b>
+• yemeğinizi hazırlarken tam ekran pişirme asistanını kullanın
+• malzemelerin miktarını ayarlayın
 
-Broccoli is free for everyone and no account is required. If you enjoy our recipe app you can donate to support the development of the app.
+Broccoli herkes için ücretsizdir ve hesap gerektirmez. Tarif uygulamamızı beğendiyseniz uygulamanın gelişimini desteklemek için bağışta bulunabilirsiniz.
 
-Start your recipe collection now!
+Tarif koleksiyonunuza şimdi başlayın!
