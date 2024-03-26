@@ -44,6 +44,9 @@ android {
             dimension "appstore"
         }
     }
+    androidResources {
+        generateLocaleConfig = true
+    }
     buildFeatures {
         dataBinding = true
         buildConfig = true
