@@ -1,0 +1,21 @@
+Brokoli je ekološka aplikacija za recepte i stvaranje Vaše <b>kolekcije recepata</b>, <b>kuvanje bez ometanja</b> i <b>praćenje sezonskih sastojaka</b>. Kreirajte, sakupljajte i kuvajte!
+
+<b>Organizuj lako</b>
+• kreiraj neograničen broj recepata
+• uvezi recepte sa omiljenih blogova
+• organizuj po kategorijama i heštegovima
+• pristupi svojim receptima i u nedostatku interneta
+• napravi rezervnu kopiju recepata
+
+<b>Kuvaj sezonske recepte</b>
+• saznaj više o sezonskim sastojcima u svom regionu uz pomoć sezonskog kalendara
+• pretraži sezonske recepte iz svoje kolekcije
+• jednostavno identifikuj sezonske sastojke
+
+<b>Kuvaj bez ometanja</b>
+• koristi pomoćnika za kuvanje preko celog ekrana dok pripremaš svoje jelo
+• prilagodi količinu sastojaka
+
+Brokoli je besplatan za sve bez potrebe za kreiranjem naloga. Ako Vam se sviđa naša aplikacija za recepte možete donirati kako biste podržali programere ove aplikacije.
+
+Pokreni svoju kolekciju recepata sada!
