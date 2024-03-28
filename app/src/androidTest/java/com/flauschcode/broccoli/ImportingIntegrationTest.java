@@ -100,7 +100,7 @@ public class ImportingIntegrationTest {
 
         onView(withId(R.id.new_title)).check(matches(withText("Fladenbrot Grundrezept")));
         onView(withId(R.id.new_source)).check(matches(withText("https://www.gutekueche.de/fladenbrot-grundrezept-rezept-1673")));
-        onView(withId(R.id.new_servings)).check(matches(withText("4 Portionen")));
+        onView(withId(R.id.new_servings)).check(matches(withText("4")));
         onView(withId(R.id.new_preparation_time)).check(matches(withText("25m")));
         onView(withId(R.id.new_description)).check(matches(withSubstring("Dieses Grundrezept für Fladenbrot ohne Hefe passt zu vielen Gerichten. Das einfache und schnelle Rezept ist sehr variabel.")));
         onView(withId(R.id.new_ingredients)).check(matches(withText("200 g Mehl, Type 550\n3 EL Olivenöl (oder Pflanzenöl)\n3 EL Olivenöl (oder Pflanzenöl)\n1 Prise Salz\n100 ml Wasser")));
