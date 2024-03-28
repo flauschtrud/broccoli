@@ -102,7 +102,7 @@ dependencies {
     runtimeOnly group: 'com.google.android.material', name: 'material', version: '1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    def nav_version = "2.7.6"
+    def nav_version = "2.7.7"
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
 
@@ -124,7 +124,7 @@ dependencies {
     def preference_version = "1.2.1"
     implementation "androidx.preference:preference:$preference_version"
 
-    def billing_version = "6.1.0"
+    def billing_version = "6.2.0"
     playImplementation "com.android.billingclient:billing:$billing_version"
 
     playImplementation 'com.google.android.play:core:1.10.3'
