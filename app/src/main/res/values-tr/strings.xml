@@ -127,6 +127,9 @@
     <string name="polish">Lehçe</string>
     <string name="italian">İtalyanca</string>
     <string name="chinese">Çince</string>
+    <string name="turkish">Turkish</string>
+    <string name="serbian_latin">Serbian (Latin)</string>
+    <string name="hebrew">Hebrew</string>
     <!-- support -->
     <string name="support_the_app">Uygulamayı destekleyin</string>
     <string name="support_the_app_donate">Bağış Yapın</string>
