@@ -63,7 +63,7 @@ public class SeasonalCalendarHolder implements SharedPreferences.OnSharedPrefere
         List<Resources> resources = new ArrayList<>();
         languages.forEach(language -> {
             Configuration configuration = new Configuration(application.getResources().getConfiguration());
-            configuration.setLocale(new Locale(language));
+            configuration.setLocale(Locale.forLanguageTag(language));
             resources.add(application.createConfigurationContext(configuration).getResources());
         });
 

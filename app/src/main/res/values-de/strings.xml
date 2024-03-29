@@ -225,4 +225,7 @@
     <string name="open_source_licenses_text">Lizenzdetails für Open-Source-Software</string>
     <string name="polish">Polnisch</string>
     <string name="chinese">Chinesisch</string>
+    <string name="turkish">Türkisch</string>
+    <string name="serbian_latin">Serbisch (lateinisch)</string>
+    <string name="hebrew">Hebräisch</string>
 </resources>
