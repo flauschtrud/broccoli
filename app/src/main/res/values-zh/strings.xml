@@ -127,6 +127,9 @@
     <string name="polish">波兰语</string>
     <string name="italian">意大利语</string>
     <string name="chinese">中文</string>
+    <string name="turkish">土耳其语</string>
+    <string name="serbian_latin">塞尔维亚语(拉丁文)</string>
+    <string name="hebrew">希伯来语</string>
     <!-- support -->
     <string name="support_the_app">支持本应用</string>
     <string name="support_the_app_donate">捐助</string>

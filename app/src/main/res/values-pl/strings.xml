@@ -127,6 +127,9 @@
     <string name="polish">Polski</string>
     <string name="italian">Włoski</string>
     <string name="chinese">Chiński</string>
+    <string name="turkish">Turecki</string>
+    <string name="serbian_latin">Serbski (alfabet łaciński)</string>
+    <string name="hebrew">Hebrajski</string>
     <!-- support -->
     <string name="support_the_app">Wesprzyj aplikację</string>
     <string name="support_the_app_donate">Przekaż darowiznę</string>
