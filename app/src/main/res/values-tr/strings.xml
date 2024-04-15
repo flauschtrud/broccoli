@@ -4,7 +4,7 @@
     <string name="recipes">Tarifler</string>
     <string name="no_recipes_found">Tarif bulunamadı.</string>
     <string name="create_a_recipe_prompt">yeni bir tarif oluştur</string>
-    <string name="import_from_the_web_prompt">bir web sitesinden tarif içe aktar</string>
+    <string name="import_from_the_web_prompt">bir web sitesinden tarif içe aktarma</string>
     <string name="new_recipe">Yeni Tarif</string>
     <string name="create_first_recipe">İlk tarifini oluştur ve koleksiyonuna başla!</string>
     <string name="edit_action">Düzenle</string>
@@ -127,9 +127,9 @@
     <string name="polish">Lehçe</string>
     <string name="italian">İtalyanca</string>
     <string name="chinese">Çince</string>
-    <string name="turkish">Türkçe</string>
-    <string name="serbian_latin">Sırpça (Latin)</string>
-    <string name="hebrew">İbranice</string>
+    <string name="turkish">Turkish</string>
+    <string name="serbian_latin">Serbian (Latin)</string>
+    <string name="hebrew">Hebrew</string>
     <!-- support -->
     <string name="support_the_app">Uygulamayı destekleyin</string>
     <string name="support_the_app_donate">Bağış Yapın</string>
