@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- CRUD -->
-    <string name="recipes">Recipes</string>
-    <string name="no_recipes_found">No recipes found.</string>
-    <string name="create_a_recipe_prompt">create a new recipe</string>
-    <string name="import_from_the_web_prompt">import a recipe from a website</string>
-    <string name="new_recipe">New Recipe</string>
+    <string name="recipes">Recepten</string>
+    <string name="no_recipes_found">Geen recepten gevonden.</string>
+    <string name="create_a_recipe_prompt">maak een nieuw recept</string>
+    <string name="import_from_the_web_prompt">importeer een recept van een website</string>
+    <string name="new_recipe">Nieuw Recept</string>
     <string name="create_first_recipe">Create your first recipe and start your collection!</string>
     <string name="edit_action">Edit</string>
     <string name="save_action">Save</string>
