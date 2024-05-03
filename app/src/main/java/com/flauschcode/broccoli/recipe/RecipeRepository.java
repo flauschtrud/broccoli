@@ -40,7 +40,7 @@ public class RecipeRepository {
         String searchTerm = criteria.getSearchTerm();
 
         if (!criteria.getSeasonalTerms().isEmpty()) {
-            String wildcardQuery = String.format("%s*", searchTerm);
+            String wildcardQuery = getSanitizedWildcardQuery(searchTerm);
             String seasonalTerm = buildQueryFor(criteria.getSeasonalTerms());
             return "".equals(searchTerm)? recipeDAO.findSeasonal(seasonalTerm) : recipeDAO.searchForSeasonal(seasonalTerm, wildcardQuery);
         }
@@ -70,12 +70,12 @@ public class RecipeRepository {
     }
 
     private LiveData<List<Recipe>> searchFor(String term, List<Boolean> favoritesList) {
-        String wildcardQuery = String.format("%s*", term);
+        String wildcardQuery = getSanitizedWildcardQuery(term);
         return recipeDAO.searchFor(wildcardQuery, favoritesList);
     }
 
     private LiveData<List<Recipe>> filterByAndSearchFor(Category category, String term) {
-        String wildcardQuery = String.format("%s*", term);
+        String wildcardQuery = getSanitizedWildcardQuery(term);
         return recipeDAO.filterByAndSearchFor(category.getCategoryId(), wildcardQuery);
     }
 
@@ -84,7 +84,7 @@ public class RecipeRepository {
     }
 
     private LiveData<List<Recipe>> searchForUnassigned(String term) {
-        String wildcardQuery = String.format("%s*", term);
+        String wildcardQuery = getSanitizedWildcardQuery(term);
         return recipeDAO.searchForUnassigned(wildcardQuery);
     }
 
@@ -94,9 +94,15 @@ public class RecipeRepository {
     }
 
     private LiveData<List<Recipe>> searchForSeasonal(String term) {
-        String wildcardQuery = String.format("%s*", term);
+        String wildcardQuery = getSanitizedWildcardQuery(term);
         String seasonalSearchTerm = getSeasonalSearchTerm();
         return recipeDAO.searchForSeasonal(seasonalSearchTerm, wildcardQuery);
+    }
+
+    private static String getSanitizedWildcardQuery(String term) {
+        String trailingDashesRemoved = term.replaceFirst("^-+", "");
+        String quotesEscaped = trailingDashesRemoved.replace("\"", "");
+        return String.format("%s*", quotesEscaped);
     }
 
     private String getSeasonalSearchTerm() {
