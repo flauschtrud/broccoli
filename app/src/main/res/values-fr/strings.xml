@@ -84,7 +84,7 @@
     <!-- Settings/feedback -->
     <string name="about_the_app">À propos de l\'application</string>
     <string name="help">Aide</string>
-    <string name="legal_policies">Politiques juridiques</string>
+    <string name="legal_policies">Mentions légales</string>
     <string name="send_feedback">Envoyer des commentaires</string>
     <string name="send_feedback_message">Tu as trouvé un bug ou une fonctionnalité te manque ?</string>
     <string name="feedback_subject">Commentaires sur l\'application Broccoli</string>
