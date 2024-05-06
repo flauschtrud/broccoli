@@ -130,8 +130,6 @@
     <string name="turkish">土耳其语</string>
     <string name="serbian_latin">塞尔维亚语(拉丁文)</string>
     <string name="hebrew">希伯来语</string>
-    <string name="greek">Greek</string>
-    <string name="swedish">Swedish</string>
     <!-- support -->
     <string name="support_the_app">支持本应用</string>
     <string name="support_the_app_donate">捐助</string>
