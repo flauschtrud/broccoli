@@ -245,12 +245,12 @@
     <string name="blueberries_terms">borovnice</string>
     <string name="raspberries">Maline</string>
     <string name="raspberries_terms">maline</string>
-    <string name="blackberries">Blackberries</string>
-    <string name="blackberries_terms">blackberries</string>
-    <string name="mirabelles">Mirabelles</string>
-    <string name="mirabelles_terms">mirabelles</string>
-    <string name="gooseberries">Gooseberries</string>
-    <string name="gooseberries_terms">gooseberries</string>
+    <string name="blackberries">Borovnice</string>
+    <string name="blackberries_terms">borovnice</string>
+    <string name="mirabelles">Žute šljive</string>
+    <string name="mirabelles_terms">žute šljive</string>
+    <string name="gooseberries">Ogrozd</string>
+    <string name="gooseberries_terms">ogrozd</string>
     <string name="lambs_lettuce">Lamb\'s lettuce</string>
     <string name="lambs_lettuce_terms">lamb\'s lettuce</string>
 </resources>
