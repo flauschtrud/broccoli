@@ -24,6 +24,8 @@
         <item>@string/turkish</item>
         <item>@string/serbian_latin</item>
         <item>@string/hebrew</item>
+        <item>@string/greek</item>
+        <item>@string/swedish</item>
     </string-array>
 
     <string-array name="language_values">
@@ -37,6 +39,8 @@
         <item>tr</item>
         <item>sr-Latn</item>
         <item>iw</item>
+        <item>el</item>
+        <item>sv</item>
     </string-array>
 
     <string-array name="theme_entries">
