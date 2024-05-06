@@ -130,6 +130,8 @@
     <string name="turkish">Turc</string>
     <string name="serbian_latin">Serbe (latin)</string>
     <string name="hebrew">Hébreu</string>
+    <string name="greek">Grec</string>
+    <string name="swedish">Suédois</string>
     <!-- support -->
     <string name="support_the_app">Soutiens l\'application</string>
     <string name="support_the_app_donate">Fais un don</string>
@@ -245,4 +247,12 @@
     <string name="blueberries_terms">myrtilles</string>
     <string name="raspberries">Framboises</string>
     <string name="raspberries_terms">framboises</string>
+    <string name="blackberries">Mûres</string>
+    <string name="blackberries_terms">mûres</string>
+    <string name="mirabelles">Mirabelles</string>
+    <string name="mirabelles_terms">mirabelles</string>
+    <string name="gooseberries">Groseilles à maquereau</string>
+    <string name="gooseberries_terms">groseilles à maquereau</string>
+    <string name="lambs_lettuce">Mâche</string>
+    <string name="lambs_lettuce_terms">mâche</string>
 </resources>
