@@ -228,4 +228,12 @@
     <string name="turkish">Türkisch</string>
     <string name="serbian_latin">Serbisch (lateinisch)</string>
     <string name="hebrew">Hebräisch</string>
+    <string name="blackberries">Brombeeren</string>
+    <string name="mirabelles">Mirabellen</string>
+    <string name="gooseberries">Stachelbeeren</string>
+    <string name="lambs_lettuce">Feldsalat</string>
+    <string name="blackberries_terms">Brombeeren</string>
+    <string name="mirabelles_terms">Mirabellen</string>
+    <string name="gooseberries_terms">Stachelbeeren</string>
+    <string name="lambs_lettuce_terms">Feldsalat</string>
 </resources>

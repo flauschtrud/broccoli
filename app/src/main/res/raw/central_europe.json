@@ -167,6 +167,22 @@
     {
       "name": "sweet_potato",
       "months": [8,9]
+    },
+    {
+      "name": "blackberries",
+      "months": [6,7,8]
+    },
+    {
+      "name": "mirabelles",
+      "months": [6,7,8]
+    },
+    {
+      "name": "gooseberries",
+      "months": [5,6,7]
+    },
+    {
+      "name": "lambs_lettuce",
+      "months": [9,10,11,0,1,2]
     }
   ]
 }
