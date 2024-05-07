@@ -245,4 +245,12 @@
     <string name="blueberries_terms">mirtillo, mirtilli</string>
     <string name="raspberries">Lamponi</string>
     <string name="raspberries_terms">lampone, lamponi</string>
+    <string name="blackberries">More</string>
+    <string name="blackberries_terms">mora, more</string>
+    <string name="mirabelles">Mirabelle</string>
+    <string name="mirabelles_terms">mirabella, mirabelle</string>
+    <string name="gooseberries">Ribes</string>
+    <string name="gooseberries_terms">ribes</string>
+    <string name="lambs_lettuce">Valeriana</string>
+    <string name="lambs_lettuce_terms">valeriana, valerianella, lattughino, soncino, molesino, dolcetta, gallinella, pasqualina</string>
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- CRUD -->
     <string name="recipes">Recettes</string>
     <string name="no_recipes_found">Aucune recette trouvée.</string>
     <string name="create_a_recipe_prompt">crée une nouvelle recette</string>
@@ -19,16 +20,19 @@
     <string name="title">Titre</string>
     <string name="description">Description</string>
     <string name="source">Source</string>
+    <!-- double check in translation! -->
     <string name="servings">Portions</string>
     <string name="preparation_time">Temps</string>
     <string name="ingredients">Ingrédients</string>
     <string name="directions">Préparation</string>
+    <!-- double check in translation! -->
     <string name="recipe_photo_accessibility">Photo de la recette</string>
     <string name="change_photo">Changer de photo</string>
     <string name="remove_photo">Supprimer la photo</string>
     <string name="take_photo">Prendre une photo</string>
     <string name="pick_photo">Sélectionner une photo</string>
     <string name="image_could_not_be_created_message">Le fichier image n\'a pas pu être créé.</string>
+    <!-- Categories -->
     <string name="categories">Catégories</string>
     <string name="create_a_category_prompt">Crée des catégories personnalisées pour gérer tes recettes.</string>
     <string name="add_category">Ajouter une catégorie</string>
@@ -45,6 +49,7 @@
     <string name="search">Rechercher</string>
     <string name="search_in">Rechercher dans %1$s</string>
     <string name="preferred_category">Catégorie préférée</string>
+    <!-- Cooking mode -->
     <string name="cooking_assistant">Assistant de cuisine</string>
     <string name="cooking_assistant_prompt">Cuisine ta recette en mode plein écran sans distractions !</string>
     <string name="no_ingredients_and_directions_message">Cette recette n\'a pas encore d\'ingrédients ni d\'instructions.</string>
@@ -56,12 +61,14 @@
     <string name="recipe_amount">Quantité de la recette</string>
     <string name="scaling_factor">Facteur d\'échelle</string>
     <string name="unscaled">non ajusté</string>
+    <!-- Sharing and export/import -->
     <string name="share_action">Partager</string>
     <string name="shared_with">Partagé avec %1$s</string>
     <string name="recipe_could_not_be_imported_message">Désolé, cela n\'a pas fonctionné.</string>
     <string name="recipe_could_not_be_read_message">Désolé, cette recette ne peut pas être lue.</string>
     <string name="share_as_file_action">Partager en tant que fichier</string>
     <string name="recipe_could_not_be_exported_message">La recette n\'a pas pu être exportée.</string>
+    <!-- Backup & restore -->
     <string name="backup_and_restore">Sauvegarde et restauration</string>
     <string name="backup">Sauvegarde</string>
     <string name="restore">Restauration</string>
@@ -74,19 +81,29 @@
     <string name="restore_all_question">Veux-tu importer toutes les recettes et les catégories de ce fichier ?</string>
     <string name="restore_completed_message">%1$d recettes ont été importées.</string>
     <string name="last_backup">Dernière sauvegarde</string>
+    <!-- Settings/feedback -->
     <string name="about_the_app">À propos de l\'application</string>
+    <string name="help">Aide</string>
+    <string name="legal_policies">Mentions légales</string>
     <string name="send_feedback">Envoyer des commentaires</string>
     <string name="send_feedback_message">Tu as trouvé un bug ou une fonctionnalité te manque ?</string>
     <string name="feedback_subject">Commentaires sur l\'application Broccoli</string>
+    <!-- double check in translation! -->
     <string name="version">Version</string>
     <string name="settings">Paramètres</string>
     <string name="general_settings">Paramètres généraux</string>
     <string name="design">Thème</string>
+    <!-- https://support.google.com/chrome/answer/9275525?hl=en -->
     <string name="light">Clair</string>
     <string name="dark">Sombre</string>
     <string name="system_default">Par défaut du système</string>
     <string name="privacy_policy">Politique de confidentialité</string>
     <string name="privacy_policy_summary">Apprends-en plus sur la façon dont nous protégeons tes données personnelles.</string>
+    <string name="demo_recipe">Recette de démonstration</string>
+    <string name="link_to_demo_recipe">https://flauschcode.com/houmous-cremeux-et-delicieux/</string>
+    <string name="open_source_licenses">Licences open source</string>
+    <string name="open_source_licenses_text">Détails de la licence pour les logiciels open source</string>
+    <!-- Seasons -->
     <string name="seasonal_calendar">Calendrier saisonnier</string>
     <string name="seasonal_accessibility">Ingrédient(s) de saison</string>
     <string name="seasonal_recipes">Recettes de saison</string>
@@ -98,16 +115,37 @@
     <string name="no_language_set_message">Dans quelles langues crée-tu tes recettes ? Choisis au moins une langue.</string>
     <string name="seasons_feedback_message">Ta région, ta langue ou ton ingrédient préféré te manquent-ils ?</string>
     <string name="seasons_feedback_subject">Commentaires sur le calendrier saisonnier</string>
+    <!-- regions for seasonal calendar -->
     <string name="region_central_europe">Europe centrale</string>
+    <string name="region_north_america_colder">Amérique du Nord (plus froide)</string>
+    <string name="region_north_america_warmer">Amérique du Nord (plus chaude)</string>
+    <!-- languages for seasonal calendar -->
     <string name="english">Anglais</string>
+    <string name="spanish">Espagnol</string>
+    <string name="french">Français</string>
     <string name="german">Allemand</string>
+    <string name="polish">Polonais</string>
     <string name="italian">Italien</string>
+    <string name="chinese">Chinois</string>
+    <string name="turkish">Turc</string>
+    <string name="serbian_latin">Serbe (latin)</string>
+    <string name="hebrew">Hébreu</string>
+    <!-- support -->
     <string name="support_the_app">Soutiens l\'application</string>
+    <string name="support_the_app_donate">Fais un don</string>
+    <string name="support_the_app_donate_text_playstore">Broccoli est gratuit pour tout le monde. Mais tu peux soutenir le développement de l\'application et m\'offrir un biscuit, un café ou un burger. Merci beaucoup !</string>
+    <string name="support_the_app_donate_text_fdroid">Broccoli est gratuit pour tout le monde. Mais tu peux soutenir le développement de l\'application et m\'offrir un café. Merci beaucoup !</string>
+    <string name="support_the_app_give_feedback">Donne ton avis</string>
+    <string name="support_the_app_give_feedback_text">Tu aimes Broccoli ? Dis-nous tout !</string>
+    <string name="support_the_app_tell_your_friends">Dis-le à tes amis</string>
+    <string name="support_the_app_tell_your_friends_text">Tes amis aiment aussi cuisiner ? Parle-leur de Broccoli !</string>
     <string name="free_for_everyone">Gratuit pour tous</string>
     <string name="buy">Achète</string>
     <string name="play_store_sign_in_message">S\'il te plaît, connecte-toi à Google Play Store.</string>
     <string name="rate_the_app">Note l\'application</string>
     <string name="share_the_app">Partage l\'application</string>
+    <!-- seasonal food -->
+    <!-- the plurals are important! -->
     <string name="eggplant">Aubergines</string>
     <string name="eggplant_terms">aubergine, aubergines</string>
     <string name="cauliflower">Chou-fleur</string>
@@ -129,6 +167,7 @@
     <string name="cucumber">Concombres</string>
     <string name="cucumber_terms">concombre, concombres</string>
     <string name="celeriac">Céleri-rave</string>
+    <!-- Knollensellerie -->
     <string name="celeriac_terms">céleri-rave</string>
     <string name="kohlrabi">Chou-rave</string>
     <string name="kohlrabi_terms">chou-rave, choux-raves</string>
@@ -186,54 +225,32 @@
     <string name="rhubarb_terms">rhubarbe</string>
     <string name="plum">Prunes</string>
     <string name="plum_terms">prune, prunes</string>
-    <string name="spanish">Espagnol</string>
-    <string name="french">Français</string>
-    <string name="region_north_america_colder">Amérique du Nord (plus froide)</string>
-    <string name="region_north_america_warmer">Amérique du Nord (plus chaude)</string>
-    <string name="avocado_terms">avocat, avocats</string>
     <string name="avocado">Avocats</string>
-    <string name="sweet_potato_terms">patate douce, patates douces</string>
+    <string name="avocado_terms">avocat, avocats</string>
     <string name="sweet_potato">Patates douces</string>
-    <string name="lemon_terms">citron, citrons</string>
+    <string name="sweet_potato_terms">patate douce, patates douces</string>
     <string name="lemon">Citrons</string>
-    <string name="orange_terms">orange, oranges</string>
+    <string name="lemon_terms">citron, citrons</string>
     <string name="orange">Oranges</string>
-    <string name="lime_terms">citron vert, citrons verts, lime, limes</string>
+    <string name="orange_terms">orange, oranges</string>
     <string name="lime">Citrons verts</string>
-    <string name="summer_squash_terms">courge d\'été, courges d\'été</string>
+    <string name="lime_terms">citron vert, citrons verts, lime, limes</string>
     <string name="summer_squash">Courge d\'été</string>
-    <string name="winter_squash_terms">courge d\'hiver, courges d\'hiver</string>
+    <string name="summer_squash_terms">courge d\'été, courges d\'été</string>
     <string name="winter_squash">Courge d\'hiver</string>
-    <string name="pomegranate_terms">grenade, grenades</string>
+    <string name="winter_squash_terms">courge d\'hiver, courges d\'hiver</string>
     <string name="pomegranate">Grenades</string>
-    <string name="blueberries_terms">myrtilles</string>
+    <string name="pomegranate_terms">grenade, grenades</string>
     <string name="blueberries">Myrtilles</string>
-    <string name="raspberries_terms">framboises</string>
+    <string name="blueberries_terms">myrtilles</string>
     <string name="raspberries">Framboises</string>
-    <string name="demo_recipe">Recette de démonstration</string>
-    <string name="link_to_demo_recipe">https://flauschcode.com/houmous-cremeux-et-delicieux/</string>
-    <string name="help">Aide</string>
-    <string name="legal_policies">Politiques juridiques</string>
-    <string name="support_the_app_donate">Fais un don</string>
-    <string name="support_the_app_donate_text_playstore">Broccoli est gratuit pour tout le monde. Mais tu peux soutenir le développement de l\'application et m\'offrir un biscuit, un café ou un burger. Merci beaucoup !</string>
-    <string name="support_the_app_donate_text_fdroid">Broccoli est gratuit pour tout le monde. Mais tu peux soutenir le développement de l\'application et m\'offrir un café. Merci beaucoup !</string>
-    <string name="support_the_app_give_feedback">Donne ton avis</string>
-    <string name="support_the_app_give_feedback_text">Tu aimes Broccoli ? Dis-nous tout !</string>
-    <string name="support_the_app_tell_your_friends">Dis-le à tes amis</string>
-    <string name="support_the_app_tell_your_friends_text">Tes amis aiment aussi cuisiner ? Parle-leur de Broccoli !</string>
-    <string name="open_source_licenses">Licences open source</string>
-    <string name="open_source_licenses_text">Détails de la licence pour les logiciels open source</string>
-    <string name="polish">Polonais</string>
-    <string name="chinese">Chinois</string>
-    <string name="turkish">Turc</string>
-    <string name="serbian_latin">Serbe (latin)</string>
-    <string name="hebrew">Hébreu</string>
+    <string name="raspberries_terms">framboises</string>
     <string name="blackberries">Mûres</string>
-    <string name="mirabelles">Mirabelles</string>
-    <string name="gooseberries">Groseilles à maquereau</string>
-    <string name="lambs_lettuce">Mâche</string>
     <string name="blackberries_terms">mûres</string>
+    <string name="mirabelles">Mirabelles</string>
     <string name="mirabelles_terms">mirabelles</string>
+    <string name="gooseberries">Groseilles à maquereau</string>
     <string name="gooseberries_terms">groseilles à maquereau</string>
+    <string name="lambs_lettuce">Mâche</string>
     <string name="lambs_lettuce_terms">mâche</string>
 </resources>

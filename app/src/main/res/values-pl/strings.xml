@@ -245,4 +245,12 @@
     <string name="blueberries_terms">jagoda, jagody, jagód</string>
     <string name="raspberries">Maliny</string>
     <string name="raspberries_terms">malina, maliny, malin</string>
+    <string name="blackberries">Blackberries</string>
+    <string name="blackberries_terms">blackberries</string>
+    <string name="mirabelles">Mirabelles</string>
+    <string name="mirabelles_terms">mirabelles</string>
+    <string name="gooseberries">Gooseberries</string>
+    <string name="gooseberries_terms">gooseberries</string>
+    <string name="lambs_lettuce">Lamb\'s lettuce</string>
+    <string name="lambs_lettuce_terms">lamb\'s lettuce</string>
 </resources>
