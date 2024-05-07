@@ -249,8 +249,8 @@
     <string name="blackberries_terms">黑莓</string>
     <string name="mirabelles">黄香李</string>
     <string name="mirabelles_terms">黄香李</string>
-    <string name="gooseberries">Gooseberries</string>
-    <string name="gooseberries_terms">gooseberries</string>
-    <string name="lambs_lettuce">Lamb\'s lettuce</string>
-    <string name="lambs_lettuce_terms">lamb\'s lettuce</string>
+    <string name="gooseberries">鵝莓</string>
+    <string name="gooseberries_terms">鵝莓</string>
+    <string name="lambs_lettuce">羊萵苣</string>
+    <string name="lambs_lettuce_terms">羊萵苣</string>
 </resources>
