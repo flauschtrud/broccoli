@@ -48,6 +48,7 @@ Available languages so far:
 - Chinese (thanks a lot to [leongjs98](https://github.com/leongjs98) for your help!)
 - Serbian (Latin) (thanks a lot to [dimipage](https://github.com/dimipage) for your help!)
 - Turkish (thanks a lot to [mikropsoft](https://github.com/mikropsoft) for your help!)
+- Hebrew (thanks a lot to Eldar for your help!)
 
 ### Seasonal Calendars
 If you want to contribute by researching data for additional seasonal calendars please contact me.

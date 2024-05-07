@@ -8,12 +8,8 @@ import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import android.app.Application;
-import android.icu.util.ULocale;
-
 import androidx.lifecycle.LiveData;
 
-import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.category.CategoryRepository;
 import com.flauschcode.broccoli.recipe.images.RecipeImageService;
@@ -135,6 +131,21 @@ public class RecipeRepositoryTest {
         when(recipeDAO.searchFor(eq("bla*"), favoriteStatesCaptor.capture())).thenReturn(recipes);
 
         criteria.setSearchTerm("bla");
+
+        LiveData<List<Recipe>> result = recipeRepository.find(criteria);
+
+        List<Boolean> favoriteStates = favoriteStatesCaptor.getValue();
+        assertThat(favoriteStates.size(), is(2));
+        assertThat(favoriteStates, hasItem(Boolean.TRUE));
+        assertThat(favoriteStates, hasItem(Boolean.FALSE));
+        assertThat(result, is(recipes));
+    }
+
+    @Test
+    public void search_for_leading_hyphen() {
+        when(recipeDAO.searchFor(eq("bla blupp*"), favoriteStatesCaptor.capture())).thenReturn(recipes);
+
+        criteria.setSearchTerm("-bla \"blupp\"");
 
         LiveData<List<Recipe>> result = recipeRepository.find(criteria);
 

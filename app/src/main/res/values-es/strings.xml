@@ -228,4 +228,12 @@
     <string name="turkish">Turco</string>
     <string name="serbian_latin">Serbio (latín)</string>
     <string name="hebrew">Hebreo</string>
+    <string name="blackberries">Moras</string>
+    <string name="mirabelles">Mirabeles</string>
+    <string name="gooseberries">Grosellas</string>
+    <string name="lambs_lettuce">Hojas de canónigos</string>
+    <string name="blackberries_terms">moras</string>
+    <string name="mirabelles_terms">mirabeles</string>
+    <string name="gooseberries_terms">grosellas</string>
+    <string name="lambs_lettuce_terms">hojas de canónigos</string>
 </resources>
