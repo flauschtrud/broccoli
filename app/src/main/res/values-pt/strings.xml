@@ -44,14 +44,14 @@
     <string name="mark_as_favorite_action">Marcar como favorita</string>
     <string name="remove_from_favorite_action">Remover das favoritas</string>
     <string name="favorites">Favoritas</string>
-    <string name="delete_category_question">Você realmente deseja excluir essa categoria?</string>
+    <string name="delete_category_question">Confirma a exclusão dessa categoria?</string>
     <string name="unassigned">Receitas sem categoria</string>
     <string name="search">Procurar</string>
     <string name="search_in">Procurar em %1$s</string>
     <string name="preferred_category">Categoria preferida</string>
     <!-- Cooking mode -->
     <string name="cooking_assistant">Assistente</string>
-    <string name="cooking_assistant_prompt">Faça sua receita em tela cheia sem distrações!</string>
+    <string name="cooking_assistant_prompt">Faça sua receita em tela cheia e sem distrações!</string>
     <string name="no_ingredients_and_directions_message">Esta receita ainda não tem ingredientes ou instruções.</string>
     <string name="cook_action">Cozinhar</string>
     <string name="adjust_ingredients">Ajustar ingredientes</string>
@@ -128,7 +128,7 @@
     <string name="italian">Italiano</string>
     <string name="chinese">Chinês</string>
     <string name="turkish">Turco</string>
-    <string name="serbian_latin">Sérvio (Latino)</string>
+    <string name="serbian_latin">Sérvio</string>
     <string name="hebrew">Hebraico</string>
     <!-- support -->
     <string name="support_the_app">Apoie o aplicativo</string>
@@ -146,7 +146,7 @@
     <string name="share_the_app">Compartilhar o aplicativo</string>
     <!-- seasonal food -->
     <!-- the plurals are important! -->
-    <string name="eggplant">Berinjelas</string>
+    <string name="eggplant">Berinjela</string>
     <string name="eggplant_terms">berinjela, berinjelas</string>
     <string name="cauliflower">Couve-flor</string>
     <string name="cauliflower_terms">couve-flor</string>
@@ -201,7 +201,7 @@
     <string name="celery_terms">salsão</string>
     <string name="turnip">Nabos</string>
     <string name="turnip_terms">nabo</string>
-    <string name="tomato">Tomates</string>
+    <string name="tomato">Tomate</string>
     <string name="tomato_terms">tomate</string>
     <string name="white_cabbage">Repolho</string>
     <string name="white_cabbage_terms">repolho</string>
