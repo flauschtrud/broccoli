@@ -24,7 +24,7 @@
     <string name="servings">Porções</string>
     <string name="preparation_time">Tempo de preparo</string>
     <string name="ingredients">Ingredientes</string>
-    <string name="directions">Instruções</string>
+    <string name="directions">Preparo</string>
     <!-- double check in translation! -->
     <string name="recipe_photo_accessibility">Foto da receita</string>
     <string name="change_photo">Alterar foto</string>
@@ -44,14 +44,14 @@
     <string name="mark_as_favorite_action">Marcar como favorita</string>
     <string name="remove_from_favorite_action">Remover das favoritas</string>
     <string name="favorites">Favoritas</string>
-    <string name="delete_category_question">Confirma a exclusão dessa categoria?</string>
+    <string name="delete_category_question">Você realmente deseja excluir essa categoria?</string>
     <string name="unassigned">Receitas sem categoria</string>
     <string name="search">Procurar</string>
     <string name="search_in">Procurar em %1$s</string>
     <string name="preferred_category">Categoria preferida</string>
     <!-- Cooking mode -->
     <string name="cooking_assistant">Assistente</string>
-    <string name="cooking_assistant_prompt">Faça sua receita em tela cheia e sem distrações!</string>
+    <string name="cooking_assistant_prompt">Faça sua receita em tela cheia sem distrações!</string>
     <string name="no_ingredients_and_directions_message">Esta receita ainda não tem ingredientes ou instruções.</string>
     <string name="cook_action">Cozinhar</string>
     <string name="adjust_ingredients">Ajustar ingredientes</string>
@@ -98,9 +98,9 @@
     <string name="dark">Escuro</string>
     <string name="system_default">Padrão do sistema</string>
     <string name="privacy_policy">Política de privacidade</string>
-    <string name="privacy_policy_summary">Saiba mais sobre como protegemos seus dados pessoais.</string>
+    <string name="privacy_policy_summary">Saiba mais sobre como protegemos seus dados.</string>
     <string name="demo_recipe">Receita de demonstração</string>
-    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
+    <string name="link_to_demo_recipe">https://carolfiorentino.com.br/2020/01/09/episodio-10-galinhada/</string>
     <string name="open_source_licenses">Licenças de código aberto</string>
     <string name="open_source_licenses_text">Detalhes de licença do software de código aberto</string>
     <!-- Seasons -->
