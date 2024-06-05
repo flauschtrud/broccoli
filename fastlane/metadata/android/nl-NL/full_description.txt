@@ -1,21 +1,21 @@
-Broccoli is a free eco-friendly recipe app for building your <b>recipe collection</b>, <b>distraction free cooking</b> and <b>seasonal ingredients</b>. Create, collect and cook!
+Broccoli is een gratis milieuvriendelijke recepten-app voor het bouwen van je <b>receptenverzameling</b>, <b>afleidingsvrij koken</b> en <b>seizoensgebonden ingrediënten</b>. Maak, verzamel en kook!
 
-<b>Organize easily</b>
-• create an unlimited amount of recipes
-• import recipes from your favorite blogs
-• organize with categories and hashtags
-• access your recipes offline
-• backup your recipes
+<b>Eenvoudig organiseren</b>
+• creëer een onbeperkt aantal recepten
+• importeer recepten van je favoriete blogs
+• organiseer met categorieën en hashtags
+• gebruik je recepten offline
+• backup je recepten
 
-<b>Cook eco-friendly</b>
-• learn more about the seasonal ingredients in your region with the seasonal calendar
-• search for seasonal recipes in your collection
-• easily identify seasonal ingredients
+<b>Kook milieuvriendelijk</b>
+• leer over seizoensgebonden ingrediënten in jouw regio met de seizoenskalender
+• zoek naar seizoensgebonden recepten in je verzameling
+• herken gemakkelijk seizoensgebonden ingrediënten
 
-<b>Cook without distraction</b>
-• use the fullscreen cooking assistant while you prepare your dish
-• adjust the amount of the ingredients
+<b>Kook zonder afleiding</b>
+• gebruik de fullscreen kookassistent tijdens het bereiden van je gerecht
+• pas de hoeveelheid ingrediënten aan
 
-Broccoli is free for everyone and no account is required. If you enjoy our recipe app you can donate to support the development of the app.
+Broccoli is gratis voor iedereen en er is geen account vereist. Als je onze recepten-app leuk vindt kan je de onwikkeling ervan steunen met een donatie.
 
-Start your recipe collection now!
+Start je receptenverzameling nu!
