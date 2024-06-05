@@ -47,23 +47,23 @@
     <string name="delete_category_question">Weet je zeker dat je deze categorie wilt verwijderen?</string>
     <string name="unassigned">Recepten zonder categorie</string>
     <string name="search">Zoeken</string>
-    <string name="search_in">Search in %1$s</string>
-    <string name="preferred_category">Preferred category</string>
+    <string name="search_in">Zoek in %1$s</string>
+    <string name="preferred_category">Voorkeurscategorie</string>
     <!-- Cooking mode -->
-    <string name="cooking_assistant">Cooking assistant</string>
-    <string name="cooking_assistant_prompt">Cook your recipe in fullscreen mode without distractions!</string>
-    <string name="no_ingredients_and_directions_message">This recipe does not have any ingredients or directions yet.</string>
-    <string name="cook_action">Cook</string>
-    <string name="adjust_ingredients">Adjust ingredients</string>
-    <string name="adjust_ingredients_prompt">Choose how many servings you want to cook!</string>
-    <string name="scaling_simple">Simple</string>
-    <string name="scaling_pro">Pro</string>
+    <string name="cooking_assistant">Kookassistent</string>
+    <string name="cooking_assistant_prompt">Bereid je recept in fullscreen modus zonder afleiding!</string>
+    <string name="no_ingredients_and_directions_message">Dit recept heeft nog geen ingrediënten of instructies.</string>
+    <string name="cook_action">Maak klaar</string>
+    <string name="adjust_ingredients">Wijzig ingrediënten</string>
+    <string name="adjust_ingredients_prompt">Kies hoeveel porties je wil maken!</string>
+    <string name="scaling_simple">Eenvoudig</string>
+    <string name="scaling_pro">Geavanceerd</string>
     <string name="recipe_amount">Recipe amount</string>
-    <string name="scaling_factor">Scaling factor</string>
-    <string name="unscaled">not adjusted</string>
+    <string name="scaling_factor">Schalingsfactor</string>
+    <string name="unscaled">ongewijzigd</string>
     <!-- Sharing and export/import -->
-    <string name="share_action">Share</string>
-    <string name="shared_with">Shared with %1$s</string>
+    <string name="share_action">Delen</string>
+    <string name="shared_with">Gedeeld met %1$s</string>
     <string name="recipe_could_not_be_imported_message">Sorry, this did not work.</string>
     <string name="recipe_could_not_be_read_message">Sorry, this recipe can not be read.</string>
     <string name="share_as_file_action">Share as file</string>
