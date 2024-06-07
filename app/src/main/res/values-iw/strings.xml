@@ -130,6 +130,7 @@
     <string name="turkish">Turkish</string>
     <string name="serbian_latin">Serbian (Latin)</string>
     <string name="hebrew">Hebrew</string>
+    <string name="brazilian_portuguese">Brazilian Portuguese</string>
     <!-- support -->
     <string name="support_the_app">תמוך באפליקציה</string>
     <string name="support_the_app_donate">תרום</string>
@@ -182,7 +183,7 @@
     <string name="carrot">גזרים</string>
     <string name="carrot_terms">גזר, גזרים</string>
     <string name="bell_pepper">פלפל מתוק</string>
-    <string name="bell_pepper_terms">פלפל, פלפלים, גמבה, גמבות</string>
+    <string name="bell_pepper_terms">peppers, bell pepper, bell peppers</string>
     <string name="parsnip">גזר לבן</string>
     <string name="parsnip_terms">גזר לבן, גזרים לבנים</string>
     <string name="brussels_sprouts">כרוב ניצנים</string>
@@ -253,4 +254,8 @@
     <string name="gooseberries_terms">gooseberries</string>
     <string name="lambs_lettuce">Lamb\'s lettuce</string>
     <string name="lambs_lettuce_terms">lamb\'s lettuce</string>
+    <string name="pointed_cabbage">Pointed cabbage</string>
+    <string name="pointed_cabbage_terms">pointed cabbage</string>
+    <string name="champignons">Champignons</string>
+    <string name="champignons_terms">champignons</string>
 </resources>
