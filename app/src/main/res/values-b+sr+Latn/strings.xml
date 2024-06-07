@@ -130,6 +130,7 @@
     <string name="turkish">Turski</string>
     <string name="serbian_latin">Serbian (Latin)</string>
     <string name="hebrew">Hebrew</string>
+    <string name="brazilian_portuguese">Brazilian Portuguese</string>
     <!-- support -->
     <string name="support_the_app">Podržite aplikaciju</string>
     <string name="support_the_app_donate">Doniraj</string>
@@ -182,7 +183,7 @@
     <string name="carrot">Šargarepe</string>
     <string name="carrot_terms">šargarepa, šargarepe</string>
     <string name="bell_pepper">Paprike babure</string>
-    <string name="bell_pepper_terms">paprika, paprike, babura, babure</string>
+    <string name="bell_pepper_terms">peppers, bell pepper, bell peppers</string>
     <string name="parsnip">Paškanat</string>
     <string name="parsnip_terms">paškanat, paškanat</string>
     <string name="brussels_sprouts">Prokelj</string>
@@ -253,4 +254,8 @@
     <string name="gooseberries_terms">ogrozd</string>
     <string name="lambs_lettuce">Lamb\'s lettuce</string>
     <string name="lambs_lettuce_terms">lamb\'s lettuce</string>
+    <string name="pointed_cabbage">Pointed cabbage</string>
+    <string name="pointed_cabbage_terms">pointed cabbage</string>
+    <string name="champignons">Champignons</string>
+    <string name="champignons_terms">champignons</string>
 </resources>
