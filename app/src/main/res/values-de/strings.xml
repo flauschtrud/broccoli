@@ -237,4 +237,8 @@
     <string name="gooseberries_terms">Stachelbeeren</string>
     <string name="lambs_lettuce_terms">Feldsalat</string>
     <string name="brazilian_portuguese">Brasilianisches Portugiesisch</string>
+    <string name="pointed_cabbage">Spitzkohl</string>
+    <string name="pointed_cabbage_terms">Spitzkohl</string>
+    <string name="champignons">Champignons</string>
+    <string name="champignons_terms">Champignons</string>
 </resources>

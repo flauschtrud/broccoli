@@ -237,4 +237,8 @@
     <string name="gooseberries_terms">grosellas</string>
     <string name="lambs_lettuce_terms">hojas de canónigos</string>
     <string name="brazilian_portuguese">Portugués brasileño</string>
+    <string name="pointed_cabbage">Col de Filder</string>
+    <string name="pointed_cabbage_terms">col de Filder, berza de Filder, col puntiaguda</string>
+    <string name="champignons">Champiñones</string>
+    <string name="champignons_terms">champiñones</string>
 </resources>
