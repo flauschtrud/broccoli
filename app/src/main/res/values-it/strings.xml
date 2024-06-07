@@ -130,6 +130,7 @@
     <string name="turkish">Turco</string>
     <string name="serbian_latin">Serbo (latino)</string>
     <string name="hebrew">Ebraico</string>
+    <string name="brazilian_portuguese">Brazilian Portuguese</string>
     <!-- support -->
     <string name="support_the_app">Supporta l\'app</string>
     <string name="support_the_app_donate">Fai una donazione</string>
@@ -182,7 +183,7 @@
     <string name="carrot">Carote</string>
     <string name="carrot_terms">carota, carote</string>
     <string name="bell_pepper">Peperoni</string>
-    <string name="bell_pepper_terms">peperone, peperoni</string>
+    <string name="bell_pepper_terms">peppers, bell pepper, bell peppers</string>
     <string name="parsnip">Pastinaca</string>
     <string name="parsnip_terms">pastinaca, pastinache</string>
     <string name="brussels_sprouts">Cavoletti di Bruxelles</string>
@@ -253,4 +254,8 @@
     <string name="gooseberries_terms">ribes</string>
     <string name="lambs_lettuce">Valeriana</string>
     <string name="lambs_lettuce_terms">valeriana, valerianella, lattughino, soncino, molesino, dolcetta, gallinella, pasqualina</string>
+    <string name="pointed_cabbage">Pointed cabbage</string>
+    <string name="pointed_cabbage_terms">pointed cabbage</string>
+    <string name="champignons">Champignons</string>
+    <string name="champignons_terms">champignons</string>
 </resources>
