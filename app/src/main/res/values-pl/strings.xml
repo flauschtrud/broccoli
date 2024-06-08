@@ -130,7 +130,7 @@
     <string name="turkish">Turecki</string>
     <string name="serbian_latin">Serbski (alfabet łaciński)</string>
     <string name="hebrew">Hebrajski</string>
-    <string name="brazilian_portuguese">Brazilian Portuguese</string>
+    <string name="brazilian_portuguese">Portugalski (Brazylia)</string>
     <!-- support -->
     <string name="support_the_app">Wesprzyj aplikację</string>
     <string name="support_the_app_donate">Przekaż darowiznę</string>
@@ -183,7 +183,7 @@
     <string name="carrot">Marchew</string>
     <string name="carrot_terms">marchew, marchewka, marchewki, marchwi</string>
     <string name="bell_pepper">Papryka</string>
-    <string name="bell_pepper_terms">peppers, bell pepper, bell peppers</string>
+    <string name="bell_pepper_terms">papryki, papryka, papryka roczna</string>
     <string name="parsnip">Pasternak</string>
     <string name="parsnip_terms">pasternak, pasternaki, pasternaku</string>
     <string name="brussels_sprouts">Brukselka</string>
