@@ -130,7 +130,7 @@
     <string name="turkish">土耳其语</string>
     <string name="serbian_latin">塞尔维亚语(拉丁文)</string>
     <string name="hebrew">希伯来语</string>
-    <string name="brazilian_portuguese">Brazilian Portuguese</string>
+    <string name="brazilian_portuguese">巴西葡萄牙语</string>
     <!-- support -->
     <string name="support_the_app">支持本应用</string>
     <string name="support_the_app_donate">捐助</string>
@@ -183,7 +183,7 @@
     <string name="carrot">胡萝卜</string>
     <string name="carrot_terms">胡萝卜，红萝卜。</string>
     <string name="bell_pepper">灯笼椒</string>
-    <string name="bell_pepper_terms">peppers, bell pepper, bell peppers</string>
+    <string name="bell_pepper_terms">椒、 菜椒、灯笼椒</string>
     <string name="parsnip">欧防风</string>
     <string name="parsnip_terms">欧防风</string>
     <string name="brussels_sprouts">抱子甘蓝</string>
@@ -254,8 +254,8 @@
     <string name="gooseberries_terms">鵝莓</string>
     <string name="lambs_lettuce">羊萵苣</string>
     <string name="lambs_lettuce_terms">羊萵苣</string>
-    <string name="pointed_cabbage">Pointed cabbage</string>
-    <string name="pointed_cabbage_terms">pointed cabbage</string>
-    <string name="champignons">Champignons</string>
-    <string name="champignons_terms">champignons</string>
+    <string name="pointed_cabbage">尖头高丽菜</string>
+    <string name="pointed_cabbage_terms">尖头高丽菜</string>
+    <string name="champignons">香菇</string>
+    <string name="champignons_terms">香菇</string>
 </resources>
