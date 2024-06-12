@@ -77,8 +77,8 @@
     <string name="restore_recipes">Gjenopprett oppskrifter</string>
     <string name="restore_recipes_message">Importer alle oppskrifter og kategorier fra en sikkerhetskopifil.</string>
     <string name="backup_failed_message">Oppskriftene kunne ikke bli eksportert.</string>
-    <string name="restore_failed_message">The recipes could not be imported.</string>
-    <string name="restore_all_question">Do you want to import all recipes and categories from this file?</string>
+    <string name="restore_failed_message">Oppskriftene kunne ikke bli importert.</string>
+    <string name="restore_all_question">Vil du importere alle oppskrifter og kategorier fra denne filen?</string>
     <string name="restore_completed_message">%1$d recipes have been imported.</string>
     <string name="last_backup">Last backup</string>
     <!-- Settings/feedback -->
