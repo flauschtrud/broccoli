@@ -130,6 +130,7 @@
     <string name="turkish">Turecki</string>
     <string name="serbian_latin">Serbski (alfabet łaciński)</string>
     <string name="hebrew">Hebrajski</string>
+    <string name="brazilian_portuguese">Portugalski (Brazylia)</string>
     <!-- support -->
     <string name="support_the_app">Wesprzyj aplikację</string>
     <string name="support_the_app_donate">Przekaż darowiznę</string>
@@ -182,7 +183,7 @@
     <string name="carrot">Marchew</string>
     <string name="carrot_terms">marchew, marchewka, marchewki, marchwi</string>
     <string name="bell_pepper">Papryka</string>
-    <string name="bell_pepper_terms">papryka, papryki, pieprzowiec</string>
+    <string name="bell_pepper_terms">papryki, papryka, papryka roczna, paprykę</string>
     <string name="parsnip">Pasternak</string>
     <string name="parsnip_terms">pasternak, pasternaki, pasternaku</string>
     <string name="brussels_sprouts">Brukselka</string>
@@ -253,4 +254,8 @@
     <string name="gooseberries_terms">agrest</string>
     <string name="lambs_lettuce">Roszpunka</string>
     <string name="lambs_lettuce_terms">roszpunka</string>
+    <string name="pointed_cabbage">Kapusta głowiasta biała</string>
+    <string name="pointed_cabbage_terms">kapusta spiczasta, kapusty spiczastej, kapusta głowiasta, kapusty głowiastej, filderkraut</string>
+    <string name="champignons">Pieczarki</string>
+    <string name="champignons_terms">pieczarka, pieczarki, pieczarek, pieczarkami</string>
 </resources>
