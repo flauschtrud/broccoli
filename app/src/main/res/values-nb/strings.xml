@@ -112,7 +112,7 @@
     <string name="configure_seasons_action">Konfigurer</string>
     <string name="region">Region</string>
     <string name="languages_of_recipes">Languages of recipes</string>
-    <string name="no_language_set_message">In which languages do you create your recipes? Choose at least one language.</string>
+    <string name="no_language_set_message">På hvilket språk lager du oppskriftene dine? Velg minst ett språk.</string>
     <string name="seasons_feedback_message">Savner du din region, ditt språk eller din favorittingrediens?</string>
     <string name="seasons_feedback_subject">Tilbakemelding til sesongkalenderen</string>
     <!-- regions for seasonal calendar -->
@@ -149,27 +149,27 @@
     <!-- the plurals are important! -->
     <string name="eggplant">Auberginer</string>
     <string name="eggplant_terms">aubergine, auberginer</string>
-    <string name="cauliflower">Cauliflower</string>
-    <string name="cauliflower_terms">cauliflower</string>
-    <string name="broad_bean">Broad beans</string>
-    <string name="broad_bean_terms">broad beans, fava beans, faba beans</string>
-    <string name="bean">Beans</string>
-    <string name="bean_terms">common beans, french beans, green beans</string>
-    <string name="broccoli">Broccoli</string>
-    <string name="broccoli_terms">broccoli</string>
-    <string name="chinese_cabbage">Chinese cabbage</string>
-    <string name="chinese_cabbage_terms">chinese cabbage, napa cabbage</string>
-    <string name="pea">Peas</string>
-    <string name="pea_terms">peas</string>
-    <string name="fennel">Fennel</string>
-    <string name="fennel_terms">fennel</string>
-    <string name="kale">Kale</string>
-    <string name="kale_terms">kale</string>
-    <string name="cucumber">Cucumbers</string>
-    <string name="cucumber_terms">cucumber, cucumbers</string>
-    <string name="celeriac">Celeriac</string>
+    <string name="cauliflower">Blomkål</string>
+    <string name="cauliflower_terms">blomkål</string>
+    <string name="broad_bean">Bondebønner</string>
+    <string name="broad_bean_terms">bondebønner, favabønner, favabønner</string>
+    <string name="bean">Bønner</string>
+    <string name="bean_terms">vanlige bønner, franske bønner, grønne bønner</string>
+    <string name="broccoli">Brokkoli</string>
+    <string name="broccoli_terms">brokkoli</string>
+    <string name="chinese_cabbage">Kinakål</string>
+    <string name="chinese_cabbage_terms">kinakål, napakål</string>
+    <string name="pea">Erter</string>
+    <string name="pea_terms">erter</string>
+    <string name="fennel">Fennikel</string>
+    <string name="fennel_terms">fennikel</string>
+    <string name="kale">Grønnkål</string>
+    <string name="kale_terms">grønnkål</string>
+    <string name="cucumber">Agurker</string>
+    <string name="cucumber_terms">agurk, agurker</string>
+    <string name="celeriac">Sellerirot</string>
     <!-- Knollensellerie -->
-    <string name="celeriac_terms">celeriac</string>
+    <string name="celeriac_terms">sellerirot</string>
     <string name="kohlrabi">Kohlrabi</string>
     <string name="kohlrabi_terms">kohlrabi</string>
     <string name="pumpkin">Pumpkin</string>
