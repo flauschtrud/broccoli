@@ -170,10 +170,10 @@
     <string name="celeriac">Sellerirot</string>
     <!-- Knollensellerie -->
     <string name="celeriac_terms">sellerirot</string>
-    <string name="kohlrabi">Kohlrabi</string>
-    <string name="kohlrabi_terms">kohlrabi</string>
-    <string name="pumpkin">Pumpkin</string>
-    <string name="pumpkin_terms">pumpkin, pumpkins, hokkaido</string>
+    <string name="kohlrabi">Kålrot</string>
+    <string name="kohlrabi_terms">kålrot</string>
+    <string name="pumpkin">Gresskar</string>
+    <string name="pumpkin_terms">gresskar, gresskar, hokkaido</string>
     <string name="leek">Leek</string>
     <string name="leek_terms">leek</string>
     <string name="corn">Corn</string>
