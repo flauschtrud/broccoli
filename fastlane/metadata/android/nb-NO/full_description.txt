@@ -16,6 +16,6 @@ Broccoli er en øko-vennlig oppskriftsapp, perfekt for din <b>oppskriftssamling<
 • bruk matlagingsassistenten i fullskjermmodus mens du lager mat
 • tilpass mengden av ingredienser
 
-Broccoli is free for everyone and no account is required. If you enjoy our recipe app you can donate to support the development of the app.
+Broccoli er gratis for alle, og krever ingen konto for å brukes. Hvis du liker vår oppskriftsapp kan du donere for å støtte utviklingen av appen.
 
-Start your recipe collection now!
+Start oppskriftssamlingen din nå!
