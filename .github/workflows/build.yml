@@ -24,7 +24,7 @@ jobs:
 
       - name: Run UI Tests
         if: ${{ !contains(github.ref, 'l10n_master') }}
-        run: bash ./gradlew allDevicesCheck
+        run: bash ./gradlew allDevicesFdroidDebugAndroidTest
 
       - name: Assemble App Debug APK
         run: ./gradlew assembleDebug
