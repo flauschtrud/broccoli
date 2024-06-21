@@ -22,6 +22,10 @@ jobs:
         if: ${{ !contains(github.ref, 'l10n_master') }}
         run: bash ./gradlew test
 
+      - name: Accept Licenses
+        if: ${{ !contains(github.ref, 'l10n_master') }}
+        run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
+
       - name: Run UI Tests
         if: ${{ !contains(github.ref, 'l10n_master') }}
         run: bash ./gradlew allDevicesFdroidDebugAndroidTest
