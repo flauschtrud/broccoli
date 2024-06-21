@@ -4,7 +4,8 @@ on:
   push
 
 jobs:
-  test:
+  build:
+    name: Test & Build
     runs-on: macos-latest
 
     steps:
