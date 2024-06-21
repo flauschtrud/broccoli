@@ -61,7 +61,7 @@ android {
             devices {
                 pixel8api34(ManagedVirtualDevice) {
                     device = "Pixel 8"
-                    apiLevel = 33
+                    apiLevel = 30
                     systemImageSource = "aosp-atd"
                 }
             }
