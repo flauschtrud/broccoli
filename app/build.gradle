@@ -61,9 +61,8 @@ android {
             localDevices {
                 pixel2api34 {
                     device = "Pixel 2"
-                    apiLevel = 34
+                    apiLevel = 33
                     systemImageSource = "aosp-atd"
-                    require64Bit = true
                 }
             }
         }
