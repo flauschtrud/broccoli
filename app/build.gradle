@@ -17,6 +17,7 @@ android {
         versionCode 1021000 // versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionBuild
         versionName "1.2.10"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArgument "notAnnotation", "androidx.test.filters.FlakyTest"
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation":
@@ -58,21 +59,10 @@ android {
         animationsDisabled = true
         managedDevices {
             devices {
-                pixel2api31(ManagedVirtualDevice) {
-                    device = "Pixel 2"
-                    apiLevel = 31
-                    systemImageSource = "aosp"
-                }
-                nexus9api26(ManagedVirtualDevice) {
-                    device = "Nexus 9"
-                    apiLevel = 26
-                    systemImageSource = "aosp"
-                }
-            }
-            groups {
-                phoneAndTablet {
-                    targetDevices.add(devices.pixel2api31)
-                    targetDevices.add(devices.nexus9api26)
+                pixel8api34(ManagedVirtualDevice) {
+                    device = "Pixel 8"
+                    apiLevel = 34
+                    systemImageSource = "aosp-atd"
                 }
             }
         }

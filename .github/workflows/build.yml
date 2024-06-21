@@ -5,7 +5,8 @@ on:
 
 jobs:
   test:
-    name: Run Unit Tests
+    name: Run Tests
+    if: ${{ !contains(github.ref, 'l10n_master') }}
     runs-on: ubuntu-latest
 
     steps:
@@ -18,8 +19,11 @@ jobs:
           distribution: 'temurin'
           java-version: 17
 
-      - name: Unit Tests
+      - name: Run Unit Tests
         run: bash ./gradlew test -Pbase64EncodedPublicKey=${{secrets.PUBLIC_KEY}} --stacktrace
+
+      - name: Run UI Tests
+        run: bash ./gradlew allDevicesCheck
 
   apk:
     name: Generate APK

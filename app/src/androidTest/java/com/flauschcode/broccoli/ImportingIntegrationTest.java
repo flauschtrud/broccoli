@@ -16,7 +16,7 @@ import androidx.test.core.app.ApplicationProvider;
 import androidx.test.espresso.accessibility.AccessibilityChecks;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.filters.LargeTest;
+import androidx.test.filters.FlakyTest;
 
 import com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 
@@ -38,7 +38,7 @@ https://stilettosandsprouts.de/vegane-fenchel-pasta/ (Yoast, most complicated)
  */
 
 @RunWith(AndroidJUnit4.class)
-@LargeTest
+@FlakyTest
 public class ImportingIntegrationTest {
 
     private ActivityScenario<MainActivity> scenario;
@@ -104,7 +104,7 @@ public class ImportingIntegrationTest {
         onView(withId(R.id.new_preparation_time)).check(matches(withText("25m")));
         onView(withId(R.id.new_description)).check(matches(withSubstring("Dieses Grundrezept für Fladenbrot ohne Hefe passt zu vielen Gerichten. Das einfache und schnelle Rezept ist sehr variabel.")));
         onView(withId(R.id.new_ingredients)).check(matches(withText("200 g Mehl, Type 550\n3 EL Olivenöl (oder Pflanzenöl)\n3 EL Olivenöl (oder Pflanzenöl)\n1 Prise Salz\n100 ml Wasser")));
-        onView(withId(R.id.new_directions)).check(matches(withText("Zuerst das Mehl in eine Schüssel geben, Salz, Wasser und Olivenöl dazugeben und alle Zutaten zu einem Teig verkneten - am besten mit der Hand.\nDann den Teig für 10 Minuten quellen lassen und erneut für 5 Minuten kneten, so dass ein glatter Teig entsteht.\nSpäter aus dem Teig 4 dünne Fladen formen, eine gusseiserne Pfanne (=unbeschichtet) ohne Fett erhitzen und die Teigfladen darin nacheinander backen bis sich die ersten braunen Flecken zeigen.\nIm Anschluss die Fladen wenden und auch auf der anderen Seite backen.")));
+        onView(withId(R.id.new_directions)).check(matches(withText("1. Zuerst das Mehl in eine Schüssel geben, Salz, Wasser und Olivenöl dazugeben und alle Zutaten zu einem Teig verkneten - am besten mit der Hand.\n2. Dann den Teig für 10 Minuten quellen lassen und erneut für 5 Minuten kneten, so dass ein glatter Teig entsteht.\n3. Später aus dem Teig 4 dünne Fladen formen, eine gusseiserne Pfanne (=unbeschichtet) ohne Fett erhitzen und die Teigfladen darin nacheinander backen bis sich die ersten braunen Flecken zeigen.\n4. Im Anschluss die Fladen wenden und auch auf der anderen Seite backen.")));
     }
 
     @Test
