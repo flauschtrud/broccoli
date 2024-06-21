@@ -60,9 +60,10 @@ android {
         managedDevices {
             devices {
                 pixel8api34(ManagedVirtualDevice) {
-                    device = "Pixel 8"
+                    device = "Pixel 2"
                     apiLevel = 30
                     systemImageSource = "aosp-atd"
+                    require64Bit = true
                 }
             }
         }
