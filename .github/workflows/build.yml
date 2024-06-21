@@ -5,7 +5,6 @@ on:
 
 jobs:
   test:
-    name: Run Tests
     runs-on: macos-latest
 
     steps:
@@ -28,7 +27,7 @@ jobs:
 
       - name: Run UI Tests
         if: ${{ !contains(github.ref, 'l10n_master') }}
-        run: bash ./gradlew allDevicesFdroidDebugAndroidTest
+        run: bash ./gradlew allDevicesFdroidDebugAndroidTest -Pandroid.experimental.testOptions.managedDevices.emulator.showKernelLogging=true
 
       - name: Assemble App Debug APK
         run: ./gradlew assembleDebug
