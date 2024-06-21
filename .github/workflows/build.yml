@@ -6,7 +6,6 @@ on:
 jobs:
   test:
     name: Run Tests
-    if: ${{ !contains(github.ref, 'l10n_master') }}
     runs-on: macos-latest
 
     steps:
@@ -20,27 +19,15 @@ jobs:
           java-version: 17
 
       - name: Run Unit Tests
-        run: bash ./gradlew test -Pbase64EncodedPublicKey=${{secrets.PUBLIC_KEY}} --stacktrace
+        if: ${{ !contains(github.ref, 'l10n_master') }}
+        run: bash ./gradlew test
 
       - name: Run UI Tests
+        if: ${{ !contains(github.ref, 'l10n_master') }}
         run: bash ./gradlew allDevicesCheck
 
-  apk:
-    name: Generate APK
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check Out Repository
-        uses: actions/checkout@v4
-
-      - name: Set Up Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: 17
-
       - name: Assemble App Debug APK
-        run: ./gradlew assembleDebug -Pbase64EncodedPublicKey=${{secrets.PUBLIC_KEY}} --stacktrace
+        run: ./gradlew assembleDebug
 
       - name: Upload App Play APK
         uses: actions/upload-artifact@v4
