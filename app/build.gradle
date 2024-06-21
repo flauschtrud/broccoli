@@ -59,10 +59,11 @@ android {
         animationsDisabled = true
         managedDevices {
             localDevices {
-                pixel2api30 {
+                pixel2api34 {
                     device = "Pixel 2"
-                    apiLevel = 30
+                    apiLevel = 34
                     systemImageSource = "aosp-atd"
+                    require64Bit = true
                 }
             }
         }
