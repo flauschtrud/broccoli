@@ -61,7 +61,7 @@ android {
             localDevices {
                 pixel2api31 {
                     device = "Pixel 2"
-                    apiLevel = 31
+                    apiLevel = 30
                     systemImageSource = "aosp-atd"
                 }
             }
