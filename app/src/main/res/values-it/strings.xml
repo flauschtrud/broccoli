@@ -256,6 +256,6 @@
     <string name="lambs_lettuce_terms">valeriana, valerianella, lattughino, soncino, molesino, dolcetta, gallinella, pasqualina</string>
     <string name="pointed_cabbage">Cavolo cappuccio</string>
     <string name="pointed_cabbage_terms">cavolo cappuccio</string>
-    <string name="champignons">Funghi prataioli</string>
-    <string name="champignons_terms">champignon, fungo prataiolo, funghi prataioli</string>
+    <string name="champignons">Champignon</string>
+    <string name="champignons_terms">champignon, champignons, fungo prataiolo, funghi prataioli</string>
 </resources>
