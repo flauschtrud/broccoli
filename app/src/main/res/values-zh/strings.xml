@@ -131,6 +131,7 @@
     <string name="serbian_latin">塞尔维亚语(拉丁文)</string>
     <string name="hebrew">希伯来语</string>
     <string name="brazilian_portuguese">巴西葡萄牙语</string>
+    <string name="norwegian_bokmal">Norwegian (Bokmål)</string>
     <!-- support -->
     <string name="support_the_app">支持本应用</string>
     <string name="support_the_app_donate">捐助</string>
