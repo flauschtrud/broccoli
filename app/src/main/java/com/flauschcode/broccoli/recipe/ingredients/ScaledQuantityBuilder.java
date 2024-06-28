@@ -28,6 +28,11 @@ public class ScaledQuantityBuilder {
         try {
             if (isRange(quantity)) {
                 String[] ranges = quantity.replace(" ", "").split("-");
+
+                if (ranges.length != 2) {
+                    throw new NumberFormatException(quantity + " is not a valid range.");
+                }
+
                 String first = scale(ranges[0], scaleFactor);
                 String second = scale(ranges[1], scaleFactor);
                 return first + "-" + second;
@@ -57,7 +62,7 @@ public class ScaledQuantityBuilder {
     }
 
     private boolean isRange(String quantity) {
-        return quantity.contains("-");
+        return quantity.matches("[^-]+-[^-]+");
     }
 
     private boolean isMixedInteger(String quantity) {
