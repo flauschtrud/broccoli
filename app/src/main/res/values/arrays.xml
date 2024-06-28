@@ -25,6 +25,7 @@
         <item>@string/serbian_latin</item>
         <item>@string/hebrew</item>
         <item>@string/brazilian_portuguese</item>
+        <item>@string/norwegian_bokmal</item>
     </string-array>
 
     <string-array name="language_values">
@@ -39,6 +40,7 @@
         <item>sr-Latn</item>
         <item>iw</item>
         <item>pt-BR</item>
+        <item>nb</item>
     </string-array>
 
     <string-array name="theme_entries">
