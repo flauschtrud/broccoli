@@ -133,7 +133,7 @@ dependencies {
 
     implementation 'org.jsoup:jsoup:1.15.4'
 
-    implementation "com.mikepenz:aboutlibraries:10.6.3"
+    implementation "com.mikepenz:aboutlibraries:11.2.1"
 
     def jackson_version = "2.15.4"
     implementation "com.fasterxml.jackson.core:jackson-core:$jackson_version"
