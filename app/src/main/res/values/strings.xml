@@ -71,7 +71,6 @@
     <!-- Sharing and export/import -->
     <string name="share_action">Share</string>
     <string name="shared_with">Shared with %1$s</string>
-    <string name="playstore_url" translatable="false">https://play.google.com/store/apps/details?id=com.flauschcode.broccoli</string>
     <string name="recipe_could_not_be_imported_message">Sorry, this did not work.</string>
     <string name="recipe_could_not_be_read_message">Sorry, this recipe can not be read.</string>
     <string name="share_as_file_action">Share as file</string>
@@ -165,7 +164,6 @@
     <string name="play_store_sign_in_message">Please sign in to Google Play Store.</string>
     <string name="rate_the_app">Rate the app</string>
     <string name="share_the_app">Share the app</string>
-    <string name="fdroid_url" translatable="false">https://f-droid.org/packages/com.flauschcode.broccoli</string>
     <string name="kofi_url" translatable="false">https://ko-fi.com/flauschtrud</string>
 
     <!-- seasonal food -->

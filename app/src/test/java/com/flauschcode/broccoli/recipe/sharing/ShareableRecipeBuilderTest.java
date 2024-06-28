@@ -71,7 +71,7 @@ public class ShareableRecipeBuilderTest {
         when(application.getString(R.string.source)).thenReturn("Source");
         when(application.getString(R.string.ingredients)).thenReturn("Ingredients");
         when(application.getString(R.string.directions)).thenReturn("Directions");
-        when(application.getString(R.string.playstore_url)).thenReturn("BROCCOLI_URL");
+        when(application.getString(R.string.store_url)).thenReturn("BROCCOLI_URL");
         when(application.getString(R.string.shared_with,  "BROCCOLI_URL")).thenReturn("Shared with BROCCOLI_URL");
     }
 
