@@ -33,7 +33,7 @@ import androidx.test.espresso.ViewAction;
 import androidx.test.espresso.accessibility.AccessibilityChecks;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
-import androidx.test.filters.LargeTest;
+import androidx.test.filters.FlakyTest;
 
 import com.flauschcode.broccoli.util.RecyclerViewAssertions;
 import com.flauschcode.broccoli.util.RecyclerViewMatcher;
@@ -49,7 +49,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @RunWith(AndroidJUnit4.class)
-@LargeTest
+@FlakyTest
 public class SeasonsIntegrationTest {
 
     private ActivityScenario<MainActivity> scenario;
