@@ -130,8 +130,8 @@
     <string name="turkish">Turc</string>
     <string name="serbian_latin">Serbe (latin)</string>
     <string name="hebrew">Hébreu</string>
-    <string name="brazilian_portuguese">Brazilian Portuguese</string>
-    <string name="norwegian_bokmal">Norwegian (Bokmål)</string>
+    <string name="brazilian_portuguese">Portugais du Brésil</string>
+    <string name="norwegian_bokmal">Norvégien (Bokmål)</string>
     <!-- support -->
     <string name="support_the_app">Soutiens l\'application</string>
     <string name="support_the_app_donate">Fais un don</string>
@@ -255,8 +255,8 @@
     <string name="gooseberries_terms">groseilles à maquereau</string>
     <string name="lambs_lettuce">Mâche</string>
     <string name="lambs_lettuce_terms">mâche</string>
-    <string name="pointed_cabbage">Pointed cabbage</string>
-    <string name="pointed_cabbage_terms">pointed cabbage</string>
+    <string name="pointed_cabbage">Chou pointu</string>
+    <string name="pointed_cabbage_terms">chou pointu, choux pointus</string>
     <string name="champignons">Champignons</string>
     <string name="champignons_terms">champignons</string>
 </resources>
