@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- CRUD -->
-    <string name="recipes">Recipes</string>
-    <string name="no_recipes_found">No recipes found.</string>
-    <string name="create_a_recipe_prompt">create a new recipe</string>
-    <string name="import_from_the_web_prompt">import a recipe from a website</string>
-    <string name="new_recipe">New Recipe</string>
-    <string name="create_first_recipe">Create your first recipe and start your collection!</string>
-    <string name="edit_action">Edit</string>
-    <string name="save_action">Save</string>
+    <string name="recipes">Рецепты</string>
+    <string name="no_recipes_found">Рецепты не найдены.</string>
+    <string name="create_a_recipe_prompt">создать новый рецепт</string>
+    <string name="import_from_the_web_prompt">импортировать рецепт с сайта</string>
+    <string name="new_recipe">Новый рецепт</string>
+    <string name="create_first_recipe">Создайте первый рецепт и начните свою коллекцию!</string>
+    <string name="edit_action">Редактировать</string>
+    <string name="save_action">Сохранить</string>
     <string name="title_should_not_be_empty_message">Please add a title.</string>
     <string name="recipe_saved_message">The recipe has been saved.</string>
     <string name="recipe_could_not_be_saved_message">The recipe could not be saved.</string>
