@@ -139,7 +139,7 @@
     <string name="support_the_app_donate_text_fdroid">Broccoli бесплатен для всех. Но вы можете поддержать разработку приложения и купить мне печенье, кофе или бургер. Большое спасибо!</string>
     <string name="support_the_app_give_feedback">Оставить отзыв</string>
     <string name="support_the_app_give_feedback_text">Нравится Broccoli? Расскажите нам об этом!</string>
-    <string name="support_the_app_tell_your_friends">Поделитесь с друзьями</string>
+    <string name="support_the_app_tell_your_friends">Поделиться с друзьями</string>
     <string name="support_the_app_tell_your_friends_text">Ваши друзья тоже любят готовить? Расскажите им о Broccoli!</string>
     <string name="free_for_everyone">Бесплатно для всех</string>
     <string name="buy">Купить</string>
@@ -153,9 +153,9 @@
     <string name="cauliflower">Цветная капуста</string>
     <string name="cauliflower_terms">цветная капуста</string>
     <string name="broad_bean">Бобы</string>
-    <string name="broad_bean_terms">бобы, бобы фава, бобы фаба</string>
-    <string name="bean">Бобы</string>
-    <string name="bean_terms">обычная фасоль, французская фасоль, зеленая фасоль</string>
+    <string name="broad_bean_terms">бобы</string>
+    <string name="bean">Фасоль</string>
+    <string name="bean_terms">фасоль, французская фасоль, зеленая фасоль, красная фасоль, белая фасоль</string>
     <string name="broccoli">Брокколи</string>
     <string name="broccoli_terms">брокколи</string>
     <string name="chinese_cabbage">Китайская капуста</string>
