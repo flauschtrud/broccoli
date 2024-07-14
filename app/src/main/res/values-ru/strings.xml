@@ -249,14 +249,14 @@
     <string name="raspberries_terms">малина</string>
     <string name="blackberries">Ежевика</string>
     <string name="blackberries_terms">ежевика</string>
-    <string name="mirabelles">Mirabelles</string>
-    <string name="mirabelles_terms">mirabelles</string>
+    <string name="mirabelles">Мирабели</string>
+    <string name="mirabelles_terms">мирабели</string>
     <string name="gooseberries">Крыжовник</string>
     <string name="gooseberries_terms">крыжовник</string>
     <string name="lambs_lettuce">Салат латук</string>
     <string name="lambs_lettuce_terms">салат латук, салат, латук</string>
-    <string name="pointed_cabbage">Pointed cabbage</string>
-    <string name="pointed_cabbage_terms">pointed cabbage</string>
-    <string name="champignons">Champignons</string>
+    <string name="pointed_cabbage">Остроконечная капуста</string>
+    <string name="pointed_cabbage_terms">остроконечная капуста</string>
+    <string name="champignons">Шампиньоны</string>
     <string name="champignons_terms">шампиньоны</string>
 </resources>
