@@ -1,1 +1,1 @@
-Recipe manager, cooking assistant, seasonal calendar: the eco-friendly cookbook.
+Менеджер рецептов, помощник для готовки, сезонный календарь: книга рецептов.
