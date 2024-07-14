@@ -9,13 +9,13 @@ Broccoli — это свободное экологичное приложени
 
 <b>Готовьте экологично</b>
 • узнайте больше о сезонных ингредиентах в вашем регионе с помощью сезонного календаря
-• search for seasonal recipes in your collection
-• easily identify seasonal ingredients
+• поиск сезонных рецептов в вашей коллекции
+• легко определить сезонные ингредиенты
 
-<b>Cook without distraction</b>
-• use the fullscreen cooking assistant while you prepare your dish
-• adjust the amount of the ingredients
+<b>Готовьте без отвлечения внимания</b>
+• используйте помощника по приготовлению блюд в полноэкранном режиме во время приготовления блюд
+• изменяйте количество ингредиентов
 
-Broccoli is free for everyone and no account is required. If you enjoy our recipe app you can donate to support the development of the app.
+Broccoli является бесплатным для всех и не требует создания аккаунта. Если вам нравится наше приложение для рецептов, вы можете внести пожертвование, чтобы поддержать разработку приложения.
 
-Start your recipe collection now!
+Начните свою коллекцию рецептов прямо сейчас!
