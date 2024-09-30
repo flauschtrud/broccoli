@@ -1,4 +1,4 @@
-Broccoli est une appli de recettes libre et écoresponsable pour créer ta <b>collection de recettes</b>, <b>cuisiner sans distraction</b> et utiliser des <b>ingrédients de saison</b>. Crée, collectionne et cuisine !
+Broccoli est une appli de recettes libre et écoresponsable pour créer sa propre <b>collection de recettes</b>, <b>cuisiner sans distraction</b> et utiliser des <b>ingrédients de saison</b>. Crée, collectionne et cuisine !
 
 <b>Organiser facilement</b>
 - crée une quantité illimitée de recettes
