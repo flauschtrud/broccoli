@@ -1,7 +1,7 @@
 import csv
 import json
 
-always_first = True
+always_first = False
 debug = False
 
 print("""--------------------
@@ -13,6 +13,7 @@ Hint    [Keyname], [Translation], [Marker], [Empty],.. [Marker]
 Hint
 Hint    where multiple calendars are optional.
 Hint    In case of multiple calendars you can select one option.
+Hint
 Hint    You can set the program to always take the first one in the code under `always_first`.
 Hint
 Hint    A marker can consist of
