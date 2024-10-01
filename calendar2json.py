@@ -1,7 +1,7 @@
 import csv
 import json
 
-always_first = False
+always_first = True
 debug = False
 
 print("""--------------------
@@ -16,7 +16,8 @@ Hint    In case of multiple calendars you can select one option.
 Hint    You can set the program to always take the first one in the code under `always_first`.
 Hint
 Hint    A marker can consist of
-Hint      - X and x for full month and half month
+Hint      - X and x for full month and half month (! \/)
+Hint        - ! Be careful that if there are full months, for the sake of simplification ALL small x will be eliminated
 Hint      - Anything else for full month
 --------------------""")
 
@@ -38,6 +39,27 @@ with open(filename, 'r') as file:
             string == '' or string.isspace() or string == '?' for string in calendar), [
             row[2 + i * (12 + 1): 2 + i + (i + 1) * 12] for i in range(calendar_count)
         ]))
+        for i in range(len(calendars)):
+            # Case 1: x x x X -> - - - X
+            # Case 2: X x x x -> X - - -
+            # Case 3:   x x   -> - X
+            # We can be sure there is a real season and can erase the small x
+            if 'X' not in calendars[i]:
+                original_cal = calendars[i][:]
+                for x in range(13):  # Go from 12 over 1 to 12
+                    x -= 1
+
+                    if x < 11 and calendars[i][x+1] == 'x' and original_cal[x] == 'x':
+                        calendars[i][x+1] = 'X'
+                    # Eliminate last small x in a row while not eliminating if it's the only one
+                    elif (x > 0 and calendars[i][x-1] == 'X' or x == 0 and calendars[i][11] == 'X') and \
+                        original_cal[x] == 'x' and \
+                            (x < 11 and calendars[i][x+1] == '' or x == 11 and calendars[i][0] == ''):
+                        calendars[i][x] = ''
+
+            calendars[i] = list(
+                map(lambda val: '' if val == 'x' else val, calendars[i]))
+
         if debug:
             print(row[0], calendars)
             input()
@@ -63,8 +85,6 @@ with open(filename, 'r') as file:
 
             if values[take] == '' or values[take].isspace() or values[take] == '?':
                 continue
-            elif values[take] == 'x':
-                months.append(i + 0.5)
             else:
                 months.append(i)
 
@@ -83,7 +103,7 @@ with open(filename, 'r') as file:
 final_json = json.dumps(final_json, separators=(', ', ': '))
 
 out = input(
-    "\nGive the path to a file or leave blank for output directly to the console > ")
+    "\nGive the path to a JSON file or leave blank for output directly to the console > ")
 if out == '':
     print(str(final_json))
 else:
