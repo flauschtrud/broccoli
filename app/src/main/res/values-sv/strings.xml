@@ -2,7 +2,7 @@
 <resources>
     <!-- CRUD -->
     <string name="recipes">Recept</string>
-    <string name="no_recipes_found">No recipes found.</string>
+    <string name="no_recipes_found">Inga recept hittades.</string>
     <string name="create_a_recipe_prompt">create a new recipe</string>
     <string name="import_from_the_web_prompt">import a recipe from a website</string>
     <string name="new_recipe">Nytt Recept</string>
