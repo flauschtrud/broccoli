@@ -4,7 +4,7 @@
     <string name="recipes">Recept</string>
     <string name="no_recipes_found">Inga recept hittades.</string>
     <string name="create_a_recipe_prompt"></string>
-    <string name="import_from_the_web_prompt">importera ett recept från en webbplats</string>
+    <string name="import_from_the_web_prompt">Importera ett recept från en webbplats</string>
     <string name="new_recipe">Nytt Recept</string>
     <string name="create_first_recipe">Create your first recipe and start your collection!</string>
     <string name="edit_action">Redigera</string>
@@ -195,7 +195,7 @@
     <string name="red_cabbage">Rödkål</string>
     <string name="red_cabbage_terms">rödkål</string>
     <string name="salsify">Salsify</string>
-    <string name="salsify_terms">salsify</string>
+    <string name="salsify_terms">svartrot</string>
     <string name="asparagus">Asparagus</string>
     <string name="asparagus_terms">asparagus</string>
     <string name="spinach">Spinach</string>
