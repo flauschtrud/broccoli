@@ -34,13 +34,13 @@ with open(filename, 'r') as file:
     calendar_count = next(reader).count('12')
     print(str(calendar_count) + ' calendar detected')
 
-    for row in reader:
-        # Get only calendars with values
+    for row in reader:  # Row = Ingredient
+        # Get only calendar with values
         calendars = list(filter(lambda calendar: not all(
             string == '' or string.isspace() or string == '?' for string in calendar), [
             row[2 + i * (12 + 1): 2 + i + (i + 1) * 12] for i in range(calendar_count)
         ]))
-        for i in range(len(calendars)):
+        for i in range(len(calendars)):  # Process small x
             # Case 1: x x x X -> - - - X
             # Case 2: X x x x -> X - - -
             # Case 3:   x x   -> - X
@@ -71,7 +71,7 @@ with open(filename, 'r') as file:
 
         months = []
 
-        for i in range(12):
+        for i in range(12):  # i = month
             values = list(filter(lambda val: not (val == '' or val.isspace() or val == '?'),
                                  [calendar[i] for calendar in calendars]))
 
