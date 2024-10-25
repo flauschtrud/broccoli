@@ -5,12 +5,14 @@
         <item>@string/region_central_europe</item>
         <item>@string/region_north_america_colder</item>
         <item>@string/region_north_america_warmer</item>
+        <item>@string/region_japan</item>
     </string-array>
 
     <string-array name="region_values">
         <item>central_europe</item>
         <item>north_america_colder</item>
         <item>north_america_warmer</item>
+        <item>japan</item>
     </string-array>
 
     <string-array name="language_labels">
@@ -27,6 +29,7 @@
         <item>@string/brazilian_portuguese</item>
         <item>@string/norwegian_bokmal</item>
         <item>@string/russian</item>
+        <item>@string/japanese</item>
     </string-array>
 
     <string-array name="language_values">
