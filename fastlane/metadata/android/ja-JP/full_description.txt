@@ -1,21 +1,21 @@
-Broccoli is a free eco-friendly recipe app for building your <b>recipe collection</b>, <b>distraction free cooking</b> and <b>seasonal ingredients</b>. Create, collect and cook!
+ブロッコリーは、<b>レシピのコレクション</b>を築くための、<b>目移りのない調理ができる</b>、環境に優しいアプリです。<b>旬の食材</b>が含まれています！ 作成、収集、調理しましょう！
 
-<b>Organize easily</b>
-• create an unlimited amount of recipes
-• import recipes from your favorite blogs
-• organize with categories and hashtags
-• access your recipes offline
-• backup your recipes
+<b>簡単に整理できます</b>
+・無限数のレシピが作成可能
+• お気に入りのブログからレシピをインポートできます
+・カテゴリとハッシュタグで整理できます
+・オフラインでもレシピにアクセスできます
+・レシピをバックアップできます
 
-<b>Cook eco-friendly</b>
-• learn more about the seasonal ingredients in your region with the seasonal calendar
-• search for seasonal recipes in your collection
-• easily identify seasonal ingredients
+<b>環境に優しく調理できます</b>
+・旬のカレンダーを通して、あなたの地域の旬の食材の詳細を知りましょう
+・コレクション内の旬のレシピを検索できます
+・旬の食材を簡単に識別できます
 
-<b>Cook without distraction</b>
-• use the fullscreen cooking assistant while you prepare your dish
-• adjust the amount of the ingredients
+<b>目移りのない調理</b>
+・料理の準備中に全画面モードの調理アシスタントを使用可能
+• 材料の量を調整できます
 
-Broccoli is free for everyone and no account is required. If you enjoy our recipe app you can donate to support the development of the app.
+ブロッコリーは誰にでも無料で、アカウントの必要はありません。 このアプリが好きならば、アプリの開発を支援するために寄付することができます。
 
-Start your recipe collection now!
+さ、今すぐレシピのコレクションを始めましょう！
