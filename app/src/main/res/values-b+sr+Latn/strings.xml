@@ -128,11 +128,11 @@
     <string name="italian">Italijanski</string>
     <string name="chinese">Kinеski</string>
     <string name="turkish">Turski</string>
-    <string name="serbian_latin">Serbian (Latin)</string>
-    <string name="hebrew">Hebrew</string>
-    <string name="brazilian_portuguese">Brazilian Portuguese</string>
-    <string name="norwegian_bokmal">Norwegian (Bokmål)</string>
-    <string name="russian">Russian</string>
+    <string name="serbian_latin">Srpski (latinica)</string>
+    <string name="hebrew">Hebrejski</string>
+    <string name="brazilian_portuguese">Brazilski portugalski</string>
+    <string name="norwegian_bokmal">Norveški (bokmål)</string>
+    <string name="russian">Ruski</string>
     <!-- support -->
     <string name="support_the_app">Podržite aplikaciju</string>
     <string name="support_the_app_donate">Doniraj</string>
@@ -254,10 +254,10 @@
     <string name="mirabelles_terms">žute šljive</string>
     <string name="gooseberries">Ogrozd</string>
     <string name="gooseberries_terms">ogrozd</string>
-    <string name="lambs_lettuce">Lamb\'s lettuce</string>
-    <string name="lambs_lettuce_terms">lamb\'s lettuce</string>
-    <string name="pointed_cabbage">Pointed cabbage</string>
+    <string name="lambs_lettuce">Matovilac</string>
+    <string name="lambs_lettuce_terms">matovilac</string>
+    <string name="pointed_cabbage">Šiljasti kupus</string>
     <string name="pointed_cabbage_terms">pointed cabbage</string>
-    <string name="champignons">Champignons</string>
+    <string name="champignons">Šampinjoni</string>
     <string name="champignons_terms">champignons</string>
 </resources>

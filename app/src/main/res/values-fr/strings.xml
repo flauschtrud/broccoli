@@ -4,12 +4,12 @@
     <string name="recipes">Recettes</string>
     <string name="no_recipes_found">Aucune recette trouvée.</string>
     <string name="create_a_recipe_prompt">crée une nouvelle recette</string>
-    <string name="import_from_the_web_prompt">importe une recette d\'un site Web</string>
+    <string name="import_from_the_web_prompt">importer une recette depuis un site web</string>
     <string name="new_recipe">Nouvelle Recette</string>
-    <string name="create_first_recipe">Crée ta première recette et commence ta collection !</string>
+    <string name="create_first_recipe">Créer sa première recette et commencer sa collection !</string>
     <string name="edit_action">Modifier</string>
     <string name="save_action">Enregistrer</string>
-    <string name="title_should_not_be_empty_message">Ajoute un titre.</string>
+    <string name="title_should_not_be_empty_message">Ajouter un titre.</string>
     <string name="recipe_saved_message">La recette a été enregistrée.</string>
     <string name="recipe_could_not_be_saved_message">La recette n\'a pas pu être enregistrée.</string>
     <string name="delete_action">Supprimer</string>
@@ -34,7 +34,7 @@
     <string name="image_could_not_be_created_message">Le fichier image n\'a pas pu être créé.</string>
     <!-- Categories -->
     <string name="categories">Catégories</string>
-    <string name="create_a_category_prompt">Crée des catégories personnalisées pour gérer tes recettes.</string>
+    <string name="create_a_category_prompt">Créer des catégories personnalisées pour gérer ses recettes.</string>
     <string name="add_category">Ajouter une catégorie</string>
     <string name="add_first_category">Ajoute ta première catégorie personnalisée et mets de l\'ordre dans ta collection !</string>
     <string name="edit_category">Modifier la catégorie</string>
@@ -44,18 +44,18 @@
     <string name="mark_as_favorite_action">Marquer comme favori</string>
     <string name="remove_from_favorite_action">Retirer des favoris</string>
     <string name="favorites">Favoris</string>
-    <string name="delete_category_question">Veux-tu vraiment supprimer cette catégorie?</string>
+    <string name="delete_category_question">Voulez-vous vraiment supprimer cette catégorie ?</string>
     <string name="unassigned">Recettes sans catégorie</string>
     <string name="search">Rechercher</string>
     <string name="search_in">Rechercher dans %1$s</string>
     <string name="preferred_category">Catégorie préférée</string>
     <!-- Cooking mode -->
     <string name="cooking_assistant">Assistant de cuisine</string>
-    <string name="cooking_assistant_prompt">Cuisine ta recette en mode plein écran sans distractions !</string>
+    <string name="cooking_assistant_prompt">Préparer sa recette en mode plein écran sans distractions !</string>
     <string name="no_ingredients_and_directions_message">Cette recette n\'a pas encore d\'ingrédients ni d\'instructions.</string>
     <string name="cook_action">Cuisiner</string>
     <string name="adjust_ingredients">Ajuster les ingrédients</string>
-    <string name="adjust_ingredients_prompt">Choisis le nombre de portions que tu veux cuisiner !</string>
+    <string name="adjust_ingredients_prompt">Choisir le nombre de portions à préparer !</string>
     <string name="scaling_simple">Simple</string>
     <string name="scaling_pro">Pro</string>
     <string name="recipe_amount">Quantité de la recette</string>
@@ -73,12 +73,12 @@
     <string name="backup">Sauvegarde</string>
     <string name="restore">Restauration</string>
     <string name="backup_recipes">Sauvegarder des recettes</string>
-    <string name="backup_recipes_message">Exporte toutes tes recettes et catégories et enregistre-les où tu veux.</string>
+    <string name="backup_recipes_message">Exporter toutes ses recettes et catégories et les enregistrer où l\'on veut.</string>
     <string name="restore_recipes">Restaurer des recettes</string>
-    <string name="restore_recipes_message">Importe toutes les recettes et les catégories à partir d\'un fichier de sauvegarde.</string>
+    <string name="restore_recipes_message">Importer toutes les recettes et catégories à partir d\'un fichier de sauvegarde.</string>
     <string name="backup_failed_message">Les recettes n\'ont pas pu être exportées.</string>
     <string name="restore_failed_message">Les recettes n\'ont pas pu être importées.</string>
-    <string name="restore_all_question">Veux-tu importer toutes les recettes et les catégories de ce fichier ?</string>
+    <string name="restore_all_question">Voulez-vous importer toutes les recettes et catégories de ce fichier ?</string>
     <string name="restore_completed_message">%1$d recettes ont été importées.</string>
     <string name="last_backup">Dernière sauvegarde</string>
     <!-- Settings/feedback -->
@@ -86,7 +86,7 @@
     <string name="help">Aide</string>
     <string name="legal_policies">Mentions légales</string>
     <string name="send_feedback">Envoyer des commentaires</string>
-    <string name="send_feedback_message">Tu as trouvé un bug ou une fonctionnalité te manque ?</string>
+    <string name="send_feedback_message">Avez-vous trouvé un bug ou avez-vous manqué d\'une fonctionnalité ? </string>
     <string name="feedback_subject">Commentaires sur l\'application Broccoli</string>
     <!-- double check in translation! -->
     <string name="version">Version</string>
@@ -98,11 +98,11 @@
     <string name="dark">Sombre</string>
     <string name="system_default">Par défaut du système</string>
     <string name="privacy_policy">Politique de confidentialité</string>
-    <string name="privacy_policy_summary">Apprends-en plus sur la façon dont nous protégeons tes données personnelles.</string>
+    <string name="privacy_policy_summary">En savoir plus sur la façon dont les données personnelles sont protégées.</string>
     <string name="demo_recipe">Recette de démonstration</string>
     <string name="link_to_demo_recipe">https://flauschcode.com/houmous-cremeux-et-delicieux/</string>
     <string name="open_source_licenses">Licences open source</string>
-    <string name="open_source_licenses_text">Détails de la licence pour les logiciels open source</string>
+    <string name="open_source_licenses_text">Détails des licences pour les logiciels open source</string>
     <!-- Seasons -->
     <string name="seasonal_calendar">Calendrier saisonnier</string>
     <string name="seasonal_accessibility">Ingrédient(s) de saison</string>
@@ -112,8 +112,8 @@
     <string name="configure_seasons_action">Configurer</string>
     <string name="region">Région</string>
     <string name="languages_of_recipes">Langues des recettes</string>
-    <string name="no_language_set_message">Dans quelles langues crée-tu tes recettes ? Choisis au moins une langue.</string>
-    <string name="seasons_feedback_message">Ta région, ta langue ou ton ingrédient préféré te manquent-ils ?</string>
+    <string name="no_language_set_message">Dans quelles langues les recettes sont-elles créées ? Choisir au moins une langue.</string>
+    <string name="seasons_feedback_message">Votre région, votre langue ou votre ingrédient préféré manquent-ils ?</string>
     <string name="seasons_feedback_subject">Commentaires sur le calendrier saisonnier</string>
     <!-- regions for seasonal calendar -->
     <string name="region_central_europe">Europe centrale</string>
@@ -130,23 +130,23 @@
     <string name="turkish">Turc</string>
     <string name="serbian_latin">Serbe (latin)</string>
     <string name="hebrew">Hébreu</string>
-    <string name="brazilian_portuguese">Portugais du Brésil</string>
+    <string name="brazilian_portuguese">Portugais brésilien</string>
     <string name="norwegian_bokmal">Norvégien (Bokmål)</string>
     <string name="russian">Russe</string>
     <!-- support -->
-    <string name="support_the_app">Soutiens l\'application</string>
-    <string name="support_the_app_donate">Fais un don</string>
-    <string name="support_the_app_donate_text_playstore">Broccoli est gratuit pour tout le monde. Mais tu peux soutenir le développement de l\'application et m\'offrir un biscuit, un café ou un burger. Merci beaucoup !</string>
-    <string name="support_the_app_donate_text_fdroid">Broccoli est gratuit pour tout le monde. Mais tu peux soutenir le développement de l\'application et m\'offrir un café. Merci beaucoup !</string>
-    <string name="support_the_app_give_feedback">Donne ton avis</string>
-    <string name="support_the_app_give_feedback_text">Tu aimes Broccoli ? Dis-nous tout !</string>
-    <string name="support_the_app_tell_your_friends">Dis-le à tes amis</string>
-    <string name="support_the_app_tell_your_friends_text">Tes amis aiment aussi cuisiner ? Parle-leur de Broccoli !</string>
+    <string name="support_the_app">Soutenir l\'application</string>
+    <string name="support_the_app_donate">Faire un don</string>
+    <string name="support_the_app_donate_text_playstore">Broccoli est gratuit pour tout le monde. Mais vous pouvez soutenir le développement de l\'application et m\'acheter un cookie, un café ou un burger. Merci beaucoup!</string>
+    <string name="support_the_app_donate_text_fdroid">Broccoli est gratuit pour tout le monde. Mais vous pouvez soutenir le développement de l\'application et m\'acheter un café. Merci beaucoup!</string>
+    <string name="support_the_app_give_feedback">Donner votre avis</string>
+    <string name="support_the_app_give_feedback_text">Vous aimez Broccoli? Parlez-nous en !</string>
+    <string name="support_the_app_tell_your_friends">Parlez-en à vos amis</string>
+    <string name="support_the_app_tell_your_friends_text">Vos amis aiment aussi cuisiner ? Parlez-leur de Broccoli!</string>
     <string name="free_for_everyone">Gratuit pour tous</string>
-    <string name="buy">Achète</string>
-    <string name="play_store_sign_in_message">S\'il te plaît, connecte-toi à Google Play Store.</string>
-    <string name="rate_the_app">Note l\'application</string>
-    <string name="share_the_app">Partage l\'application</string>
+    <string name="buy">Acheter</string>
+    <string name="play_store_sign_in_message">Veuillez vous connecter au Play Store de Google.</string>
+    <string name="rate_the_app">Évaluer l\'application</string>
+    <string name="share_the_app">Partager l\'application</string>
     <!-- seasonal food -->
     <!-- the plurals are important! -->
     <string name="eggplant">Aubergines</string>

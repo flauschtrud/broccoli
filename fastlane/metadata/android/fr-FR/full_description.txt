@@ -1,21 +1,21 @@
-Broccoli est une appli de recettes libre et écoresponsable pour créer ta <b>collection de recettes</b>, <b>cuisiner sans distraction</b> et utiliser des <b>ingrédients de saison</b>. Crée, collectionne et cuisine !
+Broccoli est une appli de recettes libre et écoresponsable pour créer sa propre <b>collection de recettes</b>, <b>cuisiner sans distraction</b> et utiliser des <b>ingrédients de saison</b>. Créer, collecter et cuisiner !
 
 <b>Organiser facilement</b>
-- crée une quantité illimitée de recettes
-- importe des recettes de tes blogs préférés
-- organise-toi avec des catégories et des hashtags
-- accède à tes recettes hors ligne
-- Sauvegarde tes recettes
+• créer un nombre illimité de recettes
+• importer des recettes de ses blogs favoris
+• s'organiser avec des catégories et des hashtags
+• accéder à ses recettes hors ligne
+• sauvegarder ses recettes
 
 <b>Cuisiner éco-responsable</b>
-- apprends-en plus sur les ingrédients de saison de ta région avec le calendrier saisonnier
-- cherche des recettes de saison dans ta collection
-- identifie facilement les ingrédients de saison
+• en savoir plus sur les ingrédients de saison de sa région avec le calendrier saisonnier
+• rechercher des recettes de saison dans sa collection
+• identifier facilement les ingrédients de saison
 
 <b>Cuisiner sans distraction</b>
-- utilise l'assistant de cuisine en plein écran pendant que tu prépares ton plat.
-- ajuste la quantité des ingrédients.
+• utiliser l'assistant de cuisson en plein écran pendant la préparation des plats
+• ajuster les quantités des ingrédients
 
-Broccoli est gratuit pour tout le monde et aucun compte n'est nécessaire. Si tu apprécies notre appli de recettes, tu peux faire un don pour soutenir le développement de l'application.
+Broccoli est une application gratuite pour tous et aucun compte n'est nécessaire. Si vous aimez notre application de recettes, vous pouvez faire un don pour soutenir son développement.
 
-Commence ta collection de recettes maintenant !
+Commencez dès maintenant votre collection de recettes !
