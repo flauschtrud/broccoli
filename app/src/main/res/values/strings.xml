@@ -23,7 +23,7 @@
 
     <string name="title">Title</string>
     <string name="description">Description</string>
-    <string name="source">Source</string> 
+    <string name="source">Source</string>
     <string name="servings">Servings</string>
     <string name="preparation_time">Time</string>
     <string name="ingredients">Ingredients</string>
@@ -91,12 +91,12 @@
     <string name="send_feedback">Send feedback</string>
     <string name="feedback_mailto" translatable="false">mailto:support@flauschcode.com</string>
     <string name="send_feedback_message">Did you find a bug or do you miss a feature? </string>
-    <string name="feedback_subject">Feedback for Broccoli app</string> 
+    <string name="feedback_subject">Feedback for Broccoli app</string>
     <string name="version">Version</string>
     <string name="settings">Settings</string>
     <string name="general_settings">General settings</string>
     <!-- https://support.google.com/chrome/answer/9275525?hl=en -->
-    <string name="design">Theme</string> 
+    <string name="design">Theme</string>
     <string name="MODE_NIGHT_NO" translatable="false">MODE_NIGHT_NO</string>
     <string name="MODE_NIGHT_YES" translatable="false">MODE_NIGHT_YES</string>
     <string name="MODE_NIGHT_FOLLOW_SYSTEM" translatable="false">MODE_NIGHT_FOLLOW_SYSTEM</string>
@@ -158,169 +158,279 @@
     <string name="share_the_app">Share the app</string>
     <string name="kofi_url" translatable="false">https://ko-fi.com/flauschtrud</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="eggplant">Eggplants</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="eggplant_terms">eggplant, eggplants, aubergine, aubergines</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="cauliflower">Cauliflower</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="cauliflower_terms">cauliflower</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="broad_bean">Broad beans</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="broad_bean_terms">broad beans, fava beans, faba beans</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="bean">Beans</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="bean_terms">common beans, french beans, green beans</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="broccoli">Broccoli</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="broccoli_terms">broccoli</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="chinese_cabbage">Chinese cabbage</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="chinese_cabbage_terms">chinese cabbage, napa cabbage</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="pea">Peas</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="pea_terms">peas</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="fennel">Fennel</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="fennel_terms">fennel</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="kale">Kale</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="kale_terms">kale</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="cucumber">Cucumbers</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="cucumber_terms">cucumber, cucumbers</string>
 
-    <string name="celeriac">Celeriac</string> 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
+    <string name="celeriac">Celeriac</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="celeriac_terms">celeriac</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="kohlrabi">Kohlrabi</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="kohlrabi_terms">kohlrabi</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="pumpkin">Pumpkin</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="pumpkin_terms">pumpkin, pumpkins, hokkaido</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="leek">Leek</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="leek_terms">leek</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="corn">Corn</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="corn_terms">corn</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="chard">Chard</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="chard_terms">chard</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="carrot">Carrots</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="carrot_terms">carrot, carrots</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="bell_pepper">Bell peppers</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="bell_pepper_terms">peppers, bell pepper, bell peppers</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="parsnip">Parsnip</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="parsnip_terms">parsnip, parsnips</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="brussels_sprouts">Brussels sprouts</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="brussels_sprouts_terms">brussels sprouts</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="beetroot">Beetroot</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="beetroot_terms">beet, beets, beetroot, beetroots</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="red_cabbage">Red cabbage</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="red_cabbage_terms">red cabbage</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="salsify">Salsify</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="salsify_terms">salsify</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="asparagus">Asparagus</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="asparagus_terms">asparagus</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="spinach">Spinach</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="spinach_terms">spinach</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="celery">Celery</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="celery_terms">celery</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="turnip">Turnips</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="turnip_terms">turnip, turnips</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="tomato">Tomatoes</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="tomato_terms">tomato, tomatoes</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="white_cabbage">White cabbage</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="white_cabbage_terms">white cabbage, green cabbage</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="savoy_cabbage">Savoy cabbage</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="savoy_cabbage_terms">savoy cabbage</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="zucchini">Zucchini</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="zucchini_terms">zucchini, courgette, courgettes</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="wild_garlic">Wild garlic</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="wild_garlic_terms">wild garlic</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="apple">Apples</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="apple_terms">apple, apples</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="apricot">Apricots</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="apricot_terms">apricot, apricots</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="pear">Pears</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="pear_terms">pear, pears</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="strawberry">Strawberries</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="strawberry_terms">strawberries</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="cherry">Cherries</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="cherry_terms">cherries</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="rhubarb">Rhubarb</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="rhubarb_terms">rhubarb</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="plum">Plums</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="plum_terms">plum, plums</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="avocado">Avocados</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="avocado_terms">avocado, avocados</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="sweet_potato">Sweet potatoes</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="sweet_potato_terms">sweet potato, sweet potatoes</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="lemon">Lemons</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="lemon_terms">lemon, lemons</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="orange">Oranges</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="orange_terms">orange, oranges</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="lime">Limes</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="lime_terms">lime, limes</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="summer_squash">Summer squash</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="summer_squash_terms">summer squash</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="winter_squash">Winter squash</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="winter_squash_terms">winter squash, butternut squash, acorn squash, spaghetti squash</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="pomegranate">Pomegranates</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="pomegranate_terms">pomegranate, pomegranates</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="blueberries">Blueberries</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="blueberries_terms">blueberries</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="raspberries">Raspberries</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="raspberries_terms">raspberries</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="blackberries">Blackberries</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="blackberries_terms">blackberries</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="mirabelles">Mirabelles</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="mirabelles_terms">mirabelles</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="gooseberries">Gooseberries</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="gooseberries_terms">gooseberries</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="lambs_lettuce">Lamb\'s lettuce</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="lambs_lettuce_terms">lamb\'s lettuce</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="pointed_cabbage">Pointed cabbage</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="pointed_cabbage_terms">pointed cabbage</string>
 
+    <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="champignons">Champignons</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="champignons_terms">champignons</string>
 
 </resources>
