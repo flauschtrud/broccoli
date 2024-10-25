@@ -90,25 +90,25 @@
     <string name="system_default">システムのデフォルト</string>
     <string name="privacy_policy">プライバシーポリシー</string>
     <string name="privacy_policy_summary">どのように個人データが保護されるかについての詳細。</string>
-    <string name="demo_recipe">Demo recipe</string>
+    <string name="demo_recipe">デモレシピ</string>
     <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="open_source_licenses_text">License details for open source software</string>
-    <string name="seasonal_calendar">Seasonal calendar</string>
-    <string name="seasonal_accessibility">Seasonal ingredient(s)</string>
-    <string name="seasonal_recipes">Seasonal recipes</string>
-    <string name="seasonal_ingredients_accessibility">Seasonal ingredients</string>
-    <string name="seasons_not_configured_message">The seasonal calendar has not been fully configured yet.</string>
-    <string name="configure_seasons_action">Configure</string>
-    <string name="region">Region</string>
+    <string name="open_source_licenses">オープンソースライセンス</string>
+    <string name="open_source_licenses_text">オープンソースソフトウェアに関するライセンスの詳細</string>
+    <string name="seasonal_calendar">旬のカレンダー</string>
+    <string name="seasonal_accessibility">旬の材料</string>
+    <string name="seasonal_recipes">旬のレシピ</string>
+    <string name="seasonal_ingredients_accessibility">旬の材料</string>
+    <string name="seasons_not_configured_message">旬のカレンダー設定はまだ完了していません。</string>
+    <string name="configure_seasons_action">設定</string>
+    <string name="region">地域</string>
     <string name="languages_of_recipes">レシピの言語</string>
     <string name="no_language_set_message">レシピをどの言語で作成しますか。少なくとも1つの言語を選んでください。</string>
     <string name="seasons_feedback_message">お住まいの地域、言語、お気に入りの食材はまだありませんか。</string>
-    <string name="seasons_feedback_subject">季節のカレンダーへのフィードバック</string>
+    <string name="seasons_feedback_subject">旬のカレンダーへのフィードバック</string>
     <string name="region_central_europe">中央ヨーロッパ</string>
     <string name="region_north_america_colder">北アメリカ（寒い方）</string>
     <string name="region_north_america_warmer">北アメリカ（より暖かい）</string>
-    <string name="region_japan">Japan</string>
+    <string name="region_japan">日本</string>
     <string name="english">英語</string>
     <string name="spanish">スペイン語</string>
     <string name="french">フランス語</string>
@@ -122,7 +122,7 @@
     <string name="brazilian_portuguese">ポルトガル語（ブラジル）</string>
     <string name="norwegian_bokmal">ノルウェー語（ボークモール）</string>
     <string name="russian">ロシア語</string>
-    <string name="japanese">Japanese</string>
+    <string name="japanese">日本語</string>
     <string name="support_the_app">このアプリを支援する</string>
     <string name="support_the_app_donate">寄付</string>
     <string name="support_the_app_donate_text_playstore">ブロッコリーは無料で使えます。なので、アプリの開発を支援し、私にクッキー、コーヒーまたはバーガーをおごることはできます。よろしくお願いします。</string>
@@ -130,12 +130,12 @@
     <string name="support_the_app_give_feedback">フィードバックを送信</string>
     <string name="support_the_app_give_feedback_text">ブロッコリーは好きですか。教えてください！</string>
     <string name="support_the_app_tell_your_friends">お友達に紹介</string>
-    <string name="support_the_app_tell_your_friends_text">Do your friends also like to cook? Tell them about Broccoli!</string>
-    <string name="free_for_everyone">Free for everyone</string>
-    <string name="buy">Buy</string>
-    <string name="play_store_sign_in_message">Please sign in to Google Play Store.</string>
-    <string name="rate_the_app">Rate the app</string>
-    <string name="share_the_app">Share the app</string>
+    <string name="support_the_app_tell_your_friends_text">お友達も調理が好きですか。ブロッコリーについて教えませんか。</string>
+    <string name="free_for_everyone">無限無料</string>
+    <string name="buy">購入する</string>
+    <string name="play_store_sign_in_message">Google Playストアにログインしてください。</string>
+    <string name="rate_the_app">アプリを評価する</string>
+    <string name="share_the_app">アプリを共有する</string>
     <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="eggplant">Eggplants</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -153,7 +153,7 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="bean_terms">common beans, french beans, green beans</string>
     <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
-    <string name="broccoli">Broccoli</string>
+    <string name="broccoli">ブロッコリー</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="broccoli_terms">broccoli</string>
     <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
