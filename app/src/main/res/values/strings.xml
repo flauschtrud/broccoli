@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">Broccoli</string>
 
-    <!-- CRUD -->
     <string name="recipes">Recipes</string>
     <string name="no_recipes_found">No recipes found.</string>
     <string name="create_a_recipe_prompt">create a new recipe</string>
@@ -24,11 +23,11 @@
 
     <string name="title">Title</string>
     <string name="description">Description</string>
-    <string name="source">Source</string> <!-- double check in translation! -->
+    <string name="source">Source</string> 
     <string name="servings">Servings</string>
     <string name="preparation_time">Time</string>
     <string name="ingredients">Ingredients</string>
-    <string name="directions">Directions</string> <!-- double check in translation! -->
+    <string name="directions">Directions</string>
 
     <string name="recipe_photo_accessibility">Recipe photo</string>
     <string name="change_photo">Change photo</string>
@@ -37,7 +36,6 @@
     <string name="pick_photo">Pick photo</string>
     <string name="image_could_not_be_created_message">The image file could not be created.</string>
 
-    <!-- Categories -->
     <string name="categories">Categories</string>
     <string name="create_a_category_prompt">Create custom categories to manage your recipes.</string>
     <string name="add_category">Add category</string>
@@ -55,7 +53,6 @@
     <string name="search_in">Search in %1$s</string>
     <string name="preferred_category">Preferred category</string>
 
-    <!-- Cooking mode -->
     <string name="cooking_assistant">Cooking assistant</string>
     <string name="cooking_assistant_prompt">Cook your recipe in fullscreen mode without distractions!</string>
     <string name="no_ingredients_and_directions_message">This recipe does not have any ingredients or directions yet.</string>
@@ -68,7 +65,6 @@
     <string name="scaling_factor">Scaling factor</string>
     <string name="unscaled">not adjusted</string>
 
-    <!-- Sharing and export/import -->
     <string name="share_action">Share</string>
     <string name="shared_with">Shared with %1$s</string>
     <string name="recipe_could_not_be_imported_message">Sorry, this did not work.</string>
@@ -76,7 +72,6 @@
     <string name="share_as_file_action">Share as file</string>
     <string name="recipe_could_not_be_exported_message">The recipe could not be exported.</string>
 
-    <!-- Backup & restore -->
     <string name="backup_and_restore">Backup and restore</string>
     <string name="backup">Backup</string>
     <string name="restore">Restore</string>
@@ -90,18 +85,18 @@
     <string name="restore_completed_message">%1$d recipes have been imported.</string>
     <string name="last_backup">Last backup</string>
 
-    <!-- Settings/feedback -->
     <string name="about_the_app">About the app</string>
     <string name="help">Help</string>
     <string name="legal_policies">Legal</string>
     <string name="send_feedback">Send feedback</string>
     <string name="feedback_mailto" translatable="false">mailto:support@flauschcode.com</string>
     <string name="send_feedback_message">Did you find a bug or do you miss a feature? </string>
-    <string name="feedback_subject">Feedback for Broccoli app</string> <!-- double check in translation! -->
+    <string name="feedback_subject">Feedback for Broccoli app</string> 
     <string name="version">Version</string>
     <string name="settings">Settings</string>
     <string name="general_settings">General settings</string>
-    <string name="design">Theme</string> <!-- https://support.google.com/chrome/answer/9275525?hl=en -->
+    <!-- https://support.google.com/chrome/answer/9275525?hl=en -->
+    <string name="design">Theme</string> 
     <string name="MODE_NIGHT_NO" translatable="false">MODE_NIGHT_NO</string>
     <string name="MODE_NIGHT_YES" translatable="false">MODE_NIGHT_YES</string>
     <string name="MODE_NIGHT_FOLLOW_SYSTEM" translatable="false">MODE_NIGHT_FOLLOW_SYSTEM</string>
@@ -116,7 +111,6 @@
     <string name="open_source_licenses">Open source licenses</string>
     <string name="open_source_licenses_text">License details for open source software</string>
 
-    <!-- Seasons -->
     <string name="seasonal_calendar">Seasonal calendar</string>
     <string name="seasonal_accessibility">Seasonal ingredient(s)</string>
     <string name="seasonal_recipes">Seasonal recipes</string>
@@ -130,12 +124,10 @@
     <string name="seasons_feedback_message">Do you miss your region, language or favorite ingredient?</string>
     <string name="seasons_feedback_subject">Feedback for Seasonal Calendar</string>
 
-    <!-- regions for seasonal calendar -->
     <string name="region_central_europe">Central Europe</string>
     <string name="region_north_america_colder">North America (colder)</string>
     <string name="region_north_america_warmer">North America (warmer)</string>
 
-    <!-- languages for seasonal calendar -->
     <string name="english">English</string>
     <string name="spanish">Spanish</string>
     <string name="french">French</string>
@@ -150,7 +142,6 @@
     <string name="norwegian_bokmal">Norwegian (Bokmål)</string>
     <string name="russian">Russian</string>
 
-    <!-- support -->
     <string name="support_the_app">Support the app</string>
     <string name="support_the_app_donate">Donate</string>
     <string name="support_the_app_donate_text_playstore">Broccoli is free for everyone. But you can support the development of the app and buy me a cookie, coffee or burger. Thanks a lot!</string>
@@ -167,8 +158,6 @@
     <string name="share_the_app">Share the app</string>
     <string name="kofi_url" translatable="false">https://ko-fi.com/flauschtrud</string>
 
-    <!-- seasonal food -->
-    <!-- the plurals are important! -->
     <string name="eggplant">Eggplants</string>
     <string name="eggplant_terms">eggplant, eggplants, aubergine, aubergines</string>
 
@@ -199,7 +188,7 @@
     <string name="cucumber">Cucumbers</string>
     <string name="cucumber_terms">cucumber, cucumbers</string>
 
-    <string name="celeriac">Celeriac</string> <!-- Knollensellerie -->
+    <string name="celeriac">Celeriac</string> 
     <string name="celeriac_terms">celeriac</string>
 
     <string name="kohlrabi">Kohlrabi</string>
