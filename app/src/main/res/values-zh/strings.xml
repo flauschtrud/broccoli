@@ -108,7 +108,7 @@
     <string name="region_central_europe">中欧洲</string>
     <string name="region_north_america_colder">北美洲 (冷)</string>
     <string name="region_north_america_warmer">北美洲 (暖)</string>
-    <string name="region_japan">Japan</string>
+    <string name="region_japan">日本</string>
     <string name="english">英语</string>
     <string name="spanish">西班牙语</string>
     <string name="french">法语</string>
@@ -122,7 +122,7 @@
     <string name="brazilian_portuguese">巴西葡萄牙语</string>
     <string name="norwegian_bokmal">挪威语 (Bokmål 书面语)</string>
     <string name="russian">俄文</string>
-    <string name="japanese">Japanese</string>
+    <string name="japanese">日文</string>
     <string name="support_the_app">支持本应用</string>
     <string name="support_the_app_donate">捐助</string>
     <string name="support_the_app_donate_text_playstore">Broccoli 是完全免费的。但您可以通过捐助来支持此应用的开发。感谢！</string>
@@ -357,25 +357,25 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="champignons_terms">香菇</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
-    <string name="abalone">Abalone</string>
+    <string name="abalone">鲍鱼</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="abalone_terms">abalone</string>
+    <string name="abalone_terms">鲍鱼</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
-    <string name="angelica_keiskei">Angelica Keiskei</string>
+    <string name="angelica_keiskei">明日叶</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="angelica_keiskei_terms">angelica keiskei</string>
+    <string name="angelica_keiskei_terms">明日叶</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="angelica_tree_shoot">Angelica tree shoot</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="angelica_tree_shoot_terms">angelica tree shoot</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
-    <string name="bamboo_shoot">Bamboo shoots</string>
+    <string name="bamboo_shoot">竹笋</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="bamboo_shoot_terms">bamboo shoots</string>
+    <string name="bamboo_shoot_terms">竹笋</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
-    <string name="barracuda">Barracuda</string>
+    <string name="barracuda">金梭魚</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="barracuda_terms">barracuda, barracudas</string>
+    <string name="barracuda_terms">金梭魚</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="basket_clam">Basket clams</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
