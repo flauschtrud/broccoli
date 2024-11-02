@@ -108,7 +108,7 @@
     <string name="region_central_europe">Europa Środkowa</string>
     <string name="region_north_america_colder">Ameryka Północna (zimniej)</string>
     <string name="region_north_america_warmer">Ameryka Północna (cieplej)</string>
-    <string name="region_japan">Japan</string>
+    <string name="region_japan">Japonia</string>
     <string name="english">Angielski</string>
     <string name="spanish">Hiszpański</string>
     <string name="french">Francuski</string>
@@ -120,9 +120,9 @@
     <string name="serbian_latin">Serbski (alfabet łaciński)</string>
     <string name="hebrew">Hebrajski</string>
     <string name="brazilian_portuguese">Portugalski (Brazylia)</string>
-    <string name="norwegian_bokmal">Norwegian (Bokmål)</string>
+    <string name="norwegian_bokmal">Norweski (Bokmål)</string>
     <string name="russian">Rosyjski</string>
-    <string name="japanese">Japanese</string>
+    <string name="japanese">Japoński</string>
     <string name="support_the_app">Wesprzyj aplikację</string>
     <string name="support_the_app_donate">Przekaż darowiznę</string>
     <string name="support_the_app_donate_text_playstore">Broccoli jest darmowy dla wszystkich, ale możesz wesprzeć rozwój aplikacji i kupić mi ciastko, kawę lub burgera. Dzięki!</string>
