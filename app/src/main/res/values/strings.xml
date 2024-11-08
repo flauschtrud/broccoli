@@ -463,7 +463,7 @@
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="basket_clam">Basket clams</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="basket_clam_terms">basket clam, basket clams</string>
+    <string name="basket_clam_terms">basket clams</string>
 
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="bean_curd">Bean curd</string>
@@ -481,7 +481,7 @@
     <string name="bigfin_reef_squid_terms">bigfin reef squid, bigfin reef squids</string>
 
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
-    <string name="bitter_melon">Bitter melon</string>
+    <string name="bitter_melon">Bitter melons</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="bitter_melon_terms">bitter melon, bitter melons</string>
 
@@ -591,9 +591,9 @@
     <string name="devils_tongue_terms">devil\'s tongue</string>
 
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
-    <string name="doggertooth_pike_conger">Doggertooth pike conger</string>
+    <string name="daggertooth_pike_conger">Doggertooth pike conger</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="doggertooth_pike_conger_terms">doggertooth pike conger</string>
+    <string name="daggertooth_pike_conger_terms">doggertooth pike conger</string>
 
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="eddo">Eddo</string>
@@ -616,7 +616,7 @@
     <string name="egg_cockle_terms">egg cockle</string>
 
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
-    <string name="firefly_squid">Firefly squids</string>
+    <string name="firefly_squid">Firefly squid</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="firefly_squid_terms">firefly squid, firefly squids</string>
 
@@ -796,9 +796,9 @@
     <string name="japanese_summer_orange_terms">japanese summer orange, japanese summer oranges</string>
 
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
-    <string name="jews_mallow">Jews mallow</string>
+    <string name="jute_mallow">Jute mallow</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="jews_mallow_terms">jews mallow</string>
+    <string name="jute_mallow_terms">jute mallow, jew\'s mallow, jute leaves</string>
 
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="kabosu">Kabosu</string>
@@ -816,7 +816,7 @@
     <string name="king_trumpet_mushroom_terms">king trumpet mushrooms</string>
 
     <!-- A title for the ingredient list in the seasonal calendar (usually in the plural).-->
-    <string name="kiwi">Kiwi</string>
+    <string name="kiwi">Kiwis</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="kiwi_terms">kiwi, kiwis</string>
 
@@ -856,7 +856,7 @@
     <string name="lettuce_terms">lettuce</string>
 
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
-    <string name="lili_bulb">Lili bulb</string>
+    <string name="lili_bulb">Lili bulbs</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="lili_bulb_terms">lili_bulb, lili_bulbs</string>
 
@@ -916,9 +916,9 @@
     <string name="melon_terms">melon, melons</string>
 
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
-    <string name="mioga_ginger">Mioga ginger</string>
+    <string name="myoga">Myoga</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="mioga_ginger_terms">mioga ginger</string>
+    <string name="myoga_terms">Myoga, myoga ginger, japanese ginger</string>
 
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="mozuku">Mozuku</string>
@@ -976,9 +976,9 @@
     <string name="oyster_terms">oysters</string>
 
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
-    <string name="pacific_flying_squid">Pacific flying squids</string>
+    <string name="pacific_flying_squid">Pacific flying squid</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pacific_flying_squid_terms">pacific flying squids</string>
+    <string name="pacific_flying_squid_terms">pacific flying squid, pacific flying squids</string>
 
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="pacific_herring">Pacific herring</string>
@@ -1191,9 +1191,9 @@
     <string name="soy_pulp_terms">soy pulp</string>
 
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
-    <string name="spear_squid">Spear squids</string>
+    <string name="spear_squid">Spear squid</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="spear_squid_terms">spear squids</string>
+    <string name="spear_squid_terms">spear squid, spear squids</string>
 
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
     <string name="spiny_lobster">Spiny lobster</string>
@@ -1246,7 +1246,7 @@
     <string name="tiger_prawn_terms">tiger prawns</string>
 
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) A title for the ingredient list in the seasonal calendar (usually in the plural).-->
-    <string name="tree_onion">Tree onion</string>
+    <string name="tree_onion">Tree onions</string>
     <!-- RELEVANT FOR THE JAPANESE SEASONAL CALENDAR (A TRANSLATION TO ALL LANGUAGES MIGHT NOT BE NECESSARY) Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="tree_onion_terms">tree onion, tree onions</string>
 
