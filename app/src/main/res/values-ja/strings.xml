@@ -104,7 +104,7 @@
     <string name="languages_of_recipes">レシピの言語</string>
     <string name="no_language_set_message">レシピをどの言語で作成しますか。少なくとも1つの言語を選んでください。</string>
     <string name="seasons_feedback_message">お住まいの地域、言語、お気に入りの食材はまだありませんか。</string>
-    <string name="seasons_feedback_subject">旬のカレンダーへのフィードバック</string>
+    <string name="seasons_feedback_subject">季節のカレンダーへのフィードバック</string>
     <string name="region_central_europe">中央ヨーロッパ</string>
     <string name="region_north_america_colder">北アメリカ（寒い方）</string>
     <string name="region_north_america_warmer">北アメリカ（より暖かい）</string>
