@@ -9,7 +9,7 @@
       ]
     },
     {
-      "name": "angelica_keiskei",
+      "name": "ashitaba",
       "months": [
         2,
         3,
@@ -18,13 +18,6 @@
         6,
         7,
         8
-      ]
-    },
-    {
-      "name": "angelica_tree_shoot",
-      "months": [
-        3,
-        4
       ]
     },
     {
@@ -50,7 +43,7 @@
       ]
     },
     {
-      "name": "bamboo_shoot",
+      "name": "bamboo_shoots",
       "months": [
         3,
         4
@@ -67,7 +60,7 @@
       ]
     },
     {
-      "name": "basket_clam",
+      "name": "corbicula",
       "months": [
         0,
         1,
@@ -75,14 +68,7 @@
       ]
     },
     {
-      "name": "bean_curd",
-      "months": [
-        0,
-        1
-      ]
-    },
-    {
-      "name": "bean_sprouts",
+      "name": "sprouts",
       "months": [
         0,
         1,
@@ -124,20 +110,11 @@
       ]
     },
     {
-      "name": "black_rockfish",
+      "name": "japanese_red_seaperch",
       "months": [
         3,
         4,
         5
-      ]
-    },
-    {
-      "name": "blood_clam",
-      "months": [
-        0,
-        1,
-        2,
-        11
       ]
     },
     {
@@ -150,27 +127,11 @@
       ]
     },
     {
-      "name": "bracken",
-      "months": [
-        1,
-        2,
-        3
-      ]
-    },
-    {
       "name": "broad_bean",
       "months": [
         3,
         4,
         5
-      ]
-    },
-    {
-      "name": "broadbanded_thornyhead",
-      "months": [
-        0,
-        10,
-        11
       ]
     },
     {
@@ -195,20 +156,6 @@
       "months": [
         10,
         11
-      ]
-    },
-    {
-      "name": "bullbil",
-      "months": [
-        9,
-        10
-      ]
-    },
-    {
-      "name": "burmese_rosewood",
-      "months": [
-        9,
-        10
       ]
     },
     {
@@ -269,13 +216,6 @@
       ]
     },
     {
-      "name": "chicken_grunt",
-      "months": [
-        4,
-        5
-      ]
-    },
-    {
       "name": "chinese_cabbage",
       "months": [
         0,
@@ -292,7 +232,7 @@
       ]
     },
     {
-      "name": "cloud_ear_mushroom",
+      "name": "wood_ear",
       "months": [
         3,
         4,
@@ -302,7 +242,7 @@
       ]
     },
     {
-      "name": "cod_roe",
+      "name": "pollock_roe",
       "months": [
         0,
         10,
@@ -310,7 +250,7 @@
       ]
     },
     {
-      "name": "common_bean",
+      "name": "bean",
       "months": [
         5,
         6,
@@ -320,7 +260,7 @@
       ]
     },
     {
-      "name": "common_fig",
+      "name": "fig",
       "months": [
         6,
         7,
@@ -329,7 +269,7 @@
       ]
     },
     {
-      "name": "common_mushroom",
+      "name": "champignons",
       "months": [
         9,
         10,
@@ -337,7 +277,7 @@
       ]
     },
     {
-      "name": "common_octopus",
+      "name": "octopus",
       "months": [
         3,
         4,
@@ -347,7 +287,7 @@
       ]
     },
     {
-      "name": "common_orient_clam",
+      "name": "hamaguri",
       "months": [
         1,
         2
@@ -378,7 +318,7 @@
       ]
     },
     {
-      "name": "devils_tongue",
+      "name": "konjac",
       "months": [
         0,
         10,
@@ -420,7 +360,7 @@
       ]
     },
     {
-      "name": "egg_cockle",
+      "name": "torigai",
       "months": [
         3,
         4,
@@ -444,7 +384,7 @@
       ]
     },
     {
-      "name": "flat_lemon",
+      "name": "shikuwasa",
       "months": [
         0,
         7,
@@ -453,7 +393,7 @@
       ]
     },
     {
-      "name": "flounder",
+      "name": "olive_flounder",
       "months": [
         0,
         1,
@@ -466,13 +406,6 @@
       "months": [
         5,
         6
-      ]
-    },
-    {
-      "name": "gadid",
-      "months": [
-        0,
-        11
       ]
     },
     {
@@ -505,14 +438,14 @@
       ]
     },
     {
-      "name": "giant_butterbur",
+      "name": "butterbur",
       "months": [
         3,
         4
       ]
     },
     {
-      "name": "giant_butterbur_flower_bud",
+      "name": "butterbur_shoots",
       "months": [
         1,
         2
@@ -526,7 +459,7 @@
       ]
     },
     {
-      "name": "gizzard_shad",
+      "name": "konoshiro",
       "months": [
         0,
         10,
@@ -558,7 +491,7 @@
       ]
     },
     {
-      "name": "great_burdock",
+      "name": "gobo",
       "months": [
         0,
         1,
@@ -579,14 +512,6 @@
       ]
     },
     {
-      "name": "green_chili",
-      "months": [
-        6,
-        7,
-        8
-      ]
-    },
-    {
       "name": "pea",
       "months": [
         3,
@@ -595,7 +520,7 @@
       ]
     },
     {
-      "name": "green_soybean",
+      "name": "edamame",
       "months": [
         5,
         6,
@@ -609,7 +534,7 @@
       ]
     },
     {
-      "name": "hair_crab",
+      "name": "horsehair_crab",
       "months": [
         0,
         5,
@@ -622,13 +547,6 @@
       ]
     },
     {
-      "name": "halfbeak",
-      "months": [
-        2,
-        3
-      ]
-    },
-    {
       "name": "orange",
       "months": [
         1,
@@ -636,7 +554,7 @@
       ]
     },
     {
-      "name": "hen_of_the_woods",
+      "name": "maitake",
       "months": [
         8,
         9,
@@ -644,7 +562,7 @@
       ]
     },
     {
-      "name": "herring_roe",
+      "name": "kazunoko",
       "months": [
         2,
         3
@@ -658,7 +576,7 @@
       ]
     },
     {
-      "name": "honewort",
+      "name": "mitsuba",
       "months": [
         2,
         3
@@ -672,7 +590,7 @@
       ]
     },
     {
-      "name": "horse_mackerel",
+      "name": "jack_mackerel",
       "months": [
         4,
         5,
@@ -680,7 +598,7 @@
       ]
     },
     {
-      "name": "horseradish",
+      "name": "wasabi",
       "months": [
         0,
         1,
@@ -719,7 +637,7 @@
       ]
     },
     {
-      "name": "japanese_butterfish",
+      "name": "pacific_rudderfish",
       "months": [
         5,
         6,
@@ -729,7 +647,7 @@
       ]
     },
     {
-      "name": "japanese_pear",
+      "name": "asian_pear",
       "months": [
         7,
         8
@@ -750,7 +668,7 @@
       ]
     },
     {
-      "name": "japanese_summer_orange",
+      "name": "amanatsu",
       "months": [
         3,
         4,
@@ -772,7 +690,7 @@
       ]
     },
     {
-      "name": "kelp",
+      "name": "kombu",
       "months": [
         6,
         7,
@@ -798,7 +716,7 @@
       ]
     },
     {
-      "name": "large_white_oriental_radish",
+      "name": "radish",
       "months": [
         0,
         1,
@@ -817,7 +735,7 @@
       ]
     },
     {
-      "name": "laver",
+      "name": "nori",
       "months": [
         0,
         1,
@@ -834,14 +752,14 @@
       ]
     },
     {
-      "name": "leaf_mustard",
+      "name": "brown_mustard",
       "months": [
         1,
         2
       ]
     },
     {
-      "name": "leaf_pepper",
+      "name": "togarashi",
       "months": [
         7,
         8
@@ -868,17 +786,7 @@
       ]
     },
     {
-      "name": "lili_bulb",
-      "months": [
-        0,
-        1,
-        2,
-        10,
-        11
-      ]
-    },
-    {
-      "name": "loach",
+      "name": "pond_loach",
       "months": [
         5,
         6
@@ -942,14 +850,6 @@
       ]
     },
     {
-      "name": "marlin",
-      "months": [
-        5,
-        6,
-        7
-      ]
-    },
-    {
       "name": "matsutake",
       "months": [
         8,
@@ -976,15 +876,7 @@
       ]
     },
     {
-      "name": "mozuku",
-      "months": [
-        3,
-        4,
-        5
-      ]
-    },
-    {
-      "name": "mustard_spinach",
+      "name": "komatsuna",
       "months": [
         0,
         1,
@@ -1000,37 +892,10 @@
       ]
     },
     {
-      "name": "natto",
+      "name": "northern_prawn",
       "months": [
         0,
         1
-      ]
-    },
-    {
-      "name": "new_potato",
-      "months": [
-        3,
-        4,
-        5,
-        6,
-        7,
-        8
-      ]
-    },
-    {
-      "name": "northern_shrimp",
-      "months": [
-        0,
-        1
-      ]
-    },
-    {
-      "name": "ocellated_octopus",
-      "months": [
-        0,
-        1,
-        2,
-        11
       ]
     },
     {
@@ -1050,13 +915,6 @@
       ]
     },
     {
-      "name": "ostrich_fern",
-      "months": [
-        3,
-        4
-      ]
-    },
-    {
       "name": "oyster",
       "months": [
         0,
@@ -1067,7 +925,7 @@
       ]
     },
     {
-      "name": "pacific_flying_squid",
+      "name": "japanese_flying_squid",
       "months": [
         5,
         6,
@@ -1115,15 +973,6 @@
       ]
     },
     {
-      "name": "perilla",
-      "months": [
-        5,
-        6,
-        7,
-        8
-      ]
-    },
-    {
       "name": "persimmon",
       "months": [
         9,
@@ -1131,7 +980,7 @@
       ]
     },
     {
-      "name": "pilchard",
+      "name": "sardine",
       "months": [
         5,
         6,
@@ -1149,7 +998,7 @@
       ]
     },
     {
-      "name": "pond_smelt",
+      "name": "japanese_smelt",
       "months": [
         0,
         1,
@@ -1166,7 +1015,7 @@
       ]
     },
     {
-      "name": "potherb_mustard",
+      "name": "mizuna",
       "months": [
         0,
         1,
@@ -1196,24 +1045,7 @@
       ]
     },
     {
-      "name": "radish_sprout",
-      "months": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11
-      ]
-    },
-    {
-      "name": "rape",
+      "name": "nozawana",
       "months": [
         0,
         1,
@@ -1222,7 +1054,7 @@
       ]
     },
     {
-      "name": "rape_blossoms",
+      "name": "nanohana",
       "months": [
         0,
         1,
@@ -1230,7 +1062,7 @@
       ]
     },
     {
-      "name": "small_red_bean",
+      "name": "adzuki_bean",
       "months": [
         0,
         1,
@@ -1293,15 +1125,7 @@
       ]
     },
     {
-      "name": "royal_fern",
-      "months": [
-        3,
-        4,
-        5
-      ]
-    },
-    {
-      "name": "sailfin_sandfish",
+      "name": "japanese_sandfish",
       "months": [
         9,
         10,
@@ -1309,7 +1133,7 @@
       ]
     },
     {
-      "name": "saled_salmon_roe",
+      "name": "red_caviar",
       "months": [
         8,
         9,
@@ -1325,19 +1149,11 @@
       ]
     },
     {
-      "name": "sea_bass",
+      "name": "japanese_sea_bass",
       "months": [
         5,
         6,
         7
-      ]
-    },
-    {
-      "name": "sea_bream",
-      "months": [
-        1,
-        2,
-        3
       ]
     },
     {
@@ -1372,14 +1188,14 @@
       ]
     },
     {
-      "name": "shishamo_smelt",
+      "name": "shishamo",
       "months": [
         10,
         11
       ]
     },
     {
-      "name": "shishito_pepper",
+      "name": "shishito",
       "months": [
         5,
         6,
@@ -1387,7 +1203,7 @@
       ]
     },
     {
-      "name": "shitake",
+      "name": "shiitake",
       "months": [
         2,
         3,
@@ -1398,7 +1214,7 @@
       ]
     },
     {
-      "name": "sichuan_pepper",
+      "name": "japanese_pepper",
       "months": [
         3,
         4,
@@ -1408,7 +1224,7 @@
       ]
     },
     {
-      "name": "sillago",
+      "name": "japanese_whiting",
       "months": [
         5,
         6,
@@ -1448,13 +1264,6 @@
       ]
     },
     {
-      "name": "soy_pulp",
-      "months": [
-        0,
-        1
-      ]
-    },
-    {
       "name": "spear_squid",
       "months": [
         0,
@@ -1473,7 +1282,7 @@
       ]
     },
     {
-      "name": "spiny_lobster",
+      "name": "japanese_spiny_lobster",
       "months": [
         0,
         9,
@@ -1499,7 +1308,7 @@
       ]
     },
     {
-      "name": "striped_mullet",
+      "name": "flathead_grey_mullet",
       "months": [
         0,
         9,
@@ -1516,22 +1325,6 @@
       ]
     },
     {
-      "name": "summer_orange",
-      "months": [
-        2,
-        3,
-        4
-      ]
-    },
-    {
-      "name": "sumo_mandarin",
-      "months": [
-        1,
-        2,
-        3
-      ]
-    },
-    {
       "name": "sweet_potato",
       "months": [
         8,
@@ -1541,7 +1334,7 @@
       ]
     },
     {
-      "name": "sweetfish",
+      "name": "ayu_sweetfish",
       "months": [
         5,
         6,
@@ -1557,7 +1350,7 @@
       ]
     },
     {
-      "name": "threeleaf_arrowhead",
+      "name": "kuwai",
       "months": [
         0,
         1,
@@ -1566,7 +1359,7 @@
       ]
     },
     {
-      "name": "tiger_prawn",
+      "name": "japanese_tiger_prawn",
       "months": [
         5,
         6,
@@ -1604,7 +1397,7 @@
       ]
     },
     {
-      "name": "turban_shell",
+      "name": "sazae",
       "months": [
         4,
         5,
@@ -1624,14 +1417,6 @@
     },
     {
       "name": "udo",
-      "months": [
-        2,
-        3,
-        4
-      ]
-    },
-    {
-      "name": "uncured_onion",
       "months": [
         2,
         3,
@@ -1681,7 +1466,7 @@
       ]
     },
     {
-      "name": "whelsh_onion",
+      "name": "spring_onion",
       "months": [
         0,
         1,
@@ -1691,17 +1476,7 @@
       ]
     },
     {
-      "name": "whitebait",
-      "months": [
-        2,
-        3,
-        4,
-        8,
-        9
-      ]
-    },
-    {
-      "name": "wild_rocambole",
+      "name": "leek",
       "months": [
         3,
         4,
@@ -1709,26 +1484,13 @@
       ]
     },
     {
-      "name": "winter_mushroom",
-      "months": [
-        9,
-        10
-      ]
-    },
-    {
-      "name": "yam",
+      "name": "chinese_yam",
       "months": [
         0,
         3,
         4,
         10,
         11
-      ]
-    },
-    {
-      "name": "yesso_scallop",
-      "months": [
-        0
       ]
     },
     {
