@@ -395,7 +395,7 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="bok_choy">Bok choy</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="bok_choy_terms">bok choy</string>
+    <string name="bok_choy_terms">bok choy, pak choi, choi bok</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
     <string name="buckwheat">Buckwheat</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -421,9 +421,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Pollock_roe. -->
     <string name="pollock_roe_terms">cod roe</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="fig">Common figs</string>
+    <string name="fig">Fichi</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="fig_terms">common fig, common figs</string>
+    <string name="fig_terms">fico, fichi</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Common_octopus. -->
     <string name="octopus">Common octopus</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Common_octopus. -->
@@ -451,7 +451,7 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
     <string name="eel">Anguilla</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="eel_terms">anguilla</string>
+    <string name="eel_terms">anguilla, anguille</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
     <string name="egg">Uova</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -485,9 +485,9 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="garlic_terms">aglio</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="garlic_chives">Garlic chives</string>
+    <string name="garlic_chives">Aglio cinese</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="garlic_chives_terms">garlic chives</string>
+    <string name="garlic_chives_terms">aglio cinese, erba cipollina cinese</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Petasites_japonicus. -->
     <string name="butterbur">Giant butterbut</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Petasites_japonicus. -->
@@ -553,9 +553,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Cryptotaenia_japonica. -->
     <string name="mitsuba_terms">honewort</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="honey">Honey</string>
+    <string name="honey">Miele</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="honey_terms">honey</string>
+    <string name="honey_terms">miele</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Trachurus. -->
     <string name="jack_mackerel">Horse mackarel</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Trachurus. -->
@@ -605,9 +605,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Kombu. -->
     <string name="kombu_terms">kelp</string>
     <!-- A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Pleurotus_eryngii. -->
-    <string name="king_trumpet_mushroom">King trumpet mushrooms</string>
+    <string name="king_trumpet_mushroom">Cardoncello</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Pleurotus_eryngii. -->
-    <string name="king_trumpet_mushroom_terms">king trumpet mushrooms</string>
+    <string name="king_trumpet_mushroom_terms">cardoncello, cardarello, cardoncelli, cardarelli</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="kiwi">Kiwi</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -661,9 +661,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Basella_alba. -->
     <string name="malabar_spinach_terms">malabar spinach</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="mandarin">Mandarins</string>
+    <string name="mandarin">Mandarini</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="mandarin_terms">mandarin, mandarins</string>
+    <string name="mandarin_terms">mandarino, mandarini</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="mango">Mango</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -733,9 +733,9 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="peanut_terms">arachide, arachidi, spagnolette, noccioline americane, bagigi, nocelle</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="persimmon">Persimmons</string>
+    <string name="persimmon">Cachi</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="persimmon_terms">persimmon, persimmons</string>
+    <string name="persimmon_terms">cachi, kaki, diospiro, diospero</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Sardine. -->
     <string name="sardine">Pilchard</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Sardine. -->
@@ -781,9 +781,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Red_king_crab. -->
     <string name="red_king_crab_terms">red king crabs</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
-    <string name="rice">Rice</string>
+    <string name="rice">Riso</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="rice_terms">rice</string>
+    <string name="rice_terms">riso</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Pleuronectidae. -->
     <string name="righteye_flounder">Righteye flounder</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Pleuronectidae. -->
@@ -929,9 +929,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Oenanthe_javanica. -->
     <string name="water_dropwort_terms">water dropwort</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="watermelon">Watermelons</string>
+    <string name="watermelon">Cocomeri</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="watermelon_terms">watermelon, watermelons</string>
+    <string name="watermelon_terms">cocomero, anguria, cocomeri, angurie, melone d\'acqua, meloni d\'acqua</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Wax_gourd. -->
     <string name="wax_gourd">Wax gourd</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Wax_gourd. -->
