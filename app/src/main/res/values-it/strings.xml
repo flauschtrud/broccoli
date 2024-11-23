@@ -5,7 +5,7 @@
     <string name="create_a_recipe_prompt">crea nuova ricetta</string>
     <string name="import_from_the_web_prompt">importa da sito web</string>
     <string name="new_recipe">Nuova Ricetta</string>
-    <string name="create_first_recipe">Crea la tua prima ricetta e inizia la tua raccolta!</string>
+    <string name="create_first_recipe">Crea la prima ricetta e inizia la tua raccolta!</string>
     <string name="edit_action">Modifica</string>
     <string name="save_action">Salva</string>
     <string name="title_should_not_be_empty_message">Per favore aggiungi un titolo.</string>
