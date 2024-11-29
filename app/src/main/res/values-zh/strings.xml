@@ -441,9 +441,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Amorphophallus_konjac. -->
     <string name="konjac_terms">蒟蒻</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Daggertooth_pike_conger. -->
-    <string name="daggertooth_pike_conger">Daggertooth pike conger</string>
+    <string name="daggertooth_pike_conger">虎鳗，狼牙鳝</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Daggertooth_pike_conger. -->
-    <string name="daggertooth_pike_conger_terms">daggertooth pike conger, daggertooth pike congers, darkfin pike eel, darkfin pike eels</string>
+    <string name="daggertooth_pike_conger_terms">虎鳗，狼牙鳝</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Eddoe. -->
     <string name="eddo">野芋</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Eddoe. -->
@@ -469,7 +469,7 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Citrus_depressa. -->
     <string name="shikuwasa_terms">台湾香檬、山桔仔、酸桔仔、山柑仔</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Olive_flounder. -->
-    <string name="olive_flounder">Olive flounder</string>
+    <string name="olive_flounder">扁口魚</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Olive_flounder. -->
     <string name="olive_flounder_terms">扁口魚、牙鮃</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Flying_fish. -->
@@ -789,9 +789,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Pleuronectidae. -->
     <string name="righteye_flounder_terms">比目鱼、左口</string>
     <!-- A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Eruca_vesicaria. -->
-    <string name="rocket">Rocket</string>
+    <string name="rocket">胀萼芝麻菜</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="rocket_terms">rocket, eruca, arugula</string>
+    <string name="rocket_terms">胀萼芝麻菜</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Japanese_sandfish. -->
     <string name="japanese_sandfish">日本叉牙魚</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Japanese_sandfish. -->
@@ -805,7 +805,7 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="salmon_terms">三文鱼</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Japanese_sea_bass. -->
-    <string name="japanese_sea_bass">Japanese sea bass</string>
+    <string name="japanese_sea_bass">日本真鲈</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Japanese_sea_bass. -->
     <string name="japanese_sea_bass_terms">日本真鲈</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Ascidiacea. -->
