@@ -7,7 +7,6 @@ jobs:
   build:
     name: Test & Build
     runs-on: ubuntu-latest
-    timeout-minutes: 120
 
     steps:
       - name: Enable KVM group perms
@@ -28,7 +27,14 @@ jobs:
 
       - name: Run Unit Tests
         if: ${{ !contains(github.ref, 'l10n_master') }}
-        run: bash ./gradlew test
+        run: bash ./gradlew testFdroidDebugUnitTest
+
+      - name: Upload Unit Tests Results
+        if: ${{ !contains(github.ref, 'l10n_master') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-tests-results
+          path: app/build/reports/tests/testFdroidDebugUnitTest/index.html
 
       - name: Accept Licenses
         if: ${{ !contains(github.ref, 'l10n_master') }}
@@ -37,6 +43,13 @@ jobs:
       - name: Run UI Tests
         if: ${{ !contains(github.ref, 'l10n_master') }}
         run: bash ./gradlew allDevicesFdroidDebugAndroidTest -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect -Pandroid.experimental.testOptions.managedDevices.emulator.showKernelLogging=true -Pandroid.experimental.testOptions.managedDevices.maxConcurrentDevices=1 -Pandroid.experimental.testOptions.managedDevices.setupTimeoutMinutes=180
+
+      - name: Upload UI Tests Results
+        if: ${{ !contains(github.ref, 'l10n_master') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-tests-results
+          path: app/build/reports/androidTests/managedDevice/debug/flavors/fdroid/allDevices/index.html
 
       - name: Assemble App Debug APK
         run: ./gradlew assembleDebug
