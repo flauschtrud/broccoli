@@ -6,7 +6,7 @@ on:
 jobs:
   build:
     name: Test & Build
-    runs-on: macos-latest-large
+    runs-on: ubuntu-latest
 
     steps:
       - name: Check Out Repository
