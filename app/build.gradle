@@ -12,7 +12,7 @@ android {
     defaultConfig {
         applicationId "com.flauschcode.broccoli"
         minSdkVersion 26
-        targetSdk 34
+        targetSdk 35
         versionCode 1021200 // versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionBuild
         versionName "1.2.12"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
