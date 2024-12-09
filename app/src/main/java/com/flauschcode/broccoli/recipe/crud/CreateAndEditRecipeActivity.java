@@ -31,6 +31,8 @@ import com.flauschcode.broccoli.support.RatingService;
 import com.google.android.material.color.MaterialColors;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.regex.Matcher;
 
@@ -70,22 +72,27 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
         }
 
         if (Intent.ACTION_SEND.equals(intent.getAction())) {
-            String url = parseUrlFrom(intent);
+            try {
+                String url = parseUrlFrom(intent);
 
-            recipeImportService.importFrom(url)
-                    .thenAccept(optionalRecipe -> {
-                        if (optionalRecipe.isPresent()) {
-                            applyRecipeToViewModel(optionalRecipe.get());
-                            binding.setViewModel(viewModel);
-                        } else {
-                            runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_read_message), Toast.LENGTH_LONG).show());
-                        }
-                    })
-                    .exceptionally(e -> {
-                        Log.e(getClass().getName(), e.getMessage());
-                        runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_imported_message), Toast.LENGTH_SHORT).show());
-                        return null;
-                    });
+                recipeImportService.importFrom(url)
+                        .thenAccept(optionalRecipe -> {
+                            if (optionalRecipe.isPresent()) {
+                                applyRecipeToViewModel(optionalRecipe.get());
+                                binding.setViewModel(viewModel);
+                            } else {
+                                runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_read_message), Toast.LENGTH_LONG).show());
+                            }
+                        })
+                        .exceptionally(e -> {
+                            Log.e(getClass().getName(), e.getMessage());
+                            runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_imported_message), Toast.LENGTH_SHORT).show());
+                            return null;
+                        });
+            } catch (MalformedURLException e) {
+                Log.e(getClass().getName(), Objects.requireNonNull(e.getMessage()));
+                runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_imported_message), Toast.LENGTH_SHORT).show());
+            }
         }
 
         if (Intent.ACTION_DEFAULT.equals(intent.getAction())) {
@@ -258,14 +265,18 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
         }
     }
 
-    private String parseUrlFrom(Intent intent) {
+    private String parseUrlFrom(Intent intent) throws MalformedURLException {
         String extra = intent.getStringExtra(Intent.EXTRA_TEXT);
+        if (extra == null) {
+            throw new MalformedURLException("The given URL is null.");
+        }
+
         Matcher matcher = Patterns.WEB_URL.matcher(extra);
         if (matcher.find()) {
             return matcher.group();
         }
-        Log.e(getClass().getName(), "Could not extract valid URL from :'" + extra + "'.");
-        return extra;
+
+        throw new MalformedURLException("Could not extract valid URL from :'" + extra + "'.");
     }
 
 }

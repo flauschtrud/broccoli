@@ -77,14 +77,14 @@ public class SupportFragment extends Fragment {
             Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
             startActivity(goToMarket);
         } catch (ActivityNotFoundException e) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.playstore_url))));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.store_url))));
         }
     }
 
     public void shareApp() {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.playstore_url));
+        sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.store_url));
         sendIntent.setType("text/plain");
         startActivity(Intent.createChooser(sendIntent, null));
     }

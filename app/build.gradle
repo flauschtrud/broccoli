@@ -13,8 +13,8 @@ android {
         applicationId "com.flauschcode.broccoli"
         minSdkVersion 26
         targetSdk 34
-        versionCode 1021000 // versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionBuild
-        versionName "1.2.10"
+        versionCode 1021200 // versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionBuild
+        versionName "1.2.12"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArgument "notAnnotation", "androidx.test.filters.FlakyTest"
         javaCompileOptions {
@@ -39,9 +39,11 @@ android {
     productFlavors {
         play {
             dimension "appstore"
+            resValue 'string', 'store_url', 'https://play.google.com/store/apps/details?id=com.flauschcode.broccoli'
         }
         fdroid {
             dimension "appstore"
+            resValue 'string', 'store_url', 'https://f-droid.org/packages/com.flauschcode.broccoli'
         }
     }
     androidResources {
@@ -84,10 +86,10 @@ aboutLibraries {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.core:core-ktx:1.13.1'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.2'
     runtimeOnly group: 'com.google.android.material', name: 'material', version: '1.12.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
@@ -96,7 +98,7 @@ dependencies {
     implementation "androidx.navigation:navigation-ui:$nav_version"
 
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
-    implementation "androidx.viewpager2:viewpager2:1.0.0"
+    implementation "androidx.viewpager2:viewpager2:1.1.0"
     implementation 'id.zelory:compressor:2.1.1' // 3.0.0 does not work with Java
 
     def room_version = "2.6.1"
@@ -104,7 +106,7 @@ dependencies {
     annotationProcessor "androidx.room:room-compiler:$room_version"
     testImplementation "androidx.room:room-testing:$room_version"
 
-    def fragment_version = "1.7.0"
+    def fragment_version = "1.8.1"
     implementation "androidx.fragment:fragment:$fragment_version"
     debugImplementation ("androidx.fragment:fragment-testing:$fragment_version"){
         exclude group: 'androidx.test', module : 'core'
@@ -113,10 +115,10 @@ dependencies {
     def preference_version = "1.2.1"
     implementation "androidx.preference:preference:$preference_version"
 
-    def billing_version = "6.2.0"
+    def billing_version = "7.0.0"
     playImplementation "com.android.billingclient:billing:$billing_version"
 
-    playImplementation 'com.google.android.play:core:1.10.3'
+    playImplementation 'com.google.android.play:review:2.0.1'
 
     def dagger_version = "2.45"
     implementation group: 'com.google.dagger', name: 'dagger', version: "$dagger_version"
@@ -130,7 +132,7 @@ dependencies {
 
     implementation 'org.jsoup:jsoup:1.15.4'
 
-    implementation "com.mikepenz:aboutlibraries:10.6.3"
+    implementation "com.mikepenz:aboutlibraries:11.2.1"
 
     def jackson_version = "2.15.4"
     implementation "com.fasterxml.jackson.core:jackson-core:$jackson_version"
@@ -145,12 +147,12 @@ dependencies {
     testImplementation 'org.hamcrest:hamcrest:2.2'
     testImplementation 'androidx.arch.core:core-testing:2.2.0'
 
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation "org.mockito:mockito-core:$mockito_version"
     androidTestImplementation "org.mockito:mockito-android:$mockito_version"
-    androidTestImplementation 'androidx.test:core:1.5.0'
+    androidTestImplementation 'androidx.test:core:1.6.1'
 
-    def espresso_version = "3.5.1"
+    def espresso_version = "3.6.1"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
     androidTestImplementation "androidx.test.espresso:espresso-intents:$espresso_version"
     androidTestImplementation "androidx.test.espresso:espresso-contrib:$espresso_version"

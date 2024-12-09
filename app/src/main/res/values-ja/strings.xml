@@ -1,359 +1,359 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="recipes">Recepti</string>
-    <string name="no_recipes_found">Nijedan recept nije pronađen.</string>
-    <string name="create_a_recipe_prompt">kreirajte novi recept</string>
-    <string name="import_from_the_web_prompt">uvezite recept sa internet stranice</string>
-    <string name="new_recipe">Novi recept</string>
-    <string name="create_first_recipe">Kreirajte svoj prvi recept i započnite svoju kolekciju!</string>
-    <string name="edit_action">Izmeni</string>
-    <string name="save_action">Sačuvaj</string>
-    <string name="title_should_not_be_empty_message">Molimo dodajte naslov.</string>
-    <string name="recipe_saved_message">Recept je sačuvan.</string>
-    <string name="recipe_could_not_be_saved_message">Recept nije moguće sačuvati.</string>
-    <string name="delete_action">Izbriši</string>
-    <string name="delete_recipe_question">Izbriši ovaj recept?</string>
-    <string name="recipe_deleted_message">Recept je obrisan.</string>
-    <string name="discard_action">Odbaci</string>
-    <string name="discard_changes_question">Odbaciti izmene?</string>
-    <string name="title">Naslov</string>
-    <string name="description">Opis</string>
-    <string name="source">Izvor</string>
-    <string name="servings">Porcije</string>
-    <string name="preparation_time">Vreme</string>
-    <string name="ingredients">Sastojci</string>
-    <string name="directions">Uputstva</string>
-    <string name="recipe_photo_accessibility">Slika recepta</string>
-    <string name="change_photo">Promeni fotografiju</string>
-    <string name="remove_photo">Ukloni sliku</string>
-    <string name="take_photo">Napravi fotografiju</string>
-    <string name="pick_photo">Izaberi sliku</string>
-    <string name="image_could_not_be_created_message">Nije moguće kreirati sliku.</string>
-    <string name="categories">Kategorije</string>
-    <string name="create_a_category_prompt">Kreirajte prilagođene kategorije da biste upravljali receptima.</string>
-    <string name="add_category">Dodaj kategoriju</string>
-    <string name="add_first_category">Dodajte svoju prvu prilagođenu kategoriju i dovedite u red u svoju kolekciju!</string>
-    <string name="edit_category">Izmeni kategoriju</string>
-    <string name="category_name">Naziv</string>
-    <string name="no_categories_message">Još uvek nije napravljena nijedna kategorija.</string>
-    <string name="all_recipes">Svi recepti</string>
-    <string name="mark_as_favorite_action">Označi kao omiljeno</string>
-    <string name="remove_from_favorite_action">Ukloni iz omiljenih</string>
-    <string name="favorites">Omiljeni</string>
-    <string name="delete_category_question">Da li ste sigurni da želite da uklonite ovu kategoriju?</string>
-    <string name="unassigned">Recepti bez kategorije</string>
-    <string name="search">Pretraga</string>
-    <string name="search_in">Pretraži u %1$s</string>
-    <string name="preferred_category">Željena kategorija</string>
-    <string name="cooking_assistant">Asistent za kuvanje</string>
-    <string name="cooking_assistant_prompt">Kuvajte svoj recept u režimu celog ekrana bez ometanja!</string>
-    <string name="no_ingredients_and_directions_message">Ovaj recept još nema nikakve sastojke ili uputstva.</string>
-    <string name="cook_action">Kuvaj</string>
-    <string name="adjust_ingredients">Podesite sastojke</string>
-    <string name="adjust_ingredients_prompt">Izaberite koliko porcija želite da kuvate!</string>
-    <string name="scaling_simple">Jednostavno</string>
-    <string name="scaling_pro">Za</string>
-    <string name="recipe_amount">Količina u receptu</string>
-    <string name="scaling_factor">Koeficijent skaliranja</string>
-    <string name="unscaled">nije prilagođeno</string>
-    <string name="share_action">Podeli</string>
-    <string name="shared_with">Podeli sa %1$s</string>
-    <string name="recipe_could_not_be_imported_message">Žao nam je, ovo nije uspelo.</string>
-    <string name="recipe_could_not_be_read_message">Žao nam je, ovaj recept ne može biti pročitan.</string>
-    <string name="share_as_file_action">Podeli kao datoteku</string>
-    <string name="recipe_could_not_be_exported_message">Recept nije moguće izvesti.</string>
-    <string name="backup_and_restore">Rezervna kopija i vraćanje podataka</string>
-    <string name="backup">Rezervna kopija</string>
-    <string name="restore">Povrati</string>
-    <string name="backup_recipes">Napravi rezervnu kopiju recepata</string>
-    <string name="backup_recipes_message">Izvezi sve recepte i kategorije i sačuvaj ih gde god želiš.</string>
-    <string name="restore_recipes">Povrati recepte</string>
-    <string name="restore_recipes_message">Uvezi sve recepte i kategorije iz rezervne kopije.</string>
-    <string name="backup_failed_message">Recepte nije moguće izvesti.</string>
-    <string name="restore_failed_message">Recepte nije moguće uvesti.</string>
-    <string name="restore_all_question">Da li želite da uvezete sve recepte i kategorije iz ove datoteke?</string>
-    <string name="restore_completed_message">%1$d recepti su uvezeni.</string>
-    <string name="last_backup">Poslednja rezervna kopija</string>
-    <string name="about_the_app">O aplikaciji</string>
-    <string name="help">Pomoć</string>
-    <string name="legal_policies">Pravni</string>
-    <string name="send_feedback">Pošalji povratnu informaciju</string>
-    <string name="send_feedback_message">Da li ste našli grešku ili Vam nedostaje neka mogućnost? </string>
-    <string name="feedback_subject">Povratna informacija za Brokoli aplikaciju</string>
-    <string name="version">Verzija</string>
-    <string name="settings">Podešavanja</string>
-    <string name="general_settings">Opšta podešavanja</string>
+    <string name="recipes">レシピ</string>
+    <string name="no_recipes_found">レシピが見つかりません。</string>
+    <string name="create_a_recipe_prompt">新しいレシピを作成</string>
+    <string name="import_from_the_web_prompt">ウェブからレシピをインポートする</string>
+    <string name="new_recipe">新しいレシピ</string>
+    <string name="create_first_recipe">レシピを作成してコレクションをはじめましょう！</string>
+    <string name="edit_action">編集</string>
+    <string name="save_action">保存</string>
+    <string name="title_should_not_be_empty_message">タイトルを入力してください。</string>
+    <string name="recipe_saved_message">レシピが保存されました。</string>
+    <string name="recipe_could_not_be_saved_message">レシピを保存できませんでした。</string>
+    <string name="delete_action">削除</string>
+    <string name="delete_recipe_question">このレシピを削除しますか。</string>
+    <string name="recipe_deleted_message">レシピが削除されました。</string>
+    <string name="discard_action">廃棄</string>
+    <string name="discard_changes_question">変化を廃棄しますか。</string>
+    <string name="title">タイトル</string>
+    <string name="description">詳細</string>
+    <string name="source">ソース</string>
+    <string name="servings">分量</string>
+    <string name="preparation_time">所要時間</string>
+    <string name="ingredients">材料</string>
+    <string name="directions">作り方</string>
+    <string name="recipe_photo_accessibility">レシピの写真</string>
+    <string name="change_photo">写真を変更</string>
+    <string name="remove_photo">写真を除く</string>
+    <string name="take_photo">写真を撮る</string>
+    <string name="pick_photo">写真を選択</string>
+    <string name="image_could_not_be_created_message">画像ファイルを作成できませんでした。</string>
+    <string name="categories">カテゴリー</string>
+    <string name="create_a_category_prompt">レシピを管理するため自分のカテゴリーを作成しましょう。</string>
+    <string name="add_category">カテゴリーを追加</string>
+    <string name="add_first_category">最初のカテゴリーを追加して、コレクションを整理しましょう！</string>
+    <string name="edit_category">カテゴリーを編集</string>
+    <string name="category_name">名前</string>
+    <string name="no_categories_message">カテゴリーはまだ作成されていません。</string>
+    <string name="all_recipes">すべてのレシピ</string>
+    <string name="mark_as_favorite_action">お気に入りに追加</string>
+    <string name="remove_from_favorite_action">お気に入りから削除</string>
+    <string name="favorites">お気に入り</string>
+    <string name="delete_category_question">このカテゴリーを削除してもよろしいですか。</string>
+    <string name="unassigned">カテゴリのないレシピ</string>
+    <string name="search">検索</string>
+    <string name="search_in">%1$sで検索</string>
+    <string name="preferred_category">優先するカテゴリー</string>
+    <string name="cooking_assistant">調理アシスタント</string>
+    <string name="cooking_assistant_prompt">全画面モードで気を散らさずにレシピを調理できます！</string>
+    <string name="no_ingredients_and_directions_message">このレシピにはまだ材料や作り方はありません。</string>
+    <string name="cook_action">調理する</string>
+    <string name="adjust_ingredients">材料を調整する</string>
+    <string name="adjust_ingredients_prompt">調理した分量を選んでください！</string>
+    <string name="scaling_simple">シンプル</string>
+    <string name="scaling_pro">プロ</string>
+    <string name="recipe_amount">レシピの量</string>
+    <string name="scaling_factor">倍率</string>
+    <string name="unscaled">調整していない</string>
+    <string name="share_action">共有</string>
+    <string name="shared_with">%1$sと共有</string>
+    <string name="recipe_could_not_be_imported_message">もし訳ありませんが、動作はが失敗しました。</string>
+    <string name="recipe_could_not_be_read_message">申し訳ありませんが、このレシピは読み取れません。</string>
+    <string name="share_as_file_action">ファイルとして共有</string>
+    <string name="recipe_could_not_be_exported_message">レシピをエクスポートできませんでした。</string>
+    <string name="backup_and_restore">バックアップと復元</string>
+    <string name="backup">バックアップ</string>
+    <string name="restore">復元</string>
+    <string name="backup_recipes">レシピをバックアップ</string>
+    <string name="backup_recipes_message">すべてのレシピとカテゴリをエクスポートし、好きな場所で保存できます。</string>
+    <string name="restore_recipes">レシピを復元</string>
+    <string name="restore_recipes_message">バックアップからすべてのレシピとカテゴリをインポートする。</string>
+    <string name="backup_failed_message">レシピをエクスポートできませんでした。</string>
+    <string name="restore_failed_message">レシピをインポートできませんでした。</string>
+    <string name="restore_all_question">このファイルからすべてのレシピとカテゴリをインポートしますか。</string>
+    <string name="restore_completed_message">%1$d件のレシピがインポートされました。</string>
+    <string name="last_backup">前回のバックアップ</string>
+    <string name="about_the_app">このアプリについて</string>
+    <string name="help">援助</string>
+    <string name="legal_policies">法的事項</string>
+    <string name="send_feedback">フィードバックを送信</string>
+    <string name="send_feedback_message">バグを見つけましたか、それとも機能がほしいですか。</string>
+    <string name="feedback_subject">ブロッコリーアプリへのフィードバック</string>
+    <string name="version">バージョン</string>
+    <string name="settings">設定</string>
+    <string name="general_settings">一般設定</string>
     <!-- https://support.google.com/chrome/answer/9275525?hl=en -->
-    <string name="design">Tema</string>
-    <string name="light">Svetlo</string>
-    <string name="dark">Tamno</string>
-    <string name="system_default">Sistemska podrazumevana</string>
-    <string name="privacy_policy">Politika privatnosti</string>
-    <string name="privacy_policy_summary">Saznajte više o tome kako štitimo vaše lične podatke.</string>
-    <string name="demo_recipe">Demo recept</string>
+    <string name="design">テーマ</string>
+    <string name="light">明るい</string>
+    <string name="dark">暗い</string>
+    <string name="system_default">システムのデフォルト</string>
+    <string name="privacy_policy">プライバシーポリシー</string>
+    <string name="privacy_policy_summary">どのように個人データが保護されるかについての詳細。</string>
+    <string name="demo_recipe">デモレシピ</string>
     <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
-    <string name="open_source_licenses">Licence otvorenog koda</string>
-    <string name="open_source_licenses_text">Detalji licence otvorenog koda</string>
-    <string name="seasonal_calendar">Sezonski kalendar</string>
-    <string name="seasonal_accessibility">Sezonski sastojak(ci)</string>
-    <string name="seasonal_recipes">Sezonski recepti</string>
-    <string name="seasonal_ingredients_accessibility">Sezonski sastojci</string>
-    <string name="seasons_not_configured_message">Sezonski kalendar još uvek nije konfigurisan.</string>
-    <string name="configure_seasons_action">Konfiguriši</string>
-    <string name="region">Region</string>
-    <string name="languages_of_recipes">Jezici recepata</string>
-    <string name="no_language_set_message">Na kojim jezicima kreirate svoje recepte? Izaberite najmanje jedan jezik.</string>
-    <string name="seasons_feedback_message">Da li vam nedostaje vaš region, jezik ili omiljeni sastojak?</string>
-    <string name="seasons_feedback_subject">Povratne informacije za sezonski kalendar</string>
-    <string name="region_central_europe">Centralna Evropa</string>
-    <string name="region_north_america_colder">Severna Amerika (hladnije)</string>
-    <string name="region_north_america_warmer">Severna Amerika (toplije)</string>
-    <string name="region_japan">Japan</string>
-    <string name="english">Engleski</string>
-    <string name="spanish">Španski</string>
-    <string name="french">Francuski</string>
-    <string name="german">Nemački</string>
-    <string name="polish">Poljski</string>
-    <string name="italian">Italijanski</string>
-    <string name="chinese">Kinеski</string>
-    <string name="turkish">Turski</string>
-    <string name="serbian_latin">Srpski (latinica)</string>
-    <string name="hebrew">Hebrejski</string>
-    <string name="brazilian_portuguese">Brazilski portugalski</string>
-    <string name="norwegian_bokmal">Norveški (bokmål)</string>
-    <string name="russian">Ruski</string>
-    <string name="japanese">Japanese</string>
-    <string name="support_the_app">Podržite aplikaciju</string>
-    <string name="support_the_app_donate">Doniraj</string>
-    <string name="support_the_app_donate_text_playstore">Brokoli je besplatan za sve. Ali možete podržati razvoj aplikacije i častiti me kolačićem, kafom ili pljeskavicom. Hvala Vam puno!</string>
-    <string name="support_the_app_donate_text_fdroid">Brokoli je besplatan za sve. Ali možete podržati razvoj aplikacije i častiti me kafom. Hvala Vam puno!</string>
-    <string name="support_the_app_give_feedback">Ostavi povratnu informaciju</string>
-    <string name="support_the_app_give_feedback_text">Da li Vam se sviđa Brokoli? Recite nam!</string>
-    <string name="support_the_app_tell_your_friends">Podeli sa svojim prijateljima</string>
-    <string name="support_the_app_tell_your_friends_text">Da li i Vaši prijatelji vole da kuvaju? Recite im o Brokoliju!</string>
-    <string name="free_for_everyone">Besplatno za sve</string>
-    <string name="buy">Kupi</string>
-    <string name="play_store_sign_in_message">Prijavite se na Google Play prodavnicu.</string>
-    <string name="rate_the_app">Ocenite aplikaciju</string>
-    <string name="share_the_app">Podelite ovu aplikaciju</string>
+    <string name="open_source_licenses">オープンソースライセンス</string>
+    <string name="open_source_licenses_text">オープンソースソフトウェアに関するライセンスの詳細</string>
+    <string name="seasonal_calendar">旬のカレンダー</string>
+    <string name="seasonal_accessibility">旬の材料</string>
+    <string name="seasonal_recipes">旬のレシピ</string>
+    <string name="seasonal_ingredients_accessibility">旬の材料</string>
+    <string name="seasons_not_configured_message">旬のカレンダー設定はまだ完了していません。</string>
+    <string name="configure_seasons_action">設定</string>
+    <string name="region">地域</string>
+    <string name="languages_of_recipes">レシピの言語</string>
+    <string name="no_language_set_message">レシピをどの言語で作成しますか。少なくとも1つの言語を選んでください。</string>
+    <string name="seasons_feedback_message">お住まいの地域、言語、お気に入りの食材はまだありませんか。</string>
+    <string name="seasons_feedback_subject">季節のカレンダーへのフィードバック</string>
+    <string name="region_central_europe">中央ヨーロッパ</string>
+    <string name="region_north_america_colder">北アメリカ（寒い方）</string>
+    <string name="region_north_america_warmer">北アメリカ（より暖かい）</string>
+    <string name="region_japan">日本</string>
+    <string name="english">英語</string>
+    <string name="spanish">スペイン語</string>
+    <string name="french">フランス語</string>
+    <string name="german">ドイツ語</string>
+    <string name="polish">ポーランド語</string>
+    <string name="italian">イタリア語</string>
+    <string name="chinese">中国語</string>
+    <string name="turkish">トルコ語</string>
+    <string name="serbian_latin">セルビア語（ローマ字）</string>
+    <string name="hebrew">ヘブライ語</string>
+    <string name="brazilian_portuguese">ポルトガル語（ブラジル）</string>
+    <string name="norwegian_bokmal">ノルウェー語（ボークモール）</string>
+    <string name="russian">ロシア語</string>
+    <string name="japanese">日本語</string>
+    <string name="support_the_app">このアプリを支援する</string>
+    <string name="support_the_app_donate">寄付</string>
+    <string name="support_the_app_donate_text_playstore">ブロッコリーは無料で使えます。なので、アプリの開発を支援し、私にクッキー、コーヒーまたはバーガーをおごることはできます。よろしくお願いします。</string>
+    <string name="support_the_app_donate_text_fdroid">ブロッコリーは無料で使えます。なので、アプリの開発を支援し、私にコーヒーをおごることはできます。よろしくお願いします。</string>
+    <string name="support_the_app_give_feedback">フィードバックを送信</string>
+    <string name="support_the_app_give_feedback_text">ブロッコリーは好きですか。教えてください！</string>
+    <string name="support_the_app_tell_your_friends">お友達に紹介</string>
+    <string name="support_the_app_tell_your_friends_text">お友達も調理が好きですか。ブロッコリーについて教えませんか。</string>
+    <string name="free_for_everyone">無限無料</string>
+    <string name="buy">購入する</string>
+    <string name="play_store_sign_in_message">Google Playストアにログインしてください。</string>
+    <string name="rate_the_app">アプリを評価する</string>
+    <string name="share_the_app">アプリを共有する</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="eggplant">Patlidžani</string>
+    <string name="eggplant">Eggplants</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="eggplant_terms">patlidžan, patlidžani, patlidžan, patlidžani</string>
+    <string name="eggplant_terms">eggplant, eggplants, aubergine, aubergines</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="cauliflower">Karfiol</string>
+    <string name="cauliflower">Cauliflower</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="cauliflower_terms">karfiol</string>
+    <string name="cauliflower_terms">cauliflower</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="broad_bean">Boranija</string>
+    <string name="broad_bean">Broad beans</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="broad_bean_terms">boranija, boranija, boranija</string>
+    <string name="broad_bean_terms">broad beans, fava beans, faba beans</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="bean">Pasulj</string>
+    <string name="bean">Beans</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="bean_terms">obični pasulj, boranija, boranija</string>
+    <string name="bean_terms">common beans, french beans, green beans</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="broccoli">Brokoli</string>
+    <string name="broccoli">ブロッコリー</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="broccoli_terms">brokoli</string>
+    <string name="broccoli_terms">broccoli</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="chinese_cabbage">Kineski kupus</string>
+    <string name="chinese_cabbage">Chinese cabbage</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="chinese_cabbage_terms">kineski kupus, kineski kupus</string>
+    <string name="chinese_cabbage_terms">chinese cabbage, napa cabbage</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pea">Grašak</string>
+    <string name="pea">Peas</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pea_terms">grašak</string>
+    <string name="pea_terms">peas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="fennel">Komorač</string>
+    <string name="fennel">Fennel</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="fennel_terms">komorač</string>
+    <string name="fennel_terms">fennel</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="kale">Kelj</string>
+    <string name="kale">Kale</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="kale_terms">kelj</string>
+    <string name="kale_terms">kale</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="cucumber">Krastavci</string>
+    <string name="cucumber">Cucumbers</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="cucumber_terms">krastavac, krastavci</string>
+    <string name="cucumber_terms">cucumber, cucumbers</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="celeriac">Celer</string>
+    <string name="celeriac">Celeriac</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="celeriac_terms">celer</string>
+    <string name="celeriac_terms">celeriac</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="kohlrabi">Keleraba</string>
+    <string name="kohlrabi">Kohlrabi</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="kohlrabi_terms">keleraba</string>
+    <string name="kohlrabi_terms">kohlrabi</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pumpkin">Bundeva</string>
+    <string name="pumpkin">Pumpkin</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pumpkin_terms">bundeva, bundeve, hokaido</string>
+    <string name="pumpkin_terms">pumpkin, pumpkins, hokkaido</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="leek">Praziluk</string>
+    <string name="leek">Leek</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="leek_terms">praziluk</string>
+    <string name="leek_terms">leek</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="corn">Kukuruz</string>
+    <string name="corn">Corn</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="corn_terms">kukuruz</string>
+    <string name="corn_terms">corn</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="chard">Blitva</string>
+    <string name="chard">Chard</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="chard_terms">blitva</string>
+    <string name="chard_terms">chard</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="carrot">Šargarepe</string>
+    <string name="carrot">Carrots</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="carrot_terms">šargarepa, šargarepe</string>
+    <string name="carrot_terms">carrot, carrots</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="bell_pepper">Paprike babure</string>
+    <string name="bell_pepper">Bell peppers</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="bell_pepper_terms">paprika, paprike, babura, babure</string>
+    <string name="bell_pepper_terms">peppers, bell pepper, bell peppers</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="parsnip">Paškanat</string>
+    <string name="parsnip">Parsnip</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="parsnip_terms">paškanat, paškanat</string>
+    <string name="parsnip_terms">parsnip, parsnips</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="brussels_sprouts">Prokelj</string>
+    <string name="brussels_sprouts">Brussels sprouts</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="brussels_sprouts_terms">prokelj</string>
+    <string name="brussels_sprouts_terms">brussels sprouts</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="beetroot">Cvekla</string>
+    <string name="beetroot">Beetroot</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="beetroot_terms">cvekla, cvekla, cvekla, cvekla</string>
+    <string name="beetroot_terms">beet, beets, beetroot, beetroots</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="red_cabbage">Crveni kupus</string>
+    <string name="red_cabbage">Red cabbage</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="red_cabbage_terms">crveni kupus</string>
+    <string name="red_cabbage_terms">red cabbage</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="salsify">Maslačak</string>
+    <string name="salsify">Salsify</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="salsify_terms">maslačak</string>
+    <string name="salsify_terms">salsify</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="asparagus">Špargla</string>
+    <string name="asparagus">Asparagus</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="asparagus_terms">špargla</string>
+    <string name="asparagus_terms">asparagus</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="spinach">Spanać</string>
+    <string name="spinach">Spinach</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="spinach_terms">spanać</string>
+    <string name="spinach_terms">spinach</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="celery">Celer</string>
+    <string name="celery">Celery</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="celery_terms">celer</string>
+    <string name="celery_terms">celery</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="turnip">Repa</string>
+    <string name="turnip">Turnips</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="turnip_terms">repa, repa</string>
+    <string name="turnip_terms">turnip, turnips</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="tomato">Paradajz</string>
+    <string name="tomato">Tomatoes</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="tomato_terms">paradajz, paradajz</string>
+    <string name="tomato_terms">tomato, tomatoes</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="white_cabbage">Zeleni kupus</string>
+    <string name="white_cabbage">White cabbage</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="white_cabbage_terms">zeleni kupus, zeleni kupus</string>
+    <string name="white_cabbage_terms">white cabbage, green cabbage</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="savoy_cabbage">Kelj</string>
+    <string name="savoy_cabbage">Savoy cabbage</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="savoy_cabbage_terms">kelj</string>
+    <string name="savoy_cabbage_terms">savoy cabbage</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="zucchini">Tikvica</string>
+    <string name="zucchini">Zucchini</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="zucchini_terms">tikvica, tikvica, tikvice</string>
+    <string name="zucchini_terms">zucchini, courgette, courgettes</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="wild_garlic">Sremuš</string>
+    <string name="wild_garlic">Wild garlic</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="wild_garlic_terms">sremuš</string>
+    <string name="wild_garlic_terms">wild garlic</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="apple">Jabuke</string>
+    <string name="apple">Apples</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="apple_terms">jabuka, jabuke</string>
+    <string name="apple_terms">apple, apples</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="apricot">Kajsije</string>
+    <string name="apricot">Apricots</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="apricot_terms">kajsija, kajsije</string>
+    <string name="apricot_terms">apricot, apricots</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pear">Kruške</string>
+    <string name="pear">Pears</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pear_terms">kruška, kruške</string>
+    <string name="pear_terms">pear, pears</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="strawberry">Jagode</string>
+    <string name="strawberry">Strawberries</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="strawberry_terms">jagode</string>
+    <string name="strawberry_terms">strawberries</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="cherry">Trešnje</string>
+    <string name="cherry">Cherries</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="cherry_terms">trešnje</string>
+    <string name="cherry_terms">cherries</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="rhubarb">Rabarbara</string>
+    <string name="rhubarb">Rhubarb</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="rhubarb_terms">rabarbara</string>
+    <string name="rhubarb_terms">rhubarb</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="plum">Šljive</string>
+    <string name="plum">Plums</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="plum_terms">šljiva, šljive</string>
+    <string name="plum_terms">plum, plums</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="avocado">Avokado</string>
+    <string name="avocado">Avocados</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="avocado_terms">avokado, avokado</string>
+    <string name="avocado_terms">avocado, avocados</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="sweet_potato">Slatki krompir</string>
+    <string name="sweet_potato">Sweet potatoes</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="sweet_potato_terms">slatki krompir, Slatki krompiri</string>
+    <string name="sweet_potato_terms">sweet potato, sweet potatoes</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="lemon">Limun</string>
+    <string name="lemon">Lemons</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="lemon_terms">limun, limun</string>
+    <string name="lemon_terms">lemon, lemons</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="orange">Narandže</string>
+    <string name="orange">Oranges</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="orange_terms">narandža, narandže</string>
+    <string name="orange_terms">orange, oranges</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="lime">Limeta</string>
+    <string name="lime">Limes</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="lime_terms">limeta, limeta</string>
+    <string name="lime_terms">lime, limes</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="summer_squash">Tikvica</string>
+    <string name="summer_squash">Summer squash</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="summer_squash_terms">tikvica</string>
+    <string name="summer_squash_terms">summer squash</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="winter_squash">Tikva</string>
+    <string name="winter_squash">Winter squash</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="winter_squash_terms">tikva, muskatna tikva, žirasta tikva, rendana tikva</string>
+    <string name="winter_squash_terms">winter squash, butternut squash, acorn squash, spaghetti squash</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pomegranate">Nar</string>
+    <string name="pomegranate">Pomegranates</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pomegranate_terms">nar, nar</string>
+    <string name="pomegranate_terms">pomegranate, pomegranates</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="blueberries">Borovnice</string>
+    <string name="blueberries">Blueberries</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="blueberries_terms">borovnice</string>
+    <string name="blueberries_terms">blueberries</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="raspberries">Maline</string>
+    <string name="raspberries">Raspberries</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="raspberries_terms">maline</string>
+    <string name="raspberries_terms">raspberries</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="blackberries">Borovnice</string>
+    <string name="blackberries">Blackberries</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="blackberries_terms">borovnice</string>
+    <string name="blackberries_terms">blackberries</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="mirabelles">Žute šljive</string>
+    <string name="mirabelles">Mirabelles</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="mirabelles_terms">žute šljive</string>
+    <string name="mirabelles_terms">mirabelles</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="gooseberries">Ogrozd</string>
+    <string name="gooseberries">Gooseberries</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="gooseberries_terms">ogrozd</string>
+    <string name="gooseberries_terms">gooseberries</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="lambs_lettuce">Matovilac</string>
+    <string name="lambs_lettuce">Lamb\'s lettuce</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="lambs_lettuce_terms">matovilac</string>
+    <string name="lambs_lettuce_terms">lamb\'s lettuce</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pointed_cabbage">Šiljasti kupus</string>
+    <string name="pointed_cabbage">Pointed cabbage</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="pointed_cabbage_terms">pointed cabbage</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="champignons">Šampinjoni</string>
+    <string name="champignons">Champignons</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="champignons_terms">champignons</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Abalone. -->

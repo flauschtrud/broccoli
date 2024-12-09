@@ -1,0 +1,242 @@
+{
+  "food": [
+    {
+      "name": "angelica_tree_shoot",
+      "months": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "bean_curd",
+      "months": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "blood_clam",
+      "months": [
+        0,
+        1,
+        2,
+        11
+      ]
+    },
+    {
+      "name": "bracken",
+      "months": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "broadbanded_thornyhead",
+      "months": [
+        0,
+        10,
+        11
+      ]
+    },
+    {
+      "name": "bullbil",
+      "months": [
+        9,
+        10
+      ]
+    },
+    {
+      "name": "burmese_rosewood",
+      "months": [
+        9,
+        10
+      ]
+    },
+    {
+      "name": "chicken_grunt",
+      "months": [
+        4,
+        5
+      ]
+    },
+    {
+      "name": "gadid",
+      "months": [
+        0,
+        11
+      ]
+    },
+    {
+      "name": "green_chili",
+      "months": [
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "halfbeak",
+      "months": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "lili_bulb",
+      "months": [
+        0,
+        1,
+        2,
+        10,
+        11
+      ]
+    },
+    {
+      "name": "marlin",
+      "months": [
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "name": "mozuku",
+      "months": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "natto",
+      "months": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "new_potato",
+      "months": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "ocellated_octopus",
+      "months": [
+        0,
+        1,
+        2,
+        11
+      ]
+    },
+    {
+      "name": "ostrich_fern",
+      "months": [
+        3,
+        4
+      ]
+    },
+    {
+      "name": "perilla",
+      "months": [
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "radish_sprout",
+      "months": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "name": "royal_fern",
+      "months": [
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "name": "sea_bream",
+      "months": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "soy_pulp",
+      "months": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "summer_orange",
+      "months": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "sumo_mandarin",
+      "months": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "name": "uncured_onion",
+      "months": [
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "name": "whitebait",
+      "months": [
+        2,
+        3,
+        4,
+        8,
+        9
+      ]
+    },
+    {
+      "name": "winter_mushroom",
+      "months": [
+        9,
+        10
+      ]
+    },
+    {
+      "name": "yesso_scallop",
+      "months": [
+        0
+      ]
+    }
+  ]
+}

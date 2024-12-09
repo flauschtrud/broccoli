@@ -37,6 +37,7 @@ import java.util.stream.Collectors;
 import javax.inject.Inject;
 
 import static android.app.Activity.RESULT_OK;
+import static android.content.Intent.ACTION_SEND;
 import static androidx.test.core.app.ActivityScenario.launch;
 import static androidx.test.core.app.ActivityScenario.launchActivityForResult;
 import static androidx.test.espresso.Espresso.onView;
@@ -289,6 +290,17 @@ public class CreateAndEditRecipeActivityTest {
         Recipe recipe = recipeCaptor.getValue();
         assertThat(recipe.getTitle(), is(LAUCHKUCHEN.getTitle()));
         assertThat(recipe.getImageName(), startsWith("12345.jpg"));
+    }
+
+    @Test
+    public void should_not_break_if_url_is_not_available() {
+        Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CreateAndEditRecipeActivity.class);
+        intent.setAction(ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT, (String) null);
+
+        scenario = launchActivityForResult(intent);
+
+        onView(withId(R.id.new_title)).check(matches(withText("")));
     }
 
 }

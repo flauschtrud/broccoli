@@ -12,6 +12,18 @@ You can get Broccoli on
 - [F-Droid](https://f-droid.org/packages/com.flauschcode.broccoli/)
 - [GitHub](https://github.com/flauschtrud/broccoli/releases/latest)
 
+## Code Quality
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=flauschtrud_broccoli&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=flauschtrud_broccoli)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=flauschtrud_broccoli&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=flauschtrud_broccoli)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=flauschtrud_broccoli&metric=coverage)](https://sonarcloud.io/summary/new_code?id=flauschtrud_broccoli)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=flauschtrud_broccoli&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=flauschtrud_broccoli)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=flauschtrud_broccoli&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=flauschtrud_broccoli)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=flauschtrud_broccoli&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=flauschtrud_broccoli)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=flauschtrud_broccoli&metric=bugs)](https://sonarcloud.io/summary/new_code?id=flauschtrud_broccoli)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=flauschtrud_broccoli&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=flauschtrud_broccoli)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=flauschtrud_broccoli&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=flauschtrud_broccoli)
+
 ## FAQ
 
 ### Why Can Some Recipes Not Be Imported via Their URL Into Broccoli?
@@ -49,6 +61,8 @@ Available languages so far:
 - Serbian (Latin) (thanks a lot to [dimipage](https://github.com/dimipage) for your help!)
 - Turkish (thanks a lot to [mikropsoft](https://github.com/mikropsoft) for your help!)
 - Hebrew (thanks a lot to Eldar for your help!)
+- Brazilian Portuguese (thanks a lot to [joemaal](https://github.com/joemaal) for your help!)
+- Russian (thanks a lot to Степан for your help!)
 
 ### Seasonal Calendars
 If you want to contribute by researching data for additional seasonal calendars please contact me.

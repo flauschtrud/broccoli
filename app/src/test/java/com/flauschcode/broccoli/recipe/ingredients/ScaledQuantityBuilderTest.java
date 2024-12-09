@@ -73,4 +73,11 @@ public class ScaledQuantityBuilderTest {
         assertThat(scaled,  is("(not scaled) "));
     }
 
+    @Test
+    public void scale_incomplete_range() {
+        when(application.getString(R.string.unscaled)).thenReturn("not scaled");
+        String scaled = scaledQuantityBuilder.from("1-", 2f);
+        assertThat(scaled,  is("(not scaled) 1-"));
+    }
+
 }

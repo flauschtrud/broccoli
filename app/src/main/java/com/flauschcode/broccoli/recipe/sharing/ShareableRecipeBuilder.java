@@ -95,7 +95,7 @@ public class ShareableRecipeBuilder {
     }
 
     private String getSharedWithString() {
-        return application.getString(R.string.shared_with, application.getString(R.string.playstore_url));
+        return application.getString(R.string.shared_with, application.getString(R.string.store_url));
     }
 
 }

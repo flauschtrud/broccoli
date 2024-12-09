@@ -99,9 +99,11 @@
     <string name="seasons_feedback_message">¿Echas de menos tu región, idioma o ingrediente favorito?</string>
     <string name="seasons_feedback_subject">Comentarios sobre el calendario de temporada</string>
     <string name="region_central_europe">Europa Central</string>
+    <string name="region_japan">Japón</string>
     <string name="english">Inglés</string>
     <string name="german">Alemán</string>
     <string name="italian">Italiano</string>
+    <string name="japanese">Japonés</string>
     <string name="support_the_app">Apoya la aplicación</string>
     <string name="free_for_everyone">Gratis para todos</string>
     <string name="buy">Compra</string>
@@ -241,4 +243,6 @@
     <string name="pointed_cabbage_terms">col de Filder, berza de Filder, col puntiaguda</string>
     <string name="champignons">Champiñones</string>
     <string name="champignons_terms">champiñones</string>
+    <string name="norwegian_bokmal">Noruego bokmål</string>
+    <string name="russian">Ruso</string>
 </resources>

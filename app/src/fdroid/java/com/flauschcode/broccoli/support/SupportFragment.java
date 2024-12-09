@@ -42,7 +42,7 @@ public class SupportFragment extends Fragment {
     public void shareApp() {
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.fdroid_url));
+        sendIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.store_url));
         sendIntent.setType("text/plain");
         startActivity(Intent.createChooser(sendIntent, null));
     }
