@@ -1,7 +1,9 @@
 name: Android CI
 
 on:
-  push
+  push:
+    branches-ignore:
+      - 'l10n_master'
 
 jobs:
   build:
@@ -26,15 +28,12 @@ jobs:
           java-version: 17
 
       - name: Run Unit Tests
-        if: ${{ !contains(github.ref, 'l10n_master') }}
         run: bash ./gradlew testFdroidDebugUnitTest
 
       - name: Accept Licenses
-        if: ${{ !contains(github.ref, 'l10n_master') }}
         run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
       - name: Run UI Tests
-        if: ${{ !contains(github.ref, 'l10n_master') }}
         run: bash ./gradlew allDevicesFdroidDebugAndroidTest -Pandroid.testoptions.manageddevices.emulator.gpu=swiftshader_indirect -Pandroid.experimental.testOptions.managedDevices.emulator.showKernelLogging=true -Pandroid.experimental.testOptions.managedDevices.maxConcurrentDevices=1 -Pandroid.experimental.testOptions.managedDevices.setupTimeoutMinutes=180
 
       - name: Assemble App Debug APK
