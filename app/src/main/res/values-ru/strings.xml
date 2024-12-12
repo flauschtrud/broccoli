@@ -23,6 +23,7 @@
     <string name="preparation_time">Время</string>
     <string name="ingredients">Ингредиенты</string>
     <string name="directions">Шаги</string>
+    <string name="notes">Notes</string>
     <string name="recipe_photo_accessibility">Фото рецепта</string>
     <string name="change_photo">Изменить фото</string>
     <string name="remove_photo">Удалить фото</string>
