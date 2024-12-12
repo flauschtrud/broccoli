@@ -23,6 +23,7 @@
     <string name="preparation_time">Vreme</string>
     <string name="ingredients">Sastojci</string>
     <string name="directions">Uputstva</string>
+    <string name="notes">Notes</string>
     <string name="recipe_photo_accessibility">Slika recepta</string>
     <string name="change_photo">Promeni fotografiju</string>
     <string name="remove_photo">Ukloni sliku</string>
