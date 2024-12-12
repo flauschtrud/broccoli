@@ -69,6 +69,10 @@ public class ShareableRecipeBuilder {
             stringBuilder.append("\n");
         }
 
+        if(!"".equals(recipe.getNotes())) {
+            stringBuilder.append(getNotesString()).append(":\n").append(recipe.getNotes()).append("\n\n");
+        }
+
         stringBuilder.append(getSharedWithString());
 
         return stringBuilder.toString();
@@ -93,6 +97,11 @@ public class ShareableRecipeBuilder {
     private String getDirectionsString() {
         return application.getString(R.string.directions);
     }
+
+    private String getNotesString() {
+        return application.getString(R.string.notes);
+    }
+
 
     private String getSharedWithString() {
         return application.getString(R.string.shared_with, application.getString(R.string.store_url));

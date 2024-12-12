@@ -8,6 +8,7 @@ import androidx.room.Junction;
 import androidx.room.Relation;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.flauschcode.broccoli.category.Category;
 
 import com.flauschcode.broccoli.BR;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Recipe extends BaseObservable implements Serializable {
 
     @Embedded
@@ -133,6 +135,14 @@ public class Recipe extends BaseObservable implements Serializable {
 
     public void setDirections(String directions) {
         this.coreRecipe.setDirections(directions);
+    }
+
+    public String getNotes() {
+        return coreRecipe.getNotes();
+    }
+
+    public void setNotes(String notes) {
+        this.coreRecipe.setNotes(notes);
     }
 
     public boolean isFavorite() {

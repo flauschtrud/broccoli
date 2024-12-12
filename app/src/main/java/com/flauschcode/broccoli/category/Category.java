@@ -5,14 +5,13 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.flauschcode.broccoli.BroccoliApplication;
-
-import com.flauschcode.broccoli.R;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity(tableName = "categories")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Category implements Serializable {
 
     @PrimaryKey(autoGenerate = true)

@@ -16,7 +16,7 @@ import dagger.Provides;
 @Module
 public class DatabaseModule {
 
-    private BroccoliDatabase database;
+    private final BroccoliDatabase database;
 
     private static final String DB_NAME = "broccoli";
 
@@ -34,13 +34,13 @@ public class DatabaseModule {
     @Provides
     @Singleton
     RecipeDAO recipeDAO(BroccoliDatabase database) {
-        return database.getRecipeDAO();
+        return database.recipeDAO();
     }
 
     @Provides
     @Singleton
     CategoryDAO categoryDAO(BroccoliDatabase database) {
-        return database.getCategoryDAO();
+        return database.categoryDAO();
     }
 
 }

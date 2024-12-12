@@ -21,6 +21,8 @@ public class CoreRecipe implements Serializable {
     private String ingredients = "";
     private String directions = "";
 
+    private String notes = "";
+
     private boolean favorite = false;
 
     public long getRecipeId() {
@@ -95,6 +97,14 @@ public class CoreRecipe implements Serializable {
         this.directions = directions;
     }
 
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
     public boolean isFavorite() {
         return favorite;
     }
@@ -108,20 +118,12 @@ public class CoreRecipe implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CoreRecipe that = (CoreRecipe) o;
-        return recipeId == that.recipeId &&
-                favorite == that.favorite &&
-                Objects.equals(title, that.title) &&
-                Objects.equals(imageName, that.imageName) &&
-                Objects.equals(description, that.description) &&
-                Objects.equals(servings, that.servings) &&
-                Objects.equals(preparationTime, that.preparationTime) &&
-                Objects.equals(source, that.source) &&
-                Objects.equals(ingredients, that.ingredients) &&
-                Objects.equals(directions, that.directions);
+        return recipeId == that.recipeId && favorite == that.favorite && Objects.equals(title, that.title) && Objects.equals(imageName, that.imageName) && Objects.equals(description, that.description) && Objects.equals(servings, that.servings) && Objects.equals(preparationTime, that.preparationTime) && Objects.equals(source, that.source) && Objects.equals(ingredients, that.ingredients) && Objects.equals(directions, that.directions) && Objects.equals(notes, that.notes);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(recipeId, title, imageName, description, servings, preparationTime, source, ingredients, directions, favorite);
+        return Objects.hash(recipeId, title, imageName, description, servings, preparationTime, source, ingredients, directions, notes, favorite);
     }
+
 }

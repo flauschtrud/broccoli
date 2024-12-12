@@ -228,6 +228,22 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:startIconDrawable="@drawable/ic_notes_24dp"
+                android:hint="@string/notes">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/new_notes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
+                    android:text="@={viewModel.recipe.notes}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
         </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>

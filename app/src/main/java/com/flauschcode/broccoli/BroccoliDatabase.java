@@ -1,9 +1,7 @@
 package com.flauschcode.broccoli;
 
-import android.content.Context;
-
+import androidx.room.AutoMigration;
 import androidx.room.Database;
-import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 import com.flauschcode.broccoli.category.Category;
@@ -13,20 +11,21 @@ import com.flauschcode.broccoli.recipe.CoreRecipeFts;
 import com.flauschcode.broccoli.recipe.RecipeCategoryAssociation;
 import com.flauschcode.broccoli.recipe.RecipeDAO;
 
-@Database(entities = {CoreRecipe.class, Category.class, RecipeCategoryAssociation.class, CoreRecipeFts.class}, version = 1)
+@Database(
+        version = 2,
+        entities = {
+                CoreRecipe.class,
+                Category.class,
+                RecipeCategoryAssociation.class,
+                CoreRecipeFts.class
+        },
+        autoMigrations = {
+                @AutoMigration(from = 1, to = 2)
+        }
+)
 public abstract class BroccoliDatabase extends RoomDatabase {
 
-    private static BroccoliDatabase broccoliDatabase;
-
-    public abstract RecipeDAO getRecipeDAO();
-    public abstract CategoryDAO getCategoryDAO();
-
-    public static synchronized BroccoliDatabase get(Context context) {
-        if (broccoliDatabase == null) {
-            broccoliDatabase = Room.databaseBuilder(context.getApplicationContext(), BroccoliDatabase.class, "broccoli")
-                                    .build();
-        }
-        return broccoliDatabase;
-    }
+    public abstract RecipeDAO recipeDAO();
+    public abstract CategoryDAO categoryDAO();
 
 }

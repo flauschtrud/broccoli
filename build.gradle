@@ -3,6 +3,8 @@
 buildscript {
     ext {
         kotlin_version = '1.8.21'
+        nav_version = '2.8.5'
+        room_version = "2.6.1"
     }
     repositories {
         google()
@@ -17,10 +19,9 @@ buildscript {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
-        def nav_version = '2.5.3'
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
-
         classpath "com.mikepenz.aboutlibraries.plugin:aboutlibraries-plugin:11.2.1"
+        classpath "androidx.room:room-gradle-plugin:$room_version"
     }
 }
 

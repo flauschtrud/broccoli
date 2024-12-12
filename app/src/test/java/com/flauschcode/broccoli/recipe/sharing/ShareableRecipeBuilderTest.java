@@ -34,35 +34,40 @@ public class ShareableRecipeBuilderTest {
     @InjectMocks
     private ShareableRecipeBuilder shareableRecipeBuilder;
 
-    private static final String PLAIN_TEXT_RECIPE_FULL = "LAUCHKUCHEN\n" +
-            "\n" +
-            "Servings: 4 Portionen\n" +
-            "Preparation time: 1h\n" +
-            "Source: www.flauschhaus.org\n" +
-            "\n" +
-            "Das ist toll!\n" +
-            "\n" +
-            "Ingredients:\n" +
-            "- 500g Mehl\n" +
-            "- 100g Margarine\n" +
-            "\n" +
-            "Directions:\n" +
-            "1. Erst dies.\n" +
-            "2. Dann das.\n" +
-            "\n" +
-            "Shared with BROCCOLI_URL";
+    private static final String PLAIN_TEXT_RECIPE_FULL = """
+            LAUCHKUCHEN
+            
+            Servings: 4 Portionen
+            Preparation time: 1h
+            Source: www.flauschhaus.org
+            
+            Das ist toll!
+            
+            Ingredients:
+            - 500g Mehl
+            - 100g Margarine
+            
+            Directions:
+            1. Erst dies.
+            2. Dann das.
+            
+            Notes:
+            Ein paar Anmerkungen zum Lauchkuchen.
+            
+            Shared with BROCCOLI_URL""";
 
-    private static final String PLAIN_TEXT_RECIPE_MINIMAL = "LAUCHKUCHEN\n" +
-            "\n" +
-            "Ingredients:\n" +
-            "- 500g Mehl\n" +
-            "- 100g Margarine\n" +
-            "\n" +
-            "Directions:\n" +
-            "1. Erst dies.\n" +
-            "2. Dann das.\n" +
-            "\n" +
-            "Shared with BROCCOLI_URL";
+    private static final String PLAIN_TEXT_RECIPE_MINIMAL = """
+            LAUCHKUCHEN
+            
+            Ingredients:
+            - 500g Mehl
+            - 100g Margarine
+            
+            Directions:
+            1. Erst dies.
+            2. Dann das.
+            
+            Shared with BROCCOLI_URL""";
 
     @Before
     public void setUp() {
@@ -71,6 +76,7 @@ public class ShareableRecipeBuilderTest {
         when(application.getString(R.string.source)).thenReturn("Source");
         when(application.getString(R.string.ingredients)).thenReturn("Ingredients");
         when(application.getString(R.string.directions)).thenReturn("Directions");
+        when(application.getString(R.string.notes)).thenReturn("Notes");
         when(application.getString(R.string.store_url)).thenReturn("BROCCOLI_URL");
         when(application.getString(R.string.shared_with,  "BROCCOLI_URL")).thenReturn("Shared with BROCCOLI_URL");
     }
@@ -85,6 +91,7 @@ public class ShareableRecipeBuilderTest {
         recipe.setSource("www.flauschhaus.org");
         recipe.setIngredients("- 500g Mehl\n - 100g Margarine  ");
         recipe.setDirections(" 1. Erst dies. \n 2. Dann das. ");
+        recipe.setNotes("Ein paar Anmerkungen zum Lauchkuchen.");
         recipe.setImageName("image/bla.jpg");
 
         when(recipeImageService.getUri("image/bla.jpg")).thenReturn(imageUri);
