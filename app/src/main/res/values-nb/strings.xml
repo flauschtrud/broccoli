@@ -23,6 +23,7 @@
     <string name="preparation_time">Tid</string>
     <string name="ingredients">Ingredienser</string>
     <string name="directions">Fremgangsmåte</string>
+    <string name="notes">Notes</string>
     <string name="recipe_photo_accessibility">Oppskriftsbilde</string>
     <string name="change_photo">Endre bilde</string>
     <string name="remove_photo">Fjern bilde</string>
