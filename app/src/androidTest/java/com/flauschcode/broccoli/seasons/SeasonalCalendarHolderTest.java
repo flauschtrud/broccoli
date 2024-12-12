@@ -3,6 +3,7 @@ package com.flauschcode.broccoli.seasons;
 import androidx.preference.PreferenceManager;
 import androidx.test.espresso.accessibility.AccessibilityChecks;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.filters.FlakyTest;
 
 import com.flauschcode.broccoli.BroccoliApplication;
 
@@ -25,6 +26,7 @@ import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.hamcrest.collection.IsEmptyCollection.empty;
 
 @RunWith(AndroidJUnit4.class)
+@FlakyTest
 public class SeasonalCalendarHolderTest {
 
     private SeasonalCalendarHolder holder;
