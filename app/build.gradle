@@ -63,6 +63,11 @@ android {
                     apiLevel = 30
                     systemImageSource = "aosp-atd"
                 }
+                pixel8api35 {
+                    device = "Pixel 8"
+                    apiLevel = 35
+                    systemImageSource = "aosp-atd"
+                }
             }
         }
     }
