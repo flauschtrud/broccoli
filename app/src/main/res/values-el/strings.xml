@@ -23,6 +23,7 @@
     <string name="preparation_time">Χρόνος</string>
     <string name="ingredients">Υλικά</string>
     <string name="directions">Οδηγίες</string>
+    <string name="notes">Notes</string>
     <string name="recipe_photo_accessibility">Φωτογραφία συνταγής</string>
     <string name="change_photo">Αλλαγή φωτογραφίας</string>
     <string name="remove_photo">Αφαίρεση φωτογραφίας</string>
