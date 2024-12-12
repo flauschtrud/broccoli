@@ -81,7 +81,7 @@ public class CreateAndEditRecipeActivityTest {
 
     private ActivityScenario<CreateAndEditRecipeActivity> scenario;
 
-    private ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
+    private final ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
 
     private static final Recipe LAUCHKUCHEN = RecipeTestUtil.createLauchkuchen();
     private static final Recipe LAUCHKUCHEN_SAVED = RecipeTestUtil.createdAlreadySavedLauchkuchen();
@@ -144,6 +144,7 @@ public class CreateAndEditRecipeActivityTest {
         onView(withId(android.R.id.content)).perform(swipeUp()); // scrollTo() does not work for NestedScrollViews
         onView(withId(R.id.new_ingredients)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getIngredients())); // it seems not to be possible to make Espresso type the enter key in a deterministic way
         onView(withId(R.id.new_directions)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getDirections()));
+        onView(withId(R.id.new_notes)).perform(closeSoftKeyboard(), typeText(LAUCHKUCHEN.getNotes()));
 
         onView(withId(R.id.button_save_recipe)).perform(click()); // TODO find out why there sometimes is such a long wait
 
@@ -157,6 +158,7 @@ public class CreateAndEditRecipeActivityTest {
         assertThat(recipe.getPreparationTime(), is(LAUCHKUCHEN.getPreparationTime()));
         assertThat(recipe.getIngredients(), is(LAUCHKUCHEN.getIngredients()));
         assertThat(recipe.getDirections(), is(LAUCHKUCHEN.getDirections()));
+        assertThat(recipe.getNotes(), is(LAUCHKUCHEN.getNotes()));
         assertThat(recipe.getImageName(), startsWith("12345.jpg"));
         assertThat(recipe.getCategories().size(), is(1));
         assertThat(recipe.getCategories().get(0), is(categoryHauptgerichte));
@@ -179,6 +181,7 @@ public class CreateAndEditRecipeActivityTest {
         onView(withId(R.id.new_preparation_time)).check(matches(withText(LAUCHKUCHEN_SAVED.getPreparationTime())));
         onView(withId(R.id.new_ingredients)).check(matches(withText(LAUCHKUCHEN_SAVED.getIngredients())));
         onView(withId(R.id.new_directions)).check(matches(withText(LAUCHKUCHEN_SAVED.getDirections())));
+        onView(withId(R.id.new_notes)).check(matches(withText(LAUCHKUCHEN_SAVED.getNotes())));
 
         onView(withId(R.id.new_servings)).perform(replaceText("1 Portion"));
         onView(withId(R.id.button_save_recipe)).perform(click());
