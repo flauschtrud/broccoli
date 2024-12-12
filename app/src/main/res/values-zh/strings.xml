@@ -23,6 +23,7 @@
     <string name="preparation_time">耗时</string>
     <string name="ingredients">食材</string>
     <string name="directions">指示</string>
+    <string name="notes">Notes</string>
     <string name="recipe_photo_accessibility">食谱照片</string>
     <string name="change_photo">更改照片</string>
     <string name="remove_photo">删除照片</string>
