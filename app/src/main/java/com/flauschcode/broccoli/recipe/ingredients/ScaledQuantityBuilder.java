@@ -1,24 +1,9 @@
 package com.flauschcode.broccoli.recipe.ingredients;
 
-import android.app.Application;
-
-import com.flauschcode.broccoli.R;
-
 import java.text.DecimalFormat;
 import java.text.Normalizer;
 
-import javax.inject.Inject;
-import javax.inject.Singleton;
-
-@Singleton
 public class ScaledQuantityBuilder {
-
-    private final Application application;
-
-    @Inject
-    public ScaledQuantityBuilder(Application application) {
-        this.application = application;
-    }
 
     private static final DecimalFormat decimalFormat = new DecimalFormat("0.##");
 
@@ -40,7 +25,7 @@ public class ScaledQuantityBuilder {
 
             return scale(quantity, scaleFactor);
         } catch (NumberFormatException e) {
-            return "(" + getNotScaledString() + ") " + quantity;
+            return quantity;
         }
     }
 
@@ -106,10 +91,6 @@ public class ScaledQuantityBuilder {
     private String prettyPrint(float f) {
         int i = (int) f;
         return f == i ? String.valueOf(i) : decimalFormat.format(f);
-    }
-
-    private String getNotScaledString() {
-        return application.getString(R.string.unscaled);
     }
 
 }

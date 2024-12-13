@@ -55,7 +55,6 @@
     <string name="scaling_pro">Za</string>
     <string name="recipe_amount">Količina u receptu</string>
     <string name="scaling_factor">Koeficijent skaliranja</string>
-    <string name="unscaled">nije prilagođeno</string>
     <string name="share_action">Podeli</string>
     <string name="shared_with">Podeli sa %1$s</string>
     <string name="recipe_could_not_be_imported_message">Žao nam je, ovo nije uspelo.</string>

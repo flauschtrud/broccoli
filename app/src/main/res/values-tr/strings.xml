@@ -55,7 +55,6 @@
     <string name="scaling_pro">Profesyonel</string>
     <string name="recipe_amount">Tarif miktarı</string>
     <string name="scaling_factor">Ölçekleme faktörü</string>
-    <string name="unscaled">ölçeklenmemiş</string>
     <string name="share_action">Paylaş</string>
     <string name="shared_with">%1$s ile paylaşıldı</string>
     <string name="recipe_could_not_be_imported_message">Üzgünüz, bu işlem başarısız oldu.</string>

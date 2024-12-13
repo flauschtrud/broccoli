@@ -55,7 +55,6 @@
     <string name="scaling_pro">Pro</string>
     <string name="recipe_amount">Oppskriftens mengde</string>
     <string name="scaling_factor">Skaleringsfaktor</string>
-    <string name="unscaled">ikke justert</string>
     <string name="share_action">Del</string>
     <string name="shared_with">Delt med %1$s</string>
     <string name="recipe_could_not_be_imported_message">Beklager, dette fungerte ikke.</string>

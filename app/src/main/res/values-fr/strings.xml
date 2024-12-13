@@ -55,7 +55,6 @@
     <string name="scaling_pro">Pro</string>
     <string name="recipe_amount">Quantité de la recette</string>
     <string name="scaling_factor">Facteur d\'échelle</string>
-    <string name="unscaled">non ajusté</string>
     <string name="share_action">Partager</string>
     <string name="shared_with">Partagé avec %1$s</string>
     <string name="recipe_could_not_be_imported_message">Désolé, cela n\'a pas fonctionné.</string>

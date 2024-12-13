@@ -55,7 +55,6 @@
     <string name="scaling_pro">Pro</string>
     <string name="recipe_amount">Recipe amount</string>
     <string name="scaling_factor">Scaling factor</string>
-    <string name="unscaled">not adjusted</string>
     <string name="share_action">Share</string>
     <string name="shared_with">Shared with %1$s</string>
     <string name="recipe_could_not_be_imported_message">Sorry, this did not work.</string>

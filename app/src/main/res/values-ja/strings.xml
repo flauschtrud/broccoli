@@ -55,7 +55,6 @@
     <string name="scaling_pro">プロ</string>
     <string name="recipe_amount">レシピの量</string>
     <string name="scaling_factor">倍率</string>
-    <string name="unscaled">調整していない</string>
     <string name="share_action">共有</string>
     <string name="shared_with">%1$sと共有</string>
     <string name="recipe_could_not_be_imported_message">もし訳ありませんが、動作はが失敗しました。</string>

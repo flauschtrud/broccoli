@@ -2,6 +2,8 @@ package com.flauschcode.broccoli.recipe;
 
 import android.app.Application;
 
+import com.flauschcode.broccoli.recipe.ingredients.ScaledQuantityBuilder;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -15,6 +17,12 @@ public class RecipeModule {
     @Singleton
     Compressor compressor(Application application) {
         return new Compressor(application);
+    }
+
+    @Provides
+    @Singleton
+    ScaledQuantityBuilder scaledQuantityBuilder() {
+        return new ScaledQuantityBuilder();
     }
 
 }

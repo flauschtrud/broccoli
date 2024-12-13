@@ -46,7 +46,6 @@
     <string name="no_ingredients_and_directions_message">Dieses Rezept hat noch keine Zutaten oder Anleitung.</string>
     <string name="cook_action">Kochen</string>
     <string name="adjust_ingredients">Zutaten anpassen</string>
-    <string name="unscaled">nicht angepasst</string>
     <string name="share_action">Teilen</string>
     <string name="shared_with">Geteilt mit %1$s</string>
     <string name="recipe_could_not_be_imported_message">Das hat leider nicht funktioniert.</string>
