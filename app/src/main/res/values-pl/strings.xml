@@ -23,6 +23,7 @@
     <string name="preparation_time">Czas</string>
     <string name="ingredients">Składniki</string>
     <string name="directions">Sposób przygotowania</string>
+    <string name="notes">Notes</string>
     <string name="recipe_photo_accessibility">Zdjęcie z przepisu</string>
     <string name="change_photo">Zmień zdjęcie</string>
     <string name="remove_photo">Usuń zdjęcie</string>
