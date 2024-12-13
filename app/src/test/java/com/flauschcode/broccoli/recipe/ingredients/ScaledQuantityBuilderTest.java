@@ -1,27 +1,16 @@
 package com.flauschcode.broccoli.recipe.ingredients;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.Mockito.when;
 
-import android.app.Application;
-
-import com.flauschcode.broccoli.R;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ScaledQuantityBuilderTest {
 
-    @Mock
-    private Application application;
-
-    @InjectMocks
-    private ScaledQuantityBuilder scaledQuantityBuilder;
+    private final ScaledQuantityBuilder scaledQuantityBuilder = new ScaledQuantityBuilder();
 
     @Test
     public void scale_integer_quantity() {
@@ -61,23 +50,20 @@ public class ScaledQuantityBuilderTest {
 
     @Test
     public void scale_non_scalable_quantity() {
-        when(application.getString(R.string.unscaled)).thenReturn("not scaled");
         String scaled = scaledQuantityBuilder.from("je 1", 2f);
-        assertThat(scaled,  is("(not scaled) je 1"));
+        assertThat(scaled,  is("je 1"));
     }
 
     @Test
     public void scale_missing_quantity() {
-        when(application.getString(R.string.unscaled)).thenReturn("not scaled");
         String scaled = scaledQuantityBuilder.from("", 2f);
-        assertThat(scaled,  is("(not scaled) "));
+        assertThat(scaled,  is(""));
     }
 
     @Test
     public void scale_incomplete_range() {
-        when(application.getString(R.string.unscaled)).thenReturn("not scaled");
         String scaled = scaledQuantityBuilder.from("1-", 2f);
-        assertThat(scaled,  is("(not scaled) 1-"));
+        assertThat(scaled,  is("1-"));
     }
 
 }

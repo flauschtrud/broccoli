@@ -55,7 +55,6 @@
     <string name="scaling_pro">Сложный</string>
     <string name="recipe_amount">Количество рецептов</string>
     <string name="scaling_factor">Коэффициент масштабирования</string>
-    <string name="unscaled">не отрегулировано</string>
     <string name="share_action">Поделиться</string>
     <string name="shared_with">Поделились с помощью %1$s</string>
     <string name="recipe_could_not_be_imported_message">К сожалению, это не работает.</string>

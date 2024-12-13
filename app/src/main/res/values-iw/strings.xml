@@ -55,7 +55,6 @@
     <string name="scaling_pro">פרו</string>
     <string name="recipe_amount">כמות במתכון</string>
     <string name="scaling_factor">מכפיל מידות</string>
-    <string name="unscaled">לא מותאם</string>
     <string name="share_action">שתף</string>
     <string name="shared_with">‏שתף באמצעות %1$s</string>
     <string name="recipe_could_not_be_imported_message">מצטער, הפעולה לא הצליחה</string>

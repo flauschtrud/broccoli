@@ -55,7 +55,6 @@
     <string name="scaling_pro">高级</string>
     <string name="recipe_amount">食谱分量</string>
     <string name="scaling_factor">比例倍数</string>
-    <string name="unscaled">未调整</string>
     <string name="share_action">分享</string>
     <string name="shared_with">已与 %1$s 分享</string>
     <string name="recipe_could_not_be_imported_message">抱歉，此操作不可用。</string>

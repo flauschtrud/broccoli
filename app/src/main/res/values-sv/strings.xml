@@ -55,7 +55,6 @@
     <string name="scaling_pro">Pro</string>
     <string name="recipe_amount">Receptmängd</string>
     <string name="scaling_factor">Skalningsfaktor</string>
-    <string name="unscaled">ej justerad</string>
     <string name="share_action">Share</string>
     <string name="shared_with">Shared with %1$s</string>
     <string name="recipe_could_not_be_imported_message">Tyvärr fungerade inte detta.</string>

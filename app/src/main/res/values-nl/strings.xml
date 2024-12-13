@@ -55,7 +55,6 @@
     <string name="scaling_pro">Geavanceerd</string>
     <string name="recipe_amount">Recipe amount</string>
     <string name="scaling_factor">Schalingsfactor</string>
-    <string name="unscaled">ongewijzigd</string>
     <string name="share_action">Delen</string>
     <string name="shared_with">Gedeeld met %1$s</string>
     <string name="recipe_could_not_be_imported_message">Sorry, dit is niet gelukt.</string>

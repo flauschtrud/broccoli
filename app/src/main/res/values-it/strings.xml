@@ -55,7 +55,6 @@
     <string name="scaling_pro">Avanzato</string>
     <string name="recipe_amount">Quantità ricetta</string>
     <string name="scaling_factor">Fattore di scala</string>
-    <string name="unscaled">non personalizzato</string>
     <string name="share_action">Condividi</string>
     <string name="shared_with">Condividi con %1$s</string>
     <string name="recipe_could_not_be_imported_message">Siamo spiacenti, si è verificato un errore.</string>

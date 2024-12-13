@@ -55,7 +55,6 @@
     <string name="scaling_pro">Profissional</string>
     <string name="recipe_amount">Quantidade da receita</string>
     <string name="scaling_factor">Proporção</string>
-    <string name="unscaled">não ajustado</string>
     <string name="share_action">Compartilhar</string>
     <string name="shared_with">Compartilhado com %1$s</string>
     <string name="recipe_could_not_be_imported_message">Desculpe, isso não funcionou.</string>
