@@ -137,6 +137,14 @@ public class Recipe extends BaseObservable implements Serializable {
         this.coreRecipe.setDirections(directions);
     }
 
+    public String getNutritionalValues() {
+        return coreRecipe.getNutritionalValues();
+    }
+
+    public void setNutritionalValues(String nutritionalValues) {
+        this.coreRecipe.setNutritionalValues(nutritionalValues);
+    }
+
     public String getNotes() {
         return coreRecipe.getNotes();
     }

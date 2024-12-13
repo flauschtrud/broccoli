@@ -12,7 +12,7 @@ import com.flauschcode.broccoli.recipe.RecipeCategoryAssociation;
 import com.flauschcode.broccoli.recipe.RecipeDAO;
 
 @Database(
-        version = 2,
+        version = 3,
         entities = {
                 CoreRecipe.class,
                 Category.class,
@@ -20,7 +20,8 @@ import com.flauschcode.broccoli.recipe.RecipeDAO;
                 CoreRecipeFts.class
         },
         autoMigrations = {
-                @AutoMigration(from = 1, to = 2)
+                @AutoMigration(from = 1, to = 2),
+                @AutoMigration(from = 2, to = 3)
         }
 )
 public abstract class BroccoliDatabase extends RoomDatabase {

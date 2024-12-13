@@ -15,6 +15,7 @@ public class RecipeTestUtil {
         recipe.setPreparationTime("50 Minuten");
         recipe.setIngredients("500g Mehl\n2 Stangen Lauch");
         recipe.setDirections("1. Lauch schnippeln und Teig machen.\n2. Kochen und backen.");
+        recipe.setNutritionalValues("400kcal pro Portion");
         recipe.setNotes("Ein paar Anmerkungen zum Lauchkuchen.");
         recipe.getCategories().add(new Category("Hauptgerichte"));
         recipe.getCategories().add(new Category("Gebackenes"));
@@ -40,6 +41,7 @@ public class RecipeTestUtil {
         recipe.setPreparationTime("1 Stunde");
         recipe.setIngredients("500g Mehl\nviel Schokolade");
         recipe.setDirections("1. Teig machen.\n2. Backen.\n 3. Schokolade dazu.");
+        recipe.setNutritionalValues("500 kcal pro Portion");
         recipe.setNotes("Ein paar Anmerkungen zum Nusskuchen.");
         return recipe;
     }

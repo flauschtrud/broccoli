@@ -28,6 +28,7 @@
     <string name="preparation_time">Time</string>
     <string name="ingredients">Ingredients</string>
     <string name="directions">Directions</string>
+    <string name="nutritional_values">Nutritional values</string>
     <string name="notes">Notes</string>
 
     <string name="recipe_photo_accessibility">Recipe photo</string>

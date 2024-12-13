@@ -21,6 +21,8 @@ public class CoreRecipe implements Serializable {
     private String ingredients = "";
     private String directions = "";
 
+    private String nutritionalValues = "";
+
     private String notes = "";
 
     private boolean favorite = false;
@@ -95,6 +97,14 @@ public class CoreRecipe implements Serializable {
 
     public void setDirections(String directions) {
         this.directions = directions;
+    }
+
+    public String getNutritionalValues() {
+        return nutritionalValues;
+    }
+
+    public void setNutritionalValues(String nutritionalValues) {
+        this.nutritionalValues = nutritionalValues;
     }
 
     public String getNotes() {
