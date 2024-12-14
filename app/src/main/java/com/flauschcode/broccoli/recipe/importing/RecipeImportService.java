@@ -1,5 +1,6 @@
 package com.flauschcode.broccoli.recipe.importing;
 
+import android.app.Application;
 import android.util.Log;
 
 import com.flauschcode.broccoli.recipe.Recipe;
@@ -22,14 +23,18 @@ import javax.inject.Inject;
 
 public class RecipeImportService {
 
+    private static final String USER_AGENT = "Mozilla/5.0";
+
     private static final String FIELD_GRAPH = "@graph";
     private static final String FIELD_TYPE = "@type";
     private static final String TYPE_RECIPE = "Recipe";
 
-    private RecipeImageService recipeImageService;
+    private final Application application;
+    private final RecipeImageService  recipeImageService;
 
     @Inject
-    public RecipeImportService(RecipeImageService recipeImageService) {
+    public RecipeImportService(Application application, RecipeImageService recipeImageService) {
+        this.application = application;
         this.recipeImageService = recipeImageService;
     }
 
@@ -37,7 +42,7 @@ public class RecipeImportService {
         return CompletableFuture.supplyAsync(() -> {
             Document document;
             try {
-                document = Jsoup.connect(url).get();
+                document = Jsoup.connect(url).userAgent(USER_AGENT).get();
             } catch (IOException e) {
                 throw new CompletionException(e);
             }
@@ -46,7 +51,7 @@ public class RecipeImportService {
 
             Optional<JSONObject> recipeJsonLd = findRecipeIn(jsonLds);
             if (recipeJsonLd.isPresent()) {
-                return new ImportableRecipeBuilder(recipeImageService).withRecipeJsonLd(recipeJsonLd.get()).from(url).build();
+                return new ImportableRecipeBuilder(application, recipeImageService).withRecipeJsonLd(recipeJsonLd.get()).from(url).build();
             }
 
             return Optional.empty();
@@ -106,11 +111,11 @@ public class RecipeImportService {
     }
 
     private boolean thereIsAGraphObject(Object json) {
-        return json instanceof JSONObject && ((JSONObject) json).has(FIELD_GRAPH);
+        return json instanceof JSONObject jsonObject && jsonObject.has(FIELD_GRAPH);
     }
 
     private boolean theRecipeIsTheTopLevelObject(Object json) {
-        return json instanceof JSONObject && isRecipe((JSONObject) json);
+        return json instanceof JSONObject jsonObject && isRecipe((jsonObject));
     }
 
 }

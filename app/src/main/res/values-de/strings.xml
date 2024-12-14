@@ -22,6 +22,7 @@
     <string name="directions">Anleitung</string>
     <string name="nutritional_values">Nährwerte</string>
     <string name="notes">Notizen</string>
+    <string name="protein">Eiweiß</string>
     <string name="recipe_photo_accessibility">Rezept-Foto</string>
     <string name="change_photo">Foto ändern</string>
     <string name="remove_photo">Foto entfernen</string>
@@ -542,4 +543,8 @@
     <string name="chinese_yam_terms">Chinesische Yamswurzeln, Yamswurzeln</string>
     <string name="yuzu">Yuzu</string>
     <string name="yuzu_terms">Yuzu</string>
+    <string name="serving">Portion</string>
+    <string name="calories">Kalorien</string>
+    <string name="fat">Fett</string>
+    <string name="carbohydrates">Kohlenhydrate</string>
 </resources>

@@ -16,8 +16,8 @@ import javax.inject.Singleton;
 @Singleton
 public class ShareableRecipeBuilder {
 
-    private Application application;
-    private RecipeImageService recipeImageService;
+    private final Application application;
+    private final RecipeImageService recipeImageService;
 
     @Inject
     ShareableRecipeBuilder(Application application, RecipeImageService recipeImageService) {
