@@ -11,6 +11,7 @@
     <string name="title_should_not_be_empty_message">Vennligst legg til en tittel.</string>
     <string name="recipe_saved_message">Oppskriften har blitt lagret.</string>
     <string name="recipe_could_not_be_saved_message">Oppskriften kunne ikke bli lagret.</string>
+    <string name="duplicate_action">Duplicate</string>
     <string name="delete_action">Slett</string>
     <string name="delete_recipe_question">Slett denne oppskriften?</string>
     <string name="recipe_deleted_message">Oppskriften har blitt slettet.</string>
