@@ -11,6 +11,7 @@
     <string name="title_should_not_be_empty_message">Proszę dodać tytuł.</string>
     <string name="recipe_saved_message">Przepis został zapisany.</string>
     <string name="recipe_could_not_be_saved_message">Przepis nie mógł być zapisany.</string>
+    <string name="duplicate_action">Duplicate</string>
     <string name="delete_action">Usuń</string>
     <string name="delete_recipe_question">Czy usunąć przepis?</string>
     <string name="recipe_deleted_message">Przepis został usunięty.</string>
