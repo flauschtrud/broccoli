@@ -11,6 +11,7 @@
     <string name="title_should_not_be_empty_message">Пожалуйста, добавьте название.</string>
     <string name="recipe_saved_message">Рецепт сохранен.</string>
     <string name="recipe_could_not_be_saved_message">Не удалось сохранить рецепт.</string>
+    <string name="duplicate_action">Duplicate</string>
     <string name="delete_action">Удалить</string>
     <string name="delete_recipe_question">Удалить этот рецепт?</string>
     <string name="recipe_deleted_message">Рецепт удален.</string>
