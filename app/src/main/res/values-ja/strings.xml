@@ -165,77 +165,77 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="pea_terms">peas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="fennel">Fennel</string>
+    <string name="fennel">フェンネル</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="fennel_terms">fennel</string>
+    <string name="fennel_terms">フェンネル、ふぇんねる、ふえんねる、ういきょう、ウイキョウ、茴香、くれのおも、呉の母、懐香、クレノオモ、クレのオモ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="kale">Kale</string>
+    <string name="kale">リョクヨウカンラン</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="kale_terms">kale</string>
+    <string name="kale_terms">りょくようかんらん、リョクヨウカンラン、緑葉甘藍、はごろもかんらん、羽衣甘藍、ハゴロモカンラン、ケール、けーる、けえる</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="cucumber">Cucumbers</string>
+    <string name="cucumber">きゅうり</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="cucumber_terms">cucumber, cucumbers</string>
+    <string name="cucumber_terms">きゅうり、胡瓜、黄瓜、キュウリ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="celeriac">Celeriac</string>
+    <string name="celeriac">根セロリ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="celeriac_terms">celeriac</string>
+    <string name="celeriac_terms">根セロリ、ネセロリ、ねせろり、根せろり、セルリアく、せろりあく、セロリルート、せろりるーと、せろりるうと</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="kohlrabi">Kohlrabi</string>
+    <string name="kohlrabi">キョウケイカンラン</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="kohlrabi_terms">kohlrabi</string>
+    <string name="kohlrabi_terms">きゅうけいかんらん、球茎甘藍、キョウケイカンラン、コールラビ、こーるらび、こおるらび</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pumpkin">Pumpkin</string>
+    <string name="pumpkin">かぼちゃ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pumpkin_terms">pumpkin, pumpkins, hokkaido</string>
+    <string name="pumpkin_terms">かぼちゃ、カボチャ、南瓜</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="leek">Leek</string>
+    <string name="leek">セイヨウネギ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="leek_terms">leek</string>
+    <string name="leek_terms">せいようねぎ、西洋ネギ、西洋ねぎ、西洋葱、セイヨウネギ、リークポワロー、りーくぽわろー、りいくぽわろう、ポロねぎ、ポロネギ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="corn">Corn</string>
+    <string name="corn">とうもろこし</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="corn_terms">corn</string>
+    <string name="corn_terms">とうもろこし、玉蜀黍、トウモロコシ、コーン、こーん、こおん</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="chard">Chard</string>
+    <string name="chard">ふだん草</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="chard_terms">chard</string>
+    <string name="chard_terms">ふだん草、フダンソウ、不断草、うまい菜、うまいな、スイスチャード、すいすちゃーど、すいすちゃあど</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="carrot">Carrots</string>
+    <string name="carrot">にんじん</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="carrot_terms">carrot, carrots</string>
+    <string name="carrot_terms">にんじん、人参、ニンジン</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="bell_pepper">Bell peppers</string>
+    <string name="bell_pepper">パプリカ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="bell_pepper_terms">peppers, bell pepper, bell peppers</string>
+    <string name="bell_pepper_terms">パプリカ、ぱぷりか</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="parsnip">Parsnip</string>
+    <string name="parsnip">砂糖人参</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="parsnip_terms">parsnip, parsnips</string>
+    <string name="parsnip_terms">砂糖人参、砂糖にんじん、さとうにんじん、サトウニンジン、砂糖ニンジン、白人参、白人参、白ニンジン、シロニンジン、白にんじん、パースニップ、ぱーすにっぷ、ぱあすにっぷ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="brussels_sprouts">Brussels sprouts</string>
+    <string name="brussels_sprouts">芽キャベツ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="brussels_sprouts_terms">brussels sprouts</string>
+    <string name="brussels_sprouts_terms">メキャベツ、芽キャベツ、めきゃべつ、芽きゃべつ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="beetroot">Beetroot</string>
+    <string name="beetroot">テーブルビート</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="beetroot_terms">beet, beets, beetroot, beetroots</string>
+    <string name="beetroot_terms">テーブルビート、てーぶるびーと、てえぶるびいと</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="red_cabbage">Red cabbage</string>
+    <string name="red_cabbage">レッドキャベツ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="red_cabbage_terms">red cabbage</string>
+    <string name="red_cabbage_terms">レッドキャベツ、れっどきゃべつ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="salsify">Salsify</string>
+    <string name="salsify">キクゴボウ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="salsify_terms">salsify</string>
+    <string name="salsify_terms">きくごぼう、菊牛蒡、菊ごぼう、キクゴボウ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="asparagus">Asparagus</string>
+    <string name="asparagus">アスパラガス</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="asparagus_terms">asparagus</string>
+    <string name="asparagus_terms">アスパラガス、アスパラ、あすぱらがす、あすぱら</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="spinach">Spinach</string>
+    <string name="spinach">ほうれん草</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="spinach_terms">spinach</string>
+    <string name="spinach_terms">ほうれん草、ほうれん草、ホウレン草、菠薐草、ほうれんそう、ホウレンソウ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="celery">Celery</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -329,9 +329,9 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="blueberries_terms">blueberries</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="raspberries">Raspberries</string>
+    <string name="raspberries">ラスベリー</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="raspberries_terms">raspberries</string>
+    <string name="raspberries_terms">ラスベリー</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="blackberries">Blackberries</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
