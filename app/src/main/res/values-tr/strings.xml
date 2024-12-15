@@ -23,7 +23,13 @@
     <string name="preparation_time">Hazırlık Süresi</string>
     <string name="ingredients">Malzemeler</string>
     <string name="directions">Talimatlar</string>
+    <string name="nutritional_values">Nutrition</string>
     <string name="notes">Notes</string>
+    <string name="serving">Serving</string>
+    <string name="calories">Calories</string>
+    <string name="fat">Fat</string>
+    <string name="carbohydrates">Carbohydrates</string>
+    <string name="protein">Protein</string>
     <string name="recipe_photo_accessibility">Tarif fotoğrafı</string>
     <string name="change_photo">Fotoğrafı değiştir</string>
     <string name="remove_photo">Fotoğrafı kaldır</string>
