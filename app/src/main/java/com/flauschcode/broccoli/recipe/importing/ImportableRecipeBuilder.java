@@ -1,7 +1,9 @@
 package com.flauschcode.broccoli.recipe.importing;
 
+import android.app.Application;
 import android.util.Log;
 
+import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.recipe.Recipe;
 import com.flauschcode.broccoli.recipe.images.RecipeImageService;
 
@@ -16,7 +18,6 @@ import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 class ImportableRecipeBuilder {
 
@@ -27,7 +28,7 @@ class ImportableRecipeBuilder {
     private static final String ITEM_LIST_ELEMENT = "itemListElement";
 
     private static final String NAME = "name";
-    private static final String RECIPE_DESCRIPTION = "description";
+    private static final String DESCRIPTION = "description";
     private static final String RECIPE_INGREDIENT = "recipeIngredient";
     private static final String RECIPE_INSTRUCTIONS = "recipeInstructions";
     private static final String HOW_TO_TEXT = "text";
@@ -36,13 +37,21 @@ class ImportableRecipeBuilder {
     private static final String COOK_TIME = "cookTime";
     private static final String RECIPE_IMAGE = "image";
     private static final String RECIPE_URL = "url";
-
+    private static final String NUTRITION = "nutrition";
+    private static final String SERVING_SIZE = "servingSize";
+    private static final String CALORIES = "calories";
+    private static final String FAT_CONTENT = "fatContent";
+    private static final String CARBOHYDRATE_CONTENT = "carbohydrateContent";
+    private static final String PROTEIN_CONTENT = "proteinContent";
+    
     private JSONObject recipeJson;
-    private Recipe recipe = new Recipe();
+    private final Recipe recipe = new Recipe();
 
-    private RecipeImageService recipeImageService;
+    private final Application application;
+    private final RecipeImageService recipeImageService;
 
-    public ImportableRecipeBuilder(RecipeImageService recipeImageService) {
+    public ImportableRecipeBuilder(Application application, RecipeImageService recipeImageService) {
+        this.application = application;
         this.recipeImageService = recipeImageService;
     }
 
@@ -67,6 +76,7 @@ class ImportableRecipeBuilder {
         contributePreparationTime();
         contributeIngredients();
         contributeDirections();
+        contributeNutritionalInformation();
         contributeImage();
 
         return Optional.of(recipe);
@@ -77,7 +87,7 @@ class ImportableRecipeBuilder {
     }
 
     private void contributeDescription() {
-        recipe.setDescription(recipeJson.optString(RECIPE_DESCRIPTION));
+        recipe.setDescription(recipeJson.optString(DESCRIPTION));
     }
 
     private void contributeServings() {
@@ -115,7 +125,7 @@ class ImportableRecipeBuilder {
             for (int i = 0; i < ingredientArray.length(); i++) {
                 list.add(ingredientArray.optString(i));
             }
-            recipe.setIngredients(list.stream().collect(Collectors.joining("\n")));
+            recipe.setIngredients(String.join("\n", list));
         }
     }
 
@@ -135,8 +145,31 @@ class ImportableRecipeBuilder {
                 }
 
             }
-            recipe.setDirections(directions.stream().collect(Collectors.joining("\n")));
+            recipe.setDirections(String.join("\n", directions));
         }
+    }
+
+    private void contributeNutritionalInformation() {
+        String nutritionalInformation = contributeNutritionalInformationFor(SERVING_SIZE, R.string.serving) +
+                contributeNutritionalInformationFor(CALORIES, R.string.calories) +
+                contributeNutritionalInformationFor(FAT_CONTENT, R.string.fat) +
+                contributeNutritionalInformationFor(CARBOHYDRATE_CONTENT, R.string.carbohydrates) +
+                contributeNutritionalInformationFor(PROTEIN_CONTENT, R.string.protein);
+        recipe.setNutritionalValues(nutritionalInformation.strip());
+    }
+
+    private String contributeNutritionalInformationFor(String jsonKey, int resourceKey) {
+        JSONObject nutritionalValuesObject = recipeJson.optJSONObject(NUTRITION);
+        if (nutritionalValuesObject == null) {
+            return "";
+        }
+
+        String nutritionalValue = nutritionalValuesObject.optString(jsonKey);
+        if (nutritionalValue.isEmpty()) {
+            return "";
+        }
+
+        return application.getString(resourceKey) + ": " + nutritionalValue + "\n";
     }
 
     private String contributeSection(JSONObject instructionObject) {
@@ -148,7 +181,7 @@ class ImportableRecipeBuilder {
                 steps.add(contributeStep(sectionsArray, i));
             }
         }
-        return steps.stream().collect(Collectors.joining(" "));
+        return String.join(" ", steps);
     }
 
     private String contributeStep(JSONArray jsonArray, int position) {

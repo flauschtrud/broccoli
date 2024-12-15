@@ -51,6 +51,9 @@ public class ShareableRecipeBuilderTest {
             1. Erst dies.
             2. Dann das.
             
+            Nutritional values:
+            400kcal pro Portion
+            
             Notes:
             Ein paar Anmerkungen zum Lauchkuchen.
             
@@ -76,6 +79,7 @@ public class ShareableRecipeBuilderTest {
         when(application.getString(R.string.source)).thenReturn("Source");
         when(application.getString(R.string.ingredients)).thenReturn("Ingredients");
         when(application.getString(R.string.directions)).thenReturn("Directions");
+        when(application.getString(R.string.nutritional_values)).thenReturn("Nutritional values");
         when(application.getString(R.string.notes)).thenReturn("Notes");
         when(application.getString(R.string.store_url)).thenReturn("BROCCOLI_URL");
         when(application.getString(R.string.shared_with,  "BROCCOLI_URL")).thenReturn("Shared with BROCCOLI_URL");
@@ -91,6 +95,7 @@ public class ShareableRecipeBuilderTest {
         recipe.setSource("www.flauschhaus.org");
         recipe.setIngredients("- 500g Mehl\n - 100g Margarine  ");
         recipe.setDirections(" 1. Erst dies. \n 2. Dann das. ");
+        recipe.setNutritionalValues("400kcal pro Portion");
         recipe.setNotes("Ein paar Anmerkungen zum Lauchkuchen.");
         recipe.setImageName("image/bla.jpg");
 

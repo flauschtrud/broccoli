@@ -16,8 +16,8 @@ import javax.inject.Singleton;
 @Singleton
 public class ShareableRecipeBuilder {
 
-    private Application application;
-    private RecipeImageService recipeImageService;
+    private final Application application;
+    private final RecipeImageService recipeImageService;
 
     @Inject
     ShareableRecipeBuilder(Application application, RecipeImageService recipeImageService) {
@@ -69,6 +69,10 @@ public class ShareableRecipeBuilder {
             stringBuilder.append("\n");
         }
 
+        if(!"".equals(recipe.getNutritionalValues())) {
+            stringBuilder.append(getNutritionalValuesString()).append(":\n").append(recipe.getNutritionalValues()).append("\n\n");
+        }
+
         if(!"".equals(recipe.getNotes())) {
             stringBuilder.append(getNotesString()).append(":\n").append(recipe.getNotes()).append("\n\n");
         }
@@ -98,10 +102,13 @@ public class ShareableRecipeBuilder {
         return application.getString(R.string.directions);
     }
 
+    private String getNutritionalValuesString() {
+        return application.getString(R.string.nutritional_values);
+    }
+
     private String getNotesString() {
         return application.getString(R.string.notes);
     }
-
 
     private String getSharedWithString() {
         return application.getString(R.string.shared_with, application.getString(R.string.store_url));

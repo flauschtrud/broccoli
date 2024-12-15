@@ -28,7 +28,14 @@
     <string name="preparation_time">Time</string>
     <string name="ingredients">Ingredients</string>
     <string name="directions">Directions</string>
+    <string name="nutritional_values">Nutrition</string>
     <string name="notes">Notes</string>
+
+    <string name="serving">Serving</string>
+    <string name="calories">Calories</string>
+    <string name="fat">Fat</string>
+    <string name="carbohydrates">Carbohydrates</string>
+    <string name="protein">Protein</string>
 
     <string name="recipe_photo_accessibility">Recipe photo</string>
     <string name="change_photo">Change photo</string>

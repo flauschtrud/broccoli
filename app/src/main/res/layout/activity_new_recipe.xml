@@ -231,6 +231,22 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:startIconDrawable="@drawable/ic_fire_24dp"
+                android:hint="@string/nutritional_values">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/new_nutritional_values"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences|textMultiLine"
+                    android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
+                    android:text="@={viewModel.recipe.nutritionalValues}" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 app:startIconDrawable="@drawable/ic_notes_24dp"
                 android:hint="@string/notes">
 
