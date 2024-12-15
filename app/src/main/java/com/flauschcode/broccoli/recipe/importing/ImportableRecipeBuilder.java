@@ -150,25 +150,26 @@ class ImportableRecipeBuilder {
     }
 
     private void contributeNutritionalInformation() {
-        contributeNutritionalInformationFor(SERVING_SIZE, R.string.serving);
-        contributeNutritionalInformationFor(CALORIES, R.string.calories);
-        contributeNutritionalInformationFor(FAT_CONTENT, R.string.fat);
-        contributeNutritionalInformationFor(CARBOHYDRATE_CONTENT, R.string.carbohydrates);
-        contributeNutritionalInformationFor(PROTEIN_CONTENT, R.string.protein);
+        String nutritionalInformation = contributeNutritionalInformationFor(SERVING_SIZE, R.string.serving) +
+                contributeNutritionalInformationFor(CALORIES, R.string.calories) +
+                contributeNutritionalInformationFor(FAT_CONTENT, R.string.fat) +
+                contributeNutritionalInformationFor(CARBOHYDRATE_CONTENT, R.string.carbohydrates) +
+                contributeNutritionalInformationFor(PROTEIN_CONTENT, R.string.protein);
+        recipe.setNutritionalValues(nutritionalInformation.strip());
     }
 
-    private void contributeNutritionalInformationFor(String jsonKey, int resourceKey) {
+    private String contributeNutritionalInformationFor(String jsonKey, int resourceKey) {
         JSONObject nutritionalValuesObject = recipeJson.optJSONObject(NUTRITION);
         if (nutritionalValuesObject == null) {
-            return;
+            return "";
         }
 
         String nutritionalValue = nutritionalValuesObject.optString(jsonKey);
-        if (!nutritionalValue.isEmpty()) {
-            StringBuilder stringBuilder = new StringBuilder(recipe.getNutritionalValues());
-            stringBuilder.append(application.getString(resourceKey).toUpperCase()).append(" ").append(nutritionalValue).append("\n");            recipe.setNutritionalValues(recipe.getNutritionalValues());
-            recipe.setNutritionalValues(recipe.getNutritionalValues());
+        if (nutritionalValue.isEmpty()) {
+            return "";
         }
+
+        return application.getString(resourceKey) + ": " + nutritionalValue + "\n";
     }
 
     private String contributeSection(JSONObject instructionObject) {

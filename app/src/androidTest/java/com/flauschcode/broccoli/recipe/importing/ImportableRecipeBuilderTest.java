@@ -590,7 +590,7 @@ public class ImportableRecipeBuilderTest {
         assertThat(recipe.getDescription(), is("Vegane Chocolate Chip Cookies - außen kross, innen weich, lecker und vegan, ergibt 35 Stück. Über 110 Bewertungen und für sehr lecker befunden. Mit ► Portionsrechner ► Kochbuch ► Video-Tipps!"));
         assertThat(recipe.getIngredients(), is("20 g Chiasamen\n50 ml Wasser\n190 g Butterersatz oder Margarine, vegan\n200 g Zucker , braun, alternativ Rohrzucker\n2 TL Zuckerrübensirup , alternativ Melasse, Ahornsirup oder Agavendicksaft\n2 Pck. Vanillezucker\n300 g Weizenmehl oder Dinkelmehl, oder gemischt\n4 g Natron\nn. B. Salz\n200 g Blockschokolade , zartbitter oder Schokotröpfchen"));
         assertThat(recipe.getDirections(), is("Den Backofen auf 180 °C Umluft vorheizen. Die Chiasamen und das Wasser in einer kleinen Schüssel vermengen und ca. 10 Minuten quellen lassen.\n\nEin Backblech mit Backpapier auslegen. Vegane Butter bzw. Margarine und Zucker mit den Schneebesen des Rührgeräts cremig verrühren. Dann die gequollenen Chiasamen, den Zuckerrübensirup und beide Päckchen Vanillezucker dazugeben und weiter rühren. Unter weiterem Rühren jetzt zuerst das Mehl hinzugeben und anschließend Natron sowie Salz. Alternativ - oder falls der Teig zu zäh ist - kann alles auch mit den Händen verknetet werden. Abschließend die Schokotröpfchen bzw. die gehackte Blockschokolade untermischen.\n\nDen nun fertigen Teig mit einem Esslöffel oder Eisportionierer klecksweise im Abstand von etwa 5 - 6 cm auf das Backpapier geben. Die Teigkleckse können - müssen jedoch nicht - mit einem Löffel noch etwas rund geformt und flach gedrückt werden.\n\nDie Cookies bei 180 °C Umluft maximal 15 Minuten backen, da sie sonst zu fest werden."));
-        // TODO assert nutrition
+        assertThat(recipe.getNutritionalValues(), is("Serving: 1\nCalories: 4594 kcal\nFat: 225,86g\nCarbohydrates: 540,65g\nProtein: 77,59g"));
         assertThat(recipe.getImageName(), is("blablupp.jpg"));
     }
 
@@ -615,7 +615,7 @@ public class ImportableRecipeBuilderTest {
         assertThat(recipe.getDescription(), is("Pasta mit geröstetem Fenchel und Zitrone – ein herrlich leichtes Pastagericht, in nur 10 Minuten fertig zubereitet."));
         assertThat(recipe.getIngredients(), is("1 Knolle Fenchel\n1  Bio-Zitrone\n1  Knoblauchzehe, geschält und fein gehackt\n1  Schalotte, geschält und fein gehackt\n1 Handvoll Petersilie, frisch, fein gehackt\n5 EL Semmelbrösel\nOlivenöl\nSalz &amp; Pfeffer\n250 g Pasta (z.B. Linguini)"));
         assertThat(recipe.getDirections(), is("Vom Fenchel die oberen grünen Stängel entfernen. Dabei unbedingt das Fenchelgrün aufbewahren. Das kommt später an die Pasta ran. Die Knolle halbieren, den Strunk in der Mitte keilförmig entfernen und nun die zwei Hälften in dünne Streifen schneiden. Die Fenchel-Streifen waschen und gut abtrocknen.\nDie Pasta nach Packungsanweisung garen.\nIn der Zwischenzeit in einer großen Pfanne Olivenöl erhitzen und den Fenchel darin mit etwas Salz ca. 8 Minuten lang anrösten.\nIn einer kleinen Pfanne etwas Olivenöl erhitzen, Knoblauch- und Schalottenwürfel darin mit etwas Salz glasig andünsten. Zitronenabrieb, Petersilie und die Semmelbrösel hinzugeben und alles ca. 4 Minuten vorsichtig anrösten bis die Semmelbrösel leicht angebräunt sind. Die Mischung vom Herd nehmen.\nDie fertige Pasta abgießen. Dabei etwa ein halbes Wasserglas der Kochflüssigkeit auffangen. Abgetropfte Pasta zum Fenchel geben. Die Semmelbröselmischung dazugeben. Kochflüssigkeit nach Belieben dazugeben, damit die Pasta schön glänzend wird. Pasta ordentlich salzen und pfeffern und nach Geschmack Zitrone hinzugeben. Den Saft einer halben Zitrone verträgt das Gericht mindestens. Mit einem guten Schuss Olivenöl und mit Fenchelgrün bestreut servieren."));
-        // TODO assert nutrition
+        assertThat(recipe.getNutritionalValues(), is(""));
         assertThat(recipe.getImageName(), is("blablupp.jpg"));
     }
 
@@ -640,7 +640,7 @@ public class ImportableRecipeBuilderTest {
         assertThat(recipe.getDescription(), is("&#x25b6; Super saftiger veganer Zitronenkuchen &#x25b6; Einfaches, sehr leckeres Rezept &#x25b6; Kommt immer gut an&#x25b6; Für 30 cm Kastenbackform."));
         assertThat(recipe.getIngredients(), is("300 g Mehl\n200 g Zucker\n1 Tüte Backpulver\n1 Tüte Vanillezucker\n250 ml Vanille-Sojamilch\n100 g Öl (Rapsöl oder Sonnenblumenöl)\n50 ml Zitronensaft\ngeriebene Zitronenschale\nevtl. Backaroma Zitrone\n150 g Puderzucker\n2 EL Zitronensaft"));
         assertThat(recipe.getDirections(), is("VORBEREITEN: Kastenbackform mit Backpapier auslegen oder einfetten. 2 Zitronen abreiben und auspressen. Backofen vorheizen auf 180 °C (Ober-Unter-Hitze).\nTROCKENE ZUTATEN MISCHEN: In eine Schüssel geben:300 g Mehl 200 g Zucker1 Tüte Backpulver1 Tüte VanillezuckerAbgeriebene ZitronenschaleGut mischen.\nFEUCHTE ZUTATEN ZUFÜGEN: 250 ml Sojamilch Vanille100 g Öl50 ml Zitronensaft Evtl. weiteres Zitronenaroma zufügen(Backaroma oder Zitronenöl)\nTEIG MIXEN UND IN BACKFORM FÜLLEN: Kurz gut durchmixen. In die vorbereitete Kastenbackform füllen.\nBACKEN: Im vorgeheizten Ofen bei 180 °C (Ober-Unter-Hitze) 60 Minuten backen.(Stäbchenprobe) Kuchen in der Form abkühlen lassen.\nZITRONENGLASUR: 150 g Puderzucker sieben.Mit 2 EL Zitronensaft verrühren.Auf dem Kuchen verteilen."));
-        // TODO assert nutrition
+        assertThat(recipe.getNutritionalValues(), is("Serving: 1 Stück (bei 12 Stücken)\nCalories: 292 kcal\nFat: 8.4 g\nCarbohydrates: 49 g\nProtein: 3.8 g"));
         assertThat(recipe.getImageName(), is("blablupp.jpg"));
     }
 
@@ -694,7 +694,7 @@ public class ImportableRecipeBuilderTest {
         assertThat(recipe.getDescription(), is("This egg salad is quick to prep and easy to make with hard-cooked eggs, mayonnaise, mustard, paprika, and green onions. Perfect for sandwiches!"));
         assertThat(recipe.getIngredients(), is("8 eggs\n0.5 cup mayonnaise\n0.25 cup chopped green onion\n1 teaspoon prepared yellow mustard\n0.25 teaspoon paprika\nsalt and pepper to taste"));
         assertThat(recipe.getDirections(), is("Place eggs in a saucepan and cover with cold water. Bring water to a boil and immediately remove from heat. Cover and let eggs stand in hot water for 10 to 12 minutes. Remove from hot water, cool, peel, and chop.\nPlace chopped eggs in a bowl; stir in mayonnaise, green onion, and mustard. Season with paprika, salt, and pepper. Stir and serve on your favorite bread or crackers."));
-        // TODO assert nutrition
+        assertThat(recipe.getNutritionalValues(), is("Calories: 344 kcal\nFat: 32 g\nCarbohydrates: 2 g\nProtein: 13 g"));
         assertThat(recipe.getImageName(), is("blablupp.jpg"));
     }
 
