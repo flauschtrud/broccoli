@@ -23,7 +23,7 @@
     <string name="preparation_time">所要時間</string>
     <string name="ingredients">材料</string>
     <string name="directions">作り方</string>
-    <string name="notes">Notes</string>
+    <string name="notes">メモ</string>
     <string name="recipe_photo_accessibility">レシピの写真</string>
     <string name="change_photo">写真を変更</string>
     <string name="remove_photo">写真を除く</string>
@@ -137,29 +137,29 @@
     <string name="rate_the_app">アプリを評価する</string>
     <string name="share_the_app">アプリを共有する</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="eggplant">Eggplants</string>
+    <string name="eggplant">なす</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="eggplant_terms">eggplant, eggplants, aubergine, aubergines</string>
+    <string name="eggplant_terms">なす、ナス、茄子、茄</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="cauliflower">Cauliflower</string>
+    <string name="cauliflower">カリフラワー</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="cauliflower_terms">cauliflower</string>
+    <string name="cauliflower_terms">カリフラワー、かりふらわー、かりふらわあ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="broad_bean">Broad beans</string>
+    <string name="broad_bean">そら豆</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="broad_bean_terms">broad beans, fava beans, faba beans</string>
+    <string name="broad_bean_terms">そらまめ、そら豆、空豆、蚕豆、ソラマメ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="bean">Beans</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="bean_terms">common beans, french beans, green beans</string>
+    <string name="bean_terms">いんげん、インゲン、隠元</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="broccoli">ブロッコリー</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="broccoli_terms">broccoli</string>
+    <string name="broccoli_terms">ブロッコリー、ぶろっこりい、ぶろっこりー</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="chinese_cabbage">Chinese cabbage</string>
+    <string name="chinese_cabbage">白菜</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="chinese_cabbage_terms">chinese cabbage, napa cabbage</string>
+    <string name="chinese_cabbage_terms">白菜、はくさい、ハクサイ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="pea">Peas</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
