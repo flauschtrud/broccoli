@@ -55,6 +55,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity.DUPLICATE;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.startsWith;
@@ -200,6 +201,50 @@ public class CreateAndEditRecipeActivityTest {
         Recipe editedRecipe = (Recipe) result.getResultData().getSerializableExtra(Recipe.class.getName());
         assertThat(editedRecipe.getRecipeId(), is(LAUCHKUCHEN_SAVED.getRecipeId()));
         assertThat(editedRecipe.getServings(), is("1 Portion"));
+    }
+
+    @Test
+    public void duplicate_recipe(){
+        when(recipeRepository.insertOrUpdate(recipeCaptor.capture())).thenReturn(CompletableFuture.completedFuture(2L));
+        when(recipeImageService.getUri("lauchkuchen.jpg")).thenReturn(uri);
+        when(recipeImageService.copyImage(uri)).thenReturn(CompletableFuture.completedFuture("12345.jpg"));
+        when(recipeImageService.moveImage("12345.jpg")).thenReturn(CompletableFuture.completedFuture(null));
+
+        Intent intent = new Intent(ApplicationProvider.getApplicationContext(), CreateAndEditRecipeActivity.class);
+        intent.putExtra(Recipe.class.getName(), LAUCHKUCHEN_SAVED);
+        intent.putExtra(DUPLICATE, true);
+        scenario = launchActivityForResult(intent);
+
+        onView(withId(R.id.new_title)).check(matches(withText(LAUCHKUCHEN_SAVED.getTitle())));
+        onView(withId(R.id.new_categories)).check(matches(withText(LAUCHKUCHEN_SAVED.getCategories().stream().map(Category::getName).collect(Collectors.joining(", ")))));
+        onView(withId(R.id.new_description)).check(matches(withText(LAUCHKUCHEN_SAVED.getDescription())));
+        onView(withId(R.id.new_source)).check(matches(withText(LAUCHKUCHEN_SAVED.getSource())));
+        onView(withId(R.id.new_servings)).check(matches(withText(LAUCHKUCHEN_SAVED.getServings())));
+        onView(withId(R.id.new_preparation_time)).check(matches(withText(LAUCHKUCHEN_SAVED.getPreparationTime())));
+        onView(withId(R.id.new_ingredients)).check(matches(withText(LAUCHKUCHEN_SAVED.getIngredients())));
+        onView(withId(R.id.new_directions)).check(matches(withText(LAUCHKUCHEN_SAVED.getDirections())));
+        onView(withId(R.id.new_nutritional_values)).check(matches(withText(LAUCHKUCHEN_SAVED.getNutritionalValues())));
+        onView(withId(R.id.new_notes)).check(matches(withText(LAUCHKUCHEN_SAVED.getNotes())));
+
+        onView(withId(R.id.button_save_recipe)).perform(click());
+
+        verify(recipeImageService).moveImage("12345.jpg");
+
+        Instrumentation.ActivityResult result = scenario.getResult();
+        assertThat(result.getResultCode(), is(RESULT_OK));
+        assertThat(result.getResultData().hasExtra(Recipe.class.getName()), is(true));
+
+        Recipe recipe = recipeCaptor.getValue();
+        assertThat(recipe.getTitle(), is(LAUCHKUCHEN.getTitle()));
+        assertThat(recipe.getDescription(), is(LAUCHKUCHEN.getDescription()));
+        assertThat(recipe.getSource(), is(LAUCHKUCHEN.getSource()));
+        assertThat(recipe.getServings(), is(LAUCHKUCHEN.getServings()));
+        assertThat(recipe.getPreparationTime(), is(LAUCHKUCHEN.getPreparationTime()));
+        assertThat(recipe.getIngredients(), is(LAUCHKUCHEN.getIngredients()));
+        assertThat(recipe.getDirections(), is(LAUCHKUCHEN.getDirections()));
+        assertThat(recipe.getNutritionalValues(), is(LAUCHKUCHEN.getNutritionalValues()));
+        assertThat(recipe.getNotes(), is(LAUCHKUCHEN.getNotes()));
+        assertThat(recipe.getImageName(), startsWith("12345.jpg"));
     }
 
     @Test

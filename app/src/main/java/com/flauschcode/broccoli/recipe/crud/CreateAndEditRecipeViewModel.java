@@ -19,9 +19,9 @@ import javax.inject.Inject;
 
 public class CreateAndEditRecipeViewModel extends ViewModel {
 
-    private RecipeRepository recipeRepository;
-    private RecipeImageService recipeImageService;
-    private CategoryRepository categoryRepository;
+    private final RecipeRepository recipeRepository;
+    private final RecipeImageService recipeImageService;
+    private final CategoryRepository categoryRepository;
 
     private Recipe recipe = new Recipe();
     private boolean isFinishedBySaving = false;
@@ -75,6 +75,14 @@ public class CreateAndEditRecipeViewModel extends ViewModel {
         setImageNameAndMarkDirty(newImageName);
     }
 
+    void duplicateImage(String sourceImageName) {
+        Uri sourceUri = recipeImageService.getUri(sourceImageName);
+        recipeImageService.copyImage(sourceUri).thenAccept(imageName -> {
+            newImageName = imageName;
+            setImageNameAndMarkDirty(imageName);
+        });
+    }
+
     void confirmImageHasBeenPicked(Uri uri) {
         removeOldImageAndCleanUpAnyTemporaryImages();
         recipeImageService.copyImage(uri).thenAccept(imageName -> {
@@ -90,7 +98,7 @@ public class CreateAndEditRecipeViewModel extends ViewModel {
     }
 
     boolean imageHasBeenSet() {
-        return recipe.getImageName().length() > 0;
+        return !recipe.getImageName().isEmpty();
     }
 
     private void removeOldImageAndCleanUpAnyTemporaryImages() {

@@ -42,6 +42,8 @@ import dagger.android.AndroidInjection;
 
 public class CreateAndEditRecipeActivity extends AppCompatActivity {
 
+    public static final String DUPLICATE = "duplicate";
+
     @Inject
     ViewModelProvider.Factory viewModelFactory;
 
@@ -67,43 +69,15 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         if (intent.hasExtra(Recipe.class.getName())) {
-            Recipe recipe = (Recipe) intent.getSerializableExtra(Recipe.class.getName());
-            viewModel.setRecipe(recipe);
+            getRecipeFrom(intent);
         }
 
         if (Intent.ACTION_SEND.equals(intent.getAction())) {
-            try {
-                String url = parseUrlFrom(intent);
-
-                recipeImportService.importFrom(url)
-                        .thenAccept(optionalRecipe -> {
-                            if (optionalRecipe.isPresent()) {
-                                applyRecipeToViewModel(optionalRecipe.get());
-                                binding.setViewModel(viewModel);
-                            } else {
-                                runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_read_message), Toast.LENGTH_LONG).show());
-                            }
-                        })
-                        .exceptionally(e -> {
-                            Log.e(getClass().getName(), e.getMessage());
-                            runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_imported_message), Toast.LENGTH_SHORT).show());
-                            return null;
-                        });
-            } catch (MalformedURLException e) {
-                Log.e(getClass().getName(), Objects.requireNonNull(e.getMessage()));
-                runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_imported_message), Toast.LENGTH_SHORT).show());
-            }
+            getImportedRecipeFrom(intent, binding);
         }
 
         if (Intent.ACTION_DEFAULT.equals(intent.getAction())) {
-            Uri uri = getIntent().getData();
-            Optional<Recipe> optionalRecipe = shareRecipeAsFileService.loadFromFile(uri);
-            if (optionalRecipe.isPresent()) {
-                applyRecipeToViewModel(optionalRecipe.get());
-            } else {
-                runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_imported_message), Toast.LENGTH_SHORT).show());
-            }
-
+            getSharedRecipeFrom(intent);
         }
 
         if (savedInstanceState != null) {
@@ -117,6 +91,55 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
 
         setSupportActionBar(binding.toolbar);
         binding.toolbar.setNavigationOnClickListener(v -> showDiscardDialog(this::finish));
+    }
+
+    private void getRecipeFrom(Intent intent) {
+        Recipe recipe = (Recipe) intent.getSerializableExtra(Recipe.class.getName());
+
+        if (intent.getBooleanExtra(DUPLICATE, false)) {
+            Recipe copy = new Recipe(recipe);
+            viewModel.setRecipe(copy);
+
+            if (!recipe.getImageName().isEmpty()) {
+                viewModel.duplicateImage(recipe.getImageName());
+            }
+        } else {
+            viewModel.setRecipe(recipe);
+        }
+    }
+
+    private void getImportedRecipeFrom(Intent intent, ActivityNewRecipeBinding binding) {
+        try {
+            String url = parseUrlFrom(intent);
+
+            recipeImportService.importFrom(url)
+                    .thenAccept(optionalRecipe -> {
+                        if (optionalRecipe.isPresent()) {
+                            applyRecipeToViewModel(optionalRecipe.get());
+                            binding.setViewModel(viewModel);
+                        } else {
+                            runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_read_message), Toast.LENGTH_LONG).show());
+                        }
+                    })
+                    .exceptionally(e -> {
+                        Log.e(getClass().getName(), e.getMessage());
+                        runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_imported_message), Toast.LENGTH_SHORT).show());
+                        return null;
+                    });
+        } catch (MalformedURLException e) {
+            Log.e(getClass().getName(), Objects.requireNonNull(e.getMessage()));
+            runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_imported_message), Toast.LENGTH_SHORT).show());
+        }
+    }
+
+    private void getSharedRecipeFrom(Intent intent) {
+        Uri uri = intent.getData();
+        Optional<Recipe> optionalRecipe = shareRecipeAsFileService.loadFromFile(uri);
+        if (optionalRecipe.isPresent()) {
+            applyRecipeToViewModel(optionalRecipe.get());
+        } else {
+            runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_imported_message), Toast.LENGTH_SHORT).show());
+        }
     }
 
     @Override

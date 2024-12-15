@@ -9,9 +9,8 @@ import androidx.room.Relation;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.flauschcode.broccoli.category.Category;
-
 import com.flauschcode.broccoli.BR;
+import com.flauschcode.broccoli.category.Category;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -33,6 +32,14 @@ public class Recipe extends BaseObservable implements Serializable {
 
     @Ignore
     private boolean isDirty = false;
+
+    public Recipe() {}
+
+    public Recipe(Recipe other) {
+        this.coreRecipe = other.getCoreRecipe();
+        this.categories.addAll(other.getCategories());
+        this.setRecipeId(0);
+    }
 
     @JsonIgnore
     public CoreRecipe getCoreRecipe() {
@@ -183,4 +190,5 @@ public class Recipe extends BaseObservable implements Serializable {
     public int hashCode() {
         return Objects.hash(coreRecipe, categories);
     }
+
 }

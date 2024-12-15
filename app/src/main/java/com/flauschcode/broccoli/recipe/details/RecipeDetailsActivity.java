@@ -1,5 +1,7 @@
 package com.flauschcode.broccoli.recipe.details;
 
+import static com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity.DUPLICATE;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -150,6 +152,13 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     public void edit(MenuItem menuItem) {
         Intent intent = new Intent(this, CreateAndEditRecipeActivity.class);
         intent.putExtra(Recipe.class.getName(), binding.getRecipe());
+        editRecipeResultLauncher.launch(intent);
+    }
+
+    public void duplicate(MenuItem menuItem) {
+        Intent intent = new Intent(this, CreateAndEditRecipeActivity.class);
+        intent.putExtra(Recipe.class.getName(), binding.getRecipe());
+        intent.putExtra(DUPLICATE, true);
         editRecipeResultLauncher.launch(intent);
     }
 

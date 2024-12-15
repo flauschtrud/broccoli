@@ -8,6 +8,7 @@
     <string name="title_should_not_be_empty_message">Bitte füge einen Titel hinzu.</string>
     <string name="recipe_saved_message">Das Rezept wurde gespeichert.</string>
     <string name="recipe_could_not_be_saved_message">Das Rezept konnte nicht gespeichert werden.</string>
+    <string name="duplicate_action">Duplizieren</string>
     <string name="delete_action">Löschen</string>
     <string name="delete_recipe_question">Dieses Rezept löschen?</string>
     <string name="recipe_deleted_message">Das Rezept wurde gelöscht.</string>

@@ -21,6 +21,7 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withSubstring;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
+import static com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity.DUPLICATE;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.is;
@@ -42,6 +43,7 @@ import com.flauschcode.broccoli.DaggerMockApplicationComponent;
 import com.flauschcode.broccoli.MockApplicationComponent;
 import com.flauschcode.broccoli.R;
 import com.flauschcode.broccoli.recipe.cooking.CookingAssistantActivity;
+import com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity;
 import com.flauschcode.broccoli.recipe.sharing.ShareRecipeAsFileService;
 import com.flauschcode.broccoli.recipe.sharing.ShareableRecipe;
@@ -178,6 +180,18 @@ public class RecipeDetailsActivityTest {
                                 hasType("application/broccoli"),
                                 hasFlag(Intent.FLAG_GRANT_READ_URI_PERMISSION)
                         ))));
+    }
+
+    @Test
+    public void duplicate() {
+        openActionBarOverflowOrOptionsMenu(getInstrumentation().getTargetContext());
+        onView(withText(R.string.duplicate_action)).perform(click());
+
+        intended(allOf(
+                hasComponent(CreateAndEditRecipeActivity.class.getName()),
+                hasExtra(Recipe.class.getName(), lauchkuchen),
+                hasExtra(DUPLICATE, true)
+        ));
     }
 
     @Test

@@ -34,6 +34,11 @@
         android:onClick="edit"
         app:showAsAction="never" />
     <item
+        android:id="@+id/action_details_duplicate"
+        android:title="@string/duplicate_action"
+        android:onClick="duplicate"
+        app:showAsAction="never" />
+    <item
         android:id="@+id/action_details_delete"
         android:icon="@drawable/ic_menu_delete_24dp"
         android:title="@string/delete_action"

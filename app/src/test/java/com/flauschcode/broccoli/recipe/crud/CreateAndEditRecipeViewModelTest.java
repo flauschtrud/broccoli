@@ -1,5 +1,14 @@
 package com.flauschcode.broccoli.recipe.crud;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.not;
+import static org.hamcrest.core.IsNull.nullValue;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
 import android.net.Uri;
 
 import androidx.lifecycle.LiveData;
@@ -7,8 +16,8 @@ import androidx.lifecycle.LiveData;
 import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.category.CategoryRepository;
 import com.flauschcode.broccoli.recipe.RecipeRepository;
-import com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeViewModel;
 import com.flauschcode.broccoli.recipe.images.RecipeImageService;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -19,15 +28,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.not;
-import static org.hamcrest.core.IsNull.nullValue;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.never;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CreateAndEditRecipeViewModelTest {
@@ -114,6 +114,17 @@ public class CreateAndEditRecipeViewModelTest {
         verify(recipeRepository).insertOrUpdate(createAndEditRecipeViewModel.getRecipe());
         verify(recipeImageService).moveImage("blupp.jpg");
         verify(recipeImageService, never()).deleteTemporaryImage(any());
+    }
+
+    @Test
+    public void duplicate_image() {
+        when(recipeImageService.getUri("blupp.jpg")).thenReturn(imageUri);
+        when(recipeImageService.copyImage(imageUri)).thenReturn(CompletableFuture.completedFuture("lala.jpg"));
+
+        createAndEditRecipeViewModel.duplicateImage("blupp.jpg");
+
+        assertThat(createAndEditRecipeViewModel.getRecipe().getImageName(), is("lala.jpg"));
+        assertThat(createAndEditRecipeViewModel.getRecipe().isDirty(), is(true));
     }
 
     @Test
