@@ -11,6 +11,7 @@
     <string name="title_should_not_be_empty_message">Please add a title.</string>
     <string name="recipe_saved_message">The recipe has been saved.</string>
     <string name="recipe_could_not_be_saved_message">The recipe could not be saved.</string>
+    <string name="duplicate_action">Duplicate</string>
     <string name="delete_action">Διαγραφή</string>
     <string name="delete_recipe_question">Delete this recipe?</string>
     <string name="recipe_deleted_message">The recipe has been deleted.</string>
