@@ -23,7 +23,13 @@
     <string name="preparation_time">סך הכל זמן המתכון</string>
     <string name="ingredients">מרכיבים</string>
     <string name="directions">הכוונה</string>
+    <string name="nutritional_values">Nutrition</string>
     <string name="notes">Notes</string>
+    <string name="serving">Serving</string>
+    <string name="calories">Calories</string>
+    <string name="fat">Fat</string>
+    <string name="carbohydrates">Carbohydrates</string>
+    <string name="protein">Protein</string>
     <string name="recipe_photo_accessibility">תמונת מתכון</string>
     <string name="change_photo">החלפת תמונה</string>
     <string name="remove_photo">הסרת תמונה</string>
