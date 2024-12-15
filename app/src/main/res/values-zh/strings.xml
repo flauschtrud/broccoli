@@ -11,6 +11,7 @@
     <string name="title_should_not_be_empty_message">请输入标题。</string>
     <string name="recipe_saved_message">食谱已被保存.</string>
     <string name="recipe_could_not_be_saved_message">无法保存食谱。</string>
+    <string name="duplicate_action">Duplicate</string>
     <string name="delete_action">删除</string>
     <string name="delete_recipe_question">删除此食谱？</string>
     <string name="recipe_deleted_message">该食谱已被删除</string>
