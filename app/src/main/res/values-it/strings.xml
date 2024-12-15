@@ -11,6 +11,7 @@
     <string name="title_should_not_be_empty_message">Per favore aggiungi un titolo.</string>
     <string name="recipe_saved_message">La ricetta è stata salvata.</string>
     <string name="recipe_could_not_be_saved_message">Impossibile salvare la ricetta.</string>
+    <string name="duplicate_action">Crea una copia</string>
     <string name="delete_action">Elimina</string>
     <string name="delete_recipe_question">Eliminare questa ricetta?</string>
     <string name="recipe_deleted_message">La ricetta è stata eliminata.</string>
