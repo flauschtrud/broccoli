@@ -11,6 +11,7 @@
     <string name="title_should_not_be_empty_message">タイトルを入力してください。</string>
     <string name="recipe_saved_message">レシピが保存されました。</string>
     <string name="recipe_could_not_be_saved_message">レシピを保存できませんでした。</string>
+    <string name="duplicate_action">Duplicate</string>
     <string name="delete_action">削除</string>
     <string name="delete_recipe_question">このレシピを削除しますか。</string>
     <string name="recipe_deleted_message">レシピが削除されました。</string>
