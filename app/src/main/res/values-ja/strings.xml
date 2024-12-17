@@ -11,7 +11,7 @@
     <string name="title_should_not_be_empty_message">タイトルを入力してください。</string>
     <string name="recipe_saved_message">レシピが保存されました。</string>
     <string name="recipe_could_not_be_saved_message">レシピを保存できませんでした。</string>
-    <string name="duplicate_action">Duplicate</string>
+    <string name="duplicate_action">複製</string>
     <string name="delete_action">削除</string>
     <string name="delete_recipe_question">このレシピを削除しますか。</string>
     <string name="recipe_deleted_message">レシピが削除されました。</string>
@@ -24,13 +24,13 @@
     <string name="preparation_time">所要時間</string>
     <string name="ingredients">材料</string>
     <string name="directions">作り方</string>
-    <string name="nutritional_values">Nutrition</string>
+    <string name="nutritional_values">栄養</string>
     <string name="notes">メモ</string>
-    <string name="serving">Serving</string>
-    <string name="calories">Calories</string>
-    <string name="fat">Fat</string>
-    <string name="carbohydrates">Carbohydrates</string>
-    <string name="protein">Protein</string>
+    <string name="serving">分量</string>
+    <string name="calories">カロリー</string>
+    <string name="fat">脂質</string>
+    <string name="carbohydrates">糖質</string>
+    <string name="protein">たんぱく質</string>
     <string name="recipe_photo_accessibility">レシピの写真</string>
     <string name="change_photo">写真を変更</string>
     <string name="remove_photo">写真を除く</string>
@@ -244,17 +244,17 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="spinach_terms">ほうれん草、ほうれん草、ホウレン草、菠薐草、ほうれんそう、ホウレンソウ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="celery">Celery</string>
+    <string name="celery">セロリ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="celery_terms">celery</string>
+    <string name="celery_terms">セロリ、せろり</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="turnip">Turnips</string>
+    <string name="turnip">かぶ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="turnip_terms">turnip, turnips</string>
+    <string name="turnip_terms">かぶ、蕪、蕪菁、カブ、すずな、菘、鈴菜、スズナ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="tomato">Tomatoes</string>
+    <string name="tomato">トマト</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="tomato_terms">tomato, tomatoes</string>
+    <string name="tomato_terms">トマト、とまと</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="white_cabbage">White cabbage</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
