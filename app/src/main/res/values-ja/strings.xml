@@ -328,41 +328,41 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="winter_squash_terms">winter squash, butternut squash, acorn squash, spaghetti squash</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pomegranate">Pomegranates</string>
+    <string name="pomegranate">ザクロ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pomegranate_terms">pomegranate, pomegranates</string>
+    <string name="pomegranate_terms">ざくろ、柘榴、石榴、若榴、サグロ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="blueberries">Blueberries</string>
+    <string name="blueberries">ブルーベリー</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="blueberries_terms">blueberries</string>
+    <string name="blueberries_terms">ブルーベリー、ぶるーべりー、ぶるうべりい</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="raspberries">ラスベリー</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="raspberries_terms">ラスベリー</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="blackberries">Blackberries</string>
+    <string name="blackberries">ブラックベリー</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="blackberries_terms">blackberries</string>
+    <string name="blackberries_terms">ブラックベリー、ぶらっくべりー</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="mirabelles">Mirabelles</string>
+    <string name="mirabelles">ミラベル</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="mirabelles_terms">mirabelles</string>
+    <string name="mirabelles_terms">ミラベル、みらべる</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="gooseberries">Gooseberries</string>
+    <string name="gooseberries">すぐり</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="gooseberries_terms">gooseberries</string>
+    <string name="gooseberries_terms">すぐり、スグリ、酸塊、グーズベリー、ぐーずべりー、グースベリー、ぐーすべりー、グスベリー、ぐすべりー</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="lambs_lettuce">Lamb\'s lettuce</string>
+    <string name="lambs_lettuce">マーシュ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="lambs_lettuce_terms">lamb\'s lettuce</string>
+    <string name="lambs_lettuce_terms">マーシュ、まーしゅ、ノヂシャ、のぢしゃ、のぢさ、ノヂサ、野萵苣</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="pointed_cabbage">Pointed cabbage</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="pointed_cabbage_terms">pointed cabbage</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="champignons">Champignons</string>
+    <string name="champignons">ツクリタケ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="champignons_terms">champignons</string>
+    <string name="champignons_terms">つくりたけ、ツクリタケ、作り茸、シャンピニオン、しゃんぴにおん、シャンピニョン、しゃんぴにょん</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Abalone. -->
     <string name="abalone">Abalone</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Abalone. -->
