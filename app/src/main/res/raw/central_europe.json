@@ -191,6 +191,34 @@
     {
       "name": "champignons",
       "months": [0,1,2,3,4,5,6,7,8,9,10,11]
+    },
+    {
+      "name": "garlic_chives",
+      "months": [2,3,4,5,6,7,8]
+    },
+    {
+      "name": "grape",
+      "months": [8,9]
+    },
+    {
+      "name": "parsley",
+      "months": [5,6,7,8,9]
+    },
+    {
+      "name": "peach",
+      "months": [6,7,8]
+    },
+    {
+      "name": "watermelon",
+      "months": [7,8]
+    },
+    {
+      "name": "rocket",
+      "months": [4,5,6,7,8,9]
+    },
+    {
+      "name": "radish",
+      "months": [5,6,7,8]
     }
   ]
 }
