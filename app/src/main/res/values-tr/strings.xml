@@ -11,6 +11,7 @@
     <string name="title_should_not_be_empty_message">Lütfen bir başlık ekleyin.</string>
     <string name="recipe_saved_message">Tarif kaydedildi.</string>
     <string name="recipe_could_not_be_saved_message">Tarif kaydedilemedi.</string>
+    <string name="duplicate_action">Duplicate</string>
     <string name="delete_action">Sil</string>
     <string name="delete_recipe_question">Bu tarifi silmek istiyor musunuz?</string>
     <string name="recipe_deleted_message">Tarif silindi.</string>
@@ -23,7 +24,13 @@
     <string name="preparation_time">Hazırlık Süresi</string>
     <string name="ingredients">Malzemeler</string>
     <string name="directions">Talimatlar</string>
+    <string name="nutritional_values">Nutrition</string>
     <string name="notes">Notes</string>
+    <string name="serving">Serving</string>
+    <string name="calories">Calories</string>
+    <string name="fat">Fat</string>
+    <string name="carbohydrates">Carbohydrates</string>
+    <string name="protein">Protein</string>
     <string name="recipe_photo_accessibility">Tarif fotoğrafı</string>
     <string name="change_photo">Fotoğrafı değiştir</string>
     <string name="remove_photo">Fotoğrafı kaldır</string>

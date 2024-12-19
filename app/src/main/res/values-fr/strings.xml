@@ -11,6 +11,7 @@
     <string name="title_should_not_be_empty_message">Ajouter un titre.</string>
     <string name="recipe_saved_message">La recette a été enregistrée.</string>
     <string name="recipe_could_not_be_saved_message">La recette n\'a pas pu être enregistrée.</string>
+    <string name="duplicate_action">Duplicate</string>
     <string name="delete_action">Supprimer</string>
     <string name="delete_recipe_question">Supprimer cette recette ?</string>
     <string name="recipe_deleted_message">La recette a été supprimée.</string>
@@ -23,7 +24,13 @@
     <string name="preparation_time">Temps</string>
     <string name="ingredients">Ingrédients</string>
     <string name="directions">Préparation</string>
+    <string name="nutritional_values">Nutrition</string>
     <string name="notes">Notes</string>
+    <string name="serving">Serving</string>
+    <string name="calories">Calories</string>
+    <string name="fat">Fat</string>
+    <string name="carbohydrates">Carbohydrates</string>
+    <string name="protein">Protein</string>
     <string name="recipe_photo_accessibility">Photo de la recette</string>
     <string name="change_photo">Changer de photo</string>
     <string name="remove_photo">Supprimer la photo</string>

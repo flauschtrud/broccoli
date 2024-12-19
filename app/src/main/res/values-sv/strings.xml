@@ -11,6 +11,7 @@
     <string name="title_should_not_be_empty_message">Lägg till en titel.</string>
     <string name="recipe_saved_message">Receptet har sparats.</string>
     <string name="recipe_could_not_be_saved_message">Receptet kunde inte sparas.</string>
+    <string name="duplicate_action">Duplicate</string>
     <string name="delete_action">Radera</string>
     <string name="delete_recipe_question">Ta bort det här receptet?</string>
     <string name="recipe_deleted_message">Receptet har tagits bort.</string>
@@ -23,7 +24,13 @@
     <string name="preparation_time">Tid</string>
     <string name="ingredients">Ingredienser</string>
     <string name="directions">Instruktioner</string>
+    <string name="nutritional_values">Nutrition</string>
     <string name="notes">Notes</string>
+    <string name="serving">Serving</string>
+    <string name="calories">Calories</string>
+    <string name="fat">Fat</string>
+    <string name="carbohydrates">Carbohydrates</string>
+    <string name="protein">Protein</string>
     <string name="recipe_photo_accessibility">Foto av recept</string>
     <string name="change_photo">Byt bild</string>
     <string name="remove_photo">Ta bort bild</string>
