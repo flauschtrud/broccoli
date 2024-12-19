@@ -1,368 +1,368 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="recipes">Recipes</string>
-    <string name="no_recipes_found">No recipes found.</string>
-    <string name="create_a_recipe_prompt">create a new recipe</string>
-    <string name="import_from_the_web_prompt">import a recipe from a website</string>
-    <string name="new_recipe">New Recipe</string>
-    <string name="create_first_recipe">Create your first recipe and start your collection!</string>
-    <string name="edit_action">Edit</string>
-    <string name="save_action">Save</string>
-    <string name="title_should_not_be_empty_message">Please add a title.</string>
-    <string name="recipe_saved_message">The recipe has been saved.</string>
-    <string name="recipe_could_not_be_saved_message">The recipe could not be saved.</string>
-    <string name="duplicate_action">Duplicate</string>
-    <string name="delete_action">Delete</string>
-    <string name="delete_recipe_question">Delete this recipe?</string>
-    <string name="recipe_deleted_message">The recipe has been deleted.</string>
-    <string name="discard_action">Discard</string>
-    <string name="discard_changes_question">Discard changes?</string>
-    <string name="title">Title</string>
-    <string name="description">Description</string>
-    <string name="source">Source</string>
-    <string name="servings">Servings</string>
-    <string name="preparation_time">Time</string>
-    <string name="ingredients">Ingredients</string>
-    <string name="directions">Directions</string>
-    <string name="nutritional_values">Nutrition</string>
-    <string name="notes">Notes</string>
-    <string name="serving">Serving</string>
-    <string name="calories">Calories</string>
-    <string name="fat">Fat</string>
-    <string name="carbohydrates">Carbohydrates</string>
-    <string name="protein">Protein</string>
-    <string name="recipe_photo_accessibility">Recipe photo</string>
-    <string name="change_photo">Change photo</string>
-    <string name="remove_photo">Remove photo</string>
-    <string name="take_photo">Take photo</string>
-    <string name="pick_photo">Pick photo</string>
-    <string name="image_could_not_be_created_message">The image file could not be created.</string>
-    <string name="categories">Categories</string>
-    <string name="create_a_category_prompt">Create custom categories to manage your recipes.</string>
-    <string name="add_category">Add category</string>
-    <string name="add_first_category">Add your first custom category and bring order into your collection!</string>
-    <string name="edit_category">Edit category</string>
-    <string name="category_name">Name</string>
-    <string name="no_categories_message">No categories have been created yet.</string>
-    <string name="all_recipes">All recipes</string>
-    <string name="mark_as_favorite_action">Mark as favorite</string>
-    <string name="remove_from_favorite_action">Remove from favorites</string>
-    <string name="favorites">Favorites</string>
-    <string name="delete_category_question">Do you really want to delete this category?</string>
-    <string name="unassigned">Recipes without category</string>
-    <string name="search">Search</string>
-    <string name="search_in">Search in %1$s</string>
-    <string name="preferred_category">Preferred category</string>
-    <string name="cooking_assistant">Cooking assistant</string>
-    <string name="cooking_assistant_prompt">Cook your recipe in fullscreen mode without distractions!</string>
-    <string name="no_ingredients_and_directions_message">This recipe does not have any ingredients or directions yet.</string>
-    <string name="cook_action">Cook</string>
-    <string name="adjust_ingredients">Adjust ingredients</string>
-    <string name="adjust_ingredients_prompt">Choose how many servings you want to cook!</string>
-    <string name="scaling_simple">Simple</string>
+    <string name="recipes">Recetas</string>
+    <string name="no_recipes_found">No se ha encontrado ninguna receta.</string>
+    <string name="create_a_recipe_prompt">crea una nueva receta</string>
+    <string name="import_from_the_web_prompt">importa una receta de un sitio web</string>
+    <string name="new_recipe">Nueva receta</string>
+    <string name="create_first_recipe">¡Crea tu primera receta y comienza tu colección!</string>
+    <string name="edit_action">Editar</string>
+    <string name="save_action">Guardar</string>
+    <string name="title_should_not_be_empty_message">Por favor, añade un título.</string>
+    <string name="recipe_saved_message">La receta se ha guardado.</string>
+    <string name="recipe_could_not_be_saved_message">La receta no se ha podido guardar.</string>
+    <string name="duplicate_action">Duplicar</string>
+    <string name="delete_action">Eliminar</string>
+    <string name="delete_recipe_question">¿Eliminar esta receta?</string>
+    <string name="recipe_deleted_message">La receta ha sido eliminada.</string>
+    <string name="discard_action">Descartar</string>
+    <string name="discard_changes_question">¿Descartar los cambios?</string>
+    <string name="title">Título</string>
+    <string name="description">Descripción</string>
+    <string name="source">Origen</string>
+    <string name="servings">Porciones</string>
+    <string name="preparation_time">Tiempo</string>
+    <string name="ingredients">Ingredientes</string>
+    <string name="directions">Instrucciones</string>
+    <string name="nutritional_values">Nutrición</string>
+    <string name="notes">Notas</string>
+    <string name="serving">Porción</string>
+    <string name="calories">Calorías</string>
+    <string name="fat">Grasa</string>
+    <string name="carbohydrates">Carbohidratos</string>
+    <string name="protein">Proteína</string>
+    <string name="recipe_photo_accessibility">Foto de la receta</string>
+    <string name="change_photo">Cambiar foto</string>
+    <string name="remove_photo">Eliminar la foto</string>
+    <string name="take_photo">Hacer una foto</string>
+    <string name="pick_photo">Elegir foto</string>
+    <string name="image_could_not_be_created_message">No se ha podido crear el archivo de imagen.</string>
+    <string name="categories">Categorías</string>
+    <string name="create_a_category_prompt">Crea categorías personalizadas para gestionar tus recetas.</string>
+    <string name="add_category">Añadir categoría</string>
+    <string name="add_first_category">Añade tu primera categoría personalizada y pon orden en tu colección.</string>
+    <string name="edit_category">Editar categoría</string>
+    <string name="category_name">Nombre</string>
+    <string name="no_categories_message">Todavía no se ha creado ninguna categoría.</string>
+    <string name="all_recipes">Todas las recetas</string>
+    <string name="mark_as_favorite_action">Marcar como favorito</string>
+    <string name="remove_from_favorite_action">Eliminar de favoritos</string>
+    <string name="favorites">Favoritos</string>
+    <string name="delete_category_question">¿Realmente quieres eliminar esta categoría?</string>
+    <string name="unassigned">Recetas sin categoría</string>
+    <string name="search">Buscar en</string>
+    <string name="search_in">Buscar en %1$s</string>
+    <string name="preferred_category">Categoría preferida</string>
+    <string name="cooking_assistant">Asistente de cocina</string>
+    <string name="cooking_assistant_prompt">¡Cocina tu receta en modo de pantalla completa sin distracciones!</string>
+    <string name="no_ingredients_and_directions_message">Esta receta aún no tiene ingredientes ni instrucciones.</string>
+    <string name="cook_action">Cocinar</string>
+    <string name="adjust_ingredients">Ajustar los ingredientes</string>
+    <string name="adjust_ingredients_prompt">¡Elige cuántas porciones quieres cocinar!</string>
+    <string name="scaling_simple">Sencillo</string>
     <string name="scaling_pro">Pro</string>
-    <string name="recipe_amount">Recipe amount</string>
-    <string name="scaling_factor">Scaling factor</string>
-    <string name="share_action">Share</string>
-    <string name="shared_with">Shared with %1$s</string>
-    <string name="recipe_could_not_be_imported_message">Sorry, this did not work.</string>
-    <string name="recipe_could_not_be_read_message">Sorry, this recipe can not be read.</string>
-    <string name="share_as_file_action">Share as file</string>
-    <string name="recipe_could_not_be_exported_message">The recipe could not be exported.</string>
-    <string name="backup_and_restore">Backup and restore</string>
-    <string name="backup">Backup</string>
-    <string name="restore">Restore</string>
-    <string name="backup_recipes">Backup recipes</string>
-    <string name="backup_recipes_message">Export all your recipes and categories and save them wherever you want.</string>
-    <string name="restore_recipes">Restore recipes</string>
-    <string name="restore_recipes_message">Import all recipes and categories from a backup file.</string>
-    <string name="backup_failed_message">The recipes could not be exported.</string>
-    <string name="restore_failed_message">The recipes could not be imported.</string>
-    <string name="restore_all_question">Do you want to import all recipes and categories from this file?</string>
-    <string name="restore_completed_message">%1$d recipes have been imported.</string>
-    <string name="last_backup">Last backup</string>
-    <string name="about_the_app">About the app</string>
-    <string name="help">Help</string>
-    <string name="legal_policies">Legal</string>
-    <string name="send_feedback">Send feedback</string>
-    <string name="send_feedback_message">Did you find a bug or do you miss a feature? </string>
-    <string name="feedback_subject">Feedback for Broccoli app</string>
-    <string name="version">Version</string>
-    <string name="settings">Settings</string>
-    <string name="general_settings">General settings</string>
+    <string name="recipe_amount">Cantidad de la receta</string>
+    <string name="scaling_factor">Factor de escala</string>
+    <string name="share_action">Compartir</string>
+    <string name="shared_with">Compartido con %1$s</string>
+    <string name="recipe_could_not_be_imported_message">Lo sentimos, esto no ha funcionado.</string>
+    <string name="recipe_could_not_be_read_message">Lo sentimos, esta receta no se puede leer.</string>
+    <string name="share_as_file_action">Compartir como archivo</string>
+    <string name="recipe_could_not_be_exported_message">No se ha podido exportar la receta.</string>
+    <string name="backup_and_restore">Copia de seguridad y restauración</string>
+    <string name="backup">Copia de seguridad</string>
+    <string name="restore">Restauración</string>
+    <string name="backup_recipes">Hacer una copia de seguridad de recetas</string>
+    <string name="backup_recipes_message">Exporta todas tus recetas y categorías y guárdalas donde quieras.</string>
+    <string name="restore_recipes">Restaurar recetas</string>
+    <string name="restore_recipes_message">Importa todas las recetas y categorías desde un archivo de copia de seguridad.</string>
+    <string name="backup_failed_message">No se han podido exportar las recetas.</string>
+    <string name="restore_failed_message">No se han podido importar las recetas.</string>
+    <string name="restore_all_question">¿Quieres importar todas las recetas y categorías de este archivo?</string>
+    <string name="restore_completed_message">Se han importado %1$d recetas.</string>
+    <string name="last_backup">Última copia de seguridad</string>
+    <string name="about_the_app">Sobre la aplicación</string>
+    <string name="help">Ayuda</string>
+    <string name="legal_policies">Políticas legales</string>
+    <string name="send_feedback">Enviar comentarios</string>
+    <string name="send_feedback_message">¿Has encontrado un error o echas de menos una función?</string>
+    <string name="feedback_subject">Comentarios para la aplicación Broccoli</string>
+    <string name="version">Versión</string>
+    <string name="settings">Ajustes</string>
+    <string name="general_settings">Ajustes generales</string>
     <!-- https://support.google.com/chrome/answer/9275525?hl=en -->
-    <string name="design">Theme</string>
-    <string name="light">Light</string>
-    <string name="dark">Dark</string>
-    <string name="system_default">System default</string>
-    <string name="privacy_policy">Privacy policy</string>
-    <string name="privacy_policy_summary">Learn more about how we protect your personal data.</string>
-    <string name="demo_recipe">Demo recipe</string>
-    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="open_source_licenses_text">License details for open source software</string>
-    <string name="seasonal_calendar">Seasonal calendar</string>
-    <string name="seasonal_accessibility">Seasonal ingredient(s)</string>
-    <string name="seasonal_recipes">Seasonal recipes</string>
-    <string name="seasonal_ingredients_accessibility">Seasonal ingredients</string>
-    <string name="seasons_not_configured_message">The seasonal calendar has not been fully configured yet.</string>
-    <string name="configure_seasons_action">Configure</string>
-    <string name="region">Region</string>
-    <string name="languages_of_recipes">Languages of recipes</string>
-    <string name="no_language_set_message">In which languages do you create your recipes? Choose at least one language.</string>
-    <string name="seasons_feedback_message">Do you miss your region, language or favorite ingredient?</string>
-    <string name="seasons_feedback_subject">Feedback for Seasonal Calendar</string>
-    <string name="region_central_europe">Central Europe</string>
-    <string name="region_north_america_colder">North America (colder)</string>
-    <string name="region_north_america_warmer">North America (warmer)</string>
-    <string name="region_japan">Japan</string>
-    <string name="english">English</string>
-    <string name="spanish">Spanish</string>
-    <string name="french">French</string>
-    <string name="german">German</string>
-    <string name="polish">Polish</string>
-    <string name="italian">Italian</string>
-    <string name="chinese">Chinese</string>
-    <string name="turkish">Turkish</string>
-    <string name="serbian_latin">Serbian (Latin)</string>
-    <string name="hebrew">Hebrew</string>
-    <string name="brazilian_portuguese">Brazilian Portuguese</string>
-    <string name="norwegian_bokmal">Norwegian (Bokmål)</string>
-    <string name="russian">Russian</string>
-    <string name="japanese">Japanese</string>
-    <string name="support_the_app">Support the app</string>
-    <string name="support_the_app_donate">Donate</string>
-    <string name="support_the_app_donate_text_playstore">Broccoli is free for everyone. But you can support the development of the app and buy me a cookie, coffee or burger. Thanks a lot!</string>
-    <string name="support_the_app_donate_text_fdroid">Broccoli is free for everyone. But you can support the development of the app and buy me a coffee. Thanks a lot!</string>
-    <string name="support_the_app_give_feedback">Give feedback</string>
-    <string name="support_the_app_give_feedback_text">Do you like Broccoli? Tell us about it!</string>
-    <string name="support_the_app_tell_your_friends">Tell your friends</string>
-    <string name="support_the_app_tell_your_friends_text">Do your friends also like to cook? Tell them about Broccoli!</string>
-    <string name="free_for_everyone">Free for everyone</string>
-    <string name="buy">Buy</string>
-    <string name="play_store_sign_in_message">Please sign in to Google Play Store.</string>
-    <string name="rate_the_app">Rate the app</string>
-    <string name="share_the_app">Share the app</string>
+    <string name="design">Tema</string>
+    <string name="light">Claro</string>
+    <string name="dark">Oscuro</string>
+    <string name="system_default">Predeterminado del sistema</string>
+    <string name="privacy_policy">Política de privacidad</string>
+    <string name="privacy_policy_summary">Infórmate sobre cómo protegemos tus datos personales.</string>
+    <string name="demo_recipe">Receta de demostración</string>
+    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-cremoso-y-delicioso/</string>
+    <string name="open_source_licenses">Licencias de código abierto</string>
+    <string name="open_source_licenses_text">Detalles de licencia para software de código abierto</string>
+    <string name="seasonal_calendar">Calendario de temporada</string>
+    <string name="seasonal_accessibility">Ingrediente(s) de temporada</string>
+    <string name="seasonal_recipes">Recetas de temporada</string>
+    <string name="seasonal_ingredients_accessibility">Ingredientes de temporada</string>
+    <string name="seasons_not_configured_message">El calendario de temporada aún no se ha configurado completamente.</string>
+    <string name="configure_seasons_action">Configurar</string>
+    <string name="region">Región</string>
+    <string name="languages_of_recipes">Idiomas de las recetas</string>
+    <string name="no_language_set_message">¿En qué idiomas creas tus recetas? Elige al menos un idioma.</string>
+    <string name="seasons_feedback_message">¿Echas de menos tu región, idioma o ingrediente favorito?</string>
+    <string name="seasons_feedback_subject">Comentarios sobre el calendario de temporada</string>
+    <string name="region_central_europe">Europa Central</string>
+    <string name="region_north_america_colder">América del Norte (más fría)</string>
+    <string name="region_north_america_warmer">América del Norte (más caliente)</string>
+    <string name="region_japan">Japón</string>
+    <string name="english">Inglés</string>
+    <string name="spanish">Español</string>
+    <string name="french">Francés</string>
+    <string name="german">Alemán</string>
+    <string name="polish">Polaco</string>
+    <string name="italian">Italiano</string>
+    <string name="chinese">Chino</string>
+    <string name="turkish">Turco</string>
+    <string name="serbian_latin">Serbio (latín)</string>
+    <string name="hebrew">Hebreo</string>
+    <string name="brazilian_portuguese">Portugués brasileño</string>
+    <string name="norwegian_bokmal">Noruego bokmål</string>
+    <string name="russian">Ruso</string>
+    <string name="japanese">Japonés</string>
+    <string name="support_the_app">Apoya la aplicación</string>
+    <string name="support_the_app_donate">Haz una donación</string>
+    <string name="support_the_app_donate_text_playstore">Broccoli es gratis para todos. Pero puedes apoyar el desarrollo de la aplicación y comprarme una galleta, un café o una hamburguesa. ¡Muchas gracias!</string>
+    <string name="support_the_app_donate_text_fdroid">Broccoli es gratis para todos. Pero puedes apoyar el desarrollo de la aplicación y comprarme un café. ¡Muchas gracias!</string>
+    <string name="support_the_app_give_feedback">Danos tu opinión</string>
+    <string name="support_the_app_give_feedback_text">¿Te gusta Broccoli? ¡Cuéntanoslo!</string>
+    <string name="support_the_app_tell_your_friends">Decirle a tus amigos</string>
+    <string name="support_the_app_tell_your_friends_text">¿A tus amigos también les gusta cocinar? ¡Háblales de Broccoli!</string>
+    <string name="free_for_everyone">Gratis para todos</string>
+    <string name="buy">Compra</string>
+    <string name="play_store_sign_in_message">Inicia sesión en Google Play Store.</string>
+    <string name="rate_the_app">Valora la aplicación</string>
+    <string name="share_the_app">Comparte la aplicación</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="eggplant">Eggplants</string>
+    <string name="eggplant">Berenjenas</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="eggplant_terms">eggplant, eggplants, aubergine, aubergines</string>
+    <string name="eggplant_terms">berenjena, berenjenas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="cauliflower">Cauliflower</string>
+    <string name="cauliflower">Coliflor</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="cauliflower_terms">cauliflower</string>
+    <string name="cauliflower_terms">coliflor</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="broad_bean">Broad beans</string>
+    <string name="broad_bean">Habas</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="broad_bean_terms">broad beans, fava beans, faba beans</string>
+    <string name="broad_bean_terms">habas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="bean">Beans</string>
+    <string name="bean">Judías verdes</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="bean_terms">common beans, french beans, green beans</string>
+    <string name="bean_terms">judías verdes, habichuelas verdes</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="broccoli">Broccoli</string>
+    <string name="broccoli">Brócoli</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="broccoli_terms">broccoli</string>
+    <string name="broccoli_terms">brócoli</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="chinese_cabbage">Chinese cabbage</string>
+    <string name="chinese_cabbage">Col china</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="chinese_cabbage_terms">chinese cabbage, napa cabbage</string>
+    <string name="chinese_cabbage_terms">col china</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pea">Peas</string>
+    <string name="pea">Guisantes</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pea_terms">peas</string>
+    <string name="pea_terms">guisantes</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="fennel">Fennel</string>
+    <string name="fennel">Hinojo</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="fennel_terms">fennel</string>
+    <string name="fennel_terms">hinojo</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="kale">Kale</string>
+    <string name="kale">Col rizada</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="kale_terms">kale</string>
+    <string name="kale_terms">col rizada</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="cucumber">Cucumbers</string>
+    <string name="cucumber">Pepinos</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="cucumber_terms">cucumber, cucumbers</string>
+    <string name="cucumber_terms">pepino, pepinos</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="celeriac">Celeriac</string>
+    <string name="celeriac">Apio nabo</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="celeriac_terms">celeriac</string>
+    <string name="celeriac_terms">apio nabo</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="kohlrabi">Kohlrabi</string>
+    <string name="kohlrabi">Colinabo</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="kohlrabi_terms">kohlrabi</string>
+    <string name="kohlrabi_terms">colinabo, colinabos</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pumpkin">Pumpkin</string>
+    <string name="pumpkin">Calabaza</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pumpkin_terms">pumpkin, pumpkins, hokkaido</string>
+    <string name="pumpkin_terms">calabaza, calabazas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="leek">Leek</string>
+    <string name="leek">Puerro</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="leek_terms">leek</string>
+    <string name="leek_terms">puerro, puerros, porro, porros</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="corn">Corn</string>
+    <string name="corn">Maíz</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="corn_terms">corn</string>
+    <string name="corn_terms">maíz</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="chard">Chard</string>
+    <string name="chard">Acelga</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="chard_terms">chard</string>
+    <string name="chard_terms">acelga</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="carrot">Carrots</string>
+    <string name="carrot">Zanahorias</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="carrot_terms">carrot, carrots</string>
+    <string name="carrot_terms">zanahoria, zanahorias</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="bell_pepper">Bell peppers</string>
+    <string name="bell_pepper">Pimientos</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="bell_pepper_terms">peppers, bell pepper, bell peppers</string>
+    <string name="bell_pepper_terms">pimiento, pimientos, pimentón, pimentones</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="parsnip">Parsnip</string>
+    <string name="parsnip">Chirivía</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="parsnip_terms">parsnip, parsnips</string>
+    <string name="parsnip_terms">chirivía</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="brussels_sprouts">Brussels sprouts</string>
+    <string name="brussels_sprouts">Coles de Bruselas</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="brussels_sprouts_terms">brussels sprouts</string>
+    <string name="brussels_sprouts_terms">coles de Bruselas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="beetroot">Beetroot</string>
+    <string name="beetroot">Remolacha</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="beetroot_terms">beet, beets, beetroot, beetroots</string>
+    <string name="beetroot_terms">remolacha, remolachas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="red_cabbage">Red cabbage</string>
+    <string name="red_cabbage">Col lombarda</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="red_cabbage_terms">red cabbage</string>
+    <string name="red_cabbage_terms">col lombarda</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="salsify">Salsify</string>
+    <string name="salsify">Salsifí</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="salsify_terms">salsify</string>
+    <string name="salsify_terms">salsifí</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="asparagus">Asparagus</string>
+    <string name="asparagus">Espárragos</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="asparagus_terms">asparagus</string>
+    <string name="asparagus_terms">espárragos</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="spinach">Spinach</string>
+    <string name="spinach">Espinacas</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="spinach_terms">spinach</string>
+    <string name="spinach_terms">espinacas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="celery">Celery</string>
+    <string name="celery">Apio</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="celery_terms">celery</string>
+    <string name="celery_terms">apio</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="turnip">Turnips</string>
+    <string name="turnip">Nabos</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="turnip_terms">turnip, turnips</string>
+    <string name="turnip_terms">nabo, nabos</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="tomato">Tomatoes</string>
+    <string name="tomato">Tomates</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="tomato_terms">tomato, tomatoes</string>
+    <string name="tomato_terms">tomate, tomates</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="white_cabbage">White cabbage</string>
+    <string name="white_cabbage">Col blanca</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="white_cabbage_terms">white cabbage, green cabbage</string>
+    <string name="white_cabbage_terms">col blanca</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="savoy_cabbage">Savoy cabbage</string>
+    <string name="savoy_cabbage">Col de Saboya</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="savoy_cabbage_terms">savoy cabbage</string>
+    <string name="savoy_cabbage_terms">col de Milán, col de Saboya</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="zucchini">Zucchini</string>
+    <string name="zucchini">Calabacines</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="zucchini_terms">zucchini, courgette, courgettes</string>
+    <string name="zucchini_terms">calabacín, calabacines</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="wild_garlic">Wild garlic</string>
+    <string name="wild_garlic">Ajo silvestre</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="wild_garlic_terms">wild garlic</string>
+    <string name="wild_garlic_terms">ajo silvestre, ajo de oso</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="apple">Apples</string>
+    <string name="apple">Manzanas</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="apple_terms">apple, apples</string>
+    <string name="apple_terms">manzana, manzanas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="apricot">Apricots</string>
+    <string name="apricot">Albaricoques</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="apricot_terms">apricot, apricots</string>
+    <string name="apricot_terms">albaricoque, albaricoques</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pear">Pears</string>
+    <string name="pear">Peras</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pear_terms">pear, pears</string>
+    <string name="pear_terms">pera, peras</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="strawberry">Strawberries</string>
+    <string name="strawberry">Fresas</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="strawberry_terms">strawberries</string>
+    <string name="strawberry_terms">fresas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="cherry">Cherries</string>
+    <string name="cherry">Cerezas</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="cherry_terms">cherries</string>
+    <string name="cherry_terms">cerezas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="rhubarb">Rhubarb</string>
+    <string name="rhubarb">Ruibarbo</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="rhubarb_terms">rhubarb</string>
+    <string name="rhubarb_terms">ruibarbo</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="plum">Plums</string>
+    <string name="plum">Ciruelas</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="plum_terms">plum, plums</string>
+    <string name="plum_terms">ciruela, ciruelas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="avocado">Avocados</string>
+    <string name="avocado">Aguacates</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="avocado_terms">avocado, avocados</string>
+    <string name="avocado_terms">aguacate, aguacates</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="sweet_potato">Sweet potatoes</string>
+    <string name="sweet_potato">Batatas</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="sweet_potato_terms">sweet potato, sweet potatoes</string>
+    <string name="sweet_potato_terms">batata, batatas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="lemon">Lemons</string>
+    <string name="lemon">Limones</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="lemon_terms">lemon, lemons</string>
+    <string name="lemon_terms">limón, limones</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="orange">Oranges</string>
+    <string name="orange">Naranjas</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="orange_terms">orange, oranges</string>
+    <string name="orange_terms">naranja, naranjas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="lime">Limes</string>
+    <string name="lime">Limas</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="lime_terms">lime, limes</string>
+    <string name="lime_terms">lima, limas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="summer_squash">Summer squash</string>
+    <string name="summer_squash">Calabaza de verano</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="summer_squash_terms">summer squash</string>
+    <string name="summer_squash_terms">calabaza de verano, calabazas de verano</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="winter_squash">Winter squash</string>
+    <string name="winter_squash">Calabaza de invierno</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="winter_squash_terms">winter squash, butternut squash, acorn squash, spaghetti squash</string>
+    <string name="winter_squash_terms">calabaza de invierno, calabazas de invierno</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pomegranate">Pomegranates</string>
+    <string name="pomegranate">Granadas</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pomegranate_terms">pomegranate, pomegranates</string>
+    <string name="pomegranate_terms">granada, granadas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="blueberries">Blueberries</string>
+    <string name="blueberries">Arándanos</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="blueberries_terms">blueberries</string>
+    <string name="blueberries_terms">arándanos</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="raspberries">Raspberries</string>
+    <string name="raspberries">Frambuesas</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="raspberries_terms">raspberries</string>
+    <string name="raspberries_terms">frambuesas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="blackberries">Blackberries</string>
+    <string name="blackberries">Moras</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="blackberries_terms">blackberries</string>
+    <string name="blackberries_terms">moras</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="mirabelles">Mirabelles</string>
+    <string name="mirabelles">Mirabeles</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="mirabelles_terms">mirabelles</string>
+    <string name="mirabelles_terms">mirabeles</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="gooseberries">Gooseberries</string>
+    <string name="gooseberries">Grosellas</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="gooseberries_terms">gooseberries</string>
+    <string name="gooseberries_terms">grosellas</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="lambs_lettuce">Lamb\'s lettuce</string>
+    <string name="lambs_lettuce">Hojas de canónigos</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="lambs_lettuce_terms">lamb\'s lettuce</string>
+    <string name="lambs_lettuce_terms">hojas de canónigos</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pointed_cabbage">Pointed cabbage</string>
+    <string name="pointed_cabbage">Col de Filder</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pointed_cabbage_terms">pointed cabbage</string>
+    <string name="pointed_cabbage_terms">col de Filder, berza de Filder, col puntiaguda</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="champignons">Champignons</string>
+    <string name="champignons">Champiñones</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="champignons_terms">champignons</string>
+    <string name="champignons_terms">champiñones</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Abalone. -->
     <string name="abalone">Abalone</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Abalone. -->
