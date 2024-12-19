@@ -11,6 +11,7 @@
     <string name="title_should_not_be_empty_message">Molimo dodajte naslov.</string>
     <string name="recipe_saved_message">Recept je sačuvan.</string>
     <string name="recipe_could_not_be_saved_message">Recept nije moguće sačuvati.</string>
+    <string name="duplicate_action">Duplicate</string>
     <string name="delete_action">Izbriši</string>
     <string name="delete_recipe_question">Izbriši ovaj recept?</string>
     <string name="recipe_deleted_message">Recept je obrisan.</string>
@@ -23,7 +24,13 @@
     <string name="preparation_time">Vreme</string>
     <string name="ingredients">Sastojci</string>
     <string name="directions">Uputstva</string>
+    <string name="nutritional_values">Nutrition</string>
     <string name="notes">Notes</string>
+    <string name="serving">Serving</string>
+    <string name="calories">Calories</string>
+    <string name="fat">Fat</string>
+    <string name="carbohydrates">Carbohydrates</string>
+    <string name="protein">Protein</string>
     <string name="recipe_photo_accessibility">Slika recepta</string>
     <string name="change_photo">Promeni fotografiju</string>
     <string name="remove_photo">Ukloni sliku</string>

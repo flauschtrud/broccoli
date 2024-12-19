@@ -11,6 +11,7 @@
     <string name="title_should_not_be_empty_message">Voer een titel in.</string>
     <string name="recipe_saved_message">Het recept is opgeslagen.</string>
     <string name="recipe_could_not_be_saved_message">Het recept kon niet worden opgeslagen.</string>
+    <string name="duplicate_action">Duplicate</string>
     <string name="delete_action">Verwijderen</string>
     <string name="delete_recipe_question">Verwijder dit recept?</string>
     <string name="recipe_deleted_message">Het recept is verwijderd.</string>
@@ -23,7 +24,13 @@
     <string name="preparation_time">Tijd</string>
     <string name="ingredients">Ingrediënten</string>
     <string name="directions">Instructies</string>
+    <string name="nutritional_values">Nutrition</string>
     <string name="notes">Notes</string>
+    <string name="serving">Serving</string>
+    <string name="calories">Calories</string>
+    <string name="fat">Fat</string>
+    <string name="carbohydrates">Carbohydrates</string>
+    <string name="protein">Protein</string>
     <string name="recipe_photo_accessibility">Recept foto</string>
     <string name="change_photo">Foto wijzigen</string>
     <string name="remove_photo">Foto verwijderen</string>

@@ -11,6 +11,7 @@
     <string name="title_should_not_be_empty_message">Пожалуйста, добавьте название.</string>
     <string name="recipe_saved_message">Рецепт сохранен.</string>
     <string name="recipe_could_not_be_saved_message">Не удалось сохранить рецепт.</string>
+    <string name="duplicate_action">Duplicate</string>
     <string name="delete_action">Удалить</string>
     <string name="delete_recipe_question">Удалить этот рецепт?</string>
     <string name="recipe_deleted_message">Рецепт удален.</string>
@@ -23,7 +24,13 @@
     <string name="preparation_time">Время</string>
     <string name="ingredients">Ингредиенты</string>
     <string name="directions">Шаги</string>
+    <string name="nutritional_values">Nutrition</string>
     <string name="notes">Notes</string>
+    <string name="serving">Serving</string>
+    <string name="calories">Calories</string>
+    <string name="fat">Fat</string>
+    <string name="carbohydrates">Carbohydrates</string>
+    <string name="protein">Protein</string>
     <string name="recipe_photo_accessibility">Фото рецепта</string>
     <string name="change_photo">Изменить фото</string>
     <string name="remove_photo">Удалить фото</string>

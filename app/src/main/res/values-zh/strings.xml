@@ -11,6 +11,7 @@
     <string name="title_should_not_be_empty_message">请输入标题。</string>
     <string name="recipe_saved_message">食谱已被保存.</string>
     <string name="recipe_could_not_be_saved_message">无法保存食谱。</string>
+    <string name="duplicate_action">复制</string>
     <string name="delete_action">删除</string>
     <string name="delete_recipe_question">删除此食谱？</string>
     <string name="recipe_deleted_message">该食谱已被删除</string>
@@ -23,7 +24,13 @@
     <string name="preparation_time">耗时</string>
     <string name="ingredients">食材</string>
     <string name="directions">指示</string>
+    <string name="nutritional_values">营养</string>
     <string name="notes">注</string>
+    <string name="serving">份量</string>
+    <string name="calories">卡路里</string>
+    <string name="fat">脂肪</string>
+    <string name="carbohydrates">碳水化合物</string>
+    <string name="protein">蛋白质</string>
     <string name="recipe_photo_accessibility">食谱照片</string>
     <string name="change_photo">更改照片</string>
     <string name="remove_photo">删除照片</string>
