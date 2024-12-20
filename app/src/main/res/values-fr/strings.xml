@@ -11,7 +11,7 @@
     <string name="title_should_not_be_empty_message">Ajouter un titre.</string>
     <string name="recipe_saved_message">La recette a été enregistrée.</string>
     <string name="recipe_could_not_be_saved_message">La recette n\'a pas pu être enregistrée.</string>
-    <string name="duplicate_action">Duplicate</string>
+    <string name="duplicate_action">Dupliquer</string>
     <string name="delete_action">Supprimer</string>
     <string name="delete_recipe_question">Supprimer cette recette ?</string>
     <string name="recipe_deleted_message">La recette a été supprimée.</string>
@@ -24,13 +24,13 @@
     <string name="preparation_time">Temps</string>
     <string name="ingredients">Ingrédients</string>
     <string name="directions">Préparation</string>
-    <string name="nutritional_values">Nutrition</string>
+    <string name="nutritional_values">Informations nutritionnelles</string>
     <string name="notes">Notes</string>
-    <string name="serving">Serving</string>
+    <string name="serving">Portion</string>
     <string name="calories">Calories</string>
-    <string name="fat">Fat</string>
-    <string name="carbohydrates">Carbohydrates</string>
-    <string name="protein">Protein</string>
+    <string name="fat">Matières grasses</string>
+    <string name="carbohydrates">Glucides</string>
+    <string name="protein">Protéines</string>
     <string name="recipe_photo_accessibility">Photo de la recette</string>
     <string name="change_photo">Changer de photo</string>
     <string name="remove_photo">Supprimer la photo</string>
@@ -115,7 +115,7 @@
     <string name="region_central_europe">Europe centrale</string>
     <string name="region_north_america_colder">Amérique du Nord (plus froide)</string>
     <string name="region_north_america_warmer">Amérique du Nord (plus chaude)</string>
-    <string name="region_japan">Japan</string>
+    <string name="region_japan">Japon</string>
     <string name="english">Anglais</string>
     <string name="spanish">Espagnol</string>
     <string name="french">Français</string>
@@ -129,7 +129,7 @@
     <string name="brazilian_portuguese">Portugais brésilien</string>
     <string name="norwegian_bokmal">Norvégien (Bokmål)</string>
     <string name="russian">Russe</string>
-    <string name="japanese">Japanese</string>
+    <string name="japanese">Japonais</string>
     <string name="support_the_app">Soutenir l\'application</string>
     <string name="support_the_app_donate">Faire un don</string>
     <string name="support_the_app_donate_text_playstore">Broccoli est gratuit pour tout le monde. Mais vous pouvez soutenir le développement de l\'application et m\'acheter un cookie, un café ou un burger. Merci beaucoup!</string>
@@ -492,9 +492,9 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="garlic_terms">garlic</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="garlic_chives">Garlic chives</string>
+    <string name="garlic_chives">Ciboulette</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="garlic_chives_terms">garlic chives</string>
+    <string name="garlic_chives_terms">ciboulette, civette</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Petasites_japonicus. -->
     <string name="butterbur">Butterbut</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Petasites_japonicus. -->
@@ -520,9 +520,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Goosefish. -->
     <string name="goosefish_terms">goosefish</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="grape">Grapes</string>
+    <string name="grape">Raisins</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="grape_terms">grapes</string>
+    <string name="grape_terms">raisins</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Arctium_lappa. -->
     <string name="gobo">Gobo</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Arctium_lappa. -->
@@ -620,9 +620,9 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="kiwi_terms">kiwi, kiwis</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
-    <string name="radish">Radish</string>
+    <string name="radish">Radis</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="radish_terms">Radish</string>
+    <string name="radish_terms">Radis</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Largehead_hairtail. -->
     <string name="largehead_hairtail">Largehead hairtail</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Largehead_hairtail. -->
@@ -728,13 +728,13 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Pacific_saury. -->
     <string name="pacific_saury_terms">pacific saury, pacific sauries, mackarel pike, mackarel pikes</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="parsley">Parsley</string>
+    <string name="parsley">Persil</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="parsley_terms">parsley</string>
+    <string name="parsley_terms">persil</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="peach">Peaches</string>
+    <string name="peach">Pêches</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="peach_terms">peach, peaches</string>
+    <string name="peach_terms">pêche, pêches</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="peanut">Peanuts</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -796,9 +796,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Pleuronectidae. -->
     <string name="righteye_flounder_terms">righteye flounder, righteye flounders</string>
     <!-- A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Eruca_vesicaria. -->
-    <string name="rocket">Rocket</string>
+    <string name="rocket">Roquette</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="rocket_terms">rocket, eruca, arugula</string>
+    <string name="rocket_terms">roquette</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Japanese_sandfish. -->
     <string name="japanese_sandfish">Japanese sandfish</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Japanese_sandfish. -->
@@ -936,9 +936,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Oenanthe_javanica. -->
     <string name="water_dropwort_terms">water celery, water dropwort, chinese celery, indian pennywort, minari, japanese parsley</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="watermelon">Watermelons</string>
+    <string name="watermelon">Pastèques</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="watermelon_terms">watermelon, watermelons</string>
+    <string name="watermelon_terms">pastèque, pastèques, melon d\'eau, melons d\'eau</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Wax_gourd. -->
     <string name="wax_gourd">Wax gourd</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Wax_gourd. -->
