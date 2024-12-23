@@ -72,4 +72,4 @@ Available regions for:
 - Central Europe
 - North America (colder)
 - North America (warmer)
-- Japan (thanks a lot to [FileX](https://github.com/cd-FileX) creating this calendar!)
+- Japan (thanks a lot to [FileX](https://github.com/cd-FileX) for creating this calendar!)
