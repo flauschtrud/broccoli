@@ -63,6 +63,13 @@ Available languages so far:
 - Hebrew (thanks a lot to Eldar for your help!)
 - Brazilian Portuguese (thanks a lot to [joemaal](https://github.com/joemaal) for your help!)
 - Russian (thanks a lot to Степан for your help!)
+- Japanese (thanks a lot to [FileX](https://github.com/cd-FileX) for your help!)
 
 ### Seasonal Calendars
 If you want to contribute by researching data for additional seasonal calendars please contact me.
+
+Available regions for:
+- Central Europe
+- North America (colder)
+- North America (warmer)
+- Japan (thanks a lot to [FileX](https://github.com/cd-FileX) creating this calendar!)
