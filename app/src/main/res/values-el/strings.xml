@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="recipes">Συνταγές</string>
-    <string name="no_recipes_found">No recipes found.</string>
-    <string name="create_a_recipe_prompt">create a new recipe</string>
-    <string name="import_from_the_web_prompt">import a recipe from a website</string>
+    <string name="no_recipes_found">Δε βρέθηκαν συνταγές.</string>
+    <string name="create_a_recipe_prompt">δημιούργησε νέα συνταγή</string>
+    <string name="import_from_the_web_prompt">εισήγαγε μια συνταγή από μια ιστοσελίδα</string>
     <string name="new_recipe">Νέα Συνταγή</string>
-    <string name="create_first_recipe">Create your first recipe and start your collection!</string>
+    <string name="create_first_recipe">Δημιούργησε την πρώτη σου συνταγή και ξεκίνησε τη συλλογή σου!</string>
     <string name="edit_action">Επεξεργασία</string>
     <string name="save_action">Αποθήκευση</string>
-    <string name="title_should_not_be_empty_message">Please add a title.</string>
-    <string name="recipe_saved_message">The recipe has been saved.</string>
-    <string name="recipe_could_not_be_saved_message">The recipe could not be saved.</string>
-    <string name="duplicate_action">Duplicate</string>
+    <string name="title_should_not_be_empty_message">Παρακαλώ πρόσθεσε τίτλο.</string>
+    <string name="recipe_saved_message">Η συνταγή έχει αποθηκευτεί.</string>
+    <string name="recipe_could_not_be_saved_message">Δεν ήταν δυνατή η αποθήκευση της συνταγής.</string>
+    <string name="duplicate_action">Διπλότυπο</string>
     <string name="delete_action">Διαγραφή</string>
-    <string name="delete_recipe_question">Delete this recipe?</string>
-    <string name="recipe_deleted_message">The recipe has been deleted.</string>
-    <string name="discard_action">Discard</string>
-    <string name="discard_changes_question">Discard changes?</string>
-    <string name="title">Title</string>
+    <string name="delete_recipe_question">Διαγραφή αυτής της συνταγής;</string>
+    <string name="recipe_deleted_message">Η συνταγή έχει διαγραφεί.</string>
+    <string name="discard_action">Απόρριψη</string>
+    <string name="discard_changes_question">Απόρριψη αλλαγών;</string>
+    <string name="title">Τίτλος</string>
     <string name="description">Περιγραφή</string>
     <string name="source">Πηγή</string>
     <string name="servings">Μερίδες</string>
     <string name="preparation_time">Χρόνος</string>
     <string name="ingredients">Υλικά</string>
     <string name="directions">Οδηγίες</string>
-    <string name="nutritional_values">Nutrition</string>
-    <string name="notes">Notes</string>
-    <string name="serving">Serving</string>
-    <string name="calories">Calories</string>
-    <string name="fat">Fat</string>
-    <string name="carbohydrates">Carbohydrates</string>
-    <string name="protein">Protein</string>
+    <string name="nutritional_values">Θρεπτική Αξία</string>
+    <string name="notes">Σημειώσεις</string>
+    <string name="serving">Μερίδα</string>
+    <string name="calories">Θερμίδες</string>
+    <string name="fat">Λιπαρά</string>
+    <string name="carbohydrates">Υδατάνθρακες</string>
+    <string name="protein">Πρωτεΐνες</string>
     <string name="recipe_photo_accessibility">Φωτογραφία συνταγής</string>
     <string name="change_photo">Αλλαγή φωτογραφίας</string>
     <string name="remove_photo">Αφαίρεση φωτογραφίας</string>
@@ -38,151 +38,151 @@
     <string name="pick_photo">Επιλογή φωτογραφίας</string>
     <string name="image_could_not_be_created_message">Δεν ήταν δυνατή η δημιουργία αρχείου εικόνας.</string>
     <string name="categories">Κατηγορίες</string>
-    <string name="create_a_category_prompt">Create custom categories to manage your recipes.</string>
+    <string name="create_a_category_prompt">Δημιούργησε προσαρμοσμένες κατηγορίες για τη διαχείριση των συνταγών σου.</string>
     <string name="add_category">Προσθήκη κατηγορίας</string>
-    <string name="add_first_category">Add your first custom category and bring order into your collection!</string>
+    <string name="add_first_category">Προσέθεσε την πρώτη σου κατηγορία και οργάνωσε τη συλλογή σου!</string>
     <string name="edit_category">Επεξεργασία κατηγορίας</string>
     <string name="category_name">Όνομα</string>
     <string name="no_categories_message">Δεν έχουν δημιουργηθεί ακόμα κατηγορίες.</string>
-    <string name="all_recipes">All recipes</string>
+    <string name="all_recipes">Όλες τις συνταγές</string>
     <string name="mark_as_favorite_action">Επισήμανση ως αγαπημένο</string>
     <string name="remove_from_favorite_action">Αφαίρεση από τα αγαπημένα</string>
     <string name="favorites">Αγαπημένα</string>
     <string name="delete_category_question">Είστε σίγουροι ότι θέλετε να διαγράψετε αυτήν την κατηγορία;</string>
     <string name="unassigned">Συνταγές χωρίς κατηγορία</string>
     <string name="search">Αναζήτηση</string>
-    <string name="search_in">Search in %1$s</string>
-    <string name="preferred_category">Preferred category</string>
-    <string name="cooking_assistant">Cooking assistant</string>
-    <string name="cooking_assistant_prompt">Cook your recipe in fullscreen mode without distractions!</string>
-    <string name="no_ingredients_and_directions_message">This recipe does not have any ingredients or directions yet.</string>
-    <string name="cook_action">Cook</string>
-    <string name="adjust_ingredients">Adjust ingredients</string>
-    <string name="adjust_ingredients_prompt">Choose how many servings you want to cook!</string>
-    <string name="scaling_simple">Simple</string>
+    <string name="search_in">Αναζήτηση σε %1$s</string>
+    <string name="preferred_category">Προτιμώμενη κατηγορία</string>
+    <string name="cooking_assistant">Βοηθός μαγειρικής</string>
+    <string name="cooking_assistant_prompt">Μαγείρεψε τη συνταγή σου σε λειτουργία πλήρους οθόνης χωρίς περισπασμούς!</string>
+    <string name="no_ingredients_and_directions_message">Αυτή η συνταγή δεν έχει ακόμα υλικά ή οδηγίες.</string>
+    <string name="cook_action">Μαγείρεμα</string>
+    <string name="adjust_ingredients">Προσαρμογή υλικών</string>
+    <string name="adjust_ingredients_prompt">Επίλεξε πόσες μερίδες θέλεις να μαγειρέψεις!</string>
+    <string name="scaling_simple">Απλά</string>
     <string name="scaling_pro">Pro</string>
-    <string name="recipe_amount">Recipe amount</string>
-    <string name="scaling_factor">Scaling factor</string>
-    <string name="share_action">Share</string>
-    <string name="shared_with">Shared with %1$s</string>
-    <string name="recipe_could_not_be_imported_message">Sorry, this did not work.</string>
-    <string name="recipe_could_not_be_read_message">Sorry, this recipe can not be read.</string>
-    <string name="share_as_file_action">Share as file</string>
-    <string name="recipe_could_not_be_exported_message">The recipe could not be exported.</string>
-    <string name="backup_and_restore">Backup and restore</string>
-    <string name="backup">Backup</string>
-    <string name="restore">Restore</string>
-    <string name="backup_recipes">Backup recipes</string>
-    <string name="backup_recipes_message">Export all your recipes and categories and save them wherever you want.</string>
-    <string name="restore_recipes">Restore recipes</string>
-    <string name="restore_recipes_message">Import all recipes and categories from a backup file.</string>
-    <string name="backup_failed_message">The recipes could not be exported.</string>
-    <string name="restore_failed_message">The recipes could not be imported.</string>
-    <string name="restore_all_question">Do you want to import all recipes and categories from this file?</string>
-    <string name="restore_completed_message">%1$d recipes have been imported.</string>
-    <string name="last_backup">Last backup</string>
-    <string name="about_the_app">About the app</string>
-    <string name="help">Help</string>
-    <string name="legal_policies">Legal</string>
-    <string name="send_feedback">Send feedback</string>
-    <string name="send_feedback_message">Did you find a bug or do you miss a feature? </string>
-    <string name="feedback_subject">Feedback for Broccoli app</string>
-    <string name="version">Version</string>
-    <string name="settings">Settings</string>
-    <string name="general_settings">General settings</string>
+    <string name="recipe_amount">Ποσότητα συνταγής</string>
+    <string name="scaling_factor">Συντελεστής κλίμακας</string>
+    <string name="share_action">Κοινοποίηση</string>
+    <string name="shared_with">Κοινοποιήθηκε με %1$s</string>
+    <string name="recipe_could_not_be_imported_message">Λυπούμαστε, αυτό δε δούλεψε.</string>
+    <string name="recipe_could_not_be_read_message">Λυπούμαστε, αυτή η συνταγή δεν μπορεί να διαβαστεί.</string>
+    <string name="share_as_file_action">Κοινοποίηση ως αρχείο</string>
+    <string name="recipe_could_not_be_exported_message">Δεν ήταν δυνατή η εξαγωγή της συνταγής.</string>
+    <string name="backup_and_restore">Αντίγραφο ασφαλείας και επαναφορά</string>
+    <string name="backup">Αντίγραφο Ασφαλείας</string>
+    <string name="restore">Επαναφορά</string>
+    <string name="backup_recipes">Αντίγραφο ασφαλείας συνταγών</string>
+    <string name="backup_recipes_message">Εξάγαγε όλες τις συνταγές και κατηγορίες σου και αποθήκευσε τις όπου θέλεις.</string>
+    <string name="restore_recipes">Επαναφορά συνταγών</string>
+    <string name="restore_recipes_message">Εισαγωγή όλων των συνταγών και κατηγοριών από ένα αρχείο αντιγράφου ασφαλείας.</string>
+    <string name="backup_failed_message">Δεν ήταν δυνατή η εξαγωγή των συνταγών.</string>
+    <string name="restore_failed_message">Δεν ήταν δυνατή η εισαγωγή των συνταγών.</string>
+    <string name="restore_all_question">Θέλεις να εισάγεις όλες τις συνταγές και κατηγορίες από αυτό το αρχείο;</string>
+    <string name="restore_completed_message">%1$d συνταγές έχουν εισαχθεί.</string>
+    <string name="last_backup">Τελευταίο αντίγραφο ασφαλείας</string>
+    <string name="about_the_app">Σχετικά με την εφαρμογή</string>
+    <string name="help">Βοήθεια</string>
+    <string name="legal_policies">Νομικές πληροφορίες</string>
+    <string name="send_feedback">Στείλε σχόλια</string>
+    <string name="send_feedback_message">Βρήκατε ένα σφάλμα ή σας λείπει κάποιο χαρακτηριστικό; </string>
+    <string name="feedback_subject">Σχόλια για την εφαρμογή Broccoli</string>
+    <string name="version">Έκδοση</string>
+    <string name="settings">Ρυθμίσεις</string>
+    <string name="general_settings">Γενικές ρυθμίσεις</string>
     <!-- https://support.google.com/chrome/answer/9275525?hl=en -->
-    <string name="design">Theme</string>
-    <string name="light">Light</string>
-    <string name="dark">Dark</string>
-    <string name="system_default">System default</string>
-    <string name="privacy_policy">Privacy policy</string>
-    <string name="privacy_policy_summary">Learn more about how we protect your personal data.</string>
-    <string name="demo_recipe">Demo recipe</string>
+    <string name="design">Θέμα</string>
+    <string name="light">Φωτεινό</string>
+    <string name="dark">Σκοτεινό</string>
+    <string name="system_default">Προεπιλογή συστήματος</string>
+    <string name="privacy_policy">Πολιτική απορρήτου</string>
+    <string name="privacy_policy_summary">Μάθε περισσότερα για το πως προστατεύουμε τα προσωπικά σου δεδομένα.</string>
+    <string name="demo_recipe">Δοκιμαστική συνταγή</string>
     <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
-    <string name="open_source_licenses">Open source licenses</string>
-    <string name="open_source_licenses_text">License details for open source software</string>
-    <string name="seasonal_calendar">Seasonal calendar</string>
-    <string name="seasonal_accessibility">Seasonal ingredient(s)</string>
-    <string name="seasonal_recipes">Seasonal recipes</string>
-    <string name="seasonal_ingredients_accessibility">Seasonal ingredients</string>
-    <string name="seasons_not_configured_message">The seasonal calendar has not been fully configured yet.</string>
-    <string name="configure_seasons_action">Configure</string>
-    <string name="region">Region</string>
-    <string name="languages_of_recipes">Languages of recipes</string>
-    <string name="no_language_set_message">In which languages do you create your recipes? Choose at least one language.</string>
-    <string name="seasons_feedback_message">Do you miss your region, language or favorite ingredient?</string>
-    <string name="seasons_feedback_subject">Feedback for Seasonal Calendar</string>
-    <string name="region_central_europe">Central Europe</string>
-    <string name="region_north_america_colder">North America (colder)</string>
-    <string name="region_north_america_warmer">North America (warmer)</string>
-    <string name="region_japan">Japan</string>
-    <string name="english">English</string>
-    <string name="spanish">Spanish</string>
-    <string name="french">French</string>
-    <string name="german">German</string>
-    <string name="polish">Polish</string>
-    <string name="italian">Italian</string>
-    <string name="chinese">Chinese</string>
-    <string name="turkish">Turkish</string>
-    <string name="serbian_latin">Serbian (Latin)</string>
-    <string name="hebrew">Hebrew</string>
-    <string name="brazilian_portuguese">Brazilian Portuguese</string>
-    <string name="norwegian_bokmal">Norwegian (Bokmål)</string>
-    <string name="russian">Russian</string>
-    <string name="japanese">Japanese</string>
-    <string name="support_the_app">Support the app</string>
-    <string name="support_the_app_donate">Donate</string>
-    <string name="support_the_app_donate_text_playstore">Broccoli is free for everyone. But you can support the development of the app and buy me a cookie, coffee or burger. Thanks a lot!</string>
-    <string name="support_the_app_donate_text_fdroid">Broccoli is free for everyone. But you can support the development of the app and buy me a coffee. Thanks a lot!</string>
-    <string name="support_the_app_give_feedback">Give feedback</string>
-    <string name="support_the_app_give_feedback_text">Do you like Broccoli? Tell us about it!</string>
-    <string name="support_the_app_tell_your_friends">Tell your friends</string>
-    <string name="support_the_app_tell_your_friends_text">Do your friends also like to cook? Tell them about Broccoli!</string>
-    <string name="free_for_everyone">Free for everyone</string>
-    <string name="buy">Buy</string>
-    <string name="play_store_sign_in_message">Please sign in to Google Play Store.</string>
-    <string name="rate_the_app">Rate the app</string>
-    <string name="share_the_app">Share the app</string>
+    <string name="open_source_licenses">Άδειες λογισμικού ανοικτού κώδικα</string>
+    <string name="open_source_licenses_text">Λεπτομέρειες άδειας λογισμικού ανοιχτού κώδικα</string>
+    <string name="seasonal_calendar">Εποχιακό ημερολόγιο</string>
+    <string name="seasonal_accessibility">Εποχικά συστατικά</string>
+    <string name="seasonal_recipes">Εποχιακές συνταγές</string>
+    <string name="seasonal_ingredients_accessibility">Εποχικά υλικά</string>
+    <string name="seasons_not_configured_message">Το εποχιακό ημερολόγιο δεν έχει ρυθμιστεί πλήρως ακόμα.</string>
+    <string name="configure_seasons_action">Ρύθμιση</string>
+    <string name="region">Περιοχή</string>
+    <string name="languages_of_recipes">Γλώσσες των συνταγών</string>
+    <string name="no_language_set_message">Σε ποιες γλώσσες θα δημιουργήσεις τις συνταγές σου; Επέλεξε τουλάχιστον μία.</string>
+    <string name="seasons_feedback_message">Λείπει η περιοχή σου, γλώσσα ή αγαπημένο υλικό;</string>
+    <string name="seasons_feedback_subject">Στείλε σχόλια για το Εποχιακό Ημερολόγιο</string>
+    <string name="region_central_europe">Κεντρική Ευρώπη</string>
+    <string name="region_north_america_colder">Βόρεια Αμερική (ψυχρότερη)</string>
+    <string name="region_north_america_warmer">Βόρεια Αμερική (θερμότερη)</string>
+    <string name="region_japan">Ιαπωνικά</string>
+    <string name="english">Αγγλικά</string>
+    <string name="spanish">Ισπανικά</string>
+    <string name="french">Γαλλικά</string>
+    <string name="german">Γερμανικά</string>
+    <string name="polish">Πολωνικά</string>
+    <string name="italian">Ιταλικά</string>
+    <string name="chinese">Κινέζικα</string>
+    <string name="turkish">Τούρκικα</string>
+    <string name="serbian_latin">Σέρβικα (Λατινικά)</string>
+    <string name="hebrew">Εβραϊκά</string>
+    <string name="brazilian_portuguese">Βραζιλιάνικα Πορτογαλικά</string>
+    <string name="norwegian_bokmal">Νορβηγικά (Bokmål)</string>
+    <string name="russian">Ρώσικα</string>
+    <string name="japanese">Ιαπωνικά</string>
+    <string name="support_the_app">Υποστηρίξτε την εφαρμογή</string>
+    <string name="support_the_app_donate">Δωρεά</string>
+    <string name="support_the_app_donate_text_playstore">Το Broccoli είναι δωρεάν για όλους. Αλλά μπορείς να υποστηρίξεις την ανάπτυξη της εφαρμογής και να μου αγοράσεις ένα μπισκότο, καφέ ή μπέργκερ. Ευχαριστώ πολύ!</string>
+    <string name="support_the_app_donate_text_fdroid">Το Broccoli είναι δωρεάν για όλους. Αλλά μπορείς να υποστηρίξεις την ανάπτυξη της εφαρμογής και να μου αγοράσεις έναν καφέ. Ευχαριστώ πολύ!</string>
+    <string name="support_the_app_give_feedback">Υπέβαλε Σχόλια</string>
+    <string name="support_the_app_give_feedback_text">Σου αρέσει το Broccoli? Πες μας γι \'αυτό!</string>
+    <string name="support_the_app_tell_your_friends">Ενημερώστε τους φίλους σας</string>
+    <string name="support_the_app_tell_your_friends_text">Αρέσει και στους φίλου σου να μαγειρεύουν; Πες τους για το Broccoli!</string>
+    <string name="free_for_everyone">Δωρεάν για όλους</string>
+    <string name="buy">Αγορά</string>
+    <string name="play_store_sign_in_message">Παρακαλούμε συνδεθείτε στο Google Play Store.</string>
+    <string name="rate_the_app">Βαθμολόγησε την εφαρμογή</string>
+    <string name="share_the_app">Κοινοποίησε την Εφαρμογή</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="eggplant">Eggplants</string>
+    <string name="eggplant">Μελιτζάνες</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="eggplant_terms">eggplant, eggplants, aubergine, aubergines</string>
+    <string name="eggplant_terms">μελιτζάνα, μελιτζάνες</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="cauliflower">Cauliflower</string>
+    <string name="cauliflower">Κουνουπίδι</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="cauliflower_terms">cauliflower</string>
+    <string name="cauliflower_terms">κουνουπίδι, κουνουπίδια</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="broad_bean">Broad beans</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="broad_bean_terms">broad beans, fava beans, faba beans</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="bean">Beans</string>
+    <string name="bean">Φασόλια</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="bean_terms">common beans, french beans, green beans</string>
+    <string name="bean_terms">κοινά φασόλια, γαλλικά φασόλια, πράσινα φασόλια</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="broccoli">Broccoli</string>
+    <string name="broccoli">Μπρόκολο</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="broccoli_terms">broccoli</string>
+    <string name="broccoli_terms">μπρόκολο, μπρόκολα</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="chinese_cabbage">Chinese cabbage</string>
+    <string name="chinese_cabbage">Κινέζικο λάχανο</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="chinese_cabbage_terms">chinese cabbage, napa cabbage</string>
+    <string name="chinese_cabbage_terms">κινέζικο λάχανο, λάχανο νάπα</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pea">Peas</string>
+    <string name="pea">Αρακάς</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pea_terms">peas</string>
+    <string name="pea_terms">αρακάς, μπιζέλι, μπιζέλια</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="fennel">Fennel</string>
+    <string name="fennel">Μάραθο</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="fennel_terms">fennel</string>
+    <string name="fennel_terms">μάραθο, μάραθος</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="kale">Kale</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="kale_terms">kale</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="cucumber">Cucumbers</string>
+    <string name="cucumber">Αγγούρια</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="cucumber_terms">cucumber, cucumbers</string>
+    <string name="cucumber_terms">αγγούρι, αγγούρια</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="celeriac">Celeriac</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -192,133 +192,133 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="kohlrabi_terms">kohlrabi</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pumpkin">Pumpkin</string>
+    <string name="pumpkin">Κολοκύθα</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pumpkin_terms">pumpkin, pumpkins, hokkaido</string>
+    <string name="pumpkin_terms">κολοκύθα, κολοκύθες</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="leek">Leek</string>
+    <string name="leek">Πράσο</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="leek_terms">leek</string>
+    <string name="leek_terms">πράσο, πράσα</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="corn">Corn</string>
+    <string name="corn">Καλαμπόκι</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="corn_terms">corn</string>
+    <string name="corn_terms">καλαμπόκι, καλαμπόκια</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="chard">Chard</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="chard_terms">chard</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="carrot">Carrots</string>
+    <string name="carrot">Καρότα</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="carrot_terms">carrot, carrots</string>
+    <string name="carrot_terms">καρότο, καρότα</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="bell_pepper">Bell peppers</string>
+    <string name="bell_pepper">Πιπεριές</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="bell_pepper_terms">peppers, bell pepper, bell peppers</string>
+    <string name="bell_pepper_terms">πιπεριά, πιπεριές, Φλωρίνης</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="parsnip">Parsnip</string>
+    <string name="parsnip">Παστινάκη</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="parsnip_terms">parsnip, parsnips</string>
+    <string name="parsnip_terms">παστινάκη, παστινάκι, παστινάκες</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="brussels_sprouts">Brussels sprouts</string>
+    <string name="brussels_sprouts">Λαχανάκια Βρυξελλών</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="brussels_sprouts_terms">brussels sprouts</string>
+    <string name="brussels_sprouts_terms">λαχανάκια βρυξελλών</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="beetroot">Beetroot</string>
+    <string name="beetroot">Παντζάρι</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="beetroot_terms">beet, beets, beetroot, beetroots</string>
+    <string name="beetroot_terms">παντζάρια, παντζάρι</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="red_cabbage">Red cabbage</string>
+    <string name="red_cabbage">Κόκκινο λάχανο</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="red_cabbage_terms">red cabbage</string>
+    <string name="red_cabbage_terms">κόκκινο λάχανο</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="salsify">Salsify</string>
+    <string name="salsify">Λαγόχορτο</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="salsify_terms">salsify</string>
+    <string name="salsify_terms">λαγόχορτο, λαγόχορτα, σκουλλί</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="asparagus">Asparagus</string>
+    <string name="asparagus">Σπαράγγι</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="asparagus_terms">asparagus</string>
+    <string name="asparagus_terms">σπαράγγι, σπαράγγια</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="spinach">Spinach</string>
+    <string name="spinach">Σπανάκι</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="spinach_terms">spinach</string>
+    <string name="spinach_terms">σπανάκι</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="celery">Celery</string>
+    <string name="celery">Σέλινο</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="celery_terms">celery</string>
+    <string name="celery_terms">σέλινο, σέλινα</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="turnip">Turnips</string>
+    <string name="turnip">Γογγύλια</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="turnip_terms">turnip, turnips</string>
+    <string name="turnip_terms">γογγύλιο, γογγύλι, γογγύλια</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="tomato">Tomatoes</string>
+    <string name="tomato">Ντομάτες</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="tomato_terms">tomato, tomatoes</string>
+    <string name="tomato_terms">ντομάτα, ντομάτες, τομάτα, τομάτες</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="white_cabbage">White cabbage</string>
+    <string name="white_cabbage">Λευκό λάχανο</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="white_cabbage_terms">white cabbage, green cabbage</string>
+    <string name="white_cabbage_terms">λευκό λάχανο, πράσινο λάχανο</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="savoy_cabbage">Savoy cabbage</string>
+    <string name="savoy_cabbage">Λάχανο σαβοΐας</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="savoy_cabbage_terms">savoy cabbage</string>
+    <string name="savoy_cabbage_terms">λάχανο σαβοΐας, κραμπολάχανο</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="zucchini">Zucchini</string>
+    <string name="zucchini">Κολοκύθι</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="zucchini_terms">zucchini, courgette, courgettes</string>
+    <string name="zucchini_terms">κολοκύθι, κολοκυθάκι, κολοκυθάκια, κολοκύθια</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="wild_garlic">Wild garlic</string>
+    <string name="wild_garlic">Άγριο σκόρδο</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="wild_garlic_terms">wild garlic</string>
+    <string name="wild_garlic_terms">άγριο σκόρδο</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="apple">Apples</string>
+    <string name="apple">Μήλα</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="apple_terms">apple, apples</string>
+    <string name="apple_terms">μήλο, μήλα</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="apricot">Apricots</string>
+    <string name="apricot">Βερίκοκα</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="apricot_terms">apricot, apricots</string>
+    <string name="apricot_terms">βερίκοκο, βερίκοκα</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pear">Pears</string>
+    <string name="pear">Αχλάδια</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pear_terms">pear, pears</string>
+    <string name="pear_terms">αχλάδι, αχλάδια</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="strawberry">Strawberries</string>
+    <string name="strawberry">Φράουλες</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="strawberry_terms">strawberries</string>
+    <string name="strawberry_terms">φράουλες, φράουλα</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="cherry">Cherries</string>
+    <string name="cherry">Κεράσια</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="cherry_terms">cherries</string>
+    <string name="cherry_terms">κεράσι, κεράσια</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="rhubarb">Rhubarb</string>
+    <string name="rhubarb">Ραβέντι</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="rhubarb_terms">rhubarb</string>
+    <string name="rhubarb_terms">ραβέντι, ρεβέντι</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="plum">Plums</string>
+    <string name="plum">Δαμάσκηνα</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="plum_terms">plum, plums</string>
+    <string name="plum_terms">δαμάσκηνο, δαμάσκηνα</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="avocado">Avocados</string>
+    <string name="avocado">Αβοκάντο</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="avocado_terms">avocado, avocados</string>
+    <string name="avocado_terms">αβοκάντο</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="sweet_potato">Sweet potatoes</string>
+    <string name="sweet_potato">Γλυκοπατάτες</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="sweet_potato_terms">sweet potato, sweet potatoes</string>
+    <string name="sweet_potato_terms">γλυκοπατάτα, γλυκοπατάτες</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="lemon">Lemons</string>
+    <string name="lemon">Λεμόνια</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="lemon_terms">lemon, lemons</string>
+    <string name="lemon_terms">λεμόνι, λεμόνια</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="orange">Oranges</string>
+    <string name="orange">Πορτοκάλια</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="orange_terms">orange, oranges</string>
+    <string name="orange_terms">πορτοκάλι, πορτοκάλια</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="lime">Limes</string>
+    <string name="lime">Λάιμ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="lime_terms">lime, limes</string>
+    <string name="lime_terms">λάιμ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="summer_squash">Summer squash</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -328,13 +328,13 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="winter_squash_terms">winter squash, butternut squash, acorn squash, spaghetti squash</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pomegranate">Pomegranates</string>
+    <string name="pomegranate">Ρόδι</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pomegranate_terms">pomegranate, pomegranates</string>
+    <string name="pomegranate_terms">ρόδι, ρόδια</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="blueberries">Blueberries</string>
+    <string name="blueberries">Μύρτιλλα</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="blueberries_terms">blueberries</string>
+    <string name="blueberries_terms">μύρτιλλα, μύρτιλλο</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="raspberries">Raspberries</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -408,17 +408,17 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="buckwheat_terms">buckwheat</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="cabbage">Cabbage</string>
+    <string name="cabbage">Λάχανο</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="cabbage_terms">cabbage</string>
+    <string name="cabbage_terms">λάχανο</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="chestnut">Chestnuts</string>
+    <string name="chestnut">Κάστανα</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="chestnut_terms">chestnuts</string>
+    <string name="chestnut_terms">κάστανο, κάστανα</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Allium_chinense. -->
-    <string name="chinese_onion">Chinese onions</string>
+    <string name="chinese_onion">Κινέζικα κρεμμύδια</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Allium_chinense. -->
-    <string name="chinese_onion_terms">chinese onion, chinese onions, japanese scallion, japanese scallions</string>
+    <string name="chinese_onion_terms">κινέζικο κρεμμύδι, κινέζικα κρεμμύδια, άλλιο το κινεζικό</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, https://en.wikipedia.org/wiki/Auricularia_auricula-judae. -->
     <string name="wood_ear">Wood ears</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), https://en.wikipedia.org/wiki/Auricularia_auricula-judae. -->
@@ -428,13 +428,13 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Pollock_roe. -->
     <string name="pollock_roe_terms">pollock roe, pollack roe, tarako</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="fig">Figs</string>
+    <string name="fig">Σύκα</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="fig_terms">fig, figs</string>
+    <string name="fig_terms">σύκο, σύκα</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Common_octopus. -->
-    <string name="octopus">Octopus</string>
+    <string name="octopus">Χταπόδι</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Common_octopus. -->
-    <string name="octopus_terms">octopus, octopuses</string>
+    <string name="octopus_terms">χταπόδι, χταπόδια</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Meretrix_lusoria. -->
     <string name="hamaguri">Hamaguri</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Meretrix_lusoria. -->
@@ -456,13 +456,13 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Eddoe. -->
     <string name="eddo_terms">eddo, eddos, eddoe, eddoes</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
-    <string name="eel">Eel</string>
+    <string name="eel">Χέλι</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="eel_terms">eel</string>
+    <string name="eel_terms">χέλι</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
-    <string name="egg">Eggs</string>
+    <string name="egg">Αυγά</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="egg_terms">egg, eggs</string>
+    <string name="egg_terms">αυγό, αυγά</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AA%E3%82%AC%E3%82%A4. -->
     <string name="torigai">Torigai</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AA%E3%82%AC%E3%82%A4. -->
@@ -488,9 +488,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Glebionis_coronaria. -->
     <string name="garland_chrysanthemum_terms">garland chrysanthemums, chrysanthemum greens, Japanese greens, shungiku</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="garlic">Garlic</string>
+    <string name="garlic">Σκόρδο</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="garlic_terms">garlic</string>
+    <string name="garlic_terms">σκόρδο, σκόρδα</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="garlic_chives">Garlic chives</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -520,9 +520,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Goosefish. -->
     <string name="goosefish_terms">goosefish</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="grape">Grapes</string>
+    <string name="grape">Σταφύλια</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="grape_terms">grapes</string>
+    <string name="grape_terms">σταφύλι, σταφύλια</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Arctium_lappa. -->
     <string name="gobo">Gobo</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Arctium_lappa. -->
@@ -536,9 +536,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Edamame. -->
     <string name="edamame_terms">edamame, green soybeans</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
-    <string name="green_tea">Green tea</string>
+    <string name="green_tea">Πράσινο τσάι</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="green_tea_terms">green tea</string>
+    <string name="green_tea_terms">πράσινο τσάι</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Horsehair_crab. -->
     <string name="horsehair_crab">Horsehair crabs</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Horsehair_crab. -->
@@ -560,9 +560,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Cryptotaenia_japonica. -->
     <string name="mitsuba_terms">mitsuba, japanese wild parsley, japanese honewort</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="honey">Honey</string>
+    <string name="honey">Μέλι</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="honey_terms">honey</string>
+    <string name="honey_terms">μέλι</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Trachurus. -->
     <string name="jack_mackerel">Jack mackarel</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Trachurus. -->
@@ -616,25 +616,25 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Pleurotus_eryngii. -->
     <string name="king_trumpet_mushroom_terms">king trumpet mushrooms</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="kiwi">Kiwis</string>
+    <string name="kiwi">Ακτινίδιο</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="kiwi_terms">kiwi, kiwis</string>
+    <string name="kiwi_terms">ακτινίδιο, ακτινίδια, κίβι</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
-    <string name="radish">Radish</string>
+    <string name="radish">Ραπανάκι</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="radish_terms">radish, radishes</string>
+    <string name="radish_terms">ραπάνι, ραπάνια, ραπανάκι, ραπανάκια</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Largehead_hairtail. -->
     <string name="largehead_hairtail">Largehead hairtail</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Largehead_hairtail. -->
     <string name="largehead_hairtail_terms">largehead hairtail, largehead hairtails, beltfish</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Nori. -->
-    <string name="nori">Nori</string>
+    <string name="nori">Νόρι</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Nori. -->
-    <string name="nori_terms">nori</string>
+    <string name="nori_terms">νόρι, φύλλα νόρι</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="ginger">Ginger</string>
+    <string name="ginger">Τζίντζερ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="ginger_terms">ginger</string>
+    <string name="ginger_terms">τζίντζερ</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Brassica_juncea. -->
     <string name="brown_mustard">Brown mustard</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Brassica_juncea. -->
@@ -644,9 +644,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Togarashi. -->
     <string name="togarashi_terms">togarashi</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="lettuce">Lettuce</string>
+    <string name="lettuce">Μαρούλι</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="lettuce_terms">lettuce</string>
+    <string name="lettuce_terms">μαρούλι</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Pond_loach. -->
     <string name="pond_loach">Pond loach</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Pond_loach. -->
@@ -668,13 +668,13 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Basella_alba. -->
     <string name="malabar_spinach_terms">malabar spinach, vine spinach, ceylon spinach, indian spinach</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="mandarin">Mandarins</string>
+    <string name="mandarin">Μανταρίνια</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="mandarin_terms">mandarin, mandarins</string>
+    <string name="mandarin_terms">μανταρίνι, μανταρίνια</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="mango">Mangos</string>
+    <string name="mango">Μάνγκο</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="mango_terms">mango, mangos</string>
+    <string name="mango_terms">μάνγκο</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Ruditapes_philippinarum. -->
     <string name="manila_clam">Manila clams</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Ruditapes_philippinarum. -->
@@ -684,9 +684,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Matsutake. -->
     <string name="matsutake_terms">matsutake</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="melon">Melons</string>
+    <string name="melon">Πεπόνι</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="melon_terms">melon, melons</string>
+    <string name="melon_terms">πεπόνι, πεπόνια</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Myoga. -->
     <string name="myoga">Myoga</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Myoga. -->
@@ -708,9 +708,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Okra. -->
     <string name="okra_terms">okra</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="onion">Onions</string>
+    <string name="onion">Κρεμμύδια</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="onion_terms">onion, onions</string>
+    <string name="onion_terms">κρεμμύδι, κρεμμύδια</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
     <string name="oyster">Oysters</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -728,37 +728,37 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Pacific_saury. -->
     <string name="pacific_saury_terms">pacific saury, pacific sauries, mackarel pike, mackarel pikes</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="parsley">Parsley</string>
+    <string name="parsley">Μαϊντανός</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="parsley_terms">parsley</string>
+    <string name="parsley_terms">μαϊντανός</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="peach">Peaches</string>
+    <string name="peach">Ροδάκινα</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="peach_terms">peach, peaches</string>
+    <string name="peach_terms">ροδάκινο, ροδάκινα</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="peanut">Peanuts</string>
+    <string name="peanut">Φιστίκια</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="peanut_terms">peanuts</string>
+    <string name="peanut_terms">φιστίκι, φιστίκια</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="persimmon">Persimmons</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="persimmon_terms">persimmon, persimmons</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Sardine. -->
-    <string name="sardine">Sardine</string>
+    <string name="sardine">Σαρδέλα</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Sardine. -->
-    <string name="sardine_terms">sardine, sardines, pilchard, pilchards</string>
+    <string name="sardine_terms">σαρδέλα, σαρδέλες</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pineapple">Pineapples</string>
+    <string name="pineapple">Ανανάς</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pineapple_terms">pineapple, pineapples</string>
+    <string name="pineapple_terms">ανανάς, ανανάδες</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Hypomesus_nipponensis. -->
     <string name="japanese_smelt">Japanese smelt</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Hypomesus_nipponensis. -->
     <string name="japanese_smelt_terms">japanese smelt, japanese smelts, wakasagi smelt, wakasagi smelts</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="potato">Potatoes</string>
+    <string name="potato">Πατάτες</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="potato_terms">potato, potatoes</string>
+    <string name="potato_terms">πατάτα, πατάτες</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Mizuna. -->
     <string name="mizuna">Mizuna</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Mizuna. -->
@@ -788,9 +788,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Red_king_crab. -->
     <string name="red_king_crab_terms">red king crabs, kamchatka crabs, alaskan king crabs</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
-    <string name="rice">Rice</string>
+    <string name="rice">Ρύζι</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="rice_terms">rice</string>
+    <string name="rice_terms">ρύζι</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Pleuronectidae. -->
     <string name="righteye_flounder">Righteye flounder</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Pleuronectidae. -->
@@ -808,9 +808,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Red_caviar. -->
     <string name="red_caviar_terms">Red caviar, salmon roe, ikura</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
-    <string name="salmon">Salmon</string>
+    <string name="salmon">Σολομός</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="salmon_terms">salmon, salmons</string>
+    <string name="salmon_terms">σολομός, σολομοί</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Japanese_sea_bass. -->
     <string name="japanese_sea_bass">Japanese sea bass</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Japanese_sea_bass. -->
@@ -912,9 +912,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Mactra_chinensis. -->
     <string name="trough_shell_terms">trough shells</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
-    <string name="tuna">Tuna</string>
+    <string name="tuna">Τόνος</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="tuna_terms">tuna</string>
+    <string name="tuna_terms">τόνος</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Turbo_sazae. -->
     <string name="sazae">Sazae</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Turbo_sazae. -->
@@ -936,17 +936,17 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Oenanthe_javanica. -->
     <string name="water_dropwort_terms">water celery, water dropwort, chinese celery, indian pennywort, minari, japanese parsley</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="watermelon">Watermelons</string>
+    <string name="watermelon">Καρπούζια</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="watermelon_terms">watermelon, watermelons</string>
+    <string name="watermelon_terms">καρπούζι, καρπούζια</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Wax_gourd. -->
     <string name="wax_gourd">Wax gourd</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Wax_gourd. -->
     <string name="wax_gourd_terms">wax gourd</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="spring_onion">Spring onions</string>
+    <string name="spring_onion">Φρέσκα κρεμμυδάκια</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="spring_onion_terms">spring onions</string>
+    <string name="spring_onion_terms">φρέσκα κρεμμυδάκια, φρέσκο κρεμμυδάκι</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Chinese_yam. -->
     <string name="chinese_yam">Chinese yam</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Chinese_yam. -->
