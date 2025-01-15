@@ -8,6 +8,16 @@
       ]
     },
     {
+      "name": "barracuda",
+      "months": [
+        5,
+        6,
+        7,
+        10,
+        11
+      ]
+    },
+    {
       "name": "bean_curd",
       "months": [
         0,
@@ -54,6 +64,18 @@
       ]
     },
     {
+      "name": "celery",
+      "months": [
+        8,
+        9,
+        11,
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
       "name": "chicken_grunt",
       "months": [
         4,
@@ -61,10 +83,48 @@
       ]
     },
     {
+      "name": "chinese_yam",
+      "months": [
+        0,
+        3,
+        4,
+        10,
+        11
+      ]
+    },
+    {
+      "name": "corbicula",
+      "months": [
+        0,
+        1,
+        6
+      ]
+    },
+    {
+      "name": "daggertooth_pike_conger",
+      "months": [
+        6,
+        9,
+        10
+      ]
+    },
+    {
       "name": "gadid",
       "months": [
         0,
         11
+      ]
+    },
+    {
+      "name": "gobo",
+      "months": [
+        9,
+        10,
+        11,
+        0,
+        1,
+        3,
+        4
       ]
     },
     {
@@ -80,6 +140,29 @@
       "months": [
         2,
         3
+      ]
+    },
+    {
+      "name": "japanese_pepper",
+      "months": [
+        3,
+        4,
+        5,
+        9,
+        10
+      ]
+    },
+    {
+      "name": "lettuce",
+      "months": [
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        10,
+        11
       ]
     },
     {
@@ -143,12 +226,30 @@
       ]
     },
     {
+      "name": "parsley",
+      "months": [
+        0,
+        2,
+        3,
+        11
+      ]
+    },
+    {
       "name": "perilla",
       "months": [
         5,
         6,
         7,
         8
+      ]
+    },
+    {
+      "name": "potato",
+      "months": [
+        1,
+        8,
+        9,
+        10
       ]
     },
     {
@@ -169,6 +270,17 @@
       ]
     },
     {
+      "name": "rocket",
+      "months": [
+        3,
+        4,
+        5,
+        9,
+        10,
+        11
+      ]
+    },
+    {
       "name": "royal_fern",
       "months": [
         3,
@@ -182,6 +294,35 @@
         1,
         2,
         3
+      ]
+    },
+    {
+      "name": "shiitake",
+      "months": [
+        2,
+        3,
+        4,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "name": "shikuwasa",
+      "months": [
+        0,
+        7,
+        8,
+        11
+      ]
+    },
+    {
+      "name": "skipjack_tuna",
+      "months": [
+        4,
+        5,
+        8,
+        9
       ]
     },
     {
@@ -205,6 +346,16 @@
         1,
         2,
         3
+      ]
+    },
+    {
+      "name": "turnip",
+      "months": [
+        2,
+        3,
+        4,
+        9,
+        10
       ]
     },
     {
@@ -236,6 +387,16 @@
       "name": "yesso_scallop",
       "months": [
         0
+      ]
+    },
+    {
+      "name": "yuzu",
+      "months": [
+        6,
+        7,
+        9,
+        10,
+        11
       ]
     }
   ]
