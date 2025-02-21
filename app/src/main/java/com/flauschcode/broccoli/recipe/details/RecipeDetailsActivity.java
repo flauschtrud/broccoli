@@ -183,12 +183,12 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     }
 
     public void makePDF(MenuItem menuItem) {
-        CoordinatorLayout coordinatorLayout = findViewById(R.id.coordinator);
+        NestedScrollView nestedScrollView = findViewById(R.id.scroll_view);
         TextView title = findViewById(R.id.details_title);
         PdfGenerator.getBuilder()
                 .setContext(this)
                 .fromViewSource()
-                .fromView(coordinatorLayout)
+                .fromView(nestedScrollView)
                 .setFileName((String) title.getText())
                 .savePDFSharedStorage(xmlToPDFLifecycleObserver)
                 .actionAfterPDFGeneration(PdfGenerator.ActionAfterPDFGeneration.OPEN)
