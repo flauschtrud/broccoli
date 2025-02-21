@@ -19,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -57,6 +58,7 @@ import com.google.android.material.color.MaterialColors;
 import com.google.android.material.elevation.ElevationOverlayProvider;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -183,15 +185,18 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     }
 
     public void makePDF(MenuItem menuItem) {
+        List<View> viewList = new ArrayList<>();
+        ImageView imageView = findViewById(R.id.backdrop);
         NestedScrollView nestedScrollView = findViewById(R.id.scroll_view);
+        viewList.add(imageView);
+        viewList.add(nestedScrollView);
         TextView title = findViewById(R.id.details_title);
         PdfGenerator.getBuilder()
                 .setContext(this)
                 .fromViewSource()
-                .fromView(nestedScrollView)
+                .fromViewList(viewList)
                 .setFileName((String) title.getText())
                 .savePDFSharedStorage(xmlToPDFLifecycleObserver)
-                .actionAfterPDFGeneration(PdfGenerator.ActionAfterPDFGeneration.OPEN)
                 .build(new PdfGeneratorListener() {
                     @Override
                     public void onFailure(FailureResponse failureResponse) {
