@@ -19,6 +19,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,11 +49,16 @@ import com.flauschcode.broccoli.recipe.directions.DirectionBuilder;
 import com.flauschcode.broccoli.recipe.sharing.ShareRecipeAsFileService;
 import com.flauschcode.broccoli.recipe.sharing.ShareableRecipe;
 import com.flauschcode.broccoli.recipe.sharing.ShareableRecipeBuilder;
+import com.gkemon.XMLtoPDF.PdfGenerator;
+import com.gkemon.XMLtoPDF.PdfGeneratorListener;
+import com.gkemon.XMLtoPDF.model.FailureResponse;
+import com.gkemon.XMLtoPDF.model.SuccessResponse;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.color.MaterialColors;
 import com.google.android.material.elevation.ElevationOverlayProvider;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -76,6 +82,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
     private RecipeDetailsViewModel viewModel;
     private ActivityRecipeDetailsBinding binding;
     private Menu menu;
+    private PdfGenerator.XmlToPDFLifecycleObserver xmlToPDFLifecycleObserver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -127,6 +134,8 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         if (BroccoliApplication.isDarkMode(this)) {
             binding.toolbarLayout.setContentScrimColor(new ElevationOverlayProvider(this).compositeOverlayWithThemeSurfaceColorIfNeeded(8f));
         }
+        xmlToPDFLifecycleObserver = new PdfGenerator.XmlToPDFLifecycleObserver(this);
+        getLifecycle().addObserver(xmlToPDFLifecycleObserver);
     }
 
     @Override
@@ -173,6 +182,48 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 .setNegativeButton(android.R.string.cancel, (dialog, id) -> {})
                 .create();
         alertDialog.show();
+    }
+
+    public void makePDF(MenuItem menuItem) {
+        List<View> viewList = new ArrayList<>();
+        ImageView imageView = findViewById(R.id.backdrop);
+        NestedScrollView nestedScrollView = findViewById(R.id.scroll_view);
+        viewList.add(imageView);
+        viewList.add(nestedScrollView);
+        TextView title = findViewById(R.id.details_title);
+        PdfGenerator.getBuilder()
+                .setContext(this)
+                .fromViewSource()
+                .fromViewList(viewList)
+                .setFileName((String) title.getText())
+                .savePDFSharedStorage(xmlToPDFLifecycleObserver)
+                .build(new PdfGeneratorListener() {
+                    @Override
+                    public void onFailure(FailureResponse failureResponse) {
+                        super.onFailure(failureResponse);
+                        Log.d("Broccoli",failureResponse.getErrorMessage());
+                    }
+
+                    @Override
+                    public void showLog(String log) {
+                        super.showLog(log);
+                    }
+
+                    @Override
+                    public void onStartPDFGeneration() {
+                        /*When PDF generation begins to start*/
+                    }
+
+                    @Override
+                    public void onFinishPDFGeneration() {
+                        /*When PDF generation is finished*/
+                    }
+
+                    @Override
+                    public void onSuccess(SuccessResponse response) {
+                        super.onSuccess(response);
+                    }
+                });
     }
 
     ActivityResultLauncher<Intent> cookingAssistantResultLauncher = registerForActivityResult(
