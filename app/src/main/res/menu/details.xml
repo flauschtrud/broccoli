@@ -45,9 +45,8 @@
         android:onClick="delete"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_pdf"
-        android:icon="@drawable/ic_menu_delete_24dp"
+        android:id="@+id/action_details_create_pdf"
         android:title="@string/create_pdf"
-        android:onClick="makePDF"
+        android:onClick="createPDF"
         app:showAsAction="never" />
 </menu>

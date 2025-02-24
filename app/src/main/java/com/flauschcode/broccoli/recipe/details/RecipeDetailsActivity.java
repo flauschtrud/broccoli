@@ -184,29 +184,23 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         alertDialog.show();
     }
 
-    public void makePDF(MenuItem menuItem) {
+    public void createPDF(MenuItem menuItem) {
         List<View> viewList = new ArrayList<>();
         ImageView imageView = findViewById(R.id.backdrop);
         NestedScrollView nestedScrollView = findViewById(R.id.scroll_view);
         viewList.add(imageView);
         viewList.add(nestedScrollView);
-        TextView title = findViewById(R.id.details_title);
         PdfGenerator.getBuilder()
                 .setContext(this)
                 .fromViewSource()
                 .fromViewList(viewList)
-                .setFileName((String) title.getText())
+                .setFileName(binding.getRecipe().getTitle())
                 .savePDFSharedStorage(xmlToPDFLifecycleObserver)
                 .build(new PdfGeneratorListener() {
                     @Override
                     public void onFailure(FailureResponse failureResponse) {
                         super.onFailure(failureResponse);
-                        Log.d("Broccoli",failureResponse.getErrorMessage());
-                    }
-
-                    @Override
-                    public void showLog(String log) {
-                        super.showLog(log);
+                        Toast.makeText(getApplicationContext(),failureResponse.getErrorMessage(),Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
