@@ -64,6 +64,7 @@ Available languages so far:
 - Brazilian Portuguese (thanks a lot to [joemaal](https://github.com/joemaal) for your help!)
 - Russian (thanks a lot to Степан for your help!)
 - Japanese (thanks a lot to [FileX](https://github.com/cd-FileX) for your help!)
+- Greek (thanks a lot to [quarufus](https://github.com/quarufus/) for your help!)
 
 ### Seasonal Calendars
 If you want to contribute by researching data for additional seasonal calendars please contact me.
