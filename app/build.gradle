@@ -163,7 +163,7 @@ dependencies {
 
     androidTestImplementation "com.google.dagger:dagger:$dagger_version"
     androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
-
+    implementation 'com.github.Gkemon:Android-XML-to-PDF-Generator:2.6.8'
 }
 
 // see https://gitlab.com/fdroid/wiki/-/wikis/HOWTO:-diff-&-fix-APKs-for-Reproducible-Builds#differing-assetsdexoptbaselineprofm-easy-to-fix

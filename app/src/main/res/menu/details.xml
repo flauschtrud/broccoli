@@ -44,4 +44,9 @@
         android:title="@string/delete_action"
         android:onClick="delete"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_details_create_pdf"
+        android:title="@string/create_pdf"
+        android:onClick="createPDF"
+        app:showAsAction="never" />
 </menu>
