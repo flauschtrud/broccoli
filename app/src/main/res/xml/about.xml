@@ -6,36 +6,47 @@
             app:iconSpaceReserved="false"
             app:title="@string/help">
 
-        <Preference
-            app:icon="@drawable/ic_menu_edit_24dp"
-            app:key="feedback"
-            app:title="@string/send_feedback"
-            app:summary="@string/send_feedback_message">
+                <Preference
+                    app:icon="@drawable/ic_menu_edit_24dp"
+                    app:key="feedback"
+                    app:summary="@string/send_feedback_message"
+                    app:title="@string/send_feedback">
 
-                <intent android:action="android.intent.action.SENDTO"
-                    android:data="@string/feedback_mailto">
-                        <extra
-                            android:name="android.intent.extra.SUBJECT"
-                            android:value="@string/feedback_subject"/>
-                </intent>
+                        <intent
+                            android:action="android.intent.action.SENDTO"
+                            android:data="@string/feedback_mailto">
+                                <extra
+                                    android:name="android.intent.extra.SUBJECT"
+                                    android:value="@string/feedback_subject" />
+                        </intent>
 
-        </Preference>
+                </Preference>
 
                 <Preference
                     app:icon="@drawable/ic_button_restaurant_24dp"
                     app:key="privacy-policy"
-                    app:title="@string/demo_recipe"
-                    app:summary="@string/link_to_demo_recipe">
+                    app:summary="@string/link_to_demo_recipe"
+                    app:title="@string/demo_recipe">
                         <intent
                             android:action="android.intent.action.VIEW"
                             android:data="@string/link_to_demo_recipe" />
                 </Preference>
 
-        <Preference
-            app:icon="@drawable/ic_info_24dp"
-            app:key="version"
-            app:title="@string/version"
-            app:summary="@string/versionName" />
+                <Preference
+                    app:icon="@drawable/ic_info_24dp"
+                    app:key="github"
+                    app:summary="@string/link_to_github"
+                    app:title="@string/github">
+                        <intent
+                            android:action="android.intent.action.VIEW"
+                            android:data="@string/link_to_github" />
+                </Preference>
+
+                <Preference
+                    app:icon="@drawable/ic_info_24dp"
+                    app:key="version"
+                    app:summary="@string/versionName"
+                    app:title="@string/version" />
 
         </PreferenceCategory>
 
