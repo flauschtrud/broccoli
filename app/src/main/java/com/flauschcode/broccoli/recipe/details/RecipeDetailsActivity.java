@@ -186,9 +186,14 @@ public class RecipeDetailsActivity extends AppCompatActivity {
 
     public void createPDF(MenuItem menuItem) {
         List<View> viewList = new ArrayList<>();
-        ImageView imageView = findViewById(R.id.backdrop);
+
+        if (!binding.getRecipe().getImageName().isEmpty()) {
+            ImageView imageView = findViewById(R.id.backdrop);
+            viewList.add(imageView);
+        }
+
         NestedScrollView nestedScrollView = findViewById(R.id.scroll_view);
-        viewList.add(imageView);
+
         viewList.add(nestedScrollView);
         PdfGenerator.getBuilder()
                 .setContext(this)
