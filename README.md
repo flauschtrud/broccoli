@@ -69,6 +69,12 @@ Available languages so far:
 ### Seasonal Calendars
 If you want to contribute by researching data for additional seasonal calendars please contact me.
 
+Some things to considerate:
+- regions should reflect climate zones rather than countries
+- regions should be big enough to be useable for a lot of people, but small enough to still be valid (there will have to be compromises though)
+- the calendar should include new ingredients if they are relevant for the regional cooking culture
+- ingredients should be practical in the sense that they are actually used in real-world recipes (i.e. there are different kinds of apples that might have slightly different seasonal availability, but since recipes will only ever ask for "apples" it's better to just have one ingredient)
+
 Available regions for:
 - Central Europe
 - North America (colder)
