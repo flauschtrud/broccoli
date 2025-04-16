@@ -1,0 +1,284 @@
+{
+  "food": [
+    {
+      "name": "apple",
+      "months": [8, 9, 10]
+    },
+    {
+      "name": "asparagus",
+      "months": [3, 4]
+    },
+    {
+      "name": "aubergine",
+      "months": [7]
+    },
+    {
+      "name": "autumn-fruiting_raspberry",
+      "months": [8, 9]
+    },
+    {
+      "name": "baby_carrot",
+      "months": [5]
+    },
+    {
+      "name": "beetroot",
+      "months": [6, 7, 8, 9]
+    },
+    {
+      "name": "blackberry",
+      "months": [7]
+    },
+    {
+      "name": "bluberry",
+      "months": [7, 8]
+    },
+    {
+      "name": "blueberry",
+      "months": [6]
+    },
+    {
+      "name": "broad_bean",
+      "months": [5]
+    },
+    {
+      "name": "broccoli",
+      "months": [7, 8, 9]
+    },
+    {
+      "name": "brussel_sprout",
+      "months": [0, 1, 11]
+    },
+    {
+      "name": "cabbage",
+      "months": [6, 7, 8, 9, 10]
+    },
+    {
+      "name": "carrot",
+      "months": [0, 6, 7, 8, 9, 10, 11]
+    },
+    {
+      "name": "cauliflower",
+      "months": [0, 1, 2, 7, 8, 9, 10, 11]
+    },
+    {
+      "name": "celeriac",
+      "months": [9]
+    },
+    {
+      "name": "celery",
+      "months": [7, 8, 9]
+    },
+    {
+      "name": "chard",
+      "months": [5, 7, 8, 9]
+    },
+    {
+      "name": "cherry",
+      "months": [6]
+    },
+    {
+      "name": "chilly",
+      "months": [7, 8, 9]
+    },
+    {
+      "name": "courgette",
+      "months": [5, 6, 7, 8]
+    },
+    {
+      "name": "cucumber",
+      "months": [6, 7, 8]
+    },
+    {
+      "name": "currant",
+      "months": [5, 6]
+    },
+    {
+      "name": "damson",
+      "months": [8]
+    },
+    {
+      "name": "fennel",
+      "months": [6, 7, 8]
+    },
+    {
+      "name": "fig",
+      "months": [8]
+    },
+    {
+      "name": "forced_rhubarb",
+      "months": [2]
+    },
+    {
+      "name": "french_bean",
+      "months": [6, 7, 8]
+    },
+    {
+      "name": "garlic",
+      "months": [8]
+    },
+    {
+      "name": "gooseberry",
+      "months": [5, 6]
+    },
+    {
+      "name": "jerusalem_artichoke",
+      "months": [9]
+    },
+    {
+      "name": "kale",
+      "months": [0, 1, 2, 9, 10, 11]
+    },
+    {
+      "name": "kohl_rabi",
+      "months": [9]
+    },
+    {
+      "name": "leek",
+      "months": [1, 2, 9, 10, 11]
+    },
+    {
+      "name": "lettuce",
+      "months": [4, 5, 6, 7, 8]
+    },
+    {
+      "name": "loganberry",
+      "months": [6]
+    },
+    {
+      "name": "mangetout",
+      "months": [6, 7]
+    },
+    {
+      "name": "marrow",
+      "months": [9]
+    },
+    {
+      "name": "new_potato",
+      "months": [6]
+    },
+    {
+      "name": "onion",
+      "months": [8, 9]
+    },
+    {
+      "name": "pak_choi",
+      "months": [9]
+    },
+    {
+      "name": "parsley",
+      "months": [5]
+    },
+    {
+      "name": "parsnip",
+      "months": [0, 1, 9, 10]
+    },
+    {
+      "name": "pea",
+      "months": [6, 7]
+    },
+    {
+      "name": "pear",
+      "months": [8, 9, 10]
+    },
+    {
+      "name": "pepper",
+      "months": [7, 8]
+    },
+    {
+      "name": "plum",
+      "months": [7, 8]
+    },
+    {
+      "name": "potato",
+      "months": [7, 8, 10, 11]
+    },
+    {
+      "name": "potato_(maincrop)",
+      "months": [9]
+    },
+    {
+      "name": "pumpkin",
+      "months": [9]
+    },
+    {
+      "name": "purple_sprouting_broccoli",
+      "months": [1, 2, 3]
+    },
+    {
+      "name": "quince",
+      "months": [9]
+    },
+    {
+      "name": "radish",
+      "months": [4, 5, 6]
+    },
+    {
+      "name": "raspberry",
+      "months": [6, 7]
+    },
+    {
+      "name": "rhubarb",
+      "months": [3, 4]
+    },
+    {
+      "name": "rocket",
+      "months": [5, 9]
+    },
+    {
+      "name": "runner_bean",
+      "months": [6, 7, 8]
+    },
+    {
+      "name": "savoy_cabbage",
+      "months": [0, 1, 2, 11]
+    },
+    {
+      "name": "shallot",
+      "months": [6, 8, 9]
+    },
+    {
+      "name": "spinach",
+      "months": [4, 5, 6, 8, 9]
+    },
+    {
+      "name": "spring_cabbage",
+      "months": [3, 4, 5]
+    },
+    {
+      "name": "spring_onion",
+      "months": [3, 4, 5, 6, 7]
+    },
+    {
+      "name": "strawberry",
+      "months": [5]
+    },
+    {
+      "name": "summer_squash",
+      "months": [5, 6, 7, 8]
+    },
+    {
+      "name": "swede",
+      "months": [0, 9]
+    },
+    {
+      "name": "sweetcorn",
+      "months": [7, 8]
+    },
+    {
+      "name": "tayberry",
+      "months": [6]
+    },
+    {
+      "name": "tomato",
+      "months": [6, 7, 8]
+    },
+    {
+      "name": "turnip",
+      "months": [9]
+    },
+    {
+      "name": "winter_squash",
+      "months": [9]
+    }
+  ]
+}
