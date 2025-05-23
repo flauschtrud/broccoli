@@ -64,9 +64,10 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.BROWSABLE"/>
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:scheme="content" />
-                <data android:host="*"/>
+                <data android:scheme="content"/>
+                <data android:scheme="file"/>
                 <data android:mimeType="application/octet-stream"/>
+                <data android:mimeType="application/zip"/>
                 <data android:mimeType="application/broccoli" />
             </intent-filter>
 
