@@ -1,6 +1,8 @@
 package com.flauschcode.broccoli.recipe.importing;
 
 import android.app.Application;
+import android.text.Html;
+import android.os.Build;
 import android.util.Log;
 
 import com.flauschcode.broccoli.R;
@@ -22,7 +24,6 @@ import java.util.Optional;
 class ImportableRecipeBuilder {
 
     private static final String ID = "@id";
-
     private static final String TYPE = "@type";
     private static final String HOW_TO_SECTION = "HowToSection";
     private static final String ITEM_LIST_ELEMENT = "itemListElement";
@@ -43,10 +44,10 @@ class ImportableRecipeBuilder {
     private static final String FAT_CONTENT = "fatContent";
     private static final String CARBOHYDRATE_CONTENT = "carbohydrateContent";
     private static final String PROTEIN_CONTENT = "proteinContent";
-    
-    private JSONObject recipeJson;
-    private final Recipe recipe = new Recipe();
 
+    private JSONObject recipeJson;
+
+    private final Recipe recipe = new Recipe();
     private final Application application;
     private final RecipeImageService recipeImageService;
 
@@ -82,20 +83,33 @@ class ImportableRecipeBuilder {
         return Optional.of(recipe);
     }
 
+    private String decodeHtmlEntities(String text) {
+        if (text == null || text.isEmpty()) {
+            return text;
+        }
+
+        // Use Android's built-in HTML decoder
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY).toString();
+        } else {
+            return Html.fromHtml(text).toString();
+        }
+    }
+
     private void contributeTitle() {
-        recipe.setTitle(recipeJson.optString(NAME));
+        recipe.setTitle(decodeHtmlEntities(recipeJson.optString(NAME)));
     }
 
     private void contributeDescription() {
-        recipe.setDescription(recipeJson.optString(DESCRIPTION));
+        recipe.setDescription(decodeHtmlEntities(recipeJson.optString(DESCRIPTION)));
     }
 
     private void contributeServings() {
         JSONArray yieldArray = recipeJson.optJSONArray(RECIPE_YIELD);
         if (yieldArray == null) {
-            recipe.setServings(recipeJson.optString(RECIPE_YIELD));
+            recipe.setServings(decodeHtmlEntities(recipeJson.optString(RECIPE_YIELD)));
         } else {
-            recipe.setServings(yieldArray.optString(0));
+            recipe.setServings(decodeHtmlEntities(yieldArray.optString(0)));
         }
     }
 
@@ -113,17 +127,18 @@ class ImportableRecipeBuilder {
         try {
             Duration duration = Duration.parse(recipeJson.optString(jsonLdRecipeCookTime));
             recipe.setPreparationTime(DurationFormatter.format(duration));
-        } catch (DateTimeParseException e) { // for rare cases where the JSON contains some time properties with null values
+        } catch (DateTimeParseException e) {
+            // for rare cases where the JSON contains some time properties with null values
             Log.e(getClass().getName(), e.getMessage());
         }
     }
 
     private void contributeIngredients() {
         JSONArray ingredientArray = recipeJson.optJSONArray(RECIPE_INGREDIENT);
-        if (ingredientArray !=  null) {
+        if (ingredientArray != null) {
             List<String> list = new ArrayList<>();
             for (int i = 0; i < ingredientArray.length(); i++) {
-                list.add(ingredientArray.optString(i));
+                list.add(decodeHtmlEntities(ingredientArray.optString(i)));
             }
             recipe.setIngredients(String.join("\n", list));
         }
@@ -132,29 +147,30 @@ class ImportableRecipeBuilder {
     private void contributeDirections() {
         JSONArray instructionsArray = recipeJson.optJSONArray(RECIPE_INSTRUCTIONS);
         if (instructionsArray == null) {
-            recipe.setDirections(recipeJson.optString(RECIPE_INSTRUCTIONS));
+            recipe.setDirections(decodeHtmlEntities(recipeJson.optString(RECIPE_INSTRUCTIONS)));
         } else {
             List<String> directions = new ArrayList<>();
             for (int i = 0; i < instructionsArray.length(); i++) {
-
                 JSONObject instructionObject = instructionsArray.optJSONObject(i);
-                if (instructionObject != null && instructionObject.has(TYPE) && HOW_TO_SECTION.equals(instructionObject.optString(TYPE))) {
+
+                if (instructionObject != null && instructionObject.has(TYPE)
+                        && HOW_TO_SECTION.equals(instructionObject.optString(TYPE))) {
                     directions.add(contributeSection(instructionObject));
                 } else {
                     directions.add(contributeStep(instructionsArray, i));
                 }
-
             }
             recipe.setDirections(String.join("\n", directions));
         }
     }
 
     private void contributeNutritionalInformation() {
-        String nutritionalInformation = contributeNutritionalInformationFor(SERVING_SIZE, R.string.serving) +
-                contributeNutritionalInformationFor(CALORIES, R.string.calories) +
-                contributeNutritionalInformationFor(FAT_CONTENT, R.string.fat) +
-                contributeNutritionalInformationFor(CARBOHYDRATE_CONTENT, R.string.carbohydrates) +
-                contributeNutritionalInformationFor(PROTEIN_CONTENT, R.string.protein);
+        String nutritionalInformation = contributeNutritionalInformationFor(SERVING_SIZE, R.string.serving)
+                + contributeNutritionalInformationFor(CALORIES, R.string.calories)
+                + contributeNutritionalInformationFor(FAT_CONTENT, R.string.fat)
+                + contributeNutritionalInformationFor(CARBOHYDRATE_CONTENT, R.string.carbohydrates)
+                + contributeNutritionalInformationFor(PROTEIN_CONTENT, R.string.protein);
+
         recipe.setNutritionalValues(nutritionalInformation.strip());
     }
 
@@ -164,7 +180,7 @@ class ImportableRecipeBuilder {
             return "";
         }
 
-        String nutritionalValue = nutritionalValuesObject.optString(jsonKey);
+        String nutritionalValue = decodeHtmlEntities(nutritionalValuesObject.optString(jsonKey));
         if (nutritionalValue.isEmpty()) {
             return "";
         }
@@ -174,22 +190,24 @@ class ImportableRecipeBuilder {
 
     private String contributeSection(JSONObject instructionObject) {
         List<String> steps = new ArrayList<>();
-        steps.add(instructionObject.optString(NAME).toUpperCase());
+        steps.add(decodeHtmlEntities(instructionObject.optString(NAME)).toUpperCase());
+
         JSONArray sectionsArray = instructionObject.optJSONArray(ITEM_LIST_ELEMENT);
         if (sectionsArray != null) {
             for (int i = 0; i < sectionsArray.length(); i++) {
                 steps.add(contributeStep(sectionsArray, i));
             }
         }
-        return String.join(" ", steps);
+
+        return String.join("\n", steps);
     }
 
     private String contributeStep(JSONArray jsonArray, int position) {
         JSONObject instruction = jsonArray.optJSONObject(position);
         if (instruction == null) {
-            return jsonArray.optString(position);
+            return decodeHtmlEntities(jsonArray.optString(position));
         } else {
-            return instruction.optString(HOW_TO_TEXT);
+            return decodeHtmlEntities(instruction.optString(HOW_TO_TEXT));
         }
     }
 
@@ -207,14 +225,12 @@ class ImportableRecipeBuilder {
             return;
         }
 
-
         try {
             String imageName = recipeImageService.downloadToCache(url);
             recipe.setImageName(imageName);
         } catch (IOException e) {
             Log.e(getClass().getName(), e.getMessage());
         }
-
     }
 
     private String getImageUrl() {
@@ -226,7 +242,6 @@ class ImportableRecipeBuilder {
         JSONObject imagesObject = recipeJson.optJSONObject(RECIPE_IMAGE);
         if (imagesObject != null) {
             String url = imagesObject.optString(RECIPE_URL);
-
             if (!url.isEmpty()) {
                 return url;
             }
@@ -236,5 +251,4 @@ class ImportableRecipeBuilder {
 
         return recipeJson.optString(RECIPE_IMAGE);
     }
-
 }
