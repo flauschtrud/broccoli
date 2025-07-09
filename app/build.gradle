@@ -14,8 +14,8 @@ android {
         applicationId "com.flauschcode.broccoli"
         minSdkVersion 26
         targetSdk 35
-        versionCode 1040200 // versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionBuild
-        versionName "1.4.2"
+        versionCode 1040300 // versionMajor * 1000000 + versionMinor * 10000 + versionPatch * 100 + versionBuild
+        versionName "1.4.3"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArgument "notAnnotation", "androidx.test.filters.FlakyTest"
     }
