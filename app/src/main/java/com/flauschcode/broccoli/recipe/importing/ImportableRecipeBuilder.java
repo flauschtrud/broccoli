@@ -18,8 +18,10 @@ import java.net.URL;
 import java.time.Duration;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 class ImportableRecipeBuilder {
 
@@ -88,12 +90,9 @@ class ImportableRecipeBuilder {
             return text;
         }
 
-        // Use Android's built-in HTML decoder
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY).toString();
-        } else {
-            return Html.fromHtml(text).toString();
-        }
+        return Arrays.stream(text.split("\n"))
+                .map(line -> Html.fromHtml(line, Html.FROM_HTML_MODE_LEGACY).toString())
+                .collect(Collectors.joining("\n"));
     }
 
     private void contributeTitle() {
@@ -199,7 +198,7 @@ class ImportableRecipeBuilder {
             }
         }
 
-        return String.join("\n", steps);
+        return String.join(" ", steps);
     }
 
     private String contributeStep(JSONArray jsonArray, int position) {
