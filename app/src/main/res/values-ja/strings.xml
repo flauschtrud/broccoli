@@ -320,13 +320,13 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="lime_terms">ライム,らいむ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="summer_squash">Summer squash</string>
+    <string name="summer_squash">ズッキーニ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="summer_squash_terms">summer squash</string>
+    <string name="summer_squash_terms">ズッキーニ、ずっきーに</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="winter_squash">Winter squash</string>
+    <string name="winter_squash">冬かぼちゃ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="winter_squash_terms">winter squash, butternut squash, acorn squash, spaghetti squash</string>
+    <string name="winter_squash_terms">冬かぼちゃ、冬カボチャ、冬南瓜、ふゆかぼちゃ、フユカボチャ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="pomegranate">ザクロ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -356,9 +356,9 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="lambs_lettuce_terms">マーシュ,まーしゅ,ノヂシャ,のぢしゃ,のぢさ,ノヂサ,野萵苣</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pointed_cabbage">Pointed cabbage</string>
+    <string name="pointed_cabbage">シャープキャベツ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pointed_cabbage_terms">pointed cabbage</string>
+    <string name="pointed_cabbage_terms">シャープキャベツ、しゃーぷきゃべつ</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="champignons">ツクリタケ</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -428,9 +428,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Pollock_roe. -->
     <string name="pollock_roe_terms">たらこ,タラコ,鱈子,タラ子,たら子</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="fig">Figs</string>
+    <string name="fig">いちじく</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="fig_terms">fig, figs</string>
+    <string name="fig_terms">いちじく、イチジク、無花果</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Common_octopus. -->
     <string name="octopus">マダコ</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Common_octopus. -->
@@ -955,5 +955,5 @@
     <string name="yuzu">ゆず</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Yuzu. -->
     <string name="yuzu_terms">ゆず,柚子,柚,ユズ</string>
-    <string name="create_pdf">Create PDF</string>
+    <string name="create_pdf">PDFを作成</string>
 </resources>
