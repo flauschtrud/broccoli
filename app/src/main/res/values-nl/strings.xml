@@ -11,7 +11,7 @@
     <string name="title_should_not_be_empty_message">Voer een titel in.</string>
     <string name="recipe_saved_message">Het recept is opgeslagen.</string>
     <string name="recipe_could_not_be_saved_message">Het recept kon niet worden opgeslagen.</string>
-    <string name="duplicate_action">Duplicate</string>
+    <string name="duplicate_action">Dupliceren</string>
     <string name="delete_action">Verwijderen</string>
     <string name="delete_recipe_question">Verwijder dit recept?</string>
     <string name="recipe_deleted_message">Het recept is verwijderd.</string>
