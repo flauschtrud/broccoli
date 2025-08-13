@@ -616,13 +616,13 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Pleurotus_eryngii. -->
     <string name="king_trumpet_mushroom_terms">king trumpet mushrooms</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="kiwi">Kiwis</string>
+    <string name="kiwi">Kiwi\'s</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="kiwi_terms">kiwi, kiwis</string>
+    <string name="kiwi_terms">kiwi, kiwi\'s</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
-    <string name="radish">Radish</string>
+    <string name="radish">Rammenas</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="radish_terms">radish, radishes</string>
+    <string name="radish_terms">radijs, radijzen, daikon, rammenas, rettich</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Largehead_hairtail. -->
     <string name="largehead_hairtail">Largehead hairtail</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Largehead_hairtail. -->
@@ -630,15 +630,15 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Nori. -->
     <string name="nori">Nori</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Nori. -->
-    <string name="nori_terms">nori</string>
+    <string name="nori_terms">nori, zeewier</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="ginger">Ginger</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="ginger_terms">ginger</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Brassica_juncea. -->
-    <string name="brown_mustard">Brown mustard</string>
+    <string name="brown_mustard">Sareptamosterd</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Brassica_juncea. -->
-    <string name="brown_mustard_terms">brown mustard, chinese mustard, indian mustard, korean green mustard, leaf mustard, oriental mustard, vegetable mustard</string>
+    <string name="brown_mustard_terms">sareptamosterd, indische bruine mosterd, bruine mosterd, kaisoi</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Togarashi. -->
     <string name="togarashi">Togarashi</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Togarashi. -->
