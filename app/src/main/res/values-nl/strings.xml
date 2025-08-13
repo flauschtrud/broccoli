@@ -632,9 +632,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Nori. -->
     <string name="nori_terms">nori, zeewier</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="ginger">Ginger</string>
+    <string name="ginger">Gember</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="ginger_terms">ginger</string>
+    <string name="ginger_terms">gember</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Brassica_juncea. -->
     <string name="brown_mustard">Sareptamosterd</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Brassica_juncea. -->
