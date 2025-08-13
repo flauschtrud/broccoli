@@ -170,7 +170,7 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="pea">Erbsen</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pea_terms">Erbsen</string>
+    <string name="pea_terms">Erbsen, Zuckererbsen, Zuckerschoten, Markerbsen</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="fennel">Fenchel</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -210,7 +210,7 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="carrot">Möhren</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="carrot_terms">Möhre, Möhren, Karotte, Karotten, Mohrrübe, Mohrrüben</string>
+    <string name="carrot_terms">Möhre, Möhren, Karotte, Karotten, Mohrrübe, Mohrrüben, Gelbe Rübe, Gelbe Rüben, Rüebli</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="bell_pepper">Paprika</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -250,7 +250,7 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="turnip">Steckrüben</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="turnip_terms">Steckrübe, Steckrüben</string>
+    <string name="turnip_terms">Steckrübe, Steckrüben, Kohlrübe, Kohlrüben, Butterrübe, Butterrüben, Dotsche, Dotschen</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="tomato">Tomaten</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
