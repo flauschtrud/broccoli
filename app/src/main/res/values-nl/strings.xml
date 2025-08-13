@@ -158,7 +158,7 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="bean">Groene bonen</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="bean_terms">sperziebonen, sperzieboon, groene bonen, groene boon, snijbonen, snijboon, haricots verts</string>
+    <string name="bean_terms">sperziebonen, sperzieboon, groene bonen, groene boon, snijbonen, snijboon, haricots verts, boontjes, groene boontjes</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="broccoli">Broccoli</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -198,7 +198,7 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="leek">Prei</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="leek_terms">prei</string>
+    <string name="leek_terms">prei, prei-ui</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="corn">Maïs</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -246,7 +246,7 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="celery">Selder</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="celery_terms">selder</string>
+    <string name="celery_terms">selder, bladselder, snijselder, struikselder, bosselder</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="turnip">Koolraap</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -710,7 +710,7 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="onion">Uien</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="onion_terms">ui, uien</string>
+    <string name="onion_terms">ui, uien, ajuin</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
     <string name="oyster">Oesters</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
