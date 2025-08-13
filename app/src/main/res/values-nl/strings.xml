@@ -644,9 +644,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Togarashi. -->
     <string name="togarashi_terms">togarashi</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="lettuce">Lettuce</string>
+    <string name="lettuce">Sla</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="lettuce_terms">lettuce</string>
+    <string name="lettuce_terms">sla, ijsbergsla, kropsla, lollo rosso, krulsla, eikenbladsla, rucola, romaine, andijvie</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Pond_loach. -->
     <string name="pond_loach">Pond loach</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Pond_loach. -->
@@ -668,9 +668,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Basella_alba. -->
     <string name="malabar_spinach_terms">malabar spinach, vine spinach, ceylon spinach, indian spinach</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="mandarin">Mandarins</string>
+    <string name="mandarin">Mandarijnen</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="mandarin_terms">mandarin, mandarins</string>
+    <string name="mandarin_terms">mandarijn, mandarijnen</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="mango">Mangos</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
