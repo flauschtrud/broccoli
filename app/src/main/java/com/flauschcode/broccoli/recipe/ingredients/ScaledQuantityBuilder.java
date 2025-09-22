@@ -9,6 +9,7 @@ public class ScaledQuantityBuilder {
 
     public String from(String quantity, float scaleFactor) {
         quantity = quantity.trim();
+        quantity = quantity.replace(",",".");
 
         try {
             if (isRange(quantity)) {
