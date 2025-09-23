@@ -22,6 +22,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.Iterator;
 
 class ImportableRecipeBuilder {
 
@@ -134,14 +135,48 @@ class ImportableRecipeBuilder {
 
     private void contributeIngredients() {
         JSONArray ingredientArray = recipeJson.optJSONArray(RECIPE_INGREDIENT);
-        if (ingredientArray != null) {
-            List<String> list = new ArrayList<>();
-            for (int i = 0; i < ingredientArray.length(); i++) {
-                list.add(decodeHtmlEntities(ingredientArray.optString(i)));
+        if (ingredientArray == null) {
+            return;
+        }
+
+        List<String> list = new ArrayList<>();
+
+        for (int i = 0; i < ingredientArray.length(); i++) {
+            Object entry = ingredientArray.opt(i);
+
+            if (entry instanceof String) {
+                addIngredientsFromString(list, (String) entry);
+
+            } else if (entry instanceof JSONObject) {
+                JSONObject obj = (JSONObject) entry;
+                Iterator<String> keys = obj.keys();
+
+                while (keys.hasNext()) {
+                    String value = obj.optString(keys.next(), "");
+                    if (value != null && !value.isEmpty()) {
+                        addIngredientsFromString(list, value);
+                    }
+                }
             }
-            recipe.setIngredients(String.join("\n", list));
+        }
+
+        recipe.setIngredients(String.join("\n", list));
+    }
+
+    private void addIngredientsFromString(List<String> list, String input) {
+        if (input == null || input.isEmpty()) {
+            return;
+        }
+
+        String[] ingredients = input.split(",");
+        for (String ingredient : ingredients) {
+            String trimmed = ingredient.trim();
+            if (!trimmed.isEmpty()) {
+                list.add(decodeHtmlEntities(trimmed));
+            }
         }
     }
+
 
     private void contributeDirections() {
         JSONArray instructionsArray = recipeJson.optJSONArray(RECIPE_INSTRUCTIONS);
