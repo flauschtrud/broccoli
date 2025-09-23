@@ -144,15 +144,15 @@ class ImportableRecipeBuilder {
         for (int i = 0; i < ingredientArray.length(); i++) {
             Object entry = ingredientArray.opt(i);
 
-            if (entry instanceof String) {
-                addIngredientsFromString(list, (String) entry);
+            if (entry instanceof String s) {
+                addIngredientsFromString(list, s);
 
-            } else if (entry instanceof JSONObject) {
-                JSONObject obj = (JSONObject) entry;
+            } else if (entry instanceof JSONObject obj) {
                 Iterator<String> keys = obj.keys();
 
                 while (keys.hasNext()) {
-                    String value = obj.optString(keys.next(), "");
+                    String key = keys.next();
+                    String value = obj.optString(key, "");
                     if (value != null && !value.isEmpty()) {
                         addIngredientsFromString(list, value);
                     }
@@ -176,7 +176,6 @@ class ImportableRecipeBuilder {
             }
         }
     }
-
 
     private void contributeDirections() {
         JSONArray instructionsArray = recipeJson.optJSONArray(RECIPE_INSTRUCTIONS);
