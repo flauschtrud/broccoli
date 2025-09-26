@@ -29,6 +29,7 @@ import com.flauschcode.broccoli.recipe.Recipe;
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
+import android.util.Log;
 
 public class CookingAssistantActivity extends AppCompatActivity implements CookingAssistantControls.OnCookingAssistantControlsInteractionListener {
 
@@ -201,7 +202,7 @@ public class CookingAssistantActivity extends AppCompatActivity implements Cooki
             try {
                 ringtone.play();
             } catch (Exception e) {
-                e.printStackTrace();
+                Log.e("CookingAssistantActivity", getString(R.string.ringtone_play_error), e);
             }
 
             new Handler().postDelayed(() -> {
