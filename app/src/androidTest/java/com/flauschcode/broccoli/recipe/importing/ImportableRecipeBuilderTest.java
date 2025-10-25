@@ -553,6 +553,68 @@ public class ImportableRecipeBuilderTest {
             }
     """;
 
+    private static final String URL_ARRIFIED_IMAGES = "https://https://www.ndr.de/ratgeber/kochen/rezepte/Auberginen-Curry-mit-Reis,auberginencurry104.html";
+
+    private static final String RECIPE_ARRIFIED_IMAGES = """
+            {
+              "@context" : "https://schema.org",
+              "@type" : "Recipe",
+              "name" : "Auberginen-Curry mit Reis",
+              "description" : "Die Auberginen schmoren bei diesem veganen Gericht mit Kokosmilch und Tomaten und werden nach Belieben pikant gewürzt.",
+              "recipeCategory" : "gesund, vegan, vegetarisch, Gemüse, Reis",
+              "dateModified" : "2025-10-14T10:42:36.751Z",
+              "datePublished" : "2025-10-14T10:42:36.699Z",
+              "image" : [ {
+                "@type" : "ImageObject",
+                "url" : "https://images.ndr.de/image/5265d7c2-3817-4d1f-b8f0-116ecbb1352d/AAABlL-u-ik/AAABmgWmh8Q/16x9-big/auberginencurry100.jpg?width=1920",
+                "author" : "NDR, Claudia Timmann",
+                "width" : 1920,
+                "height" : 1080,
+                "datePublished" : "2025-02-01T04:45:31.202+01:00",
+                "description" : "Eine Schale mit einem Auberginen-Curry und Reis."
+              }, {
+                "@type" : "ImageObject",
+                "url" : "https://images.ndr.de/image/5265d7c2-3817-4d1f-b8f0-116ecbb1352d/AAABlL-u-ik/AAABmgWmzQQ/1x1-big/auberginencurry100.jpg?width=1400",
+                "author" : "NDR, Claudia Timmann",
+                "width" : 1400,
+                "height" : 1400,
+                "datePublished" : "2025-02-01T04:45:31.202+01:00",
+                "description" : "Eine Schale mit einem Auberginen-Curry und Reis."
+              }, {
+                "@type" : "ImageObject",
+                "url" : "https://images.ndr.de/image/5265d7c2-3817-4d1f-b8f0-116ecbb1352d/AAABlL-u-ik/AAABmgWm7Uc/4x3/auberginencurry100.jpg?width=1280",
+                "author" : "NDR, Claudia Timmann",
+                "width" : 1280,
+                "height" : 960,
+                "datePublished" : "2025-02-01T04:45:31.202+01:00",
+                "description" : "Eine Schale mit einem Auberginen-Curry und Reis."
+              } ],
+              "publisher" : {
+                "@type" : "newsMediaOrganization",
+                "name" : "ndr.de",
+                "url" : "https://www.ndr.de",
+                "alternateName" : "Norddeutscher Rundfunk",
+                "correctionsPolicy" : "https://www.ndr.de/home/korrekturuebersicht100.html",
+                "diversityPolicy" : "https://www.ndr.de/der_ndr/unternehmen/Charta-der-Vielfalt-im-NDR,charta107.html",
+                "sameAs" : "https://www.facebook.com/NDR.de, https://twitter.com/ndr, https://www.instagram.com/ndr.de/?hl=de",
+                "logo" : {
+                  "@type" : "ImageObject",
+                  "url" : "https://www.ndr.de/favicon.svg"
+                }
+              },
+              "totalTime" : "PT35M",
+              "recipeYield" : 4,
+              "expires" : "2027-09-22T19:00:00.000Z",
+              "recipeIngredient" : [ "2 Auberginen", "2 EL Knoblauchöl", "400 g stückige Tomaten", "400 ml Kokosmilch", "200 g Vollkorn-Basmatireis", "Currypulver", "Gewürze", "Kräuter" ],
+              "recipeInstructions" : [ "Auberginen waschen, putzen und in mundgerechte Stücke schneiden. In einer großen Pfanne Knoblauchöl erhitzen und Auberginen darin anbraten. Bei mittlerer Hitze circa 20 Minuten schmoren lassen, dabei regelmäßig wenden. \\n\\nIn der Zwischenzeit den Reis nach Packungsanweisung gar kochen. Die Kokosmilch und die Tomaten zu den Auberginen geben. Nach Belieben würzen - z.B. mit Kurkuma, Ingwer, Paprika oder frischen Kräutern wie Koriander - und alles unter Rühren etwa 10 Minuten einkochen lassen. \\n\\nDen Reis mit dem Auberginen-Curry auf Tellern anrichten. Wer mag, streut Sesam darüber." ],
+              "author" : {
+                "@type" : "Organization",
+                "name" : "ndr.de"
+              },
+              "isAccessibleForFree" : "true"
+            }
+            """;
+
     @Before
     public void setUp() {
         AccessibilityChecks.enable();
@@ -696,6 +758,34 @@ public class ImportableRecipeBuilderTest {
         assertThat(recipe.getDirections(), is("Place eggs in a saucepan and cover with cold water. Bring water to a boil and immediately remove from heat. Cover and let eggs stand in hot water for 10 to 12 minutes. Remove from hot water, cool, peel, and chop.\nPlace chopped eggs in a bowl; stir in mayonnaise, green onion, and mustard. Season with paprika, salt, and pepper. Stir and serve on your favorite bread or crackers."));
         assertThat(recipe.getNutritionalValues(), is("Calories: 344 kcal\nFat: 32 g\nCarbohydrates: 2 g\nProtein: 13 g"));
         assertThat(recipe.getImageName(), is("blablupp.jpg"));
+    }
+
+    /*
+        see https://github.com/flauschtrud/broccoli/issues/316
+     */
+    @Test
+    public void arrified_images() throws JSONException, IOException {
+        when(recipeImageService.downloadToCache(new URL("https://images.ndr.de/image/5265d7c2-3817-4d1f-b8f0-116ecbb1352d/AAABlL-u-ik/AAABmgWmh8Q/16x9-big/auberginencurry100.jpg?width=1920"))).thenReturn("blablupp.jpg");
+
+        ImportableRecipeBuilder recipeBuilder = new ImportableRecipeBuilder(application, recipeImageService);
+
+        Optional<Recipe> optionalRecipe = recipeBuilder
+                .withRecipeJsonLd(new JSONObject(RECIPE_ARRIFIED_IMAGES))
+                .from(URL_ARRIFIED_IMAGES)
+                .build();
+
+        assertThat(optionalRecipe.isPresent(), is(true));
+
+        Recipe recipe = optionalRecipe.get();
+        assertThat(recipe.getTitle(), is("Auberginen-Curry mit Reis"));
+        assertThat(recipe.getSource(), is(URL_ARRIFIED_IMAGES));
+        assertThat(recipe.getServings(), is("4"));
+        assertThat(recipe.getPreparationTime(), is("35m"));
+        assertThat(recipe.getDescription(), is("Die Auberginen schmoren bei diesem veganen Gericht mit Kokosmilch und Tomaten und werden nach Belieben pikant gewürzt."));
+        assertThat(recipe.getIngredients(), is("2 Auberginen\n2 EL Knoblauchöl\n400 g stückige Tomaten\n400 ml Kokosmilch\n200 g Vollkorn-Basmatireis\nCurrypulver\nGewürze\nKräuter"));
+        assertThat(recipe.getDirections(), is("Auberginen waschen, putzen und in mundgerechte Stücke schneiden. In einer großen Pfanne Knoblauchöl erhitzen und Auberginen darin anbraten. Bei mittlerer Hitze circa 20 Minuten schmoren lassen, dabei regelmäßig wenden. \n\nIn der Zwischenzeit den Reis nach Packungsanweisung gar kochen. Die Kokosmilch und die Tomaten zu den Auberginen geben. Nach Belieben würzen - z.B. mit Kurkuma, Ingwer, Paprika oder frischen Kräutern wie Koriander - und alles unter Rühren etwa 10 Minuten einkochen lassen. \n\nDen Reis mit dem Auberginen-Curry auf Tellern anrichten. Wer mag, streut Sesam darüber."));
+        assertThat(recipe.getNutritionalValues(), is(""));
+        assertThat(recipe.getImageName(), is("blablupp.jpg")); // TODO doesn't work yet
     }
 
 }

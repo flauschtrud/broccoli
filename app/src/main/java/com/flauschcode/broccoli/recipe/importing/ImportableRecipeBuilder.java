@@ -235,19 +235,25 @@ class ImportableRecipeBuilder {
     private String getImageUrl() {
         JSONArray imagesArray = recipeJson.optJSONArray(RECIPE_IMAGE);
         if (imagesArray != null) {
-            return imagesArray.optString(0);
+            return getImageUrlFromObject(imagesArray.optJSONObject(0))
+                    .orElse(imagesArray.optString(0));
         }
 
-        JSONObject imagesObject = recipeJson.optJSONObject(RECIPE_IMAGE);
-        if (imagesObject != null) {
-            String url = imagesObject.optString(RECIPE_URL);
-            if (!url.isEmpty()) {
-                return url;
-            }
-
-            return imagesObject.optString(ID); // used by Rank Math schema
-        }
-
-        return recipeJson.optString(RECIPE_IMAGE);
+        return getImageUrlFromObject(recipeJson.optJSONObject(RECIPE_IMAGE))
+                .orElse(recipeJson.optString(RECIPE_IMAGE));
     }
+
+    private Optional<String> getImageUrlFromObject(JSONObject jsonObject) {
+        if (jsonObject == null) {
+            return Optional.empty();
+        }
+
+        String url = jsonObject.optString(RECIPE_URL);
+        if (!url.isEmpty()) {
+            return Optional.of(url);
+        }
+
+        return Optional.of(jsonObject.optString(ID));
+    }
+
 }
