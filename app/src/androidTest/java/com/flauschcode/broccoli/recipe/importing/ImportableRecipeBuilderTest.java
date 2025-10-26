@@ -785,7 +785,7 @@ public class ImportableRecipeBuilderTest {
         assertThat(recipe.getIngredients(), is("2 Auberginen\n2 EL Knoblauchöl\n400 g stückige Tomaten\n400 ml Kokosmilch\n200 g Vollkorn-Basmatireis\nCurrypulver\nGewürze\nKräuter"));
         assertThat(recipe.getDirections(), is("Auberginen waschen, putzen und in mundgerechte Stücke schneiden. In einer großen Pfanne Knoblauchöl erhitzen und Auberginen darin anbraten. Bei mittlerer Hitze circa 20 Minuten schmoren lassen, dabei regelmäßig wenden. \n\nIn der Zwischenzeit den Reis nach Packungsanweisung gar kochen. Die Kokosmilch und die Tomaten zu den Auberginen geben. Nach Belieben würzen - z.B. mit Kurkuma, Ingwer, Paprika oder frischen Kräutern wie Koriander - und alles unter Rühren etwa 10 Minuten einkochen lassen. \n\nDen Reis mit dem Auberginen-Curry auf Tellern anrichten. Wer mag, streut Sesam darüber."));
         assertThat(recipe.getNutritionalValues(), is(""));
-        assertThat(recipe.getImageName(), is("blablupp.jpg")); // TODO doesn't work yet
+        assertThat(recipe.getImageName(), is("blablupp.jpg"));
     }
 
 }
