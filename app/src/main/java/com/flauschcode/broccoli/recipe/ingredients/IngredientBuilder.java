@@ -8,8 +8,16 @@ import java.util.stream.Collectors;
 
 public class IngredientBuilder {
 
-    private static final Pattern newLinePattern = Pattern.compile("\n");
-    private static final Pattern quantityPattern = Pattern.compile("^\\s*([¼½¾⅐⅑⅒⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]|\\d+([,/.-])*\\d*)(\\s*-\\s*([¼½¾⅐⅑⅒⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]|\\d+([,/.-])*\\d*))?(?!$)");
+    private static final Pattern NEW_LINE_PATTERN = Pattern.compile("\n");
+
+    private static final String VULGAR_FRACTION_PATTERN = "[¼½¾⅐⅑⅒⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]";
+    private static final String DECIMAL_PATTERN = "\\d+([./,]\\d+)?";
+
+    private static final String QUANTITY_PATTERN = "(" + VULGAR_FRACTION_PATTERN + "|" + DECIMAL_PATTERN  + ")";
+
+    private static final Pattern RANGE_PATTERN = Pattern.compile(
+            "^" + QUANTITY_PATTERN + "(\\s*-\\s*" + QUANTITY_PATTERN + ")?"
+    );
 
     private IngredientBuilder() {}
 
@@ -18,12 +26,12 @@ public class IngredientBuilder {
             return new ArrayList<>();
         }
 
-        return newLinePattern.splitAsStream(ingredients)
+        return NEW_LINE_PATTERN.splitAsStream(ingredients)
                 .map(s -> s.replaceFirst("^\\s*[-–](?!$)", ""))
                 .map(String::trim)
                 .filter(s -> !s.isEmpty())
                 .map(s -> {
-                    Matcher matcher = quantityPattern.matcher(s);
+                    Matcher matcher = RANGE_PATTERN.matcher(s);
                     String quantity = matcher.find()? matcher.group() : "";
                     return new Ingredient(quantity, s.replaceFirst(quantity, ""));
                 })

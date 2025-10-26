@@ -1,19 +1,16 @@
 package com.flauschcode.broccoli.recipe.ingredients;
 
-import com.flauschcode.broccoli.recipe.ingredients.Ingredient;
-import com.flauschcode.broccoli.recipe.ingredients.IngredientBuilder;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.collection.IsEmptyCollection.empty;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.util.List;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.hasItem;
-import static org.hamcrest.Matchers.hasSize;
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.collection.IsEmptyCollection.empty;
 
 @RunWith(JUnit4.class)
 public class IngredientBuilderTest {
@@ -98,4 +95,13 @@ public class IngredientBuilderTest {
         assertThat(ingredients, hasItem(new Ingredient("2 - 3", " Zwiebeln")));
         assertThat(ingredients, hasItem(new Ingredient("1/2-1", " EL Chiliflocken")));
     }
+
+    // see https://github.com/flauschtrud/broccoli/issues/323
+    @Test
+    public void mixed_ranges_should_be_detected() {
+        ingredients = IngredientBuilder.from("1 - 1.5 Zwiebeln");
+        assertThat(ingredients, hasSize(1));
+        assertThat(ingredients, hasItem(new Ingredient("1 - 1.5", " Zwiebeln")));
+    }
+
 }
