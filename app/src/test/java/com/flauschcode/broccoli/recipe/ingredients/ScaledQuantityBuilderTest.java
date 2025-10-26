@@ -66,4 +66,11 @@ public class ScaledQuantityBuilderTest {
         assertThat(scaled,  is("1-"));
     }
 
+    // see https://github.com/flauschtrud/broccoli/issues/318
+    @Test
+    public void scale_comma_quantity() {
+        String scaled = scaledQuantityBuilder.from("0,5", 2f);
+        assertThat(scaled,  is("1"));
+    }
+
 }
