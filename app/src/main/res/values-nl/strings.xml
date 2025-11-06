@@ -516,9 +516,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Sepia_esculenta. -->
     <string name="golden_cuttlefish_terms">golden cuttlefish</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Goosefish. -->
-    <string name="goosefish">Goosefish</string>
+    <string name="goosefish">Zeeduivel</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Goosefish. -->
-    <string name="goosefish_terms">goosefish</string>
+    <string name="goosefish_terms">zeeduivel, hozemond, staartvis, hamvis, lotte</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="grape">Druiven</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
