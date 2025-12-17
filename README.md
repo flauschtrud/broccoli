@@ -26,6 +26,12 @@ You can get Broccoli on
 
 ## FAQ
 
+### Can I create and edit Broccoli recipes on my computer?
+A kind user created [Brassica](https://brassica.crispilly.de/en/broccoli.html) – a self-hosted web companion for managing Broccoli 
+recipes in your browser.
+
+Brassica is also open source and can be found on [GitHub](https://github.com/crispilly/brassica).
+
 ### Why Can Some Recipes Not Be Imported via Their URL Into Broccoli?
 Broccoli searches for recipe metadata in the [JSON-LD](https://json-ld.org/) format. Many modern sites and blogs provide this metadata since it helps them with search engine optimization. But some might also choose to not expose it because they do not want any external sites and tools to scrape their content.
 
