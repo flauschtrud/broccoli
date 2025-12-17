@@ -26,7 +26,7 @@ You can get Broccoli on
 
 ## FAQ
 
-### Can I create and edit Broccoli recipes on my computer?
+### Can I Create and Edit Broccoli Recipes on My Computer?
 A kind user created [Brassica](https://brassica.crispilly.de/en/broccoli.html) – a self-hosted web companion for managing Broccoli 
 recipes in your browser.
 
