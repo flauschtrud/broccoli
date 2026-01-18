@@ -364,21 +364,21 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="champignons_terms">champignons</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Abalone. -->
-    <string name="abalone">Abalone</string>
+    <string name="abalone">Ormeau</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Abalone. -->
-    <string name="abalone_terms">abalone, abalones</string>
+    <string name="abalone_terms">ormeau, ormeaux</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Ashitaba. -->
     <string name="ashitaba">Ashitaba</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Ashitaba. -->
-    <string name="ashitaba_terms">ashitaba, angelica keiskei</string>
+    <string name="ashitaba_terms">ashitaba</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
-    <string name="bamboo_shoots">Bamboo shoots</string>
+    <string name="bamboo_shoots">Pousses de bambou</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="bamboo_shoots_terms">bamboo shoots</string>
+    <string name="bamboo_shoots_terms">pousses de bambou</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Barracuda. -->
     <string name="barracuda">Barracuda</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Barracuda. -->
-    <string name="barracuda_terms">barracuda, barracudas</string>
+    <string name="barracuda_terms">barracuda</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Corbicula. -->
     <string name="corbicula">Corbicula</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Corbicula. -->
@@ -430,7 +430,7 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="fig">Figues</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="fig_terms">fig, figs</string>
+    <string name="fig_terms">figue, figues</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Common_octopus. -->
     <string name="octopus">Poulpe</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Common_octopus. -->
@@ -444,17 +444,17 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Congridae. -->
     <string name="conger_eel_terms">conger eel, conger eels, garden eel, garden eels</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Amorphophallus_konjac. -->
-    <string name="konjac">Konnyaku</string>
+    <string name="konjac">Konjac</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Amorphophallus_konjac. -->
-    <string name="konjac_terms">konnyaku, konjac</string>
+    <string name="konjac_terms">konjac</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Daggertooth_pike_conger. -->
     <string name="daggertooth_pike_conger">Daggertooth pike conger</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Daggertooth_pike_conger. -->
     <string name="daggertooth_pike_conger_terms">daggertooth pike conger, daggertooth pike congers, darkfin pike eel, darkfin pike eels</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Eddoe. -->
-    <string name="eddo">Eddo</string>
+    <string name="eddo">Colocasia antiquorum</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Eddoe. -->
-    <string name="eddo_terms">eddo, eddos, eddoe, eddoes</string>
+    <string name="eddo_terms">colocasia antiquorum, taro</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
     <string name="eel">Anguille</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -474,21 +474,21 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Citrus_depressa. -->
     <string name="shikuwasa">Shikuwasa</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Citrus_depressa. -->
-    <string name="shikuwasa_terms">shikuwasa, shikuwasas, flat lemon, flat lemons</string>
+    <string name="shikuwasa_terms">shikuwasa, citron hirami</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Olive_flounder. -->
-    <string name="olive_flounder">Olive flounder</string>
+    <string name="olive_flounder">Cardeau Hirame</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Olive_flounder. -->
-    <string name="olive_flounder_terms">olive flounder, olive flounders</string>
+    <string name="olive_flounder_terms">cardeau hirame, turbot japonais</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Flying_fish. -->
-    <string name="flying_fish">Flying fish</string>
+    <string name="flying_fish">Poisson volant</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Flying_fish. -->
-    <string name="flying_fish_terms">flying fish</string>
+    <string name="flying_fish_terms">poisson volant, exocets</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Glebionis_coronaria. -->
-    <string name="garland_chrysanthemum">Garland chrysanthemums</string>
+    <string name="garland_chrysanthemum">Chrysanthème comestible</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Glebionis_coronaria. -->
-    <string name="garland_chrysanthemum_terms">garland chrysanthemums, chrysanthemum greens, Japanese greens, shungiku</string>
+    <string name="garland_chrysanthemum_terms">chrysanthème comestible, chrysanthème couronné, chrysanthème des jardins</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="garlic">Garlic</string>
+    <string name="garlic">Ail</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="garlic_terms">garlic</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
