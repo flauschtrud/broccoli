@@ -5,7 +5,7 @@
     <string name="create_a_recipe_prompt">crée une nouvelle recette</string>
     <string name="import_from_the_web_prompt">importer une recette depuis un site web</string>
     <string name="new_recipe">Nouvelle Recette</string>
-    <string name="create_first_recipe">Créer sa première recette et commencer sa collection !</string>
+    <string name="create_first_recipe">Créez votre première recette pour commencer votre collection !</string>
     <string name="edit_action">Modifier</string>
     <string name="save_action">Enregistrer</string>
     <string name="title_should_not_be_empty_message">Ajouter un titre.</string>
@@ -38,7 +38,7 @@
     <string name="pick_photo">Sélectionner une photo</string>
     <string name="image_could_not_be_created_message">Le fichier image n\'a pas pu être créé.</string>
     <string name="categories">Catégories</string>
-    <string name="create_a_category_prompt">Créer des catégories personnalisées pour gérer ses recettes.</string>
+    <string name="create_a_category_prompt">Créez des catégories personnalisées pour organiser vos recettes.</string>
     <string name="add_category">Ajouter une catégorie</string>
     <string name="add_first_category">Ajoute ta première catégorie personnalisée et mets de l\'ordre dans ta collection !</string>
     <string name="edit_category">Modifier la catégorie</string>
@@ -54,11 +54,11 @@
     <string name="search_in">Rechercher dans %1$s</string>
     <string name="preferred_category">Catégorie préférée</string>
     <string name="cooking_assistant">Assistant de cuisine</string>
-    <string name="cooking_assistant_prompt">Préparer sa recette en mode plein écran sans distractions !</string>
+    <string name="cooking_assistant_prompt">Préparez votre recette en mode plein écran, sans distractions !</string>
     <string name="no_ingredients_and_directions_message">Cette recette n\'a pas encore d\'ingrédients ni d\'instructions.</string>
     <string name="cook_action">Cuisiner</string>
     <string name="adjust_ingredients">Ajuster les ingrédients</string>
-    <string name="adjust_ingredients_prompt">Choisir le nombre de portions à préparer !</string>
+    <string name="adjust_ingredients_prompt">Choisissez le nombre de portions à préparer !</string>
     <string name="scaling_simple">Simple</string>
     <string name="scaling_pro">Pro</string>
     <string name="recipe_amount">Quantité de la recette</string>
@@ -73,7 +73,7 @@
     <string name="backup">Sauvegarde</string>
     <string name="restore">Restauration</string>
     <string name="backup_recipes">Sauvegarder des recettes</string>
-    <string name="backup_recipes_message">Exporter toutes ses recettes et catégories et les enregistrer où l\'on veut.</string>
+    <string name="backup_recipes_message">Exportez toutes vos recettes et catégories et pour les sauvegarder.</string>
     <string name="restore_recipes">Restaurer des recettes</string>
     <string name="restore_recipes_message">Importer toutes des recettes et catégories à partir d\'un fichier de sauvegarde.</string>
     <string name="backup_failed_message">Les recettes n\'ont pas pu être exportées.</string>
