@@ -12,8 +12,9 @@ public class IngredientBuilder {
 
     private static final String VULGAR_FRACTION_PATTERN = "[¼½¾⅐⅑⅒⅓⅔⅕⅖⅗⅘⅙⅚⅛⅜⅝⅞]";
     private static final String DECIMAL_PATTERN = "\\d+([./,]\\d+)?";
+    private static final String MIXED_INTEGER_PATTERN = "\\d+\\s+\\d+/\\d+";
 
-    private static final String QUANTITY_PATTERN = "(" + VULGAR_FRACTION_PATTERN + "|" + DECIMAL_PATTERN  + ")";
+    private static final String QUANTITY_PATTERN = "(" + VULGAR_FRACTION_PATTERN + "|" + MIXED_INTEGER_PATTERN  + "|" + DECIMAL_PATTERN + ")";
 
     private static final Pattern RANGE_PATTERN = Pattern.compile(
             "^" + QUANTITY_PATTERN + "(\\s*-\\s*" + QUANTITY_PATTERN + ")?"

@@ -104,4 +104,15 @@ public class IngredientBuilderTest {
         assertThat(ingredients, hasItem(new Ingredient("1 - 1.5", " Zwiebeln")));
     }
 
+    // see https://github.com/flauschtrud/broccoli/issues/157
+    @Test
+    public void mixed_integer_ranges_should_be_detected() {
+        ingredients = IngredientBuilder.from("1 1/2 Zwiebeln\n 1 - 1 1/2 EL Chiliflocken\n 1 1/2 - 2 1/2 Äpfel\n 0,5 - 2 3/4 Packungen Mehl");
+        assertThat(ingredients, hasSize(4));
+        assertThat(ingredients, hasItem(new Ingredient("1 1/2", " Zwiebeln")));
+        assertThat(ingredients, hasItem(new Ingredient("1 - 1 1/2", " EL Chiliflocken")));
+        assertThat(ingredients, hasItem(new Ingredient("1 1/2 - 2 1/2", " Äpfel")));
+        assertThat(ingredients, hasItem(new Ingredient("0,5 - 2 3/4", " Packungen Mehl")));
+    }
+
 }
