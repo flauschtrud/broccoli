@@ -11,7 +11,7 @@
     <string name="title_should_not_be_empty_message">Lütfen bir başlık ekleyin.</string>
     <string name="recipe_saved_message">Tarif kaydedildi.</string>
     <string name="recipe_could_not_be_saved_message">Tarif kaydedilemedi.</string>
-    <string name="duplicate_action">Kopyala</string>
+    <string name="duplicate_action">Kopya oluştur</string>
     <string name="delete_action">Sil</string>
     <string name="delete_recipe_question">Bu tarifi silmek istiyor musunuz?</string>
     <string name="recipe_deleted_message">Tarif silindi.</string>
@@ -166,7 +166,7 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="chinese_cabbage">Çin lahanası</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="chinese_cabbage_terms">çin lahanası, napa lahanası</string>
+    <string name="chinese_cabbage_terms">çin lahanası, çin marulu</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="pea">Bezelye</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -326,7 +326,7 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="winter_squash">Kış kabağı</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="winter_squash_terms">kış kabağı, butternut kabağı, meşe palamudu kabağı, spaghetti kabağı</string>
+    <string name="winter_squash_terms">kış kabağı, butternut kabağı, spaghetti kabağı</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="pomegranate">Nar</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -612,9 +612,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Kombu. -->
     <string name="kombu_terms">kombu, konbu</string>
     <!-- A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Pleurotus_eryngii. -->
-    <string name="king_trumpet_mushroom">Kral trompet mantarı</string>
+    <string name="king_trumpet_mushroom">Kral mantarı</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Pleurotus_eryngii. -->
-    <string name="king_trumpet_mushroom_terms">kral trompet mantarı</string>
+    <string name="king_trumpet_mushroom_terms">kral istiridye mantarı, körek mantarı</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="kiwi">Kivi</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -654,7 +654,7 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Loquat. -->
     <string name="loquat">Malta Eriği</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Loquat. -->
-    <string name="loquat_terms">malta eriği, malta erikleri</string>
+    <string name="loquat_terms">malta eriği, yenidünya, yeni dünya</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Nelumbo_nucifera. -->
     <string name="lotus_root">Lotus Kökü</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Nelumbo_nucifera. -->
