@@ -146,7 +146,7 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="eggplant">Patlıcan</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="eggplant_terms">patlıcan, patlıcanlar, aubergine, aubergines</string>
+    <string name="eggplant_terms">patlıcan, patlıcanlar</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="cauliflower">Karnabahar</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -154,11 +154,11 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="broad_bean">Bakla</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="broad_bean_terms">bakla, fava fasulyesi, faba fasulyesi</string>
+    <string name="broad_bean_terms">bakla</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="bean">Fasulye</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="bean_terms">fasulye, yeşil fasulye</string>
+    <string name="bean_terms">fasulye, yeşil fasulye, taze fasulye</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="broccoli">Brokoli</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -182,7 +182,7 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="cucumber">Salatalık</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="cucumber_terms">salatalık, salatalıklar</string>
+    <string name="cucumber_terms">salatalık, hıyar</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="celeriac">Kereviz kökü</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -266,7 +266,7 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="zucchini">Kabak</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="zucchini_terms">kabak, kabaklar, courgette, courgettes</string>
+    <string name="zucchini_terms">kabak, sakız kabağı</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="wild_garlic">Yabani sarımsak</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -392,9 +392,9 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Bigfin_reef_squid. -->
     <string name="bigfin_reef_squid_terms">bigfin resif kalamarı, bigfin resif kalamarları</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Momordica_charantia. -->
-    <string name="bitter_melon">Acı kavun</string>
+    <string name="bitter_melon">Kudret narı</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Momordica_charantia. -->
-    <string name="bitter_melon_terms">acı kavun, acı kavunlar</string>
+    <string name="bitter_melon_terms">kudret narı</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Sebastes_inermis. -->
     <string name="japanese_red_seaperch">Japon kırmızı levreği</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Sebastes_inermis. -->
