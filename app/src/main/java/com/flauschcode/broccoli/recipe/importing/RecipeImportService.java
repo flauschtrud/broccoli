@@ -15,6 +15,8 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionException;
@@ -42,9 +44,14 @@ public class RecipeImportService {
         return CompletableFuture.supplyAsync(() -> {
             Document document;
             try {
-                document = Jsoup.connect(url).userAgent(USER_AGENT).get();
-            } catch (IOException e) {
-                throw new CompletionException(e);
+                String decodedUrl = URLDecoder.decode(url, StandardCharsets.UTF_8.name());
+                document = Jsoup.connect(decodedUrl).userAgent(USER_AGENT).get();
+            } catch (IOException | IllegalArgumentException e) {
+                try {
+                    document = Jsoup.connect(url).userAgent(USER_AGENT).get();
+                } catch (IOException ex) {
+                    throw new CompletionException(ex);
+                }
             }
 
             Elements jsonLds = document.select("script[type=\"application/ld+json\"]");
