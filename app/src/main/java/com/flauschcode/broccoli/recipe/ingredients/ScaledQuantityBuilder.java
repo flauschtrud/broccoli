@@ -13,7 +13,7 @@ public class ScaledQuantityBuilder {
 
         try {
             if (isRange(quantity)) {
-                String[] ranges = quantity.replace(" ", "").split("-");
+                String[] ranges = quantity.split("-");
 
                 if (ranges.length != 2) {
                     throw new NumberFormatException(quantity + " is not a valid range.");
@@ -31,6 +31,8 @@ public class ScaledQuantityBuilder {
     }
 
     private String scale(String quantity, float scaleFactor) {
+        quantity = quantity.trim();
+
         if (isMixedInteger(quantity)) {
             return scaleMixedInteger(quantity, scaleFactor);
         }

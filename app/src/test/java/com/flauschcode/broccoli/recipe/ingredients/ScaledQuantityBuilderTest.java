@@ -73,4 +73,10 @@ public class ScaledQuantityBuilderTest {
         assertThat(scaled,  is("1"));
     }
 
+    @Test
+    public void scale_mixed_integer_range_quantity() {
+        String scaled = scaledQuantityBuilder.from("1 1/2 - 2 1/2", 2f);
+        assertThat(scaled,  is("3-5"));
+    }
+
 }
