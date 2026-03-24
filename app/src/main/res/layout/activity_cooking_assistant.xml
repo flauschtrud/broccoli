@@ -1,16 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fullscreen_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:keepScreenOn="true">
 
+    <!-- ViewPager2 stays in the background -->
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/cooking_assistant_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <TextView
+        android:id="@+id/timerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="18dp"
+        android:text="00h:00m:00s"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textColor="@color/colorAccent"
+        android:textStyle="italic" />
+
+    <!-- Buttons -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_cancel"
         android:layout_width="wrap_content"
@@ -28,7 +42,18 @@
         style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
         app:icon="@drawable/ic_tune_24"
         app:iconGravity="textTop"
-        android:layout_gravity="top|end"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="56dp"
         android:contentDescription="@string/adjust_ingredients" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_time_24dp"
+        style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+        app:iconGravity="textTop"       
+        android:layout_gravity="bottom|end"
+        android:contentDescription="@string/timer_start" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
