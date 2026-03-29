@@ -1,21 +1,21 @@
-Broccoli is a free eco-friendly recipe app for building your <b>recipe collection</b>, <b>distraction free cooking</b> and <b>seasonal ingredients</b>. Create, collect and cook!
+Bròcoli és una aplicació de receptes gratuïta i ecològica per ampliar la teva <b>col·lecció de receptes</b>, <b>cuinar sense distraccions</b> i <b>ingredients de temporada</b>. Crea, recull i cuina!
 
-<b>Organize easily</b>
-• create an unlimited amount of recipes
-• import recipes from your favorite blogs
-• organize with categories and hashtags
-• access your recipes offline
-• backup your recipes
+<b>Organitza fàcilment</b>
+• crea un nombre il·limitat de receptes
+• importa receptes dels teus blocs preferits
+• organitza-les per categories i hashtags
+• accedeix a les teves receptes sense connexió
+• fes còpies de seguretat de les teves receptes
 
-<b>Cook eco-friendly</b>
-• learn more about the seasonal ingredients in your region with the seasonal calendar
-• search for seasonal recipes in your collection
-• easily identify seasonal ingredients
+<b>Cuina ecològicament</b>
+• apreneu més sobre els ingredients de temporada de la vostra regió amb el calendari de temporada.
+• cerca receptes de temporada a la teva col·lecció
+• identifica fàcilment els ingredients de temporada
 
-<b>Cook without distraction</b>
-• use the fullscreen cooking assistant while you prepare your dish
-• adjust the amount of the ingredients
+<b>Cuina sense distraccions</b>
+• fes servir l'assistent de cuina a pantalla completa mentre prepares el teu plat
+• ajusta la quantitat dels ingredients
 
-Broccoli is free for everyone and no account is required. If you enjoy our recipe app you can donate to support the development of the app.
+Bròcoli és gratuït per a tothom i no cal cap compte. Si t'agrada la nostra aplicació de receptes, pots fer una donació per donar suport al desenvolupament de l'aplicació.
 
-Start your recipe collection now!
+Comença la teva recopilació de receptes ara!
