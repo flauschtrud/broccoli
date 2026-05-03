@@ -106,7 +106,7 @@
     <string name="seasonal_recipes">Seasonal recipes</string>
     <string name="seasonal_ingredients_accessibility">Seasonal ingredients</string>
     <string name="seasons_not_configured_message">The seasonal calendar has not been fully configured yet.</string>
-    <string name="configure_seasons_action">Configure</string>
+    <string name="configure_seasons_action">Configurar</string>
     <string name="region">Region</string>
     <string name="languages_of_recipes">Languages of recipes</string>
     <string name="no_language_set_message">In which languages do you create your recipes? Choose at least one language.</string>
