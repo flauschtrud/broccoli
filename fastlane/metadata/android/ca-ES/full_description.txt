@@ -1,0 +1,21 @@
+Bròcoli és una aplicació de receptes gratuïta i ecològica per ampliar la teva <b>col·lecció de receptes</b>, <b>cuinar sense distraccions</b> i <b>ingredients de temporada</b>. Crea, recull i cuina!
+
+<b>Organitza fàcilment</b>
+• crea un nombre il·limitat de receptes
+• importa receptes dels teus blocs preferits
+• organitza-les per categories i hashtags
+• accedeix a les teves receptes sense connexió
+• fes còpies de seguretat de les teves receptes
+
+<b>Cuina ecològicament</b>
+• apreneu més sobre els ingredients de temporada de la vostra regió amb el calendari de temporada.
+• cerca receptes de temporada a la teva col·lecció
+• identifica fàcilment els ingredients de temporada
+
+<b>Cuina sense distraccions</b>
+• fes servir l'assistent de cuina a pantalla completa mentre prepares el teu plat
+• ajusta la quantitat dels ingredients
+
+Bròcoli és gratuït per a tothom i no cal cap compte. Si t'agrada la nostra aplicació de receptes, pots fer una donació per donar suport al desenvolupament de l'aplicació.
+
+Comença la teva recopilació de receptes ara!
