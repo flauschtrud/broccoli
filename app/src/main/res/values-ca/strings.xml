@@ -158,11 +158,11 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="bean">Beans</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="bean_terms">common beans, french beans, green beans</string>
+    <string name="bean_terms">mongetes comunes. Mongetes verdes. Mongetes verdes</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="broccoli">Broccoli</string>
+    <string name="broccoli">Bròcoli </string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="broccoli_terms">broccoli</string>
+    <string name="broccoli_terms">bròcoli</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="chinese_cabbage">Chinese cabbage</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
