@@ -1,0 +1,224 @@
+{
+  "food": [
+    {
+      "name": "mallow",
+      "months": [1, 2, 3]
+    },
+    {
+      "name": "artichoke",
+      "months": [2, 3, 4]
+    },
+    {
+      "name": "asparagus",
+      "months": [2, 3, 4]
+    },
+    {
+      "name": "broad_bean",
+      "months": [2, 3, 4]
+    },
+    {
+      "name": "dill",
+      "months": [2, 3, 4, 5, 6]
+    },
+    {
+      "name": "lettuce",
+      "months": [2, 3, 4, 8, 9, 10]
+    },
+    {
+      "name": "rocket",
+      "months": [2, 3, 4, 8, 9, 10]
+    },
+    {
+      "name": "pea",
+      "months": [3, 4, 5]
+    },
+    {
+      "name": "cherry",
+      "months": [3, 4]
+    },
+    {
+      "name": "strawberry",
+      "months": [3, 4]
+    },
+    {
+      "name": "apricot",
+      "months": [3, 4, 5]
+    },
+    {
+      "name": "bean",
+      "months": [4, 5, 6, 7]
+    },
+    {
+      "name": "cucumber",
+      "months": [4, 5, 6, 7, 8]
+    },
+    {
+      "name": "potato",
+      "months": [4, 5, 6, 7, 8, 9]
+    },
+    {
+      "name": "purslane",
+      "months": [4, 5, 6, 7, 8]
+    },
+    {
+      "name": "zucchini",
+      "months": [4, 5, 6, 7]
+    },
+    {
+      "name": "loquat",
+      "months": [4, 5]
+    },
+    {
+      "name": "bell_pepper",
+      "months": [5, 6, 7, 8]
+    },
+    {
+      "name": "cowpea",
+      "months": [5, 6, 7, 8]
+    },
+    {
+      "name": "tomato",
+      "months": [5, 6, 7, 8]
+    },
+    {
+      "name": "eggplant",
+      "months": [5, 6, 7, 8, 9]
+    },
+    {
+      "name": "melon",
+      "months": [5, 6, 7, 8]
+    },
+    {
+      "name": "peach",
+      "months": [5, 6, 7]
+    },
+    {
+      "name": "watermelon",
+      "months": [5, 6, 7, 8]
+    },
+    {
+      "name": "corn",
+      "months": [6, 7, 8, 9]
+    },
+    {
+      "name": "plum",
+      "months": [6, 7, 8]
+    },
+    {
+      "name": "fig",
+      "months": [6, 7, 8]
+    },
+    {
+      "name": "grape",
+      "months": [6, 7, 8]
+    },
+    {
+      "name": "apple",
+      "months": [6, 7, 8, 9, 10]
+    },
+    {
+      "name": "pear",
+      "months": [6, 7, 8, 9, 10]
+    },
+    {
+      "name": "okra",
+      "months": [7, 8, 9]
+    },
+    {
+      "name": "lemon",
+      "months": [8, 9, 10, 11, 0, 1, 2, 3]
+    },
+    {
+      "name": "quince",
+      "months": [8, 9, 10]
+    },
+    {
+      "name": "persimmon",
+      "months": [8, 9, 10]
+    },
+    {
+      "name": "pomegranate",
+      "months": [8, 9, 10, 11]
+    },
+    {
+      "name": "broccoli",
+      "months": [8, 9, 10, 11, 0, 1]
+    },
+    {
+      "name": "carrot",
+      "months": [8, 9, 10, 11, 0, 1, 2, 3]
+    },
+    {
+      "name": "celery",
+      "months": [9, 10, 11, 0, 1, 2, 3]
+    },
+    {
+      "name": "celeriac",
+      "months": [9, 10, 11, 0, 1, 2, 3]
+    },
+    {
+      "name": "leek",
+      "months": [8, 9, 10, 11, 0, 1, 2, 3, 4]
+    },
+    {
+      "name": "spring_onion",
+      "months": [8, 9, 10, 11, 0, 1, 2, 3, 4]
+    },
+    {
+      "name": "fennel",
+      "months": [10, 11, 0, 1, 2, 3]
+    },
+    {
+      "name": "wild_fennel",
+      "months": [10, 11, 0, 1, 2, 3]
+    },
+    {
+      "name": "mandarin",
+      "months": [9, 10, 11, 0, 1]
+    },
+    {
+      "name": "chestnut",
+      "months": [9, 10, 11]
+    },
+    {
+      "name": "beetroot",
+      "months": [9, 10, 11, 0, 1, 2]
+    },
+    {
+      "name": "cauliflower",
+      "months": [9, 10, 11, 0, 1, 2]
+    },
+    {
+      "name": "chard",
+      "months": [9, 10, 11, 0, 1, 2, 3]
+    },
+    {
+      "name": "cabbage",
+      "months": [9, 10, 11, 0, 1, 2, 3]
+    },
+    {
+      "name": "white_cabbage",
+      "months": [9, 10, 11, 0, 1, 2, 3]
+    },
+    {
+      "name": "red_cabbage",
+      "months": [9, 10, 11, 0, 1, 2, 3]
+    },
+    {
+      "name": "spinach",
+      "months": [9, 10, 11, 0, 1, 2, 3]
+    },
+    {
+      "name": "radish",
+      "months": [9, 10, 11, 0, 1, 2, 3]
+    },
+    {
+      "name": "grapefruit",
+      "months": [10, 11, 0, 1, 2, 3]
+    },
+    {
+      "name": "orange",
+      "months": [11, 0, 1, 2, 3, 4]
+    }
+  ]
+}
