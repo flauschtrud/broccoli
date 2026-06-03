@@ -268,7 +268,7 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="zucchini_terms">zucchini, courgette, courgettes</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="wild_garlic">Wild garlic</string>
+    <string name="wild_garlic">All silvestre</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="wild_garlic_terms">wild garlic</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
@@ -366,7 +366,7 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Abalone. -->
     <string name="abalone">Abalone</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Abalone. -->
-    <string name="abalone_terms">abalone, abalones</string>
+    <string name="abalone_terms">orella de mar</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Ashitaba. -->
     <string name="ashitaba">Ashitaba</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Ashitaba. -->
