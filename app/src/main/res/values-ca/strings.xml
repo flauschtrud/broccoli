@@ -264,7 +264,7 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="savoy_cabbage_terms">savoy cabbage</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="zucchini">Zucchini</string>
+    <string name="zucchini">Carabassó</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="zucchini_terms">zucchini, courgette, courgettes</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
