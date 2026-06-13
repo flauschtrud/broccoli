@@ -166,107 +166,107 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="chinese_cabbage">Chinese cabbage</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="chinese_cabbage_terms">chinese cabbage, napa cabbage</string>
+    <string name="chinese_cabbage_terms">col xinesa</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pea">Peas</string>
+    <string name="pea">Pèsols</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pea_terms">peas</string>
+    <string name="pea_terms">pèsols</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="fennel">Fennel</string>
+    <string name="fennel">Fonoll</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="fennel_terms">fennel</string>
+    <string name="fennel_terms">fonoll</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="kale">Kale</string>
+    <string name="kale">Col arrissada</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="kale_terms">kale</string>
+    <string name="kale_terms">col arrissada</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="cucumber">Cucumbers</string>
+    <string name="cucumber">Cogombres</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="cucumber_terms">cucumber, cucumbers</string>
+    <string name="cucumber_terms">cogombres</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="celeriac">Celeriac</string>
+    <string name="celeriac">Api</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="celeriac_terms">celeriac</string>
+    <string name="celeriac_terms">api</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="kohlrabi">Kohlrabi</string>
+    <string name="kohlrabi">Colrave</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="kohlrabi_terms">kohlrabi</string>
+    <string name="kohlrabi_terms">colrave</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="pumpkin">Carabassa</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="pumpkin_terms">pumpkin, pumpkins, hokkaido</string>
+    <string name="pumpkin_terms">carabassa</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="leek">Leek</string>
+    <string name="leek">Porro</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="leek_terms">leek</string>
+    <string name="leek_terms">porro</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="corn">Corn</string>
+    <string name="corn">Blat de moro</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="corn_terms">corn</string>
+    <string name="corn_terms">blat de moro</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="chard">Chard</string>
+    <string name="chard">Bleda</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="chard_terms">chard</string>
+    <string name="chard_terms">bleda</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="carrot">Carrots</string>
+    <string name="carrot">Pastanaga</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="carrot_terms">carrot, carrots</string>
+    <string name="carrot_terms">pastanaga</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="bell_pepper">Bell peppers</string>
+    <string name="bell_pepper">Pebrots</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="bell_pepper_terms">peppers, bell pepper, bell peppers</string>
+    <string name="bell_pepper_terms">pebrots</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="parsnip">Parsnip</string>
+    <string name="parsnip">Xirivia</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="parsnip_terms">parsnip, parsnips</string>
+    <string name="parsnip_terms">xirivia</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="brussels_sprouts">Brussels sprouts</string>
+    <string name="brussels_sprouts">Cols de Brussel·les</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="brussels_sprouts_terms">brussels sprouts</string>
+    <string name="brussels_sprouts_terms">cols de Brussel·les</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="beetroot">Beetroot</string>
+    <string name="beetroot">Remolatxa</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="beetroot_terms">beet, beets, beetroot, beetroots</string>
+    <string name="beetroot_terms">remolatxa</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="red_cabbage">Red cabbage</string>
+    <string name="red_cabbage">Col llombarda</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="red_cabbage_terms">red cabbage</string>
+    <string name="red_cabbage_terms">col llombarda</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="salsify">Salsify</string>
+    <string name="salsify">Salsifí</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="salsify_terms">salsify</string>
+    <string name="salsify_terms">salsifí</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="asparagus">Asparagus</string>
+    <string name="asparagus">Espàrrecs</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="asparagus_terms">asparagus</string>
+    <string name="asparagus_terms">espàrrecs</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="spinach">Spinach</string>
+    <string name="spinach">Espinacs</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="spinach_terms">spinach</string>
+    <string name="spinach_terms">espinacs</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="celery">Celery</string>
+    <string name="celery">Api</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="celery_terms">celery</string>
+    <string name="celery_terms">api</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="turnip">Turnips</string>
+    <string name="turnip">Naps</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="turnip_terms">turnip, turnips</string>
+    <string name="turnip_terms">naps</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="tomato">Tomatoes</string>
+    <string name="tomato">Tomàquets</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="tomato_terms">tomato, tomatoes</string>
+    <string name="tomato_terms">tomàquets</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="white_cabbage">White cabbage</string>
+    <string name="white_cabbage">Col blanca</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="white_cabbage_terms">white cabbage, green cabbage</string>
+    <string name="white_cabbage_terms">col blanca</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="savoy_cabbage">Savoy cabbage</string>
+    <string name="savoy_cabbage">Col de Savoia</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="savoy_cabbage_terms">savoy cabbage</string>
+    <string name="savoy_cabbage_terms">col de Savoia</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="zucchini">Carabassó</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="zucchini_terms">zucchini, courgette, courgettes</string>
+    <string name="zucchini_terms">carabassó</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="wild_garlic">All silvestre</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
