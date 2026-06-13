@@ -192,7 +192,7 @@
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="kohlrabi_terms">kohlrabi</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="pumpkin">Pumpkin</string>
+    <string name="pumpkin">Carabassa</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
     <string name="pumpkin_terms">pumpkin, pumpkins, hokkaido</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
