@@ -466,7 +466,7 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AA%E3%82%AC%E3%82%A4. -->
     <string name="torigai">Torigai</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://ja.wikipedia.org/wiki/%E3%83%88%E3%83%AA%E3%82%AC%E3%82%A4. -->
-    <string name="torigai_terms">torigai, japanese cockle, japanese cockles, heart clams</string>
+    <string name="torigai_terms">Escopinyes japoneses, escopinyes japoneses, cloïsses de cor</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Firefly_squid. -->
     <string name="firefly_squid">Firefly squid</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Firefly_squid. -->
