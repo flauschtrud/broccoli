@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="recipes">Receptes</string>
-    <string name="no_recipes_found">Receptes no trobades</string>
+    <string name="no_recipes_found">Receptes no trobades
+</string>
     <string name="create_a_recipe_prompt">Crea una nova recepta</string>
     <string name="import_from_the_web_prompt">Importa una recepta d\'un lloc web</string>
     <string name="new_recipe">Nova recepta</string>
@@ -370,7 +371,7 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Ashitaba. -->
     <string name="ashitaba">Ashitaba</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Ashitaba. -->
-    <string name="ashitaba_terms">ashitaba, angelica keiskei</string>
+    <string name="ashitaba_terms">ashitaba</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar. -->
     <string name="bamboo_shoots">Brots de bambú</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
