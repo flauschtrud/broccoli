@@ -136,6 +136,7 @@
     <string name="seasons_feedback_subject">Feedback for Seasonal Calendar</string>
 
     <string name="region_central_europe">Central Europe</string>
+    <string name="region_northwestern_europe_temperate">Northwestern Europe (temperate)</string>
     <string name="region_north_america_colder">North America (colder)</string>
     <string name="region_north_america_warmer">North America (warmer)</string>
     <string name="region_japan">Japan</string>
