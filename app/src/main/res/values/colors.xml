@@ -7,4 +7,5 @@
 
     <color name="gray_600">#757575</color>
     <color name="gray_400">#bdbdbd</color>
+    <color name="colorAccent">#FF4081</color>
 </resources>
