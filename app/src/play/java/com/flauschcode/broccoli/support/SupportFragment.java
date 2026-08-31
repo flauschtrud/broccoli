@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -16,14 +15,9 @@ import androidx.fragment.app.Fragment;
 import com.flauschcode.broccoli.BuildConfig;
 import com.flauschcode.broccoli.R;
 
-import javax.inject.Inject;
-
 import dagger.android.support.AndroidSupportInjection;
 
 public class SupportFragment extends Fragment {
-
-    @Inject
-    BillingService billingService;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -31,36 +25,6 @@ public class SupportFragment extends Fragment {
         AndroidSupportInjection.inject(this);
 
         View root = inflater.inflate(R.layout.fragment_support, container, false);
-
-        Button cookieButton = root.findViewById(R.id.buy_me_cookie_button);
-        billingService.getCookiePrice().observe(getViewLifecycleOwner(), cookieButton::setText);
-        cookieButton.setOnClickListener(v -> {
-            try {
-                billingService.purchaseCookie(getActivity());
-            } catch (BillingService.BillingException e) {
-                Toast.makeText(requireActivity(), getString(R.string.play_store_sign_in_message), Toast.LENGTH_LONG).show();
-            }
-        });
-
-        Button coffeeButton = root.findViewById(R.id.buy_me_coffee_button);
-        billingService.getCoffeePrice().observe(getViewLifecycleOwner(), coffeeButton::setText);
-        coffeeButton.setOnClickListener(v -> {
-            try {
-                billingService.purchaseCoffee(getActivity());
-            } catch (BillingService.BillingException e) {
-                Toast.makeText(requireActivity(), getString(R.string.play_store_sign_in_message), Toast.LENGTH_LONG).show();
-            }
-        });
-
-        Button burgerButton = root.findViewById(R.id.buy_me_burger_button);
-        billingService.getBurgerPrice().observe(getViewLifecycleOwner(), burgerButton::setText);
-        burgerButton.setOnClickListener(v -> {
-            try {
-                billingService.purchaseBurger(getActivity());
-            } catch (BillingService.BillingException e) {
-                Toast.makeText(requireActivity(), getString(R.string.play_store_sign_in_message), Toast.LENGTH_LONG).show();
-            }
-        });
 
         Button giveRatingButton = root.findViewById(R.id.give_rating_button);
         giveRatingButton.setOnClickListener(v -> giveRating());
