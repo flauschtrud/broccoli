@@ -84,9 +84,6 @@
     <string name="about_the_app">אודות יישום זה</string>
     <string name="help">עזרה</string>
     <string name="legal_policies">משפטי</string>
-    <string name="send_feedback">שלח משוב</string>
-    <string name="send_feedback_message">מצאתם באג או שפספסתם תכונה?</string>
-    <string name="feedback_subject">משוב עבור אפליקציית ברוקולי</string>
     <string name="version">גרסה</string>
     <string name="settings">הגדרות</string>
     <string name="general_settings">הגדרות כלליות</string>
@@ -97,8 +94,6 @@
     <string name="system_default">ברירת המחדל של המערכת</string>
     <string name="privacy_policy">מדיניות פרטיות</string>
     <string name="privacy_policy_summary">למידע נוסף על האופן שבו אנו מגנים על הנתונים האישיים שלך.</string>
-    <string name="demo_recipe">מתכון לדוגמה</string>
-    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
     <string name="open_source_licenses">רישיונות קוד פתוח</string>
     <string name="open_source_licenses_text">פרטי רישיון עבור תוכנות של קוד פתוח</string>
     <string name="seasonal_calendar">לוח שנה עונתי</string>
@@ -110,8 +105,6 @@
     <string name="region">אזור</string>
     <string name="languages_of_recipes">שפת המתכונים</string>
     <string name="no_language_set_message">באילו שפות אתה יוצר את המתכונים שלך? בחר שפה אחת לפחות.</string>
-    <string name="seasons_feedback_message">האם אתה מתגעגע לאזור, לשפה או למרכיב האהוב עליך?</string>
-    <string name="seasons_feedback_subject">משוב עבור לוח שנה עונתי</string>
     <string name="region_central_europe">מרכז אירופה</string>
     <string name="region_north_america_colder">צפון אמריקה (קר יותר)</string>
     <string name="region_north_america_warmer">צפון אמריקה (חם יותר)</string>
@@ -132,15 +125,12 @@
     <string name="japanese">Japanese</string>
     <string name="support_the_app">תמוך באפליקציה</string>
     <string name="support_the_app_donate">תרום</string>
-    <string name="support_the_app_donate_text_playstore">ברוקולי חינם לכולם. אבל אתה יכול לתמוך בפיתוח האפליקציה ולקנות לי עוגייה, קפה או המבורגר. תודה רבה!</string>
     <string name="support_the_app_donate_text_fdroid">ברוקולי חינם לכולם. אבל אתה יכול לתמוך בפיתוח האפליקציה ולקנות לי קפה. תודה רבה!</string>
     <string name="support_the_app_give_feedback">תן משוב</string>
     <string name="support_the_app_give_feedback_text">אוהבים ברוקולי? ספר לנו על זה!</string>
     <string name="support_the_app_tell_your_friends">ספר לחברים שלך</string>
     <string name="support_the_app_tell_your_friends_text">גם החברים שלך אוהבים לבשל? ספר להם על ברוקולי!</string>
     <string name="free_for_everyone">חינם לכולם</string>
-    <string name="buy">קנה</string>
-    <string name="play_store_sign_in_message">אנא היכנס לחנות Google Play.</string>
     <string name="rate_the_app">דרג את האפליקציה</string>
     <string name="share_the_app">שתף את האפליקציה</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
