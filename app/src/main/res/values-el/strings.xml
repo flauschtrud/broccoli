@@ -84,9 +84,6 @@
     <string name="about_the_app">Σχετικά με την εφαρμογή</string>
     <string name="help">Βοήθεια</string>
     <string name="legal_policies">Νομικές πληροφορίες</string>
-    <string name="send_feedback">Στείλε σχόλια</string>
-    <string name="send_feedback_message">Βρήκατε ένα σφάλμα ή σας λείπει κάποιο χαρακτηριστικό; </string>
-    <string name="feedback_subject">Σχόλια για την εφαρμογή Broccoli</string>
     <string name="version">Έκδοση</string>
     <string name="settings">Ρυθμίσεις</string>
     <string name="general_settings">Γενικές ρυθμίσεις</string>
@@ -97,8 +94,6 @@
     <string name="system_default">Προεπιλογή συστήματος</string>
     <string name="privacy_policy">Πολιτική απορρήτου</string>
     <string name="privacy_policy_summary">Μάθε περισσότερα για το πως προστατεύουμε τα προσωπικά σου δεδομένα.</string>
-    <string name="demo_recipe">Δοκιμαστική συνταγή</string>
-    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
     <string name="open_source_licenses">Άδειες λογισμικού ανοικτού κώδικα</string>
     <string name="open_source_licenses_text">Λεπτομέρειες άδειας λογισμικού ανοιχτού κώδικα</string>
     <string name="seasonal_calendar">Εποχιακό ημερολόγιο</string>
@@ -110,8 +105,6 @@
     <string name="region">Περιοχή</string>
     <string name="languages_of_recipes">Γλώσσες των συνταγών</string>
     <string name="no_language_set_message">Σε ποιες γλώσσες θα δημιουργήσεις τις συνταγές σου; Επέλεξε τουλάχιστον μία.</string>
-    <string name="seasons_feedback_message">Λείπει η περιοχή σου, γλώσσα ή αγαπημένο υλικό;</string>
-    <string name="seasons_feedback_subject">Στείλε σχόλια για το Εποχιακό Ημερολόγιο</string>
     <string name="region_central_europe">Κεντρική Ευρώπη</string>
     <string name="region_north_america_colder">Βόρεια Αμερική (ψυχρότερη)</string>
     <string name="region_north_america_warmer">Βόρεια Αμερική (θερμότερη)</string>
@@ -132,15 +125,12 @@
     <string name="japanese">Ιαπωνικά</string>
     <string name="support_the_app">Υποστηρίξτε την εφαρμογή</string>
     <string name="support_the_app_donate">Δωρεά</string>
-    <string name="support_the_app_donate_text_playstore">Το Broccoli είναι δωρεάν για όλους. Αλλά μπορείς να υποστηρίξεις την ανάπτυξη της εφαρμογής και να μου αγοράσεις ένα μπισκότο, καφέ ή μπέργκερ. Ευχαριστώ πολύ!</string>
     <string name="support_the_app_donate_text_fdroid">Το Broccoli είναι δωρεάν για όλους. Αλλά μπορείς να υποστηρίξεις την ανάπτυξη της εφαρμογής και να μου αγοράσεις έναν καφέ. Ευχαριστώ πολύ!</string>
     <string name="support_the_app_give_feedback">Υπέβαλε Σχόλια</string>
     <string name="support_the_app_give_feedback_text">Σου αρέσει το Broccoli? Πες μας γι \'αυτό!</string>
     <string name="support_the_app_tell_your_friends">Ενημερώστε τους φίλους σας</string>
     <string name="support_the_app_tell_your_friends_text">Αρέσει και στους φίλου σου να μαγειρεύουν; Πες τους για το Broccoli!</string>
     <string name="free_for_everyone">Δωρεάν για όλους</string>
-    <string name="buy">Αγορά</string>
-    <string name="play_store_sign_in_message">Παρακαλούμε συνδεθείτε στο Google Play Store.</string>
     <string name="rate_the_app">Βαθμολόγησε την εφαρμογή</string>
     <string name="share_the_app">Κοινοποίησε την Εφαρμογή</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
