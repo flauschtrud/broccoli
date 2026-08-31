@@ -84,9 +84,6 @@
     <string name="about_the_app">Sobre</string>
     <string name="help">Ajuda</string>
     <string name="legal_policies">Informações Legais</string>
-    <string name="send_feedback">Enviar comentários</string>
-    <string name="send_feedback_message">Você encontrou algum erro ou sente falta de algum recurso? </string>
-    <string name="feedback_subject">Comentários para o aplicativo Broccoli</string>
     <string name="version">Versão</string>
     <string name="settings">Configurações</string>
     <string name="general_settings">Configurações gerais</string>
@@ -97,8 +94,6 @@
     <string name="system_default">Padrão do sistema</string>
     <string name="privacy_policy">Política de privacidade</string>
     <string name="privacy_policy_summary">Saiba mais sobre como protegemos seus dados.</string>
-    <string name="demo_recipe">Receita de demonstração</string>
-    <string name="link_to_demo_recipe">https://carolfiorentino.com.br/2020/01/09/episodio-10-galinhada/</string>
     <string name="open_source_licenses">Licenças de código aberto</string>
     <string name="open_source_licenses_text">Detalhes de licença do software de código aberto</string>
     <string name="seasonal_calendar">Calendário sazonal</string>
@@ -110,8 +105,6 @@
     <string name="region">Região</string>
     <string name="languages_of_recipes">Idiomas das receitas</string>
     <string name="no_language_set_message">Em quais idiomas você cria suas receitas? Escolha pelo menos um idioma.</string>
-    <string name="seasons_feedback_message">Não encontrou sua região, idioma ou ingrediente favorito?</string>
-    <string name="seasons_feedback_subject">Comentários sobre o Calendário Sazonal</string>
     <string name="region_central_europe">Europa Central</string>
     <string name="region_north_america_colder">América do Norte (mais frio)</string>
     <string name="region_north_america_warmer">América do Norte (mais quente)</string>
@@ -132,15 +125,12 @@
     <string name="japanese">Japanese</string>
     <string name="support_the_app">Apoie o aplicativo</string>
     <string name="support_the_app_donate">Faça uma doação</string>
-    <string name="support_the_app_donate_text_playstore">Broccoli é gratuito para todos, mas você pode ajudar no desenvolvimento do aplicativo e pagar uma bala, café ou sanduíche. Muito obrigado!</string>
     <string name="support_the_app_donate_text_fdroid">Broccoli é gratuito para todos, mas você pode ajudar no desenvolvimento do aplicativo pagando um café. Muito obrigado!</string>
     <string name="support_the_app_give_feedback">Enviar comentários</string>
     <string name="support_the_app_give_feedback_text">Você gosta do Broccoli? Conte-nos!</string>
     <string name="support_the_app_tell_your_friends">Conte aos amigos</string>
     <string name="support_the_app_tell_your_friends_text">Seus amigos também gostam de cozinhar? Conte para eles sobre Broccoli!</string>
     <string name="free_for_everyone">Grátis para todos</string>
-    <string name="buy">Comprar</string>
-    <string name="play_store_sign_in_message">Inicie a sessão na Google Play Store.</string>
     <string name="rate_the_app">Avalie o aplicativo</string>
     <string name="share_the_app">Compartilhar o aplicativo</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
