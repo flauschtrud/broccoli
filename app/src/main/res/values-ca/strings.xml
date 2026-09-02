@@ -85,9 +85,6 @@
     <string name="about_the_app">Sobre l\'aplicació</string>
     <string name="help">Ajuda </string>
     <string name="legal_policies">Polítiques legals </string>
-    <string name="send_feedback">Enviament de comentaris </string>
-    <string name="send_feedback_message">Has trobat una errada o trobes a faltar una funció?</string>
-    <string name="feedback_subject">Comentaris sobre l\'aplicació Bròcoli </string>
     <string name="version">Versió </string>
     <string name="settings">Configuració </string>
     <string name="general_settings">Configuració general </string>
@@ -98,8 +95,6 @@
     <string name="system_default">Configuració predeterminada del sistema </string>
     <string name="privacy_policy">Política de privacitat</string>
     <string name="privacy_policy_summary">Més informació de com protegim les teves dades personals </string>
-    <string name="demo_recipe">Recepta de demostració</string>
-    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
     <string name="open_source_licenses">Llicències de codi obert</string>
     <string name="open_source_licenses_text">Detalls de la llicència del programari de codi obert</string>
     <string name="seasonal_calendar">Calendari estacional </string>
@@ -111,8 +106,6 @@
     <string name="region">Regió </string>
     <string name="languages_of_recipes">Idiomes de les receptes </string>
     <string name="no_language_set_message">En quin idioma escrius les teves receptes? Tria almenys un </string>
-    <string name="seasons_feedback_message">Trobes a faltar la teva regió, llengua o ingredient preferit? </string>
-    <string name="seasons_feedback_subject">Comentaris pel calendari de temporada </string>
     <string name="region_central_europe">Europa Central </string>
     <string name="region_north_america_colder">Amèrica del Nord (més freda)</string>
     <string name="region_north_america_warmer">Amèrica del Nord (més càlida)</string>
@@ -133,15 +126,12 @@
     <string name="japanese">Japonès</string>
     <string name="support_the_app">Suport de l\'app </string>
     <string name="support_the_app_donate">Donar</string>
-    <string name="support_the_app_donate_text_playstore">El Bròquil és gratuït per a tothom. Però podeu donar suport al desenvolupament de l\'aplicació i comprar-me una galeta, un cafè o una hamburguesa. Moltes gràcies!</string>
     <string name="support_the_app_donate_text_fdroid">El Bròquil és gratuït per a tothom. Però podeu donar suport al desenvolupament de l\'aplicació i convidar-me a un cafè. Moltes gràcies!</string>
     <string name="support_the_app_give_feedback">Fes comentaris </string>
     <string name="support_the_app_give_feedback_text">T\'agrada el Bròquil? Explica\'ns-ho!</string>
     <string name="support_the_app_tell_your_friends">Digues-ho als teus amics </string>
     <string name="support_the_app_tell_your_friends_text">Als teus amics també els agrada cuinar? Parla\'ls del Bròquil!</string>
     <string name="free_for_everyone">Gratuït per a tothom </string>
-    <string name="buy">Comprar </string>
-    <string name="play_store_sign_in_message">Si us plau, inicia la sessió a la botiga de Google.</string>
     <string name="rate_the_app">Valora l\'aplicació </string>
     <string name="share_the_app">Comparteix l\'aplicació </string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
@@ -477,7 +467,7 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Citrus_depressa. -->
     <string name="shikuwasa_terms">Iuzu</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Olive_flounder. -->
-    <string name="olive_flounder">Olive flounder</string>
+    <string name="olive_flounder">Rèmol </string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Olive_flounder. -->
     <string name="olive_flounder_terms">rèmol </string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Flying_fish. -->
@@ -487,7 +477,7 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR A title for the ingredient list in the seasonal calendar, see https://en.wikipedia.org/wiki/Glebionis_coronaria. -->
     <string name="garland_chrysanthemum">Coronària</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Glebionis_coronaria. -->
-    <string name="garland_chrysanthemum_terms">garland chrysanthemums, chrysanthemum greens, Japanese greens, shungiku</string>
+    <string name="garland_chrysanthemum_terms">coronària</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="garlic">All</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->

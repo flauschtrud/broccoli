@@ -84,9 +84,6 @@
     <string name="about_the_app">Taarifa ya programu</string>
     <string name="help">Usaidizi</string>
     <string name="legal_policies">Sheria</string>
-    <string name="send_feedback">Tuma maoni</string>
-    <string name="send_feedback_message">Umepata hitilafu au unataka utendaji upya?</string>
-    <string name="feedback_subject">Maoni ya app Broccoli</string>
     <string name="version">Toleo</string>
     <string name="settings">Mipangilio</string>
     <string name="general_settings">Mipangilio juujuu</string>
@@ -97,8 +94,6 @@
     <string name="system_default">Mtindo wa kawaida</string>
     <string name="privacy_policy">Haki za faragha</string>
     <string name="privacy_policy_summary">Pata habari vile tunachunga faragha ya data yako.</string>
-    <string name="demo_recipe">Upishi wa kuonyesha</string>
-    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
     <string name="open_source_licenses">Leseni ya programu huru na wazi</string>
     <string name="open_source_licenses_text">Utondoti wa leseni za programu huru na wazi</string>
     <string name="seasonal_calendar">Kalenda ya majira</string>
@@ -110,8 +105,6 @@
     <string name="region">Pahali</string>
     <string name="languages_of_recipes">Lugha za mapishi</string>
     <string name="no_language_set_message">Unaandika mapishi yako na lugha gani? Chagua lugha moja au zaidi.</string>
-    <string name="seasons_feedback_message">Una pahali, lugha au kiambato unataka kuongeza?</string>
-    <string name="seasons_feedback_subject">Maoni ya Kalenda ya Majira</string>
     <string name="region_central_europe">Ulaya katikati</string>
     <string name="region_north_america_colder">Amerika Kaskazini (baridi)</string>
     <string name="region_north_america_warmer">Amerika Kaskazini (joto)</string>
@@ -132,15 +125,12 @@
     <string name="japanese">Kijapani</string>
     <string name="support_the_app">Support the app</string>
     <string name="support_the_app_donate">Toa msaada</string>
-    <string name="support_the_app_donate_text_playstore">Broccoli ni huru na bure kwa wote. Lakini, unaweza kutoa msaada kunisadia kuiboresha. Shukran!</string>
     <string name="support_the_app_donate_text_fdroid">Broccoli ni huru na bure kwa wote. Lakini, unaweza kutoa msaada kunisadia kuiboresha. Asante!</string>
     <string name="support_the_app_give_feedback">Tuma maoni</string>
     <string name="support_the_app_give_feedback_text">Unapenda Broccoli? Tuambie!</string>
     <string name="support_the_app_tell_your_friends">Ambie marafiki!</string>
     <string name="support_the_app_tell_your_friends_text">Marafiki wako wanapenda kupika? Wapatie habarri nzuri ya Broccoli!</string>
     <string name="free_for_everyone">Huru na bure kwa wote</string>
-    <string name="buy">Nunua</string>
-    <string name="play_store_sign_in_message">Tafadhali ingia duka la Google Play.</string>
     <string name="rate_the_app">Tathmini programu</string>
     <string name="share_the_app">Shirikiana programu</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->

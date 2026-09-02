@@ -84,9 +84,6 @@
     <string name="about_the_app">このアプリについて</string>
     <string name="help">援助</string>
     <string name="legal_policies">法的事項</string>
-    <string name="send_feedback">フィードバックを送信</string>
-    <string name="send_feedback_message">バグを見つけましたか、それとも機能が欠いていますか。 </string>
-    <string name="feedback_subject">ブロッコリーへフィードバック</string>
     <string name="version">バージョン</string>
     <string name="settings">設定</string>
     <string name="general_settings">一般設定</string>
@@ -97,8 +94,6 @@
     <string name="system_default">システムのデフォルト</string>
     <string name="privacy_policy">プライバシーポリシー</string>
     <string name="privacy_policy_summary">どのように個人データが保護されるかについての詳細。</string>
-    <string name="demo_recipe">デモレシピ</string>
-    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
     <string name="open_source_licenses">オープンソースライセンス</string>
     <string name="open_source_licenses_text">オープンソースソフトウェアに関するライセンスの詳細</string>
     <string name="seasonal_calendar">旬のカレンダー</string>
@@ -110,8 +105,6 @@
     <string name="region">地域</string>
     <string name="languages_of_recipes">レシピの言語</string>
     <string name="no_language_set_message">レシピをどの言語で作成しますか。少なくとも1つの言語を選んでください。</string>
-    <string name="seasons_feedback_message">お住まいの地域、言語、お気に入りの食材はまだありませんか。</string>
-    <string name="seasons_feedback_subject">旬のカレンダーへのフィードバック</string>
     <string name="region_central_europe">中央ヨーロッパ</string>
     <string name="region_north_america_colder">北アメリカ（寒い方）</string>
     <string name="region_north_america_warmer">北アメリカ（より暖かい）</string>
@@ -132,15 +125,12 @@
     <string name="japanese">日本語</string>
     <string name="support_the_app">このアプリを支援する</string>
     <string name="support_the_app_donate">寄付</string>
-    <string name="support_the_app_donate_text_playstore">ブロッコリーは無料で使えます。なので、アプリの開発を支援し、私にクッキー、コーヒーまたはバーガーをおごることはできます。よろしくお願いします。</string>
     <string name="support_the_app_donate_text_fdroid">ブロッコリーは無料で使えます。なので、アプリの開発を支援し、私にコーヒーをおごることはできます。よろしくお願いします。</string>
     <string name="support_the_app_give_feedback">フィードバックを送信</string>
     <string name="support_the_app_give_feedback_text">ブロッコリーは好きですか。教えてください！</string>
     <string name="support_the_app_tell_your_friends">お友達に紹介</string>
     <string name="support_the_app_tell_your_friends_text">お友達も調理が好きですか。ブロッコリーについて教えませんか。</string>
     <string name="free_for_everyone">無限無料</string>
-    <string name="buy">購入する</string>
-    <string name="play_store_sign_in_message">Google Playストアにログインしてください。</string>
     <string name="rate_the_app">アプリを評価する</string>
     <string name="share_the_app">アプリを共有する</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->

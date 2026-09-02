@@ -84,9 +84,6 @@
     <string name="about_the_app">O aplikaciji</string>
     <string name="help">Pomoć</string>
     <string name="legal_policies">Pravni</string>
-    <string name="send_feedback">Pošalji povratnu informaciju</string>
-    <string name="send_feedback_message">Da li ste našli grešku ili Vam nedostaje neka mogućnost? </string>
-    <string name="feedback_subject">Povratna informacija za Brokoli aplikaciju</string>
     <string name="version">Verzija</string>
     <string name="settings">Podešavanja</string>
     <string name="general_settings">Opšta podešavanja</string>
@@ -97,8 +94,6 @@
     <string name="system_default">Sistemska podrazumevana</string>
     <string name="privacy_policy">Politika privatnosti</string>
     <string name="privacy_policy_summary">Saznajte više o tome kako štitimo vaše lične podatke.</string>
-    <string name="demo_recipe">Demo recept</string>
-    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
     <string name="open_source_licenses">Licence otvorenog koda</string>
     <string name="open_source_licenses_text">Detalji licence otvorenog koda</string>
     <string name="seasonal_calendar">Sezonski kalendar</string>
@@ -110,8 +105,6 @@
     <string name="region">Region</string>
     <string name="languages_of_recipes">Jezici recepata</string>
     <string name="no_language_set_message">Na kojim jezicima kreirate svoje recepte? Izaberite najmanje jedan jezik.</string>
-    <string name="seasons_feedback_message">Da li vam nedostaje vaš region, jezik ili omiljeni sastojak?</string>
-    <string name="seasons_feedback_subject">Povratne informacije za sezonski kalendar</string>
     <string name="region_central_europe">Centralna Evropa</string>
     <string name="region_north_america_colder">Severna Amerika (hladnije)</string>
     <string name="region_north_america_warmer">Severna Amerika (toplije)</string>
@@ -132,15 +125,12 @@
     <string name="japanese">Japanese</string>
     <string name="support_the_app">Podržite aplikaciju</string>
     <string name="support_the_app_donate">Doniraj</string>
-    <string name="support_the_app_donate_text_playstore">Brokoli je besplatan za sve. Ali možete podržati razvoj aplikacije i častiti me kolačićem, kafom ili pljeskavicom. Hvala Vam puno!</string>
     <string name="support_the_app_donate_text_fdroid">Brokoli je besplatan za sve. Ali možete podržati razvoj aplikacije i častiti me kafom. Hvala Vam puno!</string>
     <string name="support_the_app_give_feedback">Ostavi povratnu informaciju</string>
     <string name="support_the_app_give_feedback_text">Da li Vam se sviđa Brokoli? Recite nam!</string>
     <string name="support_the_app_tell_your_friends">Podeli sa svojim prijateljima</string>
     <string name="support_the_app_tell_your_friends_text">Da li i Vaši prijatelji vole da kuvaju? Recite im o Brokoliju!</string>
     <string name="free_for_everyone">Besplatno za sve</string>
-    <string name="buy">Kupi</string>
-    <string name="play_store_sign_in_message">Prijavite se na Google Play prodavnicu.</string>
     <string name="rate_the_app">Ocenite aplikaciju</string>
     <string name="share_the_app">Podelite ovu aplikaciju</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->

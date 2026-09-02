@@ -84,9 +84,6 @@
     <string name="about_the_app">关于本应用</string>
     <string name="help">帮助</string>
     <string name="legal_policies">法律条款</string>
-    <string name="send_feedback">意见反馈</string>
-    <string name="send_feedback_message">您是否发现错误或觉得缺少某功能？ </string>
-    <string name="feedback_subject">Broccoli 应用的反馈</string>
     <string name="version">版本</string>
     <string name="settings">设置</string>
     <string name="general_settings">常用设置</string>
@@ -97,8 +94,6 @@
     <string name="system_default">系统默认</string>
     <string name="privacy_policy">隐私条款</string>
     <string name="privacy_policy_summary">了解我们如何保护您的个人数据。</string>
-    <string name="demo_recipe">示例配方</string>
-    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
     <string name="open_source_licenses">开源许可证</string>
     <string name="open_source_licenses_text">开源码许可证细节</string>
     <string name="seasonal_calendar">季节性日历</string>
@@ -110,8 +105,6 @@
     <string name="region">地区</string>
     <string name="languages_of_recipes">食谱的语文</string>
     <string name="no_language_set_message">请问您是以哪种语言创建食谱呢？请选择至少一种。</string>
-    <string name="seasons_feedback_message">您所在的区域、语言还是喜爱的食材不在选项中吗？</string>
-    <string name="seasons_feedback_subject">对季节性日历的反馈</string>
     <string name="region_central_europe">中欧洲</string>
     <string name="region_north_america_colder">北美洲 (冷)</string>
     <string name="region_north_america_warmer">北美洲 (暖)</string>
@@ -132,15 +125,12 @@
     <string name="japanese">日文</string>
     <string name="support_the_app">支持本应用</string>
     <string name="support_the_app_donate">捐助</string>
-    <string name="support_the_app_donate_text_playstore">Broccoli 是完全免费的。但您可以通过捐助来支持此应用的开发。感谢！</string>
     <string name="support_the_app_donate_text_fdroid">Broccoli 是完全免费的。但您可以通过捐助来支持此应用的开发。感谢！</string>
     <string name="support_the_app_give_feedback">提供反馈</string>
     <string name="support_the_app_give_feedback_text">你喜欢Broccoli吗？请告诉我们！</string>
     <string name="support_the_app_tell_your_friends">与朋友分享</string>
     <string name="support_the_app_tell_your_friends_text">您的朋友也喜欢烹饪吗？与他们分享Broccoli！</string>
     <string name="free_for_everyone">完全免费地管理您的食谱</string>
-    <string name="buy">购买</string>
-    <string name="play_store_sign_in_message">请登录 Google Play 商店。</string>
     <string name="rate_the_app">为此应用评分</string>
     <string name="share_the_app">分享此应用</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->

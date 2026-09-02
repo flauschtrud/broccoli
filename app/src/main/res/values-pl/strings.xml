@@ -84,9 +84,6 @@
     <string name="about_the_app">O aplikacji</string>
     <string name="help">Pomoc</string>
     <string name="legal_policies">Informacje prawne</string>
-    <string name="send_feedback">Podziel się opinią</string>
-    <string name="send_feedback_message">Znalazłeś błąd lub chcesz, żeby dodano jakąś funkcję do aplikacji? </string>
-    <string name="feedback_subject">Opinia dla aplikacji Broccoli</string>
     <string name="version">Wersja</string>
     <string name="settings">Ustawienia</string>
     <string name="general_settings">Ustawienia ogólne</string>
@@ -97,8 +94,6 @@
     <string name="system_default">Jak system</string>
     <string name="privacy_policy">Polityka prywatności</string>
     <string name="privacy_policy_summary">Dowiedz się, jak chronimy twoje dane osobowe.</string>
-    <string name="demo_recipe">Przepis demonstracyjny</string>
-    <string name="link_to_demo_recipe">https://flauschcode.com/hummus-creamy-and-delicious/</string>
     <string name="open_source_licenses">Licencje open source</string>
     <string name="open_source_licenses_text">Szczegóły licencji oprogramowania open source</string>
     <string name="seasonal_calendar">Kalendarz sezonowy</string>
@@ -110,8 +105,6 @@
     <string name="region">Region</string>
     <string name="languages_of_recipes">Języki przepisów</string>
     <string name="no_language_set_message">W jakich językach tworzysz swoje przepisy? Wybierz co najmniej jeden język.</string>
-    <string name="seasons_feedback_message">Czy chciałbyś, żeby twój region, język lub ulubiony składnik został dodany?</string>
-    <string name="seasons_feedback_subject">Opinia dla kalendarza sezonowego</string>
     <string name="region_central_europe">Europa Środkowa</string>
     <string name="region_north_america_colder">Ameryka Północna (zimniej)</string>
     <string name="region_north_america_warmer">Ameryka Północna (cieplej)</string>
@@ -132,15 +125,12 @@
     <string name="japanese">Japoński</string>
     <string name="support_the_app">Wesprzyj aplikację</string>
     <string name="support_the_app_donate">Przekaż darowiznę</string>
-    <string name="support_the_app_donate_text_playstore">Broccoli jest darmowy dla wszystkich, ale możesz wesprzeć rozwój aplikacji i kupić mi ciastko, kawę lub burgera. Dzięki!</string>
     <string name="support_the_app_donate_text_fdroid">Broccoli jest darmowy dla wszystkich, ale możesz wesprzeć rozwój aplikacji i kupić mi kawę. Dzięki!</string>
     <string name="support_the_app_give_feedback">Prześlij opinię</string>
     <string name="support_the_app_give_feedback_text">Podoba ci się Broccoli? Opowiedz nam o tym!</string>
     <string name="support_the_app_tell_your_friends">Poleć znajomym</string>
     <string name="support_the_app_tell_your_friends_text">Czy twoi znajomi też lubią gotować? Powiedz im o Broccoli!</string>
     <string name="free_for_everyone">Darmowy dla wszystkich</string>
-    <string name="buy">Kup</string>
-    <string name="play_store_sign_in_message">Zaloguj się do Sklepu Google Play.</string>
     <string name="rate_the_app">Oceń aplikację</string>
     <string name="share_the_app">Udostępnij aplikację</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
