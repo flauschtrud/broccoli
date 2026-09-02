@@ -2,7 +2,6 @@ package com.flauschcode.broccoli.recipe.importing;
 
 import android.app.Application;
 import android.text.Html;
-import android.os.Build;
 import android.util.Log;
 
 import com.flauschcode.broccoli.R;
@@ -225,7 +224,7 @@ class ImportableRecipeBuilder {
         }
 
         try {
-            String imageName = recipeImageService.downloadToCache(url);
+            String imageName = recipeImageService.downloadImageToCache(url);
             recipe.setImageName(imageName);
         } catch (IOException e) {
             Log.e(getClass().getName(), e.getMessage());

@@ -73,7 +73,7 @@ public class ImportableRecipeBuilderTest {
 
     @Test
     public void example_chefkoch() throws JSONException, IOException {
-        when(recipeImageService.downloadToCache(new URL("https://img.chefkoch-cdn.de/rezepte/3212051478029180/bilder/1325560/crop-960x540/vegane-chocolate-chip-cookies.jpg"))).thenReturn("blablupp.jpg");
+        when(recipeImageService.downloadImageToCache(new URL("https://img.chefkoch-cdn.de/rezepte/3212051478029180/bilder/1325560/crop-960x540/vegane-chocolate-chip-cookies.jpg"))).thenReturn("blablupp.jpg");
 
         Optional<Recipe> optionalRecipe = recipeBuilder
                 .withRecipeJsonLd(new JSONObject(RECIPE_CHEFKOCH))
@@ -96,7 +96,7 @@ public class ImportableRecipeBuilderTest {
 
     @Test
     public void example_yoast() throws JSONException, IOException {
-        when(recipeImageService.downloadToCache(new URL("https://stilettosandsprouts.de/wp-content/uploads/2018/05/Vegane_Fenchel_Pasta_02_B.jpg"))).thenReturn("blablupp.jpg");
+        when(recipeImageService.downloadImageToCache(new URL("https://stilettosandsprouts.de/wp-content/uploads/2018/05/Vegane_Fenchel_Pasta_02_B.jpg"))).thenReturn("blablupp.jpg");
 
         Optional<Recipe> optionalRecipe = recipeBuilder
                 .withRecipeJsonLd(new JSONObject(RECIPE_YOAST))
@@ -119,7 +119,7 @@ public class ImportableRecipeBuilderTest {
 
     @Test
     public void example_yoast_with_sections() throws JSONException, IOException {
-        when(recipeImageService.downloadToCache(new URL("https://veggie-einhorn.de/wp-content/uploads/Einfacher-veganer-Zitronenkuchen-saftig.jpg"))).thenReturn("blablupp.jpg");
+        when(recipeImageService.downloadImageToCache(new URL("https://veggie-einhorn.de/wp-content/uploads/Einfacher-veganer-Zitronenkuchen-saftig.jpg"))).thenReturn("blablupp.jpg");
 
         Optional<Recipe> optionalRecipe = recipeBuilder
                 .withRecipeJsonLd(new JSONObject(RECIPE_YOAST_WITH_SECTIONS))
@@ -165,7 +165,7 @@ public class ImportableRecipeBuilderTest {
      */
     @Test
     public void arrified_type() throws JSONException, IOException {
-        when(recipeImageService.downloadToCache(new URL("https://www.allrecipes.com/thmb/5SN7ROsF_d5tEiEUj5Vay0TD62g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4525663-570993c0dac74778a584ff6169bf8038.jpg"))).thenReturn("blablupp.jpg");
+        when(recipeImageService.downloadImageToCache(new URL("https://www.allrecipes.com/thmb/5SN7ROsF_d5tEiEUj5Vay0TD62g=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/4525663-570993c0dac74778a584ff6169bf8038.jpg"))).thenReturn("blablupp.jpg");
 
         Optional<Recipe> optionalRecipe = recipeBuilder
                 .withRecipeJsonLd(new JSONObject(RECIPE_ARRIFIED_TYPE))
@@ -191,7 +191,7 @@ public class ImportableRecipeBuilderTest {
      */
     @Test
     public void arrified_images() throws JSONException, IOException {
-        when(recipeImageService.downloadToCache(new URL("https://images.ndr.de/image/5265d7c2-3817-4d1f-b8f0-116ecbb1352d/AAABlL-u-ik/AAABmgWmh8Q/16x9-big/auberginencurry100.jpg?width=1920"))).thenReturn("blablupp.jpg");
+        when(recipeImageService.downloadImageToCache(new URL("https://images.ndr.de/image/5265d7c2-3817-4d1f-b8f0-116ecbb1352d/AAABlL-u-ik/AAABmgWmh8Q/16x9-big/auberginencurry100.jpg?width=1920"))).thenReturn("blablupp.jpg");
 
         Optional<Recipe> optionalRecipe = recipeBuilder
                 .withRecipeJsonLd(new JSONObject(RECIPE_ARRIFIED_IMAGES))

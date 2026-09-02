@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -88,7 +89,14 @@ public class RecipeImageService {
         return FileProvider.getUriForFile(application, AUTHORITY, file);
     }
 
-    public String downloadToCache(URL imageURL) throws IOException {
+    public String downloadImageToCache(URL imageURL) throws IOException {
+        URLConnection urlConnection = imageURL.openConnection();
+        String contentType = urlConnection.getContentType();
+
+        if (contentType == null || !contentType.startsWith("image/")) {
+            throw new IOException("The URL " + imageURL + " does not point to an image (Content-Type: " + contentType + ").");
+        }
+
         File tempFile = createTemporaryImageFileInCache();
         FileUtils.copy(imageURL.openStream(), tempFile);
         return tempFile.getName();
