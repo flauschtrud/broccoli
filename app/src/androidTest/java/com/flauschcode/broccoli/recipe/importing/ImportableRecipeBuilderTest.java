@@ -5,6 +5,7 @@ import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples
 import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.RECIPE_ARRIFIED_IMAGES;
 import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.RECIPE_ARRIFIED_TYPE;
 import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.RECIPE_CHEFKOCH;
+import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.RECIPE_CHEFKOCH_NEW;
 import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.RECIPE_YOAST;
 import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.RECIPE_YOAST_WITH_SECTIONS;
 import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.URL_ARRIFIED_IMAGES;
@@ -91,6 +92,29 @@ public class ImportableRecipeBuilderTest {
         assertThat(recipe.getIngredients(), is("20 g Chiasamen\n50 ml Wasser\n190 g Butterersatz oder Margarine, vegan\n200 g Zucker , braun, alternativ Rohrzucker\n2 TL Zuckerrübensirup , alternativ Melasse, Ahornsirup oder Agavendicksaft\n2 Pck. Vanillezucker\n300 g Weizenmehl oder Dinkelmehl, oder gemischt\n4 g Natron\nn. B. Salz\n200 g Blockschokolade , zartbitter oder Schokotröpfchen"));
         assertThat(recipe.getDirections(), is("Den Backofen auf 180 °C Umluft vorheizen. Die Chiasamen und das Wasser in einer kleinen Schüssel vermengen und ca. 10 Minuten quellen lassen.\n\nEin Backblech mit Backpapier auslegen. Vegane Butter bzw. Margarine und Zucker mit den Schneebesen des Rührgeräts cremig verrühren. Dann die gequollenen Chiasamen, den Zuckerrübensirup und beide Päckchen Vanillezucker dazugeben und weiter rühren. Unter weiterem Rühren jetzt zuerst das Mehl hinzugeben und anschließend Natron sowie Salz. Alternativ - oder falls der Teig zu zäh ist - kann alles auch mit den Händen verknetet werden. Abschließend die Schokotröpfchen bzw. die gehackte Blockschokolade untermischen.\n\nDen nun fertigen Teig mit einem Esslöffel oder Eisportionierer klecksweise im Abstand von etwa 5 - 6 cm auf das Backpapier geben. Die Teigkleckse können - müssen jedoch nicht - mit einem Löffel noch etwas rund geformt und flach gedrückt werden.\n\nDie Cookies bei 180 °C Umluft maximal 15 Minuten backen, da sie sonst zu fest werden."));
         assertThat(recipe.getNutritionalValues(), is("Serving: 1\nCalories: 4594 kcal\nFat: 225,86g\nCarbohydrates: 540,65g\nProtein: 77,59g"));
+        assertThat(recipe.getImageName(), is("blablupp.jpg"));
+    }
+
+    @Test
+    public void example_chefkoch_new() throws JSONException, IOException {
+        when(recipeImageService.downloadToCache(new URL("https://img.chefkoch-cdn.de/rezepte/3212051478029180/bilder/1325560/crop-960x540/vegane-chocolate-chip-cookies.jpg"))).thenReturn("blablupp.jpg");
+
+        Optional<Recipe> optionalRecipe = recipeBuilder
+                .withRecipeJsonLd(new JSONObject(RECIPE_CHEFKOCH_NEW))
+                .from(URL_CHEFKOCH)
+                .build();
+
+        assertThat(optionalRecipe.isPresent(), is(true));
+
+        Recipe recipe = optionalRecipe.get();
+        assertThat(recipe.getTitle(), is("Vegane Chocolate Chip Cookies von Esslust"));
+        assertThat(recipe.getSource(), is(URL_CHEFKOCH));
+        assertThat(recipe.getServings(), is("1"));
+        assertThat(recipe.getPreparationTime(), is("35m"));
+        assertThat(recipe.getDescription(), is("Vegane Chocolate Chip Cookies - außen kross, innen weich, lecker und vegan, ergibt 35 Stück. Über 169 Bewertungen und für sehr lecker befunden. Mit ► Portionsrechner ► Kochbuch ► Video-Tipps!"));
+        assertThat(recipe.getIngredients(), is("20 g Chiasamen\n50 ml Wasser\n190 g Butterersatz (oder Margarine, vegan)\n200 g Zucker (braun, alternativ Rohrzucker)\n2 TL Rübensirup (alternativ Melasse, Ahornsirup oder Agavendicksaft)\n2 Pck. Vanillezucker\n300 g Weizenmehl (oder Dinkelmehl, oder gemischt)\n4 g Natron\nn. B. Salz\n200 g Blockschokolade (zartbitter oder Schokotröpfchen)"));
+        assertThat(recipe.getDirections(), is("ZUBEREITUNG Den Backofen auf 180 °C Umluft vorheizen. Die Chiasamen und das Wasser in einer kleinen Schüssel vermengen und ca. 10 Minuten quellen lassen. Ein Backblech mit Backpapier auslegen. Vegane Butter bzw. Margarine und Zucker mit den Schneebesen des Rührgeräts cremig verrühren. Dann die gequollenen Chiasamen, den Zuckerrübensirup und beide Päckchen Vanillezucker dazugeben und weiter rühren. Unter weiterem Rühren jetzt zuerst das Mehl hinzugeben und anschließend Natron sowie Salz. Alternativ - oder falls der Teig zu zäh ist - kann alles auch mit den Händen verknetet werden. Abschließend die Schokotröpfchen bzw. die gehackte Blockschokolade untermischen. Den nun fertigen Teig mit einem Esslöffel oder Eisportionierer klecksweise im Abstand von etwa 5 - 6 cm auf das Backpapier geben. Die Teigkleckse können - müssen jedoch nicht - mit einem Löffel noch etwas rund geformt und flach gedrückt werden. Die Cookies bei 180 °C Umluft maximal 15 Minuten backen, da sie sonst zu fest werden."));
+        assertThat(recipe.getNutritionalValues(), is("Serving: 1 Portion\nCalories: 4594 kcal\nFat: 225.86 g\nCarbohydrates: 540.65 g\nProtein: 77.59 g"));
         assertThat(recipe.getImageName(), is("blablupp.jpg"));
     }
 

@@ -123,6 +123,251 @@ public class ImportableRecipeExamples {
                     }
             """;
 
+    static final String RECIPE_CHEFKOCH_NEW = """
+            {
+                  "@type": "Recipe",
+                  "@id": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html#recipe",
+                  "publisher": {
+                    "@id": "https://www.chefkoch.de/#organization"
+                  },
+                  "inLanguage": "de-DE",
+                  "recipeCuisine": "Deutsch",
+                  "recipeCategory": "Vegan",
+                  "author": {
+                    "@id": "https://www.chefkoch.de/user/profil/2a42a7e1c535289a0b0d031b7e0e3a2b#author"
+                  },
+                  "name": "Vegane Chocolate Chip Cookies von Esslust",
+                  "description": "Vegane Chocolate Chip Cookies - außen kross, innen weich, lecker und vegan, ergibt 35 Stück. Über 169 Bewertungen und für sehr lecker befunden. Mit ► Portionsrechner ► Kochbuch ► Video-Tipps!",
+                  "mainEntityOfPage": {
+                    "@id": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html"
+                  },
+                  "alternativeHeadline": "Außen kross, innen weich, lecker und vegan, ergibt 35 Stück",
+                  "image": {
+                    "@id": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html#primaryimage"
+                  },
+                  "prepTime": "PT20M",
+                  "cookTime": "PT15M",
+                  "totalTime": "PT35M",
+                  "recipeYield": [
+                    "1",
+                    "1 Portionen"
+                  ],
+                  "keywords": "Backen, Vegetarisch, einfach, Kekse",
+                  "datePublished": "2016-11-03",
+                  "dateModified": "2026-06-13",
+                  "recipeInstructions": [
+                    {
+                      "@type": "HowToSection",
+                      "name": "Zubereitung",
+                      "itemListElement": [
+                        {
+                          "@type": "HowToStep",
+                          "position": 1,
+                          "text": "Den Backofen auf 180 °C Umluft vorheizen. Die Chiasamen und das Wasser in einer kleinen Schüssel vermengen und ca. 10 Minuten quellen lassen.",
+                          "url": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html#step1"
+                        },
+                        {
+                          "@type": "HowToStep",
+                          "position": 2,
+                          "text": "Ein Backblech mit Backpapier auslegen. Vegane Butter bzw. Margarine und Zucker mit den Schneebesen des Rührgeräts cremig verrühren. Dann die gequollenen Chiasamen, den Zuckerrübensirup und beide Päckchen Vanillezucker dazugeben und weiter rühren. Unter weiterem Rühren jetzt zuerst das Mehl hinzugeben und anschließend Natron sowie Salz. Alternativ - oder falls der Teig zu zäh ist - kann alles auch mit den Händen verknetet werden. Abschließend die Schokotröpfchen bzw. die gehackte Blockschokolade untermischen.",
+                          "url": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html#step2"
+                        },
+                        {
+                          "@type": "HowToStep",
+                          "position": 3,
+                          "text": "Den nun fertigen Teig mit einem Esslöffel oder Eisportionierer klecksweise im Abstand von etwa 5 - 6 cm auf das Backpapier geben. Die Teigkleckse können - müssen jedoch nicht - mit einem Löffel noch etwas rund geformt und flach gedrückt werden.",
+                          "url": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html#step3"
+                        },
+                        {
+                          "@type": "HowToStep",
+                          "position": 4,
+                          "text": "Die Cookies bei 180 °C Umluft maximal 15 Minuten backen, da sie sonst zu fest werden.",
+                          "url": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html#step4"
+                        }
+                      ]
+                    }
+                  ],
+                  "recipeIngredient": [
+                    "20 g Chiasamen",
+                    "50 ml Wasser",
+                    "190 g Butterersatz (oder Margarine, vegan)",
+                    "200 g Zucker (braun, alternativ Rohrzucker)",
+                    "2 TL Rübensirup (alternativ Melasse, Ahornsirup oder Agavendicksaft)",
+                    "2 Pck. Vanillezucker",
+                    "300 g Weizenmehl (oder Dinkelmehl, oder gemischt)",
+                    "4 g Natron",
+                    "n. B. Salz",
+                    "200 g Blockschokolade (zartbitter oder Schokotröpfchen)"
+                  ],
+                  "nutrition": {
+                    "@type": "NutritionInformation",
+                    "servingSize": "1 Portion",
+                    "calories": "4594 kcal",
+                    "proteinContent": "77.59 g",
+                    "fatContent": "225.86 g",
+                    "carbohydrateContent": "540.65 g"
+                  },
+                  "suitableForDiet": "https://schema.org/VegetarianDiet",
+                  "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "worstRating": 0,
+                    "bestRating": 5,
+                    "ratingCount": 169,
+                    "ratingValue": 4.81
+                  },
+                  "commentCount": 109,
+                  "interactionStatistic": [
+                    {
+                      "@type": "InteractionCounter",
+                      "interactionType": {
+                        "@type": "CommentAction"
+                      },
+                      "userInteractionCount": 109
+                    }
+                  ],
+                  "comment": [
+                    {
+                      "@type": "Comment",
+                      "text": "Musste das Rezept an alle meine Freunde weitergeben, weil sie so lecker sind!",
+                      "datePublished": "2026-06-13",
+                      "author": {
+                        "@type": "Person",
+                        "@id": "https://www.chefkoch.de/user/profil/dcae91f71c4569f86ff6d632a2bde81c#author",
+                        "name": "paulinakempa120210"
+                      }
+                    },
+                    {
+                      "@type": "Comment",
+                      "text": "Leckere, luftige Kekse! Und das auch noch super schnell gemacht =) \\nHab aus dem Rezept etwa 36 Kekse rausbekommen (hab den Esslöffel aber auch nicht \\"voll\\" gemacht, sodass die Kekse nicht zu groß werden).\\nNach ca 12 Minuten musste ich die Kekse rausholen, da sie mir sonst zu dunkel geworden wären - aber das ist ja ofenabhängig =) \\n>> Meine Änderungen (angepasst an dem, was im Schrank war):\\nLeinsamen statt Chiasamen + etwas mehr Wasser zum \\"quellen\\" // weißen Zucker statt braunen Zucker // Backpulver (1/2 Päckchen) statt Natron // Nüsse statt Schokolade.\\nlecker - wird wieder gebacken =)",
+                      "datePublished": "2025-12-20",
+                      "author": {
+                        "@type": "Person",
+                        "@id": "https://www.chefkoch.de/user/profil/4e405ab9978d529c56f20d6e2b4a06d5#author",
+                        "name": "Aiia"
+                      }
+                    },
+                    {
+                      "@type": "Comment",
+                      "text": "Vielen Dank für deine tolle Rezeptidee. \\r\\nVon uns gibt's dafür auch volle \\r\\n5 Stern 🌟🌟🌟🌟🌟 chen. \\r\\n\\r\\nLG eisbobby ",
+                      "datePublished": "2024-12-18",
+                      "author": {
+                        "@type": "Person",
+                        "@id": "https://www.chefkoch.de/user/profil/5fa4cf2c5d89d40af360770d820a74f5#author",
+                        "name": "eisbobby"
+                      }
+                    }
+                  ]
+                },
+                {
+                  "@type": "WebPage",
+                  "@id": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html",
+                  "url": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html",
+                  "name": "Vegane Chocolate Chip Cookies von Esslust",
+                  "description": "Vegane Chocolate Chip Cookies - außen kross, innen weich, lecker und vegan, ergibt 35 Stück. Über 169 Bewertungen und für sehr lecker befunden. Mit ► Portionsrechner ► Kochbuch ► Video-Tipps!",
+                  "isPartOf": {
+                    "@id": "https://www.chefkoch.de/#website"
+                  },
+                  "primaryImageOfPage": {
+                    "@id": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html#primaryimage"
+                  },
+                  "breadcrumb": {
+                    "@id": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html#breadcrumb"
+                  },
+                  "author": {
+                    "@id": "https://www.chefkoch.de/user/profil/2a42a7e1c535289a0b0d031b7e0e3a2b#author"
+                  },
+                  "publisher": {
+                    "@id": "https://www.chefkoch.de/#organization"
+                  },
+                  "mainEntity": {
+                    "@id": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html#recipe"
+                  },
+                  "inLanguage": "de-DE",
+                  "datePublished": "2016-11-03",
+                  "dateModified": "2026-06-13"
+                },
+                {
+                  "@type": "ImageObject",
+                  "@id": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html#primaryimage",
+                  "url": "https://img.chefkoch-cdn.de/rezepte/3212051478029180/bilder/958884/crop-960x540/vegane-chocolate-chip-cookies.jpg",
+                  "contentUrl": "https://img.chefkoch-cdn.de/rezepte/3212051478029180/bilder/958884/crop-960x540/vegane-chocolate-chip-cookies.jpg",
+                  "width": 960,
+                  "height": 540
+                },
+                {
+                  "@type": "BreadcrumbList",
+                  "@id": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html#breadcrumb",
+                  "itemListElement": [
+                    {
+                      "@type": "ListItem",
+                      "position": 1,
+                      "name": "Startseite",
+                      "item": "https://www.chefkoch.de/"
+                    },
+                    {
+                      "@type": "ListItem",
+                      "position": 2,
+                      "name": "Rezepte",
+                      "item": "https://www.chefkoch.de/rezepte/"
+                    },
+                    {
+                      "@type": "ListItem",
+                      "position": 3,
+                      "name": "Spezielles",
+                      "item": "https://www.chefkoch.de/rs/s0g32/Speisearten.html"
+                    },
+                    {
+                      "@type": "ListItem",
+                      "position": 4,
+                      "name": "Ernährungskonzepte",
+                      "item": "https://www.chefkoch.de/rs/s0t6082/Ernaehrungskonzepte-Rezepte.html"
+                    },
+                    {
+                      "@type": "ListItem",
+                      "position": 5,
+                      "name": "Vegan",
+                      "item": "https://www.chefkoch.de/rs/s0t32,57/Vegetarisch-Vegan-Rezepte.html"
+                    }
+                  ]
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://www.chefkoch.de/#website",
+                  "url": "https://www.chefkoch.de/",
+                  "name": "Chefkoch",
+                  "inLanguage": "de-DE",
+                  "publisher": {
+                    "@id": "https://www.chefkoch.de/#organization"
+                  }
+                },
+                {
+                  "@type": "Organization",
+                  "@id": "https://www.chefkoch.de/#organization",
+                  "name": "Chefkoch",
+                  "url": "https://www.chefkoch.de/",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://img.chefkoch-cdn.de/img/ck.de/ck-logo-de.png",
+                    "width": 144,
+                    "height": 144
+                  },
+                  "sameAs": [
+                    "https://www.facebook.com/chefkoch.de",
+                    "https://www.instagram.com/chefkoch/",
+                    "https://www.youtube.com/chefkoch",
+                    "https://de.pinterest.com/chefkochde/",
+                    "https://www.tiktok.com/@chefkoch",
+                    "https://www.whatsapp.com/channel/0029VabvqZU3LdQOknGWyl1H"
+                  ]
+                },
+                {
+                  "@type": "Person",
+                  "@id": "https://www.chefkoch.de/user/profil/2a42a7e1c535289a0b0d031b7e0e3a2b#author",
+                  "name": "Esslust",
+                  "url": "https://www.chefkoch.de/user/profil/2a42a7e1c535289a0b0d031b7e0e3a2b"
+                }
+            """;
+
     static final String MINIMIZED_RECIPE_JSONLD = """
             {
               "@context": "http://schema.org",
