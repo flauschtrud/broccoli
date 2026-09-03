@@ -106,6 +106,7 @@
     <string name="languages_of_recipes">Tarif dilleri</string>
     <string name="no_language_set_message">Tariflerinizi hangi dillerde oluşturuyorsunuz? En az bir dil seçin.</string>
     <string name="region_central_europe">Orta Avrupa</string>
+    <string name="region_mediterranean">Akdeniz</string>
     <string name="region_north_america_colder">Kuzey Amerika (daha soğuk)</string>
     <string name="region_north_america_warmer">Kuzey Amerika (daha sıcak)</string>
     <string name="region_japan">Japonya</string>
@@ -945,5 +946,33 @@
     <string name="yuzu">Yuzu</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Yuzu. -->
     <string name="yuzu_terms">yuzu</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="artichoke">Enginar</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="artichoke_terms">enginar</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="cowpea">Börülce</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="cowpea_terms">börülce</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="grapefruit">Greyfurt</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="grapefruit_terms">greyfurt</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="mallow">Ebegümeci</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="mallow_terms">ebegümeci</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="purslane">Semizotu</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="purslane_terms">semizotu, semiz</string>  
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="quince">Ayva</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="quince_terms">ayva</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="wild_fennel">Arapsaçı</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="wild_fennel_terms">arapsaçı, yabani rezene</string>
     <string name="create_pdf">PDF Oluştur</string>
 </resources>
