@@ -317,7 +317,7 @@ public class RecipeDetailsActivity extends AppCompatActivity {
                 @Override
                 public void updateDrawState(TextPaint paint) {
                     super.updateDrawState(paint);
-                    paint.setColor(MaterialColors.getColor(textView, com.google.android.material.R.attr.colorPrimary));
+                    paint.setColor(MaterialColors.getColor(textView, androidx.appcompat.R.attr.colorPrimary));
                 }
             };
             spannableString.setSpan(clickableSpan, matcher.start(), matcher.end(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
