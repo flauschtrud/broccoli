@@ -18,7 +18,9 @@ import java.time.Duration;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -47,6 +49,7 @@ class ImportableRecipeBuilder {
     private static final String PROTEIN_CONTENT = "proteinContent";
 
     private JSONObject recipeJson;
+    private final Map<String, JSONObject> graphIndex = new HashMap<>();
 
     private final Recipe recipe = new Recipe();
     private final Application application;
@@ -59,6 +62,23 @@ class ImportableRecipeBuilder {
 
     ImportableRecipeBuilder withRecipeJsonLd(JSONObject jsonObject) {
         recipeJson = jsonObject;
+        return this;
+    }
+
+    /**
+     * Some sites (e.g. Chefkoch, via Yoast SEO's JSON-LD "@graph") only reference the recipe's
+     * image with "image": {"@id": "...#primaryimage"} and put the actual ImageObject with a
+     * matching "@id" elsewhere in the graph. Indexing the graph by "@id" lets us resolve those.
+     */
+    ImportableRecipeBuilder withGraph(JSONArray graph) {
+        if (graph != null) {
+            for (int i = 0; i < graph.length(); i++) {
+                JSONObject entry = graph.optJSONObject(i);
+                if (entry != null && entry.has(ID)) {
+                    graphIndex.put(entry.optString(ID), entry);
+                }
+            }
+        }
         return this;
     }
 
@@ -252,7 +272,16 @@ class ImportableRecipeBuilder {
             return Optional.of(url);
         }
 
-        return Optional.of(jsonObject.optString(ID));
+        String id = jsonObject.optString(ID);
+        JSONObject referencedObject = graphIndex.get(id);
+        if (referencedObject != null) {
+            String referencedUrl = referencedObject.optString(RECIPE_URL);
+            if (!referencedUrl.isEmpty()) {
+                return Optional.of(referencedUrl);
+            }
+        }
+
+        return Optional.of(id);
     }
 
 }
