@@ -734,4 +734,33 @@ public class ImportableRecipeExamples {
               </article>
             """;
 
+    /*
+        see https://1000.menu/cooking/23175-tempura-goryachie-rolly
+        1000.menu marks each ingredient as a bare <meta itemprop="recipeIngredient" content="...">
+        (no text content at all - the value only lives in the "content" attribute), and repeats
+        itemprop="recipeInstructions" once per step instead of using a single container. This
+        covers both of those, distinct from the povarenok.ru fixture above.
+     */
+    static final String URL_MICRODATA_META_INGREDIENTS = "https://1000.menu/cooking/23175-tempura-goryachie-rolly";
+    static final String HTML_MICRODATA_META_INGREDIENTS = """
+            <section itemscope itemtype="http://schema.org/Recipe">
+              <meta itemprop="name" content="Ролл темпура в домашних условиях Суши" />
+              <img itemprop="image" src="https://static.1000.menu/res/380/img/content-v2/22/c1/23175/roll-tempura.jpg" />
+              <meta itemprop="recipeYield" content="2" />
+              <time itemprop="totalTime" datetime="PT50M">50 минут</time>
+
+              <div id="ingredients">
+                <meta itemprop="recipeIngredient" content="Нори - 5 гр" />
+                <meta itemprop="recipeIngredient" content="Рис для суши - 100 гр" />
+                <meta itemprop="recipeIngredient" content="Лосось слабосоленый - 50 гр" />
+              </div>
+
+              <div id="steps">
+                <p itemprop="recipeInstructions">Шаг 1: Подготовьте все ингредиенты, указанные в рецепте.</p>
+                <p itemprop="recipeInstructions">Шаг 2: Сварите рис для суши по инструкции на упаковке.</p>
+                <p itemprop="recipeInstructions">Шаг 3: Соберите ролл и обжарьте в темпуре.</p>
+              </div>
+            </section>
+            """;
+
 }

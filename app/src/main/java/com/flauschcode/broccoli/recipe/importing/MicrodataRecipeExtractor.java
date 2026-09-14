@@ -79,7 +79,7 @@ class MicrodataRecipeExtractor {
     private static JSONArray collectIngredients(Element recipeScope) {
         JSONArray ingredients = new JSONArray();
         for (Element ingredient : recipeScope.select("[" + ITEMPROP + "=recipeIngredient]")) {
-            addNonEmpty(ingredients, ingredient.text());
+            addNonEmpty(ingredients, propertyValue(ingredient));
         }
         return ingredients;
     }
@@ -95,7 +95,7 @@ class MicrodataRecipeExtractor {
 
         if (instructionElements.size() > 1) {
             for (Element step : instructionElements) {
-                addNonEmpty(instructions, step.text());
+                addNonEmpty(instructions, propertyValue(step));
             }
             return instructions;
         }

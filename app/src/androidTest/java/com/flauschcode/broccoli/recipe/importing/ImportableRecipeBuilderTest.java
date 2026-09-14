@@ -1,6 +1,7 @@
 package com.flauschcode.broccoli.recipe.importing;
 
 import static androidx.test.platform.app.InstrumentationRegistry.getInstrumentation;
+import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.HTML_MICRODATA_META_INGREDIENTS;
 import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.HTML_POVARENOK_MICRODATA;
 import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.MINIMIZED_RECIPE_JSONLD;
 import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.RECIPE_ARRIFIED_IMAGES;
@@ -11,6 +12,7 @@ import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples
 import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.URL_ARRIFIED_IMAGES;
 import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.URL_ARRIFIED_TYPE;
 import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.URL_CHEFKOCH;
+import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.URL_MICRODATA_META_INGREDIENTS;
 import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.URL_POVARENOK;
 import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.URL_YOAST;
 import static com.flauschcode.broccoli.recipe.importing.ImportableRecipeExamples.URL_YOAST_WITH_SECTIONS;
@@ -246,6 +248,37 @@ public class ImportableRecipeBuilderTest {
         assertThat(recipe.getIngredients(), is("Говядина (мякоть) — 300 г\nГрибы (шиитаке) — 3 шт\nФунчоза — 150 г\nСоевый соус — 2 ст. л."));
         assertThat(recipe.getDirections(), is("Залить кипятком грибы шиитаке, на 2-3 часа, промыть. Говядину нарезать тонкими пластами, добавить соевый соус, сахар.\nЛапшу залить кипятком, 2-4 минуты. Слить, промыть, выложить в большой салатник."));
         assertThat(recipe.getNutritionalValues(), is("Calories: 1833.5 ккал\nFat: 91.6 г\nCarbohydrates: 215.7 г\nProtein: 95.9 г"));
+        assertThat(recipe.getImageName(), is("blablupp.jpg"));
+    }
+
+    /*
+        see https://1000.menu/cooking/23175-tempura-goryachie-rolly
+        Covers two Microdata patterns not exercised by the povarenok.ru fixture above: ingredients
+        marked up as bare <meta itemprop="recipeIngredient" content="..."> (no text content), and
+        "recipeInstructions" repeated once per step instead of a single container with children.
+     */
+    @Test
+    public void example_meta_based_microdata() throws IOException {
+        when(recipeImageService.downloadImageToCache(new URL("https://static.1000.menu/res/380/img/content-v2/22/c1/23175/roll-tempura.jpg"))).thenReturn("blablupp.jpg");
+
+        Document document = Jsoup.parse(HTML_MICRODATA_META_INGREDIENTS, URL_MICRODATA_META_INGREDIENTS);
+        Optional<JSONObject> recipeJson = MicrodataRecipeExtractor.extract(document);
+        assertThat(recipeJson.isPresent(), is(true));
+
+        Optional<Recipe> optionalRecipe = recipeBuilder
+                .withRecipeJsonLd(recipeJson.get())
+                .from(URL_MICRODATA_META_INGREDIENTS)
+                .build();
+
+        assertThat(optionalRecipe.isPresent(), is(true));
+
+        Recipe recipe = optionalRecipe.get();
+        assertThat(recipe.getTitle(), is("Ролл темпура в домашних условиях Суши"));
+        assertThat(recipe.getSource(), is(URL_MICRODATA_META_INGREDIENTS));
+        assertThat(recipe.getServings(), is("2"));
+        assertThat(recipe.getPreparationTime(), is("50m"));
+        assertThat(recipe.getIngredients(), is("Нори - 5 гр\nРис для суши - 100 гр\nЛосось слабосоленый - 50 гр"));
+        assertThat(recipe.getDirections(), is("Шаг 1: Подготовьте все ингредиенты, указанные в рецепте.\nШаг 2: Сварите рис для суши по инструкции на упаковке.\nШаг 3: Соберите ролл и обжарьте в темпуре."));
         assertThat(recipe.getImageName(), is("blablupp.jpg"));
     }
 
