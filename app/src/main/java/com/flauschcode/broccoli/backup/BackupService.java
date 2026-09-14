@@ -48,8 +48,9 @@ public class BackupService {
     RecipeRepository recipeRepository;
     CategoryRepository categoryRepository;
 
-    private MutableLiveData<Integer> maxRecipes = new MutableLiveData<>(0);
-    private MutableLiveData<Integer> count = new MutableLiveData<>(0);
+    private final MutableLiveData<Integer> maxRecipes = new MutableLiveData<>(0);
+    private final MutableLiveData<Integer> count = new MutableLiveData<>(0);
+    private final MutableLiveData<String> lastBackupDate = new MutableLiveData<>();
 
     @Inject
     BackupService(Application application, RecipeZipWriter recipeZipWriter, RecipeRepository recipeRepository, CategoryRepository categoryRepository) {
@@ -57,6 +58,10 @@ public class BackupService {
         this.recipeZipWriter = recipeZipWriter;
         this.recipeRepository = recipeRepository;
         this.categoryRepository = categoryRepository;
+
+        String savedDate = PreferenceManager.getDefaultSharedPreferences(application.getApplicationContext())
+                .getString("last-backup-date", null);
+        lastBackupDate.setValue(savedDate);
     }
 
     public CompletableFuture<Uri> backup() {
@@ -70,7 +75,6 @@ public class BackupService {
                 Thread.currentThread().interrupt();
                 throw new CompletionException(e);
             }
-            saveLastBackupDate();
             return archiveUri;
         });
     }
@@ -81,6 +85,10 @@ public class BackupService {
 
     public LiveData<Integer> getCount() {
         return count;
+    }
+
+    public LiveData<String> getLastBackupDate() {
+        return lastBackupDate;
     }
 
     // package private for testing purposes
@@ -122,7 +130,7 @@ public class BackupService {
         }
     }
 
-    private void saveLastBackupDate() {
+    public void saveLastBackupDate() {
         LocalDate date = LocalDate.now();
         String localizedCalendarDate = date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT));
 
@@ -130,5 +138,7 @@ public class BackupService {
                 .edit()
                 .putString("last-backup-date", localizedCalendarDate)
                 .apply();
+
+        lastBackupDate.postValue(localizedCalendarDate);
     }
 }

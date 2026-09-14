@@ -12,11 +12,10 @@
             app:summary="@string/backup_recipes_message"
             app:title="@string/backup_recipes" />
 
-        <EditTextPreference
+        <Preference
             app:key="last-backup-date"
             app:title="@string/last_backup"
-            app:selectable="false"
-            app:useSimpleSummaryProvider="true" />
+            app:selectable="false" />
 
     </PreferenceCategory>
 
