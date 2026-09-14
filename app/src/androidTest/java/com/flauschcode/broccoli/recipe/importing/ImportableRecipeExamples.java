@@ -616,4 +616,122 @@ public class ImportableRecipeExamples {
             }
             """;
 
+    /*
+        see https://www.povarenok.ru/recipes/show/165860/
+        povarenok.ru exposes recipe data as schema.org Microdata (itemscope/itemtype/itemprop
+        attributes) rather than JSON-LD. This is a trimmed excerpt of the real page markup,
+        with the ingredient/instruction lists shortened but the surrounding structure kept
+        exactly as served, including a step photo that also carries an "image" itemprop
+        (to make sure it isn't mistaken for the recipe's main image) and a nested
+        NutritionInformation item.
+     */
+    static final String URL_POVARENOK = "https://www.povarenok.ru/recipes/show/165860/";
+    static final String HTML_POVARENOK_MICRODATA = """
+            <article class="item-bl item-about">
+                <div itemscope itemtype="http://schema.org/Recipe">
+              <div class="article-header">
+                    <div class="user-info-main">
+                      <p><a href="https://www.povarenok.ru/users/yugai-ludmila65/"><span itemprop="author">yugai ludmila65</span></a></p>
+                    </div>
+              </div>
+
+              <h1 itemprop="name">Лапша с мясом и овощами &quot;Чапчхе&quot;</h1>
+
+              <div class="m-img">
+                <img itemprop="image" src="https://www.povarenok.ru/data/cache/2020jun/24/36/2733758_18122-710x550x.jpg" alt="Рецепт"/>
+              </div>
+
+              <div class="article-text" itemprop="description">
+                <p>Это одно из ярких блюд Кореи, его часто готовят на праздничный стол.</p>
+              </div>
+
+              <div class="article-breadcrumbs">
+                <p>
+                  Категория:
+                  <span itemprop="recipeCategory"><a href="https://www.povarenok.ru/recipes/category/6/">Горячие блюда</a></span>
+                </p>
+                <p>
+                  Кухня:
+                  <span itemprop="recipeCuisine"><a href="https://www.povarenok.ru/recipes/kitchen/74/">Корейская</a></span>
+                </p>
+              </div>
+
+              <!--ingredients_start-->
+              <h2>Ингредиенты для &laquo;Лапша с мясом и овощами &quot;Чапчхе&quot;&raquo;:</h2>
+              <div class="ingredients-bl">
+                <p><strong>Маринованная говядина</strong></p>
+                <ul>
+                  <li itemprop="recipeIngredient">
+                    <a href="https://www.povarenok.ru/recipes/ingredient/2235/"><span>Говядина</span></a>
+                    (мякоть)
+                    &mdash;
+                    <span>300 г</span>
+                  </li>
+                  <li itemprop="recipeIngredient">
+                    <a href="https://www.povarenok.ru/recipes/ingredient/3076/"><span>Грибы</span></a>
+                    (шиитаке)
+                    &mdash;
+                    <span>3 шт</span>
+                  </li>
+                </ul>
+                <p><strong>Основное блюдо</strong></p>
+                <ul>
+                  <li itemprop="recipeIngredient">
+                    <a href="https://www.povarenok.ru/recipes/ingredient/4519/"><span>Фунчоза</span></a>
+                    &mdash;
+                    <span>150 г</span>
+                  </li>
+                  <li itemprop="recipeIngredient">
+                    <a href="https://www.povarenok.ru/recipes/ingredient/1671/"><span>Соевый соус</span></a>
+                    &mdash;
+                    <span>2 ст. л.</span>
+                  </li>
+                </ul>
+                <p><strong>Время приготовления:</strong> <time datetime="PT60M" itemprop="totalTime">60 минут</time></p>
+                <p><strong>Количество порций:</strong> <span itemprop="recipeYield">6</span></p>
+              </div>
+              <!--ingredients_end-->
+
+              <div id="nae-value-bl">
+                <div itemprop="nutrition" itemscope itemtype="http://schema.org/NutritionInformation">
+                  <h2>Пищевая и энергетическая ценность:</h2>
+                  <table>
+                    <tr>
+                      <td>ккал<br/><strong itemprop="calories">1833.5 ккал</strong></td>
+                      <td>белки<br/><strong itemprop="proteinContent">95.9 г</strong></td>
+                      <td>жиры<br/><strong itemprop="fatContent">91.6 г</strong></td>
+                      <td>углеводы<br/><strong itemprop="carbohydrateContent">215.7 г</strong></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+
+              <h2>Рецепт &laquo;Лапша с мясом и овощами &quot;Чапчхе&quot;&raquo;:</h2>
+              <ul itemprop="recipeInstructions">
+                <li class="cooking-bl">
+                  <span class="cook-img">
+                    <a rel="facebox" href="https://www.povarenok.ru/data/cache/2020jun/24/00/2733673_64651-640x480.jpg">
+                      <img itemprop="image" alt="" src="https://www.povarenok.ru/data/cache/2020jun/24/00/2733673_64651-300x0.jpg">
+                    </a>
+                  </span>
+                  <div>
+                    <p>Залить кипятком грибы шиитаке, на 2-3 часа, промыть.<br />
+            Говядину нарезать тонкими пластами, добавить соевый соус, сахар.</p>
+                  </div>
+                </li>
+                <li class="cooking-bl">
+                  <span class="cook-img">
+                    <a rel="facebox" href="https://www.povarenok.ru/data/cache/2020jun/24/36/2733754_67144-640x480.jpg">
+                      <img itemprop="image" alt="" src="https://www.povarenok.ru/data/cache/2020jun/24/36/2733754_67144-300x0.jpg">
+                    </a>
+                  </span>
+                  <div>
+                    <p>Лапшу залить кипятком, 2-4 минуты. Слить, промыть, выложить в большой салатник.</p>
+                  </div>
+                </li>
+              </ul>
+                </div>
+              </article>
+            """;
+
 }

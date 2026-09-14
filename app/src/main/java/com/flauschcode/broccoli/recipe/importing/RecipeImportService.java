@@ -54,6 +54,11 @@ public class RecipeImportService {
                 return new ImportableRecipeBuilder(application, recipeImageService).withRecipeJsonLd(recipeJsonLd.get()).from(url).build();
             }
 
+            Optional<JSONObject> microdataRecipe = MicrodataRecipeExtractor.extract(document);
+            if (microdataRecipe.isPresent()) {
+                return new ImportableRecipeBuilder(application, recipeImageService).withRecipeJsonLd(microdataRecipe.get()).from(url).build();
+            }
+
             return Optional.empty();
         });
     }
