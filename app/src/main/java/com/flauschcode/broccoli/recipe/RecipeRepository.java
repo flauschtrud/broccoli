@@ -42,7 +42,7 @@ public class RecipeRepository {
         if (!criteria.getSeasonalTerms().isEmpty()) {
             String wildcardQuery = getSanitizedWildcardQuery(searchTerm);
             String seasonalTerm = buildQueryFor(criteria.getSeasonalTerms());
-            return "".equals(searchTerm)? recipeDAO.findSeasonal(seasonalTerm) : recipeDAO.searchForSeasonal(seasonalTerm, wildcardQuery);
+            return searchTerm.isEmpty() ? recipeDAO.findSeasonal(seasonalTerm) : recipeDAO.searchForSeasonal(seasonalTerm, wildcardQuery);
         }
 
         if (category.equals(categoryRepository.getAllRecipesCategory()) || category.equals(categoryRepository.getFavoritesCategory())) {

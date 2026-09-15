@@ -43,8 +43,8 @@ public class RecipeViewModelTest {
 
     private RecipeViewModel recipeViewModel;
 
-    private ArgumentCaptor<RecipeRepository.SearchCriteria> criteriaArgumentCaptor = ArgumentCaptor.forClass(RecipeRepository.SearchCriteria.class);
-    private Observer<List<Recipe>> observer = recipes -> {};
+    private final ArgumentCaptor<RecipeRepository.SearchCriteria> criteriaArgumentCaptor = ArgumentCaptor.forClass(RecipeRepository.SearchCriteria.class);
+    private final Observer<List<Recipe>> observer = recipes -> {};
 
     private final Category CATEGORY_ALL = new Category(-1, "All recipes");
 

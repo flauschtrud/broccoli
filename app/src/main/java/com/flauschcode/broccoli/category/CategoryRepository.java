@@ -17,8 +17,8 @@ import javax.inject.Singleton;
 @Singleton
 public class CategoryRepository {
 
-    private CategoryDAO categoryDAO;
-    private LiveData<List<Category>> allCategories;
+    private final CategoryDAO categoryDAO;
+    private final LiveData<List<Category>> allCategories;
 
     private final Category categoryAll;
     private final Category categoryFavorites;

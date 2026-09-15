@@ -103,8 +103,8 @@ public class ShareableRecipeBuilderTest {
 
         ShareableRecipe result = shareableRecipeBuilder.from(recipe);
 
-        assertThat(result.getPlainText(), is(PLAIN_TEXT_RECIPE_FULL));
-        assertThat(result.getImageUri(), is(imageUri));
+        assertThat(result.plainText(), is(PLAIN_TEXT_RECIPE_FULL));
+        assertThat(result.imageUri(), is(imageUri));
     }
 
     @Test
@@ -117,7 +117,7 @@ public class ShareableRecipeBuilderTest {
         ShareableRecipe result = shareableRecipeBuilder.from(recipe);
 
         verifyNoInteractions(recipeImageService);
-        assertThat(result.getPlainText(), is(PLAIN_TEXT_RECIPE_MINIMAL));
-        assertThat(result.getImageUri(), is(Uri.EMPTY));
+        assertThat(result.plainText(), is(PLAIN_TEXT_RECIPE_MINIMAL));
+        assertThat(result.imageUri(), is(Uri.EMPTY));
     }
 }

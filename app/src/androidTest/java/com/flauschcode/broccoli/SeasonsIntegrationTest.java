@@ -165,8 +165,7 @@ public class SeasonsIntegrationTest {
 
             @Override
             public void perform(UiController uiController, View view) {
-                if (view instanceof TabLayout) {
-                    TabLayout tabLayout = (TabLayout) view;
+                if (view instanceof TabLayout tabLayout) {
                     TabLayout.Tab tab = tabLayout.getTabAt(position);
 
                     if (tab != null) {

@@ -48,8 +48,8 @@ public class BackupService {
     RecipeRepository recipeRepository;
     CategoryRepository categoryRepository;
 
-    private MutableLiveData<Integer> maxRecipes = new MutableLiveData<>(0);
-    private MutableLiveData<Integer> count = new MutableLiveData<>(0);
+    private final MutableLiveData<Integer> maxRecipes = new MutableLiveData<>(0);
+    private final MutableLiveData<Integer> count = new MutableLiveData<>(0);
 
     @Inject
     BackupService(Application application, RecipeZipWriter recipeZipWriter, RecipeRepository recipeRepository, CategoryRepository categoryRepository) {

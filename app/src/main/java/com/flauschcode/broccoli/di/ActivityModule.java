@@ -1,6 +1,5 @@
 package com.flauschcode.broccoli.di;
 
-import com.flauschcode.broccoli.MainActivity;
 import com.flauschcode.broccoli.recipe.cooking.CookingAssistantActivity;
 import com.flauschcode.broccoli.recipe.crud.CreateAndEditRecipeActivity;
 import com.flauschcode.broccoli.recipe.details.RecipeDetailsActivity;

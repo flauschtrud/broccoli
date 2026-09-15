@@ -29,7 +29,7 @@ public class SeasonalCalendar {
 
     public Set<String> getSearchTermsFor(Month month) {
         Set<String> searchTerms = new HashSet<>();
-        getSeasonalFoodFor(month).forEach(seasonalFood -> searchTerms.addAll(seasonalFood.getTerms()));
+        getSeasonalFoodFor(month).forEach(seasonalFood -> searchTerms.addAll(seasonalFood.terms()));
         return searchTerms;
     }
 

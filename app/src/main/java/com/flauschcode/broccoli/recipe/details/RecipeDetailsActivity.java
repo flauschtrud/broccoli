@@ -257,9 +257,9 @@ public class RecipeDetailsActivity extends AppCompatActivity {
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, binding.getRecipe().getTitle());
-        shareIntent.putExtra(Intent.EXTRA_TEXT, shareableRecipe.getPlainText());
-        if (shareableRecipe.getImageUri() != Uri.EMPTY) {
-            shareIntent.putExtra(Intent.EXTRA_STREAM, shareableRecipe.getImageUri());
+        shareIntent.putExtra(Intent.EXTRA_TEXT, shareableRecipe.plainText());
+        if (shareableRecipe.imageUri() != Uri.EMPTY) {
+            shareIntent.putExtra(Intent.EXTRA_STREAM, shareableRecipe.imageUri());
         }
         shareIntent.setType("text/plain");
         shareIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);

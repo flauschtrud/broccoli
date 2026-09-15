@@ -2,7 +2,6 @@ package com.flauschcode.broccoli.recipe;
 
 import static androidx.fragment.app.testing.FragmentScenario.launchInContainer;
 import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static androidx.test.espresso.intent.Intents.intended;

@@ -63,7 +63,7 @@ public class MonthFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
 
-        ListAdapter<SeasonalFood, RecyclerViewAdapter<SeasonalFood>.Holder> adapter = new RecyclerViewAdapter<SeasonalFood>() {
+        ListAdapter<SeasonalFood, RecyclerViewAdapter<SeasonalFood>.Holder> adapter = new RecyclerViewAdapter<>() {
             @Override
             protected int getLayoutResourceId() {
                 return R.layout.seasonal_food_item;
@@ -88,7 +88,7 @@ public class MonthFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         Collator collator = Collator.getInstance(getResources().getConfiguration().getLocales().get(0));
-        seasonalCalendarHolder.get().ifPresent(seasonalCalendar -> adapter.submitList(seasonalCalendar.getSeasonalFoodFor(month).stream().sorted(Comparator.comparing(SeasonalFood::getName, collator)).collect(Collectors.toList())));
+        seasonalCalendarHolder.get().ifPresent(seasonalCalendar -> adapter.submitList(seasonalCalendar.getSeasonalFoodFor(month).stream().sorted(Comparator.comparing(SeasonalFood::name, collator)).collect(Collectors.toList())));
 
         return root;
     }

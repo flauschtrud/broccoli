@@ -22,7 +22,7 @@ import javax.inject.Inject;
 
 public class SeasonsBindingAdapter {
 
-    private SeasonalCalendarHolder seasonalCalendarHolder;
+    private final SeasonalCalendarHolder seasonalCalendarHolder;
 
     @Inject
     public SeasonsBindingAdapter(SeasonalCalendarHolder seasonalCalendarHolder) {

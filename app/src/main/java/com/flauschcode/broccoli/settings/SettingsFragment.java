@@ -44,7 +44,7 @@ public class SettingsFragment extends PreferenceFragmentCompat {
 
         seasonalCalendarLanguagesPreference.setSummaryProvider(preference -> {
             String selectedLanguages = String.join(", ", seasonalCalendarLanguagesPreference.getValues());
-            return "".equals(selectedLanguages)? getString(R.string.no_language_set_message) : selectedLanguages;
+            return selectedLanguages.isEmpty() ? getString(R.string.no_language_set_message) : selectedLanguages;
         });
     }
 

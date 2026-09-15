@@ -72,7 +72,7 @@ public class CategoryDialog extends DialogFragment {
                 if (getDialog() != null) {
                     AlertDialog dialog = (AlertDialog) getDialog();
                     if (dialog != null && dialog.getButton(BUTTON_POSITIVE) != null) {
-                        dialog.getButton(BUTTON_POSITIVE).setEnabled(s.length() > 0);
+                        dialog.getButton(BUTTON_POSITIVE).setEnabled(!s.isEmpty());
                     }
                 }
             }
@@ -99,7 +99,7 @@ public class CategoryDialog extends DialogFragment {
 
         EditText editText = getDialog().findViewById(R.id.category_name);
         if (editText != null && dialog.getButton(BUTTON_POSITIVE) != null) {
-            dialog.getButton(BUTTON_POSITIVE).setEnabled(editText.getText().length() > 0);
+            dialog.getButton(BUTTON_POSITIVE).setEnabled(!editText.getText().isEmpty());
         }
 
         if (dialog.getButton(BUTTON_NEUTRAL) != null) {

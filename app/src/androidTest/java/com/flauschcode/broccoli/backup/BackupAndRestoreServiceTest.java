@@ -60,8 +60,8 @@ public class BackupAndRestoreServiceTest {
     private BackupService backupService ;
     private RestoreService restoreService;
 
-    private ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
-    private ArgumentCaptor<Category> categoryCaptor = ArgumentCaptor.forClass(Category.class);
+    private final ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
+    private final ArgumentCaptor<Category> categoryCaptor = ArgumentCaptor.forClass(Category.class);
 
     @Before
     public void setUp() {

@@ -107,7 +107,7 @@ public class PageableRecipeBuilderTest {
     }
 
     private void assertPage(PageableRecipe.Page page, String title, String text) {
-        assertThat(page.getTitle(), is(title));
-        assertThat(page.getText(), is(text));
+        assertThat(page.title(), is(title));
+        assertThat(page.text(), is(text));
     }
 }
