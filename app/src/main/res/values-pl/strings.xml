@@ -106,6 +106,7 @@
     <string name="languages_of_recipes">Języki przepisów</string>
     <string name="no_language_set_message">W jakich językach tworzysz swoje przepisy? Wybierz co najmniej jeden język.</string>
     <string name="region_central_europe">Europa Środkowa</string>
+    <string name="region_mediterranean">Mediterranean</string>
     <string name="region_north_america_colder">Ameryka Północna (zimniej)</string>
     <string name="region_north_america_warmer">Ameryka Północna (cieplej)</string>
     <string name="region_japan">Japonia</string>
@@ -196,7 +197,7 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="chard">Botwina</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="chard_terms">burak liściowy, boćwina, botwina, botwiny, burak szpinakowy, mangol</string>
+    <string name="chard_terms">chard, swiss chard</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="carrot">Marchew</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
@@ -945,5 +946,33 @@
     <string name="yuzu">Yuzu</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Yuzu. -->
     <string name="yuzu_terms">yuzu</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="artichoke">Artichoke</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="artichoke_terms">artichoke, artichokes, globe artichoke</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="cowpea">Cowpea</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="cowpea_terms">cowpea, cowpeas</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="grapefruit">Grapefruit</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="grapefruit_terms">grapefruit, grapefruits</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="mallow">Mallow</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="mallow_terms">mallow, common mallow</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="purslane">Purslane</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="purslane_terms">purslane, purslanes</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="quince">Quince</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="quince_terms">quince, quinces</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="wild_fennel">Wild Fennel</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="wild_fennel_terms">wild fennel</string>
     <string name="create_pdf">Create PDF</string>
 </resources>
