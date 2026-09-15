@@ -197,7 +197,7 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="chard">Acelga</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="chard_terms">chard, swiss chard</string>
+    <string name="chard_terms">acelga</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="carrot">Zanahorias</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
