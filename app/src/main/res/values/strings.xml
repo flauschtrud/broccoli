@@ -94,6 +94,14 @@
     <string name="restore_completed_message">%1$d recipes have been imported.</string>
     <string name="last_backup">Last backup</string>
 
+    <string name="auto_export">Auto-export</string>
+    <string name="auto_export_enabled">Enable auto-export</string>
+    <string name="auto_export_enabled_message">Automatically export all recipes and categories to the chosen folder shortly after every change. This is not a backup: it keeps overwriting a single archive in that folder, so use it together with a sync tool of your choice if you want your recipes to also show up on another device, and keep making real backups regardless.</string>
+    <string name="auto_export_directory">Export folder</string>
+    <string name="auto_export_no_directory_chosen">No folder chosen</string>
+    <string name="auto_export_directory_chosen_message">Exporting to: %1$s</string>
+    <string name="last_auto_export">Last auto-export</string>
+
     <string name="about_the_app">About the app</string>
     <string name="help">Help</string>
     <string name="legal_policies">Legal</string>

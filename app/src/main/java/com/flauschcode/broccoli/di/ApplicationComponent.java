@@ -3,6 +3,7 @@ package com.flauschcode.broccoli.di;
 import android.app.Application;
 
 import com.flauschcode.broccoli.BroccoliApplication;
+import com.flauschcode.broccoli.backup.autoexport.AutoExportModule;
 import com.flauschcode.broccoli.recipe.RecipeModule;
 import com.flauschcode.broccoli.seasons.SeasonsModule;
 
@@ -21,7 +22,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
         DatabaseModule.class,
         RecipeModule.class,
         SeasonsModule.class,
-        SupportModule.class
+        SupportModule.class,
+        AutoExportModule.class
 })
 public interface ApplicationComponent {
 

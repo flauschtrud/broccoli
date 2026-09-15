@@ -10,6 +10,7 @@ import static org.mockito.Mockito.when;
 
 import androidx.lifecycle.LiveData;
 
+import com.flauschcode.broccoli.backup.autoexport.AutoExportScheduler;
 import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.category.CategoryRepository;
 import com.flauschcode.broccoli.recipe.images.RecipeImageService;
@@ -49,6 +50,9 @@ public class RecipeRepositoryTest {
 
     @Mock
     private CategoryRepository categoryRepository;
+
+    @Mock
+    private AutoExportScheduler autoExportScheduler;
 
     @Mock
     private LiveData<List<Recipe>> recipes;
@@ -243,6 +247,8 @@ public class RecipeRepositoryTest {
         RecipeCategoryAssociation categoryAssociation = associationCaptor.getValue();
         assertThat(categoryAssociation.getCategoryId(), is(5L));
         assertThat(categoryAssociation.getRecipeId(), is(12L));
+
+        verify(autoExportScheduler).scheduleIfEnabled();
     }
 
     @Test
@@ -268,6 +274,8 @@ public class RecipeRepositoryTest {
         RecipeCategoryAssociation categoryAssociation = associationCaptor.getValue();
         assertThat(categoryAssociation.getCategoryId(), is(5L));
         assertThat(categoryAssociation.getRecipeId(), is(12L));
+
+        verify(autoExportScheduler).scheduleIfEnabled();
     }
 
     @Test
@@ -282,6 +290,7 @@ public class RecipeRepositoryTest {
 
         verify(recipeImageService).deleteImage("blupp.jpg");
         verify(recipeDAO).delete(recipe.getCoreRecipe());
+        verify(autoExportScheduler).scheduleIfEnabled();
     }
 
 }

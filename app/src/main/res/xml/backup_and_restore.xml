@@ -33,4 +33,30 @@
 
     </PreferenceCategory>
 
+    <PreferenceCategory
+        app:iconSpaceReserved="false"
+        app:key="auto-export-category"
+        app:title="@string/auto_export">
+
+        <SwitchPreferenceCompat
+            app:icon="@drawable/ic_backup_24dp"
+            app:key="auto-export-enabled"
+            app:title="@string/auto_export_enabled"
+            app:summary="@string/auto_export_enabled_message" />
+
+        <Preference
+            app:key="auto-export-directory"
+            app:title="@string/auto_export_directory"
+            app:summary="@string/auto_export_no_directory_chosen"
+            app:dependency="auto-export-enabled" />
+
+        <EditTextPreference
+            app:key="last-auto-export-date"
+            app:title="@string/last_auto_export"
+            app:selectable="false"
+            app:useSimpleSummaryProvider="true"
+            app:dependency="auto-export-enabled" />
+
+    </PreferenceCategory>
+
 </PreferenceScreen>

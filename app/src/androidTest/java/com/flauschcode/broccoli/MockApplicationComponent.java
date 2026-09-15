@@ -3,6 +3,7 @@ package com.flauschcode.broccoli;
 import android.app.Application;
 
 import com.flauschcode.broccoli.backup.BackupAndRestoreServiceTest;
+import com.flauschcode.broccoli.backup.autoexport.AutoExportModule;
 import com.flauschcode.broccoli.category.CategoryFragmentTest;
 import com.flauschcode.broccoli.di.ActivityModule;
 import com.flauschcode.broccoli.di.ApplicationComponent;
@@ -32,7 +33,8 @@ import dagger.android.support.AndroidSupportInjectionModule;
         AndroidSupportInjectionModule.class,
         MockRecipeModule.class,
         SeasonsModule.class,
-        SupportModule.class
+        SupportModule.class,
+        AutoExportModule.class
 })
 public interface MockApplicationComponent extends ApplicationComponent {
 

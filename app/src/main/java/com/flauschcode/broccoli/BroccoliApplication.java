@@ -7,10 +7,12 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.StrictMode;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.databinding.DataBindingUtil;
 import androidx.preference.PreferenceManager;
 
+import com.flauschcode.broccoli.backup.autoexport.DaggerWorkerFactory;
 import com.flauschcode.broccoli.di.ApplicationComponent;
 import com.flauschcode.broccoli.di.BindingComponent;
 import com.flauschcode.broccoli.di.DaggerApplicationComponent;
@@ -23,14 +25,25 @@ import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasAndroidInjector;
 
-public class BroccoliApplication extends Application implements HasAndroidInjector {
+public class BroccoliApplication extends Application implements HasAndroidInjector, androidx.work.Configuration.Provider {
 
     @Inject
     DispatchingAndroidInjector<Object> dispatchingAndroidInjector;
 
+    @Inject
+    DaggerWorkerFactory workerFactory;
+
     @Override
     public AndroidInjector<Object> androidInjector() {
         return dispatchingAndroidInjector;
+    }
+
+    @NonNull
+    @Override
+    public androidx.work.Configuration getWorkManagerConfiguration() {
+        return new androidx.work.Configuration.Builder()
+                .setWorkerFactory(workerFactory)
+                .build();
     }
 
     @Override
