@@ -106,6 +106,7 @@
     <string name="languages_of_recipes">Sprachen der Rezepte</string>
     <string name="no_language_set_message">In welchen Sprachen erstellst du deine Rezepte? Wähle mindestens eine Sprache aus.</string>
     <string name="region_central_europe">Mitteleuropa</string>
+    <string name="region_mediterranean">Mittelmeer</string>
     <string name="region_north_america_colder">Nordamerika (kälter)</string>
     <string name="region_north_america_warmer">Nordamerika (wärmer)</string>
     <string name="region_japan">Japan</string>
@@ -945,5 +946,33 @@
     <string name="yuzu">Yuzu</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Yuzu. -->
     <string name="yuzu_terms">Yuzu</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="artichoke">Artischocke</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="artichoke_terms">Artischocke, Artischocken</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="cowpea">Augenbohnen</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="cowpea_terms">Augenbohnen, Kuhbohnen</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="grapefruit">Grapefruit</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="grapefruit_terms">Grapefruit, Grapefruits</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="mallow">Malvenblätter</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="mallow_terms">Malvenblätter</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="purslane">Portulak</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="purslane_terms">Portulak</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="quince">Quitte</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="quince_terms">Quitte, Quitten</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="wild_fennel">Wilder Fenchel</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="wild_fennel_terms">Wilder Fenchel, wilde Fenchel</string>
     <string name="create_pdf">PDF erstellen</string>
 </resources>

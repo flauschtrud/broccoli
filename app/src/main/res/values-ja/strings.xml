@@ -106,6 +106,7 @@
     <string name="languages_of_recipes">レシピの言語</string>
     <string name="no_language_set_message">レシピをどの言語で作成しますか。少なくとも1つの言語を選んでください。</string>
     <string name="region_central_europe">中央ヨーロッパ</string>
+    <string name="region_mediterranean">Mediterranean</string>
     <string name="region_north_america_colder">北アメリカ（寒い方）</string>
     <string name="region_north_america_warmer">北アメリカ（より暖かい）</string>
     <string name="region_japan">日本</string>
@@ -945,5 +946,33 @@
     <string name="yuzu">ゆず</string>
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Yuzu. -->
     <string name="yuzu_terms">ゆず,柚子,柚,ユズ</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="artichoke">Artichoke</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="artichoke_terms">artichoke, artichokes, globe artichoke</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="cowpea">Cowpea</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="cowpea_terms">cowpea, cowpeas</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="grapefruit">Grapefruit</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="grapefruit_terms">grapefruit, grapefruits</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="mallow">Mallow</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="mallow_terms">mallow, common mallow</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="purslane">Purslane</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="purslane_terms">purslane, purslanes</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="quince">Quince</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="quince_terms">quince, quinces</string>
+    <!-- A title for the ingredient list in the seasonal calendar. -->
+    <string name="wild_fennel">Wild Fennel</string>
+    <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
+    <string name="wild_fennel_terms">wild fennel</string>
     <string name="create_pdf">PDFを作成</string>
 </resources>
