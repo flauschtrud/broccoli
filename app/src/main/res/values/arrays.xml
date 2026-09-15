@@ -3,6 +3,7 @@
 
     <string-array name="region_labels">
         <item>@string/region_central_europe</item>
+        <item>@string/region_mediterranean</item>
         <item>@string/region_north_america_colder</item>
         <item>@string/region_north_america_warmer</item>
         <item>@string/region_japan</item>
@@ -10,6 +11,7 @@
 
     <string-array name="region_values">
         <item>central_europe</item>
+        <item>mediterranean</item>
         <item>north_america_colder</item>
         <item>north_america_warmer</item>
         <item>japan</item>
