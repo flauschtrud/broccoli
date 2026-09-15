@@ -82,26 +82,30 @@ public class BackupAndRestoreFragment extends PreferenceFragmentCompat {
     private void backup() {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.backup_recipes)
-                .setView(getLayoutInflater().inflate(R.layout.backup_and_restore_progress, null))
+                .setView(R.layout.backup_and_restore_progress)
                 .setCancelable(false);
         AlertDialog alertDialog = builder.create();
 
         alertDialog.show();
 
         ProgressBar progressBar = alertDialog.findViewById(R.id.backup_progress);
-        backupService.getMaxRecipes().observe(getViewLifecycleOwner(), progressBar::setMax);
-        backupService.getCount().observe(getViewLifecycleOwner(), progressBar::setProgress);
+        if (progressBar != null) {
+            backupService.getMaxRecipes().observe(getViewLifecycleOwner(), progressBar::setMax);
+            backupService.getCount().observe(getViewLifecycleOwner(), progressBar::setProgress);
+        }
 
         backupService.backup()
-                .thenAccept(uri -> {
-                        alertDialog.dismiss();
-                        viewModel.setExportUri(uri);
-                        showChooser(uri);
-                })
-                .exceptionally(e -> {
-                    Log.e(getClass().getName(), e.getMessage());
+                .thenAccept(uri -> requireActivity().runOnUiThread(() -> {
                     alertDialog.dismiss();
-                    requireActivity().runOnUiThread(() -> Toast.makeText(requireContext(), getString(R.string.backup_failed_message), Toast.LENGTH_LONG).show());
+                    viewModel.setExportUri(uri);
+                    showChooser(uri);
+                }))
+                .exceptionally(e -> {
+                    Log.e(getClass().getName(), "Backup failed", e);
+                    requireActivity().runOnUiThread(() -> {
+                        alertDialog.dismiss();
+                        Toast.makeText(requireContext(), getString(R.string.backup_failed_message), Toast.LENGTH_LONG).show();
+                    });
                     return null;
                 });
     }
@@ -125,23 +129,27 @@ public class BackupAndRestoreFragment extends PreferenceFragmentCompat {
     private void restoreFrom(Uri uri) {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext())
                 .setTitle(R.string.restore_recipes)
-                .setView(getLayoutInflater().inflate(R.layout.backup_and_restore_progress, null))
+                .setView(R.layout.backup_and_restore_progress)
                 .setCancelable(false);
         AlertDialog alertDialog = builder.create();
 
         alertDialog.show();
         ProgressBar progressBar = alertDialog.findViewById(R.id.backup_progress);
-        progressBar.setIndeterminate(true);
+        if (progressBar != null) {
+            progressBar.setIndeterminate(true);
+        }
 
         restoreService.restore(uri)
-                .thenAccept(count -> {
+                .thenAccept(count -> requireActivity().runOnUiThread(() -> {
                     alertDialog.dismiss();
-                    requireActivity().runOnUiThread(() -> Toast.makeText(requireContext(), getString(R.string.restore_completed_message, count), Toast.LENGTH_LONG).show());
-                })
+                    Toast.makeText(requireContext(), getString(R.string.restore_completed_message, count), Toast.LENGTH_LONG).show();
+                }))
                 .exceptionally(e -> {
-                    Log.e(getClass().getName(), e.getMessage());
-                    alertDialog.dismiss();
-                    requireActivity().runOnUiThread(() -> Toast.makeText(requireContext(), getString(R.string.restore_failed_message), Toast.LENGTH_LONG).show());
+                    Log.e(getClass().getName(), "Restore failed", e);
+                    requireActivity().runOnUiThread(() -> {
+                        alertDialog.dismiss();
+                        Toast.makeText(requireContext(), getString(R.string.restore_failed_message), Toast.LENGTH_LONG).show();
+                    });
                     return null;
                 });
     }
