@@ -49,38 +49,42 @@ public class RecipeImportService {
 
             Elements jsonLds = document.select("script[type=\"application/ld+json\"]");
 
-            Optional<JSONObject> recipeJsonLd = findRecipeIn(jsonLds);
-            if (recipeJsonLd.isPresent()) {
-                return new ImportableRecipeBuilder(application, recipeImageService).withRecipeJsonLd(recipeJsonLd.get()).from(url).build();
+            Optional<RecipeMatch> recipeMatch = findRecipeIn(jsonLds);
+            if (recipeMatch.isPresent()) {
+                return new ImportableRecipeBuilder(application, recipeImageService)
+                        .withRecipeJsonLd(recipeMatch.get().recipe())
+                        .withGraph(recipeMatch.get().graph())
+                        .from(url)
+                        .build();
             }
 
             return Optional.empty();
         });
     }
 
-    private Optional<JSONObject> findRecipeIn(Elements jsonLds) {
+    private Optional<RecipeMatch> findRecipeIn(Elements jsonLds) {
         for (Element element : jsonLds) {
             try {
 
                 Object json = new JSONTokener(element.data()).nextValue();
 
                 if (theRecipeIsTheTopLevelObject(json)) {
-                    return Optional.of((JSONObject) json);
+                    return Optional.of(new RecipeMatch((JSONObject) json, null));
                 }
 
                 if (thereIsAGraphObject(json)) {
                     JSONArray graph = ((JSONObject) json).getJSONArray(FIELD_GRAPH);
 
-                    Optional<JSONObject> optionalRecipe = findRecipeIn(graph);
-                    if (optionalRecipe.isPresent()) {
-                        return optionalRecipe;
+                    Optional<RecipeMatch> recipeMatch = findRecipeIn(graph);
+                    if (recipeMatch.isPresent()) {
+                        return recipeMatch;
                     }
                 }
 
                 if (theTopLevelStructureIsAnArray(json)) {
-                    Optional<JSONObject> optionalRecipe = findRecipeIn((JSONArray) json);
-                    if (optionalRecipe.isPresent()) {
-                        return optionalRecipe;
+                    Optional<RecipeMatch> recipeMatch = findRecipeIn((JSONArray) json);
+                    if (recipeMatch.isPresent()) {
+                        return recipeMatch;
                     }
                 }
 
@@ -92,15 +96,22 @@ public class RecipeImportService {
         return Optional.empty();
     }
 
-    private Optional<JSONObject> findRecipeIn(JSONArray jsonArray) throws JSONException {
+    private Optional<RecipeMatch> findRecipeIn(JSONArray jsonArray) throws JSONException {
         for (int i=0; i<jsonArray.length(); i++) {
             JSONObject child = jsonArray.getJSONObject(i);
             if (isRecipe(child)) {
-                return Optional.of(child);
+                return Optional.of(new RecipeMatch(child, jsonArray));
             }
         }
         return Optional.empty();
     }
+
+    /**
+     * The graph is the array (e.g. the JSON-LD "@graph") the recipe was found in, if any.
+     * It's kept around so sibling nodes (such as an ImageObject referenced from the recipe
+     * only via "@id") can still be resolved.
+     */
+    private record RecipeMatch(JSONObject recipe, JSONArray graph) {}
 
     private boolean isRecipe(JSONObject jsonObject) {
         return jsonObject.has(FIELD_TYPE) && jsonObject.optString(FIELD_TYPE).contains(TYPE_RECIPE);

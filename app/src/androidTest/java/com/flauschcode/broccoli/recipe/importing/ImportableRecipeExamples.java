@@ -123,6 +123,87 @@ public class ImportableRecipeExamples {
                     }
             """;
 
+    /*
+        see https://github.com/flauschtrud/broccoli/issues/342
+        Chefkoch switched to a Yoast-style "@graph" where the recipe's image is only referenced
+        via "@id" and the actual ImageObject with a matching "@id" lives elsewhere in the graph.
+        This is the value of that "@graph" array, with the Recipe as its first element.
+     */
+    static final String GRAPH_CHEFKOCH_WITH_REFERENCED_IMAGE = """
+            [
+                {
+                  "@type": "Recipe",
+                  "@id": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html#recipe",
+                  "name": "Vegane Chocolate Chip Cookies von Esslust",
+                  "description": "Vegane Chocolate Chip Cookies - außen kross, innen weich, lecker und vegan, ergibt 35 Stück. Über 169 Bewertungen und für sehr lecker befunden. Mit ► Portionsrechner ► Kochbuch ► Video-Tipps!",
+                  "image": {
+                    "@id": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html#primaryimage"
+                  },
+                  "prepTime": "PT20M",
+                  "cookTime": "PT15M",
+                  "totalTime": "PT35M",
+                  "recipeYield": ["1", "1 Portionen"],
+                  "recipeIngredient": [
+                    "20 g Chiasamen",
+                    "50 ml Wasser",
+                    "190 g Butterersatz (oder Margarine, vegan)",
+                    "200 g Zucker (braun, alternativ Rohrzucker)",
+                    "2 TL Rübensirup (alternativ Melasse, Ahornsirup oder Agavendicksaft)",
+                    "2 Pck. Vanillezucker",
+                    "300 g Weizenmehl (oder Dinkelmehl, oder gemischt)",
+                    "4 g Natron",
+                    "n. B. Salz",
+                    "200 g Blockschokolade (zartbitter oder Schokotröpfchen)"
+                  ],
+                  "recipeInstructions": [
+                    {
+                      "@type": "HowToSection",
+                      "name": "Zubereitung",
+                      "itemListElement": [
+                        {
+                          "@type": "HowToStep",
+                          "text": "Den Backofen auf 180 °C Umluft vorheizen. Die Chiasamen und das Wasser in einer kleinen Schüssel vermengen und ca. 10 Minuten quellen lassen."
+                        },
+                        {
+                          "@type": "HowToStep",
+                          "text": "Die Cookies bei 180 °C Umluft maximal 15 Minuten backen, da sie sonst zu fest werden."
+                        }
+                      ]
+                    }
+                  ],
+                  "nutrition": {
+                    "@type": "NutritionInformation",
+                    "servingSize": "1 Portion",
+                    "calories": "4594 kcal",
+                    "proteinContent": "77.59 g",
+                    "fatContent": "225.86 g",
+                    "carbohydrateContent": "540.65 g"
+                  }
+                },
+                {
+                  "@type": "WebPage",
+                  "@id": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html",
+                  "primaryImageOfPage": {
+                    "@id": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html#primaryimage"
+                  }
+                },
+                {
+                  "@type": "ImageObject",
+                  "@id": "https://www.chefkoch.de/rezepte/3212051478029180/Vegane-Chocolate-Chip-Cookies.html#primaryimage",
+                  "url": "https://img.chefkoch-cdn.de/rezepte/3212051478029180/bilder/958884/crop-960x540/vegane-chocolate-chip-cookies.jpg",
+                  "contentUrl": "https://img.chefkoch-cdn.de/rezepte/3212051478029180/bilder/958884/crop-960x540/vegane-chocolate-chip-cookies.jpg",
+                  "width": 960,
+                  "height": 540
+                },
+                {
+                  "@type": "Organization",
+                  "@id": "https://www.chefkoch.de/#organization",
+                  "name": "Chefkoch",
+                  "url": "https://www.chefkoch.de/"
+                }
+            ]
+            """;
+
     static final String MINIMIZED_RECIPE_JSONLD = """
             {
               "@context": "http://schema.org",
