@@ -12,11 +12,13 @@ import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
+import androidx.documentfile.provider.DocumentFile;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
 import com.flauschcode.broccoli.R;
+import com.flauschcode.broccoli.backup.autoexport.AutoExportPreferences;
 
 import java.util.List;
 
@@ -31,6 +33,9 @@ public class BackupAndRestoreFragment extends PreferenceFragmentCompat {
 
     @Inject
     RestoreService restoreService;
+
+    @Inject
+    AutoExportPreferences autoExportPreferences;
 
     private BackupAndRestoreFragmentViewmodel viewModel;
 
@@ -73,6 +78,40 @@ public class BackupAndRestoreFragment extends PreferenceFragmentCompat {
                 return true;
             });
         }
+
+        Preference autoExportDirectoryPreference = findPreference("auto-export-directory");
+        if (autoExportDirectoryPreference != null) {
+            updateAutoExportDirectorySummary(autoExportDirectoryPreference);
+
+            ActivityResultLauncher<Uri> openDocumentTreeResultLauncher = registerForActivityResult(
+                    new ActivityResultContracts.OpenDocumentTree(),
+                    uri -> {
+                        if (uri == null) {
+                            return;
+                        }
+
+                        requireActivity().getContentResolver().takePersistableUriPermission(uri,
+                                Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                        autoExportPreferences.setExportDirectoryUri(uri.toString());
+                        updateAutoExportDirectorySummary(autoExportDirectoryPreference);
+                    });
+
+            autoExportDirectoryPreference.setOnPreferenceClickListener(preference -> {
+                openDocumentTreeResultLauncher.launch(null);
+                return true;
+            });
+        }
+    }
+
+    private void updateAutoExportDirectorySummary(Preference autoExportDirectoryPreference) {
+        autoExportDirectoryPreference.setSummary(autoExportPreferences.getExportDirectoryUri()
+                .map(uri -> getString(R.string.auto_export_directory_chosen_message, displayNameOf(uri)))
+                .orElse(getString(R.string.auto_export_no_directory_chosen)));
+    }
+
+    private String displayNameOf(String directoryUri) {
+        DocumentFile directory = DocumentFile.fromTreeUri(requireContext(), Uri.parse(directoryUri));
+        return directory != null && directory.getName() != null ? directory.getName() : directoryUri;
     }
 
     ActivityResultLauncher<Intent> shareArchiveResultLauncher = registerForActivityResult(

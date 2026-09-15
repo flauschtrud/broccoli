@@ -22,6 +22,7 @@ import org.apache.commons.io.output.CloseShieldOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -89,7 +90,16 @@ public class BackupService {
         String zipFileName = "EXPORT_" + timeStamp + ".broccoli-archive";
         File zipFile = new File(application.getCacheDir(), zipFileName);
 
-        try (FileOutputStream fos = new FileOutputStream(zipFile); ZipOutputStream zos = new ZipOutputStream(fos)) {
+        try (FileOutputStream fos = new FileOutputStream(zipFile)) {
+            writeArchive(fos);
+        }
+
+        return FileProvider.getUriForFile(application, AUTHORITY, zipFile);
+    }
+
+    // public for reuse by the auto-export worker; package private would suffice for testing alone
+    public void writeArchive(OutputStream outputStream) throws IOException, ExecutionException, InterruptedException {
+        try (ZipOutputStream zos = new ZipOutputStream(outputStream)) {
             zos.setComment(String.valueOf(BuildConfig.VERSION_CODE));
 
             List<Category> categories = categoryRepository.findAll().getValue();
@@ -117,8 +127,6 @@ public class BackupService {
 
                 zos.closeEntry();
             }
-
-            return FileProvider.getUriForFile(application, AUTHORITY, zipFile);
         }
     }
 

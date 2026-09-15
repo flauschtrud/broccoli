@@ -116,6 +116,12 @@ dependencies {
     def preference_version = "1.2.1"
     implementation "androidx.preference:preference:$preference_version"
 
+    def work_version = "2.10.1"
+    implementation "androidx.work:work-runtime:$work_version"
+    androidTestImplementation "androidx.work:work-testing:$work_version"
+
+    implementation 'androidx.documentfile:documentfile:1.0.1'
+
     playImplementation 'com.google.android.play:review:2.0.2'
 
     def dagger_version = "2.45"

@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.lifecycle.LiveData;
 
 import com.flauschcode.broccoli.R;
+import com.flauschcode.broccoli.backup.autoexport.AutoExportScheduler;
 
 import java.util.List;
 import java.util.Objects;
@@ -19,6 +20,7 @@ public class CategoryRepository {
 
     private CategoryDAO categoryDAO;
     private LiveData<List<Category>> allCategories;
+    private final AutoExportScheduler autoExportScheduler;
 
     private final Category categoryAll;
     private final Category categoryFavorites;
@@ -26,8 +28,9 @@ public class CategoryRepository {
     private final Category categorySeasonal;
 
     @Inject
-    CategoryRepository(Application application, CategoryDAO categoryDAO) {
+    CategoryRepository(Application application, CategoryDAO categoryDAO, AutoExportScheduler autoExportScheduler) {
         this.categoryDAO = categoryDAO;
+        this.autoExportScheduler = autoExportScheduler;
 
         allCategories = categoryDAO.findAll();
         categoryAll = new Category(-1, application.getString(R.string.all_recipes));
@@ -40,16 +43,16 @@ public class CategoryRepository {
         return allCategories;
     }
 
-    public void delete(Category category) {
-        CompletableFuture.runAsync(() -> categoryDAO.delete(category));
+    public CompletableFuture<Void> delete(Category category) {
+        return CompletableFuture.runAsync(() -> categoryDAO.delete(category))
+                .thenRun(autoExportScheduler::scheduleIfEnabled);
     }
 
     public CompletableFuture<Void> insertOrUpdate(Category category) {
-        if (category.getCategoryId() == 0) {
-            return CompletableFuture.runAsync(() -> categoryDAO.insert(category));
-        } else {
-            return CompletableFuture.runAsync(() -> categoryDAO.update(category));
-        }
+        CompletableFuture<Void> future = category.getCategoryId() == 0
+                ? CompletableFuture.runAsync(() -> categoryDAO.insert(category))
+                : CompletableFuture.runAsync(() -> categoryDAO.update(category));
+        return future.thenRun(autoExportScheduler::scheduleIfEnabled);
     }
 
     public CompletableFuture<List<Category>> retainExisting(List<Category> categories) {

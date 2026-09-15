@@ -17,9 +17,12 @@ import java.util.concurrent.ExecutionException;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.hasSize;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import android.app.Application;
+
+import com.flauschcode.broccoli.backup.autoexport.AutoExportScheduler;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CategoryRepositoryTest {
@@ -30,11 +33,41 @@ public class CategoryRepositoryTest {
     @Mock
     private CategoryDAO categoryDAO;
 
+    @Mock
+    private AutoExportScheduler autoExportScheduler;
+
     private CategoryRepository categoryRepository;
 
     @Before
     public void setUp() {
-        categoryRepository = new CategoryRepository(application, categoryDAO);
+        categoryRepository = new CategoryRepository(application, categoryDAO, autoExportScheduler);
+    }
+
+    @Test
+    public void insert_schedules_an_auto_export() throws ExecutionException, InterruptedException {
+        Category category = new Category("Suppen");
+
+        categoryRepository.insertOrUpdate(category).get();
+
+        verify(autoExportScheduler).scheduleIfEnabled();
+    }
+
+    @Test
+    public void update_schedules_an_auto_export() throws ExecutionException, InterruptedException {
+        Category category = new Category(5, "Suppen");
+
+        categoryRepository.insertOrUpdate(category).get();
+
+        verify(autoExportScheduler).scheduleIfEnabled();
+    }
+
+    @Test
+    public void delete_schedules_an_auto_export() throws ExecutionException, InterruptedException {
+        Category category = new Category(5, "Suppen");
+
+        categoryRepository.delete(category).get();
+
+        verify(autoExportScheduler).scheduleIfEnabled();
     }
 
     @Test

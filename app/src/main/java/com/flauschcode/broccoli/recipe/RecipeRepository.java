@@ -3,6 +3,7 @@ package com.flauschcode.broccoli.recipe;
 import androidx.lifecycle.LiveData;
 import androidx.room.Transaction;
 
+import com.flauschcode.broccoli.backup.autoexport.AutoExportScheduler;
 import com.flauschcode.broccoli.category.Category;
 import com.flauschcode.broccoli.category.CategoryRepository;
 import com.flauschcode.broccoli.recipe.images.RecipeImageService;
@@ -26,13 +27,15 @@ public class RecipeRepository {
     private final RecipeImageService recipeImageService;
     private final SeasonalCalendarHolder seasonalCalendarHolder;
     private final CategoryRepository categoryRepository;
+    private final AutoExportScheduler autoExportScheduler;
 
     @Inject
-    RecipeRepository(RecipeDAO recipeDAO, RecipeImageService recipeImageService, SeasonalCalendarHolder seasonalCalendarHolder, CategoryRepository categoryRepository) {
+    RecipeRepository(RecipeDAO recipeDAO, RecipeImageService recipeImageService, SeasonalCalendarHolder seasonalCalendarHolder, CategoryRepository categoryRepository, AutoExportScheduler autoExportScheduler) {
         this.recipeDAO = recipeDAO;
         this.recipeImageService = recipeImageService;
         this.seasonalCalendarHolder = seasonalCalendarHolder;
         this.categoryRepository = categoryRepository;
+        this.autoExportScheduler = autoExportScheduler;
     }
 
     public LiveData<List<Recipe>> find(SearchCriteria criteria) {
@@ -133,12 +136,14 @@ public class RecipeRepository {
             if (recipe.getRecipeId() == 0) {
                 long recipeId = recipeDAO.insert(recipe.getCoreRecipe());
                 recipe.getCategories().forEach(category -> recipeDAO.insert(new RecipeCategoryAssociation(recipeId, category.getCategoryId())));
+                autoExportScheduler.scheduleIfEnabled();
                 return recipeId;
             } else {
                 recipeDAO.update(recipe.getCoreRecipe());
                 List<RecipeCategoryAssociation> recipeCategoryAssociations = recipeDAO.getCategoriesFor(recipe.getRecipeId());
                 recipeCategoryAssociations.forEach(recipeDAO::delete);
                 recipe.getCategories().forEach(category -> recipeDAO.insert(new RecipeCategoryAssociation(recipe.getRecipeId(), category.getCategoryId())));
+                autoExportScheduler.scheduleIfEnabled();
                 return recipe.getRecipeId();
             }
         });
@@ -148,7 +153,7 @@ public class RecipeRepository {
         return CompletableFuture.allOf(
                 recipeImageService.deleteImage(recipe.getImageName()),
                 CompletableFuture.runAsync(() -> recipeDAO.delete(recipe.getCoreRecipe()))
-        );
+        ).thenRun(autoExportScheduler::scheduleIfEnabled);
     }
 
     public CompletableFuture<List<Recipe>> findAll() {

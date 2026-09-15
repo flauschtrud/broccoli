@@ -11,7 +11,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
 import android.os.Bundle;
@@ -100,7 +99,7 @@ public class CategoryFragmentTest {
 
     @Test
     public void delete_category() {
-        doNothing().when(categoryRepository).delete(categoryCaptor.capture());
+        when(categoryRepository.delete(categoryCaptor.capture())).thenReturn(CompletableFuture.completedFuture(null));
 
         onView(RecyclerViewMatcher.withRecyclerView(R.id.recycler_view).atPositionOnView(0, R.id.card_text_view_category_name)).perform(click());
         onView(withText(R.string.delete_action))
