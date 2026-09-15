@@ -19,6 +19,25 @@ import java.util.concurrent.TimeoutException;
 
 public class CustomViewActions {
 
+    public static ViewAction clickDirectly() {
+        return new ViewAction() {
+            @Override
+            public Matcher<View> getConstraints() {
+                return isDisplayed();
+            }
+
+            @Override
+            public String getDescription() {
+                return "click directly on view";
+            }
+
+            @Override
+            public void perform(UiController uiController, View view) {
+                view.performClick();
+            }
+        };
+    }
+
     /*
      * could still not get rid of this unfortunately...
      */

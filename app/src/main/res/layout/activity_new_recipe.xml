@@ -155,7 +155,7 @@
                     android:id="@+id/new_source"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textCapSentences"
+                    android:inputType="textUri"
                     android:singleLine="true"
                     android:onTextChanged="@{(s, start, before, count) -> activity.onTextChanged(s, start, before, count)}"
                     android:text="@={viewModel.recipe.source}" />

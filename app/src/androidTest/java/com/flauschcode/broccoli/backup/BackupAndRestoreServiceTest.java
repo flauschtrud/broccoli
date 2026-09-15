@@ -65,7 +65,11 @@ public class BackupAndRestoreServiceTest {
 
     @Before
     public void setUp() {
-        AccessibilityChecks.enable();
+        try {
+            AccessibilityChecks.disable();
+        } catch (IllegalStateException e) {
+            // can't disable multiple times
+        }
 
         MockApplicationComponent component = DaggerMockApplicationComponent.builder()
                 .application(getApplication())

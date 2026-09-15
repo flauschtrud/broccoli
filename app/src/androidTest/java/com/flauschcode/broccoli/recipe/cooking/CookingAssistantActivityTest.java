@@ -92,6 +92,9 @@ public class CookingAssistantActivityTest {
         scenario = launch(intent);
 
         scenario.onActivity(activity -> {
+            if (viewPagerIdlingResource != null) {
+                IdlingRegistry.getInstance().unregister(viewPagerIdlingResource);
+            }
             viewPagerIdlingResource = new ViewPagerIdlingResource(activity.findViewById(R.id.cooking_assistant_pager), "ViewPagerInteractions");
             IdlingRegistry.getInstance().register(viewPagerIdlingResource);
         });
@@ -99,8 +102,14 @@ public class CookingAssistantActivityTest {
 
     @After
     public void tearDown() {
-        scenario.close();
-        IdlingRegistry.getInstance().unregister(viewPagerIdlingResource);
+        if (viewPagerIdlingResource != null) {
+            IdlingRegistry.getInstance().unregister(viewPagerIdlingResource);
+            viewPagerIdlingResource = null;
+        }
+        if (scenario != null) {
+            scenario.close();
+            scenario = null;
+        }
     }
 
     private BroccoliApplication getApplication() {
@@ -163,7 +172,9 @@ public class CookingAssistantActivityTest {
         onView(withId(R.id.number_of_servings))
                 .inRoot(isDialog())
                 .perform(clearText(), typeText("2"));
-        onView(withId(android.R.id.button1)).perform(click());
+        onView(withId(android.R.id.button1))
+                .inRoot(isDialog())
+                .perform(click());
 
         Float scaleFactor = scaleFactorCaptor.getValue();
         assertThat(scaleFactor, is(0.5f));
@@ -189,7 +200,9 @@ public class CookingAssistantActivityTest {
         onView(withId(R.id.scale_factor))
                 .inRoot(isDialog())
                 .perform(clearText(), typeText("2"));
-        onView(withId(android.R.id.button1)).perform(click());
+        onView(withId(android.R.id.button1))
+                .inRoot(isDialog())
+                .perform(click());
 
         Float scaleFactor = scaleFactorCaptor.getValue();
         assertThat(scaleFactor, is(2.0f));
@@ -211,7 +224,9 @@ public class CookingAssistantActivityTest {
         onView(withId(R.id.number_of_servings))
                 .inRoot(isDialog())
                 .perform(clearText());
-        onView(withId(android.R.id.button1)).perform(click());
+        onView(withId(android.R.id.button1))
+                .inRoot(isDialog())
+                .perform(click());
 
         verify(pageableRecipeBuilder).from(recipeCaptor.capture());
         verifyNoMoreInteractions(pageableRecipeBuilder);

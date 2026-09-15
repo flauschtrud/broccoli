@@ -30,6 +30,11 @@ android {
             enableSplit = false
         }
     }
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
     flavorDimensions += "appstore"
     productFlavors {
         play {

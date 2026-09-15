@@ -3,12 +3,13 @@ package com.flauschcode.broccoli.recipe.cooking;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.WindowCompat;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.core.view.WindowInsetsControllerCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager2.widget.ViewPager2;
 
@@ -41,6 +42,18 @@ public class CookingAssistantActivity extends AppCompatActivity implements Cooki
         Button scalingButton = findViewById(R.id.button_scaling);
         scalingButton.setOnClickListener(view -> showScalingDialog());
 
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.fullscreen_layout), (v, insets) -> {
+            Insets statusBarInsets = insets.getInsets(WindowInsetsCompat.Type.statusBars());
+            ViewGroup.MarginLayoutParams cancelParams = (ViewGroup.MarginLayoutParams) cancelButton.getLayoutParams();
+            cancelParams.topMargin = statusBarInsets.top;
+            cancelButton.setLayoutParams(cancelParams);
+
+            ViewGroup.MarginLayoutParams scalingParams = (ViewGroup.MarginLayoutParams) scalingButton.getLayoutParams();
+            scalingParams.topMargin = statusBarInsets.top;
+            scalingButton.setLayoutParams(scalingParams);
+            return insets;
+        });
+
         Recipe recipe = (Recipe) getIntent().getSerializableExtra(Recipe.class.getName());
 
         CookingAssistantViewModel viewModel = new ViewModelProvider(this, viewModelFactory).get(CookingAssistantViewModel.class);
@@ -53,14 +66,6 @@ public class CookingAssistantActivity extends AppCompatActivity implements Cooki
         adapter.setPageableRecipe(pageableRecipe != null? pageableRecipe : new PageableRecipe());
 
         viewPager.setAdapter(adapter);
-    }
-
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        if (hasFocus) {
-            hideSystemUI();
-        }
     }
 
     @Override
@@ -78,16 +83,5 @@ public class CookingAssistantActivity extends AppCompatActivity implements Cooki
     private void showScalingDialog() {
         ScalingDialog scalingDialog = new ScalingDialog();
         scalingDialog.show(getSupportFragmentManager(), "ScalingDialogFragment");
-    }
-
-    private void hideSystemUI() {
-        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
-
-        WindowInsetsControllerCompat insetsController = WindowCompat.getInsetsController(getWindow(), getWindow().getDecorView());
-        if (insetsController != null) {
-            insetsController.setSystemBarsBehavior(WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE);
-            insetsController.hide(WindowInsetsCompat.Type.statusBars());
-            insetsController.hide(WindowInsetsCompat.Type.navigationBars());
-        }
     }
 }

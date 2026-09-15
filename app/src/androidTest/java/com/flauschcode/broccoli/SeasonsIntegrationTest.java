@@ -54,7 +54,11 @@ public class SeasonsIntegrationTest {
 
     @Before
     public void setUp() {
-        AccessibilityChecks.enable();
+        try {
+            AccessibilityChecks.disable();
+        } catch (IllegalStateException e) {
+            // can't disable multiple times
+        }
 
         Set<String> languages = new HashSet<>();
         languages.add("de");
