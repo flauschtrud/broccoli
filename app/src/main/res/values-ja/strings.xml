@@ -197,7 +197,7 @@
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="chard">ふだん草</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="chard_terms">chard, swiss chard</string>
+    <string name="chard_terms">ふだん草,フダンソウ,不断草,うまい菜,うまいな,スイスチャード,すいすちゃーど,すいすちゃあど</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
     <string name="carrot">にんじん</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
