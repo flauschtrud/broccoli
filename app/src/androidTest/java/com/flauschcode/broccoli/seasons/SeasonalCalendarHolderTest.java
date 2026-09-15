@@ -33,7 +33,11 @@ public class SeasonalCalendarHolderTest {
 
     @Before
     public void setUp() {
-        AccessibilityChecks.enable();
+        try {
+            AccessibilityChecks.disable();
+        } catch (IllegalStateException e) {
+            // can't disable multiple times
+        }
         holder = new SeasonalCalendarHolder(getApplication());
     }
 

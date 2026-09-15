@@ -27,8 +27,8 @@ public class RecipeImageService {
 
     private static final String AUTHORITY = "com.flauschcode.broccoli.fileprovider";
 
-    private Application application;
-    private Compressor compressor;
+    private final Application application;
+    private final Compressor compressor;
 
     @Inject
     public RecipeImageService(Application application, Compressor compressor) {

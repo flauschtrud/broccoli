@@ -59,7 +59,7 @@ public class RecipeZipWriter {
         }
 
         private void writeRecipeImage(ZipOutputStream zos) throws IOException {
-            if (recipe.getImageName().length() > 0) {
+            if (!recipe.getImageName().isEmpty()) {
                 ZipEntry imageEntry = new ZipEntry(recipe.getImageName());
                 zos.putNextEntry(imageEntry);
                 File imageFile = recipeImageService.findImage(recipe.getImageName());
@@ -74,7 +74,7 @@ public class RecipeZipWriter {
          * but this is not possible with old school Java zipping. And stupid Android does not support JAVA NIO zip file system.
          */
         private void sanitizeImage() {
-            if (recipe.getImageName().length() > 0 && !recipeImageService.findImage(recipe.getImageName()).exists()) {
+            if (!recipe.getImageName().isEmpty() && !recipeImageService.findImage(recipe.getImageName()).exists()) {
                 Log.w(getClass().getName(), "The image file \"" + recipe.getImageName() + "\" for recipe \"" + recipe.getTitle() + "\" does not exist.");
                 recipe.setImageName("");
             }

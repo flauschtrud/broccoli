@@ -20,7 +20,7 @@ public class ScalingDialogViewModel extends ViewModel {
 
     public void setRecipe(Recipe recipe) {
         this.servings = Servings.createFrom(recipe.getServings()).orElse(Servings.unspecified());
-        this.numberOfServings.set(String.valueOf(servings.getQuantity()));
+        this.numberOfServings.set(String.valueOf(servings.quantity()));
     }
 
     public void enableSimpleMode() {
@@ -65,7 +65,7 @@ public class ScalingDialogViewModel extends ViewModel {
         }
 
         if (Boolean.TRUE.equals(simpleMode.get())) {
-            return safeGetNumberOfServings().map(integer -> (float) integer / servings.getQuantity());
+            return safeGetNumberOfServings().map(integer -> (float) integer / servings.quantity());
         } else {
             return safeGetScaleFactor();
         }

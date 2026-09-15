@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PageableRecipe {
 
-    private List<Page> pages = new ArrayList<>();
+    private final List<Page> pages = new ArrayList<>();
 
     public List<Page> getPages() {
         return pages;
@@ -15,22 +15,7 @@ public class PageableRecipe {
         this.pages.add(page);
     }
 
-    static class Page {
+    record Page(String title, String text) {
 
-        private String title;
-        private String text;
-
-        public Page(String title, String text) {
-            this.title = title;
-            this.text = text;
-        }
-
-        public String getTitle() {
-            return title;
-        }
-
-        public String getText() {
-            return text;
-        }
     }
 }

@@ -69,8 +69,12 @@ public class CategoryDialog extends DialogFragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                AlertDialog dialog = (AlertDialog) requireDialog();
-                dialog.getButton(BUTTON_POSITIVE).setEnabled(s.length() > 0);
+                if (getDialog() != null) {
+                    AlertDialog dialog = (AlertDialog) getDialog();
+                    if (dialog != null && dialog.getButton(BUTTON_POSITIVE) != null) {
+                        dialog.getButton(BUTTON_POSITIVE).setEnabled(!s.isEmpty());
+                    }
+                }
             }
         });
 
@@ -94,18 +98,23 @@ public class CategoryDialog extends DialogFragment {
         AlertDialog dialog = (AlertDialog) requireDialog();
 
         EditText editText = getDialog().findViewById(R.id.category_name);
-        dialog.getButton(BUTTON_POSITIVE).setEnabled(editText.getText().length() > 0);
+        if (editText != null && dialog.getButton(BUTTON_POSITIVE) != null) {
+            dialog.getButton(BUTTON_POSITIVE).setEnabled(!editText.getText().isEmpty());
+        }
 
-        dialog.getButton(BUTTON_NEUTRAL).setOnClickListener(v -> {
-            TextView warning = dialog.findViewById(R.id.delete_category_warning);
-            if (warning.getVisibility() == View.VISIBLE) {
-                viewModel.delete(category);
-                dialog.dismiss();
-            }
-            warning.setVisibility(View.VISIBLE);
+        if (dialog.getButton(BUTTON_NEUTRAL) != null) {
+            dialog.getButton(BUTTON_NEUTRAL).setOnClickListener(v -> {
+                TextView warning = dialog.findViewById(R.id.delete_category_warning);
+                if (warning.getVisibility() == View.VISIBLE) {
+                    viewModel.delete(category);
+                    dialog.dismiss();
+                    return;
+                }
+                warning.setVisibility(View.VISIBLE);
 
-            dialog.getButton(BUTTON_NEUTRAL).setTextColor(MaterialColors.getColor(requireContext(), com.google.android.material.R.attr.colorError, Color.RED));
-        });
+                dialog.getButton(BUTTON_NEUTRAL).setTextColor(MaterialColors.getColor(requireContext(), androidx.appcompat.R.attr.colorError, Color.RED));
+            });
+        }
     }
 
 }

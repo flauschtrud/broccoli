@@ -60,12 +60,16 @@ public class BackupAndRestoreServiceTest {
     private BackupService backupService ;
     private RestoreService restoreService;
 
-    private ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
-    private ArgumentCaptor<Category> categoryCaptor = ArgumentCaptor.forClass(Category.class);
+    private final ArgumentCaptor<Recipe> recipeCaptor = ArgumentCaptor.forClass(Recipe.class);
+    private final ArgumentCaptor<Category> categoryCaptor = ArgumentCaptor.forClass(Category.class);
 
     @Before
     public void setUp() {
-        AccessibilityChecks.enable();
+        try {
+            AccessibilityChecks.disable();
+        } catch (IllegalStateException e) {
+            // can't disable multiple times
+        }
 
         MockApplicationComponent component = DaggerMockApplicationComponent.builder()
                 .application(getApplication())

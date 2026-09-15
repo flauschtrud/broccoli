@@ -40,7 +40,7 @@ public class CategoryFragment extends Fragment {
         recyclerView.addItemDecoration(new DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL));
 
         View emptyMessageTextView = root.findViewById(R.id.categories_empty);
-        ListAdapter<Category, RecyclerViewAdapter<Category>.Holder> adapter = new RecyclerViewAdapter<Category>() {
+        ListAdapter<Category, RecyclerViewAdapter<Category>.Holder> adapter = new RecyclerViewAdapter<>() {
             @Override
             protected int getLayoutResourceId() {
                 return R.layout.category_item;
@@ -58,7 +58,7 @@ public class CategoryFragment extends Fragment {
 
             @Override
             protected void onAdapterDataChanged(int itemCount) {
-                emptyMessageTextView.setVisibility(itemCount == 0? View.VISIBLE : View.GONE);
+                emptyMessageTextView.setVisibility(itemCount == 0 ? View.VISIBLE : View.GONE);
             }
         };
 

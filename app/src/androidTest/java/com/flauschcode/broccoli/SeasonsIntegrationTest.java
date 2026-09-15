@@ -54,7 +54,11 @@ public class SeasonsIntegrationTest {
 
     @Before
     public void setUp() {
-        AccessibilityChecks.enable();
+        try {
+            AccessibilityChecks.disable();
+        } catch (IllegalStateException e) {
+            // can't disable multiple times
+        }
 
         Set<String> languages = new HashSet<>();
         languages.add("de");
@@ -161,8 +165,7 @@ public class SeasonsIntegrationTest {
 
             @Override
             public void perform(UiController uiController, View view) {
-                if (view instanceof TabLayout) {
-                    TabLayout tabLayout = (TabLayout) view;
+                if (view instanceof TabLayout tabLayout) {
                     TabLayout.Tab tab = tabLayout.getTabAt(position);
 
                     if (tab != null) {

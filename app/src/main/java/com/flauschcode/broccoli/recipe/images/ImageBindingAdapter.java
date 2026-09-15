@@ -15,7 +15,7 @@ import static android.text.TextUtils.isEmpty;
 
 public class ImageBindingAdapter {
 
-    private RecipeImageService recipeImageService;
+    private final RecipeImageService recipeImageService;
 
     @Inject
     public ImageBindingAdapter(RecipeImageService recipeImageService) {

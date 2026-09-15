@@ -27,7 +27,7 @@ public class RecyclerViewMatcher {
 
     public Matcher<View> atPositionOnView(final int position, final int targetViewId) {
 
-        return new TypeSafeMatcher<View>() {
+        return new TypeSafeMatcher<>() {
             Resources resources = null;
             View childView;
 
@@ -52,8 +52,7 @@ public class RecyclerViewMatcher {
                     RecyclerView recyclerView = view.getRootView().findViewById(recyclerViewId);
                     if (recyclerView != null && recyclerView.getId() == recyclerViewId) {
                         childView = recyclerView.findViewHolderForAdapterPosition(position).itemView;
-                    }
-                    else {
+                    } else {
                         return false;
                     }
                 }

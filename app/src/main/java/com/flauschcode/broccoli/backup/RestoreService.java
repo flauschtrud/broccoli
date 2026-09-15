@@ -85,7 +85,8 @@ public class RestoreService {
                 } else if ("categories.json".equals(zipEntry.getName())) {
                     FileUtils.copy(zis, out);
                     ObjectMapper objectMapper = new ObjectMapper();
-                    categories = objectMapper.readValue(new ByteArrayInputStream(out.toByteArray()), new TypeReference<List<Category>>() {});
+                    categories = objectMapper.readValue(new ByteArrayInputStream(out.toByteArray()), new TypeReference<>() {
+                    });
                 }
             }
             zis.closeEntry();

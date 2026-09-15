@@ -27,8 +27,8 @@ public class CookingAssistantAdapter extends FragmentStateAdapter {
         args.putInt(CookingAssistantFragment.MAX_STEPS, getItemCount());
 
         PageableRecipe.Page currentPage = pageableRecipe.getPages().get(position);
-        args.putString(CookingAssistantFragment.TITLE, currentPage.getTitle());
-        args.putString(CookingAssistantFragment.TEXT, currentPage.getText());
+        args.putString(CookingAssistantFragment.TITLE, currentPage.title());
+        args.putString(CookingAssistantFragment.TEXT, currentPage.text());
 
         fragment.setArguments(args);
 

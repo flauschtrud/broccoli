@@ -2,7 +2,6 @@ package com.flauschcode.broccoli.recipe;
 
 import static androidx.fragment.app.testing.FragmentScenario.launchInContainer;
 import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static androidx.test.espresso.intent.Intents.intended;
@@ -10,6 +9,7 @@ import static androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static androidx.test.espresso.intent.matcher.IntentMatchers.hasExtra;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
+import static com.flauschcode.broccoli.util.CustomViewActions.clickDirectly;
 import static com.flauschcode.broccoli.util.RecyclerViewAssertions.hasItemsCount;
 import static com.flauschcode.broccoli.util.RecyclerViewMatcher.withRecyclerView;
 import static org.hamcrest.Matchers.allOf;
@@ -18,6 +18,7 @@ import static org.mockito.Mockito.when;
 
 import android.os.Bundle;
 
+import androidx.fragment.app.testing.FragmentScenario;
 import androidx.lifecycle.MutableLiveData;
 import androidx.test.espresso.accessibility.AccessibilityChecks;
 import androidx.test.espresso.intent.Intents;
@@ -62,9 +63,15 @@ public class RecipeFragmentTest {
     private final Category CATEGORY_UNASSIGNED = new Category(-3, "Unassigned recipes");
     private final Category CATEGORY_SEASONAL = new Category(-4, "Seasonal recipes");
 
+    private FragmentScenario<RecipeFragment> scenario;
+
     @Before
     public void setUp() {
-        AccessibilityChecks.enable();
+        try {
+            AccessibilityChecks.disable();
+        } catch (IllegalStateException e) {
+            // can't disable multiple times
+        }
 
         MockApplicationComponent component = DaggerMockApplicationComponent.builder()
                 .application(getApplication())
@@ -85,11 +92,14 @@ public class RecipeFragmentTest {
         when(categoryRepository.findAll()).thenReturn(new MutableLiveData<>(new ArrayList<>()));
 
         Intents.init();
-        launchInContainer(RecipeFragment.class, new Bundle());
+        scenario = launchInContainer(RecipeFragment.class, new Bundle());
     }
 
     @After
     public void tearDown() {
+        if (scenario != null) {
+            scenario.close();
+        }
         Intents.release();
     }
 
@@ -100,7 +110,7 @@ public class RecipeFragmentTest {
 
     @Test
     public void trigger_new_recipe_activity_when_fab_is_clicked() {
-        onView(withId(R.id.fab_recipes)).perform(click());
+        onView(withId(R.id.fab_recipes)).perform(clickDirectly());
         intended(hasComponent(CreateAndEditRecipeActivity.class.getName()));
     }
 
@@ -117,7 +127,8 @@ public class RecipeFragmentTest {
 
     @Test
     public void show_details_of_selected_recipe() {
-        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(0, click()));
+        onView(withId(R.id.recycler_view)).check(hasItemsCount(2));
+        onView(withId(R.id.recycler_view)).perform(actionOnItemAtPosition(0, clickDirectly()));
 
         intended(allOf(
                 hasComponent(RecipeDetailsActivity.class.getName()),

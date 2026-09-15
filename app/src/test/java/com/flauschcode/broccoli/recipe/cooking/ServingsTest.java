@@ -22,63 +22,63 @@ public class ServingsTest {
     public void test_empty_input() {
         Optional<Servings> servings = Servings.createFrom("  ");
         assertThat(servings.isPresent(), is(true));
-        assertThat(servings.get().getQuantity(), is(1));
-        assertThat(servings.get().getLabel(), is(""));
+        assertThat(servings.get().quantity(), is(1));
+        assertThat(servings.get().label(), is(""));
     }
 
     @Test
     public void test_missing_quantity() {
         Optional<Servings> servings = Servings.createFrom("Stück");
         assertThat(servings.isPresent(), is(true));
-        assertThat(servings.get().getQuantity(), is(1));
-        assertThat(servings.get().getLabel(), is("Stück"));
+        assertThat(servings.get().quantity(), is(1));
+        assertThat(servings.get().label(), is("Stück"));
     }
 
     @Test
     public void test_unspecified() {
         Servings servings = Servings.unspecified();
-        assertThat(servings.getQuantity(), is(1));
-        assertThat(servings.getLabel(), is(nullValue()));
+        assertThat(servings.quantity(), is(1));
+        assertThat(servings.label(), is(nullValue()));
     }
 
     @Test
     public void test_empty_label() {
         Optional<Servings> servings = Servings.createFrom("4");
         assertThat(servings.isPresent(), is(true));
-        assertThat(servings.get().getQuantity(), is(4));
-        assertThat(servings.get().getLabel(), is(""));
+        assertThat(servings.get().quantity(), is(4));
+        assertThat(servings.get().label(), is(""));
     }
 
     @Test
     public void test_simple_quantity_and_label() {
         Optional<Servings> servings = Servings.createFrom("4 Teller");
         assertThat(servings.isPresent(), is(true));
-        assertThat(servings.get().getQuantity(), is(4));
-        assertThat(servings.get().getLabel(), is("Teller"));
+        assertThat(servings.get().quantity(), is(4));
+        assertThat(servings.get().label(), is("Teller"));
     }
 
     @Test
     public void test_long_label() {
         Optional<Servings> servings = Servings.createFrom("12 Cookies (oder Kekse)");
         assertThat(servings.isPresent(), is(true));
-        assertThat(servings.get().getQuantity(), is(12));
-        assertThat(servings.get().getLabel(), is("Cookies (oder Kekse)"));
+        assertThat(servings.get().quantity(), is(12));
+        assertThat(servings.get().label(), is("Cookies (oder Kekse)"));
     }
 
     @Test
     public void test_text_before_quantity() {
         Optional<Servings> servings = Servings.createFrom("ca. 8 Brötchen");
         assertThat(servings.isPresent(), is(true));
-        assertThat(servings.get().getQuantity(), is(8));
-        assertThat(servings.get().getLabel(), is("Brötchen"));
+        assertThat(servings.get().quantity(), is(8));
+        assertThat(servings.get().label(), is("Brötchen"));
     }
 
     @Test
     public void test_second_number_in_label() {
         Optional<Servings> servings = Servings.createFrom("1 Brot (30cm Kastenform)");
         assertThat(servings.isPresent(), is(true));
-        assertThat(servings.get().getQuantity(), is(1));
-        assertThat(servings.get().getLabel(), is("Brot (30cm Kastenform)"));
+        assertThat(servings.get().quantity(), is(1));
+        assertThat(servings.get().label(), is("Brot (30cm Kastenform)"));
     }
 
     @Test

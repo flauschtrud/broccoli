@@ -4,25 +4,9 @@ import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Servings {
-
-    private final int quantity;
-    private final String label;
+public record Servings(int quantity, String label) {
 
     private static final Pattern patternQuantity = Pattern.compile("\\d+([,.])?\\d*(\\s*-\\s*(\\d+([,.])?\\d*))?");
-
-    public Servings(int quantity, String label) {
-        this.quantity = quantity;
-        this.label = label;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public String getLabel() {
-        return label;
-    }
 
     public static Optional<Servings> createFrom(String servingsInput) {
         if (servingsInput == null) {
@@ -30,7 +14,7 @@ public class Servings {
         }
 
         Matcher matcher = patternQuantity.matcher(servingsInput);
-        String servings = matcher.find()? matcher.group() : "1";
+        String servings = matcher.find() ? matcher.group() : "1";
 
         try {
             int quantity = Integer.parseInt(servings);

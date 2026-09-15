@@ -68,7 +68,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         recyclerView.setHasFixedSize(true);
 
         View emptyMessageLayout = root.findViewById(R.id.recipes_empty);
-        ListAdapter<Recipe, RecyclerViewAdapter<Recipe>.Holder> adapter = new RecyclerViewAdapter<Recipe>() {
+        ListAdapter<Recipe, RecyclerViewAdapter<Recipe>.Holder> adapter = new RecyclerViewAdapter<>() {
             @Override
             protected int getLayoutResourceId() {
                 return R.layout.recipe_item;
@@ -86,7 +86,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
 
             @Override
             protected void onAdapterDataChanged(int itemCount) {
-                emptyMessageLayout.setVisibility(itemCount == 0? View.VISIBLE : View.GONE);
+                emptyMessageLayout.setVisibility(itemCount == 0 ? View.VISIBLE : View.GONE);
             }
         };
         recyclerView.setAdapter(adapter);
@@ -107,7 +107,7 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
         getSeasonalFoodArgument().ifPresent(seasonalFood -> {
             resetCategory();
 
-            seasonalIngredientChip.setText(seasonalFood.getName());
+            seasonalIngredientChip.setText(seasonalFood.name());
             seasonalIngredientChip.setOnClickListener(view -> {
                 NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment);
                 navController.popBackStack(R.id.nav_seasons, true);
@@ -117,8 +117,8 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
             });
 
             spinner.post(() -> {
-                viewModel.setSeasonalTerms(seasonalFood.getTerms());
-                viewModel.setFilterName(seasonalFood.getName());
+                viewModel.setSeasonalTerms(seasonalFood.terms());
+                viewModel.setFilterName(seasonalFood.name());
             });
         });
 
@@ -264,14 +264,11 @@ public class RecipeFragment extends Fragment implements AdapterView.OnItemSelect
     private Category getPreferredCategory() {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireActivity());
         String preferredCategoryId = sharedPreferences.getString("preferred-category", "-1");
-        switch (preferredCategoryId)  {
-            case "-2":
-                return viewModel.getCategoryFavorites();
-            case "-4":
-                return viewModel.getCategorySeasonal();
-            default:
-                return viewModel.getCategoryAll();
-        }
+        return switch (preferredCategoryId) {
+            case "-2" -> viewModel.getCategoryFavorites();
+            case "-4" -> viewModel.getCategorySeasonal();
+            default -> viewModel.getCategoryAll();
+        };
     }
 
     private Optional<SeasonalFood> getSeasonalFoodArgument() {

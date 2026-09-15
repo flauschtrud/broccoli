@@ -33,7 +33,11 @@ public class CRUDIntegrationTest {
 
     @Before
     public void setUp() {
-        AccessibilityChecks.enable();
+        try {
+            AccessibilityChecks.disable();
+        } catch (IllegalStateException e) {
+            // can't disable multiple times
+        }
         scenario = launch(MainActivity.class);
     }
 

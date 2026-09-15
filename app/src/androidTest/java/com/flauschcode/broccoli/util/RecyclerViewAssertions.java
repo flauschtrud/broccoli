@@ -12,10 +12,9 @@ public class RecyclerViewAssertions {
     public static ViewAssertion hasItemsCount(final int count) {
 
         return (view, e) -> {
-            if (!(view instanceof RecyclerView)) {
+            if (!(view instanceof RecyclerView rv) || rv.getAdapter() == null) {
                 throw e;
             }
-            RecyclerView rv = (RecyclerView) view;
             assertThat(rv.getAdapter().getItemCount(),is(equalTo(count)));
         };
     }
