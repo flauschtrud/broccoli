@@ -106,7 +106,7 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.core:core-ktx:1.19.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.11.0'
-    implementation group: 'com.google.android.material', name: 'material', version: '1.14.0'
+    implementation "com.google.android.material:material:1.14.0"
     implementation 'androidx.constraintlayout:constraintlayout:2.2.2'
 
     implementation "androidx.navigation:navigation-fragment:$nav_version"
@@ -132,7 +132,7 @@ dependencies {
     playImplementation 'com.google.android.play:review:2.0.2'
 
     def dagger_version = "2.60.1"
-    implementation group: 'com.google.dagger', name: 'dagger', version: "$dagger_version"
+    implementation "com.google.dagger:dagger:$dagger_version"
     annotationProcessor "com.google.dagger:dagger-compiler:$dagger_version"
     implementation "com.google.dagger:dagger-android:$dagger_version"
     annotationProcessor "com.google.dagger:dagger-android-processor:$dagger_version"
@@ -151,7 +151,7 @@ dependencies {
     implementation "com.fasterxml.jackson.core:jackson-annotations"
     implementation "com.fasterxml.jackson.core:jackson-databind"
 
-    implementation group: 'commons-io', name: 'commons-io', version: '2.22.0'
+    implementation "commons-io:commons-io:2.22.0"
 
     def mockito_version = "5.23.0"
     testImplementation 'junit:junit:4.13.2'
