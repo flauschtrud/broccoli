@@ -1,14 +1,18 @@
 package com.flauschcode.broccoli.backup;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
@@ -75,9 +79,26 @@ public class BackupAndRestoreFragment extends PreferenceFragmentCompat {
         }
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        backupService.getLastBackupDate().observe(getViewLifecycleOwner(), date -> {
+            Preference lastBackupPref = findPreference("last-backup-date");
+            if (lastBackupPref != null) {
+                lastBackupPref.setSummary(date);
+            }
+        });
+    }
+
     ActivityResultLauncher<Intent> shareArchiveResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
-            result -> viewModel.getExportUri().ifPresent(exportUri -> requireActivity().getContentResolver().delete(exportUri, null,  null)));
+            result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    backupService.saveLastBackupDate();
+                }
+                viewModel.getExportUri().ifPresent(exportUri -> requireActivity().getContentResolver().delete(exportUri, null,  null));
+            });
 
     private void backup() {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext())
@@ -93,11 +114,11 @@ public class BackupAndRestoreFragment extends PreferenceFragmentCompat {
         backupService.getCount().observe(getViewLifecycleOwner(), progressBar::setProgress);
 
         backupService.backup()
-                .thenAccept(uri -> {
-                        alertDialog.dismiss();
-                        viewModel.setExportUri(uri);
-                        showChooser(uri);
-                })
+                .thenAccept(uri -> requireActivity().runOnUiThread(() -> {
+                    alertDialog.dismiss();
+                    viewModel.setExportUri(uri);
+                    showChooser(uri);
+                }))
                 .exceptionally(e -> {
                     Log.e(getClass().getName(), e.getMessage());
                     alertDialog.dismiss();
