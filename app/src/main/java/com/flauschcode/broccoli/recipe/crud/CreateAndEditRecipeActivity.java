@@ -30,6 +30,8 @@ import com.flauschcode.broccoli.recipe.sharing.ShareRecipeAsFileService;
 import com.flauschcode.broccoli.support.RatingService;
 import com.google.android.material.color.MaterialColors;
 
+import org.jsoup.HttpStatusException;
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Objects;
@@ -123,7 +125,11 @@ public class CreateAndEditRecipeActivity extends AppCompatActivity {
                     })
                     .exceptionally(e -> {
                         Log.e(getClass().getName(), e.getMessage());
-                        runOnUiThread(() -> Toast.makeText(this, getString(R.string.recipe_could_not_be_imported_message), Toast.LENGTH_SHORT).show());
+                        Throwable cause = e.getCause();
+                        String msg = (cause instanceof HttpStatusException http && http.getStatusCode() == 403)
+                                ? getString(R.string.recipe_403_message)
+                                : getString(R.string.recipe_could_not_be_imported_message);
+                        runOnUiThread(() -> Toast.makeText(this, msg, Toast.LENGTH_SHORT).show());
                         return null;
                     });
         } catch (MalformedURLException e) {
