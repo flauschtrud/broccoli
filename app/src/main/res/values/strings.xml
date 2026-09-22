@@ -77,6 +77,7 @@
     <string name="share_action">Share</string>
     <string name="shared_with">Shared with %1$s</string>
     <string name="recipe_could_not_be_imported_message">Sorry, this did not work.</string>
+    <string name="recipe_403_message">Received HTTP error 403. The server has denied you access.</string>
     <string name="recipe_could_not_be_read_message">Sorry, this recipe can not be read.</string>
     <string name="share_as_file_action">Share as file</string>
     <string name="recipe_could_not_be_exported_message">The recipe could not be exported.</string>
