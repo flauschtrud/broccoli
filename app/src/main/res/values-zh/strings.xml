@@ -106,7 +106,7 @@
     <string name="languages_of_recipes">食谱的语文</string>
     <string name="no_language_set_message">请问您是以哪种语言创建食谱呢？请选择至少一种。</string>
     <string name="region_central_europe">中欧洲</string>
-    <string name="region_mediterranean">Mediterranean</string>
+    <string name="region_mediterranean">地中海</string>
     <string name="region_north_america_colder">北美洲 (冷)</string>
     <string name="region_north_america_warmer">北美洲 (暖)</string>
     <string name="region_japan">日本</string>
@@ -947,32 +947,32 @@
     <!-- ONLY RELEVANT FOR THE JAPANESE SEASONAL CALENDAR Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms), see https://en.wikipedia.org/wiki/Yuzu. -->
     <string name="yuzu_terms">香橙、羅漢橙</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="artichoke">Artichoke</string>
+    <string name="artichoke">朝鲜蓟</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="artichoke_terms">artichoke, artichokes, globe artichoke</string>
+    <string name="artichoke_terms">朝鲜蓟，菜蓟</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="cowpea">Cowpea</string>
+    <string name="cowpea">牛豌豆</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="cowpea_terms">cowpea, cowpeas</string>
+    <string name="cowpea_terms">牛豌豆</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="grapefruit">Grapefruit</string>
+    <string name="grapefruit">葡萄柚</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="grapefruit_terms">grapefruit, grapefruits</string>
+    <string name="grapefruit_terms">葡萄柚，西柚</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="mallow">Mallow</string>
+    <string name="mallow">锦葵</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="mallow_terms">mallow, common mallow</string>
+    <string name="mallow_terms">锦葵，欧锦葵</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="purslane">Purslane</string>
+    <string name="purslane">马齿苋</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="purslane_terms">purslane, purslanes</string>
+    <string name="purslane_terms">马齿苋</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="quince">Quince</string>
+    <string name="quince">榅桲</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="quince_terms">quince, quinces</string>
+    <string name="quince_terms">榅桲</string>
     <!-- A title for the ingredient list in the seasonal calendar. -->
-    <string name="wild_fennel">Wild Fennel</string>
+    <string name="wild_fennel">野茴香</string>
     <!-- Search terms used to identify seasonal ingredients in recipes (should include plural forms or synonyms). -->
-    <string name="wild_fennel_terms">wild fennel</string>
+    <string name="wild_fennel_terms">野茴香</string>
     <string name="create_pdf">创建 PDF</string>
 </resources>
